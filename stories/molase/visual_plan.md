@@ -1,4 +1,4 @@
-# BANJIR INI BUKAN AIR — Visual Plan v3 (Gate 1)
+# BANJIR INI BUKAN AIR — Visual Plan v3.1 (workflow ringkas)
 
 Mengikuti `VISUAL_STYLE_BIBLE.md` dan skill `cinematic-documentary-visuals`. Pembagian alat:
 - **Google Flow** membuat gambar (dijalankan user).
@@ -6,7 +6,23 @@ Mengikuti `VISUAL_STYLE_BIBLE.md` dan skill `cinematic-documentary-visuals`. Pem
 
 Naskah dan VO (`audio/vo_molase.mp3`, 61,0 detik) dipakai utuh. Timing diambil dari jeda audio.
 
-Status: **menunggu approval.** Belum ada gambar yang dibuat dan belum ada render.
+Status: **siap dieksekusi.** Batch 1 siap dijalankan di Google Flow Agent. Belum ada gambar yang dibuat dan belum ada render.
+
+## Prinsip produksi (keputusan final user)
+1. **Satu prompt = satu gambar final.** Tidak ada varian dan tidak ada proses memilih.
+2. Prompt dioptimalkan sejak awal agar hasilnya langsung usable untuk animasi: komposisi 9:16, ruang tepi untuk gerak kamera, area bawah tidak terlalu ramai untuk caption.
+3. **Semua reference yang relevan dilampirkan** di setiap prompt (karakter, lingkungan, objek).
+4. **Toleransi:** ketidakakuratan historis atau visual kecil diterima selama inti cerita tersampaikan dan fakta utama tidak berubah.
+5. **Regenerate hanya jika gambar gagal total**, yaitu:
+   - wajah atau anatomi rusak parah;
+   - subjek utama salah atau hilang;
+   - ada tulisan atau huruf yang mencolok;
+   - jelas modern;
+   - tidak bisa dipakai untuk shot-nya.
+
+   Detail kecil tidak menjadi alasan regenerate.
+6. **Gerak sinematik dimaksimalkan di Hyperframes:** parallax berlapis, kamera, efek molase, partikel, cahaya, dan shake. Gambar tidak dipaksa menanggung semua gerak.
+7. Tidak ada gate approval per batch. Saya hanya melakukan cek "gagal total" saat gambar diunggah, lalu lanjut.
 
 ---
 
@@ -97,7 +113,7 @@ Format kolom: `ID | jenis | dipakai di shot | referensi yang dilampirkan | rasio
 | P20 | S20 | ENV01, P15 | 9:16 | `assets/flow/P20_rescuers_stretcher.png` |
 | P21 | S21 | OBJ01, P15 | 9:16 | `assets/flow/P21_ruins_dusk.png` |
 
-### Opsional (diputuskan setelah prototipe, Gate 2)
+### Opsional (hanya jika parallax ternyata kurang; default tidak dibuat)
 | ID | Kegunaan | File |
 |---|---|---|
 | L07 | Versi P07 tanpa orang (background bersih) untuk parallax manusia vs gelombang | `assets/flow/L07_wave_street_clean.png` |
@@ -126,8 +142,8 @@ Hasil Flow disimpan di `stories/molase/assets/flow/`. Ini satu subfolder di dala
 | **CH04** | Warga perempuan | Perempuan ~30, rambut gelap disanggul, selendang wol gelap, rok panjang gelap, celemek pudar, wajah tegas |
 
 **Aturan reference karakter:**
-1. Buat satu sheet per karakter: tampak depan, samping, belakang, dan close-up wajah, dengan latar abu-abu netral dan cahaya merata.
-2. Pilih satu hasil terbaik, lalu kunci.
+1. Satu sheet per karakter, dibuat sekali: tampak depan, samping, belakang, dan close-up wajah, dengan latar abu-abu netral dan cahaya merata.
+2. Hasil pertama langsung menjadi referensi tetap (tanpa pemilihan), kecuali gagal total.
 3. Lampirkan sheet itu di setiap prompt plate yang memuat karakter tersebut.
 4. Jangan memakai gambar kerumunan sebagai sumber identitas.
 
@@ -151,39 +167,40 @@ Figur latar (warga lain, pemadam, pelaut, anak kedua) tidak perlu reference shee
 ## D. Prompt Google Flow Agent
 
 ### Cara pakai
-1. Generate per batch, dengan urutan **Batch 1 → review → Batch 2 → review → Batch 3**.
-2. Di Flow, lampirkan gambar yang disebut di baris **Lampirkan** sebagai reference image (ingredients/reference). Gunakan versi yang sudah Anda approve.
-3. Setel rasio sesuai baris **Rasio**. Buat 2–4 varian, pilih satu, lalu simpan dengan nama file di manifest.
-4. **Style block** di bawah sudah termasuk dalam setiap prompt. Prompt bisa ditempel langsung tanpa digabung manual.
+1. Jalankan berurutan **Batch 1 → Batch 2 → Batch 3**, prompt demi prompt sesuai urutan nomor. Urutan ini penting karena gambar sebelumnya menjadi reference gambar berikutnya.
+2. Di Flow, lampirkan **semua** gambar yang disebut di baris **Lampirkan** sebagai reference image.
+3. Setel rasio sesuai baris **Rasio** dan **jumlah output = 1**. Simpan hasilnya dengan nama file di manifest.
+4. **Style block** sudah tertanam di setiap prompt. Tempel prompt apa adanya.
+5. Kirim hasil Batch 1 ke sini. Saya cek "gagal total" saja, lalu Anda lanjut Batch 2.
 
 **Style block** (sudah tertanam di setiap prompt):
 > Cinematic realistic historical reconstruction, 35mm film look, natural muted color, soft overcast daylight, deep but detailed shadows, brick and navy-grey tones, molasses is the only rich warm dark-amber element. Realistic skin texture and faces, period-accurate 1919 wool clothing. No text, no lettering, no signage, no logos, no watermark, no modern objects.
 
 ### Batch 1 — Referensi (6 gambar)
 
-Generate dan approve batch ini dulu.
+Urutan 1 → 6. CH01–CH04 tidak saling bergantung. ENV01 harus jadi sebelum OBJ01.
 
-**CH01** · Rasio 16:9 · Lampirkan: –
-> Character reference sheet of one man, Boston 1919: Italian-American dockyard laborer, about 35, medium build, short black hair, thick dark mustache, light stubble, weathered face. Brown-charcoal wool flat cap, dark brown wool work coat over grey wool sweater, brick-red knitted scarf, dark trousers, worn leather work boots. Four views on one sheet: front full body, side full body, back full body, head-and-shoulders close-up. Neutral mid-grey studio background, even soft light, same person and same outfit in every view. Cinematic realistic, natural skin texture. No text, no labels, no logos, no watermark.
+**1 · CH01 — buruh pelabuhan** · Rasio 16:9 · Output 1 · Lampirkan: – · Simpan: `CH01_worker_ref.png`
+> Generate exactly one image: a clean character reference sheet of ONE man, shown four times side by side in a single row, evenly spaced: (1) front view full body, (2) left side view full body, (3) back view full body, (4) head-and-shoulders close-up facing camera. He is an Italian-American dockyard laborer in Boston, 1919, about 35 years old, medium build, short black hair, thick dark mustache, light stubble, weathered working face. Wardrobe, identical in all four views: brown-charcoal wool flat cap, dark brown heavy wool work coat buttoned over a grey wool sweater, brick-red knitted scarf, dark wool trousers, worn brown leather work boots. Plain seamless mid-grey studio background, soft even front lighting, no shadows on the background, full figures not cropped. Photorealistic cinematic look, natural skin texture, realistic fabric. No text, no labels, no numbers, no logos, no watermark, no props.
 
-**CH02** · Rasio 16:9 · Lampirkan: –
-> Character reference sheet of one boy, Boston 1919: Italian-American, about 10 years old, curly black hair under a grey wool newsboy cap, oversized patched tweed jacket, knickerbocker trousers, wool stockings, scuffed boots, holding a small dented tin cup. Four views: front full body, side full body, back full body, face close-up with a curious half-smile. Neutral mid-grey background, even soft light, identical person and clothing in every view. Cinematic realistic, natural skin texture. No text, no labels, no watermark.
+**2 · CH02 — anak laki-laki** · Rasio 16:9 · Output 1 · Lampirkan: – · Simpan: `CH02_boy_ref.png`
+> Generate exactly one image: a clean character reference sheet of ONE boy, shown four times side by side in a single row, evenly spaced: (1) front view full body, (2) left side view full body, (3) back view full body, (4) face close-up with a curious half-smile. He is an Italian-American boy in Boston, 1919, about 10 years old, slim, curly black hair under a grey wool newsboy cap. Wardrobe, identical in all four views: oversized patched brown tweed jacket, knickerbocker trousers, dark wool stockings, scuffed leather boots; he holds a small dented tin cup in his right hand. Plain seamless mid-grey studio background, soft even front lighting, full figures not cropped. Photorealistic cinematic look, natural skin texture, realistic fabric. No text, no labels, no numbers, no logos, no watermark.
 
-**CH03** · Rasio 16:9 · Lampirkan: –
-> Character reference sheet of one man, 1919 structural engineer / investigator (generic, not a real person): about 55, neat grey mustache, round wire-rim spectacles, black bowler hat, long charcoal wool overcoat, white collar and dark tie, holding a small notebook and brass calipers. Four views: front full body, side full body, back full body, face close-up with a serious expression. Neutral mid-grey background, even soft light, identical person in all views. Cinematic realistic. No text, no labels, no watermark.
+**3 · CH03 — insinyur/penyelidik** · Rasio 16:9 · Output 1 · Lampirkan: – · Simpan: `CH03_engineer_ref.png`
+> Generate exactly one image: a clean character reference sheet of ONE man, shown four times side by side in a single row, evenly spaced: (1) front view full body, (2) left side view full body, (3) back view full body, (4) face close-up with a serious, attentive expression. He is a generic 1919 American structural engineer and investigator (not a real person), about 55 years old, average build, neat grey mustache, round wire-rim spectacles. Wardrobe, identical in all four views: black bowler hat, long charcoal wool overcoat, white high collar and dark tie, dark trousers, black leather shoes; he holds a small black notebook in one hand and brass calipers in the other. Plain seamless mid-grey studio background, soft even front lighting, full figures not cropped. Photorealistic cinematic look, natural skin texture. No text, no labels, no numbers, no logos, no watermark.
 
-**CH04** · Rasio 16:9 · Lampirkan: –
-> Character reference sheet of one woman, Boston North End 1919: about 30, dark hair in a low bun, dark wool shawl over shoulders, long dark wool skirt, faded work apron, strong determined face. Four views: front full body, side full body, back full body, face close-up. Neutral mid-grey background, even soft light, identical person and clothing in all views. Cinematic realistic, natural skin texture. No text, no labels, no watermark.
+**4 · CH04 — warga perempuan** · Rasio 16:9 · Output 1 · Lampirkan: – · Simpan: `CH04_woman_ref.png`
+> Generate exactly one image: a clean character reference sheet of ONE woman, shown four times side by side in a single row, evenly spaced: (1) front view full body, (2) left side view full body, (3) back view full body, (4) face close-up with a strong, determined expression. She is a working-class Italian-American resident of Boston's North End, 1919, about 30 years old, dark hair in a low bun, olive skin. Wardrobe, identical in all four views: dark brown wool shawl over her shoulders, dark long-sleeved blouse, long dark wool skirt to the ankles, faded grey work apron, black lace-up boots. Plain seamless mid-grey studio background, soft even front lighting, full figures not cropped. Photorealistic cinematic look, natural skin texture, realistic fabric. No text, no labels, no numbers, no logos, no watermark.
 
-**ENV01** · Rasio 9:16 · Lampirkan: –
-> Vertical establishing shot of Commercial Street, North End waterfront, Boston, January 15, 1919, around midday. Camera slightly elevated looking down the street. A riveted steel elevated railway trestle runs along the middle of the street with a wooden-and-steel elevated train car passing overhead. Four-to-five-storey brick buildings with dark windows on both sides, cobblestone pavement with streetcar rails, horse-drawn wagons, a few 1910s motor trucks, laborers in wool coats and caps walking and eating lunch. In the background toward the harbor, a huge brown riveted steel storage tank with a low conical roof rises above the low sheds. Unusually mild winter day: overcast pale sky, patches of dirty melting snow, wet cobbles, coal-smoke haze. Clear foreground, midground and background depth for parallax. Cinematic realistic historical reconstruction, 35mm film look, natural muted color, soft overcast daylight, brick and navy-grey tones. No text, no lettering, no signage, no logos, no watermark, no modern objects.
+**5 · ENV01 — Commercial Street (juga plate S04)** · Rasio 9:16 · Output 1 · Lampirkan: – · Simpan: `ENV01_commercial_st.png`
+> Generate exactly one vertical 9:16 image: establishing shot of Commercial Street on the North End waterfront, Boston, January 15, 1919, around midday. Camera at second-floor height looking down the length of the street, one-point perspective. A dark riveted steel elevated railway trestle runs along the middle of the street on steel columns, with one wooden-and-steel elevated train car on it. Four-to-five-storey red-brown brick buildings with sash windows line both sides; cobblestone pavement with streetcar rails; two horse-drawn wooden wagons; one 1910s motor truck; laborers in wool coats and flat caps walking and eating lunch on the sidewalks. Beyond the low harbor sheds at the far end, a huge dull-brown riveted steel storage tank with a low conical roof clearly rises above the rooftops. Unusually mild winter day: pale overcast sky, patches of dirty melting snow along the curbs, wet cobbles, light coal-smoke haze. Strong depth layering: foreground street and people, midground trestle and wagons, background tank and sky. Keep the main subjects away from the frame edges and keep the lower quarter of the frame calm (pavement), so the image can be panned and captioned. Cinematic realistic historical reconstruction, 35mm film look, natural muted color, soft overcast daylight, deep but detailed shadows, brick and navy-grey tones. No text, no lettering, no signage, no shop names, no logos, no watermark, no modern objects.
 
-**OBJ01** · Rasio 9:16 · Lampirkan: ENV01
-> Using the attached street as the location reference: vertical frontal wide shot of the giant molasses storage tank on the Boston harbor side, 1919, on an ordinary quiet day before any disaster. Cylindrical riveted steel tank about 50 feet tall and 90 feet wide with a low conical roof, painted dull brown, horizontal riveted seams with dark sticky streaks of molasses seeping down from the seams. A small worker figure at the base for scale, a wooden fence, rail siding, harbor sheds behind, pale overcast sky. Calm, uneasy stillness. Cinematic realistic, 35mm film look, natural muted color, soft overcast daylight. No text, no lettering, no logos on the tank, no watermark, no modern objects.
+**6 · OBJ01 — tangki molase (juga plate S12)** · Rasio 9:16 · Output 1 · Lampirkan: ENV01 · Simpan: `OBJ01_tank.png`
+> Generate exactly one vertical 9:16 image, using the attached street image as the reference for location, light and color. A frontal wide view of the same giant molasses storage tank seen in the attached image, standing on the Boston harbor side in 1919 on an ordinary quiet day, before any disaster. The tank is a cylinder of riveted steel plates, about 50 feet tall and 90 feet in diameter, with a low conical roof and a thin railing around the top edge; it is painted a dull, uneven brown. Its horizontal riveted seams leak: dark glossy molasses streaks run down from several seams, with older dried stains below them. At the base, one small laborer in a wool coat and flat cap walks past for scale; a wooden fence, a rail siding and low brick harbor sheds surround it; pale overcast sky above. The tank fills the middle 70% of the frame, fully visible from base to roof, with some sky above and ground below for camera movement. Calm, uneasy stillness. Cinematic realistic, 35mm film look, natural muted color, soft overcast daylight, tactile rusted steel and paint texture. No text, no lettering, no logos or company names on the tank, no watermark, no modern objects.
 
-### Batch 2 — Prototipe Gate 2 (3 gambar baru + ENV01)
+### Batch 2 — Shot inti (3 gambar)
 
-Empat contoh adegan untuk dianimasikan dulu sebelum produksi penuh: establishing (ENV01), detail objek (P13), manusia (P14), dan aksi (P07).
+Dijalankan langsung setelah Batch 1, dengan urutan P13 → P14 → P07. Ketiganya ditambah ENV01 mewakili empat jenis shot: establishing, detail, manusia, dan aksi. Saya bisa mulai menganimasikannya di Hyperframes sambil Anda mengerjakan Batch 3, tanpa perlu menunggu approval.
 
 **P13** · Rasio 9:16 · Lampirkan: OBJ01
 > Extreme close-up of a horizontal riveted seam on the attached brown molasses tank. Thick dark molasses slowly seeps out between overlapping steel plates and around rivet heads, forming glossy amber-black drips that hang and fall. Dull brown paint cracked and flaking, rust bloom, old dried streaks below the seam. Soft overcast daylight raking from the left, shallow depth of field, rivets and the leak in sharp focus, top and bottom softly blurred. Tactile realistic materials. No text, no watermark.
@@ -247,18 +264,18 @@ Dikerjakan setelah prototipe disetujui. Urutan di bawah mengikuti ketergantungan
 > Wide view of what remains of the attached tank at the end of the day, 1919: the torn circular base and a few bent wall plates surrounded by a dark, still pool of molasses reflecting the first gas street lamps and a fading grey-blue dusk sky. No people, eerie silence. Cinematic realistic, natural color. No text, no watermark.
 
 ### Tips Flow
-- Jika wajah karakter menyimpang dari sheet, regenerate sambil tetap melampirkan sheet. Jangan menerima varian yang wajahnya berbeda.
-- Tolak hasil yang punya:
-  - huruf atau tulisan di tangki, kapal, atau papan;
-  - jari atau tangan anatomis aneh;
-  - kendaraan modern;
-  - tangki tanpa paku keling;
-  - langit senja di adegan tengah hari.
+- Wajah sedikit berbeda dari sheet masih diterima. Regenerate (dengan sheet tetap terlampir) hanya jika karakter jelas menjadi orang lain.
+- Regenerate hanya jika **gagal total**:
+  - wajah atau tangan rusak parah;
+  - subjek utama salah atau hilang;
+  - tulisan atau huruf mencolok di area penting;
+  - objek modern yang jelas.
+- Yang masih **diterima**: paku keling kurang rapi, detail kostum sedikit berbeda, arsitektur kurang tepat, cahaya sedikit lain. Hyperframes bisa menutupi sebagian lewat crop, grading, dan gerak kamera.
 - Simpan resolusi tertinggi yang tersedia.
 
 ---
 
-## Belum terverifikasi (cek sebelum Batch 3)
+## Catatan fakta (toleransi: tidak menghentikan produksi)
 - P19: bentuk pengiriman molase baru (kapal tanker dan pipa ke tangki). Naskah menyebut "pengiriman molase baru", tapi detail visual kapal belum saya cek ke sumber.
 - P20: keterlibatan pelaut dalam penyelamatan. Sering disebut di sumber populer, belum saya cek ke sumber primer.
 - P17: penampilan konstruksi tangki tahun 1915 (generik: perancah dan paku keling panas).
