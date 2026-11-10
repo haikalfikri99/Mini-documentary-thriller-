@@ -1,4 +1,5 @@
-renders/preview*
+renders/*
+!renders/master_molase.mp4
 assets/sfx_bed.wav
 .hyperframes/
 .debug/
