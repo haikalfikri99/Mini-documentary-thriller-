@@ -60,6 +60,12 @@ export function P22() {
   setLight({ dir: [.5, -.8], tint: '#22242c', a: .3 });
   wall('#5d5b55', 540, .6 + U * .15);
   for (let k = 0; k < 4; k++) hangingDrop(548, 300 + k * 430, clamp((U * .6 + k * .23) % 1), 14);
+  const [sk] = SKIN.light, reach = keys(U, [[0, 0], [.5, 0], [1.1, 1, ease.out], [1.5, 1], [2.1, .35, ease.inOut], [2.5, .35]]);   // in, touch, hold… and pull back to look
+  const fx = lerp(1200, 560, reach), fy = lerp(1100, 900, reach) + (U > 1.5 ? -120 * clamp((U - 1.5) / .6) : 0);
+  form(noodle([1250, 1500], [fx + 120, fy + 60], 20, 90, 80), '#6b7078', { lw: 8, sw: 12 });   // sleeve
+  form(spline([[fx + 170, fy + 120], [fx + 60, fy + 140], [fx + 20, fy + 70], [fx + 60, fy - 10], [fx + 180, fy - 20]]), sk, { lw: 7, sw: 10 });   // the back of the hand
+  form(noodle([fx + 40, fy + 30], [fx - 10, fy], 6, 26, 22), sk, { lw: 6, sw: 6 });   // index finger
+  if (U > 1.1) { fillOnly(ell(fx - 12, fy, 14, 10, 12), '#4a2208', { boil: .2 }); if (U > 1.5) stroke(spline([[fx - 10, fy + 4], [lerp(fx, 548, .5), lerp(fy, 900, .5) + 30], [548, 900]], false, 8), 3 * (1 - clamp((U - 1.9) / .4)) + .5, { line: '#4a2208', alpha: .9 }); }   // molasses on the fingertip, a strand stretching back to the seam
   finish(.12, .45);
 }
 
@@ -81,14 +87,18 @@ function kids(close = false) {
   const kid2 = { ...CAST.kid, hairCol: '#2a1e18', hatCol: '#4a4e5a', top: { type: 'jacket', col: '#5a6470' } };
   const kid3 = { ...CAST.kid, body: 'child', hair: 'bun', hairCol: '#6a3a22', hat: 'none', top: { type: 'coat', col: '#7a4a4a' }, bottom: { type: 'skirt', col: '#4a3a44', legCol: '#d8d0c0' } };
   const hop = Math.abs(Math.sin(U * 6)) * 14;
-  person({ ...CAST.kid, x: 220, y: 1560 - hop, s: 1.3, face: 1, pose: { armF: { h: [60, -120], bend: -40, hand: 'open' }, armB: { h: [-20, 160], bend: -10 } }, expr: 'delight', look: [.4, -.7] });
+  person({ ...CAST.kid, x: 220, y: 1560 - hop, s: 1.3, face: 1, pose: { armF: { h: [110, -230], bend: -10, hand: 'point' }, armB: { h: [-20, 160], bend: -10 } }, expr: 'delight', look: [.4, -.7] });   // points up at the dripping seam
   person({ ...kid2, x: 560, y: 1640, s: 1.35, face: 1, pose: { armF: { h: [70, -60], bend: -60, fist: 1 }, armB: { h: [40, -40], bend: -50, fist: 1 } }, expr: 'curious', look: [.3, -.8], prop: (hp) => { form(rr(hp[0] - 30, hp[1] - 70, 60, 64, 8), '#9aa0a6', { lw: 5, shade: () => fillOnly(rect(hp[0] - 26, hp[1] - 64, 52, 16), '#a8571a', { boil: .2 }) }); } });
   person({ ...kid3, x: 880, y: 1600, s: 1.28, face: -1, pose: { armF: { h: [40, 100], bend: 30, hand: 'open' }, armB: { h: [-20, 160], bend: -10 } }, expr: 'calm', look: [.5, -.4], prop: (hp) => { form(spline([[hp[0] - 40, hp[1]], [hp[0] + 40, hp[1]], [hp[0] + 34, hp[1] + 70], [hp[0] - 34, hp[1] + 70]]), '#7a6a5a', { lw: 5 }); } });
 }
 export function P24() {
   setLight({ dir: [.5, -.8], tint: '#2a2c3a', a: .26 });
   g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#aebfcd'; g.fillRect(0, 0, W, H);
-  push(); form(spline([[-200, 1400], [-200, 120], [540, 40], [1280, 120], [1280, 1400]], true, 6), '#5d5b55', { lw: 7, sw: 30, shade: () => { for (let k = 1; k < 5; k++) stroke(spline([[-200, 120 + k * 260], [540, 40 + k * 262], [1280, 120 + k * 260]], false, 8), 6, { line: '#4c4a45' }); for (let k = 0; k < 7; k++) { const x = 60 + k * 160; fillOnly(rect(x, 300 + hash(k) * 300, 8, 500 + hash(k * 3) * 400), '#7a4a1a', { boil: .3, alpha: .8 }); } } }); pop();   // the tank's curve, from its foot
+  form([[-60, 400], [540, 300], [1140, 400], [540, 330]], '#4e4c47', { lw: 6, sw: 10 });   // the conical roof
+  form(spline([[-60, 1400], [-60, 400], [540, 470], [1140, 400], [1140, 1400], [540, 1470]], true, 6), '#5d5b55', { lw: 7, sw: 40, shade: () => {
+    for (let k = 1; k < 5; k++) stroke(spline([[-60, 400 + k * 200], [540, 470 + k * 200], [1140, 400 + k * 200]], false, 8), 6, { line: '#4c4a45' });
+    for (let k = 0; k < 7; k++) { const x = 60 + k * 160; fillOnly(rect(x, 520 + hash(k) * 200, 8, 400 + hash(k * 3) * 400), '#7a4a1a', { boil: .3, alpha: .85 }); }
+    for (let k = 0; k < 10; k++) fillOnly(rect(800 + k * 34, 380, 34, 1100), '#1c1a20', { boil: .1, alpha: .04 + k * .025 }); } });   // the tank, from its foot
   fillOnly(rect(0, 1380, W, 560), '#6a6660', { boil: .1 });
   for (let k = 0; k < 4; k++) hangingDrop(220 + k * 200, 1240 + hash(k) * 40, clamp((U * .9 + k * .3) % 1), 12);
   kids();
@@ -164,8 +174,8 @@ export function P30() {
   const v = lerp(-17, 4, ss((U - .15) / .5)), y = c => lerp(1350, 560, (c + 25) / 40);
   push(); form(rr(480, 460, 120, 960, 60), '#f4f1ea', { lw: 7, sw: 8 }); form(ell(540, 1440, 90, 90, 30), '#a8571a', { lw: 7 }); fillOnly(rect(520, y(v), 40, 1440 - y(v)), '#a8571a', { boil: .2 }); pop();
   for (let c = -20; c <= 10; c += 5) { stroke([[600, y(c)], [640, y(c)]], 4); label(`${c}°`, 700, y(c), 34); }
-  bigText(`${v < 0 ? '−' : '+'}${Math.abs(Math.round(v))}°C`, 300, 900, { size: 110, k: (U - .05) / .14, hot: v > 0 });
-  label('13 JAN → 15 JAN 1919', 540, 1600, 40);
+  bigText('+4°C', 300, 900, { size: 120, k: (U - .6) / .14, hot: true });   // sources agree on the end (above 40 °F); the start varies by source
+  label('DARI BEKU, NAIK CEPAT · JANUARI 1919', 540, 1600, 38);
   lamp(540, 900, .45); finishCard(.3);
 }
 
@@ -202,7 +212,9 @@ export function P32() {
 export function P33() {
   g.setTransform(1, 0, 0, 1, 0, 0); const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#5a5e64'); gr.addColorStop(1, '#2a2c30'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
   for (let i = 7; i >= 0; i--) { const z = 1 + i * .9, s = 1 / z, y = 900 + 700 * s;
-    for (const sd of [-1, 1]) { const x = 540 + sd * 420 * s; form(rr(x - 140 * s, y - 70 * s, 280 * s, 120 * s, 10 * s), '#e8e4da', { lw: 5 * s + 1, sw: 8 * s, shade: () => fillOnly(ell(x + sd * 80 * s, y - 70 * s, 50 * s, 26 * s, 14), '#f8f6f0', { boil: .1 }) }); stroke([[x - 130 * s, y + 50 * s], [x - 130 * s, y + 120 * s]], 4 * s + 1); stroke([[x + 130 * s, y + 50 * s], [x + 130 * s, y + 120 * s]], 4 * s + 1); } }
+    for (const sd of [-1, 1]) { const x = 540 + sd * 420 * s; form(rr(x - 140 * s, y - 70 * s, 280 * s, 120 * s, 10 * s), '#e8e4da', { lw: 5 * s + 1, sw: 8 * s, shade: () => { fillOnly(ell(x + sd * 80 * s, y - 70 * s, 50 * s, 26 * s, 14), '#f8f6f0', { boil: .1 }); form(ell(x + sd * 80 * s, y - 92 * s, 30 * s, 28 * s, 14), '#e0b896', { lw: 3 * s + 1, sw: 4 * s, shade: () => fillOnly(rect(x + sd * 80 * s - 30 * s, y - 112 * s, 60 * s, 14 * s), '#f8f6f0', { boil: .1 }) }); } }); stroke([[x - 130 * s, y + 50 * s], [x - 130 * s, y + 120 * s]], 4 * s + 1); stroke([[x + 130 * s, y + 50 * s], [x + 130 * s, y + 120 * s]], 4 * s + 1); } }
+  for (let i = 0; i < 5; i++) { const x = 140 + i * 200; g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = 'rgba(255,240,210,.06)'; g.beginPath(); g.moveTo(x, 600); g.lineTo(x + 90, 600); g.lineTo(x + 260, 1900); g.lineTo(x + 60, 1900); g.fill(); }   // window light
+  person({ ...CAST.lady, hat: 'none', top: { type: 'coat', col: '#e8e4da' }, bottom: { type: 'skirt', col: '#d8d4ca', legCol: '#cfc8bb' }, x: 540, y: 1260 - U * 20, s: .55 - U * .02, face: 1, pose: walk(U * .9), expr: 'worried' });   // a nurse walks the ward
   bigText('150', 540, 460, { size: 240, k: (U - .4) / .14, fill: '#f4efe6' });
   grade2('#2a3550', '#ffcf8a', .12); grain(.05); vignette(.48);
 }

@@ -124,7 +124,9 @@ export function P16() {
   push(); translate(560 + k * 160, 560 - k * 120); rotate(.42 * k);
   form(rect(-260, -170, 520, 170), '#5a4a3a', { lw: 7, sw: 14, shade: () => { for (let w = 0; w < 6; w++) form(rect(-230 + w * 80, -140, 56, 60), '#d9c49a', { lw: 4, sw: 0 }); } });
   form(rect(-280, -190, 560, 26), '#3a3430', { lw: 5 }); wheel(-170, 20, U * 3, 34, '#2a2a2a'); wheel(170, 20, U * 3, 34, '#2a2a2a'); pop();
-  mass([[-300, 1800], [-300, 900], [200, 760 + 40 * Math.sin(U * 5)], [500, 820], [800, 760 - k * 60], [1100, 900], [1300, 1800]]);   // the flood surging under it
+  const cx = 200 + U * 260;   // a breaking crest rolling right under the car, lip curling forward
+  mass([[-300, 1800], [-300, 980], [cx - 300, 900], [cx - 60, 640], [cx + 140, 600], [cx + 260, 680], [cx + 210, 760], [cx + 130, 720], [cx + 110, 840], [cx + 300, 980], [cx + 600, 1000 + 30 * Math.sin(U * 4)], [1300, 1060], [1300, 1800]]);
+  for (let i = 0; i < 8; i++) { const t = (U * 1.4 + hash(i)) % 1; drop(cx + 180 + t * 200 + hash(i * 3) * 80, 640 - t * 220 + t * t * 520, 10 + hash(i * 5) * 12, 1.4); }
   for (let i = 0; i < 12; i++) { const t = (U * 1.3 + hash(i)) % 1; drop(300 + hash(i * 3) * 600 + t * 120, 760 - t * 300 + t * t * 500, 12 + hash(i * 5) * 14, 1.3); }
   finish();
 }
