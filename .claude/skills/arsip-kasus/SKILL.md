@@ -10,6 +10,7 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 - **Kebenaran:** dramatisasi penyajian, jangan pernah mengarang bukti. Angka dan klaim wajib ≥ 2 sumber; kalau sumber berbeda, tampilkan hanya yang disepakati (contoh: P30 hanya menstempel "+4°C").
 - **Tanpa AI image/video generation dan tanpa stock footage.** Semua gambar digambar dengan kode di `toon/` (gaya motion comic). Aset/musik/font hanya yang berlisensi jelas (MIT/CC0).
 - **VO dari user** dan tidak diubah isinya; boleh diproses (EQ, leveller) di mix.
+- **Komposisi konten (keputusan user, Nov 2026):** wilayah 2 jadi pilar (~70%), format "kamu sedang jadi target" — penonton = korban, sistem = pelaku, kita membongkar; nada investigasi, 30–50 dtk, sudut Indonesia diutamakan. ~30% selingan wilayah 4/1/lainnya bila kasusnya sangat kuat. Topik sensitif (judi online, pinjol, investasi bodong) boleh: bahas mekanisme, jangan promosikan, jangan menuduh pihak yang belum diputus. Evaluasi setelah 8–10 video.
 - Jawab user dalam bahasa Indonesia, lugas, kritis, beri rekomendasi; minim beban CLI untuk user.
 - **Jalankan gerbang persetujuan:** storyboard → adegan kunci (preview) → film penuh visual → audio → final. Audio dikerjakan terakhir, setelah visual disetujui.
 - Commit/push ke branch yang ditentukan sesi; jangan buat PR tanpa diminta.

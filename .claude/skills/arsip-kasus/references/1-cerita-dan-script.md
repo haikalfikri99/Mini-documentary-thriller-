@@ -22,7 +22,11 @@ Janji: setiap video membawa penonton masuk ke sebuah cerita nyata, mengungkap se
 **Sudut Indonesia** terbukti kuat (Danau Indonesia 6,7 jt; GA421 Bengawan Solo; TauGakSih 1,37 jt): selang-seling kasus dunia dengan kasus Indonesia/Asia Tenggara.
 **Peluang diferensiasi:** banyak channel fakta Indonesia memakai ulang footage Zack D. Films (berisiko reused content). Ilustrasi orisinal + sumber terverifikasi = keunggulan kita.
 
-**Bank ide (wajib diverifikasi):**
+**Keputusan Nov 2026:** wilayah 2 = pilar (~70%), sisanya selingan. Ukuran video bagus: hook yang menyangkut penonton/terdengar mustahil → satu pertanyaan jelas → reveal yang mengubah cara pandang → payoff yang bisa diceritakan ulang/dipakai. Taruhan harus dirasakan penonton (uang, waktu, pikiran, nyawa) — biografi dengan taruhan abstrak (Gruen) dinilai dangkal. Banyak "trik belanja" adalah mitos pop-psikologi: format "semua orang bilang X, kenyataannya…" justru jadi kekuatan kita.
+
+**Bank ide wilayah 2 (belum dicek):** slot online & "kekalahan yang terasa menang" (LDW) · infinite scroll & penyesalan penemunya (Aza Raskin) · timer flash sale palsu (studi dark patterns Princeton 2019) · proses berhenti langganan yang dibuat sulit (gugatan FTC vs Amazon, "Iliad") · decoy effect popcorn/langganan · gacha & "whale" · skema Ponzi (Charles Ponzi 1920) · MLM · pinjol cair 5 menit · harga Rp 99.900 (left-digit effect) · susu di pojok belakang (mitos vs logistik) · kasino tanpa jam (mitos?) · merpati Skinner & hadiah acak · live shopping (kelangkaan & bukti sosial) · notifikasi merah · autoplay · "gratis ongkir" · kartu member & poin · paylater · lantai kasino berkarpet ramai · musik toko · ukuran troli belanja · harga coret · "stok tinggal 2" · bundling · tester parfum · aroma roti di mal
+
+**Bank ide lain (wajib diverifikasi):**
 1 · Banjir lumpur Lapindo 2006 · Halifax 1917 · Danau Nyos 1986 (awan CO₂ tak terlihat) · Knox Mine 1959
 2 · kenapa supermarket menaruh susu di belakang · kenapa kasino tanpa jam & jendela · efek harga ,99
 3 · Dyatlov Pass · sinyal "Wow!" 1977 · misteri lokal Indonesia yang terdokumentasi (bukan legenda)
