@@ -1,0 +1,11 @@
+# Repo = code, guides and the inputs needed to rebuild a film (VO, word timings).
+# Outputs (videos, thumbnails, channel art, generated audio) live in Google Drive: "Mini Thriller IDN/".
+node_modules/
+__pycache__/
+toon/out/
+stories/*/renders/
+stories/*/thumbnail/
+stories/*/film/*.wav
+stories/*/film/*.mid
+channel/*.jpg
+channel/*.png

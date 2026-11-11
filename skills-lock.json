@@ -1,0 +1,101 @@
+{
+  "version": 2,
+  "skills": {
+    "2d-character-rig-animation": {
+      "source": "calesthio/generative-media-skills",
+      "sourceType": "github",
+      "skillPath": "skills/production/creative-direction/2d-character-rig-animation/SKILL.md",
+      "computedHash": "e8b206483d1393d0eaad1cb8cb79fa3084545eb5cbb621b8087aea8c1002069a"
+    },
+    "animation-principles": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/animation-principles/SKILL.md",
+      "computedHash": "429233e8c4a429b072130b231afb072eace2f5f5e9d6d7c7566ed8c2bd4aec83"
+    },
+    "character-animation-qa": {
+      "source": "openmontageinc/openmontage",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/character-animation-qa/SKILL.md",
+      "computedHash": "ad8a6916adb55b21341e150a02373cfbd3007845b2e8b5026d70037dee493297"
+    },
+    "cinematography-180-degree-rule": {
+      "source": "geegl/directorskills",
+      "sourceType": "github",
+      "skillPath": "output/books/cinematography-brown/cinematography-180-degree-rule/SKILL.md",
+      "computedHash": "c6c88c486f7342fe4f33b2be308433809db9b5c2f5fee4984ca247825f815490"
+    },
+    "color-grading-finishing": {
+      "source": "calesthio/generative-media-skills",
+      "sourceType": "github",
+      "skillPath": "skills/production/post-production/color-grading-finishing/SKILL.md",
+      "computedHash": "0d98306283052a69fb53574b88416bdfa21703778f6ee8a32eae3d1b9c5ac733"
+    },
+    "fact-checking": {
+      "source": "seb1n/awesome-ai-agent-skills",
+      "sourceType": "github",
+      "skillPath": "research-and-knowledge/fact-checking/SKILL.md",
+      "computedHash": "582488914e67f72b58efaa3b102233e593d8d4f1c34c6ecf4aa6a9beb3f6bd1a"
+    },
+    "filmmaker": {
+      "source": "dylantarre/animation-principles",
+      "sourceType": "github",
+      "skillPath": "skills/03-by-role-persona/filmmaker/SKILL.md",
+      "computedHash": "99d21ea4e298c3d274201b6cae86338570c88db4f6ff493796404a245595723c"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f"
+    },
+    "hook-and-headline-writing": {
+      "source": "cdeistopened/skill-stack",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/hook-and-headline-writing/SKILL.md",
+      "computedHash": "d0f4d1b8a1e18651bb62ad91acdf85bdef941025c67b194c6616873ea92288d6"
+    },
+    "p5-brush": {
+      "source": "progen/p5-brush-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "3e1ece5b29da5745a76c7e8d46f004d44c9db64d0ee1618b9dd473b7a6720f27"
+    },
+    "photo-composition-critic": {
+      "source": "curiositech/some_claude_skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/photo-composition-critic/SKILL.md",
+      "computedHash": "2725876c57d5863668add6fb959f275f001df3bbd5c10a2b8e186af950cde6cd"
+    },
+    "short-form-video": {
+      "source": "iart-ai/tiktok-video-skills",
+      "sourceType": "github",
+      "skillPath": "skills/short-form-video/SKILL.md",
+      "computedHash": "f55f26c6bb88e7391044300c8db24e732a7ba3e4f632b392201526fdf7a87e86"
+    },
+    "sound-design-film": {
+      "source": "guia-matthieu/clawfu-skills",
+      "sourceType": "github",
+      "skillPath": "skills/audio/sound-design-film/SKILL.md",
+      "computedHash": "a0426fd7f64b2a457eb7d5ace11886bc5988cf400d7415b5192cec396f15df0f"
+    },
+    "sound-design-foley": {
+      "source": "calesthio/generative-media-skills",
+      "sourceType": "github",
+      "skillPath": "skills/production/audio-craft/sound-design-foley/SKILL.md",
+      "computedHash": "f2d33f1531ffafd775f8ad8592cc9267eee827b98b04f29ab7d0fd190b9c2e24"
+    },
+    "youtube-scriptwriting": {
+      "source": "cdeistopened/skill-stack",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/youtube-scriptwriting/SKILL.md",
+      "computedHash": "e5097d45811b21ac8ba672ef3d8d99d6f6ae5e1d59e45d2c9ad5941a5426f0c2"
+    },
+    "youtube-shorts": {
+      "source": "social-media-skills/skills",
+      "sourceType": "github",
+      "skillPath": "skills/youtube-shorts/SKILL.md",
+      "computedHash": "849e8368eed3cc704c37e3bdab72c8dde5244189999dc8ae542db6a79401d9e2"
+    }
+  }
+}
