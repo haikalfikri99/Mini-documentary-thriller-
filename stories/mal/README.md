@@ -1,5 +1,5 @@
 # ARSIP KASUS #002 — "Pria Ini Menciptakan Mal. Lalu Ia Menyebutnya Anak Haram." (Victor Gruen, 1938–1978)
-**Status:** langkah 1–2 (cerita + script) — ✋ menunggu persetujuan script, lalu VO dari user → `audio/vo_mal.mp3`.
+**Status:** DIBATALKAN sebagai #002 (user: "agak dangkal, gak ada dramanya"). Diganti `stories/sinila/`. Pelajaran: wilayah 2 tetap butuh taruhan nyawa/uang/kehilangan yang terasa; ironi intelektual saja tidak cukup untuk nada thriller. Riset disimpan sebagai bank ide.
 **Wilayah:** 2 Hidden Systems & Psychology (sistem tersembunyi di balik mal), dengan unsur 4 Catastrophic Decisions. Rotasi: #001 = wilayah 1/4 (bencana) → #002 sengaja bukan bencana.
 
 ## Kenapa cerita ini (seleksi, skor 1–5)
