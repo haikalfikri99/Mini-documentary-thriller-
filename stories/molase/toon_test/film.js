@@ -3,7 +3,7 @@
 import { clamp, lerp, hash, TAU } from '/core/lib.js';
 import { init, frame, g, W, H, INK, push, pop, translate, scale, rotate, fillOnly, stroke, shape, ell, arc, spline, rr, rect, noodle, bands, dot } from '/engine/toon.js';
 import { person, setLight, form, SKIN, BASE } from '/engine/cast.js';
-import { run, blink, breathe, sway, flutter, ease, seg, mixPose } from '/engine/motion.js';
+import { run, runFront, blink, breathe, sway, flutter, ease, seg, mixPose } from '/engine/motion.js';
 import { glow, wash, caption } from '/engine/brand.js';
 
 export const SEGS = [[0, 3.5, 14.95], [3.5, 6.3, 35.55]];   // [start, end, VO start]
@@ -65,10 +65,10 @@ function s07(u) {
 
   // the people: the woman behind, the worker coming at the camera
   const wPh = u * 1.35 + .37, mPh = u * 1.4;
-  const wP = run(wPh, 1);
-  person({ ...CAST.woman, x: lerp(900, 870, k), y: lerp(1480, 1600, k), s: lerp(.8, .98, k), face: -1, pose: wP, expr: 'scream', mouth: { o: .75 + .25 * Math.sin(u * 9) }, sway: sway(wPh), flutter: flutter(u, 1.3), blink: false });
-  const mP = run(mPh, 1), back = seg(u, 1.1, 1.4) - seg(u, 2.2, 2.5);   // glances back at the wave
-  person({ ...CAST.worker, x: lerp(560, 500, k), y: lerp(1720, 2000, ease.in(k)), s: lerp(1.08, 1.55, ease.in(k)), face: 1, pose: { ...mP, headTilt: mP.headTilt - .12 * back }, expr: back > .5 ? 'shock' : 'fear', look: [lerp(.3, -1, back), lerp(0, -.25, back)], sway: sway(mPh), flutter: flutter(u, 1.4), blink: blink(u, 3) });
+  const wP = runFront(wPh, 1);
+  person({ ...CAST.woman, view: 'front', x: lerp(860, 800, k), y: lerp(1480, 1620, k), s: lerp(.8, 1.0, k), face: 1, pose: wP, expr: 'scream', mouth: { o: .75 + .25 * Math.sin(u * 9) }, sway: sway(wPh), flutter: flutter(u, 1.3), blink: false });
+  const mP = runFront(mPh, 1), back = seg(u, 1.1, 1.3) - seg(u, 2.0, 2.2);   // glances over his shoulder at the wave (head turns to 3/4)
+  person({ ...CAST.worker, view: 'front', headView: back > .5 ? '3/4' : 'front', x: lerp(540, 500, k), y: lerp(1720, 2000, ease.in(k)), s: lerp(1.08, 1.55, ease.in(k)), face: back > .5 ? 1 : 1, pose: { ...mP, headTilt: mP.headTilt - .1 * back }, expr: back > .5 ? 'shock' : 'fear', look: back > .5 ? [-1, -.3] : [0, .1], sway: sway(mPh), flutter: flutter(u, 1.4), blink: blink(u, 3) });
   pop();
   wash('#ff9a1f', .05 + .03 * k);
   caption('<2,3 juta galon> molase', AMBER, { k: seg(u, .55, .95) });

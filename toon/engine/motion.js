@@ -35,6 +35,16 @@ export function run(ph, k = 1) {
     armB: { h: [lerp(78, -84, (1 - armSwing) / 2), lerp(74, 116, (1 - armSwing) / 2)], bend: lerp(-60, 46, (1 - armSwing) / 2), fist: 1 },
   };
 }
+// run cycle in the front view (running at the camera): feet lift alternately, arms pump across the chest
+export function runFront(ph, k = 1) {
+  const s = Math.sin(ph * TAU), c = Math.cos(ph * TAU), lift = v => -92 * Math.max(0, v) ** 1.3, a = (1 + s) / 2;
+  return {
+    lean: .05 * s, bob: -18 * (1 - Math.abs(s)) * k - 4, headTilt: -.04 * s,
+    legF: [6 * s, lift(c) * k, 8], legB: [-6 * s, lift(-c) * k, -8],
+    armF: mixPose({ h: [-30, 34], bend: -70, fist: 1 }, { h: [40, 150], bend: -20, fist: 1 }, a),
+    armB: mixPose({ h: [30, 34], bend: 70, fist: 1 }, { h: [-40, 150], bend: 20, fist: 1 }, 1 - a),
+  };
+}
 // walk cycle: smaller strides, no flight phase
 export function walk(ph, k = 1) {
   const s = Math.sin(ph * TAU), c = Math.cos(ph * TAU);
