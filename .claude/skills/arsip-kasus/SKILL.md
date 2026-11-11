@@ -1,10 +1,10 @@
 ---
 name: arsip-kasus
-description: Produksi end-to-end satu video YouTube Shorts channel ini (seri "ARSIP KASUS": mini-dokumenter thriller kisah nyata, bahasa Indonesia, motion comic 2D yang digambar dengan kode). Pakai untuk memilih cerita, menulis dan mengecek fakta script, menyelaraskan VO per kata, storyboard, membangun panel dan animasi di toon/, kamera dan transisi, render, skor dan mix audio, thumbnail, serta judul/deskripsi/hashtag upload. Juga untuk merevisi film yang sudah ada.
+description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller IDN ("Real Stories. Unexpected Truths." — kisah nyata dari 6 wilayah: kejadian luar biasa, sistem tersembunyi & psikologi, misteri, keputusan katastrofik, sains & eksperimen gelap, sejarah & tempat terlupakan; seri visual ARSIP KASUS; bahasa Indonesia; motion comic 2D yang digambar dengan kode). Pakai untuk memilih cerita, menulis dan mengecek fakta script, menyelaraskan VO per kata, storyboard, membangun panel dan animasi di toon/, kamera dan transisi, render, skor dan mix audio, thumbnail, serta judul/deskripsi/hashtag upload. Juga untuk merevisi film yang sudah ada.
 ---
 
-# ARSIP KASUS — workflow produksi
-Satu video = satu kasus nyata, 45–75 detik, 9:16. Film pertama (rujukan lengkap): `stories/molase/` "Banjir Ini Bukan Air".
+# Mini Thriller IDN — workflow produksi
+**Real Stories. Unexpected Truths.** Cerita nyata yang lebih mengejutkan daripada yang terlihat. Satu video = satu kasus nyata dari salah satu dari **6 wilayah cerita** (bukan bencana saja), dibuka sebagai **ARSIP KASUS**, 45–75 detik, 9:16. Film pertama (rujukan lengkap): `stories/molase/` "Banjir Ini Bukan Air" (wilayah 1/4).
 
 ## Aturan tetap (keputusan user — jangan diubah tanpa izin)
 - **Kebenaran:** dramatisasi penyajian, jangan pernah mengarang bukti. Angka dan klaim wajib ≥ 2 sumber; kalau sumber berbeda, tampilkan hanya yang disepakati (contoh: P30 hanya menstempel "+4°C").
@@ -17,8 +17,8 @@ Satu video = satu kasus nyata, 45–75 detik, 9:16. Film pertama (rujukan lengka
 ## Alur kerja (gerbang ✋ = tunggu persetujuan user)
 | # | Langkah | Hasil | Rujukan |
 |---|---|---|---|
-| 1 | Pilih cerita (≥ 4 dari 6 kriteria), fact sheet + sumber | `stories/<slug>/README.md` | `references/1-cerita-dan-script.md` |
-| 2 | Script 9 bagian, kalimat ≤ 12 kata, penutup loop ke hook ✋ | script di README | sama |
+| 1 | Pilih wilayah (rotasi) dan cerita (skor Hook-Evidence-Conflict-Escalation-Payoff ≥ 20), fact sheet + sumber | `stories/<slug>/README.md` | `references/1-cerita-dan-script.md` |
+| 2 | Script dengan framework 6 babak (Interruption → Promise → Escalation → Turn → Payoff → Echo) + 8 prinsip; 10+ variasi hook diuji 4U ✋ | script di README | sama |
 | 3 | User merekam VO → `stories/<slug>/audio/vo_<slug>.mp3` | — | — |
 | 4 | Alignment per kata (faster-whisper), koreksi manual → `audio/vo_words.json` → `film/words.js` | timestamp kata | bagian "Perintah" |
 | 5 | Storyboard: 1 panel per 1,5–2 dtk, dipotong di awal kata VO ✋ | `stories/<slug>/storyboard.md` | `references/2-visual-dan-animasi.md` |
@@ -84,10 +84,10 @@ ffmpeg -i ../../../toon/out/film.mp4 -i mix_full.wav -map 0:v -map 1:a -c:v libx
 7. **Bug kode yang pernah terjadi:** menambah komentar `//` di tengah baris yang diganti → sisa baris ikut jadi komentar. Cek sintaks modul dengan `node --input-type=module --check < file.js` (bukan `node --check`).
 
 ## Rujukan
-- `references/1-cerita-dan-script.md` — kriteria cerita, standar kebenaran, struktur script, riset & fact-check, YPP, analitik
+- `references/1-cerita-dan-script.md` — identitas editorial, 6 wilayah + bank ide, aturan faktual, seleksi 5 kriteria, sinyal distribusi Shorts, framework 6 babak, 8 prinsip, hook, durasi, fact-check, analitik
 - `references/2-visual-dan-animasi.md` — bahasa visual, toolkit `toon/`, jenis panel, akting, kamera, transisi
 - `references/3-audio.md` — rantai VO, skor per babak, pustaka SFX, ducking, loudness
 - `references/4-standar-kualitas-10.md` — rubrik 10 aspek + skor film #001
 - `references/5-upload-dan-thumbnail.md` — judul, deskripsi, hashtag, thumbnail Shorts
 - `references/riset-viral-shorts.md` — data vidIQ dan pola retensi
-- Skill pendukung yang terpasang: `filmmaker`, `animation-principles`, `2d-character-rig-animation`, `character-animation-qa`, `cinematography-180-degree-rule`, `photo-composition-critic`, `color-grading-finishing`, `short-form-video`, `sound-design-film`, `sound-design-foley`, `p5-brush`, `find-skills`.
+- Skill pendukung yang terpasang: `youtube-scriptwriting`, `hook-and-headline-writing`, `youtube-shorts`, `fact-checking` (naskah & riset); `filmmaker`, `animation-principles`, `2d-character-rig-animation`, `character-animation-qa`, `cinematography-180-degree-rule`, `photo-composition-critic`, `color-grading-finishing`, `short-form-video`, `sound-design-film`, `sound-design-foley`, `p5-brush`, `find-skills`.

@@ -37,3 +37,18 @@
 
 ## 4. Format yang direkomendasikan (diskusi)
 Lihat ringkasan di chat.
+
+## Pembaruan November 2026: enam wilayah cerita (vidIQ outliers, Shorts ≥ 500 rb views)
+| Wilayah | Outlier terkuat (views · kelipatan rata-rata channel) | Pola judul |
+|---|---|---|
+| Hidden Systems & Psychology | supermarket traps 2,5 jt · 1.336×; "Why Las Vegas is a scam" 14,9 jt · 92×; "carrot on a stick effect" 1,2 jt · 45×; rotisserie chicken murah 1,5 jt · 30×; bioskop membuatmu belanja lebih 871 rb · 10× | "Why X is cheap", "X makes you spend more", nama efek psikologi |
+| Catastrophic Decisions | Kodak/Blockbuster/Nokia 3,6 jt · 1.692×; perusahaan merusak produk sendiri 5,3 jt · 175×; "One simple mistake cost them everything" 9,5 jt · 21× | "the cost of ignoring…", "one simple mistake…" |
+| Unsolved Mysteries | Dyatlov Pass 2,1 jt · 29×; "The water tasted strange… until they found out why" 624 rb; pulau yang lenyap 827 rb | nama kasus terkenal; "… until they found out why" |
+| Dark Experiments | anjing "dihidupkan kembali" 788 rb; monkey lobotomy 871 rb | aksi ekstrem + subjek |
+| Forgotten Places | kota terhapus dari peta 559 rb; kota 200 ribu → 50 ribu 1,2 jt; bunker tersembunyi 660 rb | angka penurunan, "never supposed to discover" |
+| True Events | "This husband is IMPOSSIBLE to kill" (MrBallen) 1 jt | klaim mustahil tentang orang biasa |
+
+**Indonesia (pencarian region ID, sejak Mei 2026):** "3 Danau Penuh Misteri di Indonesia" 6,7 jt (16,5×, Kamus Unik); "Misteri Terbelahnya Laut Merah…" 3,4 jt (Brayni TV, memakai ulang Zack D. Films); "Misteri hilangnya gadis kecil…" 728 rb dengan 1.803 komentar; "Terjebak 3 hari di kotak donasi" 437 rb dengan 937 komentar.
+Pelajaran: (1) sudut lokal Indonesia sangat kuat; (2) pertanyaan penutup mendorong komentar; (3) format "3 …" (listicle) populer — boleh dipakai sesekali; (4) banyak kompetitor memakai ulang konten orang lain → ilustrasi orisinal kita adalah pembeda dan lebih aman untuk YPP.
+**Durasi:** outlier berkisar 15 dtk–3 mnt; tidak ada satu durasi pemenang. Mulai dari gagasan, pilih durasi terpendek yang lengkap.
+**Catatan:** kelipatan breakout dari channel kecil bisa ekstrem karena rata-rata channelnya rendah; gunakan sebagai sinyal minat topik, bukan janji hasil.

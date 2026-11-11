@@ -31,6 +31,12 @@
       "skillPath": "skills/production/post-production/color-grading-finishing/SKILL.md",
       "computedHash": "0d98306283052a69fb53574b88416bdfa21703778f6ee8a32eae3d1b9c5ac733"
     },
+    "fact-checking": {
+      "source": "seb1n/awesome-ai-agent-skills",
+      "sourceType": "github",
+      "skillPath": "research-and-knowledge/fact-checking/SKILL.md",
+      "computedHash": "582488914e67f72b58efaa3b102233e593d8d4f1c34c6ecf4aa6a9beb3f6bd1a"
+    },
     "filmmaker": {
       "source": "dylantarre/animation-principles",
       "sourceType": "github",
@@ -42,6 +48,12 @@
       "sourceType": "github",
       "skillPath": "skills/find-skills/SKILL.md",
       "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f"
+    },
+    "hook-and-headline-writing": {
+      "source": "cdeistopened/skill-stack",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/hook-and-headline-writing/SKILL.md",
+      "computedHash": "d0f4d1b8a1e18651bb62ad91acdf85bdef941025c67b194c6616873ea92288d6"
     },
     "p5-brush": {
       "source": "progen/p5-brush-skill",
@@ -72,6 +84,18 @@
       "sourceType": "github",
       "skillPath": "skills/production/audio-craft/sound-design-foley/SKILL.md",
       "computedHash": "f2d33f1531ffafd775f8ad8592cc9267eee827b98b04f29ab7d0fd190b9c2e24"
+    },
+    "youtube-scriptwriting": {
+      "source": "cdeistopened/skill-stack",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/youtube-scriptwriting/SKILL.md",
+      "computedHash": "e5097d45811b21ac8ba672ef3d8d99d6f6ae5e1d59e45d2c9ad5941a5426f0c2"
+    },
+    "youtube-shorts": {
+      "source": "social-media-skills/skills",
+      "sourceType": "github",
+      "skillPath": "skills/youtube-shorts/SKILL.md",
+      "computedHash": "849e8368eed3cc704c37e3bdab72c8dde5244189999dc8ae542db6a79401d9e2"
     }
   }
 }

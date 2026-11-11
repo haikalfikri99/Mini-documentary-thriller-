@@ -3,7 +3,7 @@ Bahasa visual channel = **motion comic 2D** (hasil ATM dari "Beer Tsunami" Histo
 
 ## A. Signature yang tetap di setiap film
 1. **Satu bahasa gambar:** garis tinta "boil", isian datar, cahaya crescent, Cast Kit (`toon/engine/cast.js`), paintover cat air p5.brush pada bidang latar.
-2. **Warna Ancaman:** penyebab bencana = satu-satunya warna jenuh yang menyala (film #001: amber molase `#ffb43a`). Dunia lain kalem; kata kunci caption memakai warna ini.
+2. **Warna Ancaman:** inti kasus (penyebab bencana, sistem tersembunyi, benda misterius, keputusan fatal) = satu-satunya warna jenuh yang menyala; warnanya dipilih per cerita (film #001: amber molase `#ffb43a`; mis. hijau mesin slot untuk kasino, merah sinyal untuk misteri radio). Dunia lain kalem; kata kunci caption memakai warna ini. Amber tetap aksen identitas channel (logo, banner).
 3. **ARSIP KASUS:** map arsip dibanting di detik ~3 (frame terakhir hook membeku → sepia → menjadi foto di map), dibuka saat kilas balik (halaman dibalik), dicap di akhir ("DIABAIKAN?").
 4. **Stempel waktu & tempat** saat establishing (`stamp()` di `brand.js`), **stempel karet merah** untuk angka/fakta (`rubber()`), panah tinta (`arrow()`), angka besar (`bigText()`).
 5. **Caption per kata** (`timedCaption()`): kapital Oswald 600, garis tinta, frasa ≤ 3 kata dipotong di tanda baca, setiap kata muncul pop tepat di timestamp VO, y = 1330.
@@ -23,13 +23,13 @@ Bahasa visual channel = **motion comic 2D** (hasil ATM dari "Beer Tsunami" Histo
 ## C. Jenis panel (contoh di `stories/molase/film/`)
 | Jenis | Kapan | Contoh |
 |---|---|---|
-| **Set jalan perspektif** (`P(x,y,z)`, `boston()`, `street()`, `scenePaint()`) | establishing, bencana di jalan | P1, P4, P8, P10, P34 |
+| **Set jalan perspektif** (`P(x,y,z)`, `boston()`, `street()`, `scenePaint()`) | establishing, kejadian di jalan/kota | P1, P4, P8, P10, P34 |
 | **Panel berlapis multiplane** (`L(0/1/2)` = latar/tengah/depan, depth .55/.85/1.25) | shot kunci yang butuh parallax | P1, P8 |
 | **Tampak samping** (`sideStreet()` + `mass()`), banjir selalu kiri → kanan | akibat beruntun | P14, P16, P17 |
 | **Close-up karakter** | hook, twist emosional | P2, P25 |
 | **Makro** | benda/cairan, tetes, retakan | P5, P23, P28 |
 | **Kartu arsip di meja** (`desk`, `paper`, `rubber`, `lamp`, `finishCard`) | angka, peta, diagram, penyebab | P6, P7, P12, P13, P15, P27, P29–P31, P36 |
-| **Sunyi** (latar gelap, satu simbol) | korban | P32 lilin, P33 bangsal |
+| **Sunyi** (latar gelap, satu simbol) | korban, momen hormat | P32 lilin, P33 bangsal |
 
 ## D. Logika gerak & akting (paling penting)
 - **Arah hadap = arah gerak.** Orang lari menjauhi ancaman: ombak dari belakang → lari *ke kamera* (`view:'front'`, `sprintAt`). Pada tampak samping, satu arah layar untuk seluruh babak (aturan 180°).
@@ -54,3 +54,12 @@ Bahasa visual channel = **motion comic 2D** (hasil ATM dari "Beer Tsunami" Histo
 1. Tulis fungsi `export function Pn()` yang membaca `U` (detik di dalam panel), gambar dari belakang ke depan, akhiri dengan finishing (`finish()` / `finishCard()`).
 2. Daftarkan di `SEG` (`film.js`): `{ id, a: <awal kata VO>, fn, cam, blur?, flash?, freezeIn?, layers?, fin? }`.
 3. Render still di 2–3 titik waktu panel, lihat, perbaiki (logika, akting, komposisi, tabrakan teks), baru lanjut batch berikutnya.
+
+## H. Visual untuk wilayah selain bencana
+| Wilayah | Panel kunci yang cocok |
+|---|---|
+| Sistem & psikologi | denah dari atas (supermarket, kasino) dengan panah jalur mata/kaki; close-up tangan + produk; "sinar-X" yang menyingkap mekanisme tersembunyi |
+| Misteri | papan investigasi (foto, benang merah, peta) di meja ARSIP; label FAKTA / TEORI / SPEKULASI dengan stempel berbeda |
+| Keputusan katastrofik | ruang rapat, dokumen dengan tanda tangan, garis waktu "andai" vs kenyataan, grafik jatuh |
+| Sains & eksperimen | laboratorium kalem, catatan percobaan, diagram prosedur; hormat pada korban, tanpa sensasi |
+| Sejarah & tempat | peta lama, then-vs-now (kota ramai → kosong), angka populasi yang menyusut |

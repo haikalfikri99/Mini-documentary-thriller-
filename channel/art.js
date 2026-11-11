@@ -29,8 +29,8 @@ function profile() {
   const S = cv.width; g.setTransform(1, 0, 0, 1, 0, 0);
   const r = g.createRadialGradient(S / 2, S * .45, S * .05, S / 2, S / 2, S * .72); r.addColorStop(0, '#3a2a22'); r.addColorStop(1, '#0e0b10'); g.fillStyle = r; g.fillRect(0, 0, S, S);
   push(); translate(S / 2, S * .52); rotate(-.06); scale(S / 800); folder(470);
-  // a molasses drip running off the folder's lower edge (the threat)
-  form(spline([[120, 168], [150, 168], [148, 250], [135, 282], [122, 250]]), '#a8571a', { lw: 7, sw: 6, shade: () => dot(128, 230, 7, '#ffd08a') });
+  // a paper clip on the folder's edge (neutral: the channel is not tied to one story)
+  stroke(spline([[150, -200], [150, -120], [180, -100], [210, -120], [210, -230], [180, -250], [160, -230], [160, -140]], false, 8), 10, { line: '#8a8f96' });
   pop();
   stampBox('MT', S / 2, S * .55, -.12, S * .2);
   grain(.05);
@@ -56,11 +56,12 @@ function banner() {
   const r = g.createRadialGradient(W / 2, H / 2, 200, W / 2, H / 2, W * .62); r.addColorStop(0, 'rgba(255,220,160,0.10)'); r.addColorStop(.55, 'rgba(0,0,0,0.15)'); r.addColorStop(1, 'rgba(0,0,0,0.7)'); g.fillStyle = r; g.fillRect(0, 0, W, H);
   // the safe area (1546×423, centred): title, tagline, series stamp
   g.fillStyle = 'rgba(14,11,16,.55)'; g.fillRect(W / 2 - 800, H / 2 - 230, 1600, 460);
-  stampBox('ARSIP KASUS', W / 2 - 520, H / 2 - 150, -.08, 58);
-  g.font = '600 200px "Oswald"'; const w1 = g.measureText('MINI THRILLER').width, w2 = g.measureText('IDN').width, gap = 52, x0 = W / 2 - (w1 + gap + w2) / 2;
-  outlined('MINI THRILLER', x0, H / 2 + 5, 200, PAPER, { align: 'left' }); outlined('IDN', x0 + w1 + gap, H / 2 + 5, 200, AMBER, { align: 'left' });
+  stampBox('ARSIP KASUS', W / 2 - 560, H / 2 - 178, -.08, 42);
+  g.font = '600 190px "Oswald"'; const w1 = g.measureText('MINI THRILLER').width, w2 = g.measureText('IDN').width, gap = 52, x0 = W / 2 - (w1 + gap + w2) / 2;
+  outlined('MINI THRILLER', x0, H / 2 - 25, 190, PAPER, { align: 'left' }); outlined('IDN', x0 + w1 + gap, H / 2 - 25, 190, AMBER, { align: 'left' });
   g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.font = '700 46px "Courier Prime"'; g.fillStyle = PAPER; g.textAlign = 'center'; g.textBaseline = 'middle';
-  g.fillText('KISAH NYATA · BENCANA PALING ANEH · DALAM 60 DETIK', W / 2, H / 2 + 165); g.restore();
+  g.fillText('REAL STORIES. UNEXPECTED TRUTHS.', W / 2, H / 2 + 112);
+  g.font = '700 34px "Courier Prime"'; g.fillStyle = AMBER; g.fillText('Cerita nyata yang lebih mengejutkan daripada yang terlihat', W / 2, H / 2 + 172); g.restore();
   grain(.04);
 }
 window.DUR = 2;

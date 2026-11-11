@@ -16,18 +16,26 @@ Alternatif untuk diuji: "Tsunami Molase Setinggi 15 Meter Menghantam Boston", "M
 
 <pertanyaan penutup VO> Tulis di kolom komentar 👇
 
-📁 ARSIP KASUS #<nomor>: kisah nyata bencana paling aneh dalam sejarah.
+📁 ARSIP KASUS #<nomor> · Mini Thriller IDN: Real Stories. Unexpected Truths.
 
 Sumber:
 • <sumber 1>
 • <sumber 2>
 
-#shorts #sejarah #faktaunik #kisahnyata #bencana #<tempat> #misteri #arsipkasus
+#shorts #faktaunik #kisahnyata #<wilayah> #<topik> #<tempat> #arsipkasus
 ```
 Cantumkan hanya sumber yang benar-benar dibuka/dicek. Pertanyaan penutup = kalimat terakhir VO (memancing komentar).
 
 ## C. Hashtag
-Tiga pertama tampil di atas judul: `#shorts #sejarah #faktaunik`; lalu `#kisahnyata #bencana #<tempat> #misteri #arsipkasus`. `#arsipkasus` dipakai konsisten di setiap video sebagai tag seri.
+Tiga pertama tampil di atas judul: `#shorts #faktaunik #kisahnyata`, lalu hashtag wilayah + topik + tempat, dan `#arsipkasus` (tag seri, selalu).
+| Wilayah | Hashtag wilayah yang disarankan |
+|---|---|
+| True events | `#kejadiananeh #sejarah` |
+| Sistem & psikologi | `#psikologi #faktapsikologi #bisnis` |
+| Misteri | `#misteri #misteribelumterpecahkan` |
+| Keputusan katastrofik | `#bisnis #kesalahanfatal #sejarah` |
+| Sains & eksperimen | `#sains #eksperimen` |
+| Sejarah & tempat | `#sejarah #tempatmisterius #kotahantu` |
 
 ## D. Thumbnail Shorts
 **Status fitur (dicek November 2026, sumber blog/vendor, verifikasi ke Help Center YouTube):** upload thumbnail kustom untuk Shorts dibuka mulai untuk kreator **YouTube Partner Program** lewat YouTube Studio desktop (Konten → ✏️ → Thumbnail → Upload), ukuran 1080×1920 (9:16); akun harus terverifikasi; Test & Compare (A/B) belum mendukung Shorts. Dukungan di aplikasi ponsel dilaporkan masih bertahap. **Kalau belum eligible:** pilih frame dari video saat upload di aplikasi — pilih frame yang paling mirip thumbnail (film #001: detik ±1,3 saat pekerja lari di depan ombak).

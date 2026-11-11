@@ -1,5 +1,5 @@
 # Mini Thriller IDN — seri "ARSIP KASUS"
-Channel YouTube Shorts berbahasa Indonesia: kisah nyata bencana dan kesalahan manusia paling aneh, dikemas sebagai **mini-dokumenter thriller motion comic** (60 detik, 9:16).
+**Real Stories. Unexpected Truths.** Channel YouTube Shorts berbahasa Indonesia: cerita nyata yang lebih mengejutkan daripada yang terlihat — kejadian luar biasa, sistem tersembunyi & psikologi, misteri, keputusan katastrofik, sains & eksperimen gelap, sejarah & tempat terlupakan — dikemas sebagai **mini-dokumenter thriller motion comic** (±60 detik, 9:16), seri visual ARSIP KASUS.
 Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.** Semua gambar digambar dengan kode — tanpa AI image/video, tanpa stock footage.
 
 ## Mulai dari sini
@@ -10,7 +10,7 @@ Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.** Semua gambar 
 .claude/skills/
   arsip-kasus/            skill produksi channel (SKILL.md + references/: cerita & script, visual & animasi,
                           audio, standar kualitas 10/10, upload & thumbnail, riset viral)
-  <12 skill pendukung>    animasi, sinematografi, komposisi, grading, suara, p5-brush, find-skills (lihat skills-lock.json)
+  <16 skill pendukung>    naskah (youtube-scriptwriting, hook-and-headline-writing, youtube-shorts, fact-checking), animasi, sinematografi, komposisi, grading, suara, p5-brush, find-skills (lihat skills-lock.json)
 channel/                  identitas channel Mini Thriller IDN: bio, foto profil, banner (dirender dari kode)
 toon/                     toolkit animasi 2D (engine/ + core/render/) — dipakai semua film
 stories/
