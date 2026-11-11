@@ -200,10 +200,13 @@ function drawHeadFront(P, b) {
   const es = b.eye * (E.eyeS ?? 1) * EYE.scale, lid = P.blink ? 1 : clamp(E.lid ?? .3, 0, 1), pupil = (E.pupil ?? 4.5) * EYE.pupil * (P.body === 'child' ? 1.1 : 1), closed = !!E.closed, ey = -ry * .08;
   for (const sx of [-1, 1]) eye(sx * rx * .38, ey, rx * .3 * es, ry * .33 * es, { lid, look, pupil, skin: sk, lash: P.body === 'woman', closed });
   const br = E.brow ?? 0, inn = E.inner ?? 0, by = ey - ry * .42 * es - br * 14, bw = P.body === 'man' ? 9 : 7;
-  for (const sx of [-1, 1]) stroke([[sx * rx * .66, by + 4 + inn * 4], [sx * rx * .14, by - inn * 12]], bw);
+  for (const sx of [-1, 1]) stroke(inn > .5 ? spline([[sx * rx * .68, by + 10], [sx * rx * .44, by - 4 - inn * 6], [sx * rx * .14, by - inn * 30]], false, 8) : [[sx * rx * .66, by + 4 + inn * 4], [sx * rx * .14, by - inn * 12]], bw);   // terror: the inner brows climb
+  if (inn > .5) for (let k = 0; k < 2; k++) stroke(spline([[-rx * .26, by - 40 - k * 16], [0, by - 46 - k * 16], [rx * .26, by - 40 - k * 16]], false, 6), 4);   // worry lines
   form(spline([[-rx * .12, ry * .34], [-rx * .02, ry * .02], [rx * .14, ry * .34], [0, ry * .44]]), sk, { lw: 6, sw: 6 });
-  if (P.acc?.moustache) form(spline([[-rx * .5, ry * .62], [-rx * .2, ry * .5], [0, ry * .54], [rx * .2, ry * .5], [rx * .5, ry * .62], [rx * .2, ry * .64], [0, ry * .6], [-rx * .2, ry * .64]]), hairC, { lw: 6, sw: 6 });
-  mouth(0, ry * .74, rx * (P.body === 'child' ? .56 : .62) * (1 + .45 * Math.max(0, (m.o || 0) - .4)), m);   // a scream opens the whole face
+  const big = Math.max(0, (m.o || 0) - .6);   // a scream drops the jaw: the mouth stretches down, the moustache lifts above it
+  push(); translate(0, ry * .7); scale(1, 1 + 1.1 * big); translate(0, -ry * .7);
+  mouth(0, ry * .74 + big * 10, rx * (P.body === 'child' ? .56 : .62) * (1 + .45 * Math.max(0, (m.o || 0) - .4)), m); pop();
+  if (P.acc?.moustache) { push(); translate(0, -ry * .1 * big); form(spline([[-rx * .5, ry * .62], [-rx * .2, ry * .5], [0, ry * .54], [rx * .2, ry * .5], [rx * .5, ry * .62], [rx * .2, ry * .64], [0, ry * .6], [-rx * .2, ry * .64]]), hairC, { lw: 6, sw: 6 }); pop(); }
   const T = P.hat, col = P.hatCol || '#4a4744';
   if (T === 'flatcap') {
     form(spline([[-rx * 1.1, -ry * .34], [-rx * 1.0, -ry * .9], [0, -ry * 1.18], [rx * 1.0, -ry * .9], [rx * 1.1, -ry * .34], [0, -ry * .46]]), col, { lw: 7 });
@@ -228,6 +231,10 @@ function legs(P, b, pose) {
         if (bot.type === 'knickers') fillOnly(rect(-300, b.hip + (-26 - b.hip) * .55, 600, 400), bot.sock || '#d8d2c4', { boil: .3 });
       }
     });
+    if (P.view === 'front' && lg[1] < -40) {   // a knee driven up at the camera: the thigh foreshortens into a round knee over the shin
+      const kk = Math.min(1, (-lg[1] - 40) / 100), kx = lerp(hip[0], ank[0], .55) + (lg[2] || 0) * .3, ky = lerp(hip[1], ank[1], .62) - 10 * kk;
+      form(ell(kx, ky, b.leg[0] * (1 + .25 * kk), b.leg[0] * (.85 + .3 * kk), 20), legCol, { lw: 7, sw: 8 });
+    }
     const fl = 44 * b.foot, x = ank[0], y = ank[1];
     const shoeCol = sh.type === 'bare' ? sk : (sh.col || '#2e2a2c');
     if (P.view === 'front') { form(ell(x + sx * 6, y + 14, fl * .62, 20 - Math.min(0, lg[1]) * .05, 20), shoeCol, { lw: 6, sw: 6 }); continue; }

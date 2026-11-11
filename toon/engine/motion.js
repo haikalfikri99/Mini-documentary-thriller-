@@ -56,3 +56,16 @@ export function walk(ph, k = 1) {
 // cloth follow-through: hem sway and scarf flutter lag the body by ~0.12 s
 export const sway = (ph, k = 1) => Math.sin((ph - .12) * TAU) * .35 * k;
 export const flutter = (t, speed = 1) => Math.sin(t * TAU * 1.7 * speed) * .5 + Math.sin(t * TAU * 3.1 * speed + 1) * .25 + .4 * speed;
+// sprint straight at the camera (front view), for someone fleeing what is behind them:
+// high knees (the lifted leg foreshortens: the foot rises and the knee pushes out), fists pump from hip to chin in opposition
+// to the legs, shoulders counter-rotate, the body bobs highest in the flight phase and the head is thrust forward.
+export function sprintAt(ph, k = 1) {
+  const s = Math.sin(ph * TAU), c = Math.cos(ph * TAU), up = v => Math.max(0, v) ** 1.2;
+  const a = (1 + s) / 2;   // a = 1: right (front) arm up, left leg up
+  return {
+    lean: .07 * s * k, bob: (-30 * Math.abs(c) + 6) * k, headTilt: .1 + .03 * s,
+    legF: [10 * s, -150 * up(-s) * k, 40 * up(-s)], legB: [-10 * s, -150 * up(s) * k, -40 * up(s)],
+    armF: mixPose({ h: [44, 170], bend: 40, fist: 1 }, { h: [-40, -10], bend: -110, fist: 1 }, a),
+    armB: mixPose({ h: [-44, 170], bend: -40, fist: 1 }, { h: [40, -10], bend: 110, fist: 1 }, 1 - a),
+  };
+}

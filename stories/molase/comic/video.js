@@ -21,7 +21,7 @@ const LAY = [mk(), mk(), mk()], freeze = mk(), acc = mk(), A = acc.getContext('2
 function cam(i, u) {
   if (i === 0) {   // reveal: tight on the scream, pull back to the wave, then a slow push with growing shake
     const k = io(u / 1.5), s = u < 1.5 ? lerp(2.1, 1.05, k) : 1.05 + .03 * io((u - 1.5) / .8), a = 4 + 12 * u;
-    return { s, cx: lerp(700, 560, k), cy: lerp(780, 930, k), ox: (vnoise(u * 3.1) - .5) * a, oy: (vnoise(u * 3.7 + 9) - .5) * a, rot: -.03 + (vnoise(u * 2 + 4) - .5) * .02 };
+    return { s, cx: lerp(605, 560, k), cy: lerp(900, 930, k), ox: (vnoise(u * 3.1) - .5) * a, oy: (vnoise(u * 3.7 + 9) - .5) * a, rot: -.03 + (vnoise(u * 2 + 4) - .5) * .02 };
   }
   if (i === 1) {   // slam with overshoot, a punch-in on "raksasa", then a push into the photo that carries us to the street
     let s = u < .2 ? Math.max(1, 1.35 - .35 * back(u / .2, 2.4)) : 1 + .04 * io((u - .2) / 2);
@@ -30,7 +30,7 @@ function cam(i, u) {
     return { s, cx: 540, cy: lerp(960, 1080, pin), ox: (vnoise(u * 30) - .5) * Math.exp(-u * 9) * 22, oy: (vnoise(u * 33 + 5) - .5) * Math.exp(-u * 9) * 22, rot: 0 };
   }
   const k = io(u / 3.2);   // open on the tank at the end of the street, ease back to reveal the street and the worker below it
-  return { s: lerp(1.75, 1.04, k), cx: lerp(560, 540, k), cy: lerp(900, 960, k), ox: lerp(0, -14, io(u / 3.65)), oy: 0, rot: 0 };
+  return { s: lerp(1.75, 1.04, k), cx: lerp(660, 540, k), cy: lerp(900, 960, k), ox: lerp(0, -14, io(u / 3.65)), oy: 0, rot: 0 };
 }
 function draw(c, C, depth) {
   const s = 1 + (C.s - 1) * depth;
@@ -67,7 +67,7 @@ window.render = T => {
   const i = segAt(T), n = SEG[i].blur, dt = 1 / 24;
   if (n > 1) {   // motion blur: average n sub-frames across a 180° shutter
     A.setTransform(1, 0, 0, 1, 0, 0);
-    for (let k = 0; k < n; k++) { const tt = Math.max(SEG[i].a, Math.min(SEG[i].b - 1e-3, T + (k / (n - 1) - .5) * dt * .35)); scene(tt); A.globalAlpha = 1 / (k + 1); A.drawImage(MAIN, 0, 0); }
+    for (let k = 0; k < n; k++) { const tt = Math.max(SEG[i].a, Math.min(SEG[i].b - 1e-3, T + (k / (n - 1) - .5) * dt * .25)); scene(tt); A.globalAlpha = 1 / (k + 1); A.drawImage(MAIN, 0, 0); }
     A.globalAlpha = 1; g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(acc, 0, 0);
   } else scene(T);
   const u = T - SEG[i].a;
