@@ -1,63 +1,42 @@
-# BANJIR INI BUKAN AIR — Storyboard & Visual Direction
+# Storyboard final — ARSIP KASUS #001 "Banjir Ini Bukan Air"
+Motion comic, 36 panel, 60,75 dtk. Awal panel = awal kata VO (`audio/vo_words.json`); timing persis ada di `film/film.js` (`SEG`).
+Asal format: ATM dari "Beer Tsunami" (Historically, 4,3 jt views) — koran berulang diganti **ARSIP KASUS**, nada thriller tanpa meme, Warna Ancaman amber.
 
-**Kasus:** The Great Molasses Flood, Boston, 15 Januari 1919
-**Format:** YouTube Shorts 1080×1920, 30 fps, 63,0 detik (VO 61,0 detik + ekor 2,0 detik)
-**Naskah/VO:** `audio/vo_molase.mp3`, dipakai utuh tanpa perubahan.
-**Status visual:** seluruhnya **rekonstruksi sinematik** grafis (HTML/SVG). Tidak ada footage atau foto arsip. Label "Rekonstruksi sinematik" tampil sepanjang video, dan kartu penutup menegaskan "bukan rekaman asli".
-
-## Visual identity
-
-| Elemen | Keputusan |
-|---|---|
-| Palet | Hitam pekat `#060708`, tulang `#efe6d6`, amber molase `#d98a2b`, merah sinyal `#c8321e` (bahaya), biru dingin `#9fb4c4` (masa lalu dan investigasi) |
-| Tipografi | **Anton** untuk judul editorial tebal, **Playfair Display Italic** untuk nada naratif, **JetBrains Mono** untuk label data/kicker, **Inter Bold** untuk caption |
-| Kedalaman 2.5D | Tiga lapis siluet kota (jauh, tengah, dekat) yang digeser dengan kecepatan berbeda (parallax), kabut, cahaya glow, dan permukaan molase mengilap |
-| Kamera | Push-in, tilt/dolly reveal (tangki), tracking (dateline, gelombang), close-up (dinding baja, sambungan), camera shake saat impact |
-| Figur manusia | Hanya siluet sederhana: warga tersapu (adegan H), anak-anak (J2), insinyur (K). Tidak grafis. |
-| Tekstur | Film grain bergerak dan vignette |
-
-## Timing
-
-Timing dikunci ke audio aktual: 24 segmen ucapan dideteksi dari jeda di MP3 (`silencedetect`), lalu dipetakan ke kalimat naskah.
-
-| # | Waktu (s) | Narasi | Visual & kamera | Teks layar | Suara |
-|---|---|---|---|---|---|
-| A | 0,00–2,45 | Banjir ini bukan datang dari sungai. | Jalan kota malam, permukaan molase mengilap naik; push-in pelan; parallax kota | **BANJIR / INI BUKAN / AIR**, lalu "AIR" dicoret merah (1,25 s). Frame 0 = thumbnail. | Boom pembuka, drone |
-| B | 2,40–9,00 | Ia keluar dari sebuah tangki raksasa— dan yang mengalir adalah molase, cairan gula pekat. | Tilt-up/dolly-out dari kaki tangki ke tangki penuh; noda bocor amber; kabut | TANGKI RAKSASA, lalu **MOLASE** terisi dari bawah seperti cairan, lalu *cairan gula pekat.* | Drone |
-| C | 8,95–12,65 | Boston, 15 Januari 1919. | Tracking ke kiri melewati siluet kota dan pelabuhan; tangki kecil di kejauhan | **BOSTON** per huruf, garis merah, tanggal diketik | Hit rendah |
-| D | 12,65–14,95 | Tangki baja setinggi 15 meter pecah. | Close-up dinding baja berpaku keling; garis ukur 15 m; retakan menjalar; kilat putih; molase menyembur di celah; shake keras | **15 M**, lalu **PECAH** (merah, 14,22 s) | Derit logam, letupan paku keling, crash |
-| E | 14,95–18,45 | Sebanyak 2,3 juta galon molase tumpah ke jalanan. | Gelombang molase menyapu jalan dari kanan; parallax | Penghitung **0,0 → 2,3 JUTA GALON** | Gemuruh |
-| F | 18,45–21,55 | Gelombangnya melaju sekitar 56 kilometer per jam. | Tracking rendah di permukaan gelombang; garis kecepatan | Penghitung **0 → 56 KM/JAM** dan gauge | Gemuruh dan whoosh |
-| G | 21,55–24,55 | Kereta layang terlempar dari rel. Bangunan hancur. | Struktur rel layang miring; gerbong terlempar ke bawah; dua bangunan runtuh dan berdebu | TERLEMPAR DARI REL, lalu BANGUNAN **HANCUR** | 2× crash |
-| H | 24,55–27,70 | Warga tersapu gelombang lengket yang sulit mereka hindari. | Siluet warga di jalan; gelombang lewat; siluet tenggelam satu per satu | **LENGKET** (huruf meregang) | Gemuruh, riser |
-| I | 27,70–31,00 | Tapi tanda bahayanya sudah muncul jauh sebelumnya. | **Turn:** potong ke hitam, hening; penggaris waktu bergulir mundur | *Tapi…*, **TANDA BAHAYA**, SUDAH MUNCUL JAUH SEBELUMNYA | Drone mati; satu dentum rendah |
-| J | 31,00–38,30 | Tangki itu sudah bocor sejak awal. Molase merembes dari sambungannya— bahkan anak-anak di sekitar mengumpulkan tetesannya. | Close-up sambungan pelat dengan tetesan amber, lalu (35,5 s) wide di kaki tangki dengan siluet anak-anak memegang kaleng | Cap **BOCOR SEJAK AWAL**, label "sambungan pelat", *bahkan anak-anak mengumpulkan tetesannya.* | Tetesan |
-| K | 38,30–44,80 | Setelah bencana, para insinyur menemukan dinding tangki terlalu tipis dan bahannya rentan retak. | Blueprint: garis tangki digambar; lensa pembesar ke dinding; garis retak rambut; siluet insinyur dengan senter | DINDING **TERLALU TIPIS**, BAHAN **RENTAN RETAK**, "pembesaran · ilustrasi" | Hit rendah |
-| L | 44,80–50,60 | Konstruksi buruk, perubahan suhu, dan pengiriman molase baru menjadi bagian dari rangkaian penyebabnya. | Tiga kartu penyebab muncul berurutan, terhubung rantai merah; semua menyala merah di akhir | 01 KONSTRUKSI BURUK, 02 PERUBAHAN SUHU, 03 PENGIRIMAN MOLASE BARU | Detak jantung |
-| M | 50,60–54,20 | Akibatnya, 21 orang meninggal dan 150 terluka. | Gelap, cahaya hangat redup, debu melayang; push-in sangat pelan (sober) | **21** ORANG MENINGGAL, **150** TERLUKA | Nada rendah panjang |
-| N | 54,20–60,70 | Jadi, apakah ini bencana yang datang tiba-tiba… atau tanda bahaya yang terlalu lama diabaikan? | Tangki kembali (echo), backlight merah, push-in lambat, kabut | TIBA-TIBA… (lalu dicoret), *atau*, **DIABAIKAN?** | Riser panjang |
-| Z | 60,70–63,00 | (hening) | Hitam | BANJIR INI BUKAN AIR · The Great Molasses Flood — Boston, 1919 · "Visual: rekonstruksi sinematik, bukan rekaman asli" | Hit akhir dan ekor |
-
-**Caption:** teks VO persis, per kalimat atau frasa, dengan kata kunci berwarna amber. Caption ditempatkan di zona y≈1395 px, di atas area UI Shorts.
-
-## Catatan produksi
-
-- **Whisper tidak dipakai.** Model whisper diunduh dari HuggingFace dan host itu diblokir proxy environment ini. Timing diambil dari jeda audio. Akurasinya per kalimat, bukan per kata.
-- Waktu munculnya beberapa kata kunci di dalam kalimat panjang adalah **estimasi**: 01/02/03 di adegan L, "tiba-tiba", dan "diabaikan". Periksa saat review preview.
-- **Sound design** disintesis sendiri (`sound.py`, numpy) tanpa sampel pihak ketiga, jadi aman lisensi. Efek otomatis diturunkan (ducking) saat VO berbicara, dan mix dinormalisasi ke sekitar −14 LUFS.
-- **Fact-check** klaim naskah belum dilakukan. Naskah dipakai apa adanya sesuai permintaan.
-
-## File
-
-```
-stories/molase/
-├── index.html          komposisi Hyperframes (semua adegan)
-├── storyboard.md       dokumen ini
-├── sound.py            sintesis SFX dan mix VO → assets/soundtrack.wav
-├── audio/vo_molase.mp3 VO asli
-├── assets/             font (OFL), grain, soundtrack.wav
-├── vendor/gsap.min.js  GSAP lokal (CDN diblokir di environment ini)
-└── renders/            output MP4 (preview tidak di-commit)
-```
-
-Render ulang: `npx --yes hyperframes@0.9.30 render -q delivery -o renders/master.mp4` dari folder ini.
+| # | Detik | VO | Panel | Kamera / efek |
+|---|---|---|---|---|
+| P1 | 0–1,32 | Banjir ini bukan… | Pekerja lari ke kamera, dinding molase menerjang di belakang | tarik mundur dari wajah, guncang, motion blur |
+| P2 | 1,32–2,9 | …datang dari sungai. | Close-up wajah teror, ombak terpantul di mata | push ke mata |
+| P3 | 2,9–4,2 | Ia keluar dari sebuah | ARSIP KASUS dibanting; frame P2 membeku → foto sepia; cap KASUS #001 | slam |
+| P4 | 4,2–5,38 | tangki raksasa, | Tangki dari kaki jalan, orang kecil di bawahnya | tilt ke atas |
+| P5 | 5,38–7,6 | dan yang mengalir adalah molase, | Makro pita molase melipat ke kolamnya | push pelan |
+| P6 | 7,6–8,95 | cairan gula pekat. | Tebu, tong MOLASSES, stempel GULA PEKAT | stempel |
+| P7 | 8,95–9,7 | Boston, | Peta pelabuhan, pin jatuh di North End | zoom |
+| P8 | 9,7–12,6 | 15 Januari 1919. | Jalan tenang, tangki di ujung jalan; pekerja menyadari tangki (akting); cap 12:30 | buka di tangki → mundur, parallax |
+| P9 | 12,6–14,05 | Tangki baja setinggi 15 meter | Paku keling melesat satu per satu, "15 METER" | push, guncang |
+| P10 | 14,05–15,0 | pecah. | Tangki pecah (wide), semburan, atap terlempar | kilat putih, guncang besar |
+| P11 | 15,0–16,6 | Sebanyak 2,3 juta galon | Kembali ke momen hook (ombak di jalan) | dolly |
+| P12 | 16,6–17,5 | molase | Tangki terpotong terisi penuh, stempel 2,3 JUTA GALON + panah | stempel |
+| P13 | 17,5–18,5 | tumpah ke jalanan. | ≈ 8,7 juta liter ≈ 3,5 kolam renang olimpiade | pop |
+| P14 | 18,5–19,7 | Gelombangnya melaju sekitar | Tampak samping: ombak menelan gerobak, kuda kabur ke kanan | guncang |
+| P15 | 19,7–21,55 | 56 km per jam. | Speedometer ke 56, "56 KM/JAM" | jarum berayun |
+| P16 | 21,55–23,4 | Kereta layang terlempar dari rel. | Gelagar bengkok, gerbong terangkat di atas gulungan ombak | guncang |
+| P17 | 23,4–24,55 | Bangunan hancur. | Rumah kayu miring, papan beterbangan | crash zoom |
+| P18 | 24,55–26,0 | Warga tersapu gelombang lengket | Dua warga setinggi pinggang saling menggapai | push pelan |
+| P19 | 26,0–27,25 | yang sulit mereka hindari. | Tangan menggapai, benang sirup | close-up |
+| P20 | 27,25–29,0 | Tapi tanda bahayanya | Halaman arsip dibalik ke 1915 | page flip |
+| P21 | 29,0–31,0 | sudah muncul jauh sebelumnya. | 1915: tangki dicat cokelat menutupi rembesan, mandor melirik | pan, sepia |
+| P22 | 31,0–33,5 | Tangki itu sudah bocor sejak awal. | Sambungan basah; jari pekerja menyentuh dan menarik benang molase | push |
+| P23 | 33,5–35,5 | Molase merembes dari sambungannya, | Makro tetes amber membesar, lepas, jatuh | makro |
+| P24 | 35,5–36,7 | bahkan anak-anak di sekitar | Anak-anak di kaki tangki dengan cangkir/ember | low angle |
+| P25 | 36,7–38,3 | mengumpulkan tetesannya. | Anak menadah tetes dengan cangkir, gembira | close-up |
+| P26 | 38,3–40,4 | Setelah bencana, para insinyur | Insinyur di antara pelat robek, senja | tracking |
+| P27 | 40,4–42,1 | menemukan dinding tangki terlalu tipis | Penampang dinding menipis, X merah, TERLALU TIPIS | diagram |
+| P28 | 42,1–43,7 | dan bahannya rentan retak. | Retakan bercabang dari lubang paku keling | makro |
+| P29 | 43,7–44,9 | Konstruksi buruk, | Cetak biru, stempel KONSTRUKSI BURUK | slam |
+| P30 | 44,9–45,95 | perubahan suhu, | Termometer naik cepat, "+4°C" | pop |
+| P31 | 45,95–49,6 | dan pengiriman molase baru menjadi bagian dari rangkaian penyebabnya. | Kapal memompa molase → tiga penyebab dirangkai "= BENCANA" | pan, stempel |
+| P32 | 49,6–52,0 | Akibatnya, 21 orang meninggal | 21 lilin menyala satu per satu, "21" | sunyi |
+| P33 | 52,0–53,8 | dan 150 terluka. | Bangsal rumah sakit, perawat, "150" | pelan |
+| P34 | 53,8–56,0 | Jadi, apakah ini bencana yang datang tiba-tiba, | Tangki utuh di siang tenang | push ke tangki |
+| P35 | 56,0–57,38 | (lanjutan) | Sambungan tangki menyala amber | denyut amber |
+| P36 | 57,38–60,75 | atau tanda bahaya yang terlalu lama diabaikan? | Arsip + cangkir anak, stempel DIABAIKAN?; potong ke frame pertama (loop) | stempel |

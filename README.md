@@ -1,28 +1,22 @@
-# Mini-Documentary Thriller
+# Mini-Documentary Thriller — seri "ARSIP KASUS"
+Channel YouTube Shorts berbahasa Indonesia: kisah nyata bencana dan kesalahan manusia paling aneh, dikemas sebagai **mini-dokumenter thriller motion comic** (60 detik, 9:16).
+Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.** Semua gambar digambar dengan kode — tanpa AI image/video, tanpa stock footage.
 
-Channel YouTube Shorts berbahasa Indonesia: cerita nyata berbasis bukti, dikemas sebagai mini-dokumenter thriller.
-Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.**
+## Mulai dari sini
+**Workflow lengkap (cerita → script → VO → storyboard → animasi → audio → render → thumbnail → upload):** skill [`.claude/skills/arsip-kasus/`](.claude/skills/arsip-kasus/SKILL.md). Di Claude Code cukup minta "buat video ARSIP KASUS berikutnya" atau panggil `/arsip-kasus`.
 
 ## Struktur repo
-
 ```
-VISUAL_STYLE_BIBLE.md                            # standar visual channel (wajib dibaca sebelum kerja visual)
-.claude/skills/cinematic-documentary-visuals/    # skill Claude Code: visual director & asset planner
-docs/
-  mini-documentary-thriller-scripting-skill.md   # panduan editorial & standar kebenaran
+.claude/skills/
+  arsip-kasus/            skill produksi channel (SKILL.md + references/: cerita & script, visual & animasi,
+                          audio, standar kualitas 10/10, upload & thumbnail, riset viral)
+  <12 skill pendukung>    animasi, sinematografi, komposisi, grading, suara, p5-brush, find-skills (lihat skills-lock.json)
+toon/                     toolkit animasi 2D (engine/ + core/render/) — dipakai semua film
 stories/
-  <slug-cerita>/
-    audio/        # voice-over (mp3)
-    ...           # naskah, fact sheet, storyboard, komposisi video, hasil render
+  molase/                 ARSIP KASUS #001 "Banjir Ini Bukan Air" — selesai (README = fakta, sumber, metadata upload)
 ```
 
-## Workflow produksi visual
-
-Google Flow (image generator, dijalankan user) → aset gambar → Hyperframes (animasi, parallax, compositing, kamera, efek, render).
-Claude menyiapkan asset manifest + prompt batch untuk Google Flow Agent. Detail: `VISUAL_STYLE_BIBLE.md` §15.
-
-## Cerita
-
-| Slug | Status |
-|---|---|
-| `molase` | Voice-over tersedia (`stories/molase/audio/vo_molase.mp3`, ±61 dtk). Naskah, fact sheet, dan visual belum ada di repo. |
+## Film
+| # | Slug | Judul | Status |
+|---|---|---|---|
+| 001 | `molase` | Banjir Ini Bukan Air (Boston 1919) | final v1 — `stories/molase/renders/master_molase.mp4` |

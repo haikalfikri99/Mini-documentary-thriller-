@@ -43,12 +43,6 @@
       "skillPath": "skills/find-skills/SKILL.md",
       "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f"
     },
-    "motion-director": {
-      "source": "jimliu/baoyu-design",
-      "sourceType": "github",
-      "skillPath": "skills/motion-director/SKILL.md",
-      "computedHash": "baf553db686aa3f0f9c461aeefc54e8aed13b784b687470ddfba6d82d894bfcb"
-    },
     "p5-brush": {
       "source": "progen/p5-brush-skill",
       "sourceType": "github",
@@ -60,12 +54,6 @@
       "sourceType": "github",
       "skillPath": ".claude/skills/photo-composition-critic/SKILL.md",
       "computedHash": "2725876c57d5863668add6fb959f275f001df3bbd5c10a2b8e186af950cde6cd"
-    },
-    "remotion-captions": {
-      "source": "remotion-dev/skills",
-      "sourceType": "github",
-      "skillPath": "skills/remotion-captions/SKILL.md",
-      "computedHash": "2d9394f042195359d3f519ba2b828940f31deb88e34acdc3c37570113336b5b2"
     },
     "short-form-video": {
       "source": "iart-ai/tiktok-video-skills",
@@ -84,18 +72,6 @@
       "sourceType": "github",
       "skillPath": "skills/production/audio-craft/sound-design-foley/SKILL.md",
       "computedHash": "f2d33f1531ffafd775f8ad8592cc9267eee827b98b04f29ab7d0fd190b9c2e24"
-    },
-    "svg-character-animation": {
-      "source": "openmontageinc/openmontage",
-      "sourceType": "github",
-      "skillPath": ".agents/skills/svg-character-animation/SKILL.md",
-      "computedHash": "f97194f882d070bb45b0f75730944ed166a885c143883d595e433da81f1ccf69"
-    },
-    "video-editing": {
-      "source": "affaan-m/ecc",
-      "sourceType": "github",
-      "skillPath": "skills/video-editing/SKILL.md",
-      "computedHash": "b1a66c7e9337e7030cfef7c5a8b2a519123e63c8fef710105118eab89641e505"
     }
   }
 }

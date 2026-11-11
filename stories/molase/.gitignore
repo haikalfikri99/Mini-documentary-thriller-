@@ -1,5 +1,6 @@
+# renders are rebuilt from code; only the delivered master is kept
 renders/*
 !renders/master_molase.mp4
-assets/sfx_bed.wav
-.hyperframes/
-.debug/
+# generated audio (score_full.py → score_full.*, fullmix.py → mix_full.wav)
+film/*.wav
+film/*.mid
