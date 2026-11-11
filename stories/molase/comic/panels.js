@@ -5,9 +5,11 @@ import { init, frame, g, W, H, INK, S, push, pop, translate, rotate, scale, shap
 import { person, setLight, form, SKIN } from '/engine/cast.js';
 import { runFront, walk } from '/engine/motion.js';
 import { glow, wash, stamp, wordCaption, PAPER } from '/engine/brand.js';
-import { grain, vignette } from '/engine/look.js';
+import { grain, vignette, paint, grade2, dof, shafts } from '/engine/look.js';
 
 const AMBER = '#ffb43a';
+// animation time inside a panel (seconds) and caption switch, set by the video page
+export let U = 0, CAPS = true; export function setU(u, caps = true) { U = u; CAPS = caps; }
 // ———————————————— colour helpers
 const hex = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
 const toHex = a => '#' + a.map(v => Math.round(clamp(v, 0, 255)).toString(16).padStart(2, '0')).join('');
@@ -155,7 +157,7 @@ const CAST = {
 // ———————————————— the street set (shared by P1 and P8)
 function boston({ waveZ = null } = {}) {
   sky();
-  tank(-4, 72, 14, 15, waveZ ? 1 : .35);
+  tank(-4, 64, 14, 15, waveZ ? 1 : .55);
   // right side buildings behind the el (in its shadow)
   for (let i = 0, z = 6; i < 12; i++) { const w = 9 + hash(i * 5) * 5, h = 10 + hash(i * 9) * 6; const Q = poly([[9.4, 0, z], [9.4, 0, z + w], [9.4, h, z + w], [9.4, h, z]]); at(z, () => form(Q, fog(shade(PAL[(i + 2) % 5], -.35), z + w / 2), { lw: 5, sw: 10 })); z += w; }
   el(1.2, 220);
@@ -167,7 +169,7 @@ function boston({ waveZ = null } = {}) {
 }
 
 // ———————————————— P8: 15 January 1919, 12:30, a calm mild noon
-function P8() {
+export function P8() {
   F = 980; HY = 1060; CAMH = 1.3; HAZE = '#d9dcdc';
   setLight({ dir: [.55, -.8], tint: '#2a2c3a', a: .26 });
   boston();
@@ -179,20 +181,27 @@ function P8() {
   who(CAST.lady, -5.0, 11, { pose: walk(.55), expr: 'calm', face: 1 });
   who(CAST.kid, -4.2, 10.6, { pose: walk(.1), expr: 'calm', face: 1 });
   who(CAST.docker, 3.4, 8, { pose: walk(.7), expr: 'neutral', face: -1 });
-  who(CAST.worker, -1.6, 3.1, { pose: walk(.35), expr: 'neutral', face: 1, look: [.5, -.35] });
+  // pigeons pecking on the cobbles
+  for (let k = 0; k < 6; k++) { const [px, py] = P(-1 + hash(k) * 4, 0, 6 + hash(k * 3) * 4), s = F / (6 + k) / 100 * .32; at(6, () => { push(); translate(px, py); scale(s * (hash(k) > .5 ? 1 : -1), s);
+    form(spline([[-30, -20], [10, -34], [34, -22], [30, -6], [-10, 0], [-40, -8]]), '#6f747c', { lw: 4, sw: 6 }); form(ell(30, -36, 12, 11, 12), '#5d6470', { lw: 4 }); dot(34, -38, 2.2); stroke([[42, -34], [50, -32]], 3, { line: '#c9a46a' }); pop(); }); }
+  who(CAST.worker, -.55, 1.85, { pose: { lean: -.04, armB: { h: [-16, 178], bend: -14 }, armF: { h: [40, 150], bend: 20, hand: 'open' } }, expr: 'curious', face: 1, look: [lerp(.6, .15, clamp(U / 1.2)), lerp(-.1, -.95, clamp(U / 1.2))], headTilt: lerp(0, -.2, clamp(U / 1.2)) });
   // a delivery wagon with molasses barrels in the street (foreshadowing)
   const wz = 15, [wx, wy] = P(1.2, 0, wz), s = F / wz / 100;
   at(wz, () => { push(); translate(wx, wy); scale(s);
     form(rect(-110, -150, 220, 70), '#6a4a34', { lw: 6 }); for (const bx of [-70, 0, 70]) form(spline([[bx - 30, -150], [bx + 30, -150], [bx + 34, -190], [bx + 30, -232], [bx - 30, -232], [bx - 34, -190]]), '#7a5a3e', { lw: 5, shade: () => fillOnly(rect(bx - 40, -212, 80, 8), '#3a3a3a', { boil: .2 }) });
     for (const bx of [-80, 80]) form(ell(bx, -60, 58, 58, 24), '#4a3a2c', { lw: 6, shade: () => dot(bx, -60, 8) }); pop(); });
   glow(...P(-4, 3, 72), 70, 40, AMBER, .07, 1);
-  grain(.06); vignette(.28);
-  stamp('BOSTON', '15 JAN 1919', '12:30', AMBER, { x: 60, y: 210 });
-  wordCaption('15 Januari 1919.', AMBER, { y: 1340 });
+  // foreground framing: a lamp post cutting the frame on the left, crates on the curb (out of focus)
+  at(1.5, () => { form(rect(-30, -50, 64, 2100), '#1e2024', { lw: 8, sw: 14 }); form(rr(-60, 260, 124, 40, 8), '#1e2024', { lw: 6 }); });
+  at(2, () => { for (const [x, y, w, h] of [[1040, 1640, 300, 230], [1000, 1450, 240, 200]]) form(rect(x - 200, y, w, h), '#6a4e36', { lw: 7, sw: 18, shade: () => { for (let k = 1; k < 4; k++) fillOnly(rect(x - 200, y + h * k / 4, w, 6), '#4a3626', { boil: .2 }); } }); });
+  dof(1480, 1920, 7); dof(0, 220, 3, true);
+  shafts(-200, -200, .95, .12, '255,232,190', .10, 5);
+  paint(.42); grade2('#2c3b55', '#ffdca8', .14); grain(.045); vignette(.3);
+  if (CAPS) { stamp('BOSTON', '15 JAN 1919', '12:30', AMBER, { x: 60, y: 210 }); wordCaption('15 Januari 1919.', AMBER, { y: 1340 }); }
 }
 
 // ———————————————— P1: cold open, the wall of molasses
-function P1() {
+export function P1() {
   F = 1000; HY = 1180; CAMH = .75; HAZE = '#cfd2d2';
   setLight({ dir: [0, -1], tint: '#24232c', a: .3, rim: AMBER, rimA: .95, rw: 8 });
   g.setTransform(1, 0, 0, 1, 0, 0); g.save(); g.translate(W / 2, H / 2); g.rotate(-.05); g.translate(-W / 2, -H / 2);
@@ -212,7 +221,7 @@ function P1() {
   shape(BODY, { fill: '#4a2208', lw: 10, shade: () => {
     // flow streaks running along the curl (offset copies of the crest), amber and cream
     for (let k = 1; k < 9; k++) { const d = k * 46, pts = CREST.slice(0, 8).map(([x, y], i) => [x + d * .55 + i * k * 2, y + d]); stroke(spline(pts, false, 10), 10 - k * .6, { line: k % 3 === 0 ? '#e8952e' : '#8a4512', boil: .3 }); }
-    for (let k = 0; k < 7; k++) { const x0 = 120 + k * 120, y0 = 860 - k * 70; stroke(spline([[x0, y0], [x0 + 60, y0 + 140], [x0 + 70, y0 + 330]], false, 8), 6, { line: '#ffd08a', boil: .3 }); }
+    for (let k = 0; k < 5; k++) { const x0 = 160 + k * 150, y0 = 820 - k * 85; stroke(spline([[x0, y0], [x0 + 34, y0 + 70], [x0 + 40, y0 + 150]], false, 8), 5, { line: '#ffd08a', boil: .3 }); }
     fillOnly(spline([[760, 560], [830, 520], [880, 600], [820, 700], [760, 900], [700, 760]]), '#2a1104', { boil: .3 });   // the tube's shadow
   } });
   // bright lip along the crest
@@ -225,7 +234,7 @@ function P1() {
   for (let k = 0; k < 9; k++) { const t = k / 8, x = lerp(420, 900, t), y = lerp(500, 220, Math.sin(t * Math.PI * .8)) - 30 - hash(k) * 60, r = 12 + hash(k * 4) * 22;
     shape(spline([[x, y - r * 2], [x + r, y], [x, y + r], [x - r, y]]), { fill: '#8a4512', lw: 5, shade: () => dot(x - r * .3, y - r * .3, r * .28, '#ffd08a') }); }
   // spray above the crest
-  for (let k = 0; k < 26; k++) { const x = -12 + hash(k * 3.1) * 24, y = Hx(x) + 1 + hash(k * 1.7) * 3.5, p = P(x, y, ZF + 1 - hash(k) * 3), r = 6 + hash(k * 9) * 16;
+  for (let k = 0; k < 26; k++) { const ph = (hash(k * 1.7) + U * .55) % 1, x = -12 + hash(k * 3.1) * 24 + ph * 1.5, y = Hx(x) + 1 + ph * 6 - ph * ph * 7, p = P(x, y, ZF + 1 - hash(k) * 3), r = 6 + hash(k * 9) * 16;
     shape(spline([[p[0], p[1] - r * 1.6], [p[0] + r, p[1]], [p[0], p[1] + r], [p[0] - r, p[1]]]), { fill: '#a8571a', lw: 4, shade: () => dot(p[0] - r * .3, p[1] - r * .2, r * .25, '#ffd08a') }); }
   // front of the flood sliding over the cobbles
   const fz = ZF - 2.2;
@@ -237,18 +246,28 @@ function P1() {
   deb(4.5, 8.2, 12, () => { rotate(-.9); form(rect(-110, -14, 220, 28), '#6f5a44', { lw: 6 }); });
   deb(-6.5, 6.8, 11, () => { rotate(.3); form(ell(0, 0, 60, 60, 30), '#4a3a2c', { lw: 6, shade: () => { fillOnly(ell(0, 0, 44, 44, 24), '#8a7a66', { boil: .2 }); for (let a = 0; a < 8; a++) stroke([[0, 0], [Math.cos(a * .785) * 44, Math.sin(a * .785) * 44]], 4); } }); });
   // people fleeing, the worker sprinting at the camera
-  who(CAST.lady, 3.2, 9.5, { view: 'front', pose: runFront(.3), expr: 'scream' });
-  who(CAST.gent, -4.4, 11.5, { view: 'front', pose: runFront(.7), expr: 'fear' });
-  who(CAST.kid, -2.3, 8.2, { view: 'front', pose: runFront(.1), expr: 'scream' });
-  who(CAST.worker, .2, 2.4, { view: 'front', pose: runFront(.6), expr: 'scream', look: [0, .15], age: 1 });
+  const q = Math.floor(U * 12) / 12;
+  who(CAST.lady, 3.2, 9.5 - U * .8, { view: 'front', pose: runFront(.3 + q * 1.4), expr: 'scream' });
+  who(CAST.gent, -4.4, 11.5 - U * .7, { view: 'front', pose: runFront(.7 + q * 1.3), expr: 'fear' });
+  who(CAST.kid, -2.3, 8.2 - U * .9, { view: 'front', pose: runFront(.1 + q * 1.7), expr: 'scream' });
+  // comic speed lines converging on the hero
+  if (0) for (let k = 0; k < 22; k++) { const a = -Math.PI * .1 - k * Math.PI * .8 / 21, r0 = 470 + hash(k) * 60, r1 = r0 + 140 + hash(k * 3) * 160; stroke([[600 + Math.cos(a) * r0, 1100 + Math.sin(a) * r0 * 1.3], [600 + Math.cos(a) * r1, 1100 + Math.sin(a) * r1 * 1.3]], 3.5, { line: '#f4ead8', alpha: .55, boil: .4 }); }
+  // tongues of molasses racing over the cobbles, reaching for the camera
+  for (const [x0, w, len, k] of [[-4.6, 3.4, 9.6, 0], [-.9, 2.6, 8.2, 1], [3.0, 3.6, 9.9, 2], [6.2, 2.4, 8.4, 3]]) {
+    const z1 = ZF - .5, z2 = Math.max(1.05, z1 - len - U * 1.6), ptsL = [], ptsR = [];
+    for (let i = 0; i <= 10; i++) { const u = i / 10, z = lerp(z1, z2, u), ww = w * (1 - .55 * u) * (1 + .15 * Math.sin(u * 9 + k)); ptsL.push(P(x0 - ww / 2 + .3 * Math.sin(u * 5 + k), .02, z)); ptsR.push(P(x0 + ww / 2 + .3 * Math.sin(u * 5 + k), .02, z)); }
+    shape(spline([...ptsL, P(x0, .02, z2 - .35), ...ptsR.reverse()], true, 6), { fill: '#4a2208', lw: 6, shade: () => { const m = ptsL.map((p, i) => [(p[0] + ptsR[10 - i][0]) / 2, (p[1] + ptsR[10 - i][1]) / 2]); stroke(spline(m.slice(1, 9), false, 8), 7, { line: '#e8952e' }); stroke(spline(m.slice(3, 7).map(([x, y]) => [x - 14, y - 4]), false, 8), 4, { line: '#ffe0a8' }); } });
+  }
+  who(CAST.worker, .25, 1.85, { view: 'front', pose: runFront(.6 + Math.floor(U * 12) / 12 * 1.5), expr: 'scream', look: [0, .15], age: 1 });
+  for (const [x, y, r] of [[400, 640, 18], [770, 610, 14], [810, 700, 11]]) shape(spline([[x, y - r * 1.8], [x + r, y], [x, y + r], [x - r, y]]), { fill: '#bfe3f2', lw: 4 });   // sweat
   g.restore();
-  wash('#ff9a1f', .04); grain(.06); vignette(.34);
-  if (!P1.noCap) wordCaption('Banjir ini <bukan>', AMBER, { y: 1330 });
+  wash('#ff9a1f', .04); dof(1640, 1920, 8); paint(.4); grade2('#2a3550', '#ffcf8a', .13); grain(.045); vignette(.36);
+  if (!P1.noCap && CAPS) wordCaption('Banjir ini <bukan>', AMBER, { y: 1330 });
 }
 
 // ———————————————— P3: ARSIP KASUS slammed on the desk
 let photo = null;
-function P3() {
+export function P3() {
   // the photo inside the file: P1 rendered small, in sepia
   if (!photo) { photo = document.createElement('canvas'); photo.width = 1080; photo.height = 1920; const main = g.canvas; init(photo); frame(0); P1.noCap = true; P1(); P1.noCap = false; init(main); frame(1); }
   setLight({ dir: [-.4, -.9], tint: '#1a1410', a: .32 });
@@ -277,19 +296,21 @@ function P3() {
   stroke(spline([[-190, -330], [-190, -250], [-160, -230], [-130, -250], [-130, -350], [-160, -370], [-180, -350], [-180, -270]], false, 8), 9, { line: '#8a8f96' });
   pop();
   // red stamp, slammed at an angle
-  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.translate(760, 1500); g.rotate(-.2); g.globalAlpha = .88;
+  const st = U < .55 ? 0 : Math.min(1, (U - .55) / .12), sc = st < 1 ? 1.6 - .6 * st : 1;
+  if (st > 0) { g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.translate(760, 1500); g.rotate(-.2); g.scale(sc, sc); g.globalAlpha = .88 * st;
   g.strokeStyle = '#b3261e'; g.lineWidth = 12; g.strokeRect(-230, -80, 460, 160); g.lineWidth = 4; g.strokeRect(-212, -62, 424, 124);
   g.fillStyle = '#b3261e'; g.font = '600 96px "Oswald"'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('KASUS #001', 0, 6);
   g.globalCompositeOperation = 'destination-out'; for (let k = 0; k < 160; k++) { g.beginPath(); g.arc(-230 + hash(k) * 460, -80 + hash(k * 7) * 160, 1 + hash(k * 3) * 4, 0, 6.3); g.fill(); }
-  g.restore(); g.globalCompositeOperation = 'source-over';
+  g.restore(); g.globalCompositeOperation = 'source-over'; }
   // lamp light pool + dust thrown up by the slam
   g.setTransform(1, 0, 0, 1, 0, 0); const r = g.createRadialGradient(540, 900, 200, 540, 900, 1250); r.addColorStop(0, 'rgba(255,220,160,0.10)'); r.addColorStop(1, 'rgba(0,0,0,0.55)'); g.fillStyle = r; g.fillRect(0, 0, W, H);
-  for (let k = 0; k < 40; k++) { const a = hash(k) * 6.28, d = 520 + hash(k * 3) * 300; dot(540 + Math.cos(a) * d * .85, 990 + Math.sin(a) * d, 2 + hash(k * 9) * 4, '#e8dcc0'); }
-  grain(.07);
-  wordCaption('Ia keluar dari', AMBER, { y: 1690 });
+  if (U < 1.2) for (let k = 0; k < 40; k++) { const a = hash(k) * 6.28, d = (380 + hash(k * 3) * 300) * (1 + U * .9); dot(540 + Math.cos(a) * d * .85, 990 + Math.sin(a) * d + U * U * 120, (2 + hash(k * 9) * 4) * (1 - U / 1.2), '#e8dcc0'); }
+  paint(.36); grade2('#2a2030', '#ffd49a', .12); grain(.05);
+  if (CAPS) wordCaption('Ia keluar dari', AMBER, { y: 1690 });
 }
 
 const cv = document.getElementById('c'); init(cv);
+export const MAIN = cv;
 window.DUR = 3;
 window.render = t => { frame(t); g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, W, H); [P1, P3, P8][Math.min(2, Math.floor(t))](); };
 Promise.all([document.fonts.load('600 40px "Oswald"'), document.fonts.load('700 30px "Courier Prime"')]).then(() => { window.READY = true; });

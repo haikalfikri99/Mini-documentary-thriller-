@@ -203,7 +203,7 @@ function drawHeadFront(P, b) {
   for (const sx of [-1, 1]) stroke([[sx * rx * .66, by + 4 + inn * 4], [sx * rx * .14, by - inn * 12]], bw);
   form(spline([[-rx * .12, ry * .34], [-rx * .02, ry * .02], [rx * .14, ry * .34], [0, ry * .44]]), sk, { lw: 6, sw: 6 });
   if (P.acc?.moustache) form(spline([[-rx * .5, ry * .62], [-rx * .2, ry * .5], [0, ry * .54], [rx * .2, ry * .5], [rx * .5, ry * .62], [rx * .2, ry * .64], [0, ry * .6], [-rx * .2, ry * .64]]), hairC, { lw: 6, sw: 6 });
-  mouth(0, ry * .74, rx * (P.body === 'child' ? .56 : .62), m);
+  mouth(0, ry * .74, rx * (P.body === 'child' ? .56 : .62) * (1 + .45 * Math.max(0, (m.o || 0) - .4)), m);   // a scream opens the whole face
   const T = P.hat, col = P.hatCol || '#4a4744';
   if (T === 'flatcap') {
     form(spline([[-rx * 1.1, -ry * .34], [-rx * 1.0, -ry * .9], [0, -ry * 1.18], [rx * 1.0, -ry * .9], [rx * 1.1, -ry * .34], [0, -ry * .46]]), col, { lw: 7 });
