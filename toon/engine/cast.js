@@ -318,7 +318,8 @@ export function person(P) {
   let b = BASE[P.body || 'man']; const f = P.face ?? 1;
   const pose = mix(typeof P.pose === 'string' ? POSE[P.pose] : mix(POSE.stand, P.pose || {}), P.poseMod || {});
   if (P.view === 'side') b = { ...b, shX: b.shX * .3, hipX: b.hipX * .25, chest: b.chest * .72, waist: b.waist * .78, hipW: b.hipW * .76 };
-  push(); translate(P.x, P.y + (pose.bob || 0)); scale((P.s ?? 1) * f, P.s ?? 1);
+  const sq = P.sq ?? pose.sq ?? 1;   // squash & stretch, volume kept
+  push(); translate(P.x, P.y + (pose.bob || 0) * (P.s ?? 1)); scale((P.s ?? 1) * f / Math.sqrt(sq), (P.s ?? 1) * sq);
   const ck = pose.crouch || 0;
   const dyC = ck * -b.hip * .55;
   if (ck) translate(0, dyC); else legs(P, b, pose);   // crouch: the upper body drops; the folded legs are drawn in front of the torso
