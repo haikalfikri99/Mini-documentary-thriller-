@@ -1,2 +1,4 @@
-// one page, two modes: stills (default) or the key-scene video (?video)
-if (new URLSearchParams(location.search).has('video')) { window.__video = true; await import('./video.js'); } else await import('./panels.js');
+// one page, three modes: stills (default), the key-scene preview (?video), the full film (?film)
+const q = new URLSearchParams(location.search);
+if (q.has('film')) { window.__video = true; await import('./film.js'); }
+else if (q.has('video')) { window.__video = true; await import('./video.js'); } else await import('./panels.js');

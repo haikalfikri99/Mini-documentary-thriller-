@@ -380,10 +380,10 @@ export function finishP1() {
 }
 
 // ———————————————— P3: ARSIP KASUS slammed on the desk
-let photo = null;
+let photo = null; export const PHOTO = { src: null };   // [panel fn, u] rendered (sepia) as the photo in the ARSIP file
 export function P3() {
   // the photo inside the file: P1 rendered small, in sepia
-  if (!photo) { photo = document.createElement('canvas'); photo.width = 1080; photo.height = 1920; const main = g.canvas, u0 = U, l0 = LAYER; init(photo); frame(0); U = 2.3; LAYER = null; P1.noCap = true; P1(); P1.noCap = false; U = u0; LAYER = l0; init(main); frame(1); }
+  if (!photo) { photo = document.createElement('canvas'); photo.width = 1080; photo.height = 1920; const main = g.canvas, u0 = U, l0 = LAYER; init(photo); frame(0); const [fn, fu] = PHOTO.src || [P1, 2.3]; U = fu; LAYER = null; P1.noCap = true; fn(); P1.noCap = false; U = u0; LAYER = l0; init(main); frame(1); }
   setLight({ dir: [-.4, -.9], tint: '#1a1410', a: .32 });
   g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#2a1d16'; g.fillRect(0, 0, W, H);
   for (let i = 0; i < 26; i++) { const y = i * 80; fillOnly(rect(-20, y, W + 40, 76), mix('#3a281c', '#2c1e15', hash(i)), { boil: .1 }); for (let k = 0; k < 5; k++) stroke(spline([[-20, y + 15 + k * 12], [300, y + 10 + k * 13 + 6 * Math.sin(i + k)], [700, y + 18 + k * 12], [1100, y + 12 + k * 12]], false, 10), 1.5, { line: '#24180f', boil: .1 }); }
@@ -428,3 +428,9 @@ export const MAIN = cv;
 window.DUR = 3;
 window.render = t => { frame(t); g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, W, H); [P1, P3, P8][Math.min(2, Math.floor(t))](); };
 Promise.all([document.fonts.load('600 40px "Oswald"'), document.fonts.load('700 30px "Courier Prime"'), brushReady()]).then(async () => { if (window.__video) return; for (const t of [0, 2]) window.render(t + .5); await preparePaint(); window.READY = true; });
+
+// —— shared set pieces for the full film (panels2.js)
+export function setCam(f, hy, camh, haze = HAZE, cx = 540) { F = f; HY = hy; CAMH = camh; HAZE = haze; CX = cx; }
+export const camState = () => ({ F, HY, CAMH, CX });
+export function scenePaint(key, skyCol, fn) { if (!PAINTED[key]) REC = []; fn(); paintover(key, skyCol); }
+export { P, poly, at, lwAt, who, CAST, boston, street, tank, sky, el, facade, lamp, telegraph, fillPoly, line, mix, shade, fog, hex, AMBER, rec };
