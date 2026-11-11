@@ -25,7 +25,7 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 | 6 | Bangun 3 adegan kunci (hook, establishing, satu karakter), poles sampai rubrik ≥ 9 ✋ | preview | `references/4-standar-kualitas-10.md` |
 | 7 | Bangun semua panel per batch (6–10 panel), cek still tiap batch, perbaiki, lalu render film penuh ✋ | `renders/` | rujukan 2 |
 | 8 | Audio: skor MIDI per babak + SFX sinkron + mix VO ✋ | `film/score_full.py`, `film/fullmix.py` | `references/3-audio.md` |
-| 9 | Render final, cek loudness, thumbnail, judul/deskripsi/hashtag | `renders/master_<slug>.mp4`, `thumbnail/` | `references/5-upload-dan-thumbnail.md` |
+| 9 | Render final, cek loudness, thumbnail, judul/deskripsi/hashtag; unggah aset kecil + metadata ke Drive, kirim master ke user | `renders/master_<slug>.mp4`, `thumbnail/` → Drive | `references/5-upload-dan-thumbnail.md` |
 | 10 | Setelah tayang: baca analitik, catat pelajaran di README cerita | — | rujukan 1 §Belajar |
 
 ## Struktur satu film (salin dari `stories/molase/film/`)
@@ -42,9 +42,13 @@ stories/<slug>/
     words.js           timestamp kata VO
     score_full.py      skor orkestra (MIDI → fluidsynth) → score_full.wav
     fullmix.py         SFX + VO chain + ducking → mix_full.wav
-  thumbnail/           thumbnail_shorts_1080x1920.jpg
-  renders/             (diabaikan git kecuali master_<slug>.mp4)
+  thumbnail/, renders/ hasil render lokal (diabaikan git) → dipindah ke Google Drive
 ```
+
+## Penyimpanan: repo vs Google Drive
+- **Repo (git)** = kode, panduan, dan input untuk membangun ulang film: `film/`, `audio/vo_<slug>.mp3`, `vo_words.json`, storyboard, README. Semua output (video, thumbnail, art channel, wav hasil generate) diabaikan git (`.gitignore`) karena bisa dirender ulang.
+- **Google Drive → `Mini Thriller IDN/`**: `00 Channel (profil, banner)/` dan satu folder per film `NNN Judul (Tempat Tahun)/` berisi master MP4, thumbnail, VO (cadangan), dan dokumen metadata upload.
+- Dari sesi cloud, konektor Drive hanya bisa mengunggah file kecil (≈ 3 MB per permintaan): thumbnail, gambar, VO, dokumen. **Video master harus dipindah user secara manual** (unduh dari kartu file di chat → unggah ke folder film di Drive).
 
 ## Perintah
 ```bash

@@ -11,7 +11,7 @@ Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.** Semua gambar 
   arsip-kasus/            skill produksi channel (SKILL.md + references/: cerita & script, visual & animasi,
                           audio, standar kualitas 10/10, upload & thumbnail, riset viral)
   <16 skill pendukung>    naskah (youtube-scriptwriting, hook-and-headline-writing, youtube-shorts, fact-checking), animasi, sinematografi, komposisi, grading, suara, p5-brush, find-skills (lihat skills-lock.json)
-channel/                  identitas channel Mini Thriller IDN: bio, foto profil, banner (dirender dari kode)
+channel/                  identitas channel: bio, kata kunci, kode render foto profil & banner
 toon/                     toolkit animasi 2D (engine/ + core/render/) — dipakai semua film
 stories/
   molase/                 ARSIP KASUS #001 "Banjir Ini Bukan Air" — selesai (README = fakta, sumber, metadata upload)
@@ -20,4 +20,6 @@ stories/
 ## Film
 | # | Slug | Judul | Status |
 |---|---|---|---|
-| 001 | `molase` | Banjir Ini Bukan Air (Boston 1919) | final v1 — `stories/molase/renders/master_molase.mp4` |
+| 001 | `molase` | Banjir Ini Bukan Air (Boston 1919) | final v1 — media di Google Drive `Mini Thriller IDN/001 …` |
+
+**Penyimpanan:** repo hanya berisi kode, panduan, dan input (VO). Semua media hasil (video, thumbnail, profil, banner) ada di Google Drive folder **Mini Thriller IDN**.

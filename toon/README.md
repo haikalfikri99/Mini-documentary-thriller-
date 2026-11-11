@@ -12,7 +12,6 @@
 | `engine/look.js` | Finishing: paint texture, two-temperature grade, depth of field, light shafts, grain, vignette |
 | `engine/fx.js` | Liquid and debris: molasses palette, drops, hanging drops, splashes, barrels, planks, wheels |
 | `core/render/` | Headless render tools (`still.mjs`, `video.mjs` parallel frames → mp4) |
-| `proof/` | Signature proof: the same kit across 3 stories |
 | `fonts/` | Oswald, Courier Prime (OFL) |
 
 p5.js 2 + p5.brush 3 (MIT, `npm install`) give the watercolour paintover used by the street sets.
@@ -27,7 +26,7 @@ How films use the toolkit: `.claude/skills/arsip-kasus/references/2-visual-dan-a
 Run these from `toon/` after `npm install`:
 
 ```
-node core/render/still.mjs proof 2.5 --size 1080x1920 --out out/proof
+node core/render/still.mjs ../stories/<slug>/film 1.0 --q film --size 1080x1920 --out out/cek
 node core/render/video.mjs ../stories/<slug>/film --q film --size 1080x1920 --fps 24 --workers 4
 ```
 
