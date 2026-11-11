@@ -43,3 +43,18 @@ export function caption(str, threat, { y = 1470, size = 84, k = 1 } = {}) {
   }
   g.globalAlpha = 1; g.setTransform(1, 0, 0, 1, 0, 0);
 }
+
+// Word-build caption (ATM from the reference): uppercase, bold, white with a thick ink outline, about 70% down the frame;
+// words appear one by one (n = how many are shown); the word(s) between < > are set in the threat colour
+export function wordCaption(str, threat, { n = 99, y = 1330, size = 70 } = {}) {
+  const words = str.toUpperCase().split(' ').slice(0, n), items = [];
+  g.setTransform(1, 0, 0, 1, 0, 0); g.font = `600 ${size}px "Oswald"`; g.textBaseline = 'middle'; g.textAlign = 'left';
+  let hot = false;
+  for (const w of words) { const open = w.includes('<'), s = w.replace(/[<>]/g, ''); if (open) hot = true; items.push({ s, hot }); if (w.includes('>')) hot = false; }
+  const sp = size * .28, total = items.reduce((a, it) => a + g.measureText(it.s).width, 0) + sp * (items.length - 1);
+  let x = (W - total) / 2;
+  for (const it of items) {
+    g.lineJoin = 'round'; g.lineWidth = size * .2; g.strokeStyle = INK; g.strokeText(it.s, x, y);
+    g.fillStyle = it.hot ? threat : PAPER; g.fillText(it.s, x, y); x += g.measureText(it.s).width + sp;
+  }
+}
