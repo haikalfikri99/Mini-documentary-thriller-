@@ -69,3 +69,10 @@ export function sprintAt(ph, k = 1) {
     armB: mixPose({ h: [-44, 170], bend: -40, fist: 1 }, { h: [40, -10], bend: 110, fist: 1 }, 1 - a),
   };
 }
+// acting keys: K = [[t, value], ...] (values: numbers, poses or expression objects, blended with mixPose);
+// each segment eases in-out by default, or with its own easing given as a third element ([t, value, ease]).
+export function keys(t, K, def = ease.inOut) {
+  if (t <= K[0][0]) return K[0][1];
+  for (let i = 1; i < K.length; i++) if (t < K[i][0]) { const [t0, a] = K[i - 1], [t1, b, e] = K[i]; return mixPose(a, b, (e || def)((t - t0) / (t1 - t0))); }
+  return K[K.length - 1][1];
+}

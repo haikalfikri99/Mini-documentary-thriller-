@@ -2,8 +2,8 @@
 // The street is real one-point perspective (3D points projected), drawn with the toon engine (ink line, flat fill, light crescents).
 import { clamp, lerp, hash } from '/core/lib.js';
 import { init, frame, g, W, H, INK, S, push, pop, translate, rotate, scale, shape, fillOnly, stroke, ell, arc, spline, rr, rect, noodle, dot } from '/engine/toon.js';
-import { person, setLight, form, SKIN } from '/engine/cast.js';
-import { runFront, run, walk, flutter, blink, sprintAt } from '/engine/motion.js';
+import { person, setLight, form, SKIN, EXPR } from '/engine/cast.js';
+import { runFront, run, walk, flutter, blink, sprintAt, keys, ease } from '/engine/motion.js';
 import { glow, wash, stamp, wordCaption, PAPER } from '/engine/brand.js';
 import { grain, vignette, paint, grade2, dof, shafts } from '/engine/look.js';
 
@@ -233,8 +233,24 @@ export function P8() {
   for (let k = 0; k < 6; k++) { const [px, py] = P(-1 + hash(k) * 4, 0, 6 + hash(k * 3) * 4), s = F / (6 + k) / 100 * .32; at(6, () => { push(); translate(px, py); scale(s * (hash(k) > .5 ? 1 : -1), s);
     form(spline([[-30, -20], [10, -34], [34, -22], [30, -6], [-10, 0], [-40, -8]]), '#6f747c', { lw: 4, sw: 6 }); form(ell(30, -36, 12, 11, 12), '#5d6470', { lw: 4 }); dot(34, -38, 2.2); stroke([[42, -34], [50, -32]], 3, { line: '#c9a46a' }); pop(); }); }
   }
-  if (L(2)) { const k = clamp((U - .9) / 1.4), e = k * k * (3 - 2 * k);   // he notices the tank: eyes first, then the head tilts up (overlap)
-    who(CAST.worker, -.82, 2.25, { pose: { bob: Math.sin(U * 1.9) * 4 * (1 - e), lean: -.05 * e + Math.sin(U * 1.3) * .012, armB: { h: [-16, 178], bend: -14 }, armF: { h: lerp(16, 46, e) !== 0 ? [lerp(16, 60, e), lerp(176, 120, e)] : [16, 176], bend: lerp(14, 40, e), hand: 'open' } }, expr: e > .5 ? 'curious' : 'calm', face: 1, look: [lerp(.2, .7, clamp(e * 1.6)), lerp(0, -.8, clamp(e * 1.6))], headTilt: lerp(0, -.22, clamp((k - .15) / .85)), blink: blink(U + .8, 3) }); }
+  if (L(2)) {   // acting beat: idle → the tank groans (u .95) → a double take up at it → squints → clutches his scarf, half a step back, unease
+    const E = ease, ex = (o) => ({ ...EXPR.neutral, ...o });
+    const look = keys(U, [[0, [.5, .15]], [.9, [.5, .15]], [1.02, [.2, 0]], [1.18, [.65, -.85], E.out], [3.65, [.6, -.8]]]);
+    const tilt = keys(U, [[0, 0], [.95, 0], [1.05, .05], [1.3, -.27, E.out], [1.5, -.21], [2.2, -.23], [3.65, -.2]]);   // dip (anticipation), snap up with overshoot, settle
+    const expr = keys(U, [[0, ex({ lid: .18, mouth: { o: 0, w: .6, sm: .3 } })], [.95, ex({ lid: .18, mouth: { o: 0, w: .6, sm: .3 } })],
+      [1.25, ex({ lid: 0, brow: .9, inner: .2, eyeS: 1.15, pupil: 3.4, mouth: { o: .35, w: .5, sm: 0 } }), E.out],   // eyes go wide first
+      [1.9, ex({ lid: .34, brow: -.05, inner: .3, eyeS: 1, pupil: 4, mouth: { o: .1, w: .5, sm: -.1 } })],              // squinting up into the noon sky
+      [3.0, ex({ lid: .06, brow: .45, inner: 1, eyeS: 1.08, pupil: 3.6, mouth: { o: .14, w: .62, sm: -.55 } })]]);    // unease: inner brows knit up
+    const pose = keys(U, [[0, { lean: 0, bob: 0, armB: { h: [-10, 176], bend: -10 }, armF: { h: [22, 150], bend: 34, hand: 'open' } }],
+      [.95, { lean: 0, bob: 0, armB: { h: [-10, 176], bend: -10 }, armF: { h: [22, 150], bend: 34, hand: 'open' } }],
+      [1.05, { lean: .02, bob: 8, armB: { h: [-14, 172], bend: -14 }, armF: { h: [10, 168], bend: 20, hand: 'open' } }],
+      [1.3, { lean: -.07, bob: -4, armB: { h: [-20, 170], bend: -18 }, armF: { h: [14, 165], bend: 24, hand: 'open' } }, E.out],   // recoils back as the head snaps up
+      [1.45, { lean: -.05, bob: 0, armB: { h: [-20, 170], bend: -18 }, armF: { h: [20, 160], bend: 30, hand: 'open' } }],
+      [2.0, { lean: -.05, bob: 0, armB: { h: [-20, 170], bend: -18 }, armF: { h: [-22, 70], bend: -60, fist: 1 }, legF: [-14, 0], legB: [-26, 0] }],           // his hand creeps up to clutch his scarf; a half step back
+      [3.65, { lean: -.06, bob: 0, armB: { h: [-22, 168], bend: -20 }, armF: { h: [-26, 64], bend: -62, fist: 1 }, legF: [-14, 0], legB: [-26, 0] }]]);
+    pose.bob += Math.sin(U * 1.9) * 3;   // breathing under everything
+    who(CAST.worker, -.82, 2.25, { pose, expr, face: 1, look, headTilt: tilt, blink: blink(U + .8, 3) || (U > .96 && U < 1.02) });
+  }
   // a delivery wagon with molasses barrels in the street (foreshadowing)
   if (L(1)) { const wz = 15, [wx, wy] = P(1.2, 0, wz), s = F / wz / 100;
   at(wz, () => { push(); translate(wx, wy); scale(s);
@@ -247,6 +263,9 @@ export function P8() {
 }
 export function finishP8() {
   dof(1480, 1920, 7); dof(0, 220, 3, true);
+  { g.setTransform(1, 0, 0, 1, 0, 0); const gr = g.createLinearGradient(0, 300, 900, 1300);   // mild January noon: warm sun from the upper left, cool shade under the el
+    gr.addColorStop(0, 'rgba(255,214,150,.30)'); gr.addColorStop(.55, 'rgba(255,214,150,0)'); gr.addColorStop(1, 'rgba(40,60,100,.22)');
+    g.globalCompositeOperation = 'soft-light'; g.fillStyle = gr; g.fillRect(0, 0, W, H); g.globalCompositeOperation = 'source-over'; }
   shafts(-200, -200, .95, .12, '255,232,190', .045, 3);   // faint: strong shafts read as rain
   paint(.42); grade2('#2c3b55', '#ffdca8', .14); grain(.045); vignette(.3);
   if (CAPS) { stamp('BOSTON', '15 JAN 1919', '12:30', AMBER, { x: 60, y: 210 }); wordCaption('15 Januari 1919.', AMBER, { y: 1340 }); }
@@ -276,7 +295,7 @@ export function P1() {
   for (const A of [CREST, TUBE, FACE]) A.forEach((p, i) => { A[i] = wv(p); });
   const BODY = spline([...CREST, ...TUBE.slice(1), ...FACE.slice(1), [1200, 1300], [-120, 1300]], true, 10);
   // the barrel under the curl: a dark falling curtain, never the street behind
-  fillOnly(spline([[760, 600], [880, 430], [1180, 380], [1180, 1240], [800, 1240]].map(wv), true, 6), '#241004', { boil: .2 }); { for (let k = 0; k < 9; k++) { const x = 780 + k * 46 + hash(k) * 20; stroke(spline([[x, 520 + hash(k * 3) * 80], [x + 8, 800], [x - 4, 1100]], false, 8), 4 + hash(k * 5) * 8, { line: k % 3 ? '#4a2208' : '#8a4512', boil: .3 }); } }
+  fillOnly(spline([[700, 600], [860, 330], [1180, 150], [1180, 1240], [760, 1240]].map(wv), true, 6), '#241004', { boil: .2 }); { for (let k = 0; k < 9; k++) { const x = 780 + k * 46 + hash(k) * 20; stroke(spline([[x, 520 + hash(k * 3) * 80], [x + 8, 800], [x - 4, 1100]], false, 8), 4 + hash(k * 5) * 8, { line: k % 3 ? '#4a2208' : '#8a4512', boil: .3 }); } }
   shape(BODY, { fill: '#3a1806', lw: 10, shade: () => {
     // flow streaks running along the curl (offset copies of the crest), amber and cream
     for (let k = 1; k < 17; k++) { const d = k * 30 + hash(k) * 20, i0 = Math.floor(hash(k * 7) * 4), n = 3 + Math.floor(hash(k * 11) * 3), sl = (U * 90 + k * 37) % 120 - 60, pts = CREST.slice(i0, i0 + n).map(([x, y], i) => [x + d * .55 + i * 6 + Math.sin(k + i) * 14 + sl * .8, y + d + sl * .5]); stroke(spline(pts, false, 10), 8 + hash(k * 5) * 14, { line: k < 4 ? '#c06a1c' : k % 5 === 0 ? '#8a4512' : '#552610', boil: .3 }); }   // broken flow streaks: viscous, not striped
@@ -289,6 +308,19 @@ export function P1() {
   // drips from the lip and the tube's edge
   for (const [x, y, L, w] of [[1000, 560, 190, 15], [960, 610, 120, 11], [900, 640, 240, 14], [850, 600, 90, 9], [560, 560, 70, 8], [430, 690, 110, 10]].map(([x, y, l, w], i) => [...wv([x, y]), l * (1 + .35 * ((U * 1.3 + i * .37) % 1)), w]))   // drips ride the lip and stretch
     shape(spline([[x - w, y], [x + w, y], [x + w * .45, y + L * .7], [x, y + L], [x - w * .45, y + L * .7]]), { fill: '#a8571a', lw: 5, shade: () => fillOnly(ell(x - w * .3, y + L * .55, w * .25, L * .18, 10), '#ffd08a', { boil: .2 }) });
+  // globs tearing off the lip: each one pinches off, falls on a parabola, and stretches along its velocity
+  for (let k = 0; k < 14; k++) {
+    const per = .7 + hash(k * 3) * .4, ph = ((U + hash(k) * per) % per) / per, t = ph * per, i = 3 + Math.floor(hash(k * 5) * 6);
+    const [x0, y0] = CREST[Math.min(i, CREST.length - 1)], vx = 140 + hash(k * 7) * 220, vy = -60 - hash(k * 9) * 120, x = x0 + vx * t, y = y0 + 40 + vy * t + 900 * t * t;
+    const sp = Math.hypot(vx, vy + 1800 * t), ang = Math.atan2(vy + 1800 * t, vx), r = (9 + hash(k * 11) * 12) * (1 - .3 * ph), st = 1 + Math.min(2.2, sp / 600);
+    push(); translate(x, y); rotate(ang); form(ell(0, 0, r * st, r / Math.sqrt(st), 16), k % 3 ? '#4a2208' : '#8a4512', { lw: 4, sw: 3, shade: () => dot(-r * st * .3, -r * .3, r * .3, '#ffd08a') }); pop();
+  }
+  // where the falling curtain hits the street: splash crowns that rise, spread and fall back
+  for (let k = 0; k < 4; k++) {
+    const per = .55, ph = ((U + k * .17) % per) / per, cx = 800 + k * 95 + U * 20, cy = 1180, h = Math.sin(ph * Math.PI) * (90 + k * 15), w = 40 + ph * 70;
+    form(spline([[cx - w, cy], [cx - w * .7, cy - h * .7], [cx - w * .35, cy - h * .2], [cx, cy - h], [cx + w * .35, cy - h * .2], [cx + w * .7, cy - h * .7], [cx + w, cy], [cx, cy + 10]]), '#5a2a0c', { lw: 5, sw: 6, shade: () => stroke([[cx - w * .5, cy - h * .5], [cx - w * .1, cy - h * .85]], 4, { line: '#e8952e' }) });
+    for (let j = 0; j < 3; j++) { const a = -Math.PI / 2 + (j - 1) * .7, d = ph * (120 + j * 20); dot(cx + Math.cos(a) * d, cy - Math.sin(-a) * d * 1.2 + ph * ph * 160, 7 * (1 - ph * .5), '#4a2208'); }
+  }
   // splash crown on top of the crest
   for (let k = 0; k < 9; k++) { const t = k / 8, [x, y] = wv([lerp(420, 900, t), lerp(500, 220, Math.sin(t * Math.PI * .8)) - 30 - hash(k) * 60 - 18 * Math.sin(U * 9 + k)]), r = 12 + hash(k * 4) * 22;
     shape(spline([[x, y - r * 2], [x + r, y], [x, y + r], [x - r, y]]), { fill: '#8a4512', lw: 5, shade: () => dot(x - r * .3, y - r * .3, r * .28, '#ffd08a') }); }
@@ -331,7 +363,8 @@ export function P1() {
     const ct = clamp(U / 2.3), cz = hz + ct * 6, [hpx, hpy] = P(hx + .3 * ct, 1.95 + 1.6 * ct - 1.2 * ct * ct, cz), cs = F / cz / 100 * .3;
     at(cz, () => { push(); translate(hpx, hpy); rotate(-.4 - ct * 5); scale(cs);
       form(spline([[-60, 6], [-52, -30], [0, -46], [52, -30], [64, 0], [96, 10], [70, 18], [-50, 18]]), '#55575c', { lw: 6, sw: 10, shade: () => stroke([[-40, 2], [50, -4]], 3) }); pop(); });
-    who({ ...CAST.worker, hat: 'none' }, hx, hz, { view: 'front', pose: sprintAt(ph, 1.1), expr: 'scream', look: [0, .05], flutter: flutter(U, 2) });
+    const gl = U > 1.15 && U < 1.6;   // a glance back over his shoulder at "datang dari sungai", then eyes front again
+    who({ ...CAST.worker, hat: 'none' }, hx, hz, { view: 'front', pose: sprintAt(ph, 1.1), expr: gl ? 'shock' : 'scream', ...(gl ? { headView: '3q', face: -1, headTilt: -.08 } : {}), mouth: { o: .95 + .18 * Math.sin(U * 7) }, look: [0, .05], flutter: flutter(U, 2) });
     for (const [dx, dy, r] of [[-120, -640, 16], [118, -610, 13], [-100, -560, 10]]) { const [px, py] = P(hx, 0, hz), k = F / hz / 660 * 1.75, t = (U * 1.4 + r * .1) % 1;   // sweat flung off
       shape(spline([[px + dx * k, py + (dy + t * 60) * k - r * 1.8], [px + dx * k + r, py + (dy + t * 60) * k], [px + dx * k, py + (dy + t * 60) * k + r], [px + dx * k - r, py + (dy + t * 60) * k]]), { fill: '#bfe3f2', lw: 4 }); }
     // splatter flicked up from his heels

@@ -1,7 +1,7 @@
 // Key-scene preview v3: multiplane parallax, story-driven camera, motion blur (sub-frame accumulation on fast shots),
 // captions synced to the VO's word timestamps (faster-whisper), freeze-frame → archive photo, push into the photo → the street.
 // P1 (VO 0–2.3): the scream, pull back to the wave. P3 (VO 2.3–5.4): ARSIP KASUS slams. P8 (VO 8.98–12.65, shifted −3.6 s): the tank at the end of the street.
-window.__video = true;
+window.__video = true; window.__hold = new URLSearchParams(location.search).has('hold');   // hold: settled camera, for acting tests
 import { P1, P3, P8, finishP1, finishP8, setU, setLayer, preparePaint, brushReady, MAIN } from './panels.js';
 import { frame, g, W, H } from '/engine/toon.js';
 import { stamp, timedCaption } from '/engine/brand.js';
@@ -29,7 +29,7 @@ function cam(i, u) {
     const pin = ei((u - 2.55) / .55); s *= 1 + 1.9 * pin;
     return { s, cx: 540, cy: lerp(960, 1080, pin), ox: (vnoise(u * 30) - .5) * Math.exp(-u * 9) * 22, oy: (vnoise(u * 33 + 5) - .5) * Math.exp(-u * 9) * 22, rot: 0 };
   }
-  const k = io(u / 3.2);   // open on the tank at the end of the street, ease back to reveal the street and the worker below it
+  const k = window.__hold ? 1 : io(u / 3.2);   // open on the tank at the end of the street, ease back to reveal the street and the worker below it
   return { s: lerp(1.75, 1.04, k), cx: lerp(660, 540, k), cy: lerp(900, 960, k), ox: lerp(0, -14, io(u / 3.65)), oy: 0, rot: 0 };
 }
 function draw(c, C, depth) {

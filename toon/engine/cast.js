@@ -67,7 +67,10 @@ export function hand(x, y, ang, r, col, kind = 'open') {
   if (kind === 'fist' || kind === 'point') {
     form(spline([[-r * .6, -r * .8], [r * .7, -r * .9], [r * 1.1, -r * .1], [r * .8, r * .8], [-r * .5, r * .9], [-r * .9, 0]]), col, { lw: 6, sw: 6 });
     if (kind === 'point') form(noodle([r * .6, -r * .45], [r * 2.1, -r * .55], 0, r * .5, r * .42), col, { lw: 6, sw: 4 });
-    stroke([[r * .1, r * .1], [r * .7, r * .15]], 4);
+    if (kind === 'fist') {   // knuckles and a thumb wrapped across the curled fingers
+      for (const k of [-.45, 0, .45]) stroke([[r * .78, r * k - r * .14], [r * 1.02, r * k]], 3.5);
+      form(spline([[-r * .55, r * .1], [r * .15, -r * .25], [r * .65, -r * .1], [r * .55, r * .25], [-r * .3, r * .45]]), col, { lw: 5, sw: 4 });
+    } else stroke([[r * .1, r * .1], [r * .7, r * .15]], 4);
   } else {
     form(spline([[-r * .5, -r * .85], [r * .5, -r * 1.05], [r * 1.35, -r * .75], [r * 1.05, -r * .3], [r * 1.5, -r * .1], [r * 1.1, r * .3], [r * 1.35, r * .7], [r * .6, r * .95], [-r * .6, r * .8], [-r * .95, 0]]), col, { lw: 6, sw: 6 });
     stroke([[r * .2, -r * .15], [r * .75, -r * .45]], 4);
