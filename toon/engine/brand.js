@@ -58,3 +58,21 @@ export function wordCaption(str, threat, { n = 99, y = 1330, size = 70 } = {}) {
     g.fillStyle = it.hot ? threat : PAPER; g.fillText(it.s, x, y); x += g.measureText(it.s).width + sp;
   }
 }
+
+// Timed word caption (synced to the VO's word timestamps): the phrase is laid out once, so words never shift as they appear;
+// each word pops in on its own start time (ease-out-back scale 1.3 → 1 over 0.12 s). words: [{ s, t0, hot }], t: time now
+export function timedCaption(words, t, threat, { y = 1330, size = 76 } = {}) {
+  g.setTransform(1, 0, 0, 1, 0, 0); g.font = `600 ${size}px "Oswald"`; g.textBaseline = 'middle'; g.textAlign = 'left';
+  const sp = size * .28, ws = words.map(w => g.measureText(w.s.toUpperCase()).width), total = ws.reduce((a, b) => a + b, 0) + sp * (words.length - 1);
+  let x = (W - total) / 2;
+  words.forEach((w, i) => {
+    const k = (t - w.t0) / .12;
+    if (k >= 0) {
+      const e = Math.min(1, k), b = e - 1, sc = k >= 1 ? 1 : 1.3 - .3 * (1 + b * b * (2.7 * b + 1.7)), cx = x + ws[i] / 2;
+      g.save(); g.globalAlpha = Math.min(1, k * 2.5); g.translate(cx, y); g.scale(sc, sc); g.translate(-cx, -y);
+      g.lineJoin = 'round'; g.lineWidth = size * .2; g.strokeStyle = INK; g.strokeText(w.s.toUpperCase(), x, y);
+      g.fillStyle = w.hot ? threat : PAPER; g.fillText(w.s.toUpperCase(), x, y); g.restore();
+    }
+    x += ws[i] + sp;
+  });
+}

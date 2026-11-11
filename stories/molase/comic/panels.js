@@ -3,7 +3,7 @@
 import { clamp, lerp, hash } from '/core/lib.js';
 import { init, frame, g, W, H, INK, S, push, pop, translate, rotate, scale, shape, fillOnly, stroke, ell, arc, spline, rr, rect, noodle, dot } from '/engine/toon.js';
 import { person, setLight, form, SKIN } from '/engine/cast.js';
-import { runFront, walk } from '/engine/motion.js';
+import { runFront, run, walk, flutter, blink } from '/engine/motion.js';
 import { glow, wash, stamp, wordCaption, PAPER } from '/engine/brand.js';
 import { grain, vignette, paint, grade2, dof, shafts } from '/engine/look.js';
 
@@ -77,14 +77,19 @@ function sky(top = '#b9c7d3', mid = '#d5dde2', low = '#ebe6da') {
 }
 // ———————————————— the molasses tank (background landmark)
 function tank(cx, cz, r, h, wet = .3) {
+  const fog = (c, z) => mix(c, HAZE, (1 - Math.exp(-z * .011)) * .45);   // the landmark keeps its weight through the haze
   const z = cz - r, L = P(cx - r, 0, cz), R = P(cx + r, 0, cz), T = P(cx, h, cz), B = P(cx, 0, cz);
   const ry = Math.max(6, (R[0] - L[0]) * .08), top = T[1], bot = B[1];
   const body = [[L[0], top], ...arc((L[0] + R[0]) / 2, top, (R[0] - L[0]) / 2, ry, Math.PI, 0, 20), [R[0], bot], ...arc((L[0] + R[0]) / 2, bot, (R[0] - L[0]) / 2, ry, 0, Math.PI, 20)];
-  rec(body, '#6c6a62', .6); at(cz, () => form(body, fog('#6c6a62', cz), {
+  rec(body, '#6c6a62', .6); at(cz, () => form(body, fog('#5d5b55', cz), {
     lw: 6, sw: 40, shade: () => {
       const w = R[0] - L[0];
       for (let k = 1; k < 6; k++) fillOnly(rect(L[0], lerp(top, bot, k / 6) - 2, w, 3), fog('#55544e', cz), { boil: .2 });
       for (let k = 0; k < 9; k++) { const x = L[0] + w * (.12 + k * .095), l = (bot - top) * (.2 + hash(k) * .5 * (1 + wet)); fillOnly(rect(x, top + (bot - top) * .18, 4 + hash(k * 3) * 6, l), fog('#5a3a1a', cz), { boil: .3, alpha: .7 }); }
+      for (let k = 0; k < 6; k++) { const x = L[0] + w * (.18 + k * .13 + hash(k * 2) * .05), y0 = lerp(top, bot, .22 + .18 * (k % 3)); fillOnly(spline([[x - 3, y0], [x + 3, y0], [x + 4, bot - 4], [x, bot + 4], [x - 4, bot - 4]]), '#a8571a', { boil: .3, alpha: .85 }); }   // molasses weeping from the seams (the warning sign)
+      for (let k = 0; k < 10; k++) fillOnly(rect(L[0] + w * (.55 + k * .045), top, w * .046, bot - top), '#1c1a20', { boil: .1, alpha: .05 + k * .028 });   // cylinder shading: the shadow side rolls off
+      fillOnly(rect(L[0] + w * .14, top, w * .06, bot - top), '#e6e2d6', { boil: .1, alpha: .14 });   // a soft specular band on the lit side
+      for (let k = 1; k < 6; k++) for (let j = 0; j < 22; j++) dot(L[0] + w * (j + .5) / 22, lerp(top, bot, k / 6) + 3, 1.6, fog('#3a3a36', cz));   // rivet rows
     }
   }));
   at(cz, () => form(ell((L[0] + R[0]) / 2, top, (R[0] - L[0]) / 2, ry, 30), fog('#7b7970', cz), { lw: 5 }));
@@ -191,37 +196,39 @@ const CAST = {
 };
 
 // ———————————————— the street set (shared by P1 and P8)
-function boston({ waveZ = null } = {}) {
+function boston({ waveZ = null, tankAt = null } = {}) {
   sky();
-  tank(-4, 64, 14, 15, waveZ ? 1 : .55);
-  // right side buildings behind the el (in its shadow)
-  for (let i = 0, z = 6; i < 12; i++) { const w = 9 + hash(i * 5) * 5, h = 10 + hash(i * 9) * 6; const Q = poly([[9.4, 0, z], [9.4, 0, z + w], [9.4, h, z + w], [9.4, h, z]]); rec(Q, shade(PAL[(i + 2) % 5], -.35), .5); at(z, () => form(Q, fog(shade(PAL[(i + 2) % 5], -.35), z + w / 2), { lw: 5, sw: 10 })); z += w; }
-  el(1.2, 220);
-  // left side buildings, far to near (painter's order)
-  const L = []; for (let i = 0, z = 1.5; i < 13; i++) { const w = 8 + hash(i * 3.3) * 6, h = 11 + hash(i * 7.1) * 7; L.push([z, z + w, h, i]); z += w; }
-  for (const [z0, z1, h, i] of L.reverse()) facade(-9.2, z0, z1, h, i, 1);
-  telegraph(-7.6, [4, 16, 28, 40, 52, 64, 76]);
+  const T = tankAt || [-4, 64], tz = T[1];
+  const Rb = []; for (let i = 0, z = 6; i < 12; i++) { const w = 9 + hash(i * 5) * 5, h = 10 + hash(i * 9) * 6; Rb.push([z, w, h, i]); z += w; }
+  const Lb = []; for (let i = 0, z = 1.5; i < 13; i++) { const w = 8 + hash(i * 3.3) * 6, h = 11 + hash(i * 7.1) * 7; Lb.push([z, z + w, h, i]); z += w; }
+  const right = far => { for (const [z, w, h, i] of Rb) { if ((z > tz) !== far || (tankAt && z > tz - 16 && z < tz + 16)) continue; const Q = poly([[9.4, 0, z], [9.4, 0, z + w], [9.4, h, z + w], [9.4, h, z]]); rec(Q, shade(PAL[(i + 2) % 5], -.35), .5); at(z, () => form(Q, fog(shade(PAL[(i + 2) % 5], -.35), z + w / 2), { lw: 5, sw: 10 })); } };
+  const left = far => { for (const [z0, z1, h, i] of [...Lb].reverse()) { if ((z0 > tz) !== far || (tankAt && z1 > tz - 16 && z0 < tz + 16)) continue; facade(-9.2, z0, z1, h, i, 1); } };
+  // far blocks, then the tank, then the near blocks (painter's order); with tankAt the tank stands in an open lot at the end of the street
+  right(true); left(true);
+  tank(T[0], tz, tankAt ? 13.7 : 14, 15, waveZ ? 1 : .55);
+  right(false); el(1.2, 220); left(false);
+  telegraph(-7.6, [4, 16, 28, 40, 52, 64, 76].filter(z => !tankAt || z < tz - 14));
   for (const z of [7, 19, 31, 43]) lamp(-7.3, z);
 }
-
 // ———————————————— P8: 15 January 1919, 12:30, a calm mild noon
 export function P8() {
   F = 980; HY = 1060; CAMH = 1.3; HAZE = '#d9dcdc';
   setLight({ dir: [.55, -.8], tint: '#2a2c3a', a: .26 });
-  if (L(0)) { if (!PAINTED.P8) REC = []; boston(); street(1.1);
+  if (L(0)) { if (!PAINTED.P8) REC = []; boston({ tankAt: [.6, 40] }); street(1.1);
   fillPoly(poly([[1.2, .01, 1.2], [7, .01, 1.2], [7, .01, 300], [2.6, .01, 300]]), '#141820', .32);   // the el's shadow
-  el(1.2, 220, 0, true); paintover('P8', '#aebfcd'); glow(...P(-4, 3, 72), 70, 40, AMBER, .07, 1); }
+  el(1.2, 220, 0, true); paintover('P8', '#aebfcd'); glow(...P(.6, 2, 40), 170, 60, AMBER, .05, 2); }
   if (L(1)) {
   // people going about their day
-  who(CAST.gent, -5.6, 21, { pose: walk(.2), expr: 'neutral', face: 1 });
-  who(CAST.lady, -5.0, 11, { pose: walk(.55), expr: 'calm', face: 1 });
-  who(CAST.kid, -4.2, 10.6, { pose: walk(.1), expr: 'calm', face: 1 });
-  who(CAST.docker, 3.4, 8, { pose: walk(.7), expr: 'neutral', face: -1 });
+  who(CAST.gent, -5.6, 21 + U * 1.1, { pose: walk(.2 + U * .9), expr: 'neutral', face: 1 });
+  who(CAST.lady, -5.0 + U * .05, 11 + U * 1.0, { pose: walk(.55 + U * .85), expr: 'calm', face: 1, flutter: flutter(U, .5) });
+  who(CAST.kid, -4.2, 10.6 + U * 1.2, { pose: walk(.1 + U * 1.15), expr: 'calm', face: 1 });
+  who(CAST.docker, 3.4, 8 - U * .9, { pose: walk(.7 + U * .9), expr: 'neutral', face: 1 });   // walking toward camera on the right: drifts screen-right, so he faces right
   // pigeons pecking on the cobbles
   for (let k = 0; k < 6; k++) { const [px, py] = P(-1 + hash(k) * 4, 0, 6 + hash(k * 3) * 4), s = F / (6 + k) / 100 * .32; at(6, () => { push(); translate(px, py); scale(s * (hash(k) > .5 ? 1 : -1), s);
     form(spline([[-30, -20], [10, -34], [34, -22], [30, -6], [-10, 0], [-40, -8]]), '#6f747c', { lw: 4, sw: 6 }); form(ell(30, -36, 12, 11, 12), '#5d6470', { lw: 4 }); dot(34, -38, 2.2); stroke([[42, -34], [50, -32]], 3, { line: '#c9a46a' }); pop(); }); }
   }
-  if (L(2)) who(CAST.worker, -.55, 1.85, { pose: { lean: -.04, armB: { h: [-16, 178], bend: -14 }, armF: { h: [40, 150], bend: 20, hand: 'open' } }, expr: 'curious', face: 1, look: [lerp(.6, .15, clamp(U / 1.2)), lerp(-.1, -.95, clamp(U / 1.2))], headTilt: lerp(0, -.2, clamp(U / 1.2)) });
+  if (L(2)) { const k = clamp((U - .9) / 1.4), e = k * k * (3 - 2 * k);   // he notices the tank: eyes first, then the head tilts up (overlap)
+    who(CAST.worker, -.82, 2.25, { pose: { bob: Math.sin(U * 1.9) * 4 * (1 - e), lean: -.05 * e + Math.sin(U * 1.3) * .012, armB: { h: [-16, 178], bend: -14 }, armF: { h: lerp(16, 46, e) !== 0 ? [lerp(16, 60, e), lerp(176, 120, e)] : [16, 176], bend: lerp(14, 40, e), hand: 'open' } }, expr: e > .5 ? 'curious' : 'calm', face: 1, look: [lerp(.2, .7, clamp(e * 1.6)), lerp(0, -.8, clamp(e * 1.6))], headTilt: lerp(0, -.22, clamp((k - .15) / .85)), blink: blink(U + .8, 3) }); }
   // a delivery wagon with molasses barrels in the street (foreshadowing)
   if (L(1)) { const wz = 15, [wx, wy] = P(1.2, 0, wz), s = F / wz / 100;
   at(wz, () => { push(); translate(wx, wy); scale(s);
@@ -229,7 +236,7 @@ export function P8() {
     for (const bx of [-80, 80]) form(ell(bx, -60, 58, 58, 24), '#4a3a2c', { lw: 6, shade: () => dot(bx, -60, 8) }); pop(); }); }
   // foreground framing: a lamp post cutting the frame on the left, crates on the curb (out of focus)
   if (L(2)) at(1.5, () => { form(rect(-30, -50, 64, 2100), '#1e2024', { lw: 8, sw: 14 }); form(rr(-60, 260, 124, 40, 8), '#1e2024', { lw: 6 }); });
-  if (L(2)) at(2, () => { for (const [x, y, w, h] of [[1040, 1640, 300, 230], [1000, 1450, 240, 200]]) form(rect(x - 200, y, w, h), '#6a4e36', { lw: 7, sw: 18, shade: () => { for (let k = 1; k < 4; k++) fillOnly(rect(x - 200, y + h * k / 4, w, 6), '#4a3626', { boil: .2 }); } }); });
+  if (L(2)) at(2, () => { for (const [x, y, w, h] of [[1060, 1700, 300, 230], [1030, 1540, 220, 170]]) form(rect(x - 200, y, w, h), '#6a4e36', { lw: 7, sw: 18, shade: () => { for (let k = 1; k < 4; k++) fillOnly(rect(x - 200, y + h * k / 4, w, 6), '#4a3626', { boil: .2 }); } }); });
   if (LAYER == null) finishP8();
 }
 export function finishP8() {
@@ -252,15 +259,19 @@ export function P1() {
   const base = xs.map(x => P(x, 0, ZF + .4 * Math.sin(x * .7))), crest = xs.map(x => P(x, Hx(x), ZF + 2.2)).reverse();
   if (L(0)) {
   glow(620, 520, 620, 520, AMBER, .08, 3);
+  const surge = U * .05 + .015 * Math.sin(U * 5);   // the wave keeps coming: it grows and leans in over the shot
+  push(); translate(540, 1080 + U * 30); scale(1.1 + surge, 1.24 + surge * 1.4); rotate(-surge * .25); translate(-540, -1080);   // taller wave: the crest towers over the four-storey facades
   // the hero wave: an illustrated curl sweeping from back-left to front-right, the tube by the el
   const CREST = [[-120, 980], [60, 860], [240, 700], [420, 520], [600, 330], [760, 230], [900, 250], [1010, 360], [1040, 500], [990, 600]];
   const TUBE = [[990, 600], [930, 640], [860, 610], [830, 540], [870, 480], [920, 500]];
   const FACE = [[920, 500], [860, 470], [790, 520], [740, 640], [720, 820], [760, 1000], [860, 1150], [1200, 1180]];
   const BODY = spline([...CREST, ...TUBE.slice(1), ...FACE.slice(1), [1200, 1300], [-120, 1300]], true, 10);
-  shape(BODY, { fill: '#4a2208', lw: 10, shade: () => {
+  // the barrel under the curl: a dark falling curtain, never the street behind
+  fillOnly(spline([[700, 560], [880, 430], [1180, 380], [1180, 1240], [700, 1240]], true, 6), '#241004', { boil: .2 }); { for (let k = 0; k < 9; k++) { const x = 780 + k * 46 + hash(k) * 20; stroke(spline([[x, 520 + hash(k * 3) * 80], [x + 8, 800], [x - 4, 1100]], false, 8), 4 + hash(k * 5) * 8, { line: k % 3 ? '#4a2208' : '#8a4512', boil: .3 }); } }
+  shape(BODY, { fill: '#3a1806', lw: 10, shade: () => {
     // flow streaks running along the curl (offset copies of the crest), amber and cream
-    for (let k = 1; k < 9; k++) { const d = k * 46, pts = CREST.slice(0, 8).map(([x, y], i) => [x + d * .55 + i * k * 2, y + d]); stroke(spline(pts, false, 10), 10 - k * .6, { line: k % 3 === 0 ? '#e8952e' : '#8a4512', boil: .3 }); }
-    for (let k = 0; k < 5; k++) { const x0 = 160 + k * 150, y0 = 820 - k * 85; stroke(spline([[x0, y0], [x0 + 34, y0 + 70], [x0 + 40, y0 + 150]], false, 8), 5, { line: '#ffd08a', boil: .3 }); }
+    for (let k = 1; k < 17; k++) { const d = k * 30 + hash(k) * 20, i0 = Math.floor(hash(k * 7) * 4), n = 3 + Math.floor(hash(k * 11) * 3), pts = CREST.slice(i0, i0 + n).map(([x, y], i) => [x + d * .55 + i * 6 + Math.sin(k + i) * 14, y + d]); stroke(spline(pts, false, 10), 8 + hash(k * 5) * 14, { line: k < 4 ? '#c06a1c' : k % 5 === 0 ? '#8a4512' : '#552610', boil: .3 }); }   // broken flow streaks: viscous, not striped
+    for (let k = 0; k < 4; k++) { const x0 = 200 + k * 170, y0 = 780 - k * 95; stroke(spline([[x0, y0], [x0 + 40, y0 + 40], [x0 + 70, y0 + 60]], false, 8), 7, { line: '#ffcf8a', boil: .3, alpha: .7 }); }   // glossy specular glints
     fillOnly(spline([[760, 560], [830, 520], [880, 600], [820, 700], [760, 900], [700, 760]]), '#2a1104', { boil: .3 });   // the tube's shadow
   } });
   // bright lip along the crest
@@ -272,6 +283,7 @@ export function P1() {
   // splash crown on top of the crest
   for (let k = 0; k < 9; k++) { const t = k / 8, x = lerp(420, 900, t), y = lerp(500, 220, Math.sin(t * Math.PI * .8)) - 30 - hash(k) * 60, r = 12 + hash(k * 4) * 22;
     shape(spline([[x, y - r * 2], [x + r, y], [x, y + r], [x - r, y]]), { fill: '#8a4512', lw: 5, shade: () => dot(x - r * .3, y - r * .3, r * .28, '#ffd08a') }); }
+  pop();
   // spray above the crest
   for (let k = 0; k < 26; k++) { const ph = (hash(k * 1.7) + U * .55) % 1, x = -12 + hash(k * 3.1) * 24 + ph * 1.5, y = Hx(x) + 1 + ph * 6 - ph * ph * 7, p = P(x, y, ZF + 1 - hash(k) * 3), r = 6 + hash(k * 9) * 16;
     shape(spline([[p[0], p[1] - r * 1.6], [p[0] + r, p[1]], [p[0], p[1] + r], [p[0] - r, p[1]]]), { fill: '#a8571a', lw: 4, shade: () => dot(p[0] - r * .3, p[1] - r * .2, r * .25, '#ffd08a') }); }
@@ -286,11 +298,12 @@ export function P1() {
   deb(-3.5, 9.5, 13, () => { rotate(.7); form(spline([[-38, -56], [38, -56], [48, 0], [38, 56], [-38, 56], [-48, 0]]), '#7a5a3e', { lw: 6, shade: () => { fillOnly(rect(-60, -40, 120, 12), '#3a3a3a', { boil: .2 }); fillOnly(rect(-60, 28, 120, 12), '#3a3a3a', { boil: .2 }); } }); });
   deb(4.5, 8.2, 12, () => { rotate(-.9); form(rect(-110, -14, 220, 28), '#6f5a44', { lw: 6 }); });
   deb(-6.5, 6.8, 11, () => { rotate(.3); form(ell(0, 0, 60, 60, 30), '#4a3a2c', { lw: 6, shade: () => { fillOnly(ell(0, 0, 44, 44, 24), '#8a7a66', { boil: .2 }); for (let a = 0; a < 8; a++) stroke([[0, 0], [Math.cos(a * .785) * 44, Math.sin(a * .785) * 44]], 4); } }); });
-  // people fleeing, the worker sprinting at the camera
-  const q = Math.floor(U * 12) / 12;
-  who(CAST.lady, 3.2, 9.5 - U * .8, { view: 'front', pose: runFront(.3 + q * 1.4), expr: 'scream' });
-  who(CAST.gent, -4.4, 11.5 - U * .7, { view: 'front', pose: runFront(.7 + q * 1.3), expr: 'fear' });
-  who(CAST.kid, -2.3, 8.2 - U * .9, { view: 'front', pose: runFront(.1 + q * 1.7), expr: 'scream' });
+  // people fleeing screen-left and toward the camera, away from the wave (one screen direction for every runner)
+  const q = U;   // on ones: the shot is motion-blurred, stepped poses would ghost
+  who(CAST.lady, 3.4 - q * 1.6, 9.2 - U * .8, { face: -1, pose: run(.3 + q * 1.4), expr: 'scream', lookBack: true, flutter: flutter(U, 1.6) });
+  who(CAST.gent, -3.6 - q * 1.5, 11.2 - U * .7, { face: -1, pose: run(.7 + q * 1.3), expr: 'fear' });
+  who(CAST.kid, -1.6 - q * 1.8, 7.9 - U * .9, { face: -1, pose: run(.1 + q * 1.6), expr: 'scream', lookBack: true });
+  who(CAST.docker, 5.6 - q * 1.7, 10.4 - U * .6, { face: -1, pose: run(.45 + q * 1.5), expr: 'fear', lookBack: true });
   }
   // comic speed lines converging on the hero
   if (0) for (let k = 0; k < 22; k++) { const a = -Math.PI * .1 - k * Math.PI * .8 / 21, r0 = 470 + hash(k) * 60, r1 = r0 + 140 + hash(k * 3) * 160; stroke([[600 + Math.cos(a) * r0, 1100 + Math.sin(a) * r0 * 1.3], [600 + Math.cos(a) * r1, 1100 + Math.sin(a) * r1 * 1.3]], 3.5, { line: '#f4ead8', alpha: .55, boil: .4 }); }
@@ -301,8 +314,18 @@ export function P1() {
     for (let i = 0; i <= 10; i++) { const u = i / 10, z = lerp(z1, z2, u), ww = w * (1 - .55 * u) * (1 + .15 * Math.sin(u * 9 + k)); ptsL.push(P(x0 - ww / 2 + .3 * Math.sin(u * 5 + k), .02, z)); ptsR.push(P(x0 + ww / 2 + .3 * Math.sin(u * 5 + k), .02, z)); }
     shape(spline([...ptsL, P(x0, .02, z2 - .35), ...ptsR.reverse()], true, 6), { fill: '#4a2208', lw: 6, shade: () => { const m = ptsL.map((p, i) => [(p[0] + ptsR[10 - i][0]) / 2, (p[1] + ptsR[10 - i][1]) / 2]); stroke(spline(m.slice(1, 9), false, 8), 7, { line: '#e8952e' }); stroke(spline(m.slice(3, 7).map(([x, y]) => [x - 14, y - 4]), false, 8), 4, { line: '#ffe0a8' }); } });
   }
-  if (L(2)) who(CAST.worker, .25, 1.85, { view: 'front', pose: runFront(.6 + Math.floor(U * 12) / 12 * 1.5), expr: 'scream', look: [0, .15], age: 1 });
-  if (L(2)) for (const [x, y, r] of [[400, 640, 18], [770, 610, 14], [810, 700, 11]]) shape(spline([[x, y - r * 1.8], [x + r, y], [x, y + r], [x - r, y]]), { fill: '#bfe3f2', lw: 4 });   // sweat
+  // the hero: sprinting diagonally at the camera, screen-left, looking back over his shoulder at the wave; his cap flies off behind him
+  if (L(2)) {
+    const hx = .6 - U * .55, hz = 2.75 - U * .2, ph = .6 + U * 1.45, R = run(ph, 1.4);
+    who({ ...CAST.worker, hat: 'none' }, hx, hz, { face: -1, pose: { ...R, lean: .2 }, expr: 'scream', lookBack: true, look: [.3, -.1], headTilt: .12, flutter: flutter(U, 2) });
+    // the cap: tumbling up and back toward the wave on an arc (secondary action)
+    const [hpx, hpy] = P(hx, 1.75, hz), cs = F / hz / 100 * .2, ct = clamp(U / 2.3);
+    at(hz, () => { push(); translate(hpx + 120 + ct * 300, hpy - 150 - ct * 260 + ct * ct * 160); rotate(-.5 - ct * 4.2); scale(cs);
+      form(spline([[-60, 6], [-52, -30], [0, -46], [52, -30], [64, 0], [96, 10], [70, 18], [-50, 18]]), '#55575c', { lw: 6, sw: 10, shade: () => stroke([[-40, 2], [50, -4]], 3) }); pop(); });
+    // splatter flicked up from his heels
+    for (let k = 0; k < 7; k++) { const t = (U * 1.7 + hash(k)) % 1, [bx, by] = P(hx + .25 + hash(k * 3) * .4, 0, hz + .15), x = bx + 60 + t * (140 + hash(k * 5) * 120), y = by - t * 260 + t * t * 260, r = (7 + hash(k * 7) * 10) * (1 - t * .5);
+      shape(spline([[x - r * 1.6, y - r * .4], [x, y - r], [x + r, y], [x, y + r]]), { fill: '#3a1806', lw: 4, shade: () => dot(x - r * .2, y - r * .3, r * .3, '#e8952e') }); }
+  }
   g.restore();
   if (LAYER == null) finishP1();
   if (!P1.noCap && CAPS && LAYER == null) wordCaption('Banjir ini <bukan>', AMBER, { y: 1330 });

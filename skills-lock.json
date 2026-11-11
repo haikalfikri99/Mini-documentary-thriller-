@@ -7,6 +7,12 @@
       "skillPath": "skills/production/creative-direction/2d-character-rig-animation/SKILL.md",
       "computedHash": "e8b206483d1393d0eaad1cb8cb79fa3084545eb5cbb621b8087aea8c1002069a"
     },
+    "animation-principles": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/animation-principles/SKILL.md",
+      "computedHash": "429233e8c4a429b072130b231afb072eace2f5f5e9d6d7c7566ed8c2bd4aec83"
+    },
     "character-animation-qa": {
       "source": "openmontageinc/openmontage",
       "sourceType": "github",
@@ -37,11 +43,35 @@
       "skillPath": "skills/find-skills/SKILL.md",
       "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f"
     },
+    "motion-director": {
+      "source": "jimliu/baoyu-design",
+      "sourceType": "github",
+      "skillPath": "skills/motion-director/SKILL.md",
+      "computedHash": "baf553db686aa3f0f9c461aeefc54e8aed13b784b687470ddfba6d82d894bfcb"
+    },
     "p5-brush": {
       "source": "progen/p5-brush-skill",
       "sourceType": "github",
       "skillPath": "SKILL.md",
       "computedHash": "3e1ece5b29da5745a76c7e8d46f004d44c9db64d0ee1618b9dd473b7a6720f27"
+    },
+    "photo-composition-critic": {
+      "source": "curiositech/some_claude_skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/photo-composition-critic/SKILL.md",
+      "computedHash": "2725876c57d5863668add6fb959f275f001df3bbd5c10a2b8e186af950cde6cd"
+    },
+    "remotion-captions": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-captions/SKILL.md",
+      "computedHash": "2d9394f042195359d3f519ba2b828940f31deb88e34acdc3c37570113336b5b2"
+    },
+    "short-form-video": {
+      "source": "iart-ai/tiktok-video-skills",
+      "sourceType": "github",
+      "skillPath": "skills/short-form-video/SKILL.md",
+      "computedHash": "f55f26c6bb88e7391044300c8db24e732a7ba3e4f632b392201526fdf7a87e86"
     },
     "sound-design-film": {
       "source": "guia-matthieu/clawfu-skills",
@@ -60,6 +90,12 @@
       "sourceType": "github",
       "skillPath": ".agents/skills/svg-character-animation/SKILL.md",
       "computedHash": "f97194f882d070bb45b0f75730944ed166a885c143883d595e433da81f1ccf69"
+    },
+    "video-editing": {
+      "source": "affaan-m/ecc",
+      "sourceType": "github",
+      "skillPath": "skills/video-editing/SKILL.md",
+      "computedHash": "b1a66c7e9337e7030cfef7c5a8b2a519123e63c8fef710105118eab89641e505"
     }
   }
 }
