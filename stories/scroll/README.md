@@ -1,5 +1,5 @@
 # ARSIP KASUS #002: "Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya"
-**Status:** langkah 1b–2 (fact sheet + script) ✋ menunggu persetujuan script. Setelah itu VO dari user → `audio/vo_scroll.mp3`.
+**Status:** script v3 (dipoles) ✋ menunggu persetujuan script. Setelah itu VO dari user → `audio/vo_scroll.mp3`.
 **Wilayah:** 2 Hidden Systems & Psychology (pilar). Format "kamu sedang jadi target": penonton adalah korbannya, fitur di HP pelakunya, para penciptanya sendiri saksinya.
 
 ## Kenapa cerita ini
@@ -46,26 +46,51 @@
 | 10 | Kenapa kamu masih di sini? Para penciptanya tahu jawabannya. | 10 | |
 | 11 | Mereka menciptakan fitur di HP-mu, lalu menjauhkannya dari diri sendiri. | 10 | |
 
-**Hook alignment:** frame 0 = tangan pria menyerahkan iPhone ke asisten, layar menampilkan gembok "Kontrol Orang Tua"; VO kalimat 1; teks layar "PENCIPTA TOMBOL LIKE"; judul "Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya" (skor vidIQ 82).
+**Hook alignment:** frame 0 = tangan pria menyerahkan iPhone ke asisten, layar menampilkan gembok "Kontrol Orang Tua"; VO kalimat 1; teks layar "PEMBUAT TOMBOL LIKE"; judul "Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya" (skor vidIQ 82).
 
-## Script (VO, target ±50–55 dtk, ±135 kata) ✋
-| Babak | VO | Visual (rencana kasar) |
+## Script v3 (VO, ±125 kata ≈ 52 dtk) ✋
+Dipoles dengan skill `humanizer` (buang pola tulisan AI) + `short-form-video-script` (WATCH: hook berlapis, open loop, tulis versi tanpa suara dulu, payoff menepati janji, loop). Register: **bahasa lisan santai-sopan** (bikin, nggak, ngaku, aja), kutipan tetap baku karena terjemahan ucapan orang.
+
+| Babak | VO (ucapan) | Teks layar (selain caption kata) | Visual |
+|---|---|---|---|
+| 1 HOOK 0–8 | Orang yang ikut bikin tombol Like… nyuruh asistennya ngunci HP-nya sendiri. Biar dia nggak bisa download aplikasi apa pun. | "PEMBUAT TOMBOL LIKE" | frame 0: ikon jempol Like raksasa → tangan menyerahkan iPhone ke asisten, gembok menutup layar; ikon toko aplikasi pudar |
+| 2 OPEN LOOP 8–15 | Dan dia nggak sendirian. Waktu fitur tarik layar buat refresh disamain sama mesin slot, pembuatnya bilang: "Saya setuju seratus persen." | "PEMBUAT 'TARIK UNTUK REFRESH'" · "100%" | papan ARSIP KASUS #002 (dua kartu tokoh); gestur tarik layar berubah jadi tuas mesin slot |
+| 3 MEKANISME 15–25 | Coba perhatiin. Kamu tarik layar, nunggu sebentar, terus muncul sesuatu. Kadang seru, kadang cuma iklan. Karena nggak pernah pasti, jempol kamu pengen narik lagi. | — | POV jempol menarik layar; gulungan slot: foto kucing / iklan / video lucu / iklan; jempol menarik lagi (ritme makin cepat) |
+| 4 TURN 25–36 | Terus ada scroll tanpa ujung. Orang yang dikenal sebagai perancangnya ngaku, "Kalau tanda berhentinya saya hilangkan, saya bisa bikin kamu melakukan apa yang saya mau." | "PERANCANG SCROLL TANPA UJUNG" | feed turun tanpa akhir; halaman "TAMAT" disobek; rambu STOP tenggelam ke dalam feed |
+| 5 PAYOFF 36–46 | Si pembuat tarik layar tadi juga ngaku, "Saya punya dua anak. Dan saya menyesali setiap menit saya nggak memperhatikan mereka, karena tersedot ke HP." | — | ayah menatap HP, dua anak di latar makin kabur (DOF); cahaya layar menyedot warna ruangan |
+| 6 ECHO + LOOP 46–52 | Kalau pembuatnya aja bisa kalah, wajar kamu susah berhenti. Udah berapa lama kamu scroll hari ini? | "ARSIP DITUTUP" | jam di status bar HP melompat maju; kembali ke ikon Like (loop ke frame 0) |
+
+**Penyampaian VO:** seperti bercerita ke teman, bukan membaca berita. Jeda ±0,5 dtk setelah "tombol Like…" dan sebelum setiap kutipan. Kutipan diucapkan sedikit lebih pelan dan rendah. Kalimat terakhir bernada tanya ringan, tidak menggurui.
+
+### Apa yang diubah dari v1 (catatan editor)
+| Masalah v1 | Perbaikan v3 |
+|---|---|
+| Bahasa tulis/berita ("Pria ini ikut menciptakan…", "menjaga jarak dari ciptaannya") | bahasa lisan: "Orang yang ikut bikin…", "nyuruh", "ngaku" |
+| Tiga nama asing (Rosenstein, Brichter, Raskin) = beban hafalan di 50 dtk | disebut lewat perannya; nama ada di deskripsi dan sumber |
+| Terjemahan kaku ("denting-denting kesenangan semu", "smartphone menyedot saya") | dibuang / "karena tersedot ke HP" |
+| Penonton hanya mendengar, tidak mengalami | babak 3 "Coba perhatiin…" mengajak penonton merasakan mekanismenya dengan jempolnya sendiri |
+| Pola AI: "itu bukan cuma soal niat" (bukan X tapi Y), penutup fragmen dramatis | penutup memberi pemahaman ("wajar kamu susah berhenti") + pertanyaan pemancing komentar |
+| 150 kata ≈ 60 dtk | 125 kata ≈ 52 dtk; tiap 5–10 dtk ada informasi baru |
+
+### Penilaian (rubrik 1–10, dinilai jujur)
+| Aspek | Skor | Alasan / sisa risiko |
 |---|---|---|
-| 1 INTERRUPTION 0–5 | Pria ini ikut menciptakan tombol Like. Lalu ia menyuruh asistennya memasang kontrol orang tua… di HP-nya sendiri. | close-up ikon jempol Like membesar → tangan menyerahkan HP, layar terkunci gembok |
-| 2 PROMISE 5–9 | Ia tidak sendirian. Para pencipta fitur yang sedang kamu pakai sekarang… ikut menjaga jarak dari ciptaannya. | freeze → map ARSIP KASUS #002; tiga siluet di papan investigasi, benang merah ke HP |
-| 3 ESCALATION 9–25 | Justin Rosenstein, tombol Like. Ia menyebutnya "denting-denting kesenangan semu". Loren Brichter, pencipta tarik-untuk-refresh. Saat fiturnya disamakan dengan mesin slot, ia menjawab, "Saya setuju seratus persen." | notifikasi hati berdenting (denting = SFX); gestur tarik layar berubah jadi tuas mesin slot, gulungan berputar: foto/iklan/foto |
-| 4 TURN 25–37 | Karena setiap kali kamu menarik layar, kamu tidak tahu apa yang akan muncul. Lalu ada scroll tanpa akhir. Aza Raskin, yang dikenal sebagai perancangnya, berkata, "Dengan menghapus tanda berhenti, saya bisa membuatmu melakukan apa yang saya mau." | feed turun tanpa ujung; halaman buku dengan kata "TAMAT" disobek; papan STOP tenggelam ke dalam feed |
-| 5 PAYOFF 37–48 | Bahkan Brichter ikut terjebak. "Saya punya dua anak," katanya, "dan saya menyesali setiap menit saya tidak memperhatikan mereka karena smartphone menyedot saya." | ayah menatap HP, dua anak di latar mulai kabur oleh DOF; cahaya layar menyedot warna ruangan |
-| 6 ECHO 48–54 | Jadi kalau kamu sulit berhenti scroll, itu bukan cuma soal niat. Video ini sudah habis. Feed-mu belum. | layar kembali ke ikon Like (loop ke frame 0); teks "ARSIP DITUTUP" |
-
-**Catatan penyampaian VO:** jeda ±0,5 dtk sebelum "di HP-nya sendiri" dan sebelum setiap kutipan. Kutipan dibaca sedikit lebih pelan. Kalimat terakhir datar dan pelan, tanpa CTA. Nama: "Rosenstein" (RO-zen-stain), "Brichter" (BRIK-ter), "Raskin" (RAS-kin).
+| Hook (3 dtk pertama) | 9 | konkret dan mustahil-tapi-benar; berlapis (gambar + teks + suara). Risiko: kata "ikut" sedikit melemahkan, tapi wajib demi akurasi |
+| Kealamian bahasa | 9 | lolos tes baca keras; konsisten santai |
+| Ekonomi informasi | 9 | tidak ada kalimat yang mengulang |
+| Eskalasi | 9 | pengakuan → mekanisme yang dialami sendiri → pengakuan perancang → harga pribadi |
+| Payoff & emosi | 9 | kutipan anak = puncak emosi; penutup memberi rasa lega + pemahaman |
+| Loop & komentar | 9 | pertanyaan personal; visual kembali ke frame 0 |
+| Akurasi | 10 | semua kutipan dari sumber primer; "dikenal sebagai" untuk klaim yang diperdebatkan |
+| Durasi | 8 | 52 dtk sedikit di atas sweet spot 15–35 dtk; tiap babak membawa info baru, jadi dipertahankan. Kandidat potong bila retensi turun: babak 4 |
+| Bisa digambar | 9 | setiap babak punya objek konkret |
 
 ### Checklist sebelum VO
 - [x] Wilayah 2 (pilar); format "kamu target"
 - [x] Skor 22, tidak ada < 3
 - [x] Tidak dibuka "Tahukah kamu"; frame 0 bisa digambar
 - [x] Setiap kalimat menambah info; jeda sebelum kutipan
-- [x] Turn (mekanisme slot + tanda berhenti dihapus) dan payoff (penciptanya terjebak) jelas; echo tanpa CTA, loop ke frame 0
+- [x] Turn (mekanisme slot + tanda berhenti dihapus) dan payoff (penciptanya ikut terjebak) jelas; echo berupa pertanyaan, loop ke frame 0
 - [x] Klaim ≥ 2 sumber atau kutipan primer; klaim penemu infinite scroll ditulis sebagai "dikenal sebagai"; angka "200.000 masa hidup" dibuang
 - [x] Hook, judul, teks layar, frame 0 selaras
 

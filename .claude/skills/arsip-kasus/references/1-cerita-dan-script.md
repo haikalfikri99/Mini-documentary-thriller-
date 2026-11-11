@@ -100,6 +100,14 @@ Untuk Shorts yang lebih pendek/panjang, skalakan babak 3–5; babak 1–2 tetap 
 - Buat 10+ variasi hook lalu uji dengan **4U** (Useful, Urgent, Unique, Ultra-specific); pilih yang paling spesifik dan jujur. Pola yang terbukti di data: kontradiksi ("Banjir ini bukan air"), objek + "sampai mereka tahu kenapa", angka mengejutkan, "satu kesalahan kecil…", "mereka tidak pernah seharusnya menemukan…".
 - **Reality must beat expectations:** isi harus melampaui janji judul/hook; jangan menjanjikan yang tidak dibayar.
 
+### Bahasa VO yang natural (pelajaran #002, user: script v1 "kaku")
+- **Register lisan santai-sopan**, seperti bercerita ke teman: bikin, nggak, nyuruh, ngaku, aja, udah. Kutipan tokoh tetap baku (terjemahan ucapan). Hindari bahasa berita/tulis ("Pria ini ikut menciptakan…", "menjaga jarak dari ciptaannya").
+- **Peran, bukan nama:** nama asing yang sulit (Rosenstein, Brichter) membebani hafalan; sebut perannya ("orang yang ikut bikin tombol Like"), taruh nama di deskripsi & sumber. Pakai nama hanya bila dikenal atau sering diulang.
+- **Ajak penonton mengalami** mekanismenya ("Coba perhatiin. Kamu tarik layar…"), bukan hanya mendengar.
+- **Terjemahan kutipan harus terdengar seperti orang Indonesia bicara**; jangan calque ("smartphone menyedot saya" → "karena tersedot ke HP").
+- **Pass `humanizer` wajib:** buang "bukan X tapi Y", penutup fragmen dramatis yang hanya mengulang, triad paksa, kata megah. Lalu **baca keras** dan ukur: ±2,4 kata/dtk; wilayah 2 target 90–125 kata (≈ 40–52 dtk).
+- **Tiga track** (`short-form-video-script`): VO, teks layar, visual; tulis versi tanpa suara dulu (mayoritas menonton tanpa suara, menurut data industri yang perlu dicek berkala).
+
 ## I. Durasi
 Shorts boleh sampai 3 menit, tapi tentukan **gagasan dulu, lalu durasi terpendek yang lengkap**. Patokan channel: 45–75 dtk (film #001: 61 dtk). Untuk wilayah 2 (sistem/psikologi), uji juga versi 25–40 dtk. Ukur hasilnya; jangan menganggap satu durasi selalu benar.
 
