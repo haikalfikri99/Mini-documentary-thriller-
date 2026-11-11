@@ -9,7 +9,43 @@ import { grain, vignette, paint, grade2, dof, shafts } from '/engine/look.js';
 
 const AMBER = '#ffb43a';
 // animation time inside a panel (seconds) and caption switch, set by the video page
-export let U = 0, CAPS = true; export function setU(u, caps = true) { U = u; CAPS = caps; }
+export let U = 0, CAPS = true, LAYER = null;
+export function setU(u, caps = true) { U = u; CAPS = caps; }
+export function setLayer(n) { LAYER = n; }
+const L = n => LAYER == null || LAYER === n;
+// ———————————————— p5.brush paintover: every background plane is re-laid in watercolour (bleed, pigment texture, hatched shadows)
+let REC = null; const rec = (pts, col, hatch = 0) => { if (REC) REC.push({ pts, col, hatch }); };
+export const PAINTED = {}; let P5 = null, P5ready = null, JOB = null;
+export function brushReady() {
+  if (!P5ready) P5ready = new Promise(res => new p5(p => { brush.instance(p);
+    p.setup = () => { const c = p.createCanvas(540, 960, p.WEBGL); c.elt.style.display = 'none'; p.pixelDensity(1); p.noLoop(); P5 = p; res(); };
+    p.draw = () => { p.clear(); if (JOB) { p.push(); p.translate(-270, -480); p.randomSeed(11); JOB(); p.pop(); } }; }));
+  return P5ready;
+}
+const PENDING = {};
+function paintover(key, sky) {
+  if (!PAINTED[key]) { if (!PENDING[key]) PENDING[key] = { items: REC || [], sky }; REC = null; return; }
+  g.setTransform(1, 0, 0, 1, 0, 0); g.globalCompositeOperation = 'multiply'; g.globalAlpha = .55; g.drawImage(PAINTED[key], 0, 0); g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
+}
+// paint every recorded plate once (p5 redraw is async), then cache it
+export async function preparePaint() {
+  await brushReady();
+  for (const [key, { items, sky }] of Object.entries(PENDING)) {
+    JOB = () => {
+      brush.scaleBrushes(1.2);
+      if (sky) { brush.noStroke(); brush.fill(sky, 60); brush.fillBleed(.3); brush.fillTexture(.6, .3); brush.rect(-20, -20, 580, 560); }
+      for (const it of items) {
+        const pts = it.pts.map(([x, y]) => [x * .5, y * .5]); let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+        for (const [x, y] of pts) { minx = Math.min(minx, x); maxx = Math.max(maxx, x); miny = Math.min(miny, y); maxy = Math.max(maxy, y); }
+        if (maxx < -10 || minx > 550 || maxy < -10 || miny > 970 || (maxx - minx) * (maxy - miny) < 30) continue;
+        brush.noStroke(); brush.fill(mix(it.col, '#ffffff', .15), 150); brush.fillBleed(.1); brush.fillTexture(.65, .5); brush.polygon(pts);
+        if (it.hatch) { brush.noFill(); brush.set('2B', '#1e2233', .7); brush.hatch(4, it.hatch); brush.polygon(pts); brush.noHatch(); brush.noStroke(); }
+      }
+    };
+    await P5.redraw(); await new Promise(r => requestAnimationFrame(r));
+    const c = document.createElement('canvas'); c.width = 1080; c.height = 1920; c.getContext('2d').drawImage(P5.canvas, 0, 0, 1080, 1920); PAINTED[key] = c; JOB = null; delete PENDING[key];
+  }
+}
 // ———————————————— colour helpers
 const hex = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
 const toHex = a => '#' + a.map(v => Math.round(clamp(v, 0, 255)).toString(16).padStart(2, '0')).join('');
@@ -44,7 +80,7 @@ function tank(cx, cz, r, h, wet = .3) {
   const z = cz - r, L = P(cx - r, 0, cz), R = P(cx + r, 0, cz), T = P(cx, h, cz), B = P(cx, 0, cz);
   const ry = Math.max(6, (R[0] - L[0]) * .08), top = T[1], bot = B[1];
   const body = [[L[0], top], ...arc((L[0] + R[0]) / 2, top, (R[0] - L[0]) / 2, ry, Math.PI, 0, 20), [R[0], bot], ...arc((L[0] + R[0]) / 2, bot, (R[0] - L[0]) / 2, ry, 0, Math.PI, 20)];
-  at(cz, () => form(body, fog('#6c6a62', cz), {
+  rec(body, '#6c6a62', .6); at(cz, () => form(body, fog('#6c6a62', cz), {
     lw: 6, sw: 40, shade: () => {
       const w = R[0] - L[0];
       for (let k = 1; k < 6; k++) fillOnly(rect(L[0], lerp(top, bot, k / 6) - 2, w, 3), fog('#55544e', cz), { boil: .2 });
@@ -58,7 +94,7 @@ const PAL = ['#8a5a48', '#7a6a62', '#9a7a5e', '#6e5a52', '#8c6e64'];
 function facade(xf, z0, z1, h, seed, lit = 1) {
   const col = fog(shade(PAL[seed % PAL.length], lit > 0 ? .06 : -.25), (z0 + z1) / 2);
   const Q = poly([[xf, 0, z0], [xf, 0, z1], [xf, h, z1], [xf, h, z0]]), zm = (z0 + z1) / 2, pt = (u, v) => P(xf, v, lerp(z0, z1, u));
-  at(zm, () => form(Q, col, { lw: 6, sw: 18 }));
+  at(zm, () => form(Q, col, { lw: 6, sw: 18 })); rec(Q, col);
   // brick courses (only where they read)
   const step = .45; if (F * step / z1 > 3.2) for (let y = 4.4; y < h - .7; y += step) line(pt(0, y), pt(1, y), shade(col, -.22), Math.max(.6, 1.6 * lwAt(zm)), .55);
   // ground floor: plaster band, shop window, door, sign
@@ -98,7 +134,7 @@ function el(zFrom = 1.2, zTo = 200, behindZ = 1e9, front = false) {
   const steel = z => fog('#3f434a', z), dark = z => fog('#2a2d33', z);
   if (!front) {
     // deck underside with floor beams
-    fillPoly(poly([[2.0, 6.4, zFrom], [7.8, 6.4, zFrom], [7.8, 6.4, zTo], [2.0, 6.4, zTo]]), fog('#33363c', 30));
+    fillPoly(poly([[2.0, 6.4, zFrom], [7.8, 6.4, zFrom], [7.8, 6.4, zTo], [2.0, 6.4, zTo]]), fog('#33363c', 30)); rec(poly([[2.0, 6.4, zFrom], [7.8, 6.4, zFrom], [7.8, 6.4, zTo], [2.0, 6.4, zTo]]), '#3a3d44', .8);
     for (let z = zFrom; z < 80; z += 1.4) line(P(2, 6.4, z), P(7.8, 6.4, z), '#22252a', clamp(F * .12 / z, .5, 14), .9);
     // street-side girder face with lattice and rivets
     const G = poly([[2.0, 5.5, zFrom], [2.0, 5.5, zTo], [2.0, 6.9, zTo], [2.0, 6.9, zFrom]]);
@@ -118,7 +154,7 @@ function el(zFrom = 1.2, zTo = 200, behindZ = 1e9, front = false) {
 }
 // ———————————————— street: cobbles in perspective, curbs, sidewalks
 function street(zNear = 1.1, wetAmber = 0) {
-  fillPoly(poly([[-7, 0, zNear], [7, 0, zNear], [7, 0, 300], [-7, 0, 300]]), '#3f3d3b');
+  fillPoly(poly([[-7, 0, zNear], [7, 0, zNear], [7, 0, 300], [-7, 0, 300]]), '#3f3d3b'); rec(poly([[-7, 0, 1.3], [7, 0, 1.3], [7, 0, 300], [-7, 0, 300]]), '#6a6660');
   g.setTransform(1, 0, 0, 1, 0, 0);
   for (let z = zNear; z < 60; z += .26) {
     const yy = P(0, 0, z)[1], ry = clamp(F * CAMH * .11 / (z * z) * .9, .4, 30), rx = F * .12 / z;
@@ -159,7 +195,7 @@ function boston({ waveZ = null } = {}) {
   sky();
   tank(-4, 64, 14, 15, waveZ ? 1 : .55);
   // right side buildings behind the el (in its shadow)
-  for (let i = 0, z = 6; i < 12; i++) { const w = 9 + hash(i * 5) * 5, h = 10 + hash(i * 9) * 6; const Q = poly([[9.4, 0, z], [9.4, 0, z + w], [9.4, h, z + w], [9.4, h, z]]); at(z, () => form(Q, fog(shade(PAL[(i + 2) % 5], -.35), z + w / 2), { lw: 5, sw: 10 })); z += w; }
+  for (let i = 0, z = 6; i < 12; i++) { const w = 9 + hash(i * 5) * 5, h = 10 + hash(i * 9) * 6; const Q = poly([[9.4, 0, z], [9.4, 0, z + w], [9.4, h, z + w], [9.4, h, z]]); rec(Q, shade(PAL[(i + 2) % 5], -.35), .5); at(z, () => form(Q, fog(shade(PAL[(i + 2) % 5], -.35), z + w / 2), { lw: 5, sw: 10 })); z += w; }
   el(1.2, 220);
   // left side buildings, far to near (painter's order)
   const L = []; for (let i = 0, z = 1.5; i < 13; i++) { const w = 8 + hash(i * 3.3) * 6, h = 11 + hash(i * 7.1) * 7; L.push([z, z + w, h, i]); z += w; }
@@ -172,10 +208,10 @@ function boston({ waveZ = null } = {}) {
 export function P8() {
   F = 980; HY = 1060; CAMH = 1.3; HAZE = '#d9dcdc';
   setLight({ dir: [.55, -.8], tint: '#2a2c3a', a: .26 });
-  boston();
-  street(1.1);
+  if (L(0)) { if (!PAINTED.P8) REC = []; boston(); street(1.1);
   fillPoly(poly([[1.2, .01, 1.2], [7, .01, 1.2], [7, .01, 300], [2.6, .01, 300]]), '#141820', .32);   // the el's shadow
-  el(1.2, 220, 0, true);
+  el(1.2, 220, 0, true); paintover('P8', '#aebfcd'); glow(...P(-4, 3, 72), 70, 40, AMBER, .07, 1); }
+  if (L(1)) {
   // people going about their day
   who(CAST.gent, -5.6, 21, { pose: walk(.2), expr: 'neutral', face: 1 });
   who(CAST.lady, -5.0, 11, { pose: walk(.55), expr: 'calm', face: 1 });
@@ -184,16 +220,19 @@ export function P8() {
   // pigeons pecking on the cobbles
   for (let k = 0; k < 6; k++) { const [px, py] = P(-1 + hash(k) * 4, 0, 6 + hash(k * 3) * 4), s = F / (6 + k) / 100 * .32; at(6, () => { push(); translate(px, py); scale(s * (hash(k) > .5 ? 1 : -1), s);
     form(spline([[-30, -20], [10, -34], [34, -22], [30, -6], [-10, 0], [-40, -8]]), '#6f747c', { lw: 4, sw: 6 }); form(ell(30, -36, 12, 11, 12), '#5d6470', { lw: 4 }); dot(34, -38, 2.2); stroke([[42, -34], [50, -32]], 3, { line: '#c9a46a' }); pop(); }); }
-  who(CAST.worker, -.55, 1.85, { pose: { lean: -.04, armB: { h: [-16, 178], bend: -14 }, armF: { h: [40, 150], bend: 20, hand: 'open' } }, expr: 'curious', face: 1, look: [lerp(.6, .15, clamp(U / 1.2)), lerp(-.1, -.95, clamp(U / 1.2))], headTilt: lerp(0, -.2, clamp(U / 1.2)) });
+  }
+  if (L(2)) who(CAST.worker, -.55, 1.85, { pose: { lean: -.04, armB: { h: [-16, 178], bend: -14 }, armF: { h: [40, 150], bend: 20, hand: 'open' } }, expr: 'curious', face: 1, look: [lerp(.6, .15, clamp(U / 1.2)), lerp(-.1, -.95, clamp(U / 1.2))], headTilt: lerp(0, -.2, clamp(U / 1.2)) });
   // a delivery wagon with molasses barrels in the street (foreshadowing)
-  const wz = 15, [wx, wy] = P(1.2, 0, wz), s = F / wz / 100;
+  if (L(1)) { const wz = 15, [wx, wy] = P(1.2, 0, wz), s = F / wz / 100;
   at(wz, () => { push(); translate(wx, wy); scale(s);
     form(rect(-110, -150, 220, 70), '#6a4a34', { lw: 6 }); for (const bx of [-70, 0, 70]) form(spline([[bx - 30, -150], [bx + 30, -150], [bx + 34, -190], [bx + 30, -232], [bx - 30, -232], [bx - 34, -190]]), '#7a5a3e', { lw: 5, shade: () => fillOnly(rect(bx - 40, -212, 80, 8), '#3a3a3a', { boil: .2 }) });
-    for (const bx of [-80, 80]) form(ell(bx, -60, 58, 58, 24), '#4a3a2c', { lw: 6, shade: () => dot(bx, -60, 8) }); pop(); });
-  glow(...P(-4, 3, 72), 70, 40, AMBER, .07, 1);
+    for (const bx of [-80, 80]) form(ell(bx, -60, 58, 58, 24), '#4a3a2c', { lw: 6, shade: () => dot(bx, -60, 8) }); pop(); }); }
   // foreground framing: a lamp post cutting the frame on the left, crates on the curb (out of focus)
-  at(1.5, () => { form(rect(-30, -50, 64, 2100), '#1e2024', { lw: 8, sw: 14 }); form(rr(-60, 260, 124, 40, 8), '#1e2024', { lw: 6 }); });
-  at(2, () => { for (const [x, y, w, h] of [[1040, 1640, 300, 230], [1000, 1450, 240, 200]]) form(rect(x - 200, y, w, h), '#6a4e36', { lw: 7, sw: 18, shade: () => { for (let k = 1; k < 4; k++) fillOnly(rect(x - 200, y + h * k / 4, w, 6), '#4a3626', { boil: .2 }); } }); });
+  if (L(2)) at(1.5, () => { form(rect(-30, -50, 64, 2100), '#1e2024', { lw: 8, sw: 14 }); form(rr(-60, 260, 124, 40, 8), '#1e2024', { lw: 6 }); });
+  if (L(2)) at(2, () => { for (const [x, y, w, h] of [[1040, 1640, 300, 230], [1000, 1450, 240, 200]]) form(rect(x - 200, y, w, h), '#6a4e36', { lw: 7, sw: 18, shade: () => { for (let k = 1; k < 4; k++) fillOnly(rect(x - 200, y + h * k / 4, w, 6), '#4a3626', { boil: .2 }); } }); });
+  if (LAYER == null) finishP8();
+}
+export function finishP8() {
   dof(1480, 1920, 7); dof(0, 220, 3, true);
   shafts(-200, -200, .95, .12, '255,232,190', .10, 5);
   paint(.42); grade2('#2c3b55', '#ffdca8', .14); grain(.045); vignette(.3);
@@ -206,12 +245,12 @@ export function P1() {
   setLight({ dir: [0, -1], tint: '#24232c', a: .3, rim: AMBER, rimA: .95, rw: 8 });
   g.setTransform(1, 0, 0, 1, 0, 0); g.save(); g.translate(W / 2, H / 2); g.rotate(-.05); g.translate(-W / 2, -H / 2);
   const ZF = 11.5;
-  boston({ waveZ: ZF });
-  street(1.1, 1);
+  if (L(0)) { if (!PAINTED.P1) REC = []; boston({ waveZ: ZF }); street(1.1, 1); paintover('P1', '#c9c2b2'); }
   // the wave: base on the street at ZF, crest leaning back, lip curling toward camera
   const xs = []; for (let i = 0; i <= 40; i++) xs.push(-13 + 26 * i / 40);
   const Hx = x => 9.6 + 1.4 * Math.sin(x * .45 + .6) + .6 * Math.sin(x * 1.3);
   const base = xs.map(x => P(x, 0, ZF + .4 * Math.sin(x * .7))), crest = xs.map(x => P(x, Hx(x), ZF + 2.2)).reverse();
+  if (L(0)) {
   glow(620, 520, 620, 520, AMBER, .08, 3);
   // the hero wave: an illustrated curl sweeping from back-left to front-right, the tube by the el
   const CREST = [[-120, 980], [60, 860], [240, 700], [420, 520], [600, 330], [760, 230], [900, 250], [1010, 360], [1040, 500], [990, 600]];
@@ -240,6 +279,8 @@ export function P1() {
   const fz = ZF - 2.2;
   shape([...xs.map(x => P(x, 0, fz - .8 * Math.sin(x * 1.1) - .5)), ...xs.map(x => P(x, 0, ZF)).reverse()], { fill: '#6a3410', lw: 6, shade: () => { for (let k = 0; k < 10; k++) { const x = -10 + k * 2.2; stroke([P(x, 0, fz + .4), P(x + 1.2, 0, fz + .2)], 4, { line: '#e8952e' }); } } });
   el(1.2, 220, ZF, true);
+  }
+  if (L(1)) {
   // debris thrown ahead of the wave: barrels, planks, a wagon wheel
   const deb = (x, y, z, fn) => { const [px, py] = P(x, y, z), s = F / z / 100; at(z, () => { push(); translate(px, py); scale(s); fn(); pop(); }); };
   deb(-3.5, 9.5, 13, () => { rotate(.7); form(spline([[-38, -56], [38, -56], [48, 0], [38, 56], [-38, 56], [-48, 0]]), '#7a5a3e', { lw: 6, shade: () => { fillOnly(rect(-60, -40, 120, 12), '#3a3a3a', { boil: .2 }); fillOnly(rect(-60, 28, 120, 12), '#3a3a3a', { boil: .2 }); } }); });
@@ -250,26 +291,31 @@ export function P1() {
   who(CAST.lady, 3.2, 9.5 - U * .8, { view: 'front', pose: runFront(.3 + q * 1.4), expr: 'scream' });
   who(CAST.gent, -4.4, 11.5 - U * .7, { view: 'front', pose: runFront(.7 + q * 1.3), expr: 'fear' });
   who(CAST.kid, -2.3, 8.2 - U * .9, { view: 'front', pose: runFront(.1 + q * 1.7), expr: 'scream' });
+  }
   // comic speed lines converging on the hero
   if (0) for (let k = 0; k < 22; k++) { const a = -Math.PI * .1 - k * Math.PI * .8 / 21, r0 = 470 + hash(k) * 60, r1 = r0 + 140 + hash(k * 3) * 160; stroke([[600 + Math.cos(a) * r0, 1100 + Math.sin(a) * r0 * 1.3], [600 + Math.cos(a) * r1, 1100 + Math.sin(a) * r1 * 1.3]], 3.5, { line: '#f4ead8', alpha: .55, boil: .4 }); }
   // tongues of molasses racing over the cobbles, reaching for the camera
+  if (L(1))
   for (const [x0, w, len, k] of [[-4.6, 3.4, 9.6, 0], [-.9, 2.6, 8.2, 1], [3.0, 3.6, 9.9, 2], [6.2, 2.4, 8.4, 3]]) {
     const z1 = ZF - .5, z2 = Math.max(1.05, z1 - len - U * 1.6), ptsL = [], ptsR = [];
     for (let i = 0; i <= 10; i++) { const u = i / 10, z = lerp(z1, z2, u), ww = w * (1 - .55 * u) * (1 + .15 * Math.sin(u * 9 + k)); ptsL.push(P(x0 - ww / 2 + .3 * Math.sin(u * 5 + k), .02, z)); ptsR.push(P(x0 + ww / 2 + .3 * Math.sin(u * 5 + k), .02, z)); }
     shape(spline([...ptsL, P(x0, .02, z2 - .35), ...ptsR.reverse()], true, 6), { fill: '#4a2208', lw: 6, shade: () => { const m = ptsL.map((p, i) => [(p[0] + ptsR[10 - i][0]) / 2, (p[1] + ptsR[10 - i][1]) / 2]); stroke(spline(m.slice(1, 9), false, 8), 7, { line: '#e8952e' }); stroke(spline(m.slice(3, 7).map(([x, y]) => [x - 14, y - 4]), false, 8), 4, { line: '#ffe0a8' }); } });
   }
-  who(CAST.worker, .25, 1.85, { view: 'front', pose: runFront(.6 + Math.floor(U * 12) / 12 * 1.5), expr: 'scream', look: [0, .15], age: 1 });
-  for (const [x, y, r] of [[400, 640, 18], [770, 610, 14], [810, 700, 11]]) shape(spline([[x, y - r * 1.8], [x + r, y], [x, y + r], [x - r, y]]), { fill: '#bfe3f2', lw: 4 });   // sweat
+  if (L(2)) who(CAST.worker, .25, 1.85, { view: 'front', pose: runFront(.6 + Math.floor(U * 12) / 12 * 1.5), expr: 'scream', look: [0, .15], age: 1 });
+  if (L(2)) for (const [x, y, r] of [[400, 640, 18], [770, 610, 14], [810, 700, 11]]) shape(spline([[x, y - r * 1.8], [x + r, y], [x, y + r], [x - r, y]]), { fill: '#bfe3f2', lw: 4 });   // sweat
   g.restore();
+  if (LAYER == null) finishP1();
+  if (!P1.noCap && CAPS && LAYER == null) wordCaption('Banjir ini <bukan>', AMBER, { y: 1330 });
+}
+export function finishP1() {
   wash('#ff9a1f', .04); dof(1640, 1920, 8); paint(.4); grade2('#2a3550', '#ffcf8a', .13); grain(.045); vignette(.36);
-  if (!P1.noCap && CAPS) wordCaption('Banjir ini <bukan>', AMBER, { y: 1330 });
 }
 
 // ———————————————— P3: ARSIP KASUS slammed on the desk
 let photo = null;
 export function P3() {
   // the photo inside the file: P1 rendered small, in sepia
-  if (!photo) { photo = document.createElement('canvas'); photo.width = 1080; photo.height = 1920; const main = g.canvas; init(photo); frame(0); P1.noCap = true; P1(); P1.noCap = false; init(main); frame(1); }
+  if (!photo) { photo = document.createElement('canvas'); photo.width = 1080; photo.height = 1920; const main = g.canvas, u0 = U, l0 = LAYER; init(photo); frame(0); U = 2.3; LAYER = null; P1.noCap = true; P1(); P1.noCap = false; U = u0; LAYER = l0; init(main); frame(1); }
   setLight({ dir: [-.4, -.9], tint: '#1a1410', a: .32 });
   g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#2a1d16'; g.fillRect(0, 0, W, H);
   for (let i = 0; i < 26; i++) { const y = i * 80; fillOnly(rect(-20, y, W + 40, 76), mix('#3a281c', '#2c1e15', hash(i)), { boil: .1 }); for (let k = 0; k < 5; k++) stroke(spline([[-20, y + 15 + k * 12], [300, y + 10 + k * 13 + 6 * Math.sin(i + k)], [700, y + 18 + k * 12], [1100, y + 12 + k * 12]], false, 10), 1.5, { line: '#24180f', boil: .1 }); }
@@ -313,4 +359,4 @@ const cv = document.getElementById('c'); init(cv);
 export const MAIN = cv;
 window.DUR = 3;
 window.render = t => { frame(t); g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, W, H); [P1, P3, P8][Math.min(2, Math.floor(t))](); };
-Promise.all([document.fonts.load('600 40px "Oswald"'), document.fonts.load('700 30px "Courier Prime"')]).then(() => { window.READY = true; });
+Promise.all([document.fonts.load('600 40px "Oswald"'), document.fonts.load('700 30px "Courier Prime"'), brushReady()]).then(async () => { if (window.__video) return; for (const t of [0, 2]) window.render(t + .5); await preparePaint(); window.READY = true; });

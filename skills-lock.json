@@ -1,0 +1,65 @@
+{
+  "version": 2,
+  "skills": {
+    "2d-character-rig-animation": {
+      "source": "calesthio/generative-media-skills",
+      "sourceType": "github",
+      "skillPath": "skills/production/creative-direction/2d-character-rig-animation/SKILL.md",
+      "computedHash": "e8b206483d1393d0eaad1cb8cb79fa3084545eb5cbb621b8087aea8c1002069a"
+    },
+    "character-animation-qa": {
+      "source": "openmontageinc/openmontage",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/character-animation-qa/SKILL.md",
+      "computedHash": "ad8a6916adb55b21341e150a02373cfbd3007845b2e8b5026d70037dee493297"
+    },
+    "cinematography-180-degree-rule": {
+      "source": "geegl/directorskills",
+      "sourceType": "github",
+      "skillPath": "output/books/cinematography-brown/cinematography-180-degree-rule/SKILL.md",
+      "computedHash": "c6c88c486f7342fe4f33b2be308433809db9b5c2f5fee4984ca247825f815490"
+    },
+    "color-grading-finishing": {
+      "source": "calesthio/generative-media-skills",
+      "sourceType": "github",
+      "skillPath": "skills/production/post-production/color-grading-finishing/SKILL.md",
+      "computedHash": "0d98306283052a69fb53574b88416bdfa21703778f6ee8a32eae3d1b9c5ac733"
+    },
+    "filmmaker": {
+      "source": "dylantarre/animation-principles",
+      "sourceType": "github",
+      "skillPath": "skills/03-by-role-persona/filmmaker/SKILL.md",
+      "computedHash": "99d21ea4e298c3d274201b6cae86338570c88db4f6ff493796404a245595723c"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f"
+    },
+    "p5-brush": {
+      "source": "progen/p5-brush-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "3e1ece5b29da5745a76c7e8d46f004d44c9db64d0ee1618b9dd473b7a6720f27"
+    },
+    "sound-design-film": {
+      "source": "guia-matthieu/clawfu-skills",
+      "sourceType": "github",
+      "skillPath": "skills/audio/sound-design-film/SKILL.md",
+      "computedHash": "a0426fd7f64b2a457eb7d5ace11886bc5988cf400d7415b5192cec396f15df0f"
+    },
+    "sound-design-foley": {
+      "source": "calesthio/generative-media-skills",
+      "sourceType": "github",
+      "skillPath": "skills/production/audio-craft/sound-design-foley/SKILL.md",
+      "computedHash": "f2d33f1531ffafd775f8ad8592cc9267eee827b98b04f29ab7d0fd190b9c2e24"
+    },
+    "svg-character-animation": {
+      "source": "openmontageinc/openmontage",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/svg-character-animation/SKILL.md",
+      "computedHash": "f97194f882d070bb45b0f75730944ed166a885c143883d595e433da81f1ccf69"
+    }
+  }
+}

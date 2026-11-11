@@ -8,7 +8,8 @@ def add(buf, at, gain=1., pan=0.):
     i = int(at * SR); j = min(N, i + len(buf)); L[i:j] += buf[:j - i] * gain * (1 - max(0, pan)); R[i:j] += buf[:j - i] * gain * (1 + min(0, pan))
 def lp(x, a):   # one-pole low-pass (vectorised via lfilter-like cumulative approach)
     y = np.empty_like(x); s = 0.
-    for k in range(len(x)): s += a * (x[k] - s); y[k] = s
+    A = np.broadcast_to(a, x.shape)
+    for k in range(len(x)): s += A[k] * (x[k] - s); y[k] = s
     return y
 env = lambda n, a, r: np.minimum(1, np.arange(n) / (a * SR + 1)) * np.exp(-np.arange(n) / (r * SR))
 # P1: deep rumble + crashing roar, swelling
@@ -24,6 +25,16 @@ add(np.sin(2 * np.pi * 110 * tt) * np.exp(-tt * 18) + lp(rng.standard_normal(m),
 air = lp(rng.standard_normal(int(3.7 * SR)), .015); air /= np.abs(air).max(); add(air * np.minimum(1, np.arange(len(air)) / (.3 * SR)), 5.4, .12)
 for k in range(4):
     c = int(.05 * SR); tc = np.arange(c) / SR; add((np.sin(2 * np.pi * 2400 * tc) * .6 + rng.standard_normal(c) * .3) * np.exp(-tc * 120), 5.75 + k, .35, -.3)
+# score: low string drone (detuned saws, filtered) swelling through P1, a riser into the slam, a cold pulse under P8
+def saw(f, n): t = np.arange(n) / SR; return 2 * ((t * f) % 1) - 1
+nd = N; td = np.arange(nd) / SR
+drone = sum(saw(f * (1 + d), nd) for f in (55, 82.4, 110) for d in (-.004, .004)); drone = lp(drone, .02); drone /= np.abs(drone).max()
+swell = np.interp(td, [0, 1.8, 2.3, 2.5, 5.2, 5.5, 9.05], [.35, .8, .9, .25, .5, .3, .45])
+add(drone * swell, 0, .22)
+nr = int(1.0 * SR); tr = np.arange(nr) / SR; riser = lp(rng.standard_normal(nr), .05 + .4 * (tr / 1.0) ** 2) * (tr / 1.0) ** 2; add(riser / np.abs(riser).max(), 1.3, .25)
+for k in range(7):   # heartbeat-like pulse under P8
+    c = int(.25 * SR); tc = np.arange(c) / SR; beat = np.sin(2 * np.pi * 52 * tc) * np.exp(-tc * 16)
+    add(beat, 5.6 + k * .52, .35); add(beat, 5.6 + k * .52 + .16, .2)
 # voice on top
 add(vo(0, 5.4), 0, 1.0); add(vo(9.0, 12.65), 5.4, 1.0)
 mx = np.stack([L, R], 1); mx /= max(1, np.abs(mx).max() / .95)
