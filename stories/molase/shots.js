@@ -2,6 +2,7 @@
 // Each shot: { id, t0, t1, key, vo, desc, camText, sfx, text, build(stage) -> update(t) } ; t = seconds on the VO timeline.
 import { THREE, rng, clamp, lerp, range, ease, fg, ink, cloudsTex, THEMES } from '../../engine/core.js';
 import { Actor, pose } from '../../engine/actor.js';
+import { M, overlap, springPose, keys, kv, layer, over, blend, ease as em, spring, blink, breathe } from '../../engine/motion.js';
 import * as S from '../../engine/sets.js';
 
 const AMBER = '#ec9a3a';
@@ -450,4 +451,183 @@ shot({ id: 'S22', t0: 57.55, t1: 60.7, key: 59.5, vo: '…atau tanda bahaya yang
     return (t) => { const k = ease.inOut(range(t, 57.55, 60.7)); drip(t);
       st.grade({ sat: .5, bright: lerp(1, .55, k) });
       cam(st, v3(.35, -.2, lerp(1.3, 1.0, k)), v3(.16, -.35, 0), 36); st.setBlur(0); };
+  } });
+
+
+// =====================================================================================================
+// v2 — animated shots on the skeletal rig + motion library (replace the storyboard versions by id)
+// =====================================================================================================
+function reshot(o) { const i = SHOTS.findIndex(s => s.id === o.id); if (i >= 0) SHOTS[i] = { ...SHOTS[i], ...o }; else SHOTS.push(o); }
+const noise = (t, f = 1, seed = 0) => Math.sin(t * f * 6.1 + seed) * .5 + Math.sin(t * f * 2.3 + seed * 3) * .3 + Math.sin(t * f * 11.7 + seed * 7) * .2;
+// actor helper: animate(t) = overlap + springs on cloth/sway channels
+function act(a, poseFn, t, light) {
+  const f = (tt) => overlap(poseFn, tt);
+  const p = springPose(f, t, ['sway', 'flutter', 'tilt', 'nod'], { freq: 2.4, damp: .32, win: .7 });
+  a.draw(p, light); return p;
+}
+
+// S05 — rupture close-up: rivets strain then pop in sequence, plate bulges, seam tears, first spurts
+reshot({ id: 'S05', key: 13.55,
+  desc: 'Close-up sambungan: paku keling bergetar lalu lepas satu per satu, pelat menggembung, sambungan robek, semburan pertama.',
+  build(st) {
+    st.setTheme({ ...st.theme, fog: 0x2b2a29, fogNear: 6, fogFar: 40 }); st.scene.background = null;
+    const wall = S.wallClose({ w: 7, h: 9, seed: 5, leaks: 3 }); st.scene.add(wall);
+    const rivets = wall.userData.rivets.filter(r => Math.abs(r.position.x - .15) < .05 || Math.abs(r.position.y - 3) < .05);
+    rivets.forEach((r, i) => { r.userData.base = r.position.clone(); r.userData.order = Math.abs(r.position.y - 3.6) + Math.abs(r.position.x - .15) * .5; fg(r); });
+    const mat = S.molassesMat({ emissive: .25, inkEdge: .25 });
+    const crackPts = [[0, 1.6], [.12, 1.1], [-.08, .6], [.15, .1], [-.05, -.4], [.1, -.9], [-.06, -1.5]];
+    const mkCrack = (w, col, z) => { const sh = new THREE.Shape(); sh.moveTo(crackPts[0][0] - w * .3, crackPts[0][1]);
+      crackPts.forEach(([x, y], i) => sh.lineTo(x - w * (i % 2 ? 1 : .6), y)); for (let i = crackPts.length - 1; i >= 0; i--) { const [x, y] = crackPts[i]; sh.lineTo(x + w * (i % 2 ? .6 : 1), y); }
+      const m = new THREE.Mesh(new THREE.ShapeGeometry(sh), new THREE.MeshBasicMaterial({ color: col, fog: false })); m.position.set(.15, 3.6, z); st.scene.add(m); return m; };
+    const glow = mkCrack(.16, 0xff7a10, .012), dark = mkCrack(.08, 0x1a0802, .02);
+    const spurts = [0, 1, 2, 3].map(i => { const y = 3.6 + (i - 1.5) * .7; const c = new THREE.CatmullRomCurve3([v3(.15, y, 0), v3(.15 + (i - 1.5) * .12, y + .08, .6), v3(.15 + (i - 1.5) * .3, y - .3, 1.3), v3(.15 + (i - 1.5) * .45, y - 1.1, 1.9)]);
+      const j = new THREE.Mesh(new THREE.TubeGeometry(c, 24, .035 + (i % 2) * .02, 8), mat); fg(j); st.scene.add(j); return j; });
+    const drops = S.droplets({ n: 22, box: [0, 0, 0], size: [.012, .03], mat }); fg(drops); st.scene.add(drops);
+    return (t) => {
+      const k = range(t, 12.65, 13.9);
+      const strain = clamp(k / .45), tear = em.in(clamp((k - .35) / .65));
+      wall.position.z = Math.sin(t * 60) * .004 * strain;
+      rivets.forEach(r => { const o = r.userData.order, popAt = .3 + o * .25, a = clamp((k - popAt) / .5);
+        const b = r.userData.base; r.position.set(b.x + Math.sin(t * 90 + o * 9) * .006 * strain * (a ? 0 : 1) + (b.x - .15) * a * 2.5, b.y + a * 1.2 - a * a * 2, b.z + a * 3);
+        r.rotation.set(a * 9, a * 7, 0); });
+      glow.scale.set(1 + tear * 2.5, .15 + tear * .9, 1); dark.scale.set(1 + tear * 2, .15 + tear * .9, 1);
+      spurts.forEach((j, i) => { const f = clamp(tear * 1.6 - i * .18); j.visible = f > .02; const n = j.geometry.index.count; j.geometry.setDrawRange(0, Math.floor(n * f / 6) * 6); });
+      drops.children.forEach((d, i) => { const a = clamp((k - .55 - (i % 6) * .05) / .45); d.visible = a > 0; const dir = (i / 22 - .5) * 2;
+        d.position.set(.15 + dir * 1.4 * a, 3.6 + (i % 5 - 2) * .4 + a * 1.2 - a * a * 2.2, .3 + a * 2.6); });
+      st.warm.intensity = 30 * tear; st.warm.position.set(.15, 3.6, 1);
+      const sh = .04 * strain + .12 * tear;
+      cam(st, v3(.5 + noise(t, 3) * sh, 3.3 + noise(t, 3, 2) * sh, lerp(4.6, 3.6, em.inOut(k)) - tear * .4), v3(.1, 3.5, 0), 46, -.06 + noise(t, 2, 5) * .02);
+      st.setBlur(0);
+    };
+  } });
+
+// S06 — wide: the front of the tank bulges, panels peel open at the base, the molasses wall rolls out and curls; a worker recoils
+reshot({ id: 'S06', key: 14.6,
+  desc: 'Wide: panel tangki menggembung lalu terbuka dari dasar, sebagian terlempar; gelombang molase keluar dan mulai menggulung. Pekerja di depan terlonjak mundur.',
+  build(st) {
+    tankYard(st, { tank: false });
+    const tk = S.burstTank({ inner: '#5a2c0c' }); tk.group.position.set(0, 0, -16); st.scene.add(tk.group);
+    const wave = S.makeWave({ width: 30, depth: 14, seed: 7, taper: .5 }); st.scene.add(wave.group);
+    const mat = wave.mat; const drops = S.droplets({ n: 40, box: [0, 0, 0], size: [.15, .5], mat }); st.scene.add(drops);
+    const man = actor(st, 'worker', { h: 1.78, res: 1100, at: [7.5, 0, 19] });
+    return (t) => {
+      const k = range(t, 13.9, 14.95);
+      tk.update(.2 + k * .8);
+      const g = em.out(clamp((k - .15) / .85));
+      wave.update({ t, height: 2 + g * 8, lip: .4 + g * .9, curl: g * .35, surge: g });
+      wave.group.position.set(0, 0, -16 + 8 + g * 12); wave.group.scale.set(.5 + g * .5, 1, 1);
+      drops.children.forEach((d, i) => { const a = clamp((k - .25 - (i % 7) * .03) / .75); d.visible = a > 0; const ang = (i / 40 - .5) * 2.2;
+        d.position.set(Math.sin(ang) * (8 + a * 16), 8 + a * 10 - a * a * 14 + (i % 4), -16 + Math.cos(ang) * (8 + a * 16)); });
+      // worker: idle → startle (anticipation freeze) → recoil back, arm up, then turn to run
+      const pf = (tt) => { const kk = range(tt, 13.9, 14.95);
+        const base = M.idle(tt, { seed: 4 });
+        const rc = kv(kk, [[0, 0], [.18, -.15, em.inOut], [.38, 1, em.backOut], [1, .85]]);
+        return over(layer(base, M.recoil(Math.max(0, rc)), { turn: -.55 * clamp(rc), twist: -.3 * clamp(rc) }), { look: [-.9, -.6], eyes: rc > .2 ? 'wide' : 'normal', brows: rc > .2 ? 'fear' : 'neutral', mouth: rc > .35 ? 'shout' : 'small_o', blink: 0 }); };
+      act(man, pf, t, { rim: '#ec9a3a', rimSide: 1, rimA: .7 * g });
+      const shk = .5 * g * (1 - k * .3);
+      cam(st, v3(14 + noise(t, 4) * shk, 6 + noise(t, 4, 3) * shk, lerp(40, 33, em.out(k))), v3(0, 6.5, -12), 52, noise(t, 3, 7) * .02 * g);
+      man.face(st.camera); st.setBlur(0);
+    };
+  } });
+
+// S07 — the chase: worker and woman run toward camera, glance back, wave rolls and curls behind them
+reshot({ id: 'S07', key: 16.4,
+  desc: 'Pekerja dan perempuan berlari ke kamera; menoleh ke belakang bergantian. Gelombang menggulung makin dekat, gerobak tertelan, papan dan tetesan beterbangan.',
+  build(st) {
+    commercialStreet(st);
+    const wave = S.makeWave({ width: 24, depth: 10, seed: 11, taper: .7 }); wave.group.rotation.y = .5; st.scene.add(wave.group);
+    const mat = wave.mat;
+    const sheet = S.molassesSheet({ width: 26, length: 6, lobes: 6, mat }); st.scene.add(sheet);
+    const drops = S.droplets({ n: 46, box: [0, 0, 0], size: [.05, .16], mat }); st.scene.add(drops);
+    const wg = S.wagon(); wg.rotation.y = .6; st.scene.add(wg);
+    const planks = []; for (let i = 0; i < 6; i++) { const p = S.plank({ seed: i }); st.scene.add(p); planks.push(p); }
+    const man = actor(st, 'worker', { res: 1300 }), wo = actor(st, 'woman', { res: 1100 });
+    const far = [actor(st, 'riveter', { res: 600, layer: false }), actor(st, 'boy', { h: 1.35, res: 500, layer: false })];
+    return (t) => {
+      const k = range(t, 14.95, 18.45);
+      const zw = -34 + k * 7.5;
+      wave.update({ t, height: 8.6 + k * 1.2, lip: 1.1 + k * .35, curl: .1 + k * .55, surge: .3 });
+      wave.group.position.set(-2, 0, zw); sheet.position.set(0, 0, zw + 2.4);
+      drops.children.forEach((d, i) => { const per = 1.1, a = ((t - 14 + i * .137) % per) / per, u = (i * .618) % 1;
+        d.position.set((u - .5) * 18 - 2 + (u - .5) * a * 3, 7.2 * (1.05 - .45 * u) + 3.5 * a - 9 * a * a, zw + 3.4 * (1.2 - .45 * u) + a * 3); d.scale.setScalar(.05 + (i % 4) * .03); });
+      wg.position.set(-4.2, .3 + k * 1.2, zw + 3.2); wg.rotation.set(-.2 * k, .6 + k * .3, -.15 - .45 * k);
+      planks.forEach((p, i) => { const a = ((t * .5 + i * .17) % 1); p.position.set(-7 + i * 2.6, 3 + (i % 3) * 1.2 + Math.sin(a * Math.PI) * 2, zw + 2 + a * 3); p.rotation.set(t * 2.1 + i, i * 1.3 + t, t * 1.6 + i * 2); });
+      const zc = zw + 17.5 - k * 3.2;
+      // worker: run cycle + look back over the shoulder 15.7–16.6 (eyes lead, head, then chest), flinch at 17.6 when a plank lands
+      const manPose = (tt) => {
+        const base = M.run(tt, { cadence: 3.3, seed: 1 });
+        const lb = kv(tt, [[15.6, 0], [15.75, .15, em.inOut], [16.0, 1, em.backOut], [16.45, 1], [16.7, 0, em.inOut]]);
+        const fl = kv(tt, [[17.5, 0], [17.6, 1, em.out], [17.95, 0, em.inOut]]);
+        return layer(over(base, { look: [lerp(0, -1, clamp(lb * 1.4)), -.1], mouth: lb > .5 ? 'shock' : 'shout' }),
+          { turn: -.75 * lb, twist: -.35 * lb, tilt: -4 * lb, chest: -3 * lb }, { shL: 15 * fl, shR: 15 * fl, elL: 25 * fl, elR: 25 * fl, nod: .3 * fl, spine: 5 * fl });
+      };
+      man.group.position.set(-1.0 + Math.sin(t * 1.7) * .15, 0, zc - 3.9);
+      act(man, manPose, t, { rim: AMBER, rimSide: 1, rimA: .9 + k * .1 });
+      // woman: runs holding her hat with the left hand, right arm pumping; skirt-coat flutters; looks back later (16.9–17.6)
+      const woPose = (tt) => {
+        const base = M.run(tt, { cadence: 3.6, seed: 3, energy: .9 });
+        const lb = kv(tt, [[16.8, 0], [17.05, 1, em.backOut], [17.45, 1], [17.7, 0]]);
+        return layer(over(base, { shL: 150, elL: 115, wrL: -10, handL: 'grip', shrugL: .4, look: [lerp(0, 1, clamp(lb * 1.4)), -.1] }),
+          { turn: .7 * lb, twist: .3 * lb, tilt: 4 * lb }, { flutter: .5 });
+      };
+      wo.group.position.set(.7 + Math.sin(t * 1.3 + 1) * .2, 0, zc - 6.6);
+      act(wo, woPose, t, { rim: AMBER, rimSide: -1, rimA: .9 });
+      far[0].group.position.set(-4.6, .18, zc - 11.5); far[0].draw(overlap(tt => M.run(tt, { cadence: 3.0, seed: 5 }), t));
+      far[1].group.position.set(1.6, .18, zc - 12.5); far[1].draw(overlap(tt => M.run(tt, { cadence: 3.8, seed: 9 }), t));
+      const sh = .05 + k * .05;
+      cam(st, v3(-1.2 + noise(t, 1.3) * sh * 2, 1.05 + noise(t, 2.1, 4) * sh, zc), v3(-1.6 + noise(t, .8, 2) * .3, 3.8, zc - 20), 60, -.07 + noise(t, .9, 6) * .02);
+      [man, wo, ...far].forEach(a => a.face(st.camera)); st.setBlur(1.0);
+    };
+  } });
+
+// S14 — the boy watches a drop form, anticipates, lifts the cup and catches it; giggles; brings the cup in
+const DROPS14 = [35.6, 36.17, 37.25, 38.05];   // drop release times; the 2nd lands in the cup
+reshot({ id: 'S14', key: 36.62,
+  desc: 'Anak memperhatikan tetes terbentuk, mengambil ancang-ancang, mengangkat cangkir dan menangkap tetesan; terkikik, lalu mendekap cangkirnya.',
+  build(st) {
+    tankYard(st, { leaks: 8 });
+    const mat = S.molassesMat({ emissive: .12, inkEdge: .25 });
+    const th = -.42, P = (along, y, out) => onTank(th, y, out, along).p, { n, tg } = onTank(th, 0);
+    const boy = actor(st, 'boy', { h: 1.35, res: 1300 });
+    const girl = actor(st, 'girl', { h: 1.3, res: 800, layer: false });
+    const boyAt = P(-.62, 0, .55); boy.group.position.copy(boyAt); let cupW = null;
+    const pose = (tt) => {
+      const base = layer(M.idle(tt, { seed: 7 }), M.crouch(1));
+      const up = kv(tt, [[35.55, .05], [36.0, .05], [36.18, -.12, em.inOut], [36.5, 1, em.backOut], [37.0, .95], [37.8, .9], [38.3, .45, em.inOut]]);
+      const giggle = tt > 36.66 ? Math.sin((tt - 36.66) * 22) * Math.exp(-(tt - 36.66) * 2.2) : 0;
+      const impact = tt > 36.63 ? Math.exp(-(tt - 36.63) * 9) * Math.sin((tt - 36.63) * 30) : 0;
+      const hold = M.holdFront(1, { height: up });
+      const dropY = dropAt(tt);
+      const lookY = dropY === null ? -.9 : clamp(-1 + (1.6 - dropY) * 1.4, -1, .6);
+      const happy = tt > 36.64;
+      return layer(over(base, { ...hold, prop: { kind: 'cup', hand: 'both', fill: happy ? clamp((tt - 36.62) * 3, 0, .7) : .15, slosh: giggle, offset: [0, -.05] },
+        eyes: happy ? (tt < 37.8 ? 'happy' : 'closed') : 'wide', mouth: happy ? 'smile' : 'small_o', brows: happy ? 'neutral' : 'worried', look: [.55, lookY], turn: .3, blink: 0 }),
+        { elL: -impact * 12, elR: -impact * 12, tilt: 6 + giggle * 4 - up * 6, nod: -.5 * up + .2, shrugL: Math.abs(giggle) * .25 + up * .15, shrugR: Math.abs(giggle) * .25 + up * .15, chest: giggle * 2, y: -Math.abs(giggle) * .02 });
+    };
+    // drop world position: need the cup position at the catch → put the seam/stream right above it
+    st.camera.position.set(0, 0, 10); boy.draw(over(pose(36.6), {})); boy.face(st.camera);
+    cupW = boy.worldOf([(boy.J.wrL.p[0] + boy.J.wrR.p[0]) / 2, (boy.J.wrL.p[1] + boy.J.wrR.p[1]) / 2 - .3]);
+    const seamTop = P(0, 7.5, .02); const drip = cupW.clone(); drip.y = 1.95;
+    const pts = [seamTop, P(.08, 5.8, .05), P(-.05, 4.2, .06), P(.04, 3.0, .1), v3(lerp(P(0, 2.4, .2).x, drip.x, .5), 2.4, lerp(P(0, 2.4, .2).z, drip.z, .5)), drip.clone().setY(2.0)];
+    const stream = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 60, .055, 8), mat); st.scene.add(stream);
+    const blob = new THREE.Mesh(new THREE.SphereGeometry(.07, 14, 10), mat); fg(blob); st.scene.add(blob);
+    const drop = new THREE.Mesh(blob.geometry, mat); fg(drop); st.scene.add(drop);
+    const pool = S.molassesSheet({ width: 1.2, length: .7, lobes: 3, mat }); pool.position.copy(drip).setY(0); pool.rotation.y = th; st.scene.add(pool);
+    function dropAt(tt) { for (const d0 of DROPS14) { const a = tt - d0; if (a >= 0 && a < .7) { const y = 1.93 - 4.9 * a * a; const floor = d0 === DROPS14[1] && cupW ? cupW.y + .05 : .02; return y > floor ? y : null; } } return null; }
+    return (t) => {
+      const k = range(t, 35.55, 38.35);
+      // drop forming: blob swells before each release
+      let swell = 0; for (const d0 of DROPS14) { const a = (t - (d0 - .55)) / .55; if (a >= 0 && a <= 1) swell = a; }
+      blob.position.copy(drip).setY(1.95 - swell * .05); blob.scale.set(.7 + swell * .5, .8 + swell * 1.1, .7 + swell * .5);
+      const dy = dropAt(t); drop.visible = dy !== null; if (dy !== null) drop.position.copy(drip).setY(dy);
+      stream.scale.x = 1 + Math.sin(t * 3) * .02;
+      act(boy, pose, t, { rim: '#f2a548', rimSide: 1, rimA: .65 });
+      girl.group.position.copy(P(-3.4, 0, 2.6));
+      girl.draw(overlap(tt => layer(M.idle(tt, { seed: 2 }), { turn: .45, look: [.9, .2], eyes: tt > 36.7 ? 'happy' : 'normal', mouth: 'smile', shR: 20, elR: 95, wrR: -20, handR: 'cup',
+        shL: 10 + (tt > 36.7 ? Math.max(0, Math.sin((tt - 36.7) * 9)) * 30 : 0) }), t));
+      const target = P(-.3, 1.0, .45);
+      const cp = target.clone().add(n.clone().multiplyScalar(lerp(2.75, 2.3, em.inOut(k)))).add(tg.clone().multiplyScalar(lerp(-2.25, -1.9, em.inOut(k)))).setY(.55 + noise(t, .5) * .03);
+      cam(st, cp, target.clone().add(tg.clone().multiplyScalar(-.1)).setY(1.35 + noise(t, .4, 3) * .03), 48);
+      boy.face(st.camera); girl.face(st.camera); st.setBlur(1.8);
+    };
   } });

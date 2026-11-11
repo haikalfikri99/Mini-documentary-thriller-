@@ -2,8 +2,9 @@
 // Look: clean vector cartoon, thick ink outline, flat colour + one shadow band, soft coloured rim light.
 // All drawing is in "head units" (hh): the canvas is scaled so 1 unit = one head height.
 import { THREE, clamp, lerp } from './core.js';
+import { drawRig } from './rig.js';
 
-const INK = '#16120e';
+export const INK = '#16120e';
 const D = Math.PI / 180;
 
 // ---------------------------------------------------------------- cast (palette + build). Story files may add more.
@@ -58,11 +59,11 @@ export function mixPose(a, b, k) {
 }
 
 // ---------------------------------------------------------------- geometry helpers
-function capsule(x1, y1, x2, y2, r1, r2) {
+export function capsule(x1, y1, x2, y2, r1, r2) {
   const a = Math.atan2(y2 - y1, x2 - x1), p = new Path2D();
   p.arc(x1, y1, r1, a + Math.PI / 2, a - Math.PI / 2); p.arc(x2, y2, r2, a - Math.PI / 2, a + Math.PI / 2); p.closePath(); return p;
 }
-function spline(pts, k = .2, closed = true) {
+export function spline(pts, k = .2, closed = true) {
   const p = new Path2D(), n = pts.length, P = i => closed ? pts[(i + n) % n] : pts[clamp(i, 0, n - 1)];
   p.moveTo(...P(0));
   for (let i = 0; i < (closed ? n : n - 1); i++) { const a = P(i - 1), b = P(i), c = P(i + 1), d = P(i + 2);
@@ -72,7 +73,7 @@ function spline(pts, k = .2, closed = true) {
 const rot = ([x, y], a, [ox, oy] = [0, 0]) => [ox + (x - ox) * Math.cos(a) - (y - oy) * Math.sin(a), oy + (x - ox) * Math.sin(a) + (y - oy) * Math.cos(a)];
 const add2 = (a, b) => [a[0] + b[0], a[1] + b[1]];
 const dir = (s, a) => [s * Math.sin(a * D), Math.cos(a * D)]; // s = -1 left side, +1 right side; 0deg = down
-function shade(hex, k) { const n = parseInt(hex.slice(1), 16); const r = n >> 16, g = n >> 8 & 255, b = n & 255;
+export function shade(hex, k) { const n = parseInt(hex.slice(1), 16); const r = n >> 16, g = n >> 8 & 255, b = n & 255;
   const f = v => clamp(Math.round(k < 0 ? v * (1 + k) : v + (255 - v) * k), 0, 255); return `rgb(${f(r)},${f(g)},${f(b)})`; }
 
 // ---------------------------------------------------------------- painter
@@ -195,7 +196,7 @@ export function drawActor(g, W, H, ch, P, light = {}) {
 }
 
 // rim light only on the outer silhouette, inside the ink line, softened
-function rimLight(g, W, H, L, inkPx) {
+export function rimLight(g, W, H, L, inkPx) {
   const c = g.canvas, m = document.createElement('canvas'); m.width = W; m.height = H; const k = m.getContext('2d');
   const d1 = inkPx * 1.15, w = (L.rimW ?? .011) * H, sx = -L.rimSide;
   k.drawImage(c, sx * d1, -d1 * .3);                                    // inset by ink width
@@ -236,7 +237,7 @@ function coatDetails(g, ch, o) {
   g.restore();
 }
 
-function headShade(g, ch, Hd, hw, tx) {
+export function headShade(g, ch, Hd, hw, tx) {
   // soft cheek / jaw shading and shadow under hat brim
   g.save(); g.fillStyle = ch.skin2; g.globalAlpha = .3;
   const c = Hd([tx * .4, .3]); const gr = g.createRadialGradient(c[0], c[1] + .1, .05, c[0], c[1] + .1, .5); gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(1, ch.skin2);
@@ -245,7 +246,7 @@ function headShade(g, ch, Hd, hw, tx) {
   g.restore();
 }
 
-function hairAndHat(g, ch, Hd, hw, lw, tx, L) {
+export function hairAndHat(g, ch, Hd, hw, lw, tx, L) {
   const fs = (p, col, rim = true) => { g.lineWidth = lw * 2; g.strokeStyle = INK; g.stroke(p); g.fillStyle = col; g.fill(p);
     g.save(); g.clip(p); const sp = new Path2D(); sp.addPath(p); sp.addPath(p, new DOMMatrix().translate(L.rimSide * .09, -.04)); g.fillStyle = 'rgba(15,18,24,.3)'; g.fill(sp, 'evenodd');
     g.restore(); };
@@ -265,7 +266,7 @@ function hairAndHat(g, ch, Hd, hw, lw, tx, L) {
   if (ch.hat === 'sailor') fs(spline([Hd([-hw * 1.0, -.28]), Hd([-hw * .9, -.56]), Hd([hw * .9, -.56]), Hd([hw * 1.0, -.28])], .15), ch.hatCol);
 }
 
-function face(g, ch, P, Hd, hw, lw, tx, kid) {
+export function face(g, ch, P, Hd, hw, lw, tx, kid) {
   g.save(); g.strokeStyle = INK;
   const ex = hw * .4, ey = -.04, er = kid ? .115 : .1, lk = P.look || [0, 0];
   const E = P.eyes, wide = E === 'wide';
@@ -337,9 +338,17 @@ export class Actor {
   draw(P, light = this.light) {
     const g = this.g; g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, this.W, this.H);
     if (this.mirror) { g.translate(this.W, 0); g.scale(-1, 1); light = { ...light, rimSide: -(light.rimSide ?? -1) }; }
-    drawActor(g, this.W, this.H, this.ch, P, light); this.tex.needsUpdate = true; return this;
+    if (P && P.v === 2) this.J = drawRig(g, this.W, this.H, this.ch, P, light); else drawActor(g, this.W, this.H, this.ch, P, light);
+    this.tex.needsUpdate = true; return this;
   }
   face(camera) { const p = new THREE.Vector3(); this.group.getWorldPosition(p);
     this.mesh.rotation.y = Math.atan2(camera.position.x - p.x, camera.position.z - p.z) - this.group.rotation.y; }
   tint(c = 0xffffff) { this.mat.color.set(c); }
+  // world position of a rig point (head units, e.g. J.wrR.p) after draw(); card faces the camera (rotation.y of mesh)
+  worldOf(pt) {
+    const J = this.J; if (!J) return null; const px = this.W / 2 + J.S * pt[0], py = this.H * .985 + J.S * pt[1];
+    const h = this.mesh.geometry.parameters.height, w = this.mesh.geometry.parameters.width;
+    const v = new THREE.Vector3((px / this.W - .5) * w * (this.mirror ? -1 : 1), (1 - py / this.H) * h - h * .015, .01);
+    this.mesh.updateMatrixWorld(true); return v.applyMatrix4(this.mesh.matrixWorld);
+  }
 }

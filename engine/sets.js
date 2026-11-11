@@ -193,7 +193,7 @@ export function molassesMat({ dark = '#2a1104', mid = '#7a3a0f', light = '#cc7a2
         c=mix(c,cH,line*hiZone*streak*.95);
         float darkl=smoothstep(.0,.05,abs(fract(fx*.5+.25)-.5)-.44)*step(.6,n(vec2(vUv.x*30.,vUv.y*2.)));
         c=mix(c,cD*.8,darkl*(1.-hiZone)*.7);
-        vec3 R=reflect(-lDir,N); float sp=max(dot(R,V),0.); if(sp>.97) c=mix(c,cH,.8);
+        vec3 R=reflect(-lDir,N); float sp=max(dot(R,V),0.); if(sp>.995) c=mix(c,cH,.6);
         c+=cL*em;
         float ndv=abs(dot(N,V)); if(ndv<edge) c=vec3(.07,.045,.03);
         gl_FragColor=vec4(c,1.);
@@ -322,4 +322,84 @@ export function wallClose({ w = 6, h = 8, seed = 3, crack = 0, leaks = 2, paint 
   for (const y of [h / 3, h * 2 / 3]) for (let x = -w / 2 + .1; x < w / 2; x += .4) { const rv = new THREE.Mesh(rivGeo, rmat); rv.position.set(x, y + .06, .01); grp.add(rv); rivets.push(rv); }
   for (let y = .2; y < h; y += .38) { const rv = new THREE.Mesh(rivGeo, rmat); rv.position.set(.15, y, .01); grp.add(rv); rivets.push(rv); }
   grp.userData.rivets = rivets; return grp;
+}
+
+// ---------------------------------------------------------------- animated molasses wave (rebuilds vertices each frame)
+// update({ t, height, lip, curl, surge }) : lip = overhang (0..1.4), curl = how far the crest has rolled over (0..1), surge = forward bulge of the face
+export function makeWave({ width = 22, depth = 10, segX = 110, segV = 44, seed = 11, mat, taper = .6 } = {}) {
+  const R = rng(seed), ph = [R() * 6, R() * 6, R() * 6, R() * 6];
+  mat = mat || molassesMat();
+  const strips = [0, 1].map(() => { const g = new THREE.BufferGeometry(); const n = (segX + 1) * segV;
+    g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(n * 3), 3)); const uv = new Float32Array(n * 2);
+    for (let i = 0; i <= segX; i++) for (let j = 0; j < segV; j++) { const k = i * segV + j; uv[k * 2] = i / segX; uv[k * 2 + 1] = j / (segV - 1); }
+    g.setAttribute('uv', new THREE.BufferAttribute(uv, 2)); const idx = [];
+    for (let i = 0; i < segX; i++) for (let j = 0; j < segV - 1; j++) { const a = i * segV + j, b = a + segV; idx.push(a, b, a + 1, b, b + 1, a + 1); }
+    g.setIndex(idx); const m = new THREE.Mesh(g, mat); m.frustumCulled = false; return m; });
+  const group = new THREE.Group(); strips.forEach(s => group.add(s));
+  const cr = (pr, f, k) => { const P = j => pr[clamp(j, 0, pr.length - 1)]; const p0 = P(k - 1), p1 = P(k), p2 = P(k + 1), p3 = P(k + 2);
+    const c = (a, b, c2, d) => .5 * ((2 * b) + (-a + c2) * f + (2 * a - 5 * b + 4 * c2 - d) * f * f + (-a + 3 * b - 3 * c2 + d) * f * f * f);
+    return [c(p0[0], p1[0], p2[0], p3[0]), c(p0[1], p1[1], p2[1], p3[1])]; };
+  const sample = (pr, out) => { for (let i = 0; i < segV; i++) { const t = i / (segV - 1) * (pr.length - 1), k = Math.floor(Math.min(t, pr.length - 2)); out[i] = cr(pr, t - k, k); } return out; };
+  const bufA = [], bufB = [];
+  function update({ t = 0, height = 5, lip = 1, curl = 0, surge = 0 } = {}) {
+    for (let i = 0; i <= segX; i++) {
+      const u = i / segX, x = (u - .5) * width;
+      const env = Math.pow(Math.sin(Math.PI * clamp(u)), .35);
+      const amp = (lerp(1.08, 1 - .55 * taper, u) + .1 * Math.sin(u * 11 + ph[0] - t * 1.3) + .05 * Math.sin(u * 23 + ph[1] + t * 2.1)) * env;
+      const lp = lip * (.8 + .35 * Math.sin(u * 4.3 + ph[2] + t * .7)) * (1.2 - .45 * u);
+      const cu = curl * (.85 + .3 * Math.sin(u * 5 + ph[3]));
+      // crest point and lip rotated by curl around the crest
+      const crest = [.25 * lp + surge * .1, 1.02];
+      const lipPts = [[.62 * lp, .96], [.88 * lp, .76], [.84 * lp, .5], [.66 * lp, .44]].map(([z, y]) => {
+        const dz = z - crest[0], dy = y - crest[1], a = -cu * 1.1; return [crest[0] + dz * Math.cos(a) - dy * Math.sin(a) + cu * .25, crest[1] + dz * Math.sin(a) + dy * Math.cos(a) - cu * .12]; });
+      const A = [[-depth / height, 0], [-depth / height * .55, .5], [-.25, .92], crest, ...lipPts];
+      const B = [[.55 + surge * .3, 0], [.26 + surge * .3, .05], [.12 + surge * .25, .25], [.07 + surge * .15, .55], [.12, .84], crest];
+      sample(A, bufA); sample(B, bufB);
+      const hh = height * Math.max(.05, amp), wob = Math.sin(u * 6 + ph[3] + t) * .5;
+      [bufA, bufB].forEach((buf, si) => { const pos = strips[si].geometry.attributes.position.array;
+        for (let j = 0; j < segV; j++) { const k = (i * segV + j) * 3, [z, y] = buf[j]; pos[k] = x; pos[k + 1] = y * hh; pos[k + 2] = z * hh + wob * y; } });
+    }
+    strips.forEach(s => { s.geometry.attributes.position.needsUpdate = true; s.geometry.computeVertexNormals(); });
+    if (mat.uniforms) mat.uniforms.time.value = t;
+  }
+  update({});
+  return { group, update, mat };
+}
+
+// ---------------------------------------------------------------- tank made of hinged panels (for the rupture)
+// update(k): 0 intact … .25 bulge + rivets … 1 front panels peeled / torn away. Returns the panel list for extra control.
+export function burstTank({ r = 13.5, h = 15, n = 36, seed = 7, front = .95, paint = '#4e4640', inner: innerCol = '#2a1a10' } = {}) {
+  const grp = new THREE.Group(), R = rng(seed), panels = [];
+  const dth = Math.PI * 2 / n;
+  const tex = steelTex(2 * Math.PI * r / n * 1.02, h, seed, { base: paint, rows: 7, leaks: 1 });
+  const inner = new THREE.MeshBasicMaterial({ color: innerCol, side: THREE.BackSide, fog: true });
+  for (let i = 0; i < n; i++) {
+    const th = (i + .5) * dth - Math.PI; // centre angle, 0 faces +z
+    const geo = new THREE.CylinderGeometry(r, r, h, 4, 6, true, th - dth / 2, dth * 1.01); geo.translate(0, h / 2, 0);
+    const pivot = new THREE.Group(); pivot.position.set(Math.sin(th) * r, 0, Math.cos(th) * r); pivot.rotation.y = th;
+    const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: tex, color: 0xa8a29a, fog: true })); const mi = new THREE.Mesh(geo, inner);
+    const inv = new THREE.Group(); inv.add(m, mi); inv.applyMatrix4(new THREE.Matrix4().makeRotationY(-th)); inv.position.set(0, 0, -r);
+    const local = new THREE.Group(); local.add(inv);
+    const container = new THREE.Group(); container.add(local);
+    pivot.add(container); grp.add(pivot);
+    const inFront = Math.abs(th) < front; const w = inFront ? 1 - Math.abs(th) / front : 0;
+    panels.push({ pivot, container, th, w, delay: R() * .15 + (1 - w) * .2, fly: inFront && R() < .55, spin: (R() - .5) * 2, up: R() });
+  }
+  const cone = new THREE.Mesh(new THREE.ConeGeometry(r + .3, 2.2, 72), lam(null, { color: 0x3f3a36 })); cone.position.y = h + 1.1; grp.add(cone);
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(r + .05, .14, 6, 72), lam(null, { color: 0x2b2826 })); ring.rotation.x = Math.PI / 2; ring.position.y = h; grp.add(ring);
+  function update(k) {
+    for (const p of panels) {
+      p.container.position.set(0, 0, 0); p.container.rotation.set(0, 0, 0); p.pivot.scale.set(1, 1, 1);
+      if (!p.w) continue;
+      const bulge = clamp(k / .25) * (1 - clamp((k - .25) / .1));
+      const open = clamp((k - .25 - p.delay) / .55);
+      const e = 1 - Math.pow(1 - open, 3);
+      p.container.position.z = bulge * .6 * p.w;              // bulging outward before failure
+      p.container.rotation.x = e * (1.25 + p.up * .6) * p.w;   // hinge at the base, falls outward
+      if (p.fly && open > 0) { p.container.position.z += e * 9 * p.w; p.container.position.y += Math.sin(Math.PI * e) * 5 * p.up; p.container.rotation.z = e * p.spin * 2; }
+    }
+    cone.position.y = h + 1.1 - clamp((k - .5) / .5) * 3; cone.rotation.x = clamp((k - .5) / .5) * .25;
+  }
+  update(0);
+  return { group: grp, update, panels, cone };
 }
