@@ -28,13 +28,18 @@ export function stamp(place, date, time, threat, { x = 64, y = 150 } = {}) {
 }
 
 // Caption: condensed bold, paper fill, thick ink outline; the word(s) between < > are set in the threat colour
-export function caption(str, threat, { y = 1470, size = 84 } = {}) {
-  g.setTransform(1, 0, 0, 1, 0, 0); g.font = `600 ${size}px "Oswald"`; g.textBaseline = 'middle'; g.textAlign = 'left';
+export function caption(str, threat, { y = 1470, size = 84, k = 1 } = {}) {
+  if (k <= 0) return;
+  const sc = k < 1 ? 1 + (1 - k) * .35 * Math.sin(k * Math.PI) - (1 - k) * .3 : 1;   // pop: a quick overshoot as it lands
+  g.globalAlpha = Math.min(1, k * 3);
+  g.setTransform(sc, 0, 0, sc, W / 2 * (1 - sc), y * (1 - sc)); g.font = `600 ${size}px "Oswald"`; g.textBaseline = 'middle'; g.textAlign = 'left';
   const parts = str.toUpperCase().split(/(<[^>]+>)/).filter(Boolean).map(s => ({ s: s.replace(/[<>]/g, ''), hot: s.startsWith('<') }));
   const total = parts.reduce((a, p) => a + g.measureText(p.s).width, 0);
   let x = (W - total) / 2;
+  g.fillStyle = INK; g.globalAlpha *= .62; g.fillRect(x - 34, y - size * .72, total + 68, size * 1.4); g.globalAlpha = Math.min(1, k * 3);   // ink ribbon: the keyword stays readable over its own threat colour
   for (const p of parts) {
     g.lineJoin = 'round'; g.lineWidth = 16; g.strokeStyle = INK; g.strokeText(p.s, x, y);
     g.fillStyle = p.hot ? threat : PAPER; g.fillText(p.s, x, y); x += g.measureText(p.s).width;
   }
+  g.globalAlpha = 1; g.setTransform(1, 0, 0, 1, 0, 0);
 }

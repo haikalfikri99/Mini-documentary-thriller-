@@ -5,6 +5,8 @@ import { clamp, lerp, hash } from '/core/lib.js';
 import { INK, push, pop, translate, rotate, scale, shape, fillOnly, stroke, ell, arc, spline, rr, rect, noodle, dot, crescent, zoom, S } from './toon.js';
 
 export const WHITE = '#fffdf7', MOUTH = '#3d1622', TONGUE = '#d9606f';
+// eye proportions for the channel: a little smaller than the source style, larger pupils (reads serious, not goofy)
+export const EYE = { scale: .84, pupil: 1.3 };
 
 // —— light: one key direction per scene (screen space, pointing TO the light) + optional threat-coloured rim ——
 export const LIGHT = { dir: [-.55, -.83], tint: '#1d1830', a: .30, sw: 22, rim: null, rimA: .9, rw: 8 };
@@ -44,6 +46,8 @@ export const EXPR = {
   scream: { lid: 0, brow: .7, inner: 1, eyeS: 1.08, pupil: 2.8, mouth: { o: 1, w: 1.05, sm: -.7 } },
   determined: { lid: .38, brow: -.25, inner: -.9, mouth: { o: 0, w: .8, sm: -.35 } },
   sad: { lid: .5, brow: .2, inner: 1, look: [0, .45], mouth: { o: 0, w: .7, sm: -.85 } },
+  delight: { closed: true, brow: .35, inner: .2, mouth: { o: .3, w: .8, sm: .9 } },
+  curious: { lid: .1, brow: .45, inner: -.2, look: [.3, -.6], mouth: { o: .08, w: .5, sm: .2 } },
 };
 
 // —— poses (armB = back arm, armF = front arm; h = hand offset from shoulder) ——
@@ -145,7 +149,7 @@ export function drawHead(P, b = BASE[P.body || 'man']) {
   const E = { ...EXPR.neutral, ...(typeof P.expr === 'string' ? EXPR[P.expr] : P.expr || {}) };
   const look = P.look || E.look || [0, 0], m = { ...E.mouth, ...(P.mouth || {}) };
   hairBack(P.hair, rx, ry, hairC);
-  form(ell(-rx * .8, 8, 16, 24, 18), sk, { lw: 6, sw: 6, shade: () => fillOnly(ell(-rx * .76, 10, 7, 13, 12), sk2, { boil: .3 }) });   // ear
+  form(ell(P.view === 'side' ? -rx * .12 : -rx * .8, 8, 16, 24, 18), sk, { lw: 6, sw: 6, shade: () => fillOnly(ell(-rx * .76, 10, 7, 13, 12), sk2, { boil: .3 }) });   // ear
   const jaw = P.body === 'child' ? .02 : P.body === 'woman' ? .08 : .14;
   const HD = spline([[-rx * .1, -ry * 1.1], [rx * .65, -ry * 1.02], [rx * 1.0, -ry * .58], [rx * 1.06, ry * .1], [rx * (.96 + jaw), ry * .68], [rx * .6, ry * 1.04], [0, ry * 1.06], [-rx * .55, ry * .88], [-rx * .92, ry * .4], [-rx * .98, -ry * .32], [-rx * .66, -ry * .92]]);
   form(HD, sk, {
@@ -157,10 +161,10 @@ export function drawHead(P, b = BASE[P.body || 'man']) {
   if (P.acc?.beard) form(spline([[-rx * .6, ry * .3], [-rx * .3, ry * .55], [rx * .3, ry * .6], [rx * .98, ry * .5], [rx * .7, ry * 1.06], [0, ry * 1.2], [-rx * .55, ry * .9]]), hairC, { lw: 6 });
   hairFront(P.hair, rx, ry, hairC);
   // eyes
-  const es = b.eye * (E.eyeS ?? 1), lid = P.blink ? 1 : clamp(E.lid ?? .3, 0, 1), pupil = (E.pupil ?? 4.5) * (P.body === 'child' ? 1.1 : 1);
-  const ex1 = rx * .08, ex2 = rx * .62, ey = -ry * .1;
-  eye(ex1, ey, rx * .36 * es, ry * .36 * es, { lid, look, pupil, skin: sk, lash: P.body === 'woman' });
-  eye(ex2, ey - 2, rx * .28 * es, ry * .3 * es, { lid, look, pupil: pupil * .9, skin: sk, lash: P.body === 'woman' });
+  const side = P.view === 'side', es = b.eye * (E.eyeS ?? 1) * EYE.scale, lid = P.blink ? 1 : clamp(E.lid ?? .3, 0, 1), pupil = (E.pupil ?? 4.5) * EYE.pupil * (P.body === 'child' ? 1.1 : 1), closed = !!E.closed;
+  const ex1 = side ? rx * .5 : rx * .04, ex2 = rx * .64, ey = -ry * .1;
+  if (!side) eye(ex1, ey, rx * .34 * es, ry * .36 * es, { lid, look, pupil, skin: sk, lash: P.body === 'woman', closed });
+  eye(ex2, ey - 2, rx * (side ? .3 : .27) * es, ry * .3 * es, { lid, look, pupil: pupil * .92, skin: sk, lash: P.body === 'woman', closed });
   if ((P.age || 0) > 0) { stroke(arc(ex1, ey + ry * .44, rx * .26, 8, .5, 2.6, 8), 3.5); for (let k = 0; k < P.age; k++) stroke(spline([[-rx * .2, -ry * (.62 + k * .1)], [rx * .2, -ry * (.66 + k * .1)], [rx * .55, -ry * (.62 + k * .1)]], false), 3); }
   if (P.acc?.glasses) { for (const [x, r] of [[ex1, rx * .4], [ex2, rx * .32]]) shape(ell(x, ey, r, r * .9, 30), { lw: 6, stroke: true, fill: null }); stroke([[ex1 + rx * .4, ey], [ex2 - rx * .32, ey]], 5); }
   // brows: brow raises both, inner lifts (+) / lowers (−) the inner ends
@@ -168,18 +172,18 @@ export function drawHead(P, b = BASE[P.body || 'man']) {
   stroke([[ex1 - rx * .3, by + 4 + inn * 4], [ex1 + rx * .26, by - inn * 12 + Math.max(0, -inn) * 0]], bw, { line: INK });
   stroke([[ex2 - rx * .2, by - 2 - inn * 12], [ex2 + rx * .3, by + 2 + inn * 4]], bw, { line: INK });
   // nose
-  const nz = P.body === 'man' ? 1 : .7;
-  form(spline([[rx * .36, -ry * .02], [rx * (.52 + .1 * nz), ry * .22], [rx * (.72 + .1 * nz), ry * .38], [rx * .62, ry * .5], [rx * .38, ry * .44]]), sk, { lw: 6, sw: 8 });
+  const nz = P.body === 'man' ? 1 : .7, nx = P.view === 'side' ? rx * .42 : 0;
+  form(spline([[nx + rx * .36, -ry * .02], [nx + rx * (.52 + .1 * nz), ry * .22], [nx + rx * (.72 + .1 * nz), ry * .38], [nx + rx * .62, ry * .5], [nx + rx * .38, ry * .44]]), sk, { lw: 6, sw: 8 });
   if (P.acc?.moustache) form(spline([[rx * .1, ry * .58], [rx * .4, ry * .5], [rx * .78, ry * .54], [rx * .92, ry * .7], [rx * .55, ry * .66], [rx * .2, ry * .72]]), hairC, { lw: 6, sw: 6 });
-  mouth(rx * .44, ry * .72, rx * (P.body === 'child' ? .62 : .7), m);
+  mouth(rx * (P.view === 'side' ? .7 : .44), ry * .72, rx * (P.body === 'child' ? .62 : .7) * (P.view === 'side' ? .7 : 1), m);
   hat(P.hat, rx, ry, P.hatCol || '#4a4744', P.hatCol2);
 }
 
 // —— garments ——
-function torsoPts(b, top) {
-  const { sh, hip, shX, chest, waist, hipW } = b, long = top === 'coat' ? 70 : top === 'kebaya' ? 46 : top === 'baju' ? 40 : 6;
+function torsoPts(b, top, sway = 0) {
+  const { sh, hip, shX, chest, waist, hipW } = b, long = top === 'coat' ? 70 : top === 'kebaya' ? 46 : top === 'baju' ? 40 : top === 'jacket' ? 26 : 6;
   const flare = top === 'coat' ? 18 : top === 'baju' ? 10 : 0;
-  return spline([[-shX * .5, sh - 10], [-shX - 6, sh + 12], [-chest, sh + 74], [-waist, (sh + hip) / 2 + 30], [-hipW - flare, hip + long], [0, hip + long + 8], [hipW + flare, hip + long], [waist, (sh + hip) / 2 + 30], [chest, sh + 74], [shX + 6, sh + 12], [shX * .5, sh - 10]]);
+  return spline([[-shX * .5, sh - 10], [-shX - 6, sh + 12], [-chest, sh + 74], [-waist, (sh + hip) / 2 + 30], [-hipW - flare + sway * long * .5, hip + long], [sway * long * .6, hip + long + 8], [hipW + flare + sway * long * .5, hip + long], [waist, (sh + hip) / 2 + 30], [chest, sh + 74], [shX + 6, sh + 12], [shX * .5, sh - 10]]);
 }
 function legs(P, b, pose) {
   const bot = P.bottom || {}, sh = P.shoes || {}, [sk] = P.skin || SKIN.light;
@@ -198,8 +202,8 @@ function legs(P, b, pose) {
   }
   if (bot.type === 'skirt' || bot.type === 'sarong') {   // a long skirt / kain over the legs; its hem follows the stride
     const lb = pose.legB || [0, 0], lf = pose.legF || [0, 0], hem = bot.type === 'sarong' ? -34 : -44, sp = Math.abs(lf[0] - lb[0]) * .5;
-    const w0 = b.hipW + 4, w1 = b.hipW + 22 + sp;
-    const sk = spline([[-w0, b.hip - 16], [w0, b.hip - 16], [w1 * .85 + lf[0] * .4, (b.hip + hem) / 2], [w1 + lf[0] * .5, hem + Math.min(0, lf[1]) * .5], [0, hem + 8], [-w1 + lb[0] * .5, hem + Math.min(0, lb[1]) * .5], [-w1 * .85 + lb[0] * .4, (b.hip + hem) / 2]]);
+    const w0 = b.hipW + 4, w1 = b.hipW + 22 + sp, sw = (P.sway || 0) * 30;
+    const sk = spline([[-w0, b.hip - 16], [w0, b.hip - 16], [w1 * .85 + lf[0] * .4, (b.hip + hem) / 2], [w1 + lf[0] * .5 + sw, hem + Math.min(0, lf[1]) * .5], [sw, hem + 8], [-w1 + lb[0] * .5 + sw, hem + Math.min(0, lb[1]) * .5], [-w1 * .85 + lb[0] * .4, (b.hip + hem) / 2]]);
     form(sk, bot.col, {
       lw: 7, shade: () => {
         if (bot.pattern) for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) dot(-w1 + c * w1 / 4 + (r % 2) * w1 / 8, b.hip + r * ((hem - b.hip) / 8), 5, bot.pattern);
@@ -225,7 +229,7 @@ function arm(P, b, sh, a, front) {
   if (front && P.prop) P.prop(hp, ang);
 }
 function torso(P, b) {
-  const top = P.top || {}, t = top.type || 'shirt', T = torsoPts(b, t);
+  const top = P.top || {}, t = top.type || 'shirt', T = torsoPts(b, t, P.sway || 0);
   form(T, top.col, {
     lw: 7, shade: () => {
       if (t === 'vest') { fillOnly(T, top.col2 || '#d9d2c2', { boil: 0 }); fillOnly(spline([[-b.chest * .9, b.sh + 40], [-6, b.sh + 80], [b.chest * .9, b.sh + 40], [b.hipW, b.hip + 10], [-b.hipW, b.hip + 10]]), top.col, { boil: .4 }); }
@@ -237,7 +241,7 @@ function torso(P, b) {
   });
   const fx = 14;   // front edge, toward the facing side
   if (t === 'coat' || t === 'jacket') {
-    stroke([[fx - 6, b.sh - 4], [fx, b.hip + 76]], 6);
+    stroke([[fx - 6, b.sh - 4], [fx, b.hip + (t === 'coat' ? 76 : 30)]], 6);
     for (let k = 0; k < 4; k++) dot(fx + 16, b.sh + 60 + k * 44, 5);
     form([[fx - 30, b.sh - 8], [fx + 2, b.sh + 70], [fx - 6, b.sh - 8]], top.col, { lw: 5, sw: 4 });
     form([[fx + 26, b.sh - 8], [fx + 6, b.sh + 66], [fx + 4, b.sh - 8]], top.col, { lw: 5, sw: 4 });
@@ -256,24 +260,45 @@ function torso(P, b) {
 function scarf(P, b) {
   const c = P.acc?.scarf; if (!c) return;
   form(spline([[-b.shX * .7, b.sh - 26], [b.shX * .8, b.sh - 30], [b.shX * .8, b.sh + 8], [-b.shX * .7, b.sh + 10]]), c, { lw: 6, sw: 8 });
-  form(noodle([b.shX * .45, b.sh], [b.shX * .6, b.sh + 120], 10, 30, 26), c, { lw: 6, sw: 6, shade: () => stroke([[b.shX * .2, b.sh + 110], [b.shX * 1, b.sh + 110]], 3) });
+  const fl = P.flutter || 0;
+  form(noodle([b.shX * .45, b.sh], [b.shX * .6 - fl * 70, b.sh + 120 - Math.abs(fl) * 40], 10 + fl * 30, 30, 26), c, { lw: 6, sw: 6, shade: () => stroke([[b.shX * .2, b.sh + 110], [b.shX * 1, b.sh + 110]], 3) });
+}
+
+// crouched legs (in the dropped frame): thighs forward, shins down to the feet on the ground; back leg first, front leg over the torso
+function crouchLegs(P, b, ck, dy, front = false) {
+  const bot = P.bottom || {}, [sk] = P.skin || SKIN.light, sh = P.shoes || {};
+  const col = ['trousers', 'knickers'].includes(bot.type) ? bot.col : bot.type === 'shorts' ? sk : (bot.legCol || sk);
+  for (const sx of front ? [1] : [-1]) {
+    const L = -b.hip, hip = [sx * b.hipX * .6, b.hip + 10], knee = [sx * b.hipX * .4 + L * .48 * ck, b.hip - L * .02], ank = [sx * b.hipX * .5 + L * .22, -26 - dy];
+    form(noodle(hip, knee, 0, b.leg[0] * 1.08, b.leg[0]), bot.type === 'knickers' ? bot.col : col, { lw: 7 });
+    form(noodle(knee, ank, 0, b.leg[0], b.leg[1]), bot.type === 'knickers' ? (bot.sock || '#d8d2c4') : col, { lw: 7 });
+    if (bot.type === 'knickers') form(ell(knee[0], knee[1], b.leg[0] * .62, b.leg[0] * .6, 18), bot.col, { lw: 6, sw: 6 });
+    const fl = 44 * b.foot, x = ank[0], y = ank[1];
+    form(spline([[x - fl * .6, y + 24], [x - fl * .55, y], [x + fl * .25, y - 4], [x + fl * 1.05, y + 10], [x + fl, y + 26]]), sh.type === 'bare' ? sk : (sh.col || '#2e2a2c'), { lw: 6, sw: 6 });
+  }
 }
 
 // —— the whole person ——
 // P: { body, x, y, s, face, skin, hair, hairCol, hat, hatCol, top:{type,col,col2,sleeve,cuff,collar,inner,pin}, bottom:{type,col,pattern,band,sock,legCol},
 //      shoes:{type,col}, acc:{scarf,apron,braces,glasses,moustache,beard,stubble}, age, expr, look, mouth, pose (name or object, merged), lean, headTilt, prop(hp, ang) }
 export function person(P) {
-  const b = BASE[P.body || 'man'], f = P.face ?? 1;
+  let b = BASE[P.body || 'man']; const f = P.face ?? 1;
   const pose = mix(typeof P.pose === 'string' ? POSE[P.pose] : mix(POSE.stand, P.pose || {}), P.poseMod || {});
+  if (P.view === 'side') b = { ...b, shX: b.shX * .3, hipX: b.hipX * .25, chest: b.chest * .72, waist: b.waist * .78, hipW: b.hipW * .76 };
   push(); translate(P.x, P.y + (pose.bob || 0)); scale((P.s ?? 1) * f, P.s ?? 1);
-  legs(P, b, pose);
+  const ck = pose.crouch || 0;
+  const dyC = ck * -b.hip * .55;
+  if (ck) translate(0, dyC); else legs(P, b, pose);   // crouch: the upper body drops; the folded legs are drawn in front of the torso
   push(); rotate(pose.lean || 0);
   const shB = [-b.shX, b.sh + 16], shF = [b.shX, b.sh + 14];
   arm(P, b, shB, pose.armB, false);
+  if (ck) { push(); rotate(-(pose.lean || 0)); crouchLegs(P, b, ck, dyC); pop(); }
   torso(P, b);
+  if (ck) { push(); rotate(-(pose.lean || 0)); crouchLegs(P, b, ck, dyC, true); pop(); }
   form(noodle([8, b.sh - 4], [b.head[0] * .6, b.head[1] + b.hr[1] * .8], 3, b.hr[0] * .36, b.hr[0] * .36), (P.skin || SKIN.light)[0], { lw: 6, sw: 10 });
   if (P.acc?.scarf) scarf(P, b);
   push(); translate(b.head[0], b.head[1]); rotate((P.headTilt ?? pose.headTilt ?? 0)); drawHead(P, b); pop();
   arm(P, b, shF, pose.armF, true);
   pop(); pop();
 }
+export { BASE };

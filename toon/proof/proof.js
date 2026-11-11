@@ -4,6 +4,7 @@ import { hash } from '/core/lib.js';
 import { init, frame, g, W, H, INK, push, pop, translate, scale, rotate, fillOnly, stroke, shape, ell, arc, spline, rr, rect, noodle, bands, text, dot } from '../engine/toon.js';
 import { person, drawHead, setLight, form, SKIN } from '../engine/cast.js';
 import { glow, wash, stamp, caption, PAPER } from '../engine/brand.js';
+import { run, walk } from '../engine/motion.js';
 
 // —— casts, declared per story the way every future film will declare them ——
 const BOSTON = {
@@ -175,7 +176,22 @@ function sunda(t) {
   caption('Ombak setinggi <30 meter>', SEA);
 }
 
-const SCENES = [lineup, expressions, boston, newyork, sunda];
+// —— 5: motion sheet: run cycle (3/4 and side view) and the crouch ——
+function motion() {
+  setLight({ dir: [-.6, -.8], tint: '#2a2340', a: .26 });
+  fillOnly(rect(0, 0, W, H), '#ece4d3', { boil: 0 });
+  text('GERAK', W / 2, 110, { font: '600 96px "Oswald"', fill: INK });
+  label('SIKLUS LARI · TAMPAK 3/4', W / 2, 200, 28);
+  for (let i = 0; i < 4; i++) person({ ...BOSTON.man, x: 150 + i * 260, y: 760, s: .72, pose: run(i / 4), expr: 'fear' });
+  label('SIKLUS LARI · TAMPAK SAMPING', W / 2, 860, 28);
+  for (let i = 0; i < 4; i++) person({ ...NEWYORK.woman, view: 'side', x: 150 + i * 260, y: 1400, s: .72, pose: run(i / 4 + .1), expr: 'scream' });
+  label('JONGKOK · JALAN', W / 2, 1500, 28);
+  person({ ...BOSTON.child, x: 240, y: 1860, s: .8, pose: { crouch: .9, armF: { h: [90, -60], bend: -30 } }, expr: 'curious' });
+  for (let i = 0; i < 3; i++) person({ ...SUNDA.man, view: i === 2 ? 'side' : undefined, x: 520 + i * 230, y: 1860, s: .58, pose: walk(i / 3), expr: 'neutral' });
+  stroke([[60, 1864], [W - 60, 1864]], 4);
+}
+
+const SCENES = [lineup, expressions, boston, newyork, sunda, motion];
 const canvas = document.getElementById('c'); init(canvas);
 window.DUR = SCENES.length;
 window.render = t => {
