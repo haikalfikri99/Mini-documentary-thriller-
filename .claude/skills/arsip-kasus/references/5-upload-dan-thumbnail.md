@@ -37,3 +37,6 @@ Tiga pertama tampil di atas judul: `#shorts #sejarah #faktaunik`; lalu `#kisahny
 - Teks hook 2 baris besar di sepertiga atas (baris kedua = kata kunci dalam Warna Ancaman), tag merah "ARSIP KASUS #nnn" di atasnya, tempat + tahun di bawah.
 - Semua elemen penting di tengah (Shorts sering dipotong di rak/feed); kontras tinggi, terbaca di ukuran kecil.
 - Hasil: `stories/<slug>/thumbnail/thumbnail_shorts_1080x1920.jpg` (< 2 MB).
+
+## E. Identitas channel
+Nama, bio, kata kunci, foto profil, banner: `channel/README.md` (aset dirender dari `channel/art.js`). Tambahkan frame film baru ke `channel/assets/` dan render ulang banner bila perlu.

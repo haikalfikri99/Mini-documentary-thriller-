@@ -1,4 +1,4 @@
-# Mini-Documentary Thriller — seri "ARSIP KASUS"
+# Mini Thriller IDN — seri "ARSIP KASUS"
 Channel YouTube Shorts berbahasa Indonesia: kisah nyata bencana dan kesalahan manusia paling aneh, dikemas sebagai **mini-dokumenter thriller motion comic** (60 detik, 9:16).
 Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.** Semua gambar digambar dengan kode — tanpa AI image/video, tanpa stock footage.
 
@@ -11,6 +11,7 @@ Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.** Semua gambar 
   arsip-kasus/            skill produksi channel (SKILL.md + references/: cerita & script, visual & animasi,
                           audio, standar kualitas 10/10, upload & thumbnail, riset viral)
   <12 skill pendukung>    animasi, sinematografi, komposisi, grading, suara, p5-brush, find-skills (lihat skills-lock.json)
+channel/                  identitas channel Mini Thriller IDN: bio, foto profil, banner (dirender dari kode)
 toon/                     toolkit animasi 2D (engine/ + core/render/) — dipakai semua film
 stories/
   molase/                 ARSIP KASUS #001 "Banjir Ini Bukan Air" — selesai (README = fakta, sumber, metadata upload)

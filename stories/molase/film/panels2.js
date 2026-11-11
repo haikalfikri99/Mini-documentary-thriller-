@@ -23,12 +23,12 @@ export function paper(x, y, w, h, rot = 0, col = '#e8e0cc', lines = 0) {
 // rubber stamp that slams in at time k0 (pops from 1.6× to 1×), red ink with worn holes
 export function rubber(str, x, y, rot, t, { size = 96, col = '#b3261e', pad = 40 } = {}) {
   if (t < 0) return; const st = Math.min(1, t / .12), sc = st < 1 ? 1.6 - .6 * st : 1 + .04 * Math.exp(-(t - .12) * 14) * Math.sin((t - .12) * 40);
-  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.translate(x, y); g.rotate(rot); g.scale(sc, sc); g.globalAlpha = .9 * st;
-  g.font = `600 ${size}px "Oswald"`; const w = g.measureText(str).width + pad * 2, h = size * 1.6;
-  g.strokeStyle = col; g.lineWidth = size * .12; g.strokeRect(-w / 2, -h / 2, w, h); g.lineWidth = size * .04; g.strokeRect(-w / 2 + size * .18, -h / 2 + size * .18, w - size * .36, h - size * .36);
-  g.fillStyle = col; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(str, 0, size * .06);
-  g.globalCompositeOperation = 'destination-out'; for (let k = 0; k < 150; k++) { g.beginPath(); g.arc(-w / 2 + hash(k + size) * w, -h / 2 + hash(k * 7) * h, 1 + hash(k * 3) * 4, 0, 6.3); g.fill(); }
-  g.restore(); g.globalCompositeOperation = 'source-over';
+  const c = document.createElement('canvas'), o = c.getContext('2d'); o.font = `600 ${size}px "Oswald"`; const w = o.measureText(str).width + pad * 2, h = size * 1.6;
+  c.width = Math.ceil(w + size); c.height = Math.ceil(h + size); o.translate(c.width / 2, c.height / 2); o.font = `600 ${size}px "Oswald"`;
+  o.strokeStyle = col; o.lineWidth = size * .12; o.strokeRect(-w / 2, -h / 2, w, h); o.lineWidth = size * .04; o.strokeRect(-w / 2 + size * .18, -h / 2 + size * .18, w - size * .36, h - size * .36);
+  o.fillStyle = col; o.textAlign = 'center'; o.textBaseline = 'middle'; o.fillText(str, 0, size * .06);
+  o.globalCompositeOperation = 'destination-out'; for (let k = 0; k < 150; k++) { o.beginPath(); o.arc(-w / 2 + hash(k + size) * w, -h / 2 + hash(k * 7) * h, 1 + hash(k * 3) * 4, 0, 6.3); o.fill(); }   // worn ink, on its own canvas so holes never reach the art below
+  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.translate(x, y); g.rotate(rot); g.scale(sc, sc); g.globalAlpha = .9 * st; g.drawImage(c, -c.width / 2, -c.height / 2); g.restore();
 }
 // hand-inked arrow from a to b, drawn on over d seconds from t = 0
 export function arrow(a, b, t, { col = INK, w = 10, d = .25, bend = 40 } = {}) {

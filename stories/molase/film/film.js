@@ -54,7 +54,7 @@ const SEG = [
   { id: 'P35', a: 56.0, fn: D.P35, cam: cam(1.35, 1.5, [540, 860], [540, 840], io, hit(0, 10)) },
   { id: 'P36', a: 57.38, fn: D.P36, cam: cam(1.0, 1.08, [540, 960], [540, 940]) },
 ];
-const DUR = 60.75; SEG.forEach((s, i) => { s.b = i < SEG.length - 1 ? SEG[i + 1].a : DUR; });
+const DUR = 60.75; const NOCAP = new URLSearchParams(location.search).has('nocap'); SEG.forEach((s, i) => { s.b = i < SEG.length - 1 ? SEG[i + 1].a : DUR; });
 // captions: phrases of ≤ 3 words, split at punctuation; keywords in the threat colour
 const HOT = /^(bukan|raksasa|molase|pekat|1919|pecah|2,3|juta|galon|56|hancur|lengket|bocor|tetesannya|tipis|retak|buruk|suhu|baru|21|150|diabaikan)/i;
 const PHR = []; { let cur = []; for (const [t0, t1, s] of WORDS) { cur.push({ s: s.replace(/^-/, ''), t0: t0 - .04, hot: HOT.test(s.replace(/[^\w,]/g, '')) }); if (cur.length >= 3 || /[.,?!]$/.test(s)) { PHR.push(cur); cur = []; } } if (cur.length) PHR.push(cur); }
@@ -92,6 +92,7 @@ window.render = T => {
   else scene(T);
   const u = T - S.a;
   if (S.stamp) { const k = clamp((u - 1.0) / .25); if (k > 0) { g.save(); g.globalAlpha = k; stamp('BOSTON', '15 JAN 1919', '12:30', AMBER, { x: 60, y: 210 }); g.restore(); } }
+  if (NOCAP) return;   // ?nocap: clean frames (channel art)
   let p = -1; PHR.forEach((ph, j) => { if (T >= ph[0].t0) p = j; });
   if (p >= 0 && T < PHR[p][PHR[p].length - 1].t0 + 1.6) timedCaption(PHR[p], T, AMBER, { y: 1330 });
 };
