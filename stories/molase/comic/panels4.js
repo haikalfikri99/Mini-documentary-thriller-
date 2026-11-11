@@ -29,7 +29,7 @@ export function P20() {
   label('1915', 540, 560, 150, '#2a1e14', -.03);
   // a sketch of the new tank on the 1915 page
   push(); translate(540, 1000); rotate(-.03); form(rect(-220, -200, 440, 380), '#d6cdb8', { lw: 5, sw: 8, shade: () => { for (let k = 1; k < 5; k++) stroke([[-220, -200 + k * 76], [220, -200 + k * 76]], 3, { line: '#8a8378' }); } }); form(ell(0, -200, 220, 34, 30), '#e2dac6', { lw: 5 }); pop();
-  label('TANGKI BARU · KAPASITAS 2,3 JUTA GALON', 540, 1300, 38, '#3a2a18', -.03);
+  label('TANGKI BARU · KAPASITAS 2,3 JUTA GALON', 540, 1440, 38, '#3a2a18', -.03);
   // pages turning over the spine on the left (right → left), two in a row
   for (const [t0, c] of [[.1, '#e6dfcc'], [.55, '#efe9da']]) { const k = clamp((U - t0) / .42); if (k <= 0 || k >= 1) continue;
     const sx = Math.cos(k * Math.PI); g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.translate(150, 980); g.rotate(-.03); g.scale(sx, 1 - .04 * Math.sin(k * Math.PI)); g.fillStyle = c; g.strokeStyle = INK; g.lineWidth = 6; g.fillRect(0, -560, 780, 1120); g.strokeRect(0, -560, 780, 1120);
