@@ -17,7 +17,8 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 ## Alur kerja (gerbang ✋ = tunggu persetujuan user)
 | # | Langkah | Hasil | Rujukan |
 |---|---|---|---|
-| 1 | Pilih wilayah (rotasi) dan cerita (skor Hook-Evidence-Conflict-Escalation-Payoff ≥ 20), fact sheet + sumber | `stories/<slug>/README.md` | `references/1-cerita-dan-script.md` |
+| 1a | **Shortlist judul dulu, tanpa riset mendalam:** 8–10 calon judul, masing-masing dengan cerita singkat 1–2 kalimat, wilayah, dan skor perkiraan (Hook, Drama/taruhan, Relatable, Visual bisa digambar, Risiko fakta) + rekomendasi. Tandai semua fakta sebagai *belum dicek* ✋ user memilih | daftar di chat | `references/1-cerita-dan-script.md` §D |
+| 1b | Baru setelah dipilih: fact sheet + sumber untuk judul itu saja (skor Hook-Evidence-Conflict-Escalation-Payoff ≥ 20) | `stories/<slug>/README.md` | sama |
 | 2 | Script dengan framework 6 babak (Interruption → Promise → Escalation → Turn → Payoff → Echo) + 8 prinsip; 10+ variasi hook diuji 4U ✋ | script di README | sama |
 | 3 | User merekam VO → `stories/<slug>/audio/vo_<slug>.mp3` | — | — |
 | 4 | Alignment per kata (faster-whisper), koreksi manual → `audio/vo_words.json` → `film/words.js` | timestamp kata | bagian "Perintah" |

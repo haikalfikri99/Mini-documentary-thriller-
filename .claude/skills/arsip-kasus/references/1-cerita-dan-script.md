@@ -48,6 +48,7 @@ Contoh: "Sebuah kapal ditemukan tanpa awak." Boleh: "Ketika kapal itu ditemukan,
 - Jangan mengaku sudah membaca sumber yang tidak dibuka.
 
 ## D. Seleksi cerita (skor 1–5 per kriteria, produksi bila total ≥ 20 dan tidak ada nilai < 3)
+**Urutan kerja (keputusan user):** tampilkan dulu shortlist judul + cerita singkat + wilayah + penilaian keseluruhan; user memilih; baru riset & fact-check judul terpilih. Jangan menghabiskan waktu riset sebelum ada pilihan. **Drama wajib:** harus ada taruhan nyata (nyawa, uang, kehilangan, bahaya yang mengancam penonton); ironi intelektual saja (contoh: kisah Gruen pencipta mal) dinilai dangkal oleh user.
 | Kriteria | Pertanyaan |
 |---|---|
 | **Hook** | Apakah 2 detik pertama membuat orang berhenti? Bisa diucapkan satu kalimat yang terdengar mustahil? |
