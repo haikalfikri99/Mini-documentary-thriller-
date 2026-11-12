@@ -34,3 +34,10 @@ Setiap kejadian di layar yang punya bunyi diberi SFX pada detik yang sama (ambil
 
 ## D. Loudness & mux
 `loudnorm=I=-14:TP=-1:LRA=11` → hasil terukur ±−14,5 LUFS, peak −1 dBTP (cek: `ffmpeg -i f.mp4 -af ebur128=peak=true -f null -`). AAC 192 kbps, 48 kHz.
+
+## E. QA audio tanpa telinga (`film/check_audio.py`)
+Claude tidak bisa mendengar, jadi setiap mix dicek dengan alat dan hasilnya dilaporkan apa adanya:
+1. **Kejelasan VO:** Whisper pada mix akhir vs Whisper pada VO saja. Angka harus sama (musik/SFX tidak menutupi kata). #002: 93/102 = 93/102.
+2. **Timing SFX:** onset pada stem SFX dibandingkan dengan daftar cue di `fullmix.py`.
+3. Level pita bicara VO vs latar (dicetak `fullmix.py`) ≥ 10 dB.
+Rasa musik dan karakter SFX tetap dinilai user.

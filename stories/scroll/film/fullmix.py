@@ -81,6 +81,8 @@ add(lid(), 36.55, .5); add(thud(.4, 50), 36.6, .3)                              
 [add(swipe(), 39.7 + k * .45, .12, .1) for k in range(4)]                                       # S24 the feed keeps going
 [add(swipe(), t, .16, .1) for t in (41.6, 41.82, 42.02)]; add(whoosh(.4, 600, 3000), 42.22, .12); add(click(2200), 44.18, .55); add(thud(.4, 70), 44.2, .3); add(chime(440), 44.2, .1)             # S25 the thumb places UDAHAN
 
+SFX_STEM = (L + R) / 2   # kept for the timing check (check_audio.py)
+np.save('stem_sfx.npy', SFX_STEM.astype(np.float32))
 # —— VO (already levelled by vo_chain.py) ——
 VO = load('vo_level.wav'); VO *= 10 ** (-17 / 20) / rms(VO)
 e = np.zeros(N); s = 0.; a, r = np.exp(-1 / (.04 * SR)), np.exp(-1 / (.25 * SR)); env = np.abs(VO)

@@ -70,3 +70,9 @@ Acuan lengkap: `stories/scroll/STYLE.md`; kode: `stories/scroll/hf/world/noir.js
 - Satu warna ancaman sebagai **cahaya**; amber = rem/tanda berhenti; halftone untuk gradasi cahaya; masa lalu sepia hangat, masa kini malam dingin.
 - Mesin: **hibrida HyperFrames + toon** (dunia di kanvas `hf-seek`, teks/caption/audio di HyperFrames, QA dengan `hyperframes check` + `snapshot`).
 - Pelajaran: potret wajah detail dari kode gagal (kaku); siluet + cahaya + komposisi lebih premium dan lebih cepat dibuat.
+
+## Templat wajib: kartu ARSIP KASUS
+Setiap episode memakai `rig/src/arsip-card.js` (tata letak #001): map di meja kayu, tab "ARSIP KASUS", judul kasus, baris tempat · tanggal, frame hook sebagai foto sepia berklip, stempel merah "KASUS #00N".
+- Tampil ≥ 1,3 dtk, langsung setelah hook; stempel jatuh tepat di kata waktu/tempat pertama di VO (#002: "2006").
+- Kamera: slam (zoom 1,18 → 1 dalam 0,18 dtk) + flash krem 0,12 dtk; SFX: whoosh → thud saat map jatuh → stempel.
+- Jangan mendesain ulang per episode; hanya isi `title`, `sub`, `no`, dan foto.
