@@ -29,7 +29,7 @@
 | 10 | Raskin menyebut desain seperti ini "behavioural cocaine" yang ditaburkan di seluruh antarmuka (2018) | terverifikasi | BBC Panorama 2018 via BGR (Jul 2018) dan Xataka. **Cadangan**, tidak dipakai di VO v1 agar ringkas |
 | 11 | "200.000 masa hidup manusia terbuang setiap hari" | **tidak dipakai** | hanya berasal dari satu klaim/perkiraan |
 | 12 | Jadwal hadiah acak (variable ratio) menghasilkan respons paling tinggi dan paling sulit dihentikan (paling tahan terhadap extinction) | terverifikasi | Ferster & Skinner (1957) via Simply Psychology, Lumen Learning, UEN Pressbooks. Kaitan langsung ke kecanduan judi diperdebatkan (Laskowski dkk. 2019) → VO hanya bilang "mirip mesin slot" lewat pengakuan pembuat, tidak mengklaim "menyebabkan kecanduan" |
-| 13 | Hampir semua pendapatan Meta (pemilik Facebook & Instagram) dari iklan | terverifikasi | 2024: iklan US$160,6 miliar dari total US$164,5 miliar ≈ 97,6% (ppc.land, Chief Marketer, laporan kinerja Q4 2024 Meta); cek ulang di 10-K sebelum tayang |
+| 13 | Hampir semua pendapatan Meta (pemilik Facebook & Instagram) dari iklan | terverifikasi | 10-K Meta FY2024 (tabel pendapatan): Advertising US$160.633 juta dari Total revenue US$164.501 juta = 97,6% |
 | 14 | "Aplikasinya gratis karena yang dijual itu waktumu" | penyederhanaan (ditandai) | model bisnis iklan: pengiklan membayar untuk menjangkau pengguna selama mereka di aplikasi ("race for human attention", Guardian 2017). Disampaikan sebagai penjelasan, bukan kutipan |
 
 **Sumber:** [The Guardian: "Our minds can be hijacked" (2017, salinan arsip PDF)](https://formationreimagined.org/wp-content/uploads/2018/09/Our-minds-can-be-hijacked_-the-tech-insiders-who-fear-a-smartphone-dystopia-_-Technology-_-The-Guardian.pdf) (asli: theguardian.com/technology/2017/oct/05/smartphone-addiction-silicon-valley-dystopia) · [The Week: How Silicon Valley hooks us](https://theweek.com/articles/737813/how-silicon-valley-hooks) · [Brignull, *Deceptive Patterns* bab 11](https://bunny.deceptive.design/book/contents/chapter-11) · [BGR 2018: "Behavioral Cocaine"](https://bgr.com/2018/07/04/social-media-addicts-us-like-cocaine/) · [Masters of Scale: He invented infinite scroll and says he regrets it](https://mastersofscale.com/video/he-invented-infinite-scroll-and-says-he-regrets-it/) · [Wikipedia: Infinite scrolling](https://en.wikipedia.org/wiki/Infinite_scrolling) · [Wikipedia: Aza Raskin](https://en.wikipedia.org/wiki/Aza_Raskin)
@@ -126,9 +126,8 @@
 - [x] Klaim ≥ 2 sumber atau kutipan primer; klaim penemu infinite scroll ditulis sebagai "dikenal sebagai"; angka "200.000 masa hidup" dibuang
 - [x] Hook, judul, teks layar, frame 0 selaras
 
-## Metadata upload (draf)
-**Judul:** Pembuat Fitur Ini Menyesal… Kamu Sedang Memakainya 😶 #shorts (skor vidIQ 82)
-**Hashtag:** #shorts #psikologi #faktaunik #mediasosial #doomscrolling #arsipkasus
+## Metadata upload
+Final: lihat `UPLOAD.md`.
 
 ## Catatan setelah tayang
 (isi setelah analitik tersedia)
