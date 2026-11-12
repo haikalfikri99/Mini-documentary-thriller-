@@ -191,3 +191,46 @@ export function WARNA() {
   opts.forEach(([, sub], i) => label(sub, 140 + i * 268, 1890, 20, '#bfb3a2', 'center', '"Courier Prime"'));
   grain(9);
 }
+
+// —— library sheets (all assets, grid layouts) ——
+const grid = (items, cols, x0, y0, cw, ch, fn) => items.forEach((it, i) => fn(it, x0 + (i % cols) * cw + cw / 2, y0 + Math.floor(i / cols) * ch));
+const BASE = { body: 'adult', top: { type: 'kaos', col: '#55505e' } };
+export function EKSPRESI_ALL() {
+  bgGrad('#2b2733', '#1a171f'); pool(540, 900, 900, 'rgb(255,190,120)', .16);
+  title(`EKSPRESI · ${Object.keys(EXPR).length}`, 'stiker di kepala yang sama');
+  grid(Object.keys(EXPR), 4, 20, 300, 260, 236, (n, x, y) => { bust(BASE, { expr: n, facing: 0, look: 0 }, x, y, 1.5, 220, 196, { rim: RIM_WARM, noShadow: true, ...NIGHT }); label(n.toUpperCase(), x, y + 128, 22); });
+  vignette(.3); grain(6);
+}
+export function RAMBUT_ALL() {
+  bgGrad('#2b2733', '#1a171f'); pool(540, 900, 900, 'rgb(255,190,120)', .16);
+  title('RAMBUT · 15', 'warna bebas per tokoh');
+  const cols = ['#1f1915', '#2b1f1a', '#3a2a20', '#cfc9bf'];
+  grid(['pendek', 'cepak', 'belah', 'jambul', 'poni', 'bob', 'gondrong', 'panjang', 'ikal_panjang', 'kuncir', 'kepang', 'sanggul', 'keriting', 'botak', 'none'], 4, 20, 330, 260, 330, (t, x, y, i) => {
+    bust({ ...BASE, hair: { type: t, col: t === 'botak' ? '#cfc9bf' : cols[t.length % 3], tie: '#ffb43a' } }, { expr: 'netral', facing: .2, look: .2 }, x, y, 1.6, 230, 290, { rim: RIM_WARM, noShadow: true, ...NIGHT }); label(t, x, y + 190, 24); });
+  vignette(.3); grain(7);
+}
+export function WAJAH_KEPALA() {
+  bgGrad('#2b2733', '#1a171f'); pool(540, 900, 900, 'rgb(255,190,120)', .16);
+  title('WAJAH · KEPALA · AKSESORI', 'rambut wajah, penutup kepala, aksesori wajah');
+  const items = [['kumis', { acc: [{ type: 'kumis', col: '#2b221d' }] }], ['kumis_tipis', { acc: [{ type: 'kumis_tipis', col: '#2b221d' }] }], ['jenggot', { acc: [{ type: 'jenggot', col: '#2b221d' }] }], ['janggut_kambing', { acc: [{ type: 'janggut_kambing', col: '#2b221d' }] }],
+    ['brewok', { acc: [{ type: 'brewok', col: '#2b221d' }] }], ['cambang', { acc: [{ type: 'cambang', col: '#2b221d' }], hair: { type: 'pendek' } }], ['stubble', { acc: [{ type: 'stubble' }] }], ['peci', { headwear: { type: 'peci', col: '#1c1b1f' } }],
+    ['kerudung', { headwear: { type: 'kerudung', col: '#7f8f6a' } }], ['topi', { headwear: { type: 'topi', col: '#b8433d' } }], ['helm', { headwear: { type: 'helm', col: '#e3b54a' } }], ['kupluk', { headwear: { type: 'kupluk', col: '#3f6fb6' } }],
+    ['blangkon', { headwear: { type: 'blangkon', col: '#4a3226' } }], ['caping', { headwear: { type: 'caping', col: '#d8b36a' } }], ['fedora', { headwear: { type: 'fedora', col: '#3a3440' } }], ['kacamata', { acc: [{ type: 'kacamata' }] }],
+    ['kacamata_hitam', { acc: [{ type: 'kacamata_hitam' }] }], ['masker', { acc: [{ type: 'masker' }] }], ['anting', { acc: [{ type: 'anting' }], hair: { type: 'bob', col: '#2b1f1a' } }], ['(base)', {}]];
+  grid(items, 4, 20, 300, 260, 300, ([t, a], x, y) => { bust({ ...BASE, ...a }, { expr: 'netral', facing: .15, look: .15 }, x, y, 1.45, 230, 262, { rim: RIM_WARM, noShadow: true, ...NIGHT }); label(t, x, y + 172, 22); });
+  vignette(.3); grain(8);
+}
+export function WARDROBE_ALL() {
+  bgGrad('#2b2733', '#1a171f'); pool(540, 900, 900, 'rgb(255,190,120)', .16);
+  title('WARDROBE · 16 ATASAN · 6 BAWAHAN', 'atasan + bawahan + aksesori badan (dasi, kalung ID, tas)');
+  const T = [['kaos', '#c9705a', 'pendek'], ['kemeja', '#5d7f9e', 'panjang'], ['kemeja_kotak', '#9a3b3b', 'jeans'], ['batik', '#7a4a2a', 'panjang'], ['koko', '#f1efe8', 'sarung'], ['polo', '#e3b54a', 'jeans'], ['hoodie', '#3f6fb6', 'jeans'], ['jaket', '#3a9a5a', 'jeans'],
+    ['jas', '#30323a', 'panjang'], ['jas_lab', '#f4f2ec', 'panjang'], ['seragam', '#f1efe8', 'panjang'], ['rompi', '#ff8a3a', 'jeans'], ['singlet', '#2b2b33', 'pendek'], ['kebaya', '#8a6a8e', 'rok_panjang'], ['daster', '#4a7f78', null], ['gamis', '#a77d63', null]];
+  grid(T, 8, 0, 760, 135, 760, ([t, c, b], x, y) => { const acc = t === 'kemeja' ? [{ type: 'dasi' }] : t === 'seragam' ? [{ type: 'kalung_id' }] : t === 'kemeja_kotak' ? [{ type: 'tas' }] : []; drawChar(g, { body: 'adult', acc, top: { type: t, col: c, col2: t === 'batik' ? '#e8c98a' : t === 'daster' ? '#e8c98a' : t === 'rompi' ? '#6b7280' : undefined }, bottom: b ? { type: b, col: b === 'jeans' ? '#3f5a7a' : b === 'sarung' ? '#3d4f6e' : '#3b3f4a', col2: '#6f86a8' } : null, shoes: '#2a2522' }, { x, y, s: .62, expr: 'netral', facing: .1 }, { rim: RIM_WARM, ...NIGHT }); label(t, x, y + 34, 18); });
+  vignette(.3); grain(9);
+}
+export function PRESET_ALL() {
+  room(900);
+  title(`PRESET TOKOH · ${Object.keys(PRESETS).length}`, 'semua dari satu base');
+  grid(Object.keys(PRESETS), 6, 0, 520, 180, 370, (k, x, y) => { drawChar(g, PRESETS[k], { x, y, s: .66, facing: .12, look: .12, expr: 'senyum' }, { rim: RIM_WARM, ...NIGHT }); label(k.replace('_', ' '), x, y + 36, 18); });
+  vignette(.35); grain(10);
+}
