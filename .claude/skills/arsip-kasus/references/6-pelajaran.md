@@ -10,7 +10,7 @@ Setiap episode menambah baris di sini. Formula, gaya, dan kit hanya berubah bila
 | # | Judul | Wilayah | Durasi | Kata | Viewed vs swiped | APV | Engaged views (7 hari) | Catatan |
 |---|---|---|---|---|---|---|---|---|
 | 001 | Banjir Ini Bukan Air (Molase) | 1 | 61 dtk | 101 | — | — | — | engine toon lama |
-| 002 | Pembuat Fitur Ini Menyesal… Kamu Sedang Memakainya | 2 | 44,8 dtk | 102 | — | — | — | gaya & kit baru |
+| 002 | Pembuat Fitur Ini Menyesal… Kamu Sedang Memakainya | 2 | 44,8 dtk | 102 | **37,2% stayed** (12 jam) | — (belum diproses) | 185 (12 jam) | hook lemah → formula v3.1 (F7) |
 
 ## Aturan yang lahir dari review user
 ### Cerita & script
@@ -32,6 +32,9 @@ Setiap episode menambah baris di sini. Formula, gaya, dan kit hanya berubah bila
 ### Audio
 - Claude tidak bisa mendengar → wajib QA terukur (`check_audio.py`, laporan margin per kata). #002: dentuman pecah tepat di kata "hilang" menutupi kata (3 dB) → dipindah ke celah sesudah kata.
 
+### Data Studio
+- #002 (12 jam): 37,2% stayed to watch / 62,9% swiped, 185 engaged views. Di bawah ambang 60% (Galloway 2023). Diagnosis & aturan baru: `1-cerita…` §F7 (gerbang 3 detik + rantai retensi). Rubrik internal (hook 9/10) terbukti terlalu murah hati.
+
 ### Proses
 - Storyboard sebagai artifact dengan keyframe asli, komentar user di artifact, baru animasi.
 - Analisa referensi dengan mengukur (shot length, luma, LUFS, kata/menit), bukan kesan.
@@ -42,3 +45,5 @@ Setiap episode menambah baris di sini. Formula, gaya, dan kit hanya berubah bila
 | Hook pengakuan pembuat + "kamu" menaikkan viewed vs swiped | #002 | Viewed vs swiped vs #001 | menunggu data |
 | 45 dtk lebih baik dari 60 dtk untuk wilayah 2 | #002 | APV dan engaged views | menunggu data |
 | Loop (kalimat akhir → frame 0) menaikkan replay | #002 | views / engaged views | menunggu data |
+| Hook #002 (pengakuan, objek kabur, jeda 0,54 dtk) | #002 | stayed to watch | **gagal: 37,2%** |
+| Gerbang F7 (benda konkret kata 1–3, kontradiksi ≤ 2 dtk, tanpa jeda, frame 0 terang & bergerak) menaikkan stayed to watch ke ≥ 50% | #003 | stayed to watch vs #002 | menunggu |

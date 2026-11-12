@@ -1,5 +1,5 @@
-# ARSIP KASUS #003: "Mesin Ini Merayakan Saat Kamu Kalah"
-**Status:** script v1 ✋ menunggu persetujuan. Setelah itu VO dari user → `audio/vo_kalah.mp3`.
+# ARSIP KASUS #003: "Mesin Slot Ini Merayakan Kekalahanmu"
+**Status:** script v2 (formula v3.1) ✋ menunggu persetujuan. Setelah itu VO dari user → `audio/vo_kalah.mp3`.
 **Wilayah:** 2 Hidden Systems & Psychology (pilar). Mekanisme slot: *losses disguised as wins* (LDW) + *near-miss*, dengan sudut Indonesia (judi online).
 
 ## Kenapa cerita ini
@@ -40,49 +40,68 @@
 3. **Tiga lapis:** psikologi = tubuh bereaksi ke perayaan seperti ke kemenangan; near-miss menambah keinginan main · desain = banyak garis, lampu & musik di setiap "menang" kecil, gulungan yang hampir pas · uang = setoran pemain (Rp36 T dari 12 juta orang, 2025); paten: terlihat lebih menguntungkan daripada kenyataannya.
 4. **Fakta yang dipakai (shock):** reaksi tubuh LDW = menang (85) · near-miss bikin pengin main (70) · 12 juta orang / Rp36 T (80) · kutipan paten 1984 (90).
 
-## Uji hook (4U; 1–4: Useful/Urgent/Unique/Ultra-specific)
-| # | Hook | U | U | U | U | Σ |
-|---|---|---|---|---|---|---|
-| 1 | **Mesin ini bikin pesta… tepat saat kamu kalah.** | 3 | 3 | 4 | 3 | **13** |
-| 2 | Lampu menyala, musik menang… padahal uangmu berkurang. | 3 | 3 | 3 | 3 | 12 |
-| 3 | Mesin ini dirancang biar kalah terasa menang. | 3 | 2 | 3 | 2 | 10 |
-| 4 | Paten ini mengaku: mesinnya sengaja terlihat gampang menang. | 3 | 2 | 4 | 3 | 12 |
-| 5 | Tubuhmu nggak bisa bedain menang dan kalah di mesin ini. | 3 | 3 | 3 | 2 | 11 |
-Dipilih #1 (kontradiksi + "kamu", 8 kata, satu gambar). **Judul = "Mesin Ini Merayakan Saat Kamu Kalah"**.
+## Uji hook (4U; 1–4) + gerbang F7
+| # | Hook | 4U | H1 ≤2 dtk | H2 benda kata 1–3 | Catatan |
+|---|---|---|---|---|---|
+| 1 | **Mesin slot ini merayakan kekalahanmu. Dan tubuhmu percaya kamu menang.** | 14 | ✓ (5 kata) | ✓ mesin slot | kontradiksi + taruhan pribadi, dua langkah dalam 3 dtk |
+| 2 | Mesin ini bikin pesta… tepat saat kamu kalah. (v1) | 13 | ✗ elipsis = jeda | ✗ "mesin ini" kabur di audio | gagal H1/H3 |
+| 3 | Lampu menang nyala… padahal kamu baru kalah. | 12 | ✗ | ✗ | |
+| 4 | Paten ini mengaku: mesin slot sengaja terlihat gampang menang. | 12 | ✗ (9 kata) | ✗ | dipakai sebagai twist |
+**Judul = "Mesin Slot Ini Merayakan Kekalahanmu"** · teks frame 0: **MERAYAKAN KEKALAHANMU** + saldo merah berdetak turun.
 
-## Script v1 (VO 106 kata tertulis ≈ 49 dtk) ✋
+## Script v2 — formula v3.1 (VO ±103 kata ≈ 45 dtk) ✋
 | Beat | Waktu | VO (prompt ElevenLabs bertag) | Teks layar | Gambar (dunia 3D, satu kamera) |
 |---|---|---|---|---|
-| 1 HOOK | 0–3 | [curious] Mesin ini bikin pesta… tepat saat kamu KALAH. | MESIN INI MERAYAKAN SAAT KAMU KALAH | Close-up layar mesin slot: "MENANG!" berkedip, lampu menyala; di bawahnya angka saldo turun |
-| 2 SETUP | 3–8 | [warmly] Kanada, 2010. Peneliti menempelkan sensor ke tangan orang yang main slot. | KANADA · 2010 → **kartu ARSIP KASUS #003** | Crane mundur: lab universitas, peserta duduk di depan mesin, kabel sensor di tangan, monitor grafik |
-| 3 TAPI | 8–15 | [mysteriously] Coba bayangin. Kamu taruh dua puluh ribu, dapat lima belas ribu. Lampu nyala, musik menang. | TARUH 20.000 · DAPAT 15.000 · *ilustrasi* | Koin masuk, gulungan berputar, perayaan penuh; angka −5.000 kecil di pojok |
-| 4 MAKA | 15–20 | [serious] Kamu rugi. Tapi sensor mencatat tubuh mereka bereaksi seperti menang beneran. | KALAH = TERASA MENANG | Grafik sensor: lonjakan "kalah tersamar" setinggi lonjakan "menang", "kalah biasa" datar |
-| 5 MAKA | 20–33 | Lalu dua gambar berhenti sejajar… yang ketiga lewat sedikit. Hampir menang bikin orang makin pengin main. Tahun lalu, dua belas juta orang Indonesia menyetor tiga puluh enam triliun ke judi online. | 12 JUTA ORANG · Rp36 TRILIUN (PPATK, 2025) | Gulungan ketiga lewat satu posisi (slow); kamera whip keluar → peta/kota Indonesia, titik-titik layar HP menyala satu per satu (tanpa logo situs) |
-| 6 TAPI (twist) | 33–40 | [pause][slowly] Paten mesin slot tahun 1984 bahkan menulisnya: mesin harus terlihat lebih gampang menang… daripada kenyataannya. | PATEN US 4.448.419 · 1984 + kutipan asli disorot | Kamera menembus ke dokumen paten (evidence.paper), kalimat disorot stabilo |
-| 7 KE KAMU + LOOP | 40–49 | [warmly] Jadi rasa menang itu dirancang. Lain kali lampunya nyala, cek saldo. Karena mesin ini bikin pesta… tepat saat kamu kalah. | CEK SALDONYA. | Kembali ke mesin: tangan tokoh berhenti di atas tombol, menoleh ke saldo; lampu terus berpesta → frame 0 |
+| 1 HOOK | 0–2,9 | [curious] Mesin slot ini merayakan kekalahanmu. Dan tubuhmu percaya kamu menang. | MERAYAKAN KEKALAHANMU (frame 0) | **Frame 0:** close-up ekstrem layar mesin slot, lampu meledak "MENANG!", koin berdenting (SFX di 0,00), saldo merah di bawah berdetak turun −5.000. Terang, bergerak sejak frame 0 |
+| 2 SETUP | 2,9–6 | Peneliti Kanada sampai menempelkan sensor ke tangan pemain buat membuktikannya. | stempel KANADA · 2010 + overlay ARSIP KASUS #003 (≤ 1,3 dtk, aksi tetap jalan) | Kamera mundur dari layar: tangan pemain dengan kabel sensor di jari, monitor grafik di samping mesin (lab) |
+| 3 TAPI | 6–11 | [mysteriously] Kamu taruh dua puluh ribu, dapat lima belas. Lampu nyala, musik menang. | 20.000 → 15.000 · *ilustrasi* | Koin masuk, gulungan berputar, perayaan penuh; angka rugi kecil di pojok |
+| 4 MAKA | 11–15 | [serious] Kamu rugi… tapi sensornya melonjak, sama seperti menang beneran. | RUGI = TERASA MENANG | Grafik sensor: lonjakan "rugi tersamar" setinggi "menang", "kalah biasa" datar |
+| re-hook | 15–16,5 | Dan itu baru trik pertama. | TRIK #1 ✓ | Gulungan mulai berputar lagi, kamera mendekat (R1/R3) |
+| 5 MAKA | 16,5–23 | Trik kedua: dua gambar sejajar, yang ketiga meleset sedikit. Hampir menang bikin makin pengin main. | TRIK #2 | Gulungan 1–2 berhenti 7-7, gulungan 3 lewat satu posisi (slow); tangan pemain langsung menekan lagi |
+| 5b | 23–29 | Tahun lalu, dua belas juta orang Indonesia menyetor tiga puluh enam triliun ke judi online. | 12 JUTA ORANG · Rp36 T (PPATK 2025) | Whip keluar: kota malam Indonesia, ribuan jendela/layar menyala dengan cahaya mesin yang sama (tanpa logo situs, tanpa anak) |
+| 6 TWIST | 29–37 | [slowly] Dan perancangnya tahu. Paten mesin slot 1984 menulis: mesin harus terlihat lebih gampang menang… daripada kenyataannya. | PATEN US 4.448.419 · 1984 + kutipan asli disorot | Kamera menembus ke dokumen paten (evidence.paper), kalimat disorot stabilo |
+| 7 KE KAMU + LOOP | 37–45 | [warmly] Jadi rasa menang itu dirancang. Lain kali lampunya nyala, lihat saldonya… karena bisa jadi— | LIHAT SALDONYA. | Kembali ke mesin: tangan berhenti di atas tombol, mata ke saldo; lampu berpesta lagi → frame 0 (dibaca bersambung: "…karena bisa jadi, mesin slot ini merayakan kekalahanmu.") |
 
-**VO bersih (untuk dibaca keras):**
-> Mesin ini bikin pesta… tepat saat kamu KALAH. Kanada, 2010. Peneliti menempelkan sensor ke tangan orang yang main slot. Coba bayangin. Kamu taruh dua puluh ribu, dapat lima belas ribu. Lampu nyala, musik menang. Kamu rugi. Tapi sensor mencatat tubuh mereka bereaksi seperti menang beneran. Lalu dua gambar berhenti sejajar… yang ketiga lewat sedikit. Hampir menang bikin orang makin pengin main. Tahun lalu, dua belas juta orang Indonesia menyetor tiga puluh enam triliun ke judi online. Paten mesin slot tahun 1984 bahkan menulisnya: mesin harus terlihat lebih gampang menang… daripada kenyataannya. Jadi rasa menang itu dirancang. Lain kali lampunya nyala, cek saldo. Karena mesin ini bikin pesta… tepat saat kamu kalah.
+**VO bersih:**
+> Mesin slot ini merayakan kekalahanmu. Dan tubuhmu percaya kamu menang. Peneliti Kanada sampai menempelkan sensor ke tangan pemain buat membuktikannya. Kamu taruh dua puluh ribu, dapat lima belas. Lampu nyala, musik menang. Kamu rugi… tapi sensornya melonjak, sama seperti menang beneran. Dan itu baru trik pertama. Trik kedua: dua gambar sejajar, yang ketiga meleset sedikit. Hampir menang bikin makin pengin main. Tahun lalu, dua belas juta orang Indonesia menyetor tiga puluh enam triliun ke judi online. Dan perancangnya tahu. Paten mesin slot 1984 menulis: mesin harus terlihat lebih gampang menang… daripada kenyataannya. Jadi rasa menang itu dirancang. Lain kali lampunya nyala, lihat saldonya… karena bisa jadi—
 
-## Scorecard F6
+**Arahan baca hook (penting):** dua kalimat pertama dibaca **cepat dan tanpa jeda**, energi naik; tag [curious] saja, tanpa [pause]. Target: "kekalahanmu" selesai ≤ 2,0 dtk, "menang" ≤ 3,0 dtk. Diukur ulang dari `vo_words.json`; gagal → generate ulang take hook.
+
+**Fakta tambahan v2:** "tubuhmu percaya kamu menang" = dramatisasi dari #3 (reaksi tubuh setara menang) + #8 (pemain menggolongkan LDW sebagai menang & melebih-lebihkan jumlah menang: Barton 2017, Pacific Standard 2013). "Perancangnya tahu" = penulis paten #5 (Telnaes, perancang mesin).
+
+## Scorecard F6 + gerbang F7
 | # | Cek | Hasil | Catatan |
 |---|---|---|---|
-| 1 | Konfirmasi judul | LULUS | kalimat 1 = judul, 8 kata (±2,5 dtk) |
-| 2 | Celah | LULUS | "Kok mesin merayakan saat aku kalah?" muncul di kalimat 1 |
-| 3 | Jawaban | LULUS | "Jadi rasa menang itu dirancang" (dtk ±40), sebelum kalimat terakhir |
-| 4 | Mekanisme | LULUS | psikologi (beat 4 + near-miss), desain (lampu/musik, gulungan), uang (setoran Rp36 T; paten: terlihat lebih menguntungkan) |
-| 5 | Tapi/maka | LULUS | hook TAPI setup → TAPI (bayangin) → MAKA (sensor) → MAKA (hampir menang, 12 juta) → TAPI (paten) → MAKA (cek saldo) |
-| 6 | Uji hapus | LULUS | tanpa setup sensor beat 4 tak berdasar; tanpa angka Indonesia taruhan tak terasa; tanpa paten tak ada twist |
-| 7 | Satu tokoh | LULUS | pusat = mesin; pemain & peneliti hanya fungsi |
-| 8 | Twist | LULUS | mulai kata ke-72/106 = 68% |
-| 9 | Akhir | LULUS | kalimat terakhir = kalimat pertama; tanpa CTA |
-| 10 | Faktual | LULUS | semua kalimat → fact sheet #1–6 (≥ 2 sumber; #5 primer + literatur) |
-| 11 | Bahasa | LULUS* | lisan (bikin, bayangin, beneran, pengin); "kamu" 5×; 1 kapital (KALAH); tanpa "bukan X tapi Y". *Uji baca keras dengan stopwatch dilakukan user saat VO |
-| 12 | Durasi | LULUS | target 48 dtk × 2,2 = 106 kata; tertulis 106 (angka tahun diucapkan → ±111 token) |
-| 13 | Bisu | LULUS | teks layar + gambar membawa: menang palsu → 20 rb/15 rb → grafik → 12 juta → paten → cek saldo |
-| 14 | Visual | LULUS | semua gambar bisa dibuat kit 3D (ruang lab & ruang mesin baru di `rooms3d.js`, `evidence.paper` untuk paten) |
+| 1 | Konfirmasi judul | LULUS | kalimat 1 = judul |
+| 2 | Celah | LULUS | "Kok mesin merayakan kekalahanku?" ≤ 2 dtk |
+| 3 | Jawaban | LULUS | "Jadi rasa menang itu dirancang" (±38 dtk) |
+| 4 | Mekanisme | LULUS | psikologi (sensor, hampir menang) · desain (lampu/musik, gulungan meleset) · uang (Rp36 T; paten) |
+| 5 | Tapi/maka | LULUS | hook → MAKA (bukti) → TAPI (bayangin) → MAKA (sensor) → MAKA (trik 2, 12 juta) → TAPI (paten) → MAKA (lihat saldo) |
+| 6 | Uji hapus | LULUS | tiap beat menopang beat berikut |
+| 7 | Satu tokoh | LULUS | mesin slot |
+| 8 | Twist | LULUS | kata ke-74/103 = 72% |
+| 9 | Akhir | LULUS | loop tanpa jahitan, tanpa CTA |
+| 10 | Faktual | LULUS | fact sheet #1–6, #8 |
+| 11 | Bahasa | LULUS* | "kamu/-mu" 6×; *baca keras oleh user saat VO |
+| 12 | Durasi | LULUS | 45 dtk × 2,2 = 99 ±8% → 103 ✓ |
+| 13 | Bisu | LULUS | teks layar membawa alur |
+| 14 | Visual | LULUS | kit 3D; ruang mesin/lab baru di `rooms3d.js` |
+| H1 | Kontradiksi ≤ 2 dtk | LULUS (rencana) | 5 kata; diverifikasi di VO |
+| H2 | Benda kata 1–3 | LULUS | "Mesin slot" |
+| H3 | Tanpa jeda < 3 dtk | LULUS (rencana) | tanpa elipsis di hook; diverifikasi di VO |
+| H4 | Frame 0 terang & bergerak | LULUS (rencana) | lampu meledak + saldo berdetak; bukan tampilan HP |
+| H5 | Teks frame 0 ≤ 5 kata | LULUS | MERAYAKAN KEKALAHANMU |
+| H6 | SFX di 0,00 | LULUS (rencana) | denting koin + bel kemenangan |
+| H7 | Tanpa tanggal/nama di VO 10 dtk | LULUS | "Kanada" saja; 2010 di layar |
+| R1 | Loop terbuka berantai | LULUS | "trik pertama" (15) → trik 2 (17–23) → "perancangnya tahu" (29) → paten |
+| R2 | Kalimat = aksi | LULUS | |
+| R3 | Re-hook 40–55% | LULUS | dtk 15–16,5 (33–37%) + whip ke kota dtk 23 (51%) |
+| R4 | Loop tanpa jahitan | LULUS | "…karena bisa jadi, mesin slot ini merayakan kekalahanmu." |
+| R5 | 40–46 dtk | LULUS | ±45 |
+| R6 | Kartu ARSIP overlay | LULUS (rencana) | dtk 3–5, aksi tetap jalan |
 
 ## Log koreksi
+- v2 (12 Nov 2026): data #002 (37,2% stayed) → hook ditulis ulang dengan gerbang F7 (benda konkret, tanpa jeda, dua langkah ≤ 3 dtk), tanggal keluar dari VO, re-hook "trik pertama/kedua", loop bersambung, kartu ARSIP jadi overlay.
 - v1 (12 Nov 2026): statistik anak dibuang (monetisasi); klaim "bandar mengatur" dibuang (bukti lemah); paten dipilih sebagai twist karena sumbernya primer.
 
 ## Metadata upload

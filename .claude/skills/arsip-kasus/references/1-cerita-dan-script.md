@@ -126,6 +126,30 @@ Lulus bila: spesifik (ada objek/angka/tokoh), jujur (dibayar oleh isi), bisa dig
 - Tanda baca = arahan baca: elipsis untuk jeda berpikir, titik untuk berhenti, satu kata kapital per video untuk tekanan.
 - **Tag ElevenLabs (Saos Cocol, eleven_v4)** hanya di titik perubahan emosi: [curious] hook · [warmly] setup · [mysteriously] TAPI · [serious] akibat · [pause][softly][slowly] kutipan/twist · [warmly] penutup. Dua take, pilih; cek pelafalan nama, durasi ±10% dari target.
 
+### F7. Gerbang 3 detik + rantai retensi (v3.1, lahir dari data #002: 37,2% stayed to watch)
+**Diagnosis #002 (diukur dari `vo_words.json`):** objek hook kabur ("fitur yang lagi kamu pakai" — fitur apa?), jeda hening 0,54 dtk di dtk 2,42–2,96, kata kunci "menyesal" baru terdengar di 3,94–4,6 dtk (di luar jendela 3 dtk), frame 0 = pria + pantulan feed (gelap, pelan, mirip isi feed itu sendiri), lalu dtk 4,6 langsung "Tahun 2006, Aza Raskin" (tanggal + nama asing = titik buang kedua). Rubrik internal memberi hook 9/10 → **rubrik kita terlalu murah hati; data menang atas penilaian sendiri.**
+
+**Gerbang hook (semua wajib; gagal satu = tulis ulang hook):**
+| # | Aturan | Ukuran lulus |
+|---|---|---|
+| H1 | Kontradiksi utuh terucap cepat | kalimat hook selesai ≤ 2,0 dtk; payoff kedua (taruhan pribadi) selesai ≤ 3,0 dtk |
+| H2 | Benda konkret di kata 1–3 | kata benda yang bisa digambar (mesin slot, tangki, kapal), bukan "fitur/hal/pria ini" |
+| H3 | Tanpa jeda di jendela 3 dtk | tidak ada hening > 0,25 dtk sebelum dtk 3 (elipsis hook dihapus); tanpa tag [pause] di hook |
+| H4 | Frame 0 = momen paling aneh, bergerak, terang | gerak terlihat ≤ 0,3 dtk; kontras tinggi; **jangan** meniru tampilan feed (layar HP di layar HP = kamuflase) |
+| H5 | Teks frame 0 untuk penonton tanpa suara | ≤ 5 kata, sudah tampil di frame 0 (tanpa animasi masuk), menyatakan kontradiksi, bukan emosi |
+| H6 | Suara di frame 0 | VO + satu SFX yang menyatakan kejadian (bukan musik pelan) mulai di 0,00 |
+| H7 | Tanpa tanggal/nama di VO 10 dtk pertama | waktu/tempat hanya stempel layar; nama tokoh hanya bila terkenal |
+
+**Rantai retensi (tengah sampai akhir):**
+| # | Aturan | Ukuran lulus |
+|---|---|---|
+| R1 | Loop terbuka berantai | sebelum menjawab satu pertanyaan, tanam yang berikut ("dan itu baru trik pertama"); maks 10 dtk tanpa pertanyaan terbuka; janji harus dibayar |
+| R2 | Tiap kalimat = aksi/gambar | tidak ada kalimat yang hanya konteks/data tanpa kejadian di layar |
+| R3 | Re-hook di 40–55% | eskalasi visual + kalimat pembuka babak baru |
+| R4 | Loop tanpa jahitan | kalimat terakhir terpotong dan **diselesaikan** oleh kalimat pertama (dibaca berurutan = satu kalimat utuh) |
+| R5 | Panjang | wilayah 2: 40–46 dtk sampai data APV kita sendiri berkata lain |
+| R6 | Kartu ARSIP KASUS jadi **overlay** | stempel/kartu kecil di atas aksi yang tetap bergerak, ≤ 1,3 dtk; tidak boleh layar penuh yang menghentikan cerita |
+
 ### F6. Scorecard script (semua harus LULUS sebelum dikirim ke user)
 | # | Cek | Lulus bila |
 |---|---|---|
@@ -143,7 +167,8 @@ Lulus bila: spesifik (ada objek/angka/tokoh), jujur (dibayar oleh isi), bisa dig
 | 12 | Durasi | kata = target × 2,2 (±8%); stopwatch dalam ±10% |
 | 13 | Bisu | versi teks layar + gambar saja tetap bisa diikuti |
 | 14 | Visual | setiap kalimat punya satu gambar yang bisa dibuat dengan kit |
-Laporkan scorecard ke user bersama script (tabel 14 baris, lulus/gagal + catatan).
+Plus **H1–H7 dan R1–R6 dari F7** (diukur pada VO jadi: cek ulang H1/H3 dari `vo_words.json` sebelum storyboard).
+Laporkan scorecard ke user bersama script (14 baris + gerbang F7, lulus/gagal + catatan).
 
 ## G. Prinsip pendukung
 Concrete hook · curiosity gap kecil · eskalasi taruhan · information economy · variasi tempo (kalimat pendek setelah hening) · narasi dan visual saling melengkapi · emotional payoff · akhir yang menyisakan bahan diskusi. **Ketegangan butuh jeda**: beri 0,3–0,6 dtk sebelum reveal; bangun rasa penasaran, bukan kelelahan.

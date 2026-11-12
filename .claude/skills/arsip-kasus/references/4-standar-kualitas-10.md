@@ -5,7 +5,7 @@ color-grading-finishing, sound-design-film (prinsip Walter Murch) + sound-design
 
 | # | Aspek | Seperti apa 10/10 | Cara cek |
 |---|---|---|---|
-| 1 | **Hook (0–1 dtk)** | Frame 0 sudah visual terkuat + teks hook; tidak ada fade-in dari hitam; wajah manusia + ancaman dalam satu frame | Still t=0 dibaca dalam 1 detik tanpa suara |
+| 1 | **Hook (0–1 dtk)** | Frame 0 sudah visual terkuat + teks hook; tidak ada fade-in dari hitam; wajah manusia + ancaman dalam satu frame | Still t=0 dibaca dalam 1 detik tanpa suara **dan** gerbang F7 (H1–H7) lulus terukur. Nilai > 8 hanya boleh bila data Studio episode sebelumnya ≥ 60% stayed to watch (#002: 9 internal vs 37,2% nyata) |
 | 2 | **Kejelasan cerita per shot** | Satu shot = satu gagasan dari kalimat VO; penonton tahu apa yang harus dilihat (fokus tunggal) | Tes "bisu": tiap still dimengerti tanpa caption |
 | 3 | **Komposisi** | Fokus di 900×1400 tengah; garis pengarah (perspektif) menuju subjek; latar depan/tengah/belakang; skala (ancaman lebih besar dari manusia) | Contact sheet; nilai tonal dibaca dalam grayscale |
 | 4 | **Akting karakter** | Gerak hanya yang mendukung kalimat (menoleh, tertunduk, tangan di perangkat); antisipasi → aksi → settle; kedip/napas idle; tangan dan benda logis (monitor + keyboard + mouse) | Putar 0,25×; cek tak ada pose "boneka" atau benda melayang |
