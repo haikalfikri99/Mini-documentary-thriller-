@@ -23,9 +23,9 @@ export function contact(x, y, rx, a = .3) { ellipse(x, y, rx, rx * .14, `rgba(0,
 export function vignette(a = .4) { const gr = g.createRadialGradient(W / 2, H * .46, H * .22, W / 2, H * .5, H * .78); gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(1, `rgba(0,0,0,${a})`); g.fillStyle = gr; g.fillRect(0, 0, W, H); }
 export function grain(seed, a = .045) { g.save(); g.globalAlpha = a; for (let i = 0; i < 2600; i++) { const r = Math.sin(i * 12.9898 + seed * 78.233) * 43758.5453, r2 = Math.sin(i * 4.1 + seed) * 9e3; g.fillStyle = i % 2 ? '#fff' : '#000'; g.fillRect((r - Math.floor(r)) * W, (r2 - Math.floor(r2)) * H, 2, 2); } g.restore(); }
 // depth of field: draw fn on its own canvas and composite it blurred
-export function depth(px, fn) {
+export function depth(px, fn, op = 'source-over') {
   const c = document.createElement('canvas'); c.width = W; c.height = H; const o = g; g = c.getContext('2d'); fn(g); g = o;
-  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.filter = px ? `blur(${px}px)` : 'none'; g.drawImage(c, 0, 0); g.restore();
+  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalCompositeOperation = op; g.filter = px ? `blur(${px}px)` : 'none'; g.drawImage(c, 0, 0); g.restore();
 }
 // whole-frame grade: tint multiply + warm/cool lift
 export function grade(tint, a) { g.save(); g.globalCompositeOperation = 'multiply'; g.globalAlpha = a; g.fillStyle = tint; g.fillRect(0, 0, W, H); g.restore(); }
