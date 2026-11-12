@@ -4,6 +4,8 @@ import { g, W, H, INK, push, pop, translate, rotate, scale, shape, fillOnly, str
 import { SKIN, hand } from '../lib/toon/cast.js';
 import { keys, ease } from '../lib/toon/motion.js';
 import { U, SCREEN, AMBER, AMBER_DEEP, NIGHT, PAPER, ss, eo, back, mix, offscreen, blit, webPage, nextButton, screenLight, nightFall, finishNight, finishCard, setLight, form } from './kit.js';
+import { noirFinish, silhouette, halftone } from './noir.js';
+import { inkForm } from './kit.js';
 
 // the 2006 monitor on a desk at night, its page frozen; `drain` 0..1 drains every colour but the button's
 function monitor(drain, { page = 3, btnLit = 0, btnPress = 0, s = 1 } = {}) {
@@ -22,7 +24,7 @@ function monitor(drain, { page = 3, btnLit = 0, btnPress = 0, s = 1 } = {}) {
 export function S10() {
   const drain = ss(U / .5);
   monitor(drain, { btnLit: ss(U / .6) });
-  nightFall(540, 1050, 260, 1000, lerp(.4, .8, drain)); finishNight(.25);
+  nightFall(540, 1050, 260, 1000, lerp(.4, .8, drain)); noirFinish();
 }
 // S11 (12.68–15.02) "tombol kecil itu punya tugas penting.": the button alone, huge; on "penting" it presses down and lights like a brake light
 export function S11() {
@@ -39,7 +41,7 @@ export function S11() {
   // a cursor arrow resting by it (the user's place)
   push(); translate(760 + 6 * Math.sin(U * 2), 1110); rotate(-.15);
   shape([[0, 0], [0, 120], [30, 92], [52, 140], [72, 130], [50, 84], [92, 84]], { fill: '#fdfcf7', lw: 6 }); pop();
-  nightFall(540, 960, 380, 1150, .7); finishNight(.25);
+  nightFall(540, 960, 380, 1150, .7); noirFinish();
 }
 // S12 (15.02–17.30) "Di situ kamu berhenti, dan mikir…": a finger hovers over the button and hesitates; the clock ticks
 export function S12() {
@@ -55,11 +57,12 @@ export function S12() {
   nextButton(540, 1180, 1.45, { lit: .35 });
   // the hand: index finger pointing down at the button, hovering, drifting in small hesitations
   const hov = keys(U, [[0, -40], [.6, 10, ease.inOut], [1.3, -25, ease.inOut], [2.1, 5, ease.inOut]]);
-  push(); translate(520 + 14 * Math.sin(U * 1.7), 860 + hov); rotate(Math.PI / 2 - .12);
-  hand(0, 0, 0, 90, SKIN.light[0], 'point'); pop();
-  form(noodle([600, 120], [540, 760 + hov], -30, 120, 96), '#3b4250', { lw: 8, sw: 16 });   // sleeve from above
+  const hx = 520 + 14 * Math.sin(U * 1.7), hy = 860 + hov;   // the hand in silhouette, rim-lit amber by the button below it
+  inkForm(noodle([600, 80], [hx + 20, hy - 120], -30, 130, 104), AMBER, .45, .2);
+  inkForm(spline([[hx - 70, hy - 170], [hx + 90, hy - 170], [hx + 100, hy - 40], [hx + 40, hy + 10], [hx - 60, hy - 20]]), AMBER, .6, .25);
+  inkForm(noodle([hx - 10, hy - 20], [hx - 6, hy + 150], 0, 40, 32), AMBER, .95, .45);
   screenLight(540, 1200, 700, .25);
-  nightFall(560, 1000, 380, 1200, .7); finishNight(.28);
+  nightFall(560, 1000, 380, 1200, .7); noirFinish();
 }
 // S13 (17.30–19.06) "lanjut, atau udahan?": the choice, two buttons; "LANJUT ›" glows like the screen, "UDAHAN" is the amber brake
 export function S13() {
@@ -73,5 +76,5 @@ export function S13() {
   // the cursor sways between the two, pulled toward the glowing one
   const cy = lerp(890, 760, ss((U - 1.4) / .4)) + 30 * Math.sin(U * 3.2);
   push(); translate(840, cy); rotate(-.15); shape([[0, 0], [0, 120], [30, 92], [52, 140], [72, 130], [50, 84], [92, 84]], { fill: '#fdfcf7', lw: 6 }); pop();
-  nightFall(540, 900, 420, 1200, .65); finishNight(.25);
+  nightFall(540, 900, 420, 1200, .65); noirFinish();
 }

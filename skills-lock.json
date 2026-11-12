@@ -73,11 +73,23 @@
       "skillPath": "skills/hyperframes-cli/SKILL.md",
       "computedHash": "864689d1c8b30389bb9dbc04dfd7a61ce8e62d2ba6924334e04a156e074c3029"
     },
+    "illustration-style": {
+      "source": "owl-listener/designer-skills",
+      "sourceType": "github",
+      "skillPath": "ui-design/skills/illustration-style/SKILL.md",
+      "computedHash": "397d27de067f053ab8fef804eb4881c65fdec9234b6ed401adb55e71c9579861"
+    },
     "kinetic-typography": {
       "source": "iart-ai/kinetic-typography-skills",
       "sourceType": "github",
       "skillPath": "skills/kinetic-typography/SKILL.md",
       "computedHash": "7f5a42a68017f67a8dc140ecf676820319cd22b98b909f9e8b615448baf19d8c"
+    },
+    "motion-art-direction": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/motion-art-direction/SKILL.md",
+      "computedHash": "4a43cd9cd57b01e77e3c76e63a4722b3c8a74277aae1d9d471a93e7fea8a7038"
     },
     "p5-brush": {
       "source": "progen/p5-brush-skill",
@@ -90,6 +102,12 @@
       "sourceType": "github",
       "skillPath": ".claude/skills/photo-composition-critic/SKILL.md",
       "computedHash": "2725876c57d5863668add6fb959f275f001df3bbd5c10a2b8e186af950cde6cd"
+    },
+    "ponytail": {
+      "source": "dietrichgebert/ponytail",
+      "sourceType": "github",
+      "skillPath": "skills/ponytail/SKILL.md",
+      "computedHash": "56d72677aca02689ac89bd48734e8c19b40ab86716d1257eaf5f1238b43cda6b"
     },
     "short-form-video": {
       "source": "iart-ai/tiktok-video-skills",

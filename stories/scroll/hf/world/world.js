@@ -17,9 +17,9 @@ const hit = (t0, amp) => u => amp * Math.exp(-Math.max(0, u - t0) * 6) * (u > t0
 export const DUR = 44.83;
 // a = start (s, = first word of the shot), fn = draw, cam, blur (sub-frames), freezeIn / dip / flash transitions
 export const SEG = [
-  { id: 'S1', a: 0, fn: K.S1, cam: cam(1.42, 1.58, [540, 820], [540, 790]) },
+  { id: 'S1', a: 0, fn: K.S1, cam: cam(1.0, 1.08, [540, 820], [540, 800]) },
   { id: 'S2', a: 1.40, fn: K.S2, cam: cam(1.0, 1.06, [540, 1000], [540, 980]) },
-  { id: 'S3', a: 2.96, fn: K.S3, cam: cam(1.55, 1.38, [540, 800], [540, 840]) },
+  { id: 'S3', a: 2.96, fn: K.S3, cam: cam(1.12, 1.02, [540, 820], [540, 860]) },
   { id: 'S4', a: 4.55, fn: K.S4, cam: slam(), freezeIn: true },
   { id: 'S5', a: 5.00 }, { id: 'S6', a: 6.88 }, { id: 'S7', a: 8.26 }, { id: 'S8', a: 9.56 }, { id: 'S9', a: 10.40 },
   { id: 'S10', a: 11.80, fn: B.S10, cam: cam(1.0, 1.35, [540, 980], [540, 960], io), dip: true },

@@ -3,6 +3,8 @@ import { clamp, lerp, hash, vnoise } from '../lib/toon/lib.js';
 import { g, W, H, INK, push, pop, translate, rotate, scale, shape, fillOnly, stroke, ell, rr, rect, spline, noodle, dot } from '../lib/toon/toon.js';
 import { person, SKIN, EXPR, hand } from '../lib/toon/cast.js';
 import { keys, ease, blink } from '../lib/toon/motion.js';
+import { portrait, silhouette, halftone, noirFinish, NOIR } from './noir.js';
+import { inkForm } from './kit.js';
 import { U, SCREEN, AMBER, NIGHT, NIGHT2, PAPER, RED, ss, eo, back, mix, phone, screenLight, nightFall, finishNight, finishCard, desk, rubber, setLight, form } from './kit.js';
 
 // the designer, as a comic character (not a likeness): dark wavy hair, glasses, stubble, dark hoodie
@@ -30,17 +32,29 @@ function manWithPhone({ feedOff, down = 0, eyesShut = 0, s = 2.35, x = 540, hy =
   screenLight(x, py - 60, 760, .75);
 }
 
-// S1 (0–1.40) "Pria ini merancang fitur": close on his lit face, a slow push; his feed keeps flowing
-export function S1() {
-  room();
-  manWithPhone({ feedOff: U * 1.35 + .2 * Math.sin(U * 3) });
-  nightFall(540, 900, 380, 1250, .78); finishNight(.32);
+// noir room: near-black, the window blinds catching a little street light, halftone falloff from the phone
+function noirRoom(lx, ly) {
+  g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = NOIR.ink; g.fillRect(0, 0, W, H);
+  for (let i = 0; i < 10; i++) fillOnly(rect(660, 120 + i * 52, 380, 24), '#1d2533', { boil: .2 });
+  halftone(null, lx, ly, 900, '#1e3440', { cell: 16, max: .5, a: .9 });
 }
+// the designer as a noir silhouette in profile, facing the phone he holds; the feed lights his face line and fills his lens
+function noirMan({ off, down = 0, lens = 1 }) {
+  const L = { x: 760, y: 1250 };
+  noirRoom(L.x, L.y);
+  silhouette(430, 780 + 30 * down, { s: 2.0, down, lens, feedOff: off, rim: 1 - .35 * down });
+  phone(790, 1260 + 40 * down, 250, 450, -.32, off, { light: 1 });
+  // his hand round the phone, in silhouette with a lit edge
+  push(); translate(790, 1260 + 40 * down); rotate(-.32);
+  pop();
+  inkForm(spline([[600, 1920], [640, 1600], [720, 1470], [820, 1500], [860, 1640], [820, 1920]]), SCREEN, .5, .2);   // palm and wrist
+  screenLight(760, 1250, 900, .6);
+}
+// S1 (0–1.40) "Pria ini merancang fitur": his face lit by the feed he keeps scrolling
+export function S1() { noirMan({ off: U * 1.35 }); noirFinish(); }
 // S2 (1.40–2.96) "yang lagi kamu pakai…": POV, the viewer's own hand and thumb, the same feed
 export function S2() {
-  g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#12161d'; g.fillRect(0, 0, W, H);
-  fillOnly(rect(0, 0, W, H), '#1a2029', { boil: .1 });
-  for (let i = 0; i < 6; i++) fillOnly(ell(160 + i * 170, 1760 + 40 * hash(i), 180, 90), '#20262f', { boil: .2 });   // blanket folds
+  noirRoom(540, 980);
   // swipe rhythm: a quick flick every ~0.55 s, the feed jumps one card per flick
   const ph = U / .55, n = Math.floor(ph), f = ph - n, flick = eo(clamp((f - .15) / .35));
   const off = n + flick;
@@ -49,24 +63,16 @@ export function S2() {
   form(rr(-330, -650, 660, 1300, 70), '#1c2027', { lw: 8, sw: 12, rim: false });
   pop();
   phone(540, 980, 600, 1180, .03, off, { light: 1 });
-  // right hand: fingertips curl round the LEFT edge, the palm and ball of the thumb come in from bottom-right, thumb over the glass
-  const sk = SKIN.light[0], sk2 = SKIN.light[1];
-  for (const [y, l] of [[820, 46], [960, 50], [1100, 48], [1230, 40]]) form(rr(222, y, l + 30, 92, 40), sk, { lw: 7, sw: 10 });
-  form(spline([[640, 1920], [700, 1640], [860, 1480], [1010, 1500], [1080, 1640], [1080, 1920]]), sk, { lw: 8, sw: 20 });
+  // right hand in silhouette, rim-lit by the screen: fingertips round the left edge, palm bottom-right, thumb over the glass
+  for (const [y, l] of [[820, 46], [960, 50], [1100, 48], [1230, 40]]) inkForm(rr(222, y, l + 30, 92, 40), SCREEN, .6, .25);
+  inkForm(spline([[640, 1920], [700, 1640], [860, 1480], [1010, 1500], [1080, 1640], [1080, 1920]]), SCREEN, .6, .25);
   const tx0 = 860, ty0 = 1530, tip = [lerp(700, 640, clamp((f - .1) / .45)), thumbY];
-  form(noodle([tx0, ty0], tip, -40, 120, 92), sk, { lw: 8, sw: 16 });
-  form(ell(tip[0] - 6, tip[1] - 34, 52, 42), '#f7e1cc', { lw: 5, sw: 4, rim: false });
-  stroke([[tx0 - 40, ty0 + 40], [tx0 + 40, ty0 + 90]], 5, { line: sk2 });
+  inkForm(noodle([tx0, ty0], tip, -40, 120, 92), SCREEN, .9, .45);
   screenLight(540, 980, 900, .5);
-  finishNight(.28);
+  noirFinish();
 }
-// S3 (2.96–4.55) "dan dia menyesal.": back to him; the head sinks, eyes close on "menyesal"
-export function S3() {
-  room(.25);
-  const down = keys(U, [[0, 0], [.35, .2, ease.out], [1.0, 1, ease.inOut]]);
-  manWithPhone({ feedOff: 3 + U * 1.1, down, eyesShut: U > 1.05 ? 1 : 0, hy: 700 });
-  nightFall(540, 950, 300, 1150, .84); finishNight(.32);
-}
+// S3 (2.96–4.55) "dan dia menyesal.": the head sinks; eyes close on "menyesal"
+export function S3() { const down = keys(U, [[0, 0], [.35, .2, ease.out], [1.0, 1, ease.inOut]]); noirMan({ off: 3 + U * 1.1, down, lens: 1 - .6 * ss((U - 1.0) / .4) }); noirFinish({ vig: .62 }); }
 
 // S4 (4.55–5.0) the archive: the frozen frame becomes the photo in the ARSIP KASUS file, slammed on the desk
 let photo = null;

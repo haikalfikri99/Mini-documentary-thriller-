@@ -4,6 +4,8 @@ import { g, W, H, INK, push, pop, translate, rotate, scale, shape, fillOnly, str
 import { person, SKIN, EXPR, hand } from '../lib/toon/cast.js';
 import { keys, ease, blink } from '../lib/toon/motion.js';
 import { U, SCREEN, AMBER, NIGHT, PAPER, ss, eo, back, mix, phone, offscreen, blit, webPage, nextButton, feedCanvas, screenLight, nightFall, finishNight, setLight, form } from './kit.js';
+import { noirFinish, silhouette, halftone } from './noir.js';
+import { inkForm } from './kit.js';
 import { RASKIN } from './s_hook.js';
 
 const OLDER = { ...RASKIN, hairCol: '#3a302b', top: { type: 'jacket', col: '#363b45', cuff: '#2a2e36', collar: '#2a2e36' }, acc: { glasses: true, beard: true } };
@@ -19,16 +21,14 @@ function screenWall(t, a = 1) {
   }
 }
 
-// S19 (28.10–30.34) "Belakangan, Raskin ngaku…": older, bearded, in a dark room of screens, turning toward us
+// S19 (28.10–30.34) "Belakangan, Raskin ngaku…": older, bearded, a silhouette in front of a wall of feeds that never stop
 export function S19() {
-  g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#10141a'; g.fillRect(0, 0, W, H);
+  g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#0a0c10'; g.fillRect(0, 0, W, H);
   screenWall(U + 30);
-  setLight({ dir: [0, -1], tint: '#0b0e12', a: .5, sw: 24 });
-  const s = 2.25, turn = keys(U, [[0, 0], [.8, 0], [1.4, 1, ease.inOut]]);
-  const expr = { ...EXPR.neutral, lid: .4, brow: .15, inner: .5, look: [lerp(-.6, 0, turn), .1], mouth: { o: 0, w: .7, sm: -.3 } };
-  person({ ...OLDER, view: 'front', x: 540, y: 820 + 566 * s, s, expr, pose: { lean: 0, armB: { h: [-20, 176], bend: -14 }, armF: { h: [20, 176], bend: 14 } }, headTilt: lerp(-.08, 0, turn), blink: blink(U + .5, 5) });
-  screenLight(540, 400, 900, .45);
-  nightFall(540, 950, 420, 1250, .7); finishNight(.3);
+  const turn = ss(clamp((U - .7) / .8));
+  silhouette(330 + 20 * turn, 1080, { s: 2.05, beard: true, lens: .9, feedOff: U * 2, rim: .9, down: .1 - .1 * turn });
+  screenLight(720, 700, 900, .4);
+  nightFall(540, 950, 520, 1300, .6); noirFinish();
 }
 // S20 (30.34–32.18) "Dengan menghapus tanda berhenti,": an eraser rubs the amber button off the page, stroke by stroke
 export function S20() {
@@ -45,9 +45,9 @@ export function S20() {
   push(); translate(ex, ey); rotate(-.5);
   form(rr(-60, -150, 120, 260, 18), '#e9a7a4', { lw: 7, sw: 10 }); form(rr(-60, -150, 120, 90, 14), '#6c87b7', { lw: 7, sw: 8 });
   pop();
-  hand(ex + 70, ey - 150, -2.2, 80, SKIN.light[0], 'fist');
-  form(noodle([1100, 300], [ex + 110, ey - 200], -40, 110, 90), '#363b45', { lw: 8, sw: 14 });
-  nightFall(540, 1250, 380, 1200, .6); finishNight(.25);
+  inkForm(noodle([1180, 260], [ex + 110, ey - 190], -40, 120, 96), '#cfe9f0', .45, .15);
+  inkForm(ell(ex + 70, ey - 150, 92, 78), '#cfe9f0', .6, .2);
+  nightFall(540, 1250, 380, 1200, .6); noirFinish();
 }
 // S21 (32.18–35.64) "saya bisa membuat kamu melakukan apa yang saya mau.": one hand, one phone; the thumb is tied to a string
 // that rises to a puppeteer's control bar; every pull of the string is one swipe. Whoever holds the bar is never shown.
@@ -58,11 +58,10 @@ export function S21() {
   // phone and hand, big and centred
   phone(560, 1380, 470, 860, .05, Math.floor(U / .62) + eo(clamp(beat / .35)) + 4, { light: .9 });
   const sk = SKIN.light[0];
-  for (const [y, l] of [[1060, 46], [1190, 50], [1320, 48], [1450, 40]]) form(rr(272, y, l + 30, 92, 40), sk, { lw: 7, sw: 10 });
-  form(spline([[640, 1920], [700, 1720], [860, 1560], [1010, 1580], [1080, 1720], [1080, 1920]]), sk, { lw: 8, sw: 20 });
+  for (const [y, l] of [[1060, 46], [1190, 50], [1320, 48], [1450, 40]]) inkForm(rr(272, y, l + 30, 92, 40), SCREEN, .6, .25);
+  inkForm(spline([[640, 1920], [700, 1720], [860, 1560], [1010, 1580], [1080, 1720], [1080, 1920]]), SCREEN, .6, .25);
   const tip = [lerp(700, 690, pull), lerp(1500, 1180, pull)];
-  form(noodle([880, 1620], tip, -40, 120, 92), sk, { lw: 8, sw: 16 });
-  form(ell(tip[0] - 6, tip[1] - 34, 52, 42), '#f7e1cc', { lw: 5, sw: 4, rim: false });
+  inkForm(noodle([880, 1620], tip, -40, 120, 92), SCREEN, .95, .45);
   // the string: from the thumbnail up to the bar, taut when it pulls
   const top = [540 + 260 * Math.cos(barRot + Math.PI) * -.0 + 120, barY + 10];
   stroke(spline([[tip[0] - 6, tip[1] - 60], [lerp(tip[0], top[0], .5) + 30 * (1 - pull), lerp(tip[1], top[1], .5)], top], false, 10), 5, { line: '#e8e0cf', boil: .2 });
@@ -73,23 +72,21 @@ export function S21() {
   pop();
   stroke([[660, 0], [660, barY - 150]], 5, { line: '#3a3f48' });
   screenLight(560, 1380, 900, .5);
-  nightFall(560, 1200, 420, 1250, .6); finishNight(.25);
+  nightFall(560, 1200, 420, 1250, .6); noirFinish();
 }
-// S22 (35.64–37.60) "Dan dia menyesal.": he closes the laptop; its light leaves his face
+// S22 (35.64–37.60) "Dan dia menyesal.": seen from the side, he closes the laptop; the light on his face line goes out
 export function S22() {
-  g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#0f1216'; g.fillRect(0, 0, W, H);
-  const close = ss(clamp((U - .5) / .7)), light = 1 - close;
-  setLight({ dir: [0, 1], tint: '#0a0d10', a: .55, sw: 24 });
-  const s = 2.2, down = ss(clamp((U - .2) / 1));
-  const expr = { ...EXPR.sad, lid: lerp(.45, .7, down), look: [0, .7], closed: U > 1.25 };
-  person({ ...OLDER, view: 'front', x: 540, y: 700 + 566 * s, s, expr, pose: { lean: 0, armB: { h: [60, 170], bend: -36, hand: 'open' }, armF: { h: [-60, 170], bend: 36, hand: 'open' } }, headTilt: .06 * down });
-  // the laptop in front, lid tilting shut toward us
-  const lidH = lerp(420, 30, close);
-  form([[220, 1500], [860, 1500], [940, 1620], [140, 1620]], '#9aa1ab', { lw: 8, sw: 10, shade: () => { for (let r = 0; r < 3; r++) for (let c = 0; c < 12; c++) fillOnly(rr(250 + c * 50 + r * 12, 1515 + r * 30, 38, 20, 4), '#7c838e', { boil: .1 }); } });
-  push(); translate(540, 1500);
-  form([[-320, 0], [320, 0], [300, -lidH], [-300, -lidH]], '#7d848f', { lw: 8, sw: 8 });
-  if (lidH > 60) fillOnly([[-290, -10], [290, -10], [272, -lidH + 18], [-272, -lidH + 18]], mix('#0d1116', SCREEN, .55 * light), { boil: .2 });
-  pop();
-  if (light > 0) screenLight(540, 1300, 900, .7 * light);
-  nightFall(540, 900, 300, 1150, lerp(.7, .9, close)); finishNight(.3);
+  g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#090b0e'; g.fillRect(0, 0, W, H);
+  const close = ss(clamp((U - .45) / .75)), light = 1 - close;
+  // the laptop in profile: base on the desk, lid hinged at the back edge, rotating shut
+  const hx = 830, hy = 1400, ang = lerp(-1.75, -.02, close), L = 360;
+  fillOnly(rect(0, hy + 18, W, 600), '#0d1014', { boil: .1 }); stroke([[0, hy + 18], [W, hy + 18]], 4, { line: '#1c222b' });
+  inkForm([[hx - 400, hy - 6], [hx + 14, hy - 6], [hx + 14, hy + 22], [hx - 400, hy + 22]], '#5a6676', .8, 0);
+  const tip = [hx + Math.cos(Math.PI + ang) * -L * -1, hy + Math.sin(ang) * L];
+  const lid = [[hx, hy], [hx + Math.cos(Math.PI - ang) * L, hy - Math.sin(Math.PI - ang) * L * -1]];
+  const ex = hx - Math.cos(ang) * L, ey = hy + Math.sin(ang) * L;
+  stroke([[hx, hy], [ex, ey]], 26, { line: '#07080b' }); stroke([[hx, hy], [ex, ey]], 4, { line: '#7fe3ff', alpha: .35 + .5 * light });
+  if (light > .02) { g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalCompositeOperation = 'screen'; const gr = g.createRadialGradient(ex, ey, 10, ex, ey, 700 * light + 50); gr.addColorStop(0, `rgba(127,227,255,${.45 * light})`); gr.addColorStop(1, 'rgba(127,227,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, W, H); g.restore(); }
+  silhouette(330, 1000, { s: 1.95, beard: true, lens: light, feedOff: U * 2, rim: light, down: .25 + .55 * ss(clamp((U - .9) / .8)) });
+  nightFall(540, 1100, 420, 1250, .55); noirFinish({ vig: .65 });
 }

@@ -63,3 +63,10 @@ Bahasa visual channel = **motion comic 2D** (hasil ATM dari "Beer Tsunami" Histo
 | Keputusan katastrofik | ruang rapat, dokumen dengan tanda tangan, garis waktu "andai" vs kenyataan, grafik jatuh |
 | Sains & eksperimen | laboratorium kalem, catatan percobaan, diagram prosedur; hormat pada korban, tanpa sensasi |
 | Sejarah & tempat | peta lama, then-vs-now (kota ramai → kosong), angka populasi yang menyusut |
+
+## I. Gaya "Noir Graphic Novel" (mulai #002, keputusan user: lebih premium)
+Acuan lengkap: `stories/scroll/STYLE.md`; kode: `stories/scroll/hf/world/noir.js` (`silhouette`, `halftone`, `noirFinish`) dan `kit.js` (`inkForm`).
+- Manusia = **siluet tinta** dengan rim cahaya dari sumber yang ada di adegan; tanpa wajah kartun. Emosi lewat postur, rim yang meredup, pantulan di kacamata.
+- Satu warna ancaman sebagai **cahaya**; amber = rem/tanda berhenti; halftone untuk gradasi cahaya; masa lalu sepia hangat, masa kini malam dingin.
+- Mesin: **hibrida HyperFrames + toon** (dunia di kanvas `hf-seek`, teks/caption/audio di HyperFrames, QA dengan `hyperframes check` + `snapshot`).
+- Pelajaran: potret wajah detail dari kode gagal (kaku); siluet + cahaya + komposisi lebih premium dan lebih cepat dibuat.

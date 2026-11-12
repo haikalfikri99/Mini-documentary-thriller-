@@ -28,11 +28,11 @@ export function blit(c, x, y, w, h, alpha = 1) { const m = getM(); g.save(); g.s
 
 // —— the feed: tall vertical cards (short videos), each a simple picture; `off` scrolls in card units ——
 const CARD_ART = [
-  (ctx, w, h, k) => { ctx.fillStyle = mix('#3b6e8f', SCREEN, .25); ctx.fillRect(0, 0, w, h); ctx.fillStyle = '#ffd27a'; ctx.beginPath(); ctx.arc(w * .7, h * .32, w * .14, 0, 7); ctx.fill(); ctx.fillStyle = '#244a5e'; ctx.beginPath(); ctx.moveTo(0, h * .75); ctx.lineTo(w * .35, h * .45); ctx.lineTo(w * .6, h * .68); ctx.lineTo(w * .8, h * .52); ctx.lineTo(w, h * .7); ctx.lineTo(w, h); ctx.lineTo(0, h); ctx.fill(); },
-  (ctx, w, h) => { ctx.fillStyle = '#c96f5a'; ctx.fillRect(0, 0, w, h); ctx.fillStyle = '#f3d2b5'; ctx.beginPath(); ctx.arc(w * .5, h * .42, w * .2, 0, 7); ctx.fill(); ctx.fillStyle = '#2a1d22'; ctx.beginPath(); ctx.arc(w * .5, h * .36, w * .21, Math.PI, 0); ctx.fill(); ctx.fillStyle = '#e8b04b'; ctx.fillRect(w * .25, h * .62, w * .5, h * .4); },
-  (ctx, w, h) => { ctx.fillStyle = '#2f3c52'; ctx.fillRect(0, 0, w, h); for (let i = 0; i < 6; i++) { ctx.fillStyle = ['#e85d75', '#ffd166', '#06d6a0', '#7fe3ff', '#f7f3e8', '#ef8354'][i]; ctx.beginPath(); ctx.arc(w * (.2 + hash(i) * .6), h * (.25 + hash(i * 3) * .5), w * (.06 + hash(i * 5) * .08), 0, 7); ctx.fill(); } },
-  (ctx, w, h) => { ctx.fillStyle = '#e9e1cf'; ctx.fillRect(0, 0, w, h); ctx.fillStyle = '#8a5a3c'; ctx.fillRect(w * .15, h * .5, w * .7, h * .12); ctx.fillStyle = '#f0a33a'; ctx.beginPath(); ctx.ellipse(w * .5, h * .46, w * .26, h * .06, 0, 0, 7); ctx.fill(); },
-  (ctx, w, h) => { ctx.fillStyle = '#20242e'; ctx.fillRect(0, 0, w, h); ctx.fillStyle = '#8bd17c'; ctx.fillRect(0, h * .7, w, h * .3); ctx.fillStyle = '#f7f3e8'; ctx.beginPath(); ctx.arc(w * .42, h * .62, w * .09, 0, 7); ctx.fill(); },
+  (ctx, w, h) => { ctx.fillStyle = '#1f4250'; ctx.fillRect(0, 0, w, h); ctx.fillStyle = '#dff1ee'; ctx.beginPath(); ctx.arc(w * .68, h * .3, w * .12, 0, 7); ctx.fill(); ctx.fillStyle = '#123039'; ctx.beginPath(); ctx.moveTo(0, h * .75); ctx.lineTo(w * .35, h * .45); ctx.lineTo(w * .6, h * .68); ctx.lineTo(w * .8, h * .52); ctx.lineTo(w, h * .7); ctx.lineTo(w, h); ctx.lineTo(0, h); ctx.fill(); },
+  (ctx, w, h) => { ctx.fillStyle = '#3a4a5c'; ctx.fillRect(0, 0, w, h); ctx.fillStyle = '#c9d6dc'; ctx.beginPath(); ctx.arc(w * .5, h * .42, w * .2, 0, 7); ctx.fill(); ctx.fillStyle = '#15202b'; ctx.beginPath(); ctx.arc(w * .5, h * .36, w * .21, Math.PI, 0); ctx.fill(); ctx.fillStyle = '#ffb43a'; ctx.fillRect(w * .25, h * .62, w * .5, h * .4); },
+  (ctx, w, h) => { ctx.fillStyle = '#18242f'; ctx.fillRect(0, 0, w, h); for (let i = 0; i < 6; i++) { ctx.fillStyle = ['#7fe3ff', '#4f8fa3', '#dff1ee', '#2c5a6b', '#9fd3df', '#ffb43a'][i]; ctx.beginPath(); ctx.arc(w * (.2 + hash(i) * .6), h * (.25 + hash(i * 3) * .5), w * (.06 + hash(i * 5) * .08), 0, 7); ctx.fill(); } },
+  (ctx, w, h) => { ctx.fillStyle = '#e6e1d4'; ctx.fillRect(0, 0, w, h); ctx.fillStyle = '#2c3a46'; ctx.fillRect(w * .15, h * .5, w * .7, h * .12); ctx.fillStyle = '#ffb43a'; ctx.beginPath(); ctx.ellipse(w * .5, h * .46, w * .26, h * .06, 0, 0, 7); ctx.fill(); },
+  (ctx, w, h) => { ctx.fillStyle = '#0f1820'; ctx.fillRect(0, 0, w, h); ctx.fillStyle = '#2f6b7a'; ctx.fillRect(0, h * .7, w, h * .3); ctx.fillStyle = '#dff1ee'; ctx.beginPath(); ctx.arc(w * .42, h * .62, w * .09, 0, 7); ctx.fill(); },
 ];
 export const AD = 3;   // index of the card that carries an "IKLAN" tag
 export function feed(ctx, w, h, off, { ads = false, dim = 0 } = {}) {
@@ -116,6 +116,12 @@ export function rubber(str, x, y, rot, t, { size = 96, col = RED, pad = 40 } = {
   o.fillStyle = col; o.textAlign = 'center'; o.textBaseline = 'middle'; o.fillText(str, 0, size * .06);
   o.globalCompositeOperation = 'destination-out'; for (let k = 0; k < 150; k++) { o.beginPath(); o.arc(-w / 2 + hash(k + size) * w, -h / 2 + hash(k * 7) * h, 1 + hash(k * 3) * 4, 0, 6.3); o.fill(); }
   g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.translate(x, y); g.rotate(rot); g.scale(sc, sc); g.globalAlpha = .9 * st; g.drawImage(c, -c.width / 2, -c.height / 2); g.restore();
+}
+export function inkForm(pts, col = SCREEN, a = .7, glow = .3) {
+  const P = shape(pts, { fill: '#07080b', lw: 0, line: null, boil: .4 });
+  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.lineJoin = 'round';
+  if (glow) { g.filter = 'blur(8px)'; g.globalAlpha = glow; g.strokeStyle = col; g.lineWidth = 16; g.stroke(P); g.filter = 'none'; }
+  g.globalAlpha = a; g.strokeStyle = col; g.lineWidth = 4; g.stroke(P); g.restore(); return P;
 }
 export function finishNight(a = .3) { paint(a); grade2('#1c2a3a', '#bfeeff', .1); grain(.05); vignette(.38); }
 export function finishCard(a = .36) { paint(a); grade2('#2a2030', '#ffd49a', .12); grain(.05); vignette(.3); }
