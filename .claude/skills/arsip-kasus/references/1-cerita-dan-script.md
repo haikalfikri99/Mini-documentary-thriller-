@@ -70,89 +70,102 @@ Menurut konsep editorial kita (dirangkum user dari YouTube Help & wawancara krea
 
 Yang terverifikasi (Studio → Analytics → Content → Shorts): **Viewed vs Swiped Away** ("berapa yang memilih menonton"), Engaged views, rata-rata durasi & persentase ditonton, retensi. YouTube **tidak** mempublikasikan ambang resmi; target 75–80% "viewed" hanyalah patokan kreator. Tidak ada formula yang terbukti menjamin viral — kita pakai prinsip yang didukung praktik kreator dan sinyal resmi, lalu uji dengan data channel sendiri.
 
-## F. The Mini Documentary Thriller Framework (rancangan editorial, bukan aturan resmi YouTube)
-| Babak | Detik | Tugas | Film #001 |
-|---|---|---|---|
-| 1. **INTERRUPTION** | 0–2 | Hancurkan ekspektasi. Mulai dari sesuatu yang tidak masuk akal tapi benar-benar terjadi. **Jangan** buka dengan "Tahukah kamu…", "Pada tahun 1919…", "Kali ini kita akan membahas…" | "Banjir ini bukan datang dari sungai." + ombak molase di frame 0 |
-| 2. **THE PROMISE** | 2–7 | Tunjukkan apa yang dipertaruhkan dan alasan menunggu: penonton harus merasa cerita ini membawa mereka ke suatu jawaban | "Ia keluar dari sebuah tangki raksasa… molase" |
-| 3. **THE ESCALATION** | 7–25 | Setiap kalimat menambah informasi baru, risiko, atau mengubah pemahaman. Jangan mengulang informasi yang sama dengan kata berbeda | Boston 1919 → 15 m pecah → 2,3 jt galon → 56 km/jam → kereta, bangunan, warga |
-| 4. **THE TURN** | 25–40 | Hal yang mengubah cara penonton memahami kejadian: peringatan yang diabaikan, kesalahan manusia, fakta tersembunyi, penyebab tak disangka | "Tapi tanda bahayanya sudah muncul jauh sebelumnya… anak-anak mengumpulkan tetesannya" |
-| 5. **THE PAYOFF** | 40–53 | Jawaban yang dijanjikan. Jangan menyimpan fakta penting hanya demi ending dramatis | dinding terlalu tipis, suhu, kiriman baru; 21 meninggal, 150 terluka |
-| 6. **THE ECHO** | 53–60 | Kesimpulan, pertanyaan yang layak didiskusikan, atau sudut pandang yang membuat cerita membekas. Jangan merusak akhir dengan CTA panjang. Kalimat terakhir boleh loop ke hook | "…atau tanda bahaya yang terlalu lama diabaikan?" |
-Untuk Shorts yang lebih pendek/panjang, skalakan babak 3–5; babak 1–2 tetap ≤ 7 detik.
+## F. FORMULA ARSIP v3 — terkunci (berlaku mulai #003)
+Disusun dari bukti, bukan selera. Dipakai **apa adanya** untuk setiap script; yang boleh diubah hanya isi cerita. Perubahan formula hanya lewat `6-pelajaran.md` (butuh data dari video tayang).
 
-## F2. Framework ARSIP v2 — dipakai untuk setiap script (menggantikan percobaan v4–v7 di #002)
-Disusun dari yang **terbukti**, bukan teori:
-| Sumber bukti | Yang diambil |
-|---|---|
-| Transkrip outlier "Skinner Box Explained" (26,7 jt views, 42 dtk, ±85 kata) dan video tikus-tuas Hindi (1,4 jt, 51×) | satu tokoh/subjek, satu mekanisme, kronologis, kalimat pendek, ditutup dengan membawa penonton masuk ke lingkaran yang sama |
-| Film #001 molase dan "Beer Tsunami" (4,3 jt) | kejadian nyata yang terdengar mustahil → kronologi → penyebab tersembunyi → pertanyaan |
-| Aturan "but/therefore" Trey Parker & Matt Stone (South Park, kuliah NYU) | setiap beat tersambung **tapi** atau **maka**, bukan "lalu… lalu…" |
-| Click confirmation (`youtube-scriptwriting`, praktik MrBeast/Paddy Galloway) | kalimat pertama mengonfirmasi judul dalam 3 dtk |
-| Paddy Galloway (analisis 5.400 Shorts, 3,3 miliar views, 2023) | yang menang punya 70–90% "viewed vs swiped"; Short panjang boleh asal ditonton sampai habis |
-| Retention ladder (`youtube-shorts`) | loop: kalimat terakhir memberi makna baru pada kalimat pertama |
+### F1. Dasar bukti (kenapa formulanya begini)
+| Bukti | Sumber | Aturan yang diturunkan |
+|---|---|---|
+| Penonton memutuskan di detik awal; >63% video ber-CTR tertinggi menyampaikan pesan kunci ≤ 3 dtk | TikTok Auction Ads Creative Tips (data iklan, bukan semua video) | Hook = pesan inti ≤ 3 dtk, tanpa pembuka |
+| "Viewed vs swiped away" (resmi: Stayed to watch) adalah metrik hook; YouTube tak memberi ambang | YouTube Help 12220281; analisis Galloway 2023 (5.400 Shorts): < 60% jarang berhasil, 70–90% unggul | Target ≥ 70% viewed; hook diuji dulu sebelum hal lain |
+| Rasa penasaran muncul dari celah informasi yang **kecil dan terasa bisa ditutup**; total ketidaktahuan tidak memicu penasaran | Loewenstein 1994, *The Psychology of Curiosity* | Hook memberi cukup konteks + satu celah spesifik; jangan misterius kabur |
+| Urutan penyajian menentukan emosi: hasil di depan → penasaran; hasil ditunda → suspense; kejadian tak terduga → kejutan | Brewer & Lichtenstein 1982 (structural-affect theory); diuji ulang Hoeken & van Vliet 2000 | Hook membuka **hasil/akibat** (penasaran), tengah menunda jawaban (suspense), twist di ±70% (kejutan) |
+| Penonton yang "terbawa" cerita lebih sedikit membantah dan lebih ingat | Green & Brock 2000 (narrative transportation), JPSP 79(5) | Cerita satu tokoh + gambar konkret, bukan daftar fakta |
+| Pengalaman dinilai dari puncak dan akhirnya, bukan durasinya | Kahneman & Fredrickson 1993 (peak-end) | Satu puncak emosi jelas + akhir terkuat; jangan habis dengan CTA |
+| Penonton memutuskan tetap/pergi di awal; pembuka harus menepati janji judul/thumbnail | Dokumen "How to Succeed in MrBeast Production" (bocor 2024, keaslian dikonfirmasi beberapa mantan staf) | Kalimat 1 = konfirmasi judul |
+| Hubungan antar-beat "tapi/maka" lebih menegangkan dari "lalu" | Trey Parker & Matt Stone, kuliah NYU | Setiap transisi beat = TAPI atau MAKA |
+| Replay dihitung view sejak 31 Mar 2025; monetisasi tetap engaged views | TechCrunch 26/3/2025; pernyataan YouTube | Ending yang menyambung ke frame 0 (loop) menambah view; tetap jangan menipu |
+| Pemenang di niche kita: Skinner Box 26,7 jt (42 dtk, ±85 kata), Beer Tsunami 4,3 jt; referensi animasi ifverse: 129 kata/mnt saat bicara, VO mengisi 75% durasi | transkrip vidIQ; pengukuran sendiri (`research/referensi/ANALISA_IFVERSE.md`) | 85–110 kata; ruang 20–25% tanpa kata untuk aksi/SFX |
+| #001 2,15 kata/dtk (101 kata ≈ 47 dtk); #002 2,28 kata/dtk (102 kata = 44,8 dtk), Saos Cocol eleven_v4 | pengukuran VO kita | Anggaran kata = durasi × 2,2 |
 
-**Kerangka 7 beat (±85–110 kata, 35–45 dtk):**
-1. **HOOK = JUDUL** (≤ 3 dtk): satu fakta nyata yang terdengar mustahil, menyangkut penonton bila bisa.
-2. **SETUP**: siapa, kapan, niat awal (satu tokoh, satu kalimat).
-3. **TAPI**: hal tersembunyi yang tidak disadari (mekanisme).
-4. **MAKA**: akibat langsungnya.
-5. **MAKA**: siapa yang memanfaatkan / taruhannya membesar (uang, nyawa, sistem).
-6. **TAPI (twist)** di ±70% durasi: pengakuan, bukti, atau fakta yang membalik pandangan.
-7. **KE PENONTON + LOOP**: apa artinya bagi kamu sekarang; kalimat terakhir mengembalikan ke kalimat pertama.
-**Larangan:** lebih dari satu tokoh utama; daftar kutipan tanpa cerita; statistik yang tidak dibutuhkan beat; beat yang bisa dihapus tanpa merusak alur (uji: hapus beat itu, kalau cerita tetap utuh, buang).
-**Satu kalimat cerita** wajib ditulis sebelum script: "[Tokoh] melakukan [X] dengan niat [Y], tapi [mekanisme tersembunyi], maka [akibat], dan [twist]." Kalau kalimat ini tidak bisa ditulis, ceritanya belum siap.
+### F2. Lembar kerja (urut, jangan dilompati)
+1. **Satu kalimat cerita:** "[Tokoh/objek] melakukan [X] dengan niat [Y], **tapi** [mekanisme tersembunyi], **maka** [akibat yang menyangkut penonton], dan [twist/pengakuan]." Kalau tidak bisa ditulis, cerita belum siap.
+2. **Pertanyaan penonton** (celah Loewenstein): satu pertanyaan yang muncul di detik 3 dan **dijawab eksplisit** sebelum akhir. Tulis juga jawabannya dalam satu kalimat yang bisa diceritakan ulang ke teman.
+3. **Untuk wilayah 2:** jawaban = mekanisme tiga lapis: psikologi (bias apa), desain (fitur apa), uang (siapa untung, bagaimana).
+4. **Daftar fakta** dari fact sheet yang dipakai (maks 5 angka/klaim; sisanya ke deskripsi). Tandai shock score; pakai yang ≥ 80.
+5. **10 hook** (pola di F4), nilai 4U, pilih satu; hook = judul = teks frame 0 = gambar frame 0.
+6. **Tulis 7 beat** dengan anggaran kata (F3). Tiga track sekaligus: VO · teks layar · gambar.
+7. **Pass bahasa** (F5) + `humanizer`, lalu **baca keras dengan stopwatch**.
+8. **Scorecard** (F6): semua lulus → kirim ke user. Ada yang gagal → perbaiki beat itu saja, bukan menulis ulang.
 
-## G. Delapan prinsip scripting
-| Prinsip | Penerapan |
-|---|---|
-| Concrete hook | Objek, angka, kejadian, atau kontradiksi yang spesifik |
-| Curiosity gap | Membuka satu pertanyaan yang ingin dijawab (dan menjawabnya) |
-| Narrative escalation | Fakta berikutnya meningkatkan taruhan |
-| Information economy | Setiap kalimat punya fungsi; hapus pengulangan |
-| Pattern variation | Variasi tempo: kalimat pendek, jeda, reveal |
-| Visual storytelling | Narasi dan visual saling melengkapi, bukan mengulang (VO: "pecah"; layar: paku keling melesat) |
-| Emotional payoff | Penonton mendapat pemahaman atau perasaan yang kuat |
-| Satisfying ending | Cerita selesai, tetapi menyisakan bahan diskusi |
-**Ketegangan butuh jeda.** Retensi tinggi ≠ semua kalimat cepat. Satu kalimat pendek yang diucapkan setelah hening sering lebih kuat daripada sepuluh kalimat cepat. **Bangun rasa penasaran, bukan kelelahan.** (Di film: beri ruang 0,3–0,6 dtk sebelum reveal; musik turun sebelum hentakan.)
+### F3. Kerangka 7 beat (45 dtk ≈ 100 kata; skala linier untuk 35–60 dtk)
+| Beat | Waktu | Kata | Tugas | Aturan |
+|---|---|---|---|---|
+| 1 HOOK | 0–3 | 8–12 | hasil/akibat yang terdengar mustahil + menyangkut penonton | konfirmasi judul; tanpa "Tahukah kamu/Pada tahun/Kali ini"; frame 0 = gambar kalimat ini |
+| 2 SETUP | 3–9 | 12–16 | siapa, kapan, niat awal (satu tokoh) | stempel waktu/tempat → **kartu ARSIP KASUS** di sini |
+| 3 TAPI (mekanisme) | 9–17 | 14–18 | hal tersembunyi yang tidak disadari, dibuat **dialami** penonton ("coba perhatiin…") | satu konsep, diberi nama lengket ("titik berhenti") |
+| 4 MAKA | 17–24 | 10–14 | akibat langsung pada penonton | gambar konkret, bukan istilah |
+| 5 MAKA (taruhan naik) | 24–30 | 10–14 | siapa memanfaatkan / uang / skala | angka hanya bila membuka mata |
+| 6 TAPI (twist) | 30–37 | 14–18 | pengakuan, bukti, atau fakta yang membalik pandangan (±70% durasi) | puncak emosi (peak); jeda 0,3–0,6 dtk sebelumnya |
+| 7 KE KAMU + LOOP | 37–45 | 14–18 | jawaban eksplisit untuk pertanyaan penonton → apa artinya bagi kamu sekarang → kalimat terakhir menyambung ke kalimat pertama | akhir = momen terkuat (end); tanpa CTA di VO |
 
-## H. Menulis kalimat & hook
-- Bahasa percakapan Indonesia, nada thriller dengan ironi, bukan komedi slapstick; kalimat ≤ ~12 kata, kata aktif, satu kalimat = satu gambar; angka konkret + perbandingan ("2,3 juta galon ≈ 3,5 kolam renang olimpiade"); sapa penonton minimal sekali bila wajar.
-- **Hook alignment:** visual frame 0, kalimat VO pertama, teks di layar, dan judul membicarakan hal yang sama.
-- Buat 10+ variasi hook lalu uji dengan **4U** (Useful, Urgent, Unique, Ultra-specific); pilih yang paling spesifik dan jujur. Pola yang terbukti di data: kontradiksi ("Banjir ini bukan air"), objek + "sampai mereka tahu kenapa", angka mengejutkan, "satu kesalahan kecil…", "mereka tidak pernah seharusnya menemukan…".
-- **Reality must beat expectations:** isi harus melampaui janji judul/hook; jangan menjanjikan yang tidak dibayar.
+### F4. Pola hook yang terbukti (pilih dari sini dulu)
+1. **Pengakuan pembuat:** "Pria ini merancang [hal yang kamu pakai]… dan dia menyesal." (#002)
+2. **Kontradiksi:** "Banjir ini bukan datang dari sungai." (#001)
+3. **Mekanisme di tanganmu:** "Jempolmu baru saja melakukan [X], dan itu disengaja."
+4. **Angka yang tidak masuk akal:** "[Angka] [satuan] … dari [hal sepele]."
+5. **Satu kesalahan kecil:** "Satu [benda kecil] membuat [akibat besar]."
+6. **Yang tidak pernah seharusnya ditemukan:** "Mereka tidak pernah seharusnya menemukan ini."
+Lulus bila: spesifik (ada objek/angka/tokoh), jujur (dibayar oleh isi), bisa digambar dalam satu frame, ≤ 12 kata.
 
-### Bahasa VO yang natural (pelajaran #002, user: script v1 "kaku")
-- **Register lisan santai-sopan**, seperti bercerita ke teman: bikin, nggak, nyuruh, ngaku, aja, udah. Kutipan tokoh tetap baku (terjemahan ucapan). Hindari bahasa berita/tulis ("Pria ini ikut menciptakan…", "menjaga jarak dari ciptaannya").
-- **Peran, bukan nama:** nama asing yang sulit (Rosenstein, Brichter) membebani hafalan; sebut perannya ("orang yang ikut bikin tombol Like"), taruh nama di deskripsi & sumber. Pakai nama hanya bila dikenal atau sering diulang.
-- **Ajak penonton mengalami** mekanismenya ("Coba perhatiin. Kamu tarik layar…"), bukan hanya mendengar.
-- **Terjemahan kutipan harus terdengar seperti orang Indonesia bicara**; jangan calque ("smartphone menyedot saya" → "karena tersedot ke HP").
-- **Pass `humanizer` wajib:** buang "bukan X tapi Y", penutup fragmen dramatis yang hanya mengulang, triad paksa, kata megah. Lalu **baca keras** dan ukur: ±2,4 kata/dtk; wilayah 2 target 90–125 kata (≈ 40–52 dtk).
-- **Tiga track** (`short-form-video-script`): VO, teks layar, visual; tulis versi tanpa suara dulu (mayoritas menonton tanpa suara, menurut data industri yang perlu dicek berkala).
+### F5. Bahasa VO
+- Lisan santai-sopan (bikin, nggak, ngaku, udah); kutipan tokoh baku dan terdengar seperti orang Indonesia bicara.
+- Kalimat ≤ 12 kata, satu kalimat = satu gambar; kata kerja aktif; sapa "kamu" minimal 3 kali.
+- Peran sebelum nama; nama asing hanya bila dikenal/berulang (≤ 2 nama per video).
+- Dilarang: "bukan X tapi Y", penutup fragmen yang mengulang, triad paksa, kata megah, statistik yang tidak dibutuhkan beat.
+- Tanda baca = arahan baca: elipsis untuk jeda berpikir, titik untuk berhenti, satu kata kapital per video untuk tekanan.
+- **Tag ElevenLabs (Saos Cocol, eleven_v4)** hanya di titik perubahan emosi: [curious] hook · [warmly] setup · [mysteriously] TAPI · [serious] akibat · [pause][softly][slowly] kutipan/twist · [warmly] penutup. Dua take, pilih; cek pelafalan nama, durasi ±10% dari target.
 
-### Pola naskah pemenang (transkrip vidIQ, Nov 2026)
-"Why You Can't Stop Scrolling: The Skinner Box Explained" 26,7 jt views: 42 dtk, ±85 kata, satu cerita tanpa nama, kalimat pendek, ditutup pertanyaan pribadi. Pelajaran: (1) bercerita > daftar kutipan; (2) kejutan hook jatuh ≤ 3 dtk; (3) pertanyaan eksplisit setelah hook (= judul); (4) buat mekanismenya terjadi di tangan penonton saat itu juga (Shorts = gestur geser); (5) bukti/kutipan sebagai konfirmasi setelah penonton paham, bukan sebelumnya. Sebelum menulis, ambil transkrip 2–3 outlier topik yang sama lewat vidIQ dan ukur kata/dtk.
+### F6. Scorecard script (semua harus LULUS sebelum dikirim ke user)
+| # | Cek | Lulus bila |
+|---|---|---|
+| 1 | Konfirmasi judul | kalimat 1 menyatakan hal yang sama dengan judul, ≤ 3 dtk |
+| 2 | Celah | pertanyaan penonton bisa ditulis dalam 1 kalimat dan muncul ≤ 3 dtk |
+| 3 | Jawaban | pertanyaan itu dijawab eksplisit sebelum detik terakhir |
+| 4 | Mekanisme (wil. 2) | psikologi + desain + uang ada, masing-masing ≤ 2 kalimat |
+| 5 | Tapi/maka | setiap transisi beat bisa disambung "tapi" atau "maka" |
+| 6 | Uji hapus | menghapus beat mana pun merusak cerita (kalau tidak rusak, beat dibuang) |
+| 7 | Satu tokoh | satu tokoh/objek pusat; tokoh lain hanya fungsi |
+| 8 | Twist | ada di 65–75% durasi dan mengubah cara pandang |
+| 9 | Akhir | kalimat terakhir menyambung ke kalimat pertama; tanpa CTA |
+| 10 | Faktual | setiap kalimat cocok dengan fact sheet (≥ 2 sumber per klaim) |
+| 11 | Bahasa | lolos F5 + `humanizer`; dibaca keras tanpa tersandung |
+| 12 | Durasi | kata = target × 2,2 (±8%); stopwatch dalam ±10% |
+| 13 | Bisu | versi teks layar + gambar saja tetap bisa diikuti |
+| 14 | Visual | setiap kalimat punya satu gambar yang bisa dibuat dengan kit |
+Laporkan scorecard ke user bersama script (tabel 14 baris, lulus/gagal + catatan).
 
-### Wilayah 2 wajib membongkar sistemnya (pelajaran #002 v4 → v5)
-Kumpulan pengakuan/kutipan bukan jawaban. Setiap video wilayah 2 harus menjawab pertanyaan hook dengan **mekanisme**: biasanya tiga lapis, yaitu **psikologi** (bias/efek apa yang dipakai), **desain** (fitur/tata letak apa yang memanfaatkannya), dan **uang** (siapa yang untung dan bagaimana). Kutipan tokoh dipakai sebagai bukti di dalam jawaban. Penutup menjawab pertanyaan hook secara eksplisit dan kembali ke frame 0. Uji: setelah menonton, bisakah penonton menjelaskan "kenapa" ke temannya dalam satu kalimat?
+## G. Prinsip pendukung
+Concrete hook · curiosity gap kecil · eskalasi taruhan · information economy · variasi tempo (kalimat pendek setelah hening) · narasi dan visual saling melengkapi · emotional payoff · akhir yang menyisakan bahan diskusi. **Ketegangan butuh jeda**: beri 0,3–0,6 dtk sebelum reveal; bangun rasa penasaran, bukan kelelahan.
 
-### Koreksi mandiri wajib sebelum mengirim script ke user (pelajaran #002 v7)
-Jangan kirim draf pertama. Minimal tiga putaran, masing-masing dengan kacamata berbeda: (1) penulis cerita: apakah pertanyaan hook dijawab, apakah mekanisme terhubung ke tokoh hook, apakah konsep diberi nama lengket; (2) editor: jumlah kata/durasi, kalimat janggal saat dibaca keras, register campur, kata yang ambigu di konteks Indonesia (mis. "HP diblokir" = blokir IMEI); (3) pemeriksa fakta: setiap kalimat dicocokkan dengan fact sheet. Bukti yang memakan durasi boleh dipindah ke teks layar. Catat log koreksi di README cerita.
+## H. Durasi
+Gagasan dulu, lalu durasi terpendek yang lengkap. Patokan: wilayah 2 = 40–50 dtk (85–110 kata); cerita kejadian = 45–60 dtk. Galloway 2023 menemukan 50–60 dtk unggul di sampelnya: jangan memotong cerita yang butuh waktu, tapi jangan memanjangkan yang selesai di 40.
 
-## I. Durasi
-Shorts boleh sampai 3 menit, tapi tentukan **gagasan dulu, lalu durasi terpendek yang lengkap**. Patokan channel: 45–75 dtk (film #001: 61 dtk). Untuk wilayah 2 (sistem/psikologi), uji juga versi 25–40 dtk. Ukur hasilnya; jangan menganggap satu durasi selalu benar.
+## I. Delivery & isi video (dari script ke film)
+- **Satu kalimat = satu shot (1,5–2 dtk)**; potong di awal kata; tokoh berakting hanya bila mendukung kalimat (menoleh di hook, menunduk di penyesalan).
+- **Teks layar** hanya untuk: hook (frame 0), stempel waktu/tempat, angka kunci, kutipan besar, label pilihan. Caption per kata menangani sisanya; jangan dobel dengan caption.
+- **Kartu ARSIP KASUS** (templat) setelah hook; **set & prop** dari kit; satu sumber cahaya per shot.
+- **Audio**: satu ide musik per babak; SFX untuk setiap kejadian di layar; dentuman besar di bawah 260 Hz atau di celah setelah kata (laporan per kata harus "none").
 
 ## J. Riset & fact-check (alur `fact-checking`)
 1. Tulis klaim inti dan pertanyaan cerita. 2. Pecah script menjadi klaim tunggal (nama, tanggal, tempat, angka, sebab, kutipan). 3. Cari sumber primer + sekunder bereputasi, catat tautan & tanggal di `stories/<slug>/README.md`. 4. Beri status per klaim: terverifikasi / sebagian / diperdebatkan / tidak terverifikasi (dibuang). 5. Untuk sebab-akibat: pastikan sumber menyatakan sebab, bukan sekadar urutan. 6. Cek ulang visual yang memuat angka atau teks. 7. Catat ketidakpastian di script bila kasusnya masih diperdebatkan.
 
 ## K. Checklist sebelum VO direkam
-- [ ] Wilayah cerita jelas; rotasi wilayah terhadap 3 video terakhir
-- [ ] Skor seleksi ≥ 20, tidak ada kriteria < 3
-- [ ] Babak 1 tidak dibuka dengan "Tahukah kamu/Pada tahun/Kali ini"; frame 0 bisa digambar
-- [ ] Setiap kalimat lolos information economy; ada jeda sebelum reveal penting
-- [ ] Turn dan payoff jelas; echo tanpa CTA panjang
-- [ ] Semua klaim ≥ 2 sumber, status dicatat; ketidakpastian disebut bila ada
+- [ ] Scorecard F6 semua lulus dan sudah dilaporkan ke user
+- [ ] Wilayah cerita jelas; rotasi terhadap 3 video terakhir; skor seleksi ≥ 20, tidak ada kriteria < 3
 - [ ] Hook, judul, teks layar, dan frame 0 selaras
+- [ ] Semua klaim ≥ 2 sumber, status dicatat; ketidakpastian disebut bila ada
+- [ ] Prompt ElevenLabs bertag + target durasi tertulis di `audio/vo_prompt_elevenlabs.md`
 
 ## L. Belajar setelah tayang
 Baca di Studio: Viewed vs Swiped Away (appeal), rata-rata % ditonton & grafik retensi (engagement), like/komentar/share/subscriber dan returning viewers (satisfaction). Diagnosis: swipe tinggi → hook/frame 0; turun di tengah → repetisi atau konteks hilang; retensi baik tapi interaksi lemah → payoff/echo. Jangan menyimpulkan dari satu video; ubah satu variabel besar per video; catat di README cerita. YouTube tidak memberi ambang resmi — bandingkan dengan video kita sendiri.

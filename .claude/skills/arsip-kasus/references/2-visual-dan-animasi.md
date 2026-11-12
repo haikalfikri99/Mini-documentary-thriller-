@@ -1,78 +1,49 @@
-# 2. Visual dan Animasi
-Bahasa visual channel = **motion comic 2D** (hasil ATM dari "Beer Tsunami" Historically, 4,3 jt views): ilustrasi detail per panel setiap 1,5–2 dtk, kamera selalu bergerak, caption per kata, stempel angka, seri "ARSIP KASUS". Semua digambar dengan kode di `toon/` — tanpa AI image/video, tanpa stock.
+# 2. Visual dan Animasi — gaya terkunci (sejak ARSIP #002)
+Semua video dibuat dengan **kit** (`kit/README.md`): ARSIP RIG, pustaka set, kartu arsip, film engine. Tanpa AI image/video, tanpa stock. Gaya ini **tidak didesain ulang per episode**. Dasar keputusannya: `research/referensi/ANALISA_IFVERSE.md` dan `ANALISA_VISUAL_2D.md` (dua video referensi 2D dianalisis dan diukur), studi warna kulit, review user #002.
+#001 (Molase) dibuat dengan engine lama `toon/` (garis boil); dibiarkan untuk rebuild, bukan acuan baru.
 
-## A. Signature yang tetap di setiap film
-1. **Satu bahasa gambar:** garis tinta "boil", isian datar, cahaya crescent, Cast Kit (`toon/engine/cast.js`), paintover cat air p5.brush pada bidang latar.
-2. **Warna Ancaman:** inti kasus (penyebab bencana, sistem tersembunyi, benda misterius, keputusan fatal) = satu-satunya warna jenuh yang menyala; warnanya dipilih per cerita (film #001: amber molase `#ffb43a`; mis. hijau mesin slot untuk kasino, merah sinyal untuk misteri radio). Dunia lain kalem; kata kunci caption memakai warna ini. Amber tetap aksen identitas channel (logo, banner).
-3. **ARSIP KASUS:** map arsip dibanting di detik ~3 (frame terakhir hook membeku → sepia → menjadi foto di map), dibuka saat kilas balik (halaman dibalik), dicap di akhir ("DIABAIKAN?").
-4. **Stempel waktu & tempat** saat establishing (`stamp()` di `brand.js`), **stempel karet merah** untuk angka/fakta (`rubber()`), panah tinta (`arrow()`), angka besar (`bigText()`).
-5. **Caption per kata** (`timedCaption()`): kapital Oswald 600, garis tinta, frasa ≤ 3 kata dipotong di tanda baca, setiap kata muncul pop tepat di timestamp VO, y = 1330.
-6. **Loop:** detik terakhir memotong kembali ke frame pertama.
+## A. Signature tetap
+1. **Karakter ARSIP RIG:** kepala bentuk tetap, kulit sawo matang (default), ekspresi stiker, aset modular (rambut, penutup kepala, aksesori, wardrobe). Tangan bulat di shot lebar, tangan berjari (`handPhoneCU`) di close-up.
+2. **Cahaya:** satu sumber per shot yang terlihat atau bisa ditebak; rim light warna sumber pada tokoh; pool cahaya + vignette + grain; DOF 3 lapis (latar blur, subjek tajam, latar depan blur).
+3. **Warna makna:** cahaya layar/ancaman `#7fe3ff` · rem/aksen cerita amber `#ffb43a`; latar desaturasi; warna jenuh hanya untuk tokoh utama dan satu aksen.
+4. **Kartu ARSIP KASUS** (`kit/src/arsip-card.js`, tata letak #001) setelah hook, ≥ 1,3 dtk, stempel di kata waktu/tempat; frame hook menjadi foto sepia.
+5. **Caption per kata** (`kit/tools/build_captions.py`): Oswald 600 kapital bergaris tinta, ≤ 3 kata, pop-in, y 1290, kata kunci cyan/amber; disembunyikan saat tipografi besar (kutipan).
+6. **Loop:** detik terakhir menyambung ke frame 0.
 
-## B. Toolkit `toon/`
-| Modul | Isi |
-|---|---|
-| `engine/toon.js` | menggambar: `shape/form/fillOnly/stroke`, `spline`, `noodle`, `ell`, `rr`, transform `push/pop/translate/rotate/scale` |
-| `engine/cast.js` | `person({...})`: tubuh man/woman/child, pakaian, `view` ('front'/3q/'side'), `face` ±1, `headView`, `lookBack`, `expr` (preset `EXPR` atau objek), `look`, `mouth`, `pose` (lean, bob, armF/armB `{h,bend,fist,hand}`, legF/legB), `prop(hp, ang)` |
-| `engine/motion.js` | `run`, `runFront`, `sprintAt` (lari menuju kamera), `walk`, `blink`, `breathe`, `flutter`, `mixPose`, **`keys(t, [[t, nilai, ease], …])`** untuk akting |
-| `engine/brand.js` | `stamp`, `caption`, `wordCaption`, `timedCaption`, `glow`, `wash` |
-| `engine/look.js` | finishing: `paint`, `grade2`, `dof`, `shafts`, `grain`, `vignette` |
-| `engine/fx.js` | cairan & puing: `MOL` palet, `drop`, `hangingDrop`, `splash`, `barrel`, `plank`, `wheel` |
-| `core/render/` | `still.mjs`, `video.mjs` (render paralel), `frames.mjs` |
+## B. Aturan menggambar (dari referensi)
+- Bentuk bersih tanpa outline di lingkungan; **gradien di setiap permukaan besar**; bayangan kontak di bawah benda; 1–3 detail yang bercerita per area (papan tulis berisi sketsa, kalender 2006, jam 01.47).
+- Satu set dipakai ulang dengan pencahayaan berbeda untuk mood berbeda.
+- Cahaya harus **masuk akal secara fisik**: arah sinar dari jendela, bayangan jatuh ke arah berlawanan (review #002: sinar jendela S5 yang "nembak" ditolak).
+- Ruang berbeda untuk orang berbeda (review #002: orang biasa tidak boleh di kantor Raskin).
+- Benda yang dipakai tokoh harus lengkap dan logis: orang di komputer = monitor + keyboard + mouse, tangan benar-benar di atasnya, monitor duduk di meja (review #002 S8/S12).
+- Kursor = ikon tangan penunjuk sungguhan, tombol = benda yang bisa ditekan; jangan kotak putih generik.
+- Latar tidak boleh kosong: isi dengan lingkungan yang bercerita (aula arsip, kota layar, lorong kartu feed, plaza malam).
 
-## C. Jenis panel (contoh di `stories/molase/film/`)
-| Jenis | Kapan | Contoh |
+## C. Kamera, potongan, transisi (`kit/src/film-engine.js`)
+- Satu kalimat = satu shot 1,5–2 dtk, potong di awal kata; kamera selalu bergerak pelan (push 2–8%, pan); `slam` untuk kartu arsip; `cuts` (zoom per klik); `shake` di benturan.
+- Flash/dip hanya pada makna: flash krem saat arsip, dip hitam sebelum "Tapi"/lompatan waktu, flash hangat saat sesuatu pecah.
+- Variasi ukuran shot: wide → medium → close-up → insert benda (top-down untuk tangan & HP) → split screen bergaris retak untuk pilihan.
+- **Frame 0 tanpa fade**: itu thumbnail di feed.
+
+## D. Akting yang mendukung cerita (bukan hiasan)
+- Idle otomatis (kedip, napas) dari `LIFE`; tambah gerak **hanya** bila kalimat membutuhkannya: menoleh ke kamera di hook, kepala tertunduk dan mata terpejam di penyesalan, tangan menyeret mouse, mata berpindah saat berpikir, meregangkan badan saat "udahan".
+- Antisipasi → aksi → settle; mata bergerak sebelum kepala; kaki menapak saat jalan (`walk`); pegas untuk benda ikut (`spring`).
+- Animasi peristiwa mengikuti kata: utuh → retak (di kata sebelumnya) → pecah (di kata kunci) → serpihan pelan (review #002: pecah terlalu cepat ditolak).
+
+## E. Komposisi & keterbacaan
+- Fokus di 900×1400 tengah; atas 0–168 px kosong (UI), teks layar 168–1250, caption 1250–1410, di bawah 1410 hanya tekstur/latar depan.
+- Satu fokus per frame; nilai gelap-terang memisahkan subjek; frame vertikal untuk orang rebahan = shot top-down.
+- Teks layar tidak boleh dobel dengan caption (kalimat yang sama).
+
+## F. Storyboard (gerbang wajib sebelum animasi)
+Render keyframe tiap shot dari kode (`film/board/`) → artifact storyboard (format `stories/scroll/storyboard_artifact/`): kartu per shot berisi keyframe, timecode, VO, aksi, kamera, suara, teks layar, catatan jujur. User memberi komentar di artifact → revisi → setuju → baru animasi penuh.
+
+## G. Visual per wilayah (pakai pustaka set dulu)
+| Wilayah | Set/prop kit | Tambahkan bila perlu |
 |---|---|---|
-| **Set jalan perspektif** (`P(x,y,z)`, `boston()`, `street()`, `scenePaint()`) | establishing, kejadian di jalan/kota | P1, P4, P8, P10, P34 |
-| **Panel berlapis multiplane** (`L(0/1/2)` = latar/tengah/depan, depth .55/.85/1.25) | shot kunci yang butuh parallax | P1, P8 |
-| **Tampak samping** (`sideStreet()` + `mass()`), banjir selalu kiri → kanan | akibat beruntun | P14, P16, P17 |
-| **Close-up karakter** | hook, twist emosional | P2, P25 |
-| **Makro** | benda/cairan, tetes, retakan | P5, P23, P28 |
-| **Kartu arsip di meja** (`desk`, `paper`, `rubber`, `lamp`, `finishCard`) | angka, peta, diagram, penyebab | P6, P7, P12, P13, P15, P27, P29–P31, P36 |
-| **Sunyi** (latar gelap, satu simbol) | korban, momen hormat | P32 lilin, P33 bangsal |
-
-## D. Logika gerak & akting (paling penting)
-- **Arah hadap = arah gerak.** Orang lari menjauhi ancaman: ombak dari belakang → lari *ke kamera* (`view:'front'`, `sprintAt`). Pada tampak samping, satu arah layar untuk seluruh babak (aturan 180°).
-- **Sebab-akibat fisik:** benda terlempar menjauhi sumber; topi tertiup ke belakang, ke arah ombak, dan mengecil; tetes jatuh dengan percepatan; gelombang menekuk dan bibirnya maju.
-- **Setiap karakter utama punya ketukan emosi** dengan `keys()`: antisipasi (dip kecil) → aksi dengan overshoot → settle; mata bergerak sebelum kepala; napas/bob halus saat diam; kedip di momen kaget. Contoh: P8 (santai → tangki berderit → menyentak ke atas → menyipit → meremas syal, setengah langkah mundur), P25 (melihat ke atas → tetes masuk cangkir → mata tertutup senang), P18 (dua orang saling menggapai).
-- **Gestur tidak boleh menutupi wajah** (gestur "melindungi mata" dicoba dua kali, selalu menutupi wajah → diganti).
-- **Ekspresi teror** (front head): rahang turun, alis dalam naik, kerutan cemas, pupil kecil, keringat terlempar.
-
-## E. Kamera & transisi (`film.js`)
-- `cam(s0, s1, [cx,cy]0, [cx,cy]1, easing, shake)`; `slam()` untuk map dibanting; `hit(t0, amp)` untuk guncangan pada benturan.
-- Setiap gerak kamera punya motif: reveal (P1 tarik mundur dari wajah ke ombak), establishing (P8 buka di tangki → mundur ke jalan), push-in ke detail, crash zoom pada benturan, tilt-up ke benda raksasa (P4).
-- Transisi: kebanyakan potong keras di awal kata; `freezeIn` (frame beku → foto arsip), `flash` (kilat putih saat pecah), halaman dibalik untuk kilas balik, sepia untuk masa lalu (P21).
-- **Motion blur** (`blur: 3–5` sub-frame, shutter ~90°) hanya pada shot cepat, dan pose harus *on ones*.
-
-## F. Komposisi & keterbacaan
-- Satu fokus per shot; nilai gelap-terang memisahkan subjek; garis perspektif mengarah ke subjek; skala ancaman > manusia.
-- Elemen penting di 900×1400 tengah; atas ±120 px dan bawah ±320 px dibiarkan untuk UI platform; pita caption y 1250–1410 bebas teks lain.
-- Karakter tidak tumpang tindih; beri jarak dan arah pandang yang jelas.
-- Detail kecil (paku keling, tekstur) secukupnya: di ponsel yang menentukan adalah siluet, ekspresi, gerak, dan kejelasan.
-
-## G. Cara membangun panel baru
-1. Tulis fungsi `export function Pn()` yang membaca `U` (detik di dalam panel), gambar dari belakang ke depan, akhiri dengan finishing (`finish()` / `finishCard()`).
-2. Daftarkan di `SEG` (`film.js`): `{ id, a: <awal kata VO>, fn, cam, blur?, flash?, freezeIn?, layers?, fin? }`.
-3. Render still di 2–3 titik waktu panel, lihat, perbaiki (logika, akting, komposisi, tabrakan teks), baru lanjut batch berikutnya.
-
-## H. Visual untuk wilayah selain bencana
-| Wilayah | Panel kunci yang cocok |
-|---|---|
-| Sistem & psikologi | denah dari atas (supermarket, kasino) dengan panah jalur mata/kaki; close-up tangan + produk; "sinar-X" yang menyingkap mekanisme tersembunyi |
-| Misteri | papan investigasi (foto, benang merah, peta) di meja ARSIP; label FAKTA / TEORI / SPEKULASI dengan stempel berbeda |
-| Keputusan katastrofik | ruang rapat, dokumen dengan tanda tangan, garis waktu "andai" vs kenyataan, grafik jatuh |
-| Sains & eksperimen | laboratorium kalem, catatan percobaan, diagram prosedur; hormat pada korban, tanpa sensasi |
-| Sejarah & tempat | peta lama, then-vs-now (kota ramai → kosong), angka populasi yang menyusut |
-
-## I. Gaya "Noir Graphic Novel" (mulai #002, keputusan user: lebih premium)
-Acuan lengkap: `stories/scroll/STYLE.md`; kode: `stories/scroll/hf/world/noir.js` (`silhouette`, `halftone`, `noirFinish`) dan `kit.js` (`inkForm`).
-- Manusia = **siluet tinta** dengan rim cahaya dari sumber yang ada di adegan; tanpa wajah kartun. Emosi lewat postur, rim yang meredup, pantulan di kacamata.
-- Satu warna ancaman sebagai **cahaya**; amber = rem/tanda berhenti; halftone untuk gradasi cahaya; masa lalu sepia hangat, masa kini malam dingin.
-- Mesin: **hibrida HyperFrames + toon** (dunia di kanvas `hf-seek`, teks/caption/audio di HyperFrames, QA dengan `hyperframes check` + `snapshot`).
-- Pelajaran: potret wajah detail dari kode gagal (kaku); siluet + cahaya + komposisi lebih premium dan lebih cepat dibuat.
-
-## Templat wajib: kartu ARSIP KASUS
-Setiap episode memakai `rig/src/arsip-card.js` (tata letak #001): map di meja kayu, tab "ARSIP KASUS", judul kasus, baris tempat · tanggal, frame hook sebagai foto sepia berklip, stempel merah "KASUS #00N".
-- Tampil ≥ 1,3 dtk, langsung setelah hook; stempel jatuh tepat di kata waktu/tempat pertama di VO (#002: "2006").
-- Kamera: slam (zoom 1,18 → 1 dalam 0,18 dtk) + flash krem 0,12 dtk; SFX: whoosh → thud saat map jatuh → stempel.
-- Jangan mendesain ulang per episode; hanya isi `title`, `sub`, `no`, dan foto.
+| Sistem & psikologi | setA, setC, feed, tunnel, bigButton, crt/page06, setD | denah top-down dengan panah jalur, "sinar-X" mekanisme |
+| Misteri | setD (aula arsip), stamp | papan investigasi, label FAKTA/TEORI/SPEKULASI |
+| Keputusan katastrofik | setB (kantor), monitor | ruang rapat, dokumen, grafik jatuh |
+| Sains & eksperimen | preset ilmuwan | lab kalem, diagram prosedur (tanpa sensasi) |
+| Sejarah & tempat | kartu arsip, sepia | peta lama, then-vs-now |
+Set baru yang dibuat untuk satu episode dipindah ke `kit/src/sets-lib.js` agar dipakai ulang.
