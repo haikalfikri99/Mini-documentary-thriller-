@@ -126,9 +126,11 @@ export function bed(y = 1250) {
 }
 
 // —— key frames (stills for the look gate) ——
-export function S1() {
+export function S1(u = 0) {
   setA();
-  const P = headAt(RASKIN19, seated(RASKIN19, { facing: .62, expr: 'netral', gaze: [.6, .75], headTilt: .12, rh: [86, 18], lh: [40, 150], hold: 'hp', phoneRot: .35, look: .5 }), 430, 800, 3.1);
+  // he reads his phone, then looks up at you on "fitur" (the hook names him)
+  const up = Math.max(0, Math.min(1, (u - .55) / .2)), k = up * up * (3 - 2 * up);
+  const P = headAt(RASKIN19, seated(RASKIN19, { facing: .62, expr: 'netral', gaze: [.6 - .75 * k, .75 - .75 * k], headTilt: .12 - .1 * k, rh: [86, 18], lh: [40, 150], hold: 'hp', phoneRot: .35, look: .5 }), 430, 800, 3.1);
   drawChar(g, RASKIN19, P, { rim: { col: SCREEN, dir: [.75, .4], w: 7 }, amb: '#2c3550', ambK: .22, noShadow: true });
   pool(700, 1020, 420, 'rgb(127,227,255)', .28);
   deskA(1420);

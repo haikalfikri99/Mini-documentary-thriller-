@@ -45,14 +45,21 @@ def fan(d): t = T(d); return norm(bp(nz(d), 150, 1200)) * (.75 + .25 * np.sin(2 
 def creak(d=1.0): t = T(d); f = 300 + 80 * np.sin(2 * np.pi * 3 * t); ph = 2 * np.pi * np.cumsum(f) / SR; return np.sign(np.sin(ph)) * norm(lpf(np.abs(nz(d)), 40)) * np.sin(np.pi * t / d) * .4
 def lid(): t = T(.5); return np.sin(2 * np.pi * (110 * t - 30 * t * t)) * np.exp(-t * 14) + norm(bp(nz(.5), 300, 3000)) * np.exp(-t * 40) * .6
 def tapestop(d=.35): t = T(d); return np.sin(2 * np.pi * np.cumsum(220 * (1 - t / d) ** 2) / SR) * (1 - t / d) * .6
+def crackle(): t = T(.08); return norm(bp(nz(.08), 1200, 7000)) * np.exp(-t * 70) + np.sin(2 * np.pi * 900 * t) * np.exp(-t * 80) * .3
+def glassChime():
+    out = np.zeros(int(1.6 * SR))
+    for k, f in enumerate((2637, 2093, 1760, 1397, 1175)):
+        s = coin(f) * np.exp(-T(.45) * 2); i = int(k * .07 * SR); out[i:i + len(s)] += s[:len(out) - i] * (1 - k * .12)
+    return out
+def powerdown(d=.7): t = T(d); return np.sin(2 * np.pi * np.cumsum(180 * (1 - t / d) ** 1.5 + 40) / SR) * (1 - t / d) * .5
 def chime(f=880): t = T(1.2); return (np.sin(2 * np.pi * f * t) + .4 * np.sin(2 * np.pi * f * 2 * t)) * np.exp(-t * 3)
 
 # —— SFX timeline (film seconds) ——
 add(air(4.5, 400), 0, .12); add(hum(4.5, 50), 0, .05)                                          # S01 Raskin's dark room
 [add(swipe(), t, .22, .2) for t in (1.62, 2.3)]                                                 # S02 thumb swipes the feed
-add(whoosh(.3, 400, 5000), 4.32, .14); add(thud(), 4.56, .85); add(stampS(), 4.7, .5, -.2)     # S04 freeze → archive slam + stamp
-add(air(6.8, 900), 5.0, .07)                                                                    # 2006 office daytime air
-[add(key(), 5.05 + k * .13 + rng.uniform(0, .04), .16, .3) for k in range(13)]                  # S05 typing
+add(whoosh(.3, 400, 5000), 4.24, .14); add(thud(), 4.50, .85); add(air(1.3, 300), 4.55, .08); add(stampS(), 5.24, .6, .2); add(thud(.35, 90), 5.25, .35, .2)     # S04 freeze → archive slam + stamp
+add(air(6.0, 900), 5.84, .07)                                                                    # 2006 office daytime air
+[add(key(), 5.9 + k * .13 + rng.uniform(0, .04), .16, .3) for k in range(7)]                  # S05 typing
 add(unroll(1.3), 6.95, .2)                                                                      # S06 the page pours down
 add(click(), 8.55, .3); add(whoosh(.35, 1500, 7000), 8.7, .1); add(pixels(.4), 9.2, .05)       # S07 drag the button away
 add(click(2600), 9.9, .3, .2)                                                                   # S08 mouse
@@ -61,7 +68,7 @@ add(tapestop(), 11.66, .25); add(thud(.5, 45), 11.8, .4)                        
 add(hum(2.3, 100), 12.68, .08); add(thud(.4, 80), 12.7, .35)                                    # S11 spotlight on the button
 [add(tick(), 15.02 + k * 1.0, .22, -.3) for k in range(3)]                                      # S12 the wall clock
 add(swipe(), 17.4, .2, -.5); add(chime(587), 18.62, .12, .5)                                    # S13 lanjut (left) / udahan (right)
-add(shatter(1.1), 19.08, .55); add(thud(.6, 55), 19.08, .7)                                     # S14 the button breaks
+add(hum(1.08, 110), 19.06, .07); [add(crackle(), t, .3, .1) for t in (19.74, 19.86, 19.97, 20.06)]; add(shatter(1.3), 20.14, .6); add(glassChime(), 20.14, .35); add(powerdown(), 20.18, .22); add(thud(.6, 55), 20.14, .6)                                     # S14 the button breaks
 [add(step(), 20.85 + k * .5, .3, .1) for k in range(4)]; [add(whoosh(.25, 1500, 6000), 20.9 + k * .3, .05) for k in range(6)]   # S15 walking on cards
 add(whoosh(1.8, 200, 4000), 22.95, .22)                                                         # S16 into the tunnel
 add(fan(3.2), 24.94, .1); [add(swipe(), 25.1 + k * .48, .15, .15) for k in range(3)]           # S17 fan at 01:47, swipes
@@ -72,7 +79,7 @@ add(creak(1.3), 32.4, .12); add(creak(1.2), 33.9, .1, .3)                       
 add(lid(), 36.55, .5); add(thud(.4, 50), 36.6, .3)                                              # S22 laptop closes, light out
 [add(tick(3600), 37.7 + k * .5, .12) for k in range(4)]                                         # S23 the bar ticks
 [add(swipe(), 39.7 + k * .45, .12, .1) for k in range(4)]                                       # S24 the feed keeps going
-add(swipe(), 41.7, .15); add(click(2200), 44.18, .55); add(thud(.4, 70), 44.2, .3)             # S25 the thumb places UDAHAN
+[add(swipe(), t, .16, .1) for t in (41.6, 41.82, 42.02)]; add(whoosh(.4, 600, 3000), 42.22, .12); add(click(2200), 44.18, .55); add(thud(.4, 70), 44.2, .3); add(chime(440), 44.2, .1)             # S25 the thumb places UDAHAN
 
 # —— VO (already levelled by vo_chain.py) ——
 VO = load('vo_level.wav'); VO *= 10 ** (-17 / 20) / rms(VO)

@@ -3,12 +3,15 @@
 import { drawChar, solve, SKIN, PRESETS, handPhoneCU, walk } from './rig/arsip-rig.js';
 import { use, W, H, vgrad, hgrad, rrect, poly, ellipse, line, pool, contact, vignette, grain, depth, shadowFall } from './rig/scene-kit.js';
 import * as S from './sets.js';
+import { arsipCard } from './rig/arsip-card.js';
 const { RASKIN06, RASKIN19, KAMU, ORANG06, SCREEN, AMBER, seated, headAt } = S;
 
 let g, MAIN;
 const setLocal = c => { g = c; S.setCtx(c); };
 export const setCtx = c => { MAIN = c; setLocal(c); };
 const lerp = (a, b, t) => a + (b - a) * t;
+const out = x => 1 - Math.pow(1 - Math.max(0, Math.min(1, x)), 3);
+const io = x => (x = Math.max(0, Math.min(1, x)), x * x * (3 - 2 * x));
 const NIGHT = { amb: '#3d3650', ambK: .18 }, DAY = { amb: '#f3e6cc', ambK: .05 };
 const RIM_PHONE = { col: SCREEN, dir: [.75, .4], w: 6 };
 
@@ -77,8 +80,18 @@ function gripHand(x, y, s, skin = SKIN.terang, sleeve = '#4a4e58') {
   g.restore();
 }
 
+// the classic pointing-hand link cursor; (x, y) = fingertip; press 0..1 squashes it on a click
+function handCursor(x, y, s = 1, press = 0) {
+  g.save(); g.translate(x, y); g.scale(s, s * (1 - .12 * press)); g.lineJoin = 'round'; g.lineWidth = 2.2; g.strokeStyle = '#111';
+  g.beginPath(); g.moveTo(-4, 4); g.quadraticCurveTo(-4, -1, 0, -1); g.quadraticCurveTo(4, -1, 4, 4); g.lineTo(4, 17);
+  [[4, 9], [10, 11], [16, 13]].forEach(([x0, h]) => { g.lineTo(x0, 17 - h + 12); g.quadraticCurveTo(x0 + 3, 17 - h + 9, x0 + 6, 17 - h + 12); });
+  g.lineTo(22, 34); g.quadraticCurveTo(22, 44, 15, 48); g.lineTo(-1, 48); g.quadraticCurveTo(-6, 44, -9, 38); g.lineTo(-15, 27); g.quadraticCurveTo(-16, 22, -11, 22); g.lineTo(-4, 28); g.closePath();
+  g.fillStyle = '#fdfcf7'; g.fill(); g.stroke(); [10, 16].forEach(x0 => { g.beginPath(); g.moveTo(x0, 20); g.lineTo(x0, 27); g.stroke(); });
+  g.restore();
+}
+let ARSIP_PHOTO = null;
 // —— the shots ——
-export function S01(u) { S.S1(); txt('PEMBUAT FITUR INI', 540, 250, 76); txt('MENYESAL…', 540, 340, 96, AMBER); }
+export function S01(u) { S.S1(u); txt('PEMBUAT FITUR INI', 540, 250, 76); txt('MENYESAL…', 540, 340, 96, AMBER); }
 export function S02(u) {
   S.setC({ cam: .3 }); depth(10, () => S.bed(1500));
   pool(540, 820, 700, 'rgb(127,227,255)', .22);
@@ -87,7 +100,7 @@ export function S02(u) {
 }
 export function S03(u) {
   S.setA({ cam: .4 });
-  const P = headAt(RASKIN19, seated(RASKIN19, { facing: .55, expr: 'menyesal', gaze: [.3, .9], headTilt: .32, rh: [80, 60], hold: 'hp', phoneRot: .6, look: .45 }), 500, 860, 4.6);
+  const P = headAt(RASKIN19, seated(RASKIN19, { facing: .55, expr: 'menyesal', gaze: [.3, .9], headTilt: lerp(.16, .36, io(u / .8)), rh: [80, 60], hold: 'hp', phoneRot: .6, look: .45, blink: u > .78 ? Math.min(1, (u - .78) / .08) : 0 }), 500, 860, 4.6);
   drawChar(g, RASKIN19, P, { rim: { col: SCREEN, dir: [.6, .7], w: 8 }, amb: '#2c3550', ambK: .26, noShadow: true });
   ellipse(588, 845, 40, 26, 'rgba(127,227,255,.22)'); ellipse(668, 845, 40, 26, 'rgba(127,227,255,.22)');   // phone light in the lenses
   S.deskA(1560);
@@ -95,17 +108,11 @@ export function S03(u) {
   vignette(.42); grain(23);
 }
 export function S04(u) {
-  const ph = offShot(S03, .9);
-  vgrad(0, 0, W, H, '#2a2622', '#17140f');
-  g.save(); g.translate(540, 980); g.rotate(-.03);
-  rrect(-470, -620, 940, 1260, 14, '#c9a86a'); rrect(-470, -680, 330, 90, 14, '#c9a86a'); vgrad(-470, -620, 940, 1260, 'rgba(255,255,255,.08)', 'rgba(0,0,0,.18)');
-  g.save(); g.rotate(.05); rrect(-330, -470, 620, 900, 6, '#f4efe4'); g.filter = 'grayscale(1) sepia(.7) contrast(1.05)'; g.drawImage(ph, 120, 300, 840, 1220, -310, -450, 580, 840); g.restore();
-  rrect(-90, -500, 180, 50, 4, 'rgba(240,230,200,.8)');   // tape
-  g.restore();
-  stamp('ARSIP KASUS #002', 560, 1560, -.1, '#d9483b', 60);
-  vignette(.5); grain(24);
+  // the channel's ARSIP KASUS card (template shared with #001): the hook frame becomes the case photo; stamp lands on "2006"
+  if (!ARSIP_PHOTO) ARSIP_PHOTO = offShot(S03, .95);
+  arsipCard(g, u, { title: 'SCROLL TANPA UJUNG', sub: 'AZA RASKIN · 2006', no: 2, photo: ARSIP_PHOTO, crop: [60, 420, 1000, 1300], stampAt: .55, dur: 1.34 });
 }
-export function S05(u) { S.S5(); stamp('2006', 860, 300, .06, '#7a4a1e', 70); rrect(90, 1060, 560, 120, 10, 'rgba(20,16,22,.82)'); txt('AZA RASKIN', 120, 1120, 54, '#f4ead8', 'left'); txt('perancang', 120, 1165, 30, '#cbbfae', 'left', '"Courier Prime"'); }
+export function S05(u) { S.S5(); }
 export function S06(u) {
   S.setB({ cam: .5 });
   // the page pours out of the monitor and keeps going, past the desk and out of frame: "tanpa ujung"
@@ -122,7 +129,7 @@ export function S07(u) {
   const bx = lerp(0, -40, u), by = lerp(0, -20, u);
   g.save(); g.globalAlpha = 1 - u * .8; rrect(860 + 40 * 1.5 + bx, 1000 + 104 * 1.5 + by, 140 * 1.5, 34 * 1.5, 12, AMBER); g.restore();
   poly([[1040 + bx, 1160 + by], [1040 + bx, 1230 + by], [1058 + bx, 1214 + by], [1072 + bx, 1244 + by], [1084 + bx, 1238 + by], [1070 + bx, 1208 + by], [1094 + bx, 1208 + by]], '#fdfcf7');
-  const P = headAt(RASKIN06, seated(RASKIN06, { facing: .75, expr: 'senang', gaze: [.8, .1], lean: .12, rh: [110, 40], look: .65 }), 330, 820, 2.9);
+  const P = headAt(RASKIN06, seated(RASKIN06, { facing: .75, expr: 'senang', gaze: [.8, .1], lean: .12, rh: [110 - 14 * u, 40 - 7 * u], look: .65 }), 330, 820, 2.9);
   drawChar(g, RASKIN06, P, { rim: { col: '#fff1d0', dir: [-.95, -.25], w: 6 }, ...DAY, noShadow: true });
   S.deskB(1560, 1420);
   vignette(.25); grain(27);
@@ -166,7 +173,7 @@ export function S08(u) {
   setE();
   crt(330, 960, 1.05, (x, y, w, h) => page06(x, y, w, h, { page: 1 }));
   rrect(560, 1010, 70, 160, 8, '#d6cbb5'); ellipse(595, 1040, 18, 18, '#a89c86');   // speaker
-  const P = seated(ORANG06, { x: 790, y: 1560, s: 1.85, facing: -.8, expr: 'lelah', gaze: [-.8, .1], lean: .14, lh: [-118, 134], rh: [-62, 142], look: -.7 }, 190);
+  const P = seated(ORANG06, { x: 790, y: 1560, s: 1.85, facing: -.8, expr: 'lelah', gaze: [-.8, .1], lean: .14, lh: [-118, 134], rh: [-62, 142 + 4 * Math.max(0, 1 - Math.abs(u - .4) / .05)], look: -.7 }, 190);
   const J = drawChar(g, ORANG06, P, { rim: { col: '#ffcf96', dir: [.9, -.3], w: 6 }, amb: '#e8c8a0', ambK: .1, noShadow: true });
   S.deskB(1395, 1190);
   rrect(250, 1186, 300, 36, 10, '#d6c9b1'); for (let r = 0; r < 3; r++) for (let c = 0; c < 12; c++) rrect(262 + c * 23.5, 1191 + r * 10, 19, 7, 2, '#c4b69c');
@@ -184,7 +191,8 @@ export function S09(u, noText = false) {
   crt(540, 960, 2.15, (x, y, w, h) => page06(x, y, w, h, { page, big: true }));
   // the pointing-hand cursor on the button
   const cx = 540 + .76 * 376 * 2.15 - 188 * 2.15 + 10, cy = 960 + (-152 + .9 * 284) * 2.15 + 20;
-  g.save(); g.translate(cx, cy); g.scale(1.6, 1.6); rrect(-6, -28, 12, 30, 6, '#fdfcf7'); rrect(-14, -4, 30, 26, 8, '#fdfcf7'); g.strokeStyle = '#20262c'; g.lineWidth = 2.5; g.strokeRect(-6, -28, 12, 28); g.restore();
+  const ut = u * 1.4, press = Math.max(...[0, .186, .429].map(c => Math.max(0, 1 - Math.abs(ut - c - .02) / .05)));
+  handCursor(cx, cy - 18, 2.2, press);
   pool(cx, cy - 40, 220, 'rgb(255,180,58)', .22 * (1 + Math.sin(u * 30)) / 2 + .1);
   S.deskB(1640, 1500);
   if (!noText) txt(['1', '1 · 2', '1 · 2 · 3'][page - 1], 540, 250, 96, AMBER);
@@ -210,7 +218,7 @@ export function S12(u) {
   const bx = 300 + (-188 + .76 * 376) * 1.2, by = 1012 + (-152 + .89 * 284) * 1.2;
   pool(bx, by, 150, 'rgb(255,180,58)', .22 + .1 * Math.sin(u * 12));
   poly([[bx + 4, by - 4], [bx + 4, by + 46], [bx + 16, by + 35], [bx + 26, by + 56], [bx + 34, by + 52], [bx + 24, by + 31], [bx + 40, by + 31]], '#fdfcf7'); g.save(); g.strokeStyle = '#20262c'; g.lineWidth = 2; g.beginPath(); g.moveTo(bx + 4, by - 4); g.lineTo(bx + 4, by + 46); g.lineTo(bx + 16, by + 35); g.lineTo(bx + 26, by + 56); g.lineTo(bx + 34, by + 52); g.lineTo(bx + 24, by + 31); g.lineTo(bx + 40, by + 31); g.closePath(); g.stroke(); g.restore();
-  const P = seated(ORANG06, { x: 860, y: 1780, s: 2.3, facing: -.8, expr: 'bingung', gaze: [-.3, -.95], headTilt: -.08, lean: .1, lh: [-120, 150], rh: [-70, 158], look: -.6 }, 190);
+  const P = seated(ORANG06, { x: 860, y: 1780, s: 2.3, facing: -.8, expr: u < .3 ? 'netral' : 'bingung', gaze: u < .3 ? [-.85, .2] : [-.3, -.95], headTilt: u < .3 ? .04 : -.08, lean: .1, lh: [-120, 150], rh: [-70, 158], look: -.6 }, 190);
   const J = drawChar(g, ORANG06, P, { rim: { col: '#ffcf96', dir: [.9, -.3], w: 6 }, amb: '#e8c8a0', ambK: .1, noShadow: true });
   S.deskB(1520, 1290);
   // keyboard under the left hand, mouse under the right, placed from his actual wrist positions
@@ -229,21 +237,29 @@ export function S13(u) {
     rrect(170, 1040, 34, 290, 10, '#2c2f3a'); rrect(160, 1300, 230, 30, 12, '#363a46'); line([[270, 1330], [270, 1480]], 14, '#2c2f3a'); line([[190, 1495], [350, 1495]], 12, '#2c2f3a');
     drawChar(g, ORANG06, P, { rim: RIM_PHONE, ...NIGHT, noShadow: true }); pool(420, 1000, 300, 'rgb(127,227,255)', .3); }, 0);
   half(() => { vgrad(0, 0, W, H, '#ecdcbf', '#d6c19c'); pool(900, 500, 600, 'rgb(255,230,180)', .3);
-    drawChar(g, ORANG06, { x: 800, y: 1500, s: 1.6, facing: -.2, expr: 'senyum', lh: [-40, -150], rh: [40, -150], look: -.1 }, { rim: { col: '#fff1d0', dir: [.7, -.7], w: 5 }, ...DAY }); }, W / 2);
+    drawChar(g, ORANG06, { x: 800, y: 1500, s: 1.6, facing: -.2, expr: u > .5 ? 'senang' : 'senyum', lh: [lerp(-10, -40, io(u * 1.6)), lerp(150, -150, io(u * 1.6))], rh: [lerp(10, 40, io(u * 1.6)), lerp(150, -150, io(u * 1.6))], look: -.1 }, { rim: { col: '#fff1d0', dir: [.7, -.7], w: 5 }, ...DAY }); }, W / 2);
   line([[540, 0], [520, 300], [560, 620], [515, 980], [565, 1340], [530, 1920]], 10, '#0f0e13');
   txt('LANJUT ›', 270, 300, 80, SCREEN); txt('UDAHAN', 810, 300, 80, AMBER);
   vignette(.35); grain(33);
 }
 export function S14(u) {
+  // "Begitu" the button still glows · "tombolnya" it cracks · "hilang" it shatters, the light dies, shards drift down
   setD();
-  bigButton(540, 980, 1.05, { cracked: 1, glow: .5 });
-  pool(540, 930, 260, 'rgb(255,180,58)', .35 * (1 - u * .6));   // light leaking from the break
-  [[-160, -40, .4], [-40, 30, -.6], [90, -20, .9], [190, 60, -.3], [-90, 120, .2], [40, -80, .7], [-220, 40, -.9]].forEach(([dx, dy, r], i) => {
-    const px = 540 + dx * (1 + u * .6), py = 900 + dy + u * 300 * (1 + i * .15);
-    line([[px, py - 60 - i * 6], [px, py]], 10, 'rgba(255,180,58,.18)');   // motion streak
-    g.save(); g.translate(px, py); g.rotate(r + u * r * 3); poly([[-46, -28], [38, -38], [56, 18], [-28, 38]], i % 2 ? AMBER : '#b97416'); poly([[-46, -28], [38, -38], [30, -26], [-38, -18]], 'rgba(255,255,255,.35)'); g.restore();
-  });
-  txt('HILANG.', 540, 330, 100); vignette(.5); grain(34);
+  const crackT = .38, breakT = .62, crack = Math.min(1, Math.max(0, (u - crackT) / (breakT - crackT))), gone = Math.max(0, (u - breakT) / (1 - breakT));
+  if (u < breakT) {
+    bigButton(540, 980 + Math.sin(u * 90) * crack * 3, 1.05, { cracked: 0, glow: 1 });
+    if (crack > 0) { g.save(); g.strokeStyle = '#2a1c0a'; g.lineWidth = 6; g.lineCap = 'round'; const P = [[540, 885], [575, 930], [548, 970], [600, 1012], [585, 1060]]; const n = 1 + crack * (P.length - 1);
+      g.beginPath(); g.moveTo(...P[0]); for (let i = 1; i < n; i++) g.lineTo(...P[i]); g.stroke(); if (crack > .5) { g.beginPath(); g.moveTo(575, 930); g.lineTo(520, 960); g.lineTo(470, 945); g.stroke(); } g.restore();
+      pool(570, 960, 140 * crack, 'rgb(255,220,150)', .4 * crack); }
+  } else {
+    bigButton(540, 980, 1.05, { cracked: 1, glow: Math.max(0, .9 - gone * 1.4) });
+    pool(540, 930, 300, 'rgb(255,200,110)', .5 * Math.max(0, 1 - gone * 2));
+    [[-160, -40, .4], [-40, 30, -.6], [90, -20, .9], [190, 60, -.3], [-90, 120, .2], [40, -80, .7], [-220, 40, -.9], [130, 100, .5]].forEach(([dx, dy, r], i) => {
+      const k = out(gone), px = 540 + dx * (1 + k * .9), py = 940 + dy - 60 * k + gone * gone * 520 * (1 + i * .12);
+      g.save(); g.globalAlpha = Math.max(0, 1 - gone * .6); g.translate(px, py); g.rotate(r + gone * r * 4); poly([[-40, -24], [34, -34], [50, 16], [-24, 34]], i % 2 ? AMBER : '#b97416'); poly([[-40, -24], [34, -34], [26, -22], [-32, -14]], 'rgba(255,255,255,.4)'); g.restore();
+    });
+  }
+  if (u > breakT) txt('HILANG.', 540, 330, 100); vignette(.5); grain(34);
 }
 export function S15(u) {
   vgrad(0, 0, W, H, '#1d1b2a', '#0e0d12');
@@ -308,7 +324,7 @@ export function S19(u) {
   S.setA({ cam: -.4 });
   // surrounded by screens: three monitors on the desk throw cyan light
   [[220, 940, 300, 210], [540, 880, 340, 240], [860, 940, 300, 210]].forEach(([x, y, w, h]) => { rrect(x - w / 2, y - h / 2, w, h, 12, '#15171d'); rrect(x - w / 2 + 12, y - h / 2 + 12, w - 24, h - 24, 6, '#7fd6ee'); for (let i = 0; i < 4; i++) rrect(x - w / 2 + 30, y - h / 2 + 30 + i * 40, w - 90, 18, 5, 'rgba(255,255,255,.5)'); pool(x, y, 300, 'rgb(127,227,255)', .14); });
-  const P = headAt(RASKIN19, seated(RASKIN19, { facing: 0, expr: 'lelah', gaze: [0, 0], headTilt: 0, rh: [10, 120], lh: [-10, 120], look: 0 }), 540, 1220, 2.2);
+  const P = headAt(RASKIN19, seated(RASKIN19, { facing: 0, expr: 'lelah', gaze: [0, lerp(0, .7, io(u))], headTilt: lerp(0, .12, io(u)), rh: [10, 120], lh: [-10, 120], look: 0 }), 540, 1220, 2.2);
   drawChar(g, RASKIN19, P, { rim: { col: SCREEN, dir: [0, -1], w: 6 }, amb: '#2c3550', ambK: .3, noShadow: true });
   S.deskA(1560);
   stamp('2019', 540, 330, -.05, '#8fd8ee', 76); vignette(.45); grain(39);
@@ -340,7 +356,7 @@ export function S21(u) {
   const crowd = [['pria', 150, 1680], ['ibu', 330, 1730], ['kakek', 520, 1690], ['adik_pr', 690, 1750], ['kakak', 850, 1680], ['wanita', 980, 1730]];
   const hand = [540, 300];
   crowd.forEach(([k, x, y], i) => {
-    const P = { x, y, s: 1.0, facing: i % 2 ? -.15 : .15, expr: 'lelah', gaze: [0, 1], headTilt: .15 * (i % 2 ? -1 : 1), rh: [i % 2 ? -10 : 30, 40], hold: 'hp', phoneRot: 0, look: 0 };
+    const P = { x, y, s: 1.0, facing: i % 2 ? -.15 : .15, expr: 'lelah', gaze: [0, 1], headTilt: .15 * (i % 2 ? -1 : 1) + .03 * Math.sin(u * 14 + i * 1.7), rh: [i % 2 ? -10 : 30, 40], hold: 'hp', phoneRot: 0, look: 0 };
     const J = drawChar(g, PRESETS[k], P, { rim: RIM_PHONE, ...NIGHT });
     const ph = [x + J.wR[0] * P.s, y + J.wR[1] * P.s - 20]; line([ph, [hand[0] + (x - 540) * .25, hand[1] + 120]], 2.5, 'rgba(160,230,255,.55)');
     pool(ph[0], ph[1], 120, 'rgb(127,227,255)', .2);
@@ -353,7 +369,7 @@ export function S21(u) {
 export function S22(u) {
   S.setA({ cam: .2 });
   const light = 1 - u;
-  const P = headAt(RASKIN19, seated(RASKIN19, { facing: .55, expr: 'menyesal', gaze: [.4, .8], headTilt: .25, rh: [100, 70], lh: [90, 80], look: .5 }), 430, 820, 3.0);
+  const P = headAt(RASKIN19, seated(RASKIN19, { facing: .55, expr: 'menyesal', gaze: [.4, .8], headTilt: .2 + .2 * io(u), rh: [100 - 20 * u, 70 - 30 * u], lh: [90, 80], look: .5 }), 430, 820, 3.0);
   drawChar(g, RASKIN19, P, { rim: { col: SCREEN, dir: [.75, .4], w: 6 * light + 1 }, amb: '#1a1f30', ambK: .3 + .3 * u, noShadow: true });
   // laptop closing: lid angle from open to shut
   const ang = lerp(0, 1.25, u); g.save(); g.translate(820, 1318); rrect(-230, -10, 400, 20, 6, '#5a5e6b'); g.rotate(-ang); poly([[-230, 0], [-230 + 260 * Math.cos(0.1), -250], [-210 + 260 * Math.cos(0.1), -256], [-210, 0]], '#7a7f8e'); g.restore();
@@ -380,9 +396,22 @@ export function S24(u) {
   vignette(.45); grain(44);
 }
 export function S25(u) {
+  // "Jadi" the feed is still flying · "tanda berhentinya" it slows and the amber UDAHAN rises from the bottom ·
+  // "kamu" the thumb travels to it · "pasang" press: the feed freezes, the screen goes dim, only the brake glows
+  const press = (44.18 - 41.54) / 3.29, P = u >= press ? Math.min(1, (u - press) / .06) : 0, after = Math.max(0, (u - press) / (1 - press));
   S.setC({ cam: -.2 }); depth(10, () => S.bed(1500));
-  pool(540, 820, 700, 'rgb(127,227,255)', .2 * (1 - u * .5));
-  handPhoneCU(g, 540, 820, 470, 900, { sleeve: '#6b7280', thumbT: .2, skinCol: SKIN.sawo, screen: (c, x, y, w, h) => { feedScreen(660)(c, x, y, w, h); const o = g; g = c; use(c); rrect(x + 30, y + h * .42, w - 60, 110, 24, AMBER); g.fillStyle = '#3a2a10'; g.font = '600 40px Oswald'; g.textAlign = 'center'; g.fillText('UDAHAN ■', x + w / 2, y + h * .42 + 70); g.textAlign = 'left'; g = o; use(o); } });
-  vignette(.45); grain(45);
+  const scroll = 660 + 900 * (1 - Math.pow(1 - Math.min(u, .36) / .36, 2)) * .5 + (u < .36 ? 0 : 0);
+  const rise = io((u - .2) / .18), thumb = u < .2 ? .2 + .25 * Math.abs(Math.sin(u * 40)) : lerp(.25, 1, io((u - .36) / (press - .36)));
+  pool(540, 820, 700, 'rgb(127,227,255)', .2 * (1 - after * .8));
+  handPhoneCU(g, 540, 820, 470, 900, { sleeve: '#6b7280', thumbT: thumb, skinCol: SKIN.sawo, rim: after > .3 ? null : '#7fe3ff', screen: (c, x, y, w, h) => {
+    feedScreen(scroll)(c, x, y, w, h); const o = g; g = c; use(c);
+    if (after > 0) { g.save(); g.fillStyle = `rgba(8,8,12,${.65 * Math.min(1, after * 2)})`; g.fillRect(x, y, w, h); g.restore(); }
+    const by = lerp(y + h + 20, y + h * .42, rise), sq = 1 - .08 * Math.sin(Math.PI * Math.min(1, P * 1.0));
+    g.save(); g.translate(x + w / 2, by + 55); g.scale(sq, sq); rrect(-(w - 60) / 2, -55, w - 60, 110, 24, after > 0 ? '#ffc35a' : AMBER);
+    g.fillStyle = '#3a2a10'; g.font = '600 40px Oswald'; g.textAlign = 'center'; g.fillText('UDAHAN ■', 0, 15); g.restore();
+    if (P > 0) { g.save(); g.strokeStyle = `rgba(255,190,90,${1 - after})`; g.lineWidth = 6; g.beginPath(); g.ellipse(x + w / 2, by + 55, 160 + after * 200, 70 + after * 90, 0, 0, 7); g.stroke(); g.restore(); }
+    g = o; use(o); } });
+  if (after > 0) pool(540, 860, 360, 'rgb(255,180,58)', .3 * (1 - after * .5));
+  vignette(.45 + .25 * after); grain(45);
 }
 export const SHOTS = [S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25];

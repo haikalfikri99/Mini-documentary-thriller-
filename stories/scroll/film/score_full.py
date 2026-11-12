@@ -22,12 +22,12 @@ note(5, D3, 0, 4.5, 60); note(5, A3, 0, 4.5, 52); note(7, D1, 0, 4.5, 60)
 for k in range(8): note(6, D2, .1 + k * .55, .14, 80 if k % 2 == 0 else 55)
 for n, t in ((A4, 3.94), (F4, 4.2), (D4, 4.42)): note(0, n, t, .9, 70)
 # —— archive slam 4.55
-note(8, D3, 4.56, .6, 120); note(10, 45, 4.56, 1.0, 120); note(11, D2, 4.56, .7, 100)
+note(8, D3, 4.50, .6, 120); note(10, 45, 4.50, 1.0, 120); note(11, D2, 4.50, .7, 100); note(7, D1, 4.6, 1.3, 60); note(10, 45, 5.24, .5, 90)   # slam, then the stamp on "2006"
 # —— 2006: 5.0–11.8, innocent and bright (F major colour), pizzicato like clicking
-for k in range(27): note(3, [F3, C4, A3, C4][k % 4], 5.0 + k * .25, .18, 58)
-for i, (n, t) in enumerate([(F5, 0), (A5, .5), (C5 + 12, 1.0), (A5, 1.5), (G4 + 12, 2.0), (F5, 2.5), (E5, 3.0), (F5, 3.5)]): note(1, n, 5.1 + t, .45, 66)
+for k in range(24): note(3, [F3, C4, A3, C4][k % 4], 5.84 + k * .25, .18, 58)
+for i, (n, t) in enumerate([(F5, 0), (A5, .5), (C5 + 12, 1.0), (A5, 1.5), (G4 + 12, 2.0), (F5, 2.5), (E5, 3.0), (F5, 3.5)]): note(1, n, 5.9 + t * .7, .4, 66)
 for i, (n, t) in enumerate([(F5, 0), (A5, .5), (G4 + 12, 1.0), (E5, 1.5)]): note(1, n, 8.3 + t, .45, 60)
-note(4, F3, 5.0, 6.7, 40); note(4, A3, 5.0, 6.7, 36); note(4, C4, 8.3, 3.4, 32)
+note(4, F3, 5.84, 5.9, 40); note(4, A3, 5.84, 5.9, 36); note(4, C4, 8.3, 3.4, 32)
 for t in (10.4, 10.66, 11.0): note(12, C5 + 12, t, .2, 70)   # page 1 · 2 · 3
 # —— "Tapi" 11.8: everything stops; the brake 12.68–17.3: held low strings, a clock
 note(7, D1, 12.68, 4.6, 64); note(4, D3, 12.68, 4.6, 50); note(4, A3, 12.68, 4.6, 44); cc(4, 11, 12.68, 17.2, 60, 90)
@@ -36,7 +36,8 @@ for k in range(5): note(3, A4 if k % 2 else E4 + 12, 15.02 + k * .5, .1, 44)   #
 note(5, A5, 17.3, .8, 70); note(5, E5 + 12, 17.3, .8, 60)
 note(13, D3, 18.6, .45, 82); note(13, F3 + 1, 18.6, .45, 76); note(13, A3, 18.6, .45, 72)   # warm D major on "udahan"
 # —— the break 19.06: hit, then a breath
-note(8, D3, 19.08, .6, 127); note(10, 45, 19.08, 1.0, 127); note(11, D2, 19.08, .8, 110)
+note(4, A3, 19.06, 1.05, 50); note(4, 51 + 12, 19.74, .4, 46)   # the button holds, then strains
+note(8, D3, 20.14, .6, 127); note(10, 45, 20.14, 1.0, 127); note(11, D2, 20.14, .8, 110); [note(14, n, 20.16 + i * .09, 1.2, 70 - i * 8) for i, n in enumerate((A5, F5, D5, A4))]   # the hit + a falling bell cluster
 # —— the endless feed 20.8–28.1: music-box loop that never resolves, bass pulse speeding up
 t, k = 20.8, 0
 while t < 28.0:
