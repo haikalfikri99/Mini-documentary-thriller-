@@ -221,7 +221,14 @@ function drawHair(g, J, P, spec, layer, col0) {
 
 // —— full character ——
 // opts = { rim:{col, dir:[dx,dy], w}, dark: far-limb darkening }
+// idle life for films: when LIFE.t is set, every figure blinks (~every 3 s, staggered by position) and breathes,
+// unless the pose already drives blink / bob itself. Stills (LIFE.t = null) are unaffected.
+export const LIFE = { t: null };
 export function drawChar(g, spec, P, opts = {}) {
+  if (LIFE.t !== null) {
+    const t = LIFE.t + ((P.x || 0) * .0137 % 1) * 2.7, ph = t % 3.1;
+    P = { ...P, blink: P.blink ?? (ph < .13 ? Math.sin(ph / .13 * Math.PI) : 0), bob: P.bob ?? Math.sin(t * 2.1) * 1.6, headTilt: (P.headTilt || 0) + Math.sin(t * .9) * .012 };
+  }
   const J = solve(spec, P);
   const s = P.s || 1;
   // scene light: skin takes a little of the ambient colour (opts.amb, opts.ambK) so faces sit inside the scene

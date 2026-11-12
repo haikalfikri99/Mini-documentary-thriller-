@@ -92,7 +92,7 @@ export function S03(u) {
   ellipse(588, 845, 40, 26, 'rgba(127,227,255,.22)'); ellipse(668, 845, 40, 26, 'rgba(127,227,255,.22)');   // phone light in the lenses
   S.deskA(1560);
   pool(700, 1250, 520, 'rgb(127,227,255)', .24); shadowFall(620, 1000, 300, 1300, .55);
-  txt('DIA MENYESAL', 540, 300, 84, AMBER); vignette(.42); grain(23);
+  vignette(.42); grain(23);
 }
 export function S04(u) {
   const ph = offShot(S03, .9);
@@ -105,7 +105,7 @@ export function S04(u) {
   stamp('ARSIP KASUS #002', 560, 1560, -.1, '#d9483b', 60);
   vignette(.5); grain(24);
 }
-export function S05(u) { S.S5(); stamp('2006', 860, 300, .06, '#7a4a1e', 70); rrect(90, 1440, 560, 120, 10, 'rgba(20,16,22,.82)'); txt('AZA RASKIN', 120, 1500, 54, '#f4ead8', 'left'); txt('perancang', 120, 1545, 30, '#cbbfae', 'left', '"Courier Prime"'); }
+export function S05(u) { S.S5(); stamp('2006', 860, 300, .06, '#7a4a1e', 70); rrect(90, 1060, 560, 120, 10, 'rgba(20,16,22,.82)'); txt('AZA RASKIN', 120, 1120, 54, '#f4ead8', 'left'); txt('perancang', 120, 1165, 30, '#cbbfae', 'left', '"Courier Prime"'); }
 export function S06(u) {
   S.setB({ cam: .5 });
   // the page pours out of the monitor and keeps going, past the desk and out of frame: "tanpa ujung"
@@ -286,7 +286,7 @@ export function S16(u) {
   rrect(540 - pw, 900 - ph, pw * 2, ph * 2, pw * .25, '#0c0d11'); g.save(); g.beginPath(); g.roundRect(540 - pw + 12, 900 - ph + 12, pw * 2 - 24, ph * 2 - 24, pw * .2); g.clip(); feedScreen(u * 400)(g, 540 - pw + 12, 900 - ph + 12, pw * 2 - 24, ph * 2 - 24); g.restore();
   vignette(.45); grain(36);
 }
-export function S17(u) { S.S17(); txt(u < .5 ? '23.12' : '01.47', 540, 1560, 90, '#ff9f6a'); }
+export function S17(u) { S.S17(); txt(u < .45 ? '23.12' : '01.47', 540, 1150, 90, '#ff9f6a'); }
 export function S18(u) {
   // where the money goes: each ad that passes on YOUR screen sends coins up to the platform's tower in the city
   vgrad(0, 0, W, H, '#1b1f33', '#0f1018');
@@ -301,7 +301,7 @@ export function S18(u) {
   handPhoneCU(g, 540, 1460, 300, 560, { sleeve: '#6b7280', skinCol: SKIN.sawo, thumbT: .5, screen: feedScreen(u * 440 + 120, 2) });
   // coins rising along a curve from the phone to the tower
   for (let i = 0; i < 9; i++) { const t = (u * 1.6 + i / 9) % 1, x = 540 + Math.sin(t * 3.14) * 160 * (i % 2 ? 1 : -1), y = lerp(1250, ty + th, t); ellipse(x, y, 22, 22, '#e7b84a'); ellipse(x, y, 14, 14, '#f2cd6a'); pool(x, y, 50, 'rgb(255,200,90)', .2); }
-  txt('IKLAN TERJUAL', 540, 1830, 56, AMBER); txt('→ uangnya ke platform', 540, 1885, 32, '#cbbfae', 'center', '"Courier Prime"');
+  txt('IKLAN TERJUAL', 540, 1100, 56, AMBER); txt('→ uangnya ke platform', 540, 1150, 32, '#cbbfae', 'center', '"Courier Prime"');
   vignette(.42); grain(38);
 }
 export function S19(u) {
@@ -374,15 +374,15 @@ export function S23(u) {
 export function S24(u) {
   // the camera pulls back: behind the finished bar, the feed is a tunnel of cards that never ends
   vgrad(0, 0, W, H, '#16151c', '#0e0d12');
-  tunnel(u, 540, 900, 120, 230, .75);
-  rrect(540 - 120, 900 - 230, 240, 460, 30, '#0c0d11'); g.save(); g.beginPath(); g.roundRect(432, 682, 216, 436, 24); g.clip(); feedScreen(u * 600)(g, 432, 682, 216, 436); g.restore();
-  rrect(80, 1300, 920, 180, 26, 'rgba(14,13,18,.75)'); rrect(140, 1360, 800, 30, 15, '#f4ead8'); ellipse(940, 1375, 24, 24, '#ffffff'); txt('VIDEO: SELESAI', 140, 1340, 34, '#cbbfae', 'left', '"Courier Prime"'); txt('FEED KAMU: ∞', 940, 1450, 44, SCREEN, 'right');
+  tunnel(u, 540, 720, 120, 230, .75);
+  rrect(420, 490, 240, 460, 30, '#0c0d11'); g.save(); g.beginPath(); g.roundRect(432, 502, 216, 436, 24); g.clip(); feedScreen(u * 600)(g, 432, 502, 216, 436); g.restore();
+  rrect(80, 1010, 920, 200, 26, 'rgba(14,13,18,.78)'); rrect(140, 1070, 800, 30, 15, '#f4ead8'); ellipse(940, 1085, 24, 24, '#ffffff'); txt('VIDEO: SELESAI', 140, 1050, 34, '#cbbfae', 'left', '"Courier Prime"'); txt('FEED KAMU: ∞', 940, 1170, 48, SCREEN, 'right');
   vignette(.45); grain(44);
 }
 export function S25(u) {
   S.setC({ cam: -.2 }); depth(10, () => S.bed(1500));
   pool(540, 820, 700, 'rgb(127,227,255)', .2 * (1 - u * .5));
   handPhoneCU(g, 540, 820, 470, 900, { sleeve: '#6b7280', thumbT: .2, skinCol: SKIN.sawo, screen: (c, x, y, w, h) => { feedScreen(660)(c, x, y, w, h); const o = g; g = c; use(c); rrect(x + 30, y + h * .42, w - 60, 110, 24, AMBER); g.fillStyle = '#3a2a10'; g.font = '600 40px Oswald'; g.textAlign = 'center'; g.fillText('UDAHAN ■', x + w / 2, y + h * .42 + 70); g.textAlign = 'left'; g = o; use(o); } });
-  txt('KAMU YANG PASANG.', 540, 300, 80, AMBER); vignette(.45); grain(45);
+  vignette(.45); grain(45);
 }
 export const SHOTS = [S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25];

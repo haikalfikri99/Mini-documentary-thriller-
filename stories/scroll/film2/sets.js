@@ -170,7 +170,7 @@ export function S17() {
   });
   { const k = g; k.save(); k.filter = 'blur(3px)'; k.fillStyle = '#ff9f6a'; k.font = '600 52px Oswald'; k.fillText('01.47', -20, 478); k.restore(); }
   // the body lies along the frame: the rig in front view, head on the pillow
-  const P = headAt(KAMU, { facing: 0, look: 0, expr: 'lelah', gaze: [0, .55], blink: 0, rh: [-34, 64], lh: [34, 70], hold: 'hp', holdHand: 'r', phoneBack: true, phoneRot: 0, lf: [-26, 0], rf: [24, 0] }, 540, 330, 2.6);
+  const P = headAt(KAMU, { facing: 0, look: 0, expr: 'lelah', gaze: [0, .55], rh: [-34, 64], lh: [34, 70], hold: 'hp', holdHand: 'r', phoneBack: true, phoneRot: 0, lf: [-26, 0], rf: [24, 0] }, 540, 330, 2.6);
   drawChar(g, KAMU, P, { rim: { col: SCREEN, dir: [0, -1], w: 6 }, amb: '#3d3650', ambK: .22, noShadow: true });
   // blanket (sarung) over the legs
   { const y = 1120, x0 = 150, w = 780;

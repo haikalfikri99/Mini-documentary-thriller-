@@ -15,3 +15,10 @@ stories/*/hf/.hyperframes/
 stories/*/hf/renders/
 stories/*/hf/assets/vo.wav
 stories/*/film/vo_level.wav
+stories/scroll/film/score_full.mid
+stories/scroll/film/score_full.wav
+stories/scroll/film/mix_full.wav
+stories/scroll/film2/assets/mix.wav
+stories/scroll/film2/renders
+stories/scroll/film2/renders_log.txt
+stories/scroll/film2/.hyperframes
