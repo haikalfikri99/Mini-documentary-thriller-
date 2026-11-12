@@ -48,7 +48,8 @@
 
 **Hook alignment:** frame 0 = tangan pria menyerahkan iPhone ke asisten, layar menampilkan gembok "Kontrol Orang Tua"; VO kalimat 1; teks layar "PEMBUAT TOMBOL LIKE"; judul "Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya" (skor vidIQ 82).
 
-## Script v4 (VO, ±115 kata ≈ 48–50 dtk) ✋
+## Script v4.1 (VO, ±112 kata ≈ 47–49 dtk) ✋
+**v4.1 (permintaan user):** "salah satu" dihapus. Bahasa Indonesia tidak punya kata sandang, jadi "pembuat tombol Like" dan "perancang scroll tanpa ujung" tidak mengklaim satu-satunya pencipta, sekaligus terdengar langsung. Nama tokoh tampil sebagai **kartu nama di layar** (gaya dokumenter, menambah kredibilitas tanpa memperlambat VO); di VO nama asing hanya akan menambah kata dan memperlambat hook. Rosenstein: The Guardian menyebutnya "the Facebook engineer who created the 'like' button" dan dia yang menulis prototipenya semalaman; tim Facebook (termasuk Leah Pearlman) disebut di deskripsi.
 Dasar perbaikan: transkrip Shorts paling viral di topik yang sama (vidIQ, 12 Nov 2026) + skill `short-form-video-script` (WATCH) + `humanizer` + `hook-and-headline-writing`.
 
 **Pola pemenang yang dipelajari**
@@ -61,12 +62,12 @@ Dasar perbaikan: transkrip Shorts paling viral di topik yang sama (vidIQ, 12 Nov
 
 | Babak | VO (ucapan) | Teks layar | Visual |
 |---|---|---|---|
-| 1 HOOK 0–4 | Salah satu pembuat tombol Like… ngunci HP-nya sendiri. | "PEMBUAT TOMBOL LIKE" | frame 0: ikon jempol Like raksasa; gembok jatuh menutup layar HP |
+| 1 HOOK 0–3 | Pembuat tombol Like… ngunci HP-nya sendiri. | "JUSTIN ROSENSTEIN · pembuat tombol Like" | frame 0: ikon jempol Like raksasa; gembok jatuh menutup layar HP |
 | 2 DETAIL 4–9 | Pakai fitur kontrol orang tua, biar dia nggak bisa download aplikasi. | "KONTROL ORANG TUA: AKTIF" | tangan asisten mengetik pengaturan; ikon toko aplikasi pudar |
 | 3 OPEN LOOP 9–11 | Kenapa pembuatnya sendiri… malah ngejauhin? | "KENAPA?" | zoom ke wajah pembuat, mata melirik HP lalu berpaling |
 | 4 MEKANISME 11–20 | Coba perhatiin jempol kamu. Geser, muncul video baru. Kadang seru, kadang cuma iklan. Karena nggak pernah pasti, jempolmu geser lagi. | — | POV jempol menggeser layar (seperti penonton sekarang); tiap geser = gulungan mesin slot; di sudut, tikus menekan tuas (eksperimen hadiah tak pasti), ritme makin cepat |
-| 5 KONFIRMASI 20–27 | Waktu fitur tarik layar buat refresh disamain sama mesin slot, pembuatnya bilang, "Saya setuju seratus persen." | "PEMBUAT 'TARIK UNTUK REFRESH'" · "100%" | gestur tarik layar berubah jadi tuas mesin slot; stempel 100% |
-| 6 TURN 27–36 | Salah satu perancang scroll tanpa ujung juga ngaku, "Hapus tanda berhentinya, dan saya bisa bikin kamu melakukan apa yang saya mau." | "PERANCANG SCROLL TANPA UJUNG" | halaman "TAMAT" disobek; rambu STOP tenggelam ke dalam feed yang terus turun |
+| 5 KONFIRMASI 20–27 | Waktu fitur tarik layar buat refresh disamain sama mesin slot, pembuatnya bilang, "Saya setuju seratus persen." | "LOREN BRICHTER · pembuat 'tarik untuk refresh'" · "100%" | gestur tarik layar berubah jadi tuas mesin slot; stempel 100% |
+| 6 TURN 27–36 | Perancang scroll tanpa ujung juga ngaku, "Hapus tanda berhentinya, dan saya bisa bikin kamu melakukan apa yang saya mau." | "AZA RASKIN · perancang scroll tanpa ujung" | halaman "TAMAT" disobek; rambu STOP tenggelam ke dalam feed yang terus turun |
 | 7 PAYOFF 36–44 | Dan pembuat tarik layar tadi bilang, "Saya menyesali setiap menit saya nggak memperhatikan anak-anak saya, karena tersedot ke HP." | — | ayah menatap HP, dua anak di latar makin kabur (DOF); cahaya layar menyedot warna ruangan |
 | 8 ECHO + LOOP 44–50 | Kalau pembuatnya aja kalah, wajar kamu susah berhenti. Udah berapa lama kamu scroll hari ini? | "ARSIP DITUTUP" | jam status bar melompat maju; kembali ke ikon Like (loop ke frame 0) |
 
