@@ -40,5 +40,5 @@ export function renderAt(t) {
   main.setTransform(1, 0, 0, 1, 0, 0);
   // transitions on the cut: flash on the archive slam, dip before "Tapi" and into 2019, fade the laptop moment
   const flash = (t0, d, col) => { const k = 1 - (t - t0) / d; if (k > 0 && k <= 1) { main.globalAlpha = k; main.fillStyle = col; main.fillRect(0, 0, W, H); main.globalAlpha = 1; } };
-  flash(4.55, .12, '#fff8e8'); flash(11.80, .1, '#000'); flash(28.10, .14, '#000'); flash(19.06, .08, '#ffb43a'); flash(0, .2, '#000');
+  flash(4.55, .12, '#fff8e8'); flash(11.80, .1, '#000'); flash(28.10, .14, '#000'); flash(19.06, .08, '#ffb43a');
 }

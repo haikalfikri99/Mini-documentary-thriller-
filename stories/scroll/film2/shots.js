@@ -298,10 +298,10 @@ export function S18(u) {
   rrect(tx - 60, ty - 110, 120, 120, 30, '#2a3550'); rrect(tx - 34, ty - 84, 68, 14, 5, SCREEN); rrect(tx - 34, ty - 60, 68, 14, 5, SCREEN); rrect(tx - 34, ty - 36, 40, 14, 5, SCREEN);
   pool(tx, ty + 200, 520, 'rgb(127,227,255)', .2);
   // the phone (POV, small) with the ad card glowing amber
-  handPhoneCU(g, 540, 1460, 300, 560, { sleeve: '#6b7280', skinCol: SKIN.sawo, thumbT: .5, screen: feedScreen(u * 440 + 120, 2) });
+  handPhoneCU(g, 540, 1580, 300, 560, { sleeve: '#6b7280', skinCol: SKIN.sawo, thumbT: .5, screen: feedScreen(u * 440 + 120, 2) });
   // coins rising along a curve from the phone to the tower
-  for (let i = 0; i < 9; i++) { const t = (u * 1.6 + i / 9) % 1, x = 540 + Math.sin(t * 3.14) * 160 * (i % 2 ? 1 : -1), y = lerp(1250, ty + th, t); ellipse(x, y, 22, 22, '#e7b84a'); ellipse(x, y, 14, 14, '#f2cd6a'); pool(x, y, 50, 'rgb(255,200,90)', .2); }
-  txt('IKLAN TERJUAL', 540, 1100, 56, AMBER); txt('→ uangnya ke platform', 540, 1150, 32, '#cbbfae', 'center', '"Courier Prime"');
+  for (let i = 0; i < 9; i++) { const t = (u * 1.6 + i / 9) % 1, x = 540 + Math.sin(t * 3.14) * 160 * (i % 2 ? 1 : -1), y = lerp(1330, ty + th, t); ellipse(x, y, 22, 22, '#e7b84a'); ellipse(x, y, 14, 14, '#f2cd6a'); pool(x, y, 50, 'rgb(255,200,90)', .2); }
+  txt('IKLAN TERJUAL', 540, 1075, 56, AMBER); txt('→ uangnya ke platform', 540, 1122, 32, '#cbbfae', 'center', '"Courier Prime"');
   vignette(.42); grain(38);
 }
 export function S19(u) {
