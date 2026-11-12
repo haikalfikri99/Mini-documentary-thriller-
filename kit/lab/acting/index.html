@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#1b1a26}</style>
+<style>@font-face{font-family:"Oswald";src:url("../../template/film/assets/fonts/Oswald.woff2") format("woff2");font-weight:600}</style></head>
+<body><canvas id="c" width="1800" height="760"></canvas>
+<script type="module">
+import { drawChar, PRESETS } from '../../src/arsip-rig.js';
+import { GESTURE, perform } from '../../src/acting.js';
+await document.fonts.load('600 30px Oswald');
+const g = document.getElementById('c').getContext('2d'); g.fillStyle = '#1b1a26'; g.fillRect(0, 0, 1800, 760);
+const names = Object.keys(GESTURE), spec = PRESETS.bapak;
+names.forEach((n, i) => { const x = 130 + i * 255; g.save(); drawChar(g, spec, { x, y: 690, s: 1.15, facing: .35, expr: n === 'shrug' ? 'bingung' : 'netral', ...GESTURE[n] }, { amb: '#3d3650', ambK: .18, rim: { col: '#7fe3ff', dir: [.75, .4], w: 4 } }); g.restore(); g.fillStyle = '#cbbfae'; g.font = '600 28px Oswald'; g.textAlign = 'center'; g.fillText(n.toUpperCase(), x, 740); });
+window.done = true;
+</script></body></html>

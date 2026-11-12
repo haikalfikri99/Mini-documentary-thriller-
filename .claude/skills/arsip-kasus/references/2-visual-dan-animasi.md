@@ -47,3 +47,13 @@ Render keyframe tiap shot dari kode (`film/board/`) → artifact storyboard (for
 | Sains & eksperimen | preset ilmuwan | lab kalem, diagram prosedur (tanpa sensasi) |
 | Sejarah & tempat | kartu arsip, sepia | peta lama, then-vs-now |
 Set baru yang dibuat untuk satu episode dipindah ke `kit/src/sets-lib.js` agar dipakai ulang.
+
+## H. Dunia 3D dan kamera kontinu (standar sejak #003)
+Keputusan pemilik channel: **semua scene** memakai dunia 3D (diorama cutaway + karakter ARSIP RIG sebagai billboard) dengan **satu kamera kontinu**; panduan pakai di `kit/HYBRID3D.md`. Aturan tambahan yang tetap berlaku dari A–G: tanpa outline, satu cahaya kunci (cyan layar) + satu praktikal hangat, rim light pada tokoh, kamera selalu bergerak.
+- **Transisi antar-ruang = kamera menembus objek** (layar HP → terowongan, jendela, pintu, kartu ARSIP), bukan cut. Cut hanya dengan alasan cerita.
+- **Beat kamera dari kata VO** (`vo-sync.js`: `T('menyesal')`), bukan detik buta. Gerak tercepat (whip) pada kata kejutan, `hold` (tahan) pada kata kunci.
+- **Bahasa kamera yang sudah terbukti**: close-up rendah dengan getar tangan → crane naik-mundur → isometrik lensa panjang (efek miniatur) + orbit → whip + motion blur → jatuh lewat layar. Jangan orbit lebih dari ±50° di dekat tokoh (billboard terlihat seperti kertas).
+- **Lapisan bukti ARSIP** (`evidence.js`): dokumen dengan bar sensor yang menyapu, stempel yang membanting, papan gabus + benang merah. Pakai saat cerita menyentuh arsip/dokumen.
+- **Akting** (`acting.js`): `perform()` dengan antisipasi dan overshoot, `idle()`, `addDarts()` (lirikan). Ekspresi berganti pada kata kunci.
+- QA: `qa_3d.mjs` (deterministik, tanpa error) adalah gerbang sebelum render; waktu render ≈ 28 dtk per dtk film.
+

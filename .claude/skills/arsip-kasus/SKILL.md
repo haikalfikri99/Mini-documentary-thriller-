@@ -24,7 +24,7 @@ Gaya visual, karakter, kartu arsip, caption, audio, dan pipeline **tidak didesai
 | 2 | **Script dengan Formula ARSIP v3**: lembar kerja F2 → 7 beat → bahasa F5 → **scorecard F6 (14 cek) semua lulus**, dikirim bersama script ✋ | README | `1-cerita…` §F |
 | 3 | Prompt ElevenLabs bertag + target durasi → VO (`audio/vo_<slug>.mp3`) | `audio/vo_prompt_elevenlabs.md` | `1-cerita…` §F5 |
 | 4 | `kit/tools/new_episode.sh <slug> <no> <durasi>` → alignment kata (perintah di bawah) → koreksi → `audio/vo_words.json`; isi `film/episode.json` | timestamp kata | — |
-| 5 | **Storyboard artifact**: bangun semua shot di `film/shots.js` dengan kit, render keyframe (`film/board/`), publikasikan kartu per shot; user berkomentar di artifact → revisi ✋ | artifact | `2-visual…` §F |
+| 5 | **Storyboard artifact**: bangun dunia 3D di `film/world.js` (standar sejak #003: diorama + satu kamera kontinu; panduan `kit/HYBRID3D.md`; flat 2D lama = `new_episode.sh … --2d` dengan `film/shots.js`) lalu `kit/tools/preview_3d.mjs` untuk pratinjau cepat dan keyframe, render keyframe (`film/board/`), publikasikan kartu per shot; user berkomentar di artifact → revisi ✋ | artifact | `2-visual…` §F |
 | 6 | Animasi (`film.js`, timing, kamera) + skor (`score_full.py`) + SFX (`fullmix.py`) | | `2-visual…`, `3-audio` |
 | 7 | `kit/tools/make_film.sh stories/<slug>/film 1`: **audio QA dulu sebagai gerbang** (margin per bagian ≥ 10 dB, kata < 8 dB = none, Whisper mix = Whisper VO); gagal → render dibatalkan, perbaiki cue; lulus → render + mux −14 LUFS. Lalu contact sheet per detik + rubrik `4-standar` ≥ 9 → kirim film ✋ | `renders/ARSIP_<no>_<slug>_v1.mp4` | `3-audio`, `4-standar…` |
 | 8 | Revisi dari review → **tulis pelajarannya** di `6-pelajaran.md` dan pindahkan aset/set baru ke `kit/` | | `6-pelajaran.md` |
@@ -33,8 +33,8 @@ Gaya visual, karakter, kartu arsip, caption, audio, dan pipeline **tidak didesai
 
 ## Struktur
 ```
-kit/                     alat channel (README = panduan lengkap): src/ (rig, sets-lib, scene-kit, arsip-card, film-engine),
-                         audio/ (arsip_audio, score_lib, vo_chain, check_audio), tools/ (new_episode, make_film, build_captions),
+kit/                     alat channel (README = panduan lengkap): src/ (rig, sets-lib, scene-kit, arsip-card, film-engine, **diorama-kit, cam3d, rooms3d, acting, evidence, vo-sync = dunia 3D**),
+                         audio/ (arsip_audio, score_lib, vo_chain, check_audio), tools/ (new_episode, make_film, build_captions, **qa_3d, preview_3d**),
                          template/film/, lab/ + renders/ (lembar semua aset)
 stories/<slug>/
   README.md              fact sheet, script + scorecard, log koreksi, metadata, catatan setelah tayang

@@ -2,7 +2,7 @@
 // Everything painted is the SAME code as the 2D film (rig, sets, scene-kit). Only the camera is new:
 // each painted layer is a textured plane at its own depth, a real perspective camera dollies + drifts,
 // focus blur is per layer (rack focus), light pools are additive planes. Final grade (vignette, grain) is 2D on top.
-import * as THREE from './three.module.min.js';
+import * as THREE from '../../src/vendor/three.module.min.js';
 import { drawChar, LIFE } from '../../../stories/scroll/film/rig/arsip-rig.js';
 import { W, H, vgrad, rrect, poly, ellipse, line, pool, vignette, grain, use } from '../../../stories/scroll/film/rig/scene-kit.js';
 import * as S from '../../../stories/scroll/film/sets.js';
