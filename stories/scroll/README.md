@@ -1,5 +1,5 @@
 # ARSIP KASUS #002: "Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya"
-**Status:** script v4 ✋ menunggu persetujuan script. Setelah itu VO dari user → `audio/vo_scroll.mp3`.
+**Status:** script v5 ✋ menunggu persetujuan script. Setelah itu VO dari user → `audio/vo_scroll.mp3`.
 **Wilayah:** 2 Hidden Systems & Psychology (pilar). Format "kamu sedang jadi target": penonton adalah korbannya, fitur di HP pelakunya, para penciptanya sendiri saksinya.
 
 ## Kenapa cerita ini
@@ -28,6 +28,9 @@
 | 9 | Raskin (2019): "I know as a designer that by taking away the stopping cue, I can make you do what I want you to do." | terverifikasi | Brignull, *Deceptive Patterns* bab 11 (mengutip wawancara 2019); Times 2019 via beberapa media |
 | 10 | Raskin menyebut desain seperti ini "behavioural cocaine" yang ditaburkan di seluruh antarmuka (2018) | terverifikasi | BBC Panorama 2018 via BGR (Jul 2018) dan Xataka. **Cadangan**, tidak dipakai di VO v1 agar ringkas |
 | 11 | "200.000 masa hidup manusia terbuang setiap hari" | **tidak dipakai** | hanya berasal dari satu klaim/perkiraan |
+| 12 | Jadwal hadiah acak (variable ratio) menghasilkan respons paling tinggi dan paling sulit dihentikan (paling tahan terhadap extinction) | terverifikasi | Ferster & Skinner (1957) via Simply Psychology, Lumen Learning, UEN Pressbooks. Kaitan langsung ke kecanduan judi diperdebatkan (Laskowski dkk. 2019) → VO hanya bilang "mirip mesin slot" lewat pengakuan pembuat, tidak mengklaim "menyebabkan kecanduan" |
+| 13 | Hampir semua pendapatan Meta (pemilik Facebook & Instagram) dari iklan | terverifikasi | 2024: iklan US$160,6 miliar dari total US$164,5 miliar ≈ 97,6% (ppc.land, Chief Marketer, laporan kinerja Q4 2024 Meta); cek ulang di 10-K sebelum tayang |
+| 14 | "Aplikasinya gratis karena yang dijual itu waktumu" | penyederhanaan (ditandai) | model bisnis iklan: pengiklan membayar untuk menjangkau pengguna selama mereka di aplikasi ("race for human attention", Guardian 2017). Disampaikan sebagai penjelasan, bukan kutipan |
 
 **Sumber:** [The Guardian: "Our minds can be hijacked" (2017, salinan arsip PDF)](https://formationreimagined.org/wp-content/uploads/2018/09/Our-minds-can-be-hijacked_-the-tech-insiders-who-fear-a-smartphone-dystopia-_-Technology-_-The-Guardian.pdf) (asli: theguardian.com/technology/2017/oct/05/smartphone-addiction-silicon-valley-dystopia) · [The Week: How Silicon Valley hooks us](https://theweek.com/articles/737813/how-silicon-valley-hooks) · [Brignull, *Deceptive Patterns* bab 11](https://bunny.deceptive.design/book/contents/chapter-11) · [BGR 2018: "Behavioral Cocaine"](https://bgr.com/2018/07/04/social-media-addicts-us-like-cocaine/) · [Masters of Scale: He invented infinite scroll and says he regrets it](https://mastersofscale.com/video/he-invented-infinite-scroll-and-says-he-regrets-it/) · [Wikipedia: Infinite scrolling](https://en.wikipedia.org/wiki/Infinite_scrolling) · [Wikipedia: Aza Raskin](https://en.wikipedia.org/wiki/Aza_Raskin)
 
@@ -48,10 +51,21 @@
 
 **Hook alignment:** frame 0 = tangan pria menyerahkan iPhone ke asisten, layar menampilkan gembok "Kontrol Orang Tua"; VO kalimat 1; teks layar "PEMBUAT TOMBOL LIKE"; judul "Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya" (skor vidIQ 82).
 
-## Script v4.1 (VO, ±112 kata ≈ 47–49 dtk) ✋
-**v4.1 (permintaan user):** "salah satu" dihapus. Bahasa Indonesia tidak punya kata sandang, jadi "pembuat tombol Like" dan "perancang scroll tanpa ujung" tidak mengklaim satu-satunya pencipta, sekaligus terdengar langsung. Nama tokoh tampil sebagai **kartu nama di layar** (gaya dokumenter, menambah kredibilitas tanpa memperlambat VO); di VO nama asing hanya akan menambah kata dan memperlambat hook. Rosenstein: The Guardian menyebutnya "the Facebook engineer who created the 'like' button" dan dia yang menulis prototipenya semalaman; tim Facebook (termasuk Leah Pearlman) disebut di deskripsi.
-Dasar perbaikan: transkrip Shorts paling viral di topik yang sama (vidIQ, 12 Nov 2026) + skill `short-form-video-script` (WATCH) + `humanizer` + `hook-and-headline-writing`.
+## Script v5 (VO, ±109 kata ≈ 48 dtk) ✋
+**Kenapa v5 (kritik user atas v4.1):** v4 hanya kumpulan pernyataan dan kutipan. Pertanyaan "kenapa pembuatnya menjauhi HP?" tidak pernah dijawab, dan sistem tersembunyinya (inti wilayah 2) tidak dibongkar. v5 mengubah struktur menjadi **pertanyaan → tiga jawaban bernomor → jawaban kembali ke hook**: (1) psikologi: hadiah acak, (2) desain: tidak ada titik berhenti, (3) bisnis: waktumu yang dijual. Kutipan pembuat dipakai sebagai bukti di dalam jawaban, bukan sebagai isi utama. Kutipan Brichter soal anak-anaknya dilepas agar durasi tetap ±48 dtk (cadangan untuk deskripsi/komentar tersemat).
 
+| Babak | VO (ucapan) | Teks layar | Visual |
+|---|---|---|---|
+| 1 HOOK 0–3 | Pembuat tombol Like… ngunci HP-nya sendiri. | "JUSTIN ROSENSTEIN · pembuat tombol Like" | frame 0: ikon jempol Like raksasa; gembok jatuh menutup layar HP |
+| 2 PERTANYAAN + JANJI 3–8 | Kenapa? Karena dia tahu tiga hal di balik layar kamu. | "3 HAL DI BALIK LAYARMU" | layar HP terbuka seperti panel, memperlihatkan mesin di dalamnya; tiga lampu indikator |
+| 3 JAWABAN 1: PSIKOLOGI 8–25 | Satu: hadiah acak. Di eksperimen klasik, tikus yang dapat makanan secara acak justru paling susah berhenti menekan tuas. Feed kamu sama: geser, kadang seru, kadang iklan. Pembuat fitur tarik layar buat refresh pun setuju, ini mirip mesin slot. | "1 · HADIAH ACAK" · "LOREN BRICHTER · pembuat 'tarik untuk refresh'" | tikus menekan tuas, makanan kadang keluar kadang tidak; potong ke jempol penonton menggeser (gerakan sama); gestur tarik layar berubah jadi tuas mesin slot |
+| 4 JAWABAN 2: DESAIN 25–34 | Dua: feed nggak pernah habis. Perancang scroll tanpa ujung ngaku, "Hapus tanda berhentinya, dan saya bisa bikin kamu melakukan apa yang saya mau." | "2 · TANPA TITIK BERHENTI" · "AZA RASKIN · perancang scroll tanpa ujung" | buku dengan halaman "TAMAT" disobek; rambu STOP tenggelam ke dalam feed yang terus turun |
+| 5 JAWABAN 3: BISNIS 34–43 | Tiga: uang. Aplikasinya gratis karena yang dijual itu waktumu. Hampir semua pendapatan Meta, pemilik Facebook dan Instagram, datang dari iklan. | "3 · WAKTUMU = DAGANGAN" · "±98% PENDAPATAN META DARI IKLAN (2024)" | jam pasir berisi pengguna mengalir ke celengan berlogo iklan; grafik batang iklan vs lainnya |
+| 6 PENUTUP + LOOP 43–48 | Dia tahu semua itu. Makanya HP-nya sendiri dia kunci. Kamu, udah berapa lama scroll hari ini? | "ARSIP DITUTUP" | kembali ke gembok di HP (frame 0) → jam status bar melompat maju |
+
+**Penyampaian VO:** bercerita ke teman. Jeda setelah "tombol Like…" dan setelah "Kenapa?". Ucapkan "Satu / Dua / Tiga" tegas dengan jeda singkat sesudahnya (penanda bab, membantu retensi). Kalimat penutup pelan.
+
+### Arsip: riset untuk v4
 **Pola pemenang yang dipelajari**
 | Video | Data | Pola yang diambil |
 |---|---|---|
