@@ -1,5 +1,5 @@
 # ARSIP KASUS #002: "Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya"
-**Status:** script v6 ✋ menunggu persetujuan script. Setelah itu VO dari user → `audio/vo_scroll.mp3`.
+**Status:** script v7 ✋ menunggu persetujuan script. Setelah itu VO dari user → `audio/vo_scroll.mp3`.
 **Wilayah:** 2 Hidden Systems & Psychology (pilar). Format "kamu sedang jadi target": penonton adalah korbannya, fitur di HP pelakunya, para penciptanya sendiri saksinya.
 
 ## Kenapa cerita ini
@@ -51,34 +51,46 @@
 
 **Hook alignment:** frame 0 = tangan pria menyerahkan iPhone ke asisten, layar menampilkan gembok "Kontrol Orang Tua"; VO kalimat 1; teks layar "PEMBUAT TOMBOL LIKE"; judul "Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya" (skor vidIQ 82).
 
-## Script v6 (VO, ±125 kata ≈ 50–53 dtk) ✋
-**Audit v5 → v6 (tanpa titik buta):**
-| # | Masalah di v5 | Jenis | Perbaikan v6 |
-|---|---|---|---|
-| 1 | "ngunci HP-nya" melebih-lebihkan: ia memasang kontrol orang tua agar tidak bisa mengunduh aplikasi, HP-nya tidak dikunci | akurasi | "pasang kontrol orang tua di HP-nya sendiri": tepat, dan ironinya lebih tajam (orang dewasa diperlakukan seperti anak kecil) |
-| 2 | "Karena dia tahu tiga hal" menempelkan motif ke Rosenstein, padahal poin 2–3 berasal dari orang lain | logika/akurasi | "Orang dalam tahu dua trik…": yang bicara memang sekelompok orang dalam (Guardian 2017) |
-| 3 | Daftar datar 1-2-3; poin "uang" berdiri sendiri | struktur | **2 trik + alasan trik itu ada**: uang menjelaskan *kenapa* hadiah acak dan feed tanpa ujung dibuat. Membuka 2 loop rasa ingin tahu ("dua trik… dan siapa yang untung") |
-| 4 | "tikus yang dapat makanan secara acak justru…" tidak punya pembanding, kata "justru" menggantung | kejelasan/akurasi | dua tikus berdampingan: yang selalu dapat vs kadang-kadang. Sesuai temuan Ferster & Skinner; ditandai "ILUSTRASI" di layar |
-| 5 | "Pembuat tarik layar setuju, **ini** mirip mesin slot" seolah ia bicara soal geser Shorts | akurasi | "fiturnya mirip mesin slot" |
-| 6 | "Hapus tanda berhentinya, dan…" (kalimat perintah) tidak setia pada "by taking away the stopping cue, I can…" | terjemahan | "Dengan menghapus tanda berhenti, saya bisa…" |
-| 7 | "tanda berhenti" abstrak; penonton tidak tahu wujudnya | kejelasan | "Dulu halaman ada habisnya, di situ kamu berhenti." |
-| 8 | Hubungan iklan ↔ waktu tidak dijelaskan | logika | "Makin lama kamu scroll, makin banyak iklan terjual." |
-| 9 | Penutup "makanya HP-nya dia kunci" mengulang hook tanpa ide baru | payoff | **penutup konseptual**: kontrol orang tua = tanda berhenti yang ia pasang sendiri. Menyatukan hook dan trik kedua, memberi penonton tindakan, dan loop ke frame 0 |
-| 10 | Pertanyaan "udah berapa lama scroll" generik | komentar | VO "Kamu kapan?" (ungkapan akrab, mengundang jawaban); pertanyaan durasi pindah ke teks layar |
-| 11 | Judul "Menjauhi HP-nya" tidak sama dengan hook baru | keselarasan | judul baru (skor vidIQ 86) |
+## Script v7 (VO, ±126 kata ≈ 50–53 dtk) ✋
+Ditulis ulang setelah mempelajari ulang `youtube-scriptwriting` (audit alur, pemahaman, kecepatan nilai; "reality must beat expectations"; beri nama pada konsep), `youtube-shorts` (retention ladder: loop dengan callback), `hook-and-headline-writing` (kalimat lengket: simetri, pengulangan), `humanizer`. Tiga putaran koreksi sebelum dikirim.
 
 | Babak | VO (ucapan) | Teks layar | Visual |
 |---|---|---|---|
-| 1 HOOK 0–4 | Pembuat tombol Like… pasang kontrol orang tua di HP-nya sendiri. | "JUSTIN ROSENSTEIN · pembuat tombol Like" | frame 0: ikon jempol Like raksasa → layar HP pria dewasa menampilkan "Kontrol Orang Tua: AKTIF", ikon toko aplikasi terkunci |
-| 2 PERTANYAAN 4–9 | Kenapa? Orang dalam tahu dua trik di HP kamu… dan siapa yang untung. | "2 TRIK + 1 PEMENANG" | layar HP terbuka seperti panel mesin; dua roda gigi dan satu celengan di dalamnya |
-| 3 TRIK 1 9–20 | Trik pertama: hadiah acak. Dua tikus menekan tuas. Satu selalu dapat makanan, satu lagi cuma kadang-kadang. Yang kadang-kadang… justru paling susah berhenti. | "1 · HADIAH ACAK" · "ILUSTRASI EKSPERIMEN" | dua kandang berdampingan; tikus kiri menekan lalu kenyang dan pergi; tikus kanan terus menekan, makin cepat |
-| 4 BUKTI 20–27 | Feed kamu sama: geser, kadang seru, kadang iklan. Pembuat fitur tarik layar buat refresh pun mengakui: mirip mesin slot. | "LOREN BRICHTER · pembuat 'tarik untuk refresh'" | potong cocok (match cut): kaki tikus menekan tuas → jempol penonton menggeser; gulungan slot berisi video/iklan |
-| 5 TRIK 2 27–40 | Trik kedua: nggak ada ujung. Dulu halaman ada habisnya, di situ kamu berhenti. Perancang scroll tanpa ujung ngaku, "Dengan menghapus tanda berhenti, saya bisa bikin kamu melakukan apa yang saya mau." | "2 · TANPA UJUNG" · "AZA RASKIN · perancang scroll tanpa ujung" | tombol "Halaman berikutnya ›" lama; ujung halaman disobek; rambu STOP tenggelam dalam feed yang terus turun |
-| 6 PEMENANG 40–48 | Yang untung? Perusahaannya. Makin lama kamu scroll, makin banyak iklan terjual. Hampir semua pendapatan Meta datang dari iklan. | "META (Facebook · Instagram) · ±98% PENDAPATAN DARI IKLAN · 2024" | jam pasir: pasir = menit milikmu, jatuh menjadi koin iklan ke celengan perusahaan |
-| 7 PENUTUP + LOOP 48–53 | Tanda berhentinya udah dihapus. Pembuat tombol Like milih masang lagi, di HP-nya sendiri. Kamu kapan? | "UDAH BERAPA LAMA KAMU SCROLL HARI INI?" | rambu STOP kecil berdiri lagi di layar HP pria itu → kembali ke frame 0 (layar Kontrol Orang Tua) |
+| 1 HOOK 0–4 | Pembuat tombol Like… minta HP-nya dikunci, biar dia nggak bisa install aplikasi. | "JUSTIN ROSENSTEIN · pembuat tombol Like · 2017" | frame 0: ikon jempol Like raksasa → gembok di atas ikon toko aplikasi; asisten memegang HP-nya |
+| 2 PERTANYAAN 4–10 | Kenapa? Dia tahu dua trik yang bikin kamu susah berhenti… dan siapa yang untung. | "2 TRIK + 1 YANG UNTUNG" | HP terbuka seperti panel mesin: dua roda gigi, satu celengan |
+| 3 TRIK 1 10–21 | Trik pertama: mesin slot. Dua tikus menekan tuas. Satu selalu dapat makanan, satu lagi cuma kadang-kadang. Yang kadang-kadang… justru paling susah berhenti. | "TRIK 1 · MESIN SLOT" · "ILUSTRASI EKSPERIMEN" | dua kandang berdampingan; tikus kiri kenyang lalu pergi; tikus kanan terus menekan, makin cepat |
+| 4 KE PENONTON 21–28 | Feed kamu sama. Geser… kadang seru, kadang iklan. Like di postinganmu juga: kadang rame, kadang sepi. | "LOREN BRICHTER, pembuat 'tarik untuk refresh', soal mirip mesin slot: 'Saya setuju 100%.'" | match cut: kaki tikus menekan tuas → jempol menggeser; gulungan slot berisi video/iklan; notifikasi like datang tak menentu |
+| 5 TRIK 2 28–41 | Trik kedua: tanpa rem. Dulu halaman ada habisnya, dan kamu berhenti di situ. Sekarang nggak pernah habis. Perancangnya ngaku, "Dengan menghapus tanda berhenti, saya bisa membuat kamu melakukan apa yang saya mau." | "TRIK 2 · TANPA REM" · "AZA RASKIN · perancang scroll tanpa ujung" | tombol "Halaman berikutnya ›" dan kata "Selesai"; lalu feed turun tanpa ujung; pedal rem lepas dan jatuh ke dalam feed |
+| 6 YANG UNTUNG 41–48 | Yang untung? Perusahaannya. Aplikasinya gratis, karena perhatian kamu yang dijual ke pengiklan. Pendapatan Meta hampir semuanya dari iklan. | "META (Facebook · Instagram) · ±98% PENDAPATAN DARI IKLAN (2024)" | mata penonton terpantul di layar → berubah jadi kepingan koin masuk celengan perusahaan |
+| 7 PENUTUP + LOOP 48–53 | Remnya udah dilepas dari aplikasi. Makanya pembuat tombol Like masang rem sendiri. Kamu kapan? | "UDAH BERAPA LAMA KAMU SCROLL HARI INI?" | pedal rem kecil dipasang di HP pria itu = gembok frame 0 (loop) |
 
-**Penyampaian VO:** bercerita ke teman. Jeda setelah "tombol Like…", "Kenapa?", dan "Yang kadang-kadang…". "Trik pertama / Trik kedua / Yang untung?" diucapkan tegas sebagai penanda bab. "Kamu kapan?" ringan, sedikit senyum, bukan menggurui.
-**Cadangan potong** (bila retensi turun di tengah): kalimat kedua babak 4 (±4 dtk) → ±48 dtk.
+**Penyampaian VO:** ngobrol, bukan membaca berita. Jeda setelah "tombol Like…", "Kenapa?", "Yang kadang-kadang…", dan "Yang untung?". "Trik pertama / Trik kedua" tegas sebagai penanda bab. "Kamu kapan?" ringan, sedikit senyum.
+
+### Log koreksi mandiri (3 putaran sebelum dikirim)
+| Putaran | Temuan | Perbaikan |
+|---|---|---|
+| 1 | "kontrol orang tua" kaku (user) | diganti tindakan konkret: "minta HP-nya dikunci, biar nggak bisa install aplikasi" |
+| 1 | Dua trik tidak berhubungan dengan tokoh hook (tombol Like) | tambah "Like di postinganmu juga: kadang rame, kadang sepi": hadiah acak juga ada di ciptaannya |
+| 1 | Label trik abstrak ("hadiah acak", "tanpa ujung") | diberi nama lengket yang mudah diingat dan diceritakan ulang: **mesin slot** dan **tanpa rem** |
+| 1 | Penutup "tanda berhenti" kering | metafora rem dipakai di trik 2 dan dipanggil lagi di penutup: "Remnya udah dilepas… pembuat tombol Like masang rem sendiri." Hook mendapat makna baru saat diputar ulang |
+| 2 | 136 kata ≈ 58 dtk | kutipan Brichter "100%" dipindah ke teks layar (bukti tetap ada untuk penonton tanpa suara, VO lebih ringkas); kalimat pertanyaan diringkas |
+| 2 | "Kamu berhenti." terdengar janggal | "dan kamu berhenti di situ" |
+| 2 | Kutipan Raskin campur register ("bikin" di kalimat baku) | "membuat" (kutipan baku, narasi santai) |
+| 3 | "HP diblokir" bisa dikira blokir IMEI (konteks Indonesia) | "dikunci" + penjelas "biar nggak bisa install aplikasi" |
+| 3 | "waktumu dijual" kurang tepat secara bisnis | "perhatian kamu yang dijual ke pengiklan" |
+| 3 | "Hampir semua pendapatan Meta dari iklan" kaku diucapkan | "Pendapatan Meta hampir semuanya dari iklan" |
+
+### Uji akhir (checklist pakar)
+- **Hook** (3 dtk): kejutan "minta HP-nya dikunci" jatuh di kata ke-5; gambar + teks + suara sama; judul sama.
+- **Janji jelas**: dua trik + siapa yang untung (tiga loop rasa ingin tahu), semuanya dibayar.
+- **Naik terus** (second-best first): trik 1 kuat (tikus) → trik 2 lebih kuat (pengakuan perancang) → yang untung (alasan semua trik ada) → penutup yang menyatukan.
+- **Pemahaman**: kata sehari-hari, kalimat pendek, kalimat aktif, konsep diberi nama.
+- **Bisa diceritakan ulang dalam satu kalimat**: "Aplikasi pakai trik mesin slot dan tanpa rem, karena perhatian kita dijual ke pengiklan."
+- **Emosi**: penasaran → "ternyata" → sedikit ngeri → berdaya ("pasang rem sendiri").
+- **Loop**: kalimat terakhir memanggil hook; frame terakhir = frame 0.
+- **Tanpa suara**: teks layar membawa label trik, nama tokoh, dan angka.
+- **Akurasi**: semua klaim ada di fact sheet; tikus ditandai ilustrasi; kutipan Brichter tampil utuh di layar.
+- **Durasi**: ±50–53 dtk. Cadangan potong: kalimat Like di babak 4 (±3 dtk).
 
 ### Arsip: riset untuk v4
 **Pola pemenang yang dipelajari**
@@ -137,7 +149,7 @@
 - [x] Hook, judul, teks layar, frame 0 selaras
 
 ## Metadata upload (draf)
-**Judul:** Kenapa Pembuat Tombol Like Pasang Kontrol Orang Tua di HP-nya? 😶 #shorts (skor vidIQ 86)
+**Judul:** Kenapa Pembuat Tombol Like Minta HP-nya Dikunci? 😶 #shorts (varian "…Diblokir?" skor vidIQ 82; "dikunci" dipilih agar tidak dikira blokir IMEI)
 **Hashtag:** #shorts #psikologi #faktaunik #mediasosial #doomscrolling #arsipkasus
 
 ## Catatan setelah tayang

@@ -114,6 +114,9 @@ Untuk Shorts yang lebih pendek/panjang, skalakan babak 3–5; babak 1–2 tetap 
 ### Wilayah 2 wajib membongkar sistemnya (pelajaran #002 v4 → v5)
 Kumpulan pengakuan/kutipan bukan jawaban. Setiap video wilayah 2 harus menjawab pertanyaan hook dengan **mekanisme**: biasanya tiga lapis, yaitu **psikologi** (bias/efek apa yang dipakai), **desain** (fitur/tata letak apa yang memanfaatkannya), dan **uang** (siapa yang untung dan bagaimana). Kutipan tokoh dipakai sebagai bukti di dalam jawaban. Penutup menjawab pertanyaan hook secara eksplisit dan kembali ke frame 0. Uji: setelah menonton, bisakah penonton menjelaskan "kenapa" ke temannya dalam satu kalimat?
 
+### Koreksi mandiri wajib sebelum mengirim script ke user (pelajaran #002 v7)
+Jangan kirim draf pertama. Minimal tiga putaran, masing-masing dengan kacamata berbeda: (1) penulis cerita: apakah pertanyaan hook dijawab, apakah mekanisme terhubung ke tokoh hook, apakah konsep diberi nama lengket; (2) editor: jumlah kata/durasi, kalimat janggal saat dibaca keras, register campur, kata yang ambigu di konteks Indonesia (mis. "HP diblokir" = blokir IMEI); (3) pemeriksa fakta: setiap kalimat dicocokkan dengan fact sheet. Bukti yang memakan durasi boleh dipindah ke teks layar. Catat log koreksi di README cerita.
+
 ## I. Durasi
 Shorts boleh sampai 3 menit, tapi tentukan **gagasan dulu, lalu durasi terpendek yang lengkap**. Patokan channel: 45–75 dtk (film #001: 61 dtk). Untuk wilayah 2 (sistem/psikologi), uji juga versi 25–40 dtk. Ukur hasilnya; jangan menganggap satu durasi selalu benar.
 
