@@ -35,6 +35,6 @@ Sumber:
 
 ## Pengaturan saat upload
 - Audiens: bukan untuk anak-anak · Kategori: Pendidikan · Bahasa video: Indonesia
-- Konten sintetis/alterasi: YouTube mewajibkan label untuk konten **realistis** yang bisa dikira nyata; animasi ini jelas animasi. VO memakai suara AI (ElevenLabs) — aturan pastinya belum kucek di sesi ini, jadi bila ragu centang "Ya" (tidak menurunkan distribusi menurut YouTube, tapi juga belum kuverifikasi)
+- Konten sintetis/alterasi: YouTube mewajibkan label untuk konten **realistis** yang bisa dikira nyata; animasi ini jelas animasi. VO memakai suara AI (ElevenLabs) — aturan pastinya belum kucek di sesi ini, jadi bila ragu centang "Ya"
 - Thumbnail: belum bisa custom → pilih frame dari video (rekomendasi: detik ±0,5, Raskin + judul "PEMBUAT FITUR INI MENYESAL…")
 - Komentar pertama (pin): "Kamu tim LANJUT atau UDAHAN? 👇"
