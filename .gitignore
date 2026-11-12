@@ -9,3 +9,17 @@ stories/*/film/*.wav
 stories/*/film/*.mid
 channel/*.jpg
 channel/*.png
+
+# HyperFrames local artifacts and renders
+stories/*/film/vo_level.wav
+# episode build outputs (re-made by kit/tools/make_film.sh)
+stories/*/film/.hyperframes/
+stories/*/film/renders/
+stories/*/film/assets/mix.wav
+stories/*/film/*.wav
+stories/*/film/*.mid
+stories/*/film/*.npy
+stories/*/film/board/.hyperframes/
+kit/lab/.hyperframes/
+kit/lab/renders/
+__pycache__/

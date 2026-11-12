@@ -55,6 +55,42 @@
       "skillPath": ".claude/skills/hook-and-headline-writing/SKILL.md",
       "computedHash": "d0f4d1b8a1e18651bb62ad91acdf85bdef941025c67b194c6616873ea92288d6"
     },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "04cdabbcceaa7b5d4bd4b1ea02339013503d623b270b5b3b2e274837494d7134"
+    },
+    "hyperframes": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes/SKILL.md",
+      "computedHash": "373b4b19ec8564cbf23f7f3b8399ee9fb4d92609d66948d4b98c13ebe63bbcbc"
+    },
+    "hyperframes-cli": {
+      "source": "heygen-com/hyperframes",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-cli/SKILL.md",
+      "computedHash": "864689d1c8b30389bb9dbc04dfd7a61ce8e62d2ba6924334e04a156e074c3029"
+    },
+    "illustration-style": {
+      "source": "owl-listener/designer-skills",
+      "sourceType": "github",
+      "skillPath": "ui-design/skills/illustration-style/SKILL.md",
+      "computedHash": "397d27de067f053ab8fef804eb4881c65fdec9234b6ed401adb55e71c9579861"
+    },
+    "kinetic-typography": {
+      "source": "iart-ai/kinetic-typography-skills",
+      "sourceType": "github",
+      "skillPath": "skills/kinetic-typography/SKILL.md",
+      "computedHash": "7f5a42a68017f67a8dc140ecf676820319cd22b98b909f9e8b615448baf19d8c"
+    },
+    "motion-art-direction": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/motion-art-direction/SKILL.md",
+      "computedHash": "4a43cd9cd57b01e77e3c76e63a4722b3c8a74277aae1d9d471a93e7fea8a7038"
+    },
     "p5-brush": {
       "source": "progen/p5-brush-skill",
       "sourceType": "github",
@@ -67,11 +103,23 @@
       "skillPath": ".claude/skills/photo-composition-critic/SKILL.md",
       "computedHash": "2725876c57d5863668add6fb959f275f001df3bbd5c10a2b8e186af950cde6cd"
     },
+    "ponytail": {
+      "source": "dietrichgebert/ponytail",
+      "sourceType": "github",
+      "skillPath": "skills/ponytail/SKILL.md",
+      "computedHash": "56d72677aca02689ac89bd48734e8c19b40ab86716d1257eaf5f1238b43cda6b"
+    },
     "short-form-video": {
       "source": "iart-ai/tiktok-video-skills",
       "sourceType": "github",
       "skillPath": "skills/short-form-video/SKILL.md",
       "computedHash": "f55f26c6bb88e7391044300c8db24e732a7ba3e4f632b392201526fdf7a87e86"
+    },
+    "short-form-video-script": {
+      "source": "social-media-skills/skills",
+      "sourceType": "github",
+      "skillPath": "skills/short-form-video-script/SKILL.md",
+      "computedHash": "e9c86bee46801139b7271ccb382687db14a5e41de446f63dfe151fc8b9e4ddfd"
     },
     "sound-design-film": {
       "source": "guia-matthieu/clawfu-skills",

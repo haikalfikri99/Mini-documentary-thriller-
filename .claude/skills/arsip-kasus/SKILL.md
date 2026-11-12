@@ -1,63 +1,58 @@
 ---
 name: arsip-kasus
-description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller IDN ("Real Stories. Unexpected Truths." — kisah nyata dari 6 wilayah: kejadian luar biasa, sistem tersembunyi & psikologi, misteri, keputusan katastrofik, sains & eksperimen gelap, sejarah & tempat terlupakan; seri visual ARSIP KASUS; bahasa Indonesia; motion comic 2D yang digambar dengan kode). Pakai untuk memilih cerita, menulis dan mengecek fakta script, menyelaraskan VO per kata, storyboard, membangun panel dan animasi di toon/, kamera dan transisi, render, skor dan mix audio, thumbnail, serta judul/deskripsi/hashtag upload. Juga untuk merevisi film yang sudah ada.
+description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller IDN ("Real Stories. Unexpected Truths." — kisah nyata dari 6 wilayah, pilar sistem tersembunyi & psikologi; seri visual ARSIP KASUS; bahasa Indonesia; animasi 2D dengan ARSIP RIG yang digambar dengan kode). Pakai untuk memilih cerita, menulis script dengan Formula ARSIP v3, fact-check, VO ElevenLabs, alignment kata, storyboard artifact, membangun shot dengan kit/, render, skor dan mix audio, QA, thumbnail, metadata upload, dan revisi film.
 ---
 
-# Mini Thriller IDN — workflow produksi
-**Real Stories. Unexpected Truths.** Cerita nyata yang lebih mengejutkan daripada yang terlihat. Satu video = satu kasus nyata dari salah satu dari **6 wilayah cerita** (bukan bencana saja), dibuka sebagai **ARSIP KASUS**, 45–75 detik, 9:16. Film pertama (rujukan lengkap): `stories/molase/` "Banjir Ini Bukan Air" (wilayah 1/4).
+# Mini Thriller IDN — workflow produksi (terkunci sejak ARSIP #002)
+**Real Stories. Unexpected Truths.** Satu video = satu kasus nyata, dibuka sebagai **ARSIP KASUS**, 40–60 dtk, 9:16. Rujukan lengkap: `stories/scroll/` (#002, gaya & kit saat ini). #001 `stories/molase/` memakai engine lama `toon/`.
+Gaya visual, karakter, kartu arsip, caption, audio, dan pipeline **tidak didesain ulang per episode**; episode hanya mengisi cerita, shot, dan cue. Perubahan hanya lewat `references/6-pelajaran.md` (butuh bukti).
 
-## Aturan tetap (keputusan user — jangan diubah tanpa izin)
-- **Kebenaran:** dramatisasi penyajian, jangan pernah mengarang bukti. Angka dan klaim wajib ≥ 2 sumber; kalau sumber berbeda, tampilkan hanya yang disepakati (contoh: P30 hanya menstempel "+4°C").
-- **Tanpa AI image/video generation dan tanpa stock footage.** Semua gambar digambar dengan kode di `toon/` (gaya motion comic). Aset/musik/font hanya yang berlisensi jelas (MIT/CC0).
-- **VO dari user** dan tidak diubah isinya; boleh diproses (EQ, leveller) di mix.
-- Jawab user dalam bahasa Indonesia, lugas, kritis, beri rekomendasi; minim beban CLI untuk user.
-- **Jalankan gerbang persetujuan:** storyboard → adegan kunci (preview) → film penuh visual → audio → final. Audio dikerjakan terakhir, setelah visual disetujui.
-- Commit/push ke branch yang ditentukan sesi; jangan buat PR tanpa diminta.
+## Aturan tetap (keputusan user)
+- **Kebenaran:** dramatisasi penyajian, jangan mengarang bukti; klaim penting ≥ 2 sumber.
+- **Tanpa AI image/video dan tanpa stock.** Semua gambar dari kode (`kit/`). Musik/SFX dibuat dengan kode (FluidR3 MIT + sintesis).
+- **VO:** ElevenLabs, suara Saos Cocol (`R86jddkroI9bJwXFfjsr`), `eleven_v4`, prompt bertag; user yang generate bila kuota habis. Isi VO tidak diubah setelah disetujui; boleh diproses.
+- **Komposisi konten:** wilayah 2 pilar (~70%), sisanya selingan bila kasus sangat kuat. Topik sensitif: bahas mekanisme, jangan promosikan. Video dibuat satu per satu.
+- Jawab dalam bahasa Indonesia, lugas, kritis, beri rekomendasi; minim beban CLI untuk user.
+- Claude tidak bisa mendengar: audio selalu dicek dengan alat dan dilaporkan apa adanya.
+- Commit/push ke branch sesi; tanpa PR kecuali diminta.
 
-## Alur kerja (gerbang ✋ = tunggu persetujuan user)
+## Alur kerja (✋ = tunggu persetujuan user)
 | # | Langkah | Hasil | Rujukan |
 |---|---|---|---|
-| 1 | Pilih wilayah (rotasi) dan cerita (skor Hook-Evidence-Conflict-Escalation-Payoff ≥ 20), fact sheet + sumber | `stories/<slug>/README.md` | `references/1-cerita-dan-script.md` |
-| 2 | Script dengan framework 6 babak (Interruption → Promise → Escalation → Turn → Payoff → Echo) + 8 prinsip; 10+ variasi hook diuji 4U ✋ | script di README | sama |
-| 3 | User merekam VO → `stories/<slug>/audio/vo_<slug>.mp3` | — | — |
-| 4 | Alignment per kata (faster-whisper), koreksi manual → `audio/vo_words.json` → `film/words.js` | timestamp kata | bagian "Perintah" |
-| 5 | Storyboard: 1 panel per 1,5–2 dtk, dipotong di awal kata VO ✋ | `stories/<slug>/storyboard.md` | `references/2-visual-dan-animasi.md` |
-| 6 | Bangun 3 adegan kunci (hook, establishing, satu karakter), poles sampai rubrik ≥ 9 ✋ | preview | `references/4-standar-kualitas-10.md` |
-| 7 | Bangun semua panel per batch (6–10 panel), cek still tiap batch, perbaiki, lalu render film penuh ✋ | `renders/` | rujukan 2 |
-| 8 | Audio: skor MIDI per babak + SFX sinkron + mix VO ✋ | `film/score_full.py`, `film/fullmix.py` | `references/3-audio.md` |
-| 9 | Render final, cek loudness, thumbnail, judul/deskripsi/hashtag; unggah aset kecil + metadata ke Drive, kirim master ke user | `renders/master_<slug>.mp4`, `thumbnail/` → Drive | `references/5-upload-dan-thumbnail.md` |
-| 10 | Setelah tayang: baca analitik, catat pelajaran di README cerita | — | rujukan 1 §Belajar |
+| 1a | **Shortlist 8–10 judul**: cerita 1–2 kalimat, wilayah, skor perkiraan, rekomendasi; fakta ditandai *belum dicek* ✋ | chat | `1-cerita…` §D |
+| 1b | Fact sheet judul terpilih (≥ 2 sumber/klaim, skor seleksi ≥ 20) | `stories/<slug>/README.md` | `1-cerita…` §C, §J |
+| 2 | **Script dengan Formula ARSIP v3**: lembar kerja F2 → 7 beat → bahasa F5 → **scorecard F6 (14 cek) semua lulus**, dikirim bersama script ✋ | README | `1-cerita…` §F |
+| 3 | Prompt ElevenLabs bertag + target durasi → VO (`audio/vo_<slug>.mp3`) | `audio/vo_prompt_elevenlabs.md` | `1-cerita…` §F5 |
+| 4 | `kit/tools/new_episode.sh <slug> <no> <durasi>` → alignment kata (perintah di bawah) → koreksi → `audio/vo_words.json`; isi `film/episode.json` | timestamp kata | — |
+| 5 | **Storyboard artifact**: bangun semua shot di `film/shots.js` dengan kit, render keyframe (`film/board/`), publikasikan kartu per shot; user berkomentar di artifact → revisi ✋ | artifact | `2-visual…` §F |
+| 6 | Animasi + skor + SFX: `film.js` (timing, kamera), `score_full.py`, `fullmix.py`; `kit/tools/make_film.sh stories/<slug>/film 1` | `renders/ARSIP_<no>_<slug>_v1.mp4` | `2-visual…`, `3-audio` |
+| 7 | QA sebelum kirim: contact sheet per detik, rubrik `4-standar` ≥ 9, laporan audio (margin per bagian ≥ 10 dB, **kata < 8 dB = none**, Whisper mix = Whisper VO) → kirim film ✋ | | `4-standar…` |
+| 8 | Revisi dari review → **tulis pelajarannya** di `6-pelajaran.md` dan pindahkan aset/set baru ke `kit/` | | `6-pelajaran.md` |
+| 9 | Thumbnail, judul, deskripsi, hashtag; master ke Drive (user unggah video manual) | | `5-upload…` |
+| 10 | 7 hari setelah tayang: data Studio ke tabel `6-pelajaran.md`; satu hipotesis per video | | `1-cerita…` §L |
 
-## Struktur satu film (salin dari `stories/molase/film/`)
+## Struktur
 ```
+kit/                     alat channel (README = panduan lengkap): src/ (rig, sets-lib, scene-kit, arsip-card, film-engine),
+                         audio/ (arsip_audio, score_lib, vo_chain, check_audio), tools/ (new_episode, make_film, build_captions),
+                         template/film/, lab/ + renders/ (lembar semua aset)
 stories/<slug>/
-  README.md            fact sheet + sumber, script, status, metadata upload
-  storyboard.md        tabel panel: detik, VO, isi, kamera
-  audio/               vo_<slug>.mp3, vo_words.json
-  film/
-    index.html, loader.js    halaman: ?film (film penuh), ?thumb (thumbnail), tanpa query = still P1/P3/P8
-    panels.js          set bersama (jalan perspektif, tangki, cast, paintover p5.brush) + panel kunci berlapis (multiplane)
-    panels2..4.js      panel per batch (setiap panel membaca U = detik di dalam panel)
-    film.js            tabel SEG (awal panel = awal kata VO), kamera per panel, transisi, blur, caption otomatis, thumbnail
-    words.js           timestamp kata VO
-    score_full.py      skor orkestra (MIDI → fluidsynth) → score_full.wav
-    fullmix.py         SFX + VO chain + ducking → mix_full.wav
-  thumbnail/, renders/ hasil render lokal (diabaikan git) → dipindah ke Google Drive
+  README.md              fact sheet, script + scorecard, log koreksi, metadata, catatan setelah tayang
+  audio/                 vo_<slug>.mp3, vo_words.json, vo_prompt_elevenlabs.md
+  film/                  episode.json, index.html, film.js, shots.js, (sets.js), board/, score_full.py, fullmix.py, rig → kit/src
+  storyboard_artifact/   sumber halaman storyboard
+  renders/               output (git-ignored) → Google Drive
+research/referensi/      analisa referensi 2D (terukur)
 ```
-
-## Penyimpanan: repo vs Google Drive
-- **Repo (git)** = kode, panduan, dan input untuk membangun ulang film: `film/`, `audio/vo_<slug>.mp3`, `vo_words.json`, storyboard, README. Semua output (video, thumbnail, art channel, wav hasil generate) diabaikan git (`.gitignore`) karena bisa dirender ulang.
-- **Google Drive → `Mini Thriller IDN/`**: `00 Channel (profil, banner)/` dan satu folder per film `NNN Judul (Tempat Tahun)/` berisi master MP4, thumbnail, VO (cadangan), dan dokumen metadata upload.
-- Dari sesi cloud, konektor Drive hanya bisa mengunggah file kecil (≈ 3 MB per permintaan): thumbnail, gambar, VO, dokumen. **Video master harus dipindah user secara manual** (unduh dari kartu file di chat → unggah ke folder film di Drive).
+Repo = kode + input; output video/wav diabaikan git. Drive `Mini Thriller IDN/`: satu folder per film (master, thumbnail, VO, metadata).
 
 ## Perintah
 ```bash
 # sekali per container
-cd toon && npm install                       # p5, p5.brush
 sudo apt-get install -y fluidsynth fluid-soundfont-gm && pip install faster-whisper mido scipy
-export PLAYWRIGHT_CHROME=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
-
-# alignment kata (decode via ffmpeg; versi av di container menolak argumen faster-whisper)
+# episode baru
+kit/tools/new_episode.sh <slug> <no> <durasi_vo>
+# alignment kata (decode via ffmpeg)
 python3 - <<'PY'
 import json, subprocess, numpy as np
 from faster_whisper import WhisperModel
@@ -65,33 +60,20 @@ a = np.frombuffer(subprocess.run(['ffmpeg','-loglevel','error','-i','stories/<sl
 segs, _ = WhisperModel('small', device='cpu', compute_type='int8').transcribe(a, language='id', word_timestamps=True)
 json.dump([[round(w.start,2), round(w.end,2), w.word.strip()] for s in segs for w in s.words], open('stories/<slug>/audio/vo_words.json','w'), ensure_ascii=False)
 PY
-# lalu koreksi ejaan (whisper salah dengar nama/angka), gabungkan token ",3" / "-anak", tulis film/words.js
-
-# still untuk cek (dari toon/): waktu = detik film
-node core/render/still.mjs ../stories/<slug>/film 1.2 9.5 30 --q film --size 1080x1920 --out /tmp/cek
-# film penuh (≈ 4,5 menit untuk 61 dtk, 4 worker) dan thumbnail
-node core/render/video.mjs ../stories/<slug>/film --q film --size 1080x1920 --fps 24 --workers 4 --out out/film.mp4
-node core/render/still.mjs ../stories/<slug>/film 0 --q thumb --size 1080x1920 --out ../stories/<slug>/thumbnail
-# audio dan mux final (dari stories/<slug>/film/)
-python3 score_full.py && python3 fullmix.py
-ffmpeg -i ../../../toon/out/film.mp4 -i mix_full.wav -map 0:v -map 1:a -c:v libx264 -crf 17 -preset slow -pix_fmt yuv420p \
-  -af loudnorm=I=-14:TP=-1:LRA=11 -c:a aac -b:a 192k -shortest ../renders/master_<slug>.mp4
+# cek kata yang "tanpa suara" di laporan mix = timing alignment meleset → koreksi json
+# pratinjau shot
+cd stories/<slug>/film && DO_NOT_TRACK=1 npx hyperframes snapshot --at 0.5,2.5,5
+# film penuh + audio + QA (satu perintah, ±7 menit)
+kit/tools/make_film.sh stories/<slug>/film <versi>
 ```
-
-## Pelajaran yang wajib diingat (dari film #001)
-1. **Logika gerak dulu, gaya kemudian.** Arah hadap = arah gerak; orang lari *menjauhi* ancaman (ombak dari belakang → lari ke kamera). Cek setiap animasi: "wajar tidak di dunia nyata?"
-2. **Akting:** setiap karakter utama punya ketukan emosi (`keys()` di `toon/engine/motion.js`): antisipasi → aksi dengan overshoot → settle; mata bergerak sebelum kepala. Gestur tidak boleh menutupi wajah.
-3. **Komposisi:** satu fokus per shot, garis perspektif menuju subjek (tangki di ujung jalan), karakter tidak saling tumpang tindih, elemen penting di 900×1400 tengah; caption di y≈1330, jangan ada teks lain di pita itu.
-4. **Motion blur hanya dengan pose *on ones*** (pose on twos + blur = ghosting).
-5. **Audio:** ukur, jangan menebak — VO harus ≥ 10 dB di atas latar pada 300 Hz–4 kHz; dentuman besar diletakkan di bawah 260 Hz atau sesudah kata.
-6. **Jujur menilai:** pakai rubrik; jangan menaikkan skor tanpa mengecek frame. Lebih baik fokus ke faktor besar (hook, keterbacaan, logika, akting, ritme, caption, kejernihan VO) daripada detail yang tidak terlihat di ponsel.
-7. **Bug kode yang pernah terjadi:** menambah komentar `//` di tengah baris yang diganti → sisa baris ikut jadi komentar. Cek sintaks modul dengan `node --input-type=module --check < file.js` (bukan `node --check`).
+Render HyperFrames harus dijalankan sebagai proses latar dari tool (run_in_background), bukan `&` di shell yang langsung selesai (render dibatalkan saat induknya keluar).
 
 ## Rujukan
-- `references/1-cerita-dan-script.md` — identitas editorial, 6 wilayah + bank ide, aturan faktual, seleksi 5 kriteria, sinyal distribusi Shorts, framework 6 babak, 8 prinsip, hook, durasi, fact-check, analitik
-- `references/2-visual-dan-animasi.md` — bahasa visual, toolkit `toon/`, jenis panel, akting, kamera, transisi
-- `references/3-audio.md` — rantai VO, skor per babak, pustaka SFX, ducking, loudness
-- `references/4-standar-kualitas-10.md` — rubrik 10 aspek + skor film #001
-- `references/5-upload-dan-thumbnail.md` — judul, deskripsi, hashtag, thumbnail Shorts
+- `references/1-cerita-dan-script.md` — identitas, 6 wilayah + bank ide, aturan faktual, seleksi, sinyal Shorts, **Formula ARSIP v3 (bukti, lembar kerja, 7 beat, pola hook, bahasa VO, scorecard)**, delivery, fact-check, analitik
+- `references/2-visual-dan-animasi.md` — gaya terkunci, aturan menggambar, kamera, akting, komposisi, storyboard
+- `references/3-audio.md` — rantai VO, skor, SFX, mix, QA tanpa telinga
+- `references/4-standar-kualitas-10.md` — rubrik 10 aspek + skor #001/#002
+- `references/5-upload-dan-thumbnail.md` — judul, deskripsi, hashtag, thumbnail
+- `references/6-pelajaran.md` — aturan dari review, data per episode, hipotesis yang diuji
 - `references/riset-viral-shorts.md` — data vidIQ dan pola retensi
-- Skill pendukung yang terpasang: `youtube-scriptwriting`, `hook-and-headline-writing`, `youtube-shorts`, `fact-checking` (naskah & riset); `filmmaker`, `animation-principles`, `2d-character-rig-animation`, `character-animation-qa`, `cinematography-180-degree-rule`, `photo-composition-critic`, `color-grading-finishing`, `short-form-video`, `sound-design-film`, `sound-design-foley`, `p5-brush`, `find-skills`.
+- Skill pendukung: `short-form-video-script`, `humanizer` (wajib di setiap script), `hook-and-headline-writing`, `youtube-shorts`, `youtube-scriptwriting`, `fact-checking`, `filmmaker`, `animation-principles`, `2d-character-rig-animation`, `character-animation-qa`, `cinematography-180-degree-rule`, `photo-composition-critic`, `color-grading-finishing`, `sound-design-film`, `sound-design-foley`, `hyperframes`, `hyperframes-cli`, `find-skills`.

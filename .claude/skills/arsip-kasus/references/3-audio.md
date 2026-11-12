@@ -1,5 +1,5 @@
 # 3. Audio
-Dikerjakan **setelah visual disetujui**. Tanpa API key berbayar: musik = MIDI yang ditulis dengan kode lalu dirender fluidsynth + FluidR3_GM (MIT); SFX = disintesis numpy/scipy. Contoh lengkap: `stories/molase/film/score_full.py` dan `fullmix.py`.
+Tanpa API key berbayar: musik = MIDI yang ditulis dengan kode lalu dirender fluidsynth + FluidR3_GM (MIT); SFX = disintesis numpy/scipy. **Kit:** `kit/audio/score_lib.py` (skor), `kit/audio/arsip_audio.py` (±35 SFX + `Mixer` standar), `kit/audio/vo_chain.py`, `kit/audio/check_audio.py`; episode hanya menulis cue (`film/fullmix.py`) dan not (`film/score_full.py`). Contoh lengkap: `stories/scroll/film/`.
 
 ## A. Prioritas (prinsip Murch): VO selalu nomor satu
 **Rantai VO** (file asli tidak diubah):
@@ -28,9 +28,21 @@ Saluran GM yang dipakai: 44 tremolo strings, 61 brass, 47 timpani, 116 taiko, 55
 | Korban | hampir sunyi, lonceng di angka |
 | Penutup | motif polos kembali di atas disonansi, hit terakhir di kata terakhir |
 
-## C. SFX (fungsi di `fullmix.py`)
+## C. SFX (fungsi di `kit/audio/arsip_audio.py`)
 `roar` (gemuruh: noise < 220 Hz + sub), `thud` (slam/stempel besar), `stampS`, `ping` (logam/paku), `crack` (kayu), `whoosh`, `boom` (ledakan), `screech` (logam bengkok), `groan` (tangki berderit), `gloop` (cairan kental), `plink` (tetes), `flip` (halaman), `air` (ambience), `horn` (kapal).
 Setiap kejadian di layar yang punya bunyi diberi SFX pada detik yang sama (ambil waktunya dari `film.js`: awal panel + waktu kejadian di dalam panel).
 
 ## D. Loudness & mux
 `loudnorm=I=-14:TP=-1:LRA=11` → hasil terukur ±−14,5 LUFS, peak −1 dBTP (cek: `ffmpeg -i f.mp4 -af ebur128=peak=true -f null -`). AAC 192 kbps, 48 kHz.
+
+## E. QA audio tanpa telinga (`film/check_audio.py`)
+Claude tidak bisa mendengar, jadi setiap mix dicek dengan alat dan hasilnya dilaporkan apa adanya:
+1. **Kejelasan VO:** Whisper pada mix akhir vs Whisper pada VO saja. Angka harus sama (musik/SFX tidak menutupi kata). #002: 93/102 = 93/102.
+2. **Timing SFX:** onset pada stem SFX dibandingkan dengan daftar cue di `fullmix.py`.
+3. Level pita bicara VO vs latar (dicetak `fullmix.py`) ≥ 10 dB.
+Rasa musik dan karakter SFX tetap dinilai user.
+
+## F. Pelajaran #002
+- Laporan margin per bagian bisa menyembunyikan satu kata yang tertutup: dentuman + denting + hentakan musik tepat di "hilang" = 3 dB. Sejak #002 `Mixer.finish(words=…)` melaporkan setiap kata < 8 dB; targetnya **none**.
+- Bunyi UI (swipe) diletakkan di atas pita bicara (4,2–9,5 kHz); denting koin/kaca dipelankan saat VO bicara; piano tidak ditaruh di atas kata kunci yang diucapkan pelan.
+- "Tanpa suara di sini" pada satu kata = stempel waktu alignment meleset → koreksi `vo_words.json` (caption ikut benar).
