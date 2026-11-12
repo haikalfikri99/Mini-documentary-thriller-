@@ -11,14 +11,15 @@ channel/*.jpg
 channel/*.png
 
 # HyperFrames local artifacts and renders
-stories/*/hf/.hyperframes/
-stories/*/hf/renders/
-stories/*/hf/assets/vo.wav
 stories/*/film/vo_level.wav
-stories/scroll/film/score_full.mid
-stories/scroll/film/score_full.wav
-stories/scroll/film/mix_full.wav
-stories/scroll/film2/assets/mix.wav
-stories/scroll/film2/renders
-stories/scroll/film2/renders_log.txt
-stories/scroll/film2/.hyperframes
+# episode build outputs (re-made by kit/tools/make_film.sh)
+stories/*/film/.hyperframes/
+stories/*/film/renders/
+stories/*/film/assets/mix.wav
+stories/*/film/*.wav
+stories/*/film/*.mid
+stories/*/film/*.npy
+stories/*/film/board/.hyperframes/
+kit/lab/.hyperframes/
+kit/lab/renders/
+__pycache__/
