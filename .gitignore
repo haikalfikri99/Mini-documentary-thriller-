@@ -9,3 +9,9 @@ stories/*/film/*.wav
 stories/*/film/*.mid
 channel/*.jpg
 channel/*.png
+
+# HyperFrames local artifacts and renders
+stories/*/hf/.hyperframes/
+stories/*/hf/renders/
+stories/*/hf/assets/vo.wav
+stories/*/film/vo_level.wav

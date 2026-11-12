@@ -1,0 +1,45 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .hook { position: absolute; left: 0; width: 100%; top: 250px; text-align: center; font-family: Oswald; font-weight: 600; font-size: 104px; line-height: 1.02;
+      color: #f4efe6; -webkit-text-stroke: 18px #1b1422; paint-order: stroke fill; }
+    .hook .hot { color: #7fe3ff; }
+    .stamp { position: absolute; left: 64px; top: 210px; font-family: "Courier Prime"; font-weight: 700; font-size: 46px; color: #f4efe6;
+      background: #b3261e; padding: 8px 22px; transform: rotate(-3deg); }
+    .quote { position: absolute; left: 70px; width: 940px; font-family: Oswald; font-weight: 600; font-size: 82px; line-height: 1.08; text-align: left;
+      -webkit-text-stroke: 16px #1b1422; paint-order: stroke fill; overflow: visible; }
+    .quote .qw { display: inline-block; }
+    .quote .qm { color: #ffb43a; font-size: 150px; line-height: .5; vertical-align: -.25em; margin-right: 8px; }
+    .attrib { position: absolute; left: 74px; top: 178px; font-family: "Courier Prime"; font-weight: 700; font-size: 34px; color: #ffb43a;
+      -webkit-text-stroke: 8px #1b1422; paint-order: stroke fill; }
+  </style>
+  <div id="root" data-composition-id="type" data-width="1080" data-height="1920">
+    <div id="hook" class="clip hook" data-start="0" data-duration="2.95">PEMBUAT FITUR INI<br><span class="hot">MENYESAL</span></div>
+    <div id="st2019" class="clip stamp" data-start="28.3" data-duration="2.0">2019</div>
+    <div id="q1" class="clip quote" data-start="30.290" data-duration="1.830" style="top:240px"><span class="qm">“</span><span id="q1w0" class="qw" style="color:#f4efe6">DENGAN</span> <span id="q1w1" class="qw" style="color:#f4efe6">MENGHAPUS</span> <span id="q1w2" class="qw" style="color:#f4efe6">TANDA</span> <span id="q1w3" class="qw" style="color:#f4efe6">BERHENTI,</span></div>
+    <div id="q2" class="clip quote" data-start="32.120" data-duration="3.540" style="top:240px"><span class="qm">“</span><span id="q2w0" class="qw" style="color:#f4efe6">SAYA</span> <span id="q2w1" class="qw" style="color:#f4efe6">BISA</span> <span id="q2w2" class="qw" style="color:#f4efe6">MEMBUAT</span> <span id="q2w3" class="qw" style="color:#f4efe6">KAMU</span> <span id="q2w4" class="qw" style="color:#f4efe6">MELAKUKAN</span> <span id="q2w5" class="qw" style="color:#f4efe6">APA</span> <span id="q2w6" class="qw" style="color:#f4efe6">YANG</span> <span id="q2w7" class="qw" style="color:#7fe3ff">SAYA</span> <span id="q2w8" class="qw" style="color:#7fe3ff">MAU.</span></div>
+    <div id="attrib" class="clip attrib" data-start="30.3" data-duration="5.34">AZA RASKIN, 2019:</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.to("#hook", { opacity: 0, filter: "blur(8px)", duration: 0.18, ease: "power2.in" }, 2.75);
+    tl.fromTo("#st2019", { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.12, ease: "power4.out" }, 28.3);
+    tl.fromTo("#attrib", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, 30.3);
+        tl.fromTo("#q1w0", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 30.310);
+    tl.fromTo("#q1w1", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 31.030);
+    tl.fromTo("#q1w2", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 31.430);
+    tl.fromTo("#q1w3", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 31.630);
+    tl.to("#q1 .qw, #q1 .qm", {opacity: 0, filter: "blur(6px)", duration: 0.18, ease: "power2.in"}, 31.940);
+    tl.fromTo("#q2w0", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 32.150);
+    tl.fromTo("#q2w1", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 32.910);
+    tl.fromTo("#q2w2", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 33.150);
+    tl.fromTo("#q2w3", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 33.490);
+    tl.fromTo("#q2w4", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 33.870);
+    tl.fromTo("#q2w5", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 34.290);
+    tl.fromTo("#q2w6", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 34.850);
+    tl.fromTo("#q2w7", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 35.050);
+    tl.fromTo("#q2w8", {opacity: 0, filter: "blur(6px)"}, {opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power3.out"}, 35.250);
+    tl.to("#q2 .qw, #q2 .qm", {opacity: 0, filter: "blur(6px)", duration: 0.18, ease: "power2.in"}, 35.480);
+    window.__timelines["type"] = tl;
+  </script>
+</template>
