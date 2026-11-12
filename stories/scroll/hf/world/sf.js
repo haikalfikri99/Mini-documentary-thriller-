@@ -5,7 +5,7 @@ import { g, W, H, INK, push, pop, translate, rotate, scale, shape, fillOnly, str
 import { form, setLight, person, SKIN, EXPR, hand } from '../lib/toon/cast.js';
 import { phone, offscreen, blit, webPage, nextButton, mix, inkForm } from './kit.js';
 import { silhouette } from './noir.js';
-import { gnHead, RASKIN06, RASKIN19, KAMU, finishGN, pool, layer, handAt, SCREEN, AMBER } from './gn.js';
+import { gnHead, RASKIN06, RASKIN19, KAMU, finishGN, pool, layer, handAt, povHand, silHand, SCREEN, AMBER } from './gn.js';
 
 const bg = c => { g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = c; g.fillRect(0, 0, W, H); };
 const grad = (y0, y1, c0, c1) => { g.save(); g.setTransform(1, 0, 0, 1, 0, 0); const gr = g.createLinearGradient(0, y0, 0, y1); gr.addColorStop(0, c0); gr.addColorStop(1, c1); g.fillStyle = gr; g.fillRect(0, y0, W, y1 - y0); g.restore(); };
@@ -20,7 +20,7 @@ export function SF1() {
   }, 4);
   silhouette(330, 960, { s: 1.95, lens: 1, feedOff: 2.3, rim: 1, down: .05 });
   phone(790, 1240, 200, 360, -.42, 2.3, { light: 1 });
-  inkForm(spline([[600, 1500], [700, 1330], [800, 1380], [810, 1480], [700, 1560]]), SCREEN, .5, .2);   // his hand round the phone
+  silHand(790, 1240, 200, 360, -.42, SCREEN, [520, 1960]);
   pool(790, 1200, 560, 'rgb(127,227,255)', .3);
   layer(() => { form(rect(-20, 1640, W + 40, 340), '#4a3a30', { lw: 8, sw: 8, rim: false }); form([[860, 1700], [1100, 1700], [1060, 1520], [900, 1520]], '#e9c98d', { lw: 8, sw: 8 }); }, 12);   // desk and lamp, soft foreground
   finishGN({ vig: .22 });
@@ -59,12 +59,8 @@ export function SF3() {
     form(spline([[600, 1150], [1000, 1120], [1080, 1220], [640, 1260]], true, 10), '#e4ddcf', { lw: 7, sw: 10 });   // guling
   }, 6);
   setLight({ dir: [0, -1], tint: '#5a4436', a: .26, sw: 20, rim: SCREEN, rimA: .7, rw: 9 });
-  phone(540, 1020, 480, 860, .04, 1.4, { light: 1 });
-  const sk = SKIN.tan;
-  for (const [y, l] of [[760, 46], [900, 50], [1040, 48], [1170, 42]]) form(rr(258, y, l + 40, 96, 44), sk[0], { lw: 7, sw: 12 });   // fingertips round the left edge
-  form(spline([[600, 1960], [660, 1600], [820, 1460], [990, 1490], [1080, 1640], [1080, 1960]], true, 10), sk[0], { lw: 8, sw: 22 });   // palm
-  form(noodle([860, 1540], [740, 1330], -30, 124, 100), sk[0], { lw: 8, sw: 16 });   // thumb (shorter, thicker)
-  form(ell(736, 1300, 54, 44), '#e7c39f', { lw: 5, sw: 4, rim: false });
+  phone(540, 1020, 480, 860, 0, 1.4, { light: 1 });
+  povHand(540, 1020, 480, 860, SKIN.tan, .3);
   stroke(spline([[540, 1460], [520, 1700], [300, 1820], [100, 1960]], false, 12), 7, { line: '#e9e6df' });   // charger cable
   pool(540, 1000, 760, 'rgb(127,227,255)', .3);
   finishGN({ vig: .22 });
@@ -77,7 +73,7 @@ export function SHEET() {
   const card = (x, y, w, h, col, fn) => { g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.beginPath(); g.rect(x, y, w, h); g.clip(); g.fillStyle = col; g.fillRect(x, y, w, h); fn(); g.restore(); stroke(rect(x, y, w, h).concat([[x, y]]), 6); };
   card(70, 150, 440, 600, '#e9c98d', () => silhouette(250, 520, { s: .95, lens: 0, rim: .8, col: '#fff3d6' })); lab('RASKIN 2006 · siang, rim hangat', 290, 800, 24);
   card(570, 150, 440, 600, '#5f7fa8', () => silhouette(750, 520, { s: .95, beard: true, lens: 1, rim: 1 })); lab('RASKIN 2019 · rim layar', 790, 800, 24);
-  card(70, 880, 440, 640, '#6a7284', () => { push(); translate(18, 820); scale(.5); phone(540, 1020, 480, 860, .04, 1.4, { light: 1 }); const sk = SKIN.tan; for (const [y, l] of [[760, 46], [900, 50], [1040, 48], [1170, 42]]) form(rr(258, y, l + 40, 96, 44), sk[0], { lw: 7, sw: 12 }); form(noodle([840, 1520], [700, 1240], -40, 118, 92), sk[0], { lw: 8, sw: 16 }); pop(); }); lab('KAMU · tangan POV', 290, 1570, 24);
+  card(70, 880, 440, 640, '#6a7284', () => { push(); translate(18, 820); scale(.5); phone(540, 1020, 480, 860, 0, 1.4, { light: 1 }); povHand(540, 1020, 480, 860, SKIN.tan, .3); pop(); }); lab('KAMU · tangan POV', 290, 1570, 24);
   const sw = [['#7fe3ff', 'LAYAR · ancaman'], ['#ffb43a', 'AMBER · rem'], ['#eadfc8', '2006 · kertas'], ['#6a7284', 'KINI · malam']];
   sw.forEach(([c, t], i) => { fillOnly(rect(600, 900 + i * 150, 110, 110), c, { boil: .2 }); stroke(rect(600, 900 + i * 150, 110, 110).concat([[600, 900 + i * 150]]), 5); lab(t, 850, 965 + i * 150, 26); });
   lab('ARSIP KASUS #002 · CAST & PALET', 540, 1700);

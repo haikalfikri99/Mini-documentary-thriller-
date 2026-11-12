@@ -18,7 +18,7 @@
   "snapshots": {
     "latest": {
       "revision": null,
-      "id": "69528da8-92db-4c91-b0d6-4f41e99f70d4-4"
+      "id": "c2061243-131a-4aee-8c63-fc9ef73f65e8-4"
     },
     "revisions": {},
     "unversioned": [
@@ -497,6 +497,226 @@
         },
         "createdAt": 1794451793219,
         "contentHash": "d4b15b20b7e311690861fc46a7d8dc3a29d756e5c0714e36565e1f7f78f1027b",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "06394138-b04e-4feb-96bb-61789e886388-0",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/bc1fe41d-38e4-4183-a604-9bf7102cd28e/frame-00-at-0.5s.png",
+        "time": 0.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452145269,
+        "contentHash": "f8910616043a6f0ee77d06e66dc2969ac9281e32af6abe792ecf58458f8b3388",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "06394138-b04e-4feb-96bb-61789e886388-1",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/bc1fe41d-38e4-4183-a604-9bf7102cd28e/frame-01-at-2.5s.png",
+        "time": 2.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452145270,
+        "contentHash": "154262f45af69fc3f4836777e9f08a4c06e9a8d9deb24e8fcc8259b87395591c",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "06394138-b04e-4feb-96bb-61789e886388-2",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/bc1fe41d-38e4-4183-a604-9bf7102cd28e/frame-02-at-3.5s.png",
+        "time": 3.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452145270,
+        "contentHash": "b49c2a1063226857c740e4019f57ee3ccf337b5e4fa214d81e87ed293a218dd6",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "06394138-b04e-4feb-96bb-61789e886388-3",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/bc1fe41d-38e4-4183-a604-9bf7102cd28e/frame-03-at-3.88s.png",
+        "time": 3.88,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452145270,
+        "contentHash": "16322f7dd93ea37d2ed833f3883e9bbeb38c5e61c8b50ced440de548cf7b8f8e",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "0e7ef154-c489-46c3-a943-1f5f3fbd6dd8-0",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/fd83801a-394c-445f-87a4-cf05882cc1e8/frame-00-at-0.5s.png",
+        "time": 0.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452166672,
+        "contentHash": "cda0feee603ec05f484a5fd0d14da0f91bfed86d8d56f58d1551b35c07d17777",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "0e7ef154-c489-46c3-a943-1f5f3fbd6dd8-1",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/fd83801a-394c-445f-87a4-cf05882cc1e8/frame-01-at-3.88s.png",
+        "time": 3.88,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452166673,
+        "contentHash": "f4f7795b817dad01b95dc359126aa868e19f14709838e313b3424a3d730a68af",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "c2061243-131a-4aee-8c63-fc9ef73f65e8-0",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/51d38854-1876-4066-80cc-7bd3b3f16e39/frame-00-at-0.5s.png",
+        "time": 0.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452182654,
+        "contentHash": "cda0feee603ec05f484a5fd0d14da0f91bfed86d8d56f58d1551b35c07d17777",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "c2061243-131a-4aee-8c63-fc9ef73f65e8-1",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/51d38854-1876-4066-80cc-7bd3b3f16e39/frame-01-at-1.5s.png",
+        "time": 1.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452182654,
+        "contentHash": "e4960ceff7a081250b322072b61ecbe15a83c004c9474dfadd5e3db1c7f490c5",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "c2061243-131a-4aee-8c63-fc9ef73f65e8-2",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/51d38854-1876-4066-80cc-7bd3b3f16e39/frame-02-at-2.5s.png",
+        "time": 2.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452182654,
+        "contentHash": "a03f3396e90033eed0d47d8d4f975f84504eb56484f5d307541c71bf0516e3ee",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "c2061243-131a-4aee-8c63-fc9ef73f65e8-3",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/51d38854-1876-4066-80cc-7bd3b3f16e39/frame-03-at-3.5s.png",
+        "time": 3.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452182654,
+        "contentHash": "b49c2a1063226857c740e4019f57ee3ccf337b5e4fa214d81e87ed293a218dd6",
+        "revision": null,
+        "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "c2061243-131a-4aee-8c63-fc9ef73f65e8-4",
+        "image": "/home/user/Mini-documentary-thriller-/stories/scroll/frames/.hyperframes/artifacts/snapshots/51d38854-1876-4066-80cc-7bd3b3f16e39/frame-04-at-3.88s.png",
+        "time": 3.88,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794452182654,
+        "contentHash": "16322f7dd93ea37d2ed833f3883e9bbeb38c5e61c8b50ced440de548cf7b8f8e",
         "revision": null,
         "inputFingerprint": "415ccd4b1f47009d070e4b60245e2d529b46b9be7801cabdd3bfd6d06fcf4cd6",
         "inputScope": "local-project-files",

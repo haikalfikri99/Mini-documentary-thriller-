@@ -78,3 +78,38 @@ export function layer(fn, blur = 0, a = 1) {
 export function finishGN({ cool = '#2f3c55', warm = '#ffd9a0', a = .1, vig = .22, p = .3 } = {}) { paint(p); grade2(cool, warm, a); grain(.045); vignette(vig); }
 // soft pool of light (additive, for lamps and screens)
 export function pool(x, y, r, col, a = .35, op = 'screen') { g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalCompositeOperation = op; const gr = g.createRadialGradient(x, y, 6, x, y, r); gr.addColorStop(0, col.replace(')', `,${a})`).replace('rgb', 'rgba')); gr.addColorStop(1, col.replace(')', ',0)').replace('rgb', 'rgba')); g.fillStyle = gr; g.fillRect(0, 0, W, H); g.restore(); }
+
+// —— hands holding a phone (phone centre cx, cy, screen w × h, upright) ——
+// POV, right hand, palm up: the phone's lower-right corner sits in the palm, four fingertips wrap the left edge
+// (pads toward us, decreasing to the pinky), the thumb lies across the glass; t moves the thumb (0 rest → 1 swiped up)
+export function povHand(cx, cy, w, h, skin, t = 0) {
+  const L = cx - w / 2, R = cx + w / 2, B = cy + h / 2, sk = skin[0], sd = skin[1];
+  // fingertips round the left edge (they come from behind the phone)
+  [[.18, 1.0], [.38, 1.06], [.58, 1.0], [.76, .86]].forEach(([fy, k], i) => {
+    const y = cy - h / 2 + h * fy, len = 92 * k, th = 64 * k;
+    push(); translate(L + 8, y); rotate(-.18 + i * .05);
+    form(spline([[-len * .55, -th * .5], [len * .2, -th * .55], [len * .5, -th * .2], [len * .5, th * .25], [len * .2, th * .55], [-len * .55, th * .5]], true, 8), sk, { lw: 7, sw: 10 });
+    stroke([[-len * .25, -th * .38], [-len * .25, th * .38]], 3.5, { line: sd });   // knuckle crease
+    pop();
+  });
+  // palm and wrist from the bottom-right, cradling the phone's corner
+  form(spline([[R - 250, 1960], [R - 300, B + 40], [R - 180, B - 70], [R - 40, B - 150], [R + 90, B - 60], [R + 160, B + 160], [R + 190, 1960]], true, 10), sk, { lw: 8, sw: 22 });
+  stroke(spline([[R - 160, B + 120], [R - 40, B + 40], [R + 60, B + 60]], false, 8), 4, { line: sd });   // palm crease
+  // thumb: thick at the base (thenar), tapering, lying on the glass; the tip slides up as you swipe
+  const base = [R - 30, B - 120], tip = [lerp(R - 210, R - 230, t), lerp(B - 330, B - 520, t)];
+  const ang = Math.atan2(tip[1] - base[1], tip[0] - base[0]), nx = -Math.sin(ang), ny = Math.cos(ang), wb = 66, wt = 44;
+  form(spline([[base[0] + nx * wb, base[1] + ny * wb], [lerp(base[0], tip[0], .55) + nx * (wt + 8), lerp(base[1], tip[1], .55) + ny * (wt + 8)], [tip[0] + nx * wt * .9, tip[1] + ny * wt * .9], [tip[0] + Math.cos(ang) * wt * 1.05, tip[1] + Math.sin(ang) * wt * 1.05], [tip[0] - nx * wt * .9, tip[1] - ny * wt * .9], [lerp(base[0], tip[0], .55) - nx * wt, lerp(base[1], tip[1], .55) - ny * wt], [base[0] - nx * wb * .8, base[1] - ny * wb * .8]], true, 8), sk, { lw: 7, sw: 12 });
+  push(); translate(tip[0] - Math.cos(ang) * 8, tip[1] - Math.sin(ang) * 8); rotate(ang); form(rr(-30, -22, 52, 44, 18), '#f0d3b8', { lw: 4, sw: 3, rim: false }); pop();   // nail (the thumb's back faces us)
+  stroke([[lerp(base[0], tip[0], .45) + nx * 26, lerp(base[1], tip[1], .45) + ny * 26], [lerp(base[0], tip[0], .45) - nx * 26, lerp(base[1], tip[1], .45) - ny * 26]], 3.5, { line: sd });   // joint crease
+}
+// silhouette hand holding a phone in profile (phone already drawn, rotated by rot around px, py; size w × h)
+export function silHand(px, py, w, h, rot, col = SCREEN, arm = null) {
+  const ink = (pts, a = .5) => { const P = shape(spline(pts, true, 8), { fill: '#07080b', lw: 0, line: null, boil: .4 }); g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = a; g.strokeStyle = col; g.lineWidth = 3.5; g.stroke(P); g.restore(); };
+  // forearm from below the frame (the elbow) up to the wrist, in screen space
+  if (arm) ink([[arm[0] - 70, arm[1]], [px - 120, py + h * .5 + 40], [px - 30, py + h * .5 + 70], [arm[0] + 70, arm[1]]], .35);
+  push(); translate(px, py); rotate(rot);
+  ink([[-w * .45, h * .5 - 10], [w * .5, h * .5 - 30], [w * .55, h * .5 + 30], [w * .1, h * .5 + 90], [-w * .55, h * .5 + 70]], .4);   // palm under the phone
+  [[.62, 1], [.74, .95], [.86, .85]].forEach(([fy, k]) => { const y = -h / 2 + h * fy; ink([[w / 2 - 8, y - 15 * k], [w / 2 + 26 * k, y - 13 * k], [w / 2 + 32 * k, y + 3], [w / 2 + 22 * k, y + 16 * k], [w / 2 - 8, y + 15 * k]], .45); });   // fingertips over the far edge
+  ink([[-w * .52, h * .5 - 40], [-w * .3, h * .5 - 110], [-w * .12, h * .5 - 150], [-w * .02, h * .5 - 130], [-w * .2, h * .5 - 70], [-w * .38, h * .5 - 10]], .85);   // thumb resting on the lower glass
+  pop();
+}

@@ -98,7 +98,9 @@ export function silhouette(x, y, o = {}) {
   const s = o.s ?? 1, down = o.down ?? 0, col = o.col || '#7fe3ff', rim = o.rim ?? 1;
   push(); translate(x, y); scale(s);
   // shoulders and back of the head: one ink mass
-  shape(spline(BACK, false, 10).concat([[-150, 40], [-170, -40]]), { fill: '#07080b', lw: 0, line: null, boil: .4 });
+  const body = spline([[-70, 120], [-80, 230], [-200, 262], [-330, 320], [-400, 470], [-420, 900], [430, 900], [420, 480], [360, 330], [220, 262], [96, 232], [62, 150], [20, 120]], true, 10);
+  shape(body, { fill: '#07080b', lw: 0, line: null, boil: .4 });
+  if (rim > 0) stroke(spline([[62, 150], [96, 232], [220, 262], [330, 312]], false, 8), 5, { line: col, alpha: .55 * rim, boil: .4 });   // light along the throat and shoulder
   push(); translate(0, 150); rotate(.35 * down); translate(0, -150);   // the head pivots on the neck when he lowers it
   const prof = o.beard ? PROFILE.slice(0, 15).concat([[128, 96], [130, 128], [112, 166], [64, 186], [0, 178]]) : PROFILE;
   const head = spline(prof.concat([[-60, 160], [-150, 40], [-170, -40]]), true, 10);
