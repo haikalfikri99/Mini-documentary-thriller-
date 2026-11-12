@@ -79,6 +79,12 @@
       "skillPath": "ui-design/skills/illustration-style/SKILL.md",
       "computedHash": "397d27de067f053ab8fef804eb4881c65fdec9234b6ed401adb55e71c9579861"
     },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/impeccable/SKILL.md",
+      "computedHash": "86e265bf3df79c65215f7244d71892ca278370d56dec47a8cc15e8373db3f714"
+    },
     "kinetic-typography": {
       "source": "iart-ai/kinetic-typography-skills",
       "sourceType": "github",
