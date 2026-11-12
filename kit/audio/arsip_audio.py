@@ -99,8 +99,13 @@ class Mixer:
                 if 20 * np.log10(v + 1e-9) < -50: bad.append(f'{wd}@{t0:.2f} (no voice here: check alignment)')
                 elif m < 8: bad.append(f'{wd}@{t0:.2f} {m:.1f} dB')
             print('words under 8 dB:', ', '.join(bad) if bad else 'none')
+            self.failed = bool(bad)
+        self.failed = getattr(self, 'failed', False) or (bool(report) and worst < 10)
         L += VO; R += VO
         tt = np.arange(N) / SR; fade = np.minimum(1, np.minimum(tt / .02, (self.dur - tt) / .05)); L *= fade; R *= fade
         mx = np.stack([L, R], 1); mx /= max(1, np.abs(mx).max() / .95)
         with wave.open(out, 'wb') as w: w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes((mx * 32767).astype('<i2').tobytes())
         print(out, 'ok')
+        if self.failed:
+            print('AUDIO QA GAGAL: perbaiki cue/level sebelum render (margin bagian < 10 dB atau ada kata < 8 dB)')
+            raise SystemExit(2)
