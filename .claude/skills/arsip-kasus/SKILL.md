@@ -25,8 +25,8 @@ Gaya visual, karakter, kartu arsip, caption, audio, dan pipeline **tidak didesai
 | 3 | Prompt ElevenLabs bertag + target durasi → VO (`audio/vo_<slug>.mp3`) | `audio/vo_prompt_elevenlabs.md` | `1-cerita…` §F5 |
 | 4 | `kit/tools/new_episode.sh <slug> <no> <durasi>` → alignment kata (perintah di bawah) → koreksi → `audio/vo_words.json`; isi `film/episode.json` | timestamp kata | — |
 | 5 | **Storyboard artifact**: bangun semua shot di `film/shots.js` dengan kit, render keyframe (`film/board/`), publikasikan kartu per shot; user berkomentar di artifact → revisi ✋ | artifact | `2-visual…` §F |
-| 6 | Animasi + skor + SFX: `film.js` (timing, kamera), `score_full.py`, `fullmix.py`; `kit/tools/make_film.sh stories/<slug>/film 1` | `renders/ARSIP_<no>_<slug>_v1.mp4` | `2-visual…`, `3-audio` |
-| 7 | QA sebelum kirim: contact sheet per detik, rubrik `4-standar` ≥ 9, laporan audio (margin per bagian ≥ 10 dB, **kata < 8 dB = none**, Whisper mix = Whisper VO) → kirim film ✋ | | `4-standar…` |
+| 6 | Animasi (`film.js`, timing, kamera) + skor (`score_full.py`) + SFX (`fullmix.py`) | | `2-visual…`, `3-audio` |
+| 7 | `kit/tools/make_film.sh stories/<slug>/film 1`: **audio QA dulu sebagai gerbang** (margin per bagian ≥ 10 dB, kata < 8 dB = none, Whisper mix = Whisper VO); gagal → render dibatalkan, perbaiki cue; lulus → render + mux −14 LUFS. Lalu contact sheet per detik + rubrik `4-standar` ≥ 9 → kirim film ✋ | `renders/ARSIP_<no>_<slug>_v1.mp4` | `3-audio`, `4-standar…` |
 | 8 | Revisi dari review → **tulis pelajarannya** di `6-pelajaran.md` dan pindahkan aset/set baru ke `kit/` | | `6-pelajaran.md` |
 | 9 | Thumbnail, judul, deskripsi, hashtag; master ke Drive (user unggah video manual) | | `5-upload…` |
 | 10 | 7 hari setelah tayang: data Studio ke tabel `6-pelajaran.md`; satu hipotesis per video | | `1-cerita…` §L |
