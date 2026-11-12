@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<style>@font-face{font-family:"Oswald";src:url("../../../stories/scroll/film/assets/fonts/Oswald.woff2") format("woff2");font-weight:600}</style></head>
+<body><canvas id="gl" width="1080" height="1920" style="display:none"></canvas><canvas id="out" width="1080" height="1920"></canvas>
+<script type="module">
+import { createSpike, render2D } from './spike.js';
+const out = document.getElementById('out'), spike = createSpike(document.getElementById('gl'));
+window.renderFrame = (mode, u, t) => { mode === '3d' ? spike.frame(u, t, out) : render2D(u, t, out); return out.toDataURL('image/png'); };
+window.ready = document.fonts.load('600 40px Oswald').then(() => true);
+</script></body></html>

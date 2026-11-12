@@ -13,6 +13,8 @@ QA=$(python3 "$ROOT/kit/audio/check_audio.py" "$FILM" mix_full.wav 2>/dev/null |
 echo "mix: $QA"; echo "VO : $BASE"
 [ "${QA%%/*}" = "${BASE%%/*}" ] || { echo "→ render dibatalkan: mix menutupi kata yang terbaca di VO saja"; exit 2; }
 cp "$FILM/mix_full.wav" "$FILM/assets/mix.wav"
+# 3D episodes: beats come from the spoken words (film/words.js) and the world must pass the 3D QA gate (deterministic frames, no errors)
+if [ -f "$FILM/world.js" ]; then python3 -c "import json;print('export default '+json.dumps(json.load(open('$FILM/'+json.load(open('$FILM/episode.json'))['words'])),ensure_ascii=False)+';')" > "$FILM/words.js"; node "$ROOT/kit/tools/qa_3d.mjs" "$FILM" || { echo "→ render dibatalkan: QA 3D gagal"; exit 2; }; fi
 (cd "$FILM" && DO_NOT_TRACK=1 npx hyperframes check | tail -1 && DO_NOT_TRACK=1 npx hyperframes render -o renders/visual.mp4 > renders/render.log 2>&1 && tail -1 renders/render.log)
 OUT="$FILM/../renders/ARSIP_${NO}_${SLUG}_v${V}.mp4"; mkdir -p "$(dirname "$OUT")"
 ffmpeg -v error -y -i "$FILM/renders/visual.mp4" -i "$FILM/mix_full.wav" -map 0:v -map 1:a -c:v copy -af "loudnorm=I=-14:TP=-1:LRA=11" -ar 48000 -c:a aac -b:a 192k -shortest "$OUT"

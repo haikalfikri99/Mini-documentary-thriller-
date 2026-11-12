@@ -17,11 +17,15 @@ Semua video baru dibuat dari kit ini. Gaya visual, karakter, kartu arsip, captio
 | `tools/new_episode.sh` | buat episode baru dari `template/` |
 | `tools/make_film.sh` | satu perintah: VO → caption → skor → mix → check → render → mux −14 LUFS → QA |
 | `template/film/` | kerangka episode (index, film.js, shots.js contoh, episode.json, score, mix) |
+| `src/diorama-kit.js` `cam3d.js` `rooms3d.js` `acting.js` `evidence.js` `vo-sync.js` | **DUNIA 3D (standar sejak #003)**: diorama cutaway, karakter ARSIP RIG sebagai billboard, satu kamera kontinu, kamar siap pakai, akting, lapisan bukti, beat dari kata VO. Panduan: `HYBRID3D.md` |
+| `tools/qa_3d.mjs` `preview_3d.mjs` | gerbang QA 3D (deterministik, tanpa error, kontak sheet) dan pratinjau cepat tanpa HyperFrames/audio |
+| `template/film3d/` | kerangka episode 3D (`world.js` = tempat mengisi ruang, aktor, bukti, kamera) |
 | `lab/` + `renders/` | lembar acuan semua aset (model sheet, 26 ekspresi, 15 rambut, wajah/kepala/aksesori, wardrobe, 24 preset, tangan, uji gerak) |
 
 ## Alur episode baru
 ```bash
-kit/tools/new_episode.sh <slug> <no> <durasi_vo_detik>      # stories/<slug>/ siap
+kit/tools/setup_env.sh                                      # sekali per container/sesi baru (dependensi Python + fluidsynth + Whisper)
+kit/tools/new_episode.sh <slug> <no> <durasi_vo_detik>      # stories/<slug>/ siap — dunia 3D (default); tambah --2d untuk flat lama
 # taruh VO: stories/<slug>/audio/vo_<slug>.mp3 → alignment kata → audio/vo_words.json (SKILL.md langkah 4)
 # bangun shot di film/shots.js (rig + sets-lib + arsip-card), timing di film/film.js, cue di fullmix.py, musik di score_full.py
 kit/tools/make_film.sh stories/<slug>/film 1                   # → stories/<slug>/renders/ARSIP_<no>_<slug>_v1.mp4
