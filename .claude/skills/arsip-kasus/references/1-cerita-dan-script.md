@@ -108,6 +108,9 @@ Untuk Shorts yang lebih pendek/panjang, skalakan babak 3–5; babak 1–2 tetap 
 - **Pass `humanizer` wajib:** buang "bukan X tapi Y", penutup fragmen dramatis yang hanya mengulang, triad paksa, kata megah. Lalu **baca keras** dan ukur: ±2,4 kata/dtk; wilayah 2 target 90–125 kata (≈ 40–52 dtk).
 - **Tiga track** (`short-form-video-script`): VO, teks layar, visual; tulis versi tanpa suara dulu (mayoritas menonton tanpa suara, menurut data industri yang perlu dicek berkala).
 
+### Pola naskah pemenang (transkrip vidIQ, Nov 2026)
+"Why You Can't Stop Scrolling: The Skinner Box Explained" 26,7 jt views: 42 dtk, ±85 kata, satu cerita tanpa nama, kalimat pendek, ditutup pertanyaan pribadi. Pelajaran: (1) bercerita > daftar kutipan; (2) kejutan hook jatuh ≤ 3 dtk; (3) pertanyaan eksplisit setelah hook (= judul); (4) buat mekanismenya terjadi di tangan penonton saat itu juga (Shorts = gestur geser); (5) bukti/kutipan sebagai konfirmasi setelah penonton paham, bukan sebelumnya. Sebelum menulis, ambil transkrip 2–3 outlier topik yang sama lewat vidIQ dan ukur kata/dtk.
+
 ## I. Durasi
 Shorts boleh sampai 3 menit, tapi tentukan **gagasan dulu, lalu durasi terpendek yang lengkap**. Patokan channel: 45–75 dtk (film #001: 61 dtk). Untuk wilayah 2 (sistem/psikologi), uji juga versi 25–40 dtk. Ukur hasilnya; jangan menganggap satu durasi selalu benar.
 

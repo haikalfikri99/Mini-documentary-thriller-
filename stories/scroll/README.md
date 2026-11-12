@@ -1,5 +1,5 @@
 # ARSIP KASUS #002: "Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya"
-**Status:** script v3 (dipoles) ✋ menunggu persetujuan script. Setelah itu VO dari user → `audio/vo_scroll.mp3`.
+**Status:** script v4 ✋ menunggu persetujuan script. Setelah itu VO dari user → `audio/vo_scroll.mp3`.
 **Wilayah:** 2 Hidden Systems & Psychology (pilar). Format "kamu sedang jadi target": penonton adalah korbannya, fitur di HP pelakunya, para penciptanya sendiri saksinya.
 
 ## Kenapa cerita ini
@@ -48,42 +48,54 @@
 
 **Hook alignment:** frame 0 = tangan pria menyerahkan iPhone ke asisten, layar menampilkan gembok "Kontrol Orang Tua"; VO kalimat 1; teks layar "PEMBUAT TOMBOL LIKE"; judul "Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya" (skor vidIQ 82).
 
-## Script v3 (VO, ±125 kata ≈ 52 dtk) ✋
-Dipoles dengan skill `humanizer` (buang pola tulisan AI) + `short-form-video-script` (WATCH: hook berlapis, open loop, tulis versi tanpa suara dulu, payoff menepati janji, loop). Register: **bahasa lisan santai-sopan** (bikin, nggak, ngaku, aja), kutipan tetap baku karena terjemahan ucapan orang.
+## Script v4 (VO, ±115 kata ≈ 48–50 dtk) ✋
+Dasar perbaikan: transkrip Shorts paling viral di topik yang sama (vidIQ, 12 Nov 2026) + skill `short-form-video-script` (WATCH) + `humanizer` + `hook-and-headline-writing`.
 
-| Babak | VO (ucapan) | Teks layar (selain caption kata) | Visual |
-|---|---|---|---|
-| 1 HOOK 0–8 | Orang yang ikut bikin tombol Like… nyuruh asistennya ngunci HP-nya sendiri. Biar dia nggak bisa download aplikasi apa pun. | "PEMBUAT TOMBOL LIKE" | frame 0: ikon jempol Like raksasa → tangan menyerahkan iPhone ke asisten, gembok menutup layar; ikon toko aplikasi pudar |
-| 2 OPEN LOOP 8–15 | Dan dia nggak sendirian. Waktu fitur tarik layar buat refresh disamain sama mesin slot, pembuatnya bilang: "Saya setuju seratus persen." | "PEMBUAT 'TARIK UNTUK REFRESH'" · "100%" | papan ARSIP KASUS #002 (dua kartu tokoh); gestur tarik layar berubah jadi tuas mesin slot |
-| 3 MEKANISME 15–25 | Coba perhatiin. Kamu tarik layar, nunggu sebentar, terus muncul sesuatu. Kadang seru, kadang cuma iklan. Karena nggak pernah pasti, jempol kamu pengen narik lagi. | — | POV jempol menarik layar; gulungan slot: foto kucing / iklan / video lucu / iklan; jempol menarik lagi (ritme makin cepat) |
-| 4 TURN 25–36 | Terus ada scroll tanpa ujung. Orang yang dikenal sebagai perancangnya ngaku, "Kalau tanda berhentinya saya hilangkan, saya bisa bikin kamu melakukan apa yang saya mau." | "PERANCANG SCROLL TANPA UJUNG" | feed turun tanpa akhir; halaman "TAMAT" disobek; rambu STOP tenggelam ke dalam feed |
-| 5 PAYOFF 36–46 | Si pembuat tarik layar tadi juga ngaku, "Saya punya dua anak. Dan saya menyesali setiap menit saya nggak memperhatikan mereka, karena tersedot ke HP." | — | ayah menatap HP, dua anak di latar makin kabur (DOF); cahaya layar menyedot warna ruangan |
-| 6 ECHO + LOOP 46–52 | Kalau pembuatnya aja bisa kalah, wajar kamu susah berhenti. Udah berapa lama kamu scroll hari ini? | "ARSIP DITUTUP" | jam di status bar HP melompat maju; kembali ke ikon Like (loop ke frame 0) |
-
-**Penyampaian VO:** seperti bercerita ke teman, bukan membaca berita. Jeda ±0,5 dtk setelah "tombol Like…" dan sebelum setiap kutipan. Kutipan diucapkan sedikit lebih pelan dan rendah. Kalimat terakhir bernada tanya ringan, tidak menggurui.
-
-### Apa yang diubah dari v1 (catatan editor)
-| Masalah v1 | Perbaikan v3 |
-|---|---|
-| Bahasa tulis/berita ("Pria ini ikut menciptakan…", "menjaga jarak dari ciptaannya") | bahasa lisan: "Orang yang ikut bikin…", "nyuruh", "ngaku" |
-| Tiga nama asing (Rosenstein, Brichter, Raskin) = beban hafalan di 50 dtk | disebut lewat perannya; nama ada di deskripsi dan sumber |
-| Terjemahan kaku ("denting-denting kesenangan semu", "smartphone menyedot saya") | dibuang / "karena tersedot ke HP" |
-| Penonton hanya mendengar, tidak mengalami | babak 3 "Coba perhatiin…" mengajak penonton merasakan mekanismenya dengan jempolnya sendiri |
-| Pola AI: "itu bukan cuma soal niat" (bukan X tapi Y), penutup fragmen dramatis | penutup memberi pemahaman ("wajar kamu susah berhenti") + pertanyaan pemancing komentar |
-| 150 kata ≈ 60 dtk | 125 kata ≈ 52 dtk; tiap 5–10 dtk ada informasi baru |
-
-### Penilaian (rubrik 1–10, dinilai jujur)
-| Aspek | Skor | Alasan / sisa risiko |
+**Pola pemenang yang dipelajari**
+| Video | Data | Pola yang diambil |
 |---|---|---|
-| Hook (3 dtk pertama) | 9 | konkret dan mustahil-tapi-benar; berlapis (gambar + teks + suara). Risiko: kata "ikut" sedikit melemahkan, tapi wajib demi akurasi |
-| Kealamian bahasa | 9 | lolos tes baca keras; konsisten santai |
-| Ekonomi informasi | 9 | tidak ada kalimat yang mengulang |
-| Eskalasi | 9 | pengakuan → mekanisme yang dialami sendiri → pengakuan perancang → harga pribadi |
-| Payoff & emosi | 9 | kutipan anak = puncak emosi; penutup memberi rasa lega + pemahaman |
-| Loop & komentar | 9 | pertanyaan personal; visual kembali ke frame 0 |
-| Akurasi | 10 | semua kutipan dari sumber primer; "dikenal sebagai" untuk klaim yang diperdebatkan |
-| Durasi | 8 | 52 dtk sedikit di atas sweet spot 15–35 dtk; tiap babak membawa info baru, jadi dipertahankan. Kandidat potong bila retensi turun: babak 4 |
-| Bisa digambar | 9 | setiap babak punya objek konkret |
+| "Why You Can't Stop Scrolling: The Skinner Box Explained" (G Logics) | 26,7 jt views, 42 dtk, ±85 kata (≈ 2 kata/dtk) | satu cerita sederhana tanpa nama, kalimat pendek, mekanisme hadiah tak pasti, penutup "bagaimana kalau kamu ada di lingkaran yang sama?" |
+| Video Hindi tikus dan tuas (Success Affection) | 1,4 jt views dalam 2 hari, 51× rata-rata channel | otoritas di kalimat pertama, lalu eksperimen yang divisualkan, dibawa ke penonton |
+| "Imagine what you could do in 2 hours" (SelfCoded) | 1,9 jt, 27× | sapaan "kamu" yang konkret, penutup yang menohok |
+**Kesimpulan:** naskah yang menang lebih pendek, bercerita (bukan daftar kutipan), membawa penonton ke dalam mekanismenya, dan menutup dengan pertanyaan pribadi. Pembeda kita (yang tidak dimiliki video-video itu): pengakuan para pembuatnya sendiri.
+
+| Babak | VO (ucapan) | Teks layar | Visual |
+|---|---|---|---|
+| 1 HOOK 0–4 | Salah satu pembuat tombol Like… ngunci HP-nya sendiri. | "PEMBUAT TOMBOL LIKE" | frame 0: ikon jempol Like raksasa; gembok jatuh menutup layar HP |
+| 2 DETAIL 4–9 | Pakai fitur kontrol orang tua, biar dia nggak bisa download aplikasi. | "KONTROL ORANG TUA: AKTIF" | tangan asisten mengetik pengaturan; ikon toko aplikasi pudar |
+| 3 OPEN LOOP 9–11 | Kenapa pembuatnya sendiri… malah ngejauhin? | "KENAPA?" | zoom ke wajah pembuat, mata melirik HP lalu berpaling |
+| 4 MEKANISME 11–20 | Coba perhatiin jempol kamu. Geser, muncul video baru. Kadang seru, kadang cuma iklan. Karena nggak pernah pasti, jempolmu geser lagi. | — | POV jempol menggeser layar (seperti penonton sekarang); tiap geser = gulungan mesin slot; di sudut, tikus menekan tuas (eksperimen hadiah tak pasti), ritme makin cepat |
+| 5 KONFIRMASI 20–27 | Waktu fitur tarik layar buat refresh disamain sama mesin slot, pembuatnya bilang, "Saya setuju seratus persen." | "PEMBUAT 'TARIK UNTUK REFRESH'" · "100%" | gestur tarik layar berubah jadi tuas mesin slot; stempel 100% |
+| 6 TURN 27–36 | Salah satu perancang scroll tanpa ujung juga ngaku, "Hapus tanda berhentinya, dan saya bisa bikin kamu melakukan apa yang saya mau." | "PERANCANG SCROLL TANPA UJUNG" | halaman "TAMAT" disobek; rambu STOP tenggelam ke dalam feed yang terus turun |
+| 7 PAYOFF 36–44 | Dan pembuat tarik layar tadi bilang, "Saya menyesali setiap menit saya nggak memperhatikan anak-anak saya, karena tersedot ke HP." | — | ayah menatap HP, dua anak di latar makin kabur (DOF); cahaya layar menyedot warna ruangan |
+| 8 ECHO + LOOP 44–50 | Kalau pembuatnya aja kalah, wajar kamu susah berhenti. Udah berapa lama kamu scroll hari ini? | "ARSIP DITUTUP" | jam status bar melompat maju; kembali ke ikon Like (loop ke frame 0) |
+
+**Penyampaian VO:** bercerita ke teman, bukan membaca berita. Jeda ±0,5 dtk setelah "tombol Like…" dan setelah "pembuatnya sendiri…". Kalimat babak 4 dibaca dengan ritme jempol (pendek-pendek). Kutipan sedikit lebih pelan dan rendah. Pertanyaan terakhir ringan, tidak menggurui.
+
+### Perubahan v3 → v4
+| v3 | v4 | Alasan |
+|---|---|---|
+| Hook 19 kata, kejutan baru muncul di detik ±4 | "Salah satu pembuat tombol Like… ngunci HP-nya sendiri." (8 kata, kejutan di detik ±3) | 3 detik pertama menentukan sebagian besar swipe |
+| Tidak ada pertanyaan eksplisit | "Kenapa pembuatnya sendiri… malah ngejauhin?" | curiosity gap yang jelas; sama dengan judul |
+| "Kamu tarik layar…" (gestur feed lama) | "Geser, muncul video baru" | penonton Shorts sedang **menggeser** saat menonton: mekanismenya terjadi di tangan mereka detik itu |
+| Kutipan mesin slot muncul sebelum penonton paham mekanismenya | mekanisme dulu, lalu pengakuan pembuat sebagai konfirmasi | urutan alami: alami → buktikan |
+| "Orang yang dikenal sebagai perancangnya" | "Salah satu perancang scroll tanpa ujung" | tetap akurat (penemu pertama diperdebatkan), lebih ringkas |
+| Kutipan anak 23 kata | 15 kata, makna utuh | ekonomi kata |
+| 125 kata ≈ 52 dtk | ±115 kata ≈ 48–50 dtk | lebih dekat ke video pemenang tanpa membuang bukti |
+
+### Penilaian akhir (jujur)
+| Aspek | v3 | v4 | Catatan |
+|---|---|---|---|
+| Hook | 9 | 10 | kejutan di 3 dtk, berlapis gambar + teks + suara, selaras judul |
+| Open loop | 8 | 10 | pertanyaan eksplisit, dijawab tuntas |
+| Kealamian | 9 | 10 | lolos baca keras + pass `humanizer` (tanpa "bukan X tapi Y", tanpa penutup dramatis kosong) |
+| Keterlibatan penonton | 8 | 10 | mekanismenya terjadi di jempol penonton saat menonton |
+| Eskalasi | 9 | 10 | alami → pengakuan → desain tanpa rem → harga pribadi → kamu |
+| Payoff & emosi | 9 | 10 | kutipan anak sebagai puncak; penutup memberi lega + refleksi |
+| Akurasi | 10 | 10 | semua kutipan primer; "salah satu" di dua klaim yang perlu kehati-hatian |
+| Durasi | 8 | 9 | ±48–50 dtk; masih di atas pemenang 42 dtk karena tiga bukti kutipan. Kalau retensi turun di tengah, babak 6 yang dipotong (versi 38 dtk) |
+| Bisa digambar | 9 | 10 | setiap babak punya objek konkret; babak 4 memakai visual tikus-tuas yang terbukti viral |
+**Batas jujur:** dari sisi naskah, aku tidak menemukan lagi perbaikan yang tidak mengorbankan akurasi. Nilai 10 sungguhan ditentukan setelah tayang (rasio viewed vs swiped away, retensi), dan sangat dipengaruhi penyampaian VO serta visual.
 
 ### Checklist sebelum VO
 - [x] Wilayah 2 (pilar); format "kamu target"
@@ -95,7 +107,7 @@ Dipoles dengan skill `humanizer` (buang pola tulisan AI) + `short-form-video-scr
 - [x] Hook, judul, teks layar, frame 0 selaras
 
 ## Metadata upload (draf)
-**Judul:** Penemu Fitur Ini Menyesal… Kamu Sedang Memakainya 😶 #shorts
+**Judul:** Kenapa Pembuat Tombol Like Menjauhi HP-nya Sendiri? 😶 #shorts (skor vidIQ 85; alternatif "Pembuat Fitur Ini Menyesal… Kamu Sedang Memakainya" 82)
 **Hashtag:** #shorts #psikologi #faktaunik #mediasosial #doomscrolling #arsipkasus
 
 ## Catatan setelah tayang
