@@ -179,7 +179,7 @@ function drawFace(g, J, P, spec) {
   for (const a of spec.acc || []) {
     if (a.type === 'kacamata') { g.strokeStyle = a.col || FT; g.lineWidth = 3; g.beginPath(); g.arc(-15, 0, 11, 0, TAU); g.moveTo(26, 0); g.arc(15, 0, 11, 0, TAU); g.moveTo(-4, -1); g.quadraticCurveTo(0, -4, 4, -1); g.stroke(); }
     if (a.type === 'kumis') { g.fillStyle = a.col || '#3b3430'; g.beginPath(); g.moveTo(-14, 15); g.quadraticCurveTo(0, 6, 14, 15); g.quadraticCurveTo(0, 12, -14, 15); g.fill(); }
-    if (a.type === 'jenggot') { g.fillStyle = a.col || '#3b3430'; g.beginPath(); g.moveTo(-26, 18); g.quadraticCurveTo(0, 62, 26, 18); g.quadraticCurveTo(0, 34, -26, 18); g.fill(); }
+    if (a.type === 'jenggot') { g.save(); g.globalAlpha = .55; g.fillStyle = a.col || '#3b3430'; g.beginPath(); g.moveTo(-44, 6); g.quadraticCurveTo(-40, 50, 0, 54); g.quadraticCurveTo(40, 50, 44, 6); g.quadraticCurveTo(30, 30, 0, 32); g.quadraticCurveTo(-30, 30, -44, 6); g.fill(); g.restore(); g.strokeStyle = FT; g.fillStyle = FT; g.lineWidth = 4; (MOUTH[P.mouth || ex.m] || MOUTH.flat)(g); }
   }
   g.restore();
 }
@@ -251,7 +251,7 @@ export function drawChar(g, spec, P, opts = {}) {
     const tc = c || (dk ? shade(top.col, kd) : top.col);
     if (sleeveLen >= 1) limb(g, [sh, e, mid(e, w, .82)], lw + (top.type === 'hoodie' ? 12 : 9), tc); else limb(g, [sh, mid(sh, e, sleeveLen * 1.6)], lw + 11, tc);
     circle(g, w, lw * .78, col);
-    if (P.hold === 'hp' && (P.holdHand || 'r') === (isR ? 'r' : 'l') && !c) { g.save(); g.translate(...w); g.rotate(P.phoneRot ?? -.25); g.fillStyle = '#1d1f26'; g.beginPath(); g.roundRect(-9, -26, 18, 34, 4); g.fill(); g.fillStyle = P.phoneGlow || '#7fe3ff'; g.globalAlpha = .9; g.beginPath(); g.roundRect(-7, -23, 14, 27, 2); g.fill(); g.globalAlpha = 1; g.restore(); circle(g, add(w, [2, 2]), lw * .7, SK); }
+    if (P.hold === 'hp' && (P.holdHand || 'r') === (isR ? 'r' : 'l') && !c) { g.save(); g.translate(...w); g.rotate(P.phoneRot ?? -.25); g.fillStyle = '#1d1f26'; g.beginPath(); g.roundRect(-9, -26, 18, 34, 4); g.fill(); if (P.phoneBack) { g.fillStyle = '#2c2f38'; g.beginPath(); g.roundRect(-7, -23, 14, 27, 3); g.fill(); g.fillStyle = '#0d0e12'; g.beginPath(); g.arc(-3, -18, 2.4, 0, TAU); g.fill(); } else { g.fillStyle = P.phoneGlow || '#7fe3ff'; g.globalAlpha = .9; g.beginPath(); g.roundRect(-7, -23, 14, 27, 2); g.fill(); g.globalAlpha = 1; } g.restore(); circle(g, add(w, [2, 2]), lw * .7, SK); }
   };
   const legs = { L: leg(J.kL, J.aL, J.hL, far === 'L'), R: leg(J.kR, J.aR, J.hR, far === 'R') };
   const arms = { L: arm(J.sL, J.eL, J.wL, far === 'L', false), R: arm(J.sR, J.eR, J.wR, far === 'R', true) };
