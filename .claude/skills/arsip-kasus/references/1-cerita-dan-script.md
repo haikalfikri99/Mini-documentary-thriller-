@@ -81,6 +81,28 @@ Yang terverifikasi (Studio → Analytics → Content → Shorts): **Viewed vs Sw
 | 6. **THE ECHO** | 53–60 | Kesimpulan, pertanyaan yang layak didiskusikan, atau sudut pandang yang membuat cerita membekas. Jangan merusak akhir dengan CTA panjang. Kalimat terakhir boleh loop ke hook | "…atau tanda bahaya yang terlalu lama diabaikan?" |
 Untuk Shorts yang lebih pendek/panjang, skalakan babak 3–5; babak 1–2 tetap ≤ 7 detik.
 
+## F2. Framework ARSIP v2 — dipakai untuk setiap script (menggantikan percobaan v4–v7 di #002)
+Disusun dari yang **terbukti**, bukan teori:
+| Sumber bukti | Yang diambil |
+|---|---|
+| Transkrip outlier "Skinner Box Explained" (26,7 jt views, 42 dtk, ±85 kata) dan video tikus-tuas Hindi (1,4 jt, 51×) | satu tokoh/subjek, satu mekanisme, kronologis, kalimat pendek, ditutup dengan membawa penonton masuk ke lingkaran yang sama |
+| Film #001 molase dan "Beer Tsunami" (4,3 jt) | kejadian nyata yang terdengar mustahil → kronologi → penyebab tersembunyi → pertanyaan |
+| Aturan "but/therefore" Trey Parker & Matt Stone (South Park, kuliah NYU) | setiap beat tersambung **tapi** atau **maka**, bukan "lalu… lalu…" |
+| Click confirmation (`youtube-scriptwriting`, praktik MrBeast/Paddy Galloway) | kalimat pertama mengonfirmasi judul dalam 3 dtk |
+| Paddy Galloway (analisis 5.400 Shorts, 3,3 miliar views, 2023) | yang menang punya 70–90% "viewed vs swiped"; Short panjang boleh asal ditonton sampai habis |
+| Retention ladder (`youtube-shorts`) | loop: kalimat terakhir memberi makna baru pada kalimat pertama |
+
+**Kerangka 7 beat (±85–110 kata, 35–45 dtk):**
+1. **HOOK = JUDUL** (≤ 3 dtk): satu fakta nyata yang terdengar mustahil, menyangkut penonton bila bisa.
+2. **SETUP**: siapa, kapan, niat awal (satu tokoh, satu kalimat).
+3. **TAPI**: hal tersembunyi yang tidak disadari (mekanisme).
+4. **MAKA**: akibat langsungnya.
+5. **MAKA**: siapa yang memanfaatkan / taruhannya membesar (uang, nyawa, sistem).
+6. **TAPI (twist)** di ±70% durasi: pengakuan, bukti, atau fakta yang membalik pandangan.
+7. **KE PENONTON + LOOP**: apa artinya bagi kamu sekarang; kalimat terakhir mengembalikan ke kalimat pertama.
+**Larangan:** lebih dari satu tokoh utama; daftar kutipan tanpa cerita; statistik yang tidak dibutuhkan beat; beat yang bisa dihapus tanpa merusak alur (uji: hapus beat itu, kalau cerita tetap utuh, buang).
+**Satu kalimat cerita** wajib ditulis sebelum script: "[Tokoh] melakukan [X] dengan niat [Y], tapi [mekanisme tersembunyi], maka [akibat], dan [twist]." Kalau kalimat ini tidak bisa ditulis, ceritanya belum siap.
+
 ## G. Delapan prinsip scripting
 | Prinsip | Penerapan |
 |---|---|
