@@ -199,20 +199,27 @@ export function S10(u) {
 }
 export function S11(u) { setD(); bigButton(540, 980, 1.05); txt('TOMBOL KECIL', 540, 330, 84); txt('= REM', 540, 430, 96, AMBER); vignette(.45); grain(31); }
 export function S12(u) {
-  setE({ cam: 1 });
-  // the clock on his wall, sharp: this is the pause
-  ellipse(250, 520, 96, 96, '#f3ece0'); ellipse(250, 520, 96, 96, 'rgba(0,0,0,0)'); g.save(); g.strokeStyle = '#4a3a2a'; g.lineWidth = 6; g.beginPath(); g.arc(250, 520, 96, 0, 7); g.stroke(); g.restore();
-  for (let i = 0; i < 12; i++) { const a = i / 12 * 6.283; line([[250 + Math.cos(a) * 80, 520 + Math.sin(a) * 80], [250 + Math.cos(a) * 88, 520 + Math.sin(a) * 88]], 4, '#4a3a2a'); }
-  line([[250, 520], [250, 462]], 7, '#4a3a2a'); line([[250, 520], [298, 540]], 6, '#4a3a2a'); line([[250, 520], [250 + Math.cos(u * 6) * 70, 520 + Math.sin(u * 6) * 70]], 3, '#c0553a');
-  const P = headAt(ORANG06, seated(ORANG06, { facing: -.6, expr: 'bingung', gaze: [-.3, -.9], headTilt: -.06, rh: [-96, 150], lh: [-40, 140], look: -.5 }), 680, 860, 3.0);
+  // the pause at the end of the page: the "Hal 2" button on his monitor, the cursor hovering over it but not clicking,
+  // his hand still on the mouse, eyes up, deciding; the wall clock ticks (same home set as S08/S09)
+  setE({ cam: .3 });
+  { const cx = 470, cy = 215, r = 82; ellipse(cx, cy, r, r, '#f3ece0'); g.save(); g.strokeStyle = '#4a3a2a'; g.lineWidth = 6; g.beginPath(); g.arc(cx, cy, r, 0, 7); g.stroke(); g.restore();
+    for (let i = 0; i < 12; i++) { const a = i / 12 * 6.283; line([[cx + Math.cos(a) * 66, cy + Math.sin(a) * 66], [cx + Math.cos(a) * 74, cy + Math.sin(a) * 74]], 4, '#4a3a2a'); }
+    line([[cx, cy], [cx, cy - 48]], 7, '#4a3a2a'); line([[cx, cy], [cx + 40, cy + 18]], 6, '#4a3a2a'); const sa = -1.57 + u * 1.2; line([[cx, cy], [cx + Math.cos(sa) * 60, cy + Math.sin(sa) * 60]], 3, '#c0553a'); }
+  crt(300, 1012, 1.2, (x, y, w, h) => page06(x, y, w, h, { page: 1 }));
+  // cursor parked on the button, a soft amber pulse = the decision point
+  const bx = 300 + (-188 + .76 * 376) * 1.2, by = 1012 + (-152 + .89 * 284) * 1.2;
+  pool(bx, by, 150, 'rgb(255,180,58)', .22 + .1 * Math.sin(u * 12));
+  poly([[bx + 4, by - 4], [bx + 4, by + 46], [bx + 16, by + 35], [bx + 26, by + 56], [bx + 34, by + 52], [bx + 24, by + 31], [bx + 40, by + 31]], '#fdfcf7'); g.save(); g.strokeStyle = '#20262c'; g.lineWidth = 2; g.beginPath(); g.moveTo(bx + 4, by - 4); g.lineTo(bx + 4, by + 46); g.lineTo(bx + 16, by + 35); g.lineTo(bx + 26, by + 56); g.lineTo(bx + 34, by + 52); g.lineTo(bx + 24, by + 31); g.lineTo(bx + 40, by + 31); g.closePath(); g.stroke(); g.restore();
+  const P = seated(ORANG06, { x: 860, y: 1780, s: 2.3, facing: -.8, expr: 'bingung', gaze: [-.3, -.95], headTilt: -.08, lean: .1, lh: [-120, 150], rh: [-70, 158], look: -.6 }, 190);
   const J = drawChar(g, ORANG06, P, { rim: { col: '#ffcf96', dir: [.9, -.3], w: 6 }, amb: '#e8c8a0', ambK: .1, noShadow: true });
-  S.deskB(1600, 1420);
-  // his hand hovers above the mouse, index finger raised, not clicking
-  // his own right hand, redrawn over the desk: hovering above the mouse, index finger lifted, not clicking
-  { const sx = q => [P.x + q[0] * P.s, P.y + q[1] * P.s], Wp = sx(J.wR), Ep = sx(J.eR), m = [Wp[0] + (Ep[0] - Wp[0]) * .35, Wp[1] + (Ep[1] - Wp[1]) * .35];
-    rrect(Wp[0] - 60, Wp[1] + 60, 110, 50, 25, '#d6c9b1'); ellipse(Wp[0] - 5, Wp[1] + 116, 70, 12, 'rgba(0,0,0,.2)');
-    line([m, Wp], 40, '#ece6d8'); ellipse(Wp[0], Wp[1], 34, 30, '#b98a64'); line([[Wp[0] - 18, Wp[1] - 10], [Wp[0] - 30, Wp[1] - 62]], 18, '#c69a72'); ellipse(Wp[0] - 30, Wp[1] - 64, 9, 9, '#c69a72'); }
-  pool(980, 1140, 420, 'rgb(255,190,110)', .2); vignette(.3); grain(32);
+  S.deskB(1520, 1290);
+  // keyboard under the left hand, mouse under the right, placed from his actual wrist positions
+  const sx = q => [P.x + q[0] * P.s, P.y + q[1] * P.s], wl = sx(J.wL), wr = sx(J.wR);
+  rrect(wl[0] - 300, wl[1] + 6, 330, 40, 10, '#d6c9b1'); for (let r = 0; r < 3; r++) for (let c = 0; c < 13; c++) rrect(wl[0] - 290 + c * 24.5, wl[1] + 12 + r * 11, 20, 7, 2, '#c4b69c');
+  rrect(wr[0] - 50, wr[1] + 24, 160, 14, 5, 'rgba(0,0,0,.2)'); rrect(wr[0] - 36, wr[1] - 4, 74, 36, 18, '#d6c9b1'); line([[wr[0] - 10, wr[1] - 4], [wr[0] - 40, wr[1] - 50], [wr[0] - 110, wr[1] - 60]], 3, '#9e9178');
+  handsOver(J, P, '#b98a64');
+  rrect(960, 1214, 56, 80, 10, 'rgba(240,200,140,.8)'); contact(988, 1294, 40, .2);   // the same glass of tea as S08
+  pool(1000, 1100, 420, 'rgb(255,190,110)', .22); shadowFall(900, 900, 500, 1600, .25); vignette(.3); grain(32);
 }
 export function S13(u) {
   // split screen with a crack: LANJUT (left, night, cyan) | UDAHAN (right, day, amber)
