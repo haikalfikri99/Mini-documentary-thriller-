@@ -19,6 +19,9 @@ kit/tools/make_film.sh stories/<slug>/film 1             # VO → caption → sk
 | akting | `perform(t, keys)` (antisipasi + overshoot), `idle(t)`, `addDarts(gaze, t)`, `GESTURE.*` (lembar acuan `renders/10_gestur.png`) | `acting.js` |
 | dokumen/bukti | `paper(world,{title, lines, redact:[…], stamp})`, `board(world,{items, strings})` | `evidence.js` |
 | terowongan feed | `world.tunnel({at, rings})` | `diorama-kit.js` |
+| **ruang tertutup, kamera di dalam** | `world.room({ enclosed: true, openings: { back: [{x, w, y0, y1}] } })`; contoh `roomKamarClosed` (bukaan jendela yang bisa ditembus kamera) | `diorama-kit.js`, `rooms3d.js` |
+| **dunia luar** | `world.sky()`, `world.skyline()`, `world.facade({ hole })` (fasad gedung dengan jendela menyala/berkedip, lubang = jendela ruang) | `diorama-kit.js` |
+| **rack focus nyata** | `world.rackFocus([{t, at:[x,y,z], dur}], {range, blur})` — fokus berpindah titik ke titik, sisanya mengabur (DOF dari depth buffer) | `diorama-kit.js` |
 | kamera | `world.camera(keys, {handheld})`; key = `{t, tx,ty,tz, az, el, dist, fov, roll, hold?}` (az 0 = kamera di +z, el 90 = ke bawah, dist cm, fov vertikal) | `cam3d.js` |
 | beat dari kata | `T = voSync(WORDS); T('menyesal', 0, fallbackDetik)` | `vo-sync.js` |
 | tampilan | `world.visible(obj, (t,P,cam)=>bool)`, `world.fog = (t,P,cam)=>({color,density})`, `world.finish = {halation, paper, vignette, grain, tilt}` | `diorama-kit.js` |
@@ -38,13 +41,20 @@ Dunia memakai satuan 1 unit = 1 cm, Y ke atas. Pusat ruang = pusat lantai; ruang
 - Deterministik: frame yang sama dirender dua kali = hash identik (`qa_3d.mjs` memeriksa 3 titik; gagal → render dibatalkan).
 - Lapisan yang dipakai: `cam3d.js` (kamera), three.js r170 di `vendor/`, finishing 2D (tilt-shift, halation, paper grain, vignette, grain) di `diorama-kit.js`.
 
+## Dua gaya dunia (contoh kerja)
+- `template/film3d/world.js`: **cutaway** (kotak ruangan terbuka, tampak miniatur) — cocok untuk "peta"/gambaran besar.
+- `template/film3d/example_inside_tower.js`: **ruang tertutup + lensa lebar + rack focus + menembus jendela + fasad gedung + kota** — bahasa kamera yang dipelajari dari referensi (`research/referensi/ANALISA_RICKSCLIPS_3D.md`). Jadikan ini default untuk episode yang membutuhkan nuansa "di dalam dunia".
+- Pelajaran: kotak yang melayang di kegelapan terlihat kosong; pakai ruang tertutup, atau beri dunia luar (langit, kota, tanah).
+
 ## Keputusan terkunci
-- **Tanpa outline**: gaya = flat bersih + rim light berwarna sumber cahaya. Bila satu shot tenggelam: tepi tipis warna gelap versi fill (bukan hitam), hanya di shot itu.
+- **Tanpa outline** (dikonfirmasi pemilik channel setelah melihat referensi yang berkontur; gaya karakter kita tetap): flat bersih + rim light berwarna sumber cahaya. Bila satu shot tenggelam: tepi tipis warna gelap versi fill (bukan hitam), hanya di shot itu.
 - three.js, **bukan Blender** (satu pipeline kode, jalan di cloud, laptop pemilik ringan). **OneTake tidak dipakai**: lisensi PolyForm Noncommercial; idenya sudah kita punya di `cam3d.js`.
 - Satu cahaya kunci (cyan `#7fe3ff`) + satu praktikal hangat; aksen amber `#ffb43a`. Cutaway: dua dinding + lantai.
 - Output video tidak disimpan di git (aturan repo; ada di Google Drive).
 
 ## Batas yang diketahui (kerjakan saat butuh, jangan tebak)
+- Pencahayaan ruang tertutup: dinding gelap tampak hitam; naikkan `world.ambient.intensity` (≈6 dengan albedo dinding ~#55536f) dan jaga satu kunci cyan.
+- Skyline/fasad dari jauh = blok piksel bila dikaburkan; atur `blur` rack focus.
 - Satu tokoh duduk/berdiri sudah teruji; **dua tokoh berinteraksi** dan **tokoh berjalan** belum diuji di 3D (rig punya `walk`; pakai `world.actor` dengan `pose` yang menggeser `at` lewat `A.set({at})`).
 - Gestur: tujuh titik awal (`GESTURE`), beberapa mirip (faceHand/mouth). Tambah/atur per shot dan masukkan ke lembar acuan.
 - Kartu terowongan terlihat sebagai garis warna dari jauh (moiré); perbesar `card` bila perlu terbaca.

@@ -24,12 +24,12 @@ export const FEED = ['#7fa8c9', '#d9a77a', '#8fc0b0', '#c49ab8', '#a9b87a', '#d7
 const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 
 export function createWorld({ gl, W = 1080, H = 1920, fps = 30 }) {
-  const renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: true, preserveDrawingBuffer: true, logarithmicDepthBuffer: true });
+  const renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: true, preserveDrawingBuffer: true });
   renderer.setPixelRatio(1); renderer.setSize(W, H, false); renderer.setClearColor(0x0d0c12, 1);
-  const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(34, W / H, .3, 9000);
-  scene.add(new THREE.AmbientLight(0x7a76a8, 0.95));
+  const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(34, W / H, 1.5, 9000);
+  const ambient = new THREE.AmbientLight(0x7a76a8, 0.95); scene.add(ambient);
   const ticks = [];                                      // (t, P, cam) per sub-frame: animate things, set visibility
-  const world = { THREE, scene, cam, W, H, fps, ticks, finish: { halation: .16, paper: .05, vignette: .5, grain: .04, tilt: null }, fog: () => ({ color: 0x0d0c12, density: .00006 }), pathFn: t => ({ tx: 0, ty: 100, tz: 0, az: 0, el: 10, dist: 300, fov: 30, roll: 0 }) };
+  const world = { THREE, scene, cam, ambient, W, H, fps, ticks, finish: { halation: .16, paper: .05, vignette: .5, grain: .04, tilt: null }, fog: () => ({ color: 0x0d0c12, density: .00006 }), pathFn: t => ({ tx: 0, ty: 100, tz: 0, az: 0, el: 10, dist: 300, fov: 30, roll: 0 }) };
 
   // ---- camera: the one continuous take ----
   let path = null, hand = () => 0;
@@ -46,15 +46,32 @@ export function createWorld({ gl, W = 1080, H = 1920, fps = 30 }) {
   world.visible = (obj, fn) => ticks.push((t, P, c) => { obj.visible = !!fn(t, P, c); });
 
   // ---- rooms ----
-  // floor/back/left: (g, w, h) => void painters for 1024-px-wide textures (or a CSS colour string)
-  world.room = ({ at = [0, 0, 0], w = 420, d = 360, h = 260, floor = '#3a2f2e', back = '#34324a', left = '#34324a', edge = 0x1a1720, wedge = 0x2a283a, lit = true } = {}) => {
+  // painters: (g, w, h) => void for ~1024-px-wide textures (or a CSS colour string).
+  // enclosed:false (default) = cutaway: floor slab + back + left walls, open to +x/+z (for "maps" and the iso view).
+  // enclosed:true  = a real room, camera INSIDE it: four walls + ceiling, with openings (windows/doors) the camera can fly through:
+  //   openings: { back: [{ x: 110, w: 150, y0: 100, y1: 220 }], … }  x = centre across the wall as seen from inside (cm from the wall centre), y in cm from the floor.
+  world.room = ({ at = [0, 0, 0], w = 420, d = 360, h = 260, floor = '#3a2f2e', back = '#34324a', left = '#34324a', right = null, front = null, ceiling = '#1c1b27', edge = 0x1a1720, wedge = 0x2a283a, lit = true, enclosed = false, openings = {}, frame = '#14131c' } = {}) => {
     const group = new THREE.Group(); group.position.set(...at); scene.add(group);
-    const mat = (p, tw, th, side) => { const c = typeof p === 'function' ? paint(tw, th, p) : paint(tw, th, (g, x, y) => { g.fillStyle = p; g.fillRect(0, 0, x, y); }); const m = lit ? new THREE.MeshLambertMaterial({ map: tex(c) }) : new THREE.MeshBasicMaterial({ map: tex(c) }); return m; };
+    const surf = (p, tw, th, holes, ww, wh) => {
+      const c = typeof p === 'function' ? paint(tw, th, p) : paint(tw, th, (g, x, y) => { g.fillStyle = p; g.fillRect(0, 0, x, y); });
+      let alpha = false;
+      if (holes && holes.length) { alpha = true; const g = c.getContext('2d'), k = tw / ww; holes.forEach(o => { const x0 = tw / 2 + (o.x - o.w / 2) * k, y0 = th - o.y1 * k, hw = o.w * k, hh = (o.y1 - o.y0) * k, f = 7 * k; g.strokeStyle = frame; g.lineWidth = f * 2; g.strokeRect(x0, y0, hw, hh); g.save(); g.globalCompositeOperation = 'destination-out'; g.fillStyle = '#000'; g.fillRect(x0, y0, hw, hh); g.restore(); }); }
+      const T = tex(c); return lit ? new THREE.MeshLambertMaterial({ map: T, transparent: alpha, alphaTest: alpha ? .5 : 0, side: THREE.DoubleSide }) : new THREE.MeshBasicMaterial({ map: T, transparent: alpha, alphaTest: alpha ? .5 : 0, side: THREE.DoubleSide });
+    };
     const E = lam(edge), WE = lam(wedge);
-    const slab = new THREE.Mesh(new THREE.BoxGeometry(w + 24, 14, d + 24), [E, E, mat(floor, 1024, Math.round(1024 * d / w), 0), E, E, E]); slab.position.set(-12, -7, 0); group.add(slab);
-    const back_ = new THREE.Mesh(new THREE.BoxGeometry(w + 24, h, 12), [WE, WE, WE, WE, mat(back, 1024, Math.round(1024 * h / w)), WE]); back_.position.set(-12, h / 2, -d / 2 - 6); group.add(back_);
-    const left_ = new THREE.Mesh(new THREE.BoxGeometry(12, h, d), [mat(left, 1024, Math.round(1024 * h / d)), WE, WE, WE, WE, WE]); left_.position.set(-w / 2 - 6, h / 2, 0); group.add(left_);
-    const R = { group, w, d, h, anchors: {}, world,
+    if (!enclosed) {
+      const mat = (p, tw, th) => { const m = surf(p, tw, th); m.side = THREE.FrontSide; return m; };
+      const slab = new THREE.Mesh(new THREE.BoxGeometry(w + 24, 14, d + 24), [E, E, mat(floor, 1024, Math.round(1024 * d / w)), E, E, E]); slab.position.set(-12, -7, 0); group.add(slab);
+      const back_ = new THREE.Mesh(new THREE.BoxGeometry(w + 24, h, 12), [WE, WE, WE, WE, mat(back, 1024, Math.round(1024 * h / w)), WE]); back_.position.set(-12, h / 2, -d / 2 - 6); group.add(back_);
+      const left_ = new THREE.Mesh(new THREE.BoxGeometry(12, h, d), [mat(left, 1024, Math.round(1024 * h / d)), WE, WE, WE, WE, WE]); left_.position.set(-w / 2 - 6, h / 2, 0); group.add(left_);
+    } else {
+      const wall = (p, ww, rot, pos, holes) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(ww, h), surf(p, 1024, Math.round(1024 * h / ww), holes, ww, h)); m.rotation.set(...rot); m.position.set(...pos); group.add(m); return m; };
+      const fl = new THREE.Mesh(new THREE.PlaneGeometry(w, d), surf(floor, 1024, Math.round(1024 * d / w))); fl.rotation.x = -Math.PI / 2; group.add(fl);
+      const ce = new THREE.Mesh(new THREE.PlaneGeometry(w, d), surf(ceiling, 512, Math.round(512 * d / w))); ce.rotation.x = Math.PI / 2; ce.position.y = h; group.add(ce);
+      wall(back, w, [0, 0, 0], [0, h / 2, -d / 2], openings.back); wall(left, d, [0, Math.PI / 2, 0], [-w / 2, h / 2, 0], openings.left);
+      wall(right ?? back, d, [0, -Math.PI / 2, 0], [w / 2, h / 2, 0], openings.right); wall(front ?? left, w, [0, Math.PI, 0], [0, h / 2, d / 2], openings.front);
+    }
+    const R = { group, w, d, h, anchors: {}, world, enclosed,
       box: (bw, bh, bd, x, y, z, color = 0x4a536e) => { const m = new THREE.Mesh(new THREE.BoxGeometry(bw, bh, bd), color && color.isMaterial ? color : lam(color)); m.position.set(x, y, z); group.add(m); return m; },
       cyl: (r, hh, x, y, z, color = 0x3a3d4e, seg = 24) => { const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, hh, seg), lam(color)); m.position.set(x, y, z); group.add(m); return m; },
       plane: (pw, ph, c, x, y, z, rot = [0, 0, 0], { basic = true, transparent = false } = {}) => { const t = tex(c), m = new THREE.Mesh(new THREE.PlaneGeometry(pw, ph), basic ? new THREE.MeshBasicMaterial({ map: t, transparent, toneMapped: false }) : new THREE.MeshLambertMaterial({ map: t, transparent })); m.rotation.set(...rot); m.position.set(x, y, z); group.add(m); m.userData.tex = t; return m; },
@@ -62,6 +79,53 @@ export function createWorld({ gl, W = 1080, H = 1920, fps = 30 }) {
       glow: o => world.glowPlane({ ...o, parent: group }) };
     return R;
   };
+
+  // ---- the world outside: sky dome, skyline ring, tower facade ----
+  // sky: vertical gradient on an inside-out sphere. skyline: a ring of silhouetted buildings with lit windows around the scene.
+  world.sky = ({ stops = [[0, '#04060d'], [.3, '#0c1126'], [.47, '#3b3358'], [.5, '#7a5a6a'], [.54, '#241c34'], [1, '#07080f']], stars = 140, radius = 7000 } = {}) => {
+    const c = paint(8, 512, (g, w, h) => { const k = g.createLinearGradient(0, 0, 0, h); stops.forEach(([o, col]) => k.addColorStop(o, col)); g.fillStyle = k; g.fillRect(0, 0, w, h); });
+    const big = paint(1024, 512, (g, w, h) => { g.drawImage(c, 0, 0, w, h); for (let i = 0; i < stars; i++) { const r = Math.sin(i * 12.9898) * 43758.5453, q = Math.sin(i * 78.233) * 12345.678; g.fillStyle = `rgba(255,255,255,${.25 + .5 * (i % 3) / 3})`; g.fillRect((r - Math.floor(r)) * w, (q - Math.floor(q)) * h * .55, 2, 2); } });
+    const m = new THREE.Mesh(new THREE.SphereGeometry(radius, 32, 16), new THREE.MeshBasicMaterial({ map: tex(big), side: THREE.BackSide, fog: false, depthWrite: false, toneMapped: false })); m.renderOrder = -10; scene.add(m);
+    ticks.push((t, P, c2) => m.position.copy(c2.position)); return m;
+  };
+  world.skyline = ({ radius = 4200, bottom = -3200, height = 4200, tops = [.25, .6], seed = 1, lit = ['255,213,138', '159,216,255', '255,190,120'], base = '#151a2c' } = {}) => {
+    const CW = 8192, CH = 1024, c = paint(CW, CH, (g) => {
+      let x = 0, i = 0; while (x < CW) { const r = Math.sin((i + seed) * 91.7) * 43758.5453, f = r - Math.floor(r), bw = 180 + f * 300, bh = CH * (tops[0] + (tops[1] - tops[0]) * ((Math.sin((i + seed) * 17.3) * .5 + .5))); g.fillStyle = i % 3 ? base : '#1c2238'; g.fillRect(x, CH - bh, bw, bh);
+        for (let wy = CH - bh + 28; wy < CH - 20; wy += 32) for (let wx = x + 16; wx < x + bw - 20; wx += 28) { const q = Math.sin(wx * 12.9 + wy * 78.2 + seed) * 43758.5; if (q - Math.floor(q) > .6) { g.fillStyle = `rgba(${lit[(wx + wy) % lit.length | 0] || lit[0]},1)`; g.fillRect(wx, wy, 14, 18); } }
+        x += bw + 8 + f * 40; i++; } });
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(radius, radius, height, 64, 1, true), new THREE.MeshBasicMaterial({ map: tex(c, { repeat: true }), side: THREE.BackSide, transparent: true, fog: false, depthWrite: false, toneMapped: false }));
+    m.material.map.repeat.set(2, 1); m.position.y = bottom + height / 2; m.renderOrder = -9; scene.add(m); ticks.push((t, P, c2) => { m.position.x = c2.position.x; m.position.z = c2.position.z; }); return m;
+  };
+  // the tower the room sits in: a facade plane just outside the room's back wall, with a hole where the room's window is, and a grid of other lit windows
+  // (some flicker cyan = people on their phones). cx/cy = world position of the room's window; the facade faces −z.
+  world.facade = ({ at = [0, 0, 0], w = 2400, h = 4800, hole = { x: 0, y: 0, w: 150, h: 120 }, cols = 12, rows = 30, seed = 3, flicker = '127,227,255' } = {}) => {
+    const CW = 1024, CH = Math.round(CW * h / w), k = CW / w, cell = [w / cols, h / rows]; const base = paint(CW, CH, (g) => { g.fillStyle = '#0b0e1c'; g.fillRect(0, 0, CW, CH); g.fillStyle = 'rgba(120,140,200,.10)'; for (let q = 0; q <= cols; q++) g.fillRect(q * cell[0] * k - 1, 0, 3, CH); for (let r = 0; r < rows; r++) for (let q = 0; q < cols; q++) { g.fillStyle = '#161c33'; g.fillRect(q * cell[0] * k + 3, r * cell[1] * k + 3, cell[0] * k - 6, cell[1] * k - 10); } });
+    const cv = canvas(CW, CH), g2 = cv.getContext('2d'), tx = tex(cv);
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: tx, transparent: true, alphaTest: .5, side: THREE.DoubleSide, toneMapped: false })); m.rotation.y = Math.PI; m.position.set(...at); scene.add(m);
+    ticks.push((t) => {
+      g2.setTransform(1, 0, 0, 1, 0, 0); g2.globalCompositeOperation = 'source-over'; g2.drawImage(base, 0, 0);
+      for (let r = 0; r < rows; r++) for (let q = 0; q < cols; q++) { const n = Math.sin((r * 31 + q * 17 + seed) * 12.9898) * 43758.5453, f = n - Math.floor(n); if (f > .7) { const phase = Math.sin(t * (2 + f * 3) + f * 40), on = f > .9 ? (phase > -.2 ? .95 : .35) : 1, col = f > .9 ? flicker : (f > .8 ? '255,213,138' : '255,190,120'); g2.fillStyle = `rgba(${col},${on * .62})`; g2.fillRect(q * cell[0] * k + 5, r * cell[1] * k + 5, cell[0] * k - 10, cell[1] * k - 14); if (f > .86) { g2.fillStyle = 'rgba(20,18,30,.8)'; g2.beginPath(); g2.arc((q + .5) * cell[0] * k, (r + .62) * cell[1] * k, cell[0] * k * .09, 0, 7); g2.fill(); } } }
+      g2.save(); g2.globalCompositeOperation = 'destination-out'; g2.fillStyle = '#000'; g2.fillRect(CW / 2 + (hole.x - hole.w / 2) * k - 4, CH / 2 - (hole.y + hole.h / 2) * k - 4, hole.w * k + 8, hole.h * k + 8); g2.restore(); tx.needsUpdate = true;
+    });
+    return m;
+  };
+
+  // ---- real depth of field / rack focus ----
+  // world.rackFocus([{ t: 0, at: [x,y,z] }, { t: 2.2, at: [x2,y2,z2], dur: .7 }], { range: 25, blur: 22 })   focus moves from point to point (smooth) while everything else softens
+  // or world.dof = (t, P, cam) => ({ dist, range, blur }) for full control.  blur = max radius in px at 1080 wide (0 = off).
+  world.rackFocus = (keys, { range = 25, blur = 22 } = {}) => { const v = new THREE.Vector3(); world.dof = (t, P, c) => { let at = keys[0].at, i = 0; for (; i < keys.length; i++) if (t >= keys[i].t) { const k = keys[i], d = k.dur ?? .6, prev = keys[i - 1]?.at || k.at, u = Math.max(0, Math.min(1, (t - k.t) / d)), e = u * u * (3 - 2 * u); at = prev.map((p, j) => p + (k.at[j] - p) * e); } v.set(...at); return { dist: c.position.distanceTo(v), range, blur }; }; };
+  world.dof = null;
+  const rt = new THREE.WebGLRenderTarget(W, H, { depthTexture: new THREE.DepthTexture(W, H), samples: 4 }); rt.depthTexture.type = THREE.UnsignedIntType;
+  const post = new THREE.Scene(), postCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+  const dofMat = new THREE.ShaderMaterial({ uniforms: { tC: { value: rt.texture }, tD: { value: rt.depthTexture }, near: { value: 1.5 }, far: { value: 9000 }, focus: { value: 100 }, range: { value: 20 }, blur: { value: 0 }, res: { value: new THREE.Vector2(W, H) } }, depthTest: false, depthWrite: false,
+    vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }',
+    fragmentShader: `varying vec2 vUv; uniform sampler2D tC, tD; uniform float near, far, focus, range, blur; uniform vec2 res;
+      float lin(float d){ float z = d * 2. - 1.; return (2. * near * far) / (far + near - z * (far - near)); }
+      float coc(float z){ float spread = max(focus * .7, 30.); return blur * smoothstep(0., 1., (abs(z - focus) - range) / spread); }
+      void main(){ float z = lin(texture2D(tD, vUv).r); float c0 = coc(z); vec4 acc = vec4(texture2D(tC, vUv).rgb, 1.); 
+        if (c0 > .5) { float tw = 1.; vec3 sum = acc.rgb; for (int i = 1; i < 36; i++) { float fi = float(i); float r = c0 * sqrt(fi / 36.), a = fi * 2.39996; vec2 off = vec2(cos(a), sin(a)) * r / res; vec2 uv = vUv + off; float zs = lin(texture2D(tD, uv).r), cs = coc(zs); float w = clamp(cs - r + 1., 0., 1.); if (zs < z - 1.) w = max(w, clamp(c0 - r + 1., 0., 1.) * .0); sum += texture2D(tC, uv).rgb * w; tw += w; } acc = vec4(sum / tw, 1.); }
+        gl_FragColor = vec4(acc.rgb, 1.); }` });
+  post.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), dofMat));
 
   // ---- actors: ARSIP RIG billboards ----
   // pose: t => rig pose (facing, expr, gaze, rh, …); with `sit` (cm, seat height) the pose is run through seated().  opts: t => drawChar options.
@@ -120,7 +184,11 @@ export function createWorld({ gl, W = 1080, H = 1920, fps = 30 }) {
   // ---- one frame: motion-blurred sub-frames averaged, then finishing ----
   function sub(t) {
     const P = world.pose(t); applyPose(cam, P); const f = world.fog(t, P, cam); scene.fog = f ? new THREE.FogExp2(f.color, f.density) : null;
-    for (const k of ticks) k(t, P, cam); renderer.render(scene, cam); return P;
+    for (const k of ticks) k(t, P, cam);
+    const D = world.dof ? world.dof(t, P, cam) : null;
+    if (D && D.blur > 0) { dofMat.uniforms.focus.value = D.dist; dofMat.uniforms.range.value = D.range; dofMat.uniforms.blur.value = D.blur * W / 1080; renderer.setRenderTarget(rt); renderer.render(scene, cam); renderer.setRenderTarget(null); renderer.render(post, postCam); }
+    else renderer.render(scene, cam);
+    return P;
   }
   world.frame = (t, out) => {
     LIFE.t = t;
