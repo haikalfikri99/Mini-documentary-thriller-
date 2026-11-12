@@ -17,6 +17,7 @@ Semua video baru dibuat dari kit ini. Gaya visual, karakter, kartu arsip, captio
 | `tools/new_episode.sh` | buat episode baru dari `template/` |
 | `tools/make_film.sh` | satu perintah: VO → caption → skor → mix → check → render → mux −14 LUFS → QA |
 | `template/film/` | kerangka episode (index, film.js, shots.js contoh, episode.json, score, mix) |
+| `src/cam3d.js` + `HYBRID3D.md` | **kamera 3D kontinu** + handoff hybrid 2.5D/3D (karakter 2D di dunia diorama); spike di `lab/hybrid-spike/` |
 | `lab/` + `renders/` | lembar acuan semua aset (model sheet, 26 ekspresi, 15 rambut, wajah/kepala/aksesori, wardrobe, 24 preset, tangan, uji gerak) |
 
 ## Alur episode baru
