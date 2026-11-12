@@ -5,7 +5,11 @@
 
 export const INK = '#141317', FACE = '#f4ead8';
 // skin & feature colours are per character (spec.skin / spec.feat); SK/FT hold the ones of the figure being drawn
-let SK = INK, FT = FACE;
+// Channel decision (studi warna): default skin = sawo matang with dark-brown features; skin is a per-character parameter.
+export const SKIN = { sawo: '#b5815a', langsat: '#d6a57c', terang: '#e6c3a0', gelap: '#8a5a3c' };
+export const FEAT = '#2a1c16';
+let SK = SKIN.sawo, FT = FEAT;
+const mixHex = (a, b, k) => { const p = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)); const A = p(a), B = p(b); return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * k).toString(16).padStart(2, '0')).join(''); };
 
 // —— proportions (adult ≈ 4.8 heads tall; child = same rig, bigger head ratio, shorter limbs) ——
 export const BODY = {
@@ -73,12 +77,12 @@ export const ASSETS = {
 export const PRESETS = {
   pria: { body: 'adult', hair: { type: 'pendek', col: '#2b221d' }, top: { type: 'kemeja', col: '#5d7f9e' }, bottom: { type: 'panjang', col: '#3b3f4a' }, shoes: '#2a2522' },
   wanita: { body: 'adult', build: .9, hair: { type: 'panjang', col: '#2b1f1a' }, top: { type: 'kaos', col: '#c9705a' }, bottom: { type: 'rok', col: '#4e5a6e' }, shoes: '#2a2522' },
-  ibu: { body: 'adult', build: .95, headwear: { type: 'kerudung', col: '#7f8f6a' }, top: { type: 'gamis', col: '#a77d63' }, shoes: '#3a2c25' },
+  ibu: { body: 'adult', skin: '#d6a57c', build: .95, headwear: { type: 'kerudung', col: '#7f8f6a' }, top: { type: 'gamis', col: '#a77d63' }, shoes: '#3a2c25' },
   kakak: { body: 'adult', height: .97, hair: { type: 'keriting', col: '#241c18' }, top: { type: 'hoodie', col: '#3f6fb6' }, bottom: { type: 'panjang', col: '#2e3442' }, shoes: '#e9e4da' },
-  kakek: { body: 'adult', height: .94, stoop: .22, hair: { type: 'botak', col: '#cfc9bf' }, headwear: { type: 'peci', col: '#1c1b1f' }, acc: [{ type: 'kacamata' }, { type: 'kumis', col: '#d8d3ca' }], top: { type: 'kemeja', col: '#b89a6a' }, bottom: { type: 'sarung', col: '#5a4a6e', col2: '#8a77a0' }, shoes: '#3a2c25' },
+  kakek: { body: 'adult', skin: '#9c6a48', height: .94, stoop: .22, hair: { type: 'botak', col: '#cfc9bf' }, headwear: { type: 'peci', col: '#1c1b1f' }, acc: [{ type: 'kacamata' }, { type: 'kumis', col: '#d8d3ca' }], top: { type: 'kemeja', col: '#b89a6a' }, bottom: { type: 'sarung', col: '#5a4a6e', col2: '#8a77a0' }, shoes: '#3a2c25' },
   nenek: { body: 'adult', height: .9, build: .95, stoop: .26, hair: { type: 'sanggul', col: '#d6d1c8' }, acc: [{ type: 'kacamata' }], top: { type: 'kebaya', col: '#8a6a8e' }, bottom: { type: 'sarung', col: '#6b4a32', col2: '#a4784f' }, shoes: '#3a2c25' },
   adik_lk: { body: 'child', hair: { type: 'pendek', col: '#2b221d' }, top: { type: 'kemeja', col: '#f1efe8' }, bottom: { type: 'pendek', col: '#a8323a' }, shoes: '#1f1d22' },
-  adik_pr: { body: 'child', hair: { type: 'kuncir', col: '#2b1f1a', tie: '#ffb43a' }, top: { type: 'kaos', col: '#e3b54a' }, bottom: { type: 'rok', col: '#4a7f78' }, shoes: '#c94f4f' },
+  adik_pr: { body: 'child', skin: '#d6a57c', hair: { type: 'kuncir', col: '#2b1f1a', tie: '#ffb43a' }, top: { type: 'kaos', col: '#e3b54a' }, bottom: { type: 'rok', col: '#4a7f78' }, shoes: '#c94f4f' },
 };
 
 // —— pose → joints ——
@@ -220,7 +224,9 @@ function drawHair(g, J, P, spec, layer, col0) {
 export function drawChar(g, spec, P, opts = {}) {
   const J = solve(spec, P);
   const s = P.s || 1;
-  SK = spec.skin || INK; FT = spec.feat || FACE;
+  // scene light: skin takes a little of the ambient colour (opts.amb, opts.ambK) so faces sit inside the scene
+  SK = opts.amb ? mixHex(spec.skin || SKIN.sawo, opts.amb, opts.ambK ?? .18) : (spec.skin || SKIN.sawo); FT = spec.feat || FEAT;
+  if (opts.lightHead === undefined) opts = { ...opts, lightHead: .26 };
   g.save(); g.translate(P.x || 0, P.y || 0); g.scale(s * (P.flip ? -1 : 1), s);
   const rim = opts.rim, lw = J.B.lw;
   const part = fn => { if (rim) { g.save(); g.translate(rim.dir[0] * (rim.w || 4) / s, rim.dir[1] * (rim.w || 4) / s); fn(rim.col); g.restore(); } fn(null); };
@@ -299,10 +305,11 @@ export function drawChar(g, spec, P, opts = {}) {
 // —— close-up hand (LOD 2): POV right hand holding a phone ——
 // Phone centred at (cx,cy), size w×h on screen. Built in "phone units" (phone = 300 wide). screen(g,x,y,w,h) paints the display.
 // Anatomy: palm + heel cup the lower-right corner, four fingertips wrap the left edge, the thumb lies over the lower screen.
-export function handPhoneCU(g, cx, cy, w, h, { sleeve = '#3f6fb6', screen, rim = '#7fe3ff', thumbT = 0 } = {}) {
+export function handPhoneCU(g, cx, cy, w, h, { sleeve = '#3f6fb6', screen, rim = '#7fe3ff', thumbT = 0, skinCol = SKIN.sawo, amb = '#3d3650', ambK = .25 } = {}) {
+  const sc = mixHex(skinCol, amb, ambK), LO = shade(sc, .62), HI = shade(sc, 1.12);
   const u = w / 300, W2 = 150, H2 = 150 * h / w;
   g.save(); g.translate(cx, cy); g.scale(u, u);
-  const skin = (x0, y0, x1, y1, lo = '#1d1c22', hi = '#45424e') => { const gr = g.createLinearGradient(x0, y0, x1, y1); gr.addColorStop(0, hi); gr.addColorStop(1, lo); return gr; };
+  const skin = (x0, y0, x1, y1, lo = LO, hi = HI) => { const gr = g.createLinearGradient(x0, y0, x1, y1); gr.addColorStop(0, hi); gr.addColorStop(1, lo); return gr; };
   // tapered capsule from a (width wa) to b (width wb), round ends
   const capsule = (a, b, wa, wb, fill) => { const ang = Math.atan2(b[1] - a[1], b[0] - a[0]), n = [-Math.sin(ang), Math.cos(ang)];
     g.fillStyle = fill; g.beginPath(); g.moveTo(a[0] + n[0] * wa / 2, a[1] + n[1] * wa / 2); g.lineTo(b[0] + n[0] * wb / 2, b[1] + n[1] * wb / 2);
@@ -327,7 +334,7 @@ export function handPhoneCU(g, cx, cy, w, h, { sleeve = '#3f6fb6', screen, rim =
   fing.forEach(([y, th], i) => {
     const tip = [-W2 + 16 - i * 2, y + 2];
     capsule([-W2 - 30 + i * 4, y], tip, th * .92, th * .8, skin(tip[0], y - th / 2, tip[0], y + th / 2));
-    g.fillStyle = 'rgba(255,255,255,.09)'; g.beginPath(); g.ellipse(-W2 - 12, y - th * .22, 20, 6, 0, 0, TAU); g.fill();       // knuckle sheen
+    g.fillStyle = 'rgba(255,255,255,.14)'; g.beginPath(); g.ellipse(-W2 - 12, y - th * .22, 20, 6, 0, 0, TAU); g.fill();       // knuckle sheen
     if (rim) { g.strokeStyle = rim; g.globalAlpha = .5; g.lineWidth = 3; g.beginPath(); g.arc(tip[0], tip[1], th * .4 - 1, -1.2, 1.2); g.stroke(); g.globalAlpha = 1; }
   });
   // thenar (thumb base) mound + thumb in two tapered segments, nail at the tip
@@ -336,7 +343,7 @@ export function handPhoneCU(g, cx, cy, w, h, { sleeve = '#3f6fb6', screen, rim =
   capsule(base, kn, 92, 80, skin(base[0], base[1] - 50, base[0] - 40, base[1] + 50));
   capsule(kn, tip, 80, 66, skin(kn[0], kn[1] - 40, kn[0], kn[1] + 40));
   const na = Math.atan2(tip[1] - kn[1], tip[0] - kn[0]);
-  g.save(); g.translate(tip[0] - Math.cos(na) * 8, tip[1] - Math.sin(na) * 8); g.rotate(na); g.fillStyle = 'rgba(255,255,255,.13)'; g.beginPath(); g.ellipse(-4, -2, 22, 17, 0, 0, TAU); g.fill(); g.restore();
+  g.save(); g.translate(tip[0] - Math.cos(na) * 8, tip[1] - Math.sin(na) * 8); g.rotate(na); g.fillStyle = 'rgba(255,236,220,.45)'; g.beginPath(); g.ellipse(-4, -2, 22, 17, 0, 0, TAU); g.fill(); g.restore();
   g.strokeStyle = 'rgba(0,0,0,.35)'; g.lineWidth = 3; g.beginPath(); const jm = [kn[0] - Math.sin(na) * 28, kn[1] + Math.cos(na) * 28]; g.moveTo(kn[0] + Math.sin(na) * 30, kn[1] - Math.cos(na) * 30); g.quadraticCurveTo(kn[0] + 6, kn[1], ...jm); g.stroke();
   if (rim) { g.strokeStyle = rim; g.globalAlpha = .45; g.lineWidth = 4; g.beginPath(); g.moveTo(kn[0] + Math.sin(na) * 38, kn[1] - Math.cos(na) * 38); g.lineTo(tip[0] + Math.sin(na) * 30, tip[1] - Math.cos(na) * 30); g.stroke(); g.globalAlpha = 1; }
   g.restore();

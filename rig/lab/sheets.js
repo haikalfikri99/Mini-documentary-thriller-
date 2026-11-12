@@ -24,6 +24,7 @@ function bust(spec, P, x, y, s, cw, ch, opts) {
   g.restore();
 }
 const RIM_WARM = { col: '#ffb46a', dir: [.75, -.66], w: 5 };
+const NIGHT = { amb: '#3d3650', ambK: .16 };
 const RIM_SCREEN = { col: '#7fe3ff', dir: [-.6, -.8], w: 5 };
 
 // warm room backdrop used by the sheets (dark, one lamp → readable but cinematic)
@@ -46,7 +47,7 @@ export function MODEL() {
   title('ARSIP RIG · 1 BASE, BANYAK ORANG', 'kepala tetap · ekspresi stiker · aset modular');
   const row = (keys, y, s) => keys.forEach((k, i) => {
     const x = 160 + i * 253;
-    drawChar(g, PRESETS[k], { x, y, s, facing: .12, expr: ['senyum', 'netral', 'senyum', 'senang', 'netral', 'senyum', 'senang', 'senyum'][Object.keys(PRESETS).indexOf(k)], look: .12 }, { rim: RIM_WARM });
+    drawChar(g, PRESETS[k], { x, y, s, facing: .12, expr: ['senyum', 'netral', 'senyum', 'senang', 'netral', 'senyum', 'senang', 'senyum'][Object.keys(PRESETS).indexOf(k)], look: .12 }, { rim: RIM_WARM, ...NIGHT });
     label(k.replace('_', ' ').toUpperCase(), x, y + 52, 30);
   });
   row(['pria', 'wanita', 'ibu', 'kakak'], 880, 1.05);
@@ -61,7 +62,7 @@ export function EXPRESI() {
   const names = Object.keys(EXPR);
   names.forEach((n, i) => {
     const cx = 190 + (i % 3) * 350, cy = 400 + Math.floor(i / 3) * 360;
-    bust({ body: 'adult', top: { type: 'kaos', col: '#4a4f5c' } }, { expr: n, facing: 0, look: 0, gaze: n === 'curiga' ? [.6, 0] : n === 'menyesal' ? [0, .6] : [0, 0] }, cx, cy, 2.2, 310, 300, { rim: RIM_WARM });
+    bust({ body: 'adult', top: { type: 'kaos', col: '#4a4f5c' } }, { expr: n, facing: 0, look: 0, gaze: n === 'curiga' ? [.6, 0] : n === 'menyesal' ? [0, .6] : [0, 0] }, cx, cy, 2.2, 310, 300, { rim: RIM_WARM, ...NIGHT });
     label(n.toUpperCase(), cx, cy + 205, 32);
   });
   vignette(.35); grain(2);
@@ -72,14 +73,14 @@ export function ASET() {
   bgGrad('#2b2733', '#1a171f'); pool(540, 700, 900, 'rgb(255,190,120)', .16);
   title('ASET MODULAR', 'base + rambut + penutup kepala + aksesori + wardrobe');
   const base = { body: 'adult', top: { type: 'kaos', col: '#55505e' } };
-  const head = (spec, x, y, t) => { bust(spec, { expr: 'netral', facing: .15, look: .15 }, x, y, 1.45, 160, 200, { rim: RIM_WARM }); label(t, x, y + 140, 24); };
+  const head = (spec, x, y, t) => { bust(spec, { expr: 'netral', facing: .15, look: .15 }, x, y, 1.45, 160, 200, { rim: RIM_WARM, ...NIGHT }); label(t, x, y + 140, 24); };
   label('RAMBUT', 60, 250, 30, '#ffb43a', 'left');
   [['pendek', '#2b221d'], ['panjang', '#2b1f1a'], ['kuncir', '#2b1f1a'], ['sanggul', '#d6d1c8'], ['keriting', '#241c18'], ['botak', '#cfc9bf']].forEach(([t, c], i) => head({ ...base, hair: { type: t, col: c, tie: '#ffb43a' } }, 100 + i * 176, 380, t));
   label('PENUTUP KEPALA & AKSESORI', 60, 620, 30, '#ffb43a', 'left');
   [[{ headwear: { type: 'peci', col: '#1c1b1f' } }, 'peci'], [{ headwear: { type: 'kerudung', col: '#7f8f6a' } }, 'kerudung'], [{ headwear: { type: 'topi', col: '#b8433d' } }, 'topi'], [{ acc: [{ type: 'kacamata' }] }, 'kacamata'], [{ acc: [{ type: 'kumis', col: '#d8d3ca' }] }, 'kumis'], [{ acc: [{ type: 'jenggot', col: '#3b3430' }], hair: { type: 'pendek' } }, 'jenggot']].forEach(([a, t], i) => head({ ...base, ...a }, 100 + i * 176, 750, t));
   label('WARDROBE', 60, 990, 30, '#ffb43a', 'left');
   const wd = [[{ type: 'kaos', col: '#c9705a' }, { type: 'pendek', col: '#3b3f4a' }, 'kaos'], [{ type: 'kemeja', col: '#5d7f9e' }, { type: 'panjang', col: '#3b3f4a' }, 'kemeja'], [{ type: 'hoodie', col: '#3f6fb6' }, { type: 'panjang', col: '#2e3442' }, 'hoodie'], [{ type: 'jas', col: '#30323a' }, { type: 'panjang', col: '#30323a' }, 'jas'], [{ type: 'kebaya', col: '#8a6a8e' }, { type: 'sarung', col: '#6b4a32', col2: '#a4784f' }, 'kebaya+kain'], [{ type: 'gamis', col: '#a77d63' }, null, 'gamis']];
-  wd.forEach(([top, bottom, t], i) => { const x = 110 + i * 172; drawChar(g, { body: 'adult', top, bottom, shoes: '#2a2522' }, { x, y: 1530, s: .92, expr: 'netral', facing: .1 }, { rim: RIM_WARM }); label(t, x, 1585, 26); });
+  wd.forEach(([top, bottom, t], i) => { const x = 110 + i * 172; drawChar(g, { body: 'adult', top, bottom, shoes: '#2a2522' }, { x, y: 1530, s: .92, expr: 'netral', facing: .1 }, { rim: RIM_WARM, ...NIGHT }); label(t, x, 1585, 26); });
   label('aset baru ditambah kapan saja, dipakai ulang', W / 2, 1720, 26, '#bfb3a2', 'center', '"Courier Prime"');
   vignette(.35); grain(3);
 }
@@ -153,7 +154,7 @@ export function TEST(t) {
   // camera: a slow push-in, slightly faster on the shock
   const z = 1 + .04 * clamp(t / 5) + .05 * easeOut((t - 4.15) / .4) * (t > 4.15);
   g.save(); g.translate(W / 2, 1000); g.scale(z, z); g.translate(-W / 2, -1000);
-  drawChar(g, KAKAK, P, { rim: RIM_WARM });
+  drawChar(g, KAKAK, P, { rim: RIM_WARM, ...NIGHT });
   g.restore();
   label(`UJI GERAK · ${t.toFixed(2)} s`, W / 2, 1780, 30, '#bfb3a2', 'center', '"Courier Prime"');
   vignette(.45); grain(5 + Math.floor(t * 24));

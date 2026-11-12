@@ -3,8 +3,8 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <style>@font-face { font-family: "Oswald"; src: url("assets/fonts/Oswald.woff2"); font-weight: 600; } @font-face { font-family: "Courier Prime"; src: url("assets/fonts/CourierPrime.woff2"); font-weight: 700; }
 html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #000; } #world { position: absolute; inset: 0; width: 1080px; height: 1920px; }</style></head>
-<body><div id="root" data-composition-id="main" data-start="0" data-duration="10" data-width="1080" data-height="1920" data-fps="30">
-<canvas id="world" class="clip" data-start="0" data-duration="10" data-track-index="0" width="1080" height="1920"></canvas></div>
+<body><div id="root" data-composition-id="main" data-start="0" data-duration="9" data-width="1080" data-height="1920" data-fps="30">
+<canvas id="world" class="clip" data-start="0" data-duration="9" data-track-index="0" width="1080" height="1920"></canvas></div>
 <script>window.__timelines = window.__timelines || {}; window.__timelines["main"] = gsap.timeline({ paused: true });</script>
 <script type="module">
 import * as S from './sheets.js';
@@ -12,7 +12,7 @@ const cv = document.getElementById('world'), g = cv.getContext('2d'); S.setCtx(g
 // 0-1 model sheet · 1-2 expressions · 2-3 assets · 3-4 close-up hand · 4-9 acting test
 function renderAt(t) {
   g.setTransform(1, 0, 0, 1, 0, 0); g.filter = 'none'; g.clearRect(0, 0, 1080, 1920);
-  if (t < 1) S.MODEL(); else if (t < 2) S.EXPRESI(); else if (t < 3) S.ASET(); else if (t < 4) S.TANGAN(t - 3); else if (t < 9) S.TEST(t - 4); else S.WARNA();
+  if (t < 1) S.MODEL(); else if (t < 2) S.EXPRESI(); else if (t < 3) S.ASET(); else if (t < 4) S.TANGAN(t - 3); else S.TEST(t - 4);
 }
 window.addEventListener('hf-seek', e => renderAt(e.detail.time));
 const ready = Promise.all([document.fonts.load('600 40px Oswald'), document.fonts.load('700 30px "Courier Prime"')]).then(() => renderAt(0));

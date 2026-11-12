@@ -1,4 +1,5 @@
 # LOOK BIBLE #002 — keputusan arah visual (sebelum eksekusi)
+> **Diperbarui:** bagian Karakter dan Pencahayaan digantikan oleh `ADAPTASI.md` (ARSIP RIG, kulit sawo matang, wajah ditampilkan, aturan cahaya dari referensi).
 Disusun dari kacamata: sinematografi (`filmmaker`, `cinematography-180-degree-rule`), fotografi & komposisi (`photo-composition-critic`), warna (`color-grading-finishing`), animasi & karakter (`animation-principles`, `2d-character-rig-animation`, `character-animation-qa`), art & motion direction (`motion-art-direction`, `illustration-style`), platform (`short-form-video`, `youtube-shorts`, `hyperframes` vertical/review), dan identitas channel (#001, `references/2-visual-dan-animasi.md`).
 Menggantikan eksperimen v1 (kartun) dan v2 (noir gelap). STYLE.md lama tetap sebagai catatan, tapi yang berlaku adalah dokumen ini.
 
