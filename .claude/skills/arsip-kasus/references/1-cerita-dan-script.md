@@ -111,6 +111,9 @@ Untuk Shorts yang lebih pendek/panjang, skalakan babak 3–5; babak 1–2 tetap 
 ### Pola naskah pemenang (transkrip vidIQ, Nov 2026)
 "Why You Can't Stop Scrolling: The Skinner Box Explained" 26,7 jt views: 42 dtk, ±85 kata, satu cerita tanpa nama, kalimat pendek, ditutup pertanyaan pribadi. Pelajaran: (1) bercerita > daftar kutipan; (2) kejutan hook jatuh ≤ 3 dtk; (3) pertanyaan eksplisit setelah hook (= judul); (4) buat mekanismenya terjadi di tangan penonton saat itu juga (Shorts = gestur geser); (5) bukti/kutipan sebagai konfirmasi setelah penonton paham, bukan sebelumnya. Sebelum menulis, ambil transkrip 2–3 outlier topik yang sama lewat vidIQ dan ukur kata/dtk.
 
+### Wilayah 2 wajib membongkar sistemnya (pelajaran #002 v4 → v5)
+Kumpulan pengakuan/kutipan bukan jawaban. Setiap video wilayah 2 harus menjawab pertanyaan hook dengan **mekanisme**: biasanya tiga lapis, yaitu **psikologi** (bias/efek apa yang dipakai), **desain** (fitur/tata letak apa yang memanfaatkannya), dan **uang** (siapa yang untung dan bagaimana). Kutipan tokoh dipakai sebagai bukti di dalam jawaban. Penutup menjawab pertanyaan hook secara eksplisit dan kembali ke frame 0. Uji: setelah menonton, bisakah penonton menjelaskan "kenapa" ke temannya dalam satu kalimat?
+
 ## I. Durasi
 Shorts boleh sampai 3 menit, tapi tentukan **gagasan dulu, lalu durasi terpendek yang lengkap**. Patokan channel: 45–75 dtk (film #001: 61 dtk). Untuk wilayah 2 (sistem/psikologi), uji juga versi 25–40 dtk. Ukur hasilnya; jangan menganggap satu durasi selalu benar.
 
