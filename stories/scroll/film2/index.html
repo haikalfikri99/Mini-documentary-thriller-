@@ -3,16 +3,16 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <style>@font-face { font-family: "Oswald"; src: url("assets/fonts/Oswald.woff2"); font-weight: 600; } @font-face { font-family: "Courier Prime"; src: url("assets/fonts/CourierPrime.woff2"); font-weight: 700; }
 html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #000; } #world { position: absolute; inset: 0; width: 1080px; height: 1920px; }</style></head>
-<body><div id="root" data-composition-id="main" data-start="0" data-duration="3" data-width="1080" data-height="1920" data-fps="30">
-<canvas id="world" class="clip" data-start="0" data-duration="3" data-track-index="0" width="1080" height="1920"></canvas></div>
+<body><div id="root" data-composition-id="main" data-start="0" data-duration="25" data-width="1080" data-height="1920" data-fps="30">
+<canvas id="world" class="clip" data-start="0" data-duration="25" data-track-index="0" width="1080" height="1920"></canvas></div>
 <script>window.__timelines = window.__timelines || {}; window.__timelines["main"] = gsap.timeline({ paused: true });</script>
 <script type="module">
-import * as S from './sets.js';
+import * as S from './shots.js';
 const cv = document.getElementById('world'), g = cv.getContext('2d'); S.setCtx(g);
-// key frames: 0 S1 · 1 S5 · 2 S17
+// storyboard keyframes: shot i at t in [i, i+1)
 function renderAt(t) {
   g.setTransform(1, 0, 0, 1, 0, 0); g.filter = 'none'; g.clearRect(0, 0, 1080, 1920);
-  [S.S1, S.S5, S.S17][Math.min(2, Math.floor(t))]();
+  const i = Math.min(24, Math.floor(t)); S.SHOTS[i](Math.min(.999, t - i));
 }
 window.addEventListener('hf-seek', e => renderAt(e.detail.time));
 const ready = Promise.all([document.fonts.load('600 40px Oswald'), document.fonts.load('700 30px "Courier Prime"')]).then(() => renderAt(0));

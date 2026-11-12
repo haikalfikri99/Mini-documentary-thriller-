@@ -23,7 +23,7 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 | 2 | Script dengan framework 6 babak (Interruption → Promise → Escalation → Turn → Payoff → Echo) + 8 prinsip; 10+ variasi hook diuji 4U ✋ | script di README | sama |
 | 3 | User merekam VO → `stories/<slug>/audio/vo_<slug>.mp3` | — | — |
 | 4 | Alignment per kata (faster-whisper), koreksi manual → `audio/vo_words.json` → `film/words.js` | timestamp kata | bagian "Perintah" |
-| 5 | Storyboard: 1 panel per 1,5–2 dtk, dipotong di awal kata VO ✋ | `stories/<slug>/storyboard.md` | `references/2-visual-dan-animasi.md` |
+| 5 | Storyboard: 1 panel per 1,5–2 dtk, dipotong di awal kata VO; **keyframe tiap shot dirender dari kode lalu disajikan sebagai artifact storyboard** (kartu per shot: keyframe, timecode, VO, aksi, kamera, suara, teks layar, catatan) ✋ sebelum animasi | `stories/<slug>/storyboard.md` | `references/2-visual-dan-animasi.md` |
 | 6 | Bangun 3 adegan kunci (hook, establishing, satu karakter), poles sampai rubrik ≥ 9 ✋ | preview | `references/4-standar-kualitas-10.md` |
 | 7 | Bangun semua panel per batch (6–10 panel), cek still tiap batch, perbaiki, lalu render film penuh ✋ | `renders/` | rujukan 2 |
 | 8 | Audio: skor MIDI per babak + SFX sinkron + mix VO ✋ | `film/score_full.py`, `film/fullmix.py` | `references/3-audio.md` |
