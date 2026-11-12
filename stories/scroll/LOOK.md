@@ -32,7 +32,15 @@ Menggantikan eksperimen v1 (kartun) dan v2 (noir gelap). STYLE.md lama tetap seb
 - Feed di layar memakai palet yang menyatu (teal, kertas, satu aksen amber).
 - Finishing #001 dipertahankan: tekstur cat air (`paint`), grade dua suhu, grain halus, vignette ringan (0,25–0,35, bukan 0,55).
 
-### Karakter
+### Karakter — keputusan final setelah uji style frame
+**Wajah tokoh tidak pernah ditampilkan.** Uji style frame membuktikan rig Cast Kit tidak bisa menghasilkan orang memegang HP secara meyakinkan (lengan tersembunyi, kesan boneka), dan memoles wajah tidak menembus batas itu. Maka:
+- **Raskin** = siluet profil di depan sumber cahaya terang (jendela senja, layar). 2006: rim hangat; 2019: berjanggut, rim cahaya layar, feed terpantul di lensa.
+- **"Kamu"** = tangan POV (kulit sawo matang) memegang HP di kasur; kamar Indonesia di latar (kipas angin, guling, jam 01.47, kabel charger).
+- **Shot dari belakang bahu** (kepala blur di latar depan) untuk adegan 2006.
+- Kualitas dibawa oleh lingkungan, benda, cahaya, kedalaman (latar & latar depan blur), dan tipografi.
+- Style frame: `renders/styleframes/` (SF1 luma 89, SF2 161, SF3 115).
+
+_(Catatan lama, digantikan keputusan di atas:)_
 - **Desain ulang kepala Cast Kit** ke proporsi graphic novel: mata kecil berbentuk almond dengan kelopak tebal (bukan bola putih besar), hidung berupa bentuk bayangan tanpa garis segitiga, alis tegas, rahang lebih tegas. Badan tetap Cast Kit.
 - **Raskin:** dewasa, rambut gelap bergelombang, kacamata (digambar di semua sudut), versi 2019 berjanggut tipis. Selalu 3/4 atau profil, ukuran medium shot.
 - **"Kamu" (penonton):** anak muda Indonesia di kamar (kaos, sarung/selimut, kipas angin, colokan HP). Membuat penonton merasa itu dirinya. Sering ditampilkan lewat tangan & jempol (POV).

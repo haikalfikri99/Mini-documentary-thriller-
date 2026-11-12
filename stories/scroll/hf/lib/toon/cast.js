@@ -341,7 +341,7 @@ export function person(P) {
   if (ck) { push(); rotate(-(pose.lean || 0)); crouchLegs(P, b, ck, dyC, true); pop(); }
   form(noodle([8, b.sh - 4], [b.head[0] * .6, b.head[1] + b.hr[1] * .8], 3, b.hr[0] * .36, b.hr[0] * .36), (P.skin || SKIN.light)[0], { lw: 6, sw: 10 });
   if (P.acc?.scarf) scarf(P, b);
-  push(); translate(b.head[0] * (P.lookBack ? .55 : 1), b.head[1]); rotate((P.headTilt ?? pose.headTilt ?? 0)); if (P.lookBack) scale(-1, 1); drawHead(P, b); pop();   // lookBack: the head turns to look behind (over the shoulder)
+  push(); translate(b.head[0] * (P.lookBack ? .55 : 1), b.head[1]); rotate((P.headTilt ?? pose.headTilt ?? 0)); if (P.lookBack) scale(-1, 1); (P.headFn || drawHead)(P, b); pop();   // headFn: a film may draw its own head design on the Cast Kit body   // lookBack: the head turns to look behind (over the shoulder)
   if (P.view === 'front') arm(P, b, shB, pose.armB, false);
   arm(P, b, shF, pose.armF, true);
   pop(); pop();
