@@ -3,6 +3,7 @@ Karakter ARSIP RIG tetap 2D (billboard, ekspresi stiker, rim light, tanpa outlin
 
 ## Mulai episode baru
 ```bash
+kit/tools/setup_env.sh                                   # SEKALI per container/sesi baru: scipy, mido, faster-whisper, fluidsynth + soundfont (idempoten; butuh PyPI, apt, huggingface.co)
 kit/tools/new_episode.sh <slug> <no> <durasi_vo>        # default = dunia 3D (--2d = flat lama)
 # taruh VO + vo_words.json di stories/<slug>/audio/, lalu edit stories/<slug>/film/world.js
 node kit/tools/preview_3d.mjs stories/<slug>/film 540    # pratinjau cepat (tanpa audio/HyperFrames) → renders/preview.mp4
@@ -36,7 +37,8 @@ Dunia memakai satuan 1 unit = 1 cm, Y ke atas. Pusat ruang = pusat lantai; ruang
 - Sembunyikan yang tak terlihat (`world.visible`) dan beri kabut hanya di dalam terowongan.
 
 ## Fakta terverifikasi
-- Render HyperFrames (software GPU): 8 dtk 1080×1920 = 3 m 46 s → **≈ 28 dtk render per dtk film** (film 45 dtk ≈ 21 menit). `hyperframes check` lolos untuk komposisi 3D.
+- **End-to-end terbukti** (episode uji dari template + VO #002 + cue #002): `make_film.sh` penuh → `ARSIP_097_e2e3d_v1.mp4`, 44,8 dtk 1080×1920, **−14,1 LUFS**, peak −0,9 dBFS, caption sinkron kata, QA audio dan QA 3D lolos, render HyperFrames **11 m 24 s** (software GPU). Take 8 dtk yang penuh gerak = 3 m 46 s. Pakai **≈ 15–28 dtk render per dtk film** (lebih lama bila kamera bergerak terus). Gerbang audio menolak cue template yang menutupi kata "pakai…" — itu perilaku yang benar; tulis cue per episode.
+- `hyperframes check` lolos untuk komposisi 3D.
 - Probe QA ≈ 1,1 dtk/frame di 1080×1920; pratinjau 540 px ≈ 0,5 dtk/frame.
 - Deterministik: frame yang sama dirender dua kali = hash identik (`qa_3d.mjs` memeriksa 3 titik; gagal → render dibatalkan).
 - Lapisan yang dipakai: `cam3d.js` (kamera), three.js r170 di `vendor/`, finishing 2D (tilt-shift, halation, paper grain, vignette, grain) di `diorama-kit.js`.
@@ -63,3 +65,17 @@ Dunia memakai satuan 1 unit = 1 cm, Y ke atas. Pusat ruang = pusat lantai; ruang
 
 ## Retensi dan data channel (untuk prioritas, bukan untuk 3D)
 Channel Mini Thriller IDN (@minithrilleridn, id `UCRV6nTJ6oJqIXmZUXq8t9gA`): 7 subscriber, 2 Shorts. #001 (rMbTwlWe0B4) 1.412 views, 40 like, +1 subscriber, 70,4 % stayed to watch / 29,6 % swiped away; #002 (xtP3p8X_t0M) 338 views setelah ±2,5 jam. Retensi per detik belum tersedia (±48 jam): baca ulang dengan `vidiq_channel_analytics report=audience_retention filters=video==<id>`; `shorts_stayed_to_watch` butuh ekstensi vidIQ terhubung di browser pemilik. Konversi subscriber sangat rendah (1 dari 1,4K views) → perbaiki hook, CTA, dan loop di naskah, jangan hanya visual.
+
+## Kamera yang bermotivasi (aturan, bukan hiasan)
+Setiap key kamera wajib punya alasan cerita (`why: '…'`). `qa_3d.mjs` memperingatkan key tanpa `why`. Daftar tujuan yang sah:
+
+| Tujuan | Gerakan |
+|---|---|
+| mengenalkan / hook | close-up rendah ke petunjuk (jam, layar, wajah), lalu rack focus ke tokoh |
+| kesendirian / skala | tarik mundur dan naik (crane), lensa lebar, tokoh kecil di ruang besar |
+| ketegangan naik | dorong pelan (push-in), getar tangan, FOV menyempit |
+| arahkan mata ke petunjuk | rack focus, whip ke objek, close-up ekstrem |
+| pindah tempat/waktu | menembus objek (layar, jendela, pintu), bukan cut |
+| pengungkapan | menoleh/orbit untuk memperlihatkan yang tadi di belakang kamera |
+| pukulan akhir | tahan (hold) pada bukti/stempel, kamera nyaris diam |
+Tanya dulu: "kalau gerakan ini dihapus, apa yang hilang dari ceritanya?" Bila tidak ada, hapus. Gerak cepat (whip, jatuh) dipakai paling banyak 2–3 kali per film.

@@ -21,20 +21,20 @@ export function build(gl, W, H) {
   world.facade({ at: FC, w: 1500, h: 3200, hole: { x: 0, y: 900, w: WIN.w, h: WIN.y1 - WIN.y0 }, cols: 8, rows: 20 });
 
   world.actor({ spec: KAMU, at: kamar.anchors.seat, sit: 40, pose: t => ({ facing: .7, ...perform(t, [
-      { t: 0, expr: 'lelah', gaze: [.75, .35], rh: [70, 70] }, { t: 2.0, expr: 'cemas' }, { t: 2.6, dur: .7, rh: GESTURE.phoneRaise.rh }, { t: 5.0, expr: 'kaget', gaze: [.1, -.2], dur: .3 }]), ...idle(t) }),
+      { t: 0, expr: 'lelah', gaze: [.75, .35], rh: [70, 70] }, { t: 2.0, expr: 'cemas' }, { t: 2.6, why: 'wide lens: one person alone in a dark room', dur: .7, rh: GESTURE.phoneRaise.rh }, { t: 5.0, expr: 'kaget', gaze: [.1, -.2], dur: .3 }]), ...idle(t) }),
     opts: () => ({ rim: { col: SCREEN, dir: [.8, .3], w: 6 }, amb: '#2c3550', ambK: .22 }) });
 
   const CL = kamar.anchors.clock, HEAD = kamar.anchors.head;
   world.camera([
-    { t: 0.0, tx: CL[0], ty: CL[1] + 1, tz: CL[2], az: 14, el: 6, dist: 40, fov: 40, roll: 0 },                         // extreme close-up: the clock 01.47
-    { t: 1.4, tx: CL[0] - 20, ty: CL[1] + 10, tz: CL[2] + 20, az: 24, el: 8, dist: 70, fov: 50, roll: 0 },
+    { t: 0.0, why: 'hook: the hour is the clue (01.47)', tx: CL[0], ty: CL[1] + 1, tz: CL[2], az: 14, el: 6, dist: 40, fov: 40, roll: 0 },     // extreme close-up: the clock 01.47
+    { t: 1.4, why: 'rack focus clock → him: the viewer meets him', tx: CL[0] - 20, ty: CL[1] + 10, tz: CL[2] + 20, az: 24, el: 8, dist: 70, fov: 50, roll: 0 },
     { t: 2.6, tx: -96, ty: 104, tz: -34, az: 38, el: 8, dist: 175, fov: 66, roll: 3 },                                   // wide lens: him in the room
-    { t: 4.0, tx: 60, ty: 140, tz: -120, az: 22, el: 6, dist: 150, fov: 72, roll: -4 },                                // drift toward the window, slightly tilted
-    { t: 5.2, tx: WC[0], ty: WC[1], tz: WC[2] - 30, az: 0, el: 3, dist: 110, fov: 74, roll: 0, hold: .8 },            // lined up on the window
-    { t: 6.0, tx: WC[0], ty: WC[1], tz: -420, az: 0, el: 2, dist: 90, fov: 78, roll: 0 },                              // out through the window: the city
-    { t: 7.5, tx: WC[0], ty: WC[1] - 80, tz: FC[2], az: 150, el: 8, dist: 700, fov: 56, roll: 0 },                      // turn around while pulling out
-    { t: 9.0, tx: WC[0], ty: WC[1] - 500, tz: FC[2], az: 188, el: 12, dist: 3300, fov: 50, roll: 0, hold: .6 },         // the tower
-    { t: 12.0, tx: WC[0], ty: WC[1] - 560, tz: FC[2], az: 193, el: 12, dist: 3700, fov: 50, roll: 0 },
+    { t: 4.0, why: 'his eyes leave the phone: restlessness, looking for an exit', tx: 60, ty: 140, tz: -120, az: 22, el: 6, dist: 150, fov: 72, roll: -4 },                                // drift toward the window, slightly tilted
+    { t: 5.2, why: 'anticipation: the move out is about to happen', tx: WC[0], ty: WC[1], tz: WC[2] - 30, az: 0, el: 3, dist: 110, fov: 74, roll: 0, hold: .8 },            // lined up on the window
+    { t: 6.0, why: 'scale: he is one of millions awake', tx: WC[0], ty: WC[1], tz: -420, az: 0, el: 2, dist: 90, fov: 78, roll: 0 },                              // out through the window: the city
+    { t: 7.5, why: 'reveal: every window is a screen (turn around)', tx: WC[0], ty: WC[1] - 80, tz: FC[2], az: 150, el: 8, dist: 700, fov: 56, roll: 0 },                      // turn around while pulling out
+    { t: 9.0, why: 'payoff: the whole building is scrolling', tx: WC[0], ty: WC[1] - 500, tz: FC[2], az: 188, el: 12, dist: 3300, fov: 50, roll: 0, hold: .6 },         // the tower
+    { t: 12.0, why: 'hold the picture while the last line lands', tx: WC[0], ty: WC[1] - 560, tz: FC[2], az: 193, el: 12, dist: 3700, fov: 50, roll: 0 },
   ], { handheld: t => (t < 5.2 ? .55 : .15) });
 
   // focus: the clock → him → the window → the city → the window from outside → the tower

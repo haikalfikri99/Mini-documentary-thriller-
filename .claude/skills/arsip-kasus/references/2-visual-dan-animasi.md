@@ -56,4 +56,4 @@ Keputusan pemilik channel: **semua scene** memakai dunia 3D (diorama cutaway + k
 - **Lapisan bukti ARSIP** (`evidence.js`): dokumen dengan bar sensor yang menyapu, stempel yang membanting, papan gabus + benang merah. Pakai saat cerita menyentuh arsip/dokumen.
 - **Akting** (`acting.js`): `perform()` dengan antisipasi dan overshoot, `idle()`, `addDarts()` (lirikan). Ekspresi berganti pada kata kunci.
 - QA: `qa_3d.mjs` (deterministik, tanpa error) adalah gerbang sebelum render; waktu render ≈ 28 dtk per dtk film.
-
+- **Kamera harus bermotivasi**: tiap key kamera ditulis dengan `why` (alasan cerita); tabel tujuan→gerakan di `kit/HYBRID3D.md`. Tanpa alasan = hapus.

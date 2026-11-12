@@ -37,20 +37,20 @@ export function build(gl, W, H) {
   // ---- the one continuous take (az 0 = camera on +z, 90 = +x; el 90 = down; dist in cm; fov = vertical, deg) ----
   const P = kamar.anchors.phone, DESK = kantor.anchors.paper;
   world.camera([
-    { t: 0.0, tx: -74, ty: 108, tz: -8, az: 24, el: 4, dist: 210, fov: 34, roll: 0 },                       // medium close-up, low
-    { t: 1.5, tx: -72, ty: 106, tz: -8, az: 16, el: 5, dist: 150, fov: 34, roll: 0 },                       // slow push
-    { t: 3.1, tx: -10, ty: 80, tz: -50, az: 36, el: 22, dist: 1000, fov: 30, roll: 0 },                     // crane up and back
-    { t: 4.1, tx: -10, ty: 70, tz: -50, az: 46, el: 32, dist: 3900, fov: 14, roll: 0 },                     // isometric diorama, long lens
-    { t: 5.0, tx: -4, ty: 66, tz: -58, az: 66, el: 30, dist: 3900, fov: 14, roll: 0, hold: .8 },            // orbit
-    { t: 5.55, tx: 30, ty: 58, tz: -120, az: 30, el: 66, dist: 190, fov: 26, roll: 6 },                     // whip to the phone
-    { t: 6.05, tx: P[0], ty: 52, tz: P[2], az: 0, el: 88, dist: 32, fov: 30, roll: 0, hold: .55 },          // top-down on the screen
-    { t: 6.75, tx: P[0], ty: -60, tz: P[2], az: 0, el: 88, dist: 30, fov: 54, roll: 35 },                   // falls through
-    { t: 7.9, tx: P[0], ty: -1400, tz: P[2], az: 0, el: 88, dist: 30, fov: 74, roll: 150 },                 // end of the tunnel
-    { t: 8.7, tx: OFFICE[0], ty: OFFICE[1] + 110, tz: OFFICE[2], az: 0, el: 86, dist: 260, fov: 60, roll: 250 },   // out above the office
-    { t: 9.7, tx: OFFICE[0], ty: OFFICE[1] + 60, tz: OFFICE[2], az: 35, el: 40, dist: 1700, fov: 20, roll: 330 },
-    { t: 10.7, tx: OFFICE[0] - 10, ty: OFFICE[1] + 70, tz: OFFICE[2] - 20, az: 46, el: 32, dist: 3700, fov: 14, roll: 360, hold: .7 },   // isometric, the office
-    { t: 11.9, tx: DESK[0], ty: DESK[1], tz: DESK[2], az: 18, el: 62, dist: 150, fov: 28, roll: 360, hold: .6 },    // push to the document
-    { t: 14.0, tx: DESK[0], ty: DESK[1], tz: DESK[2], az: 14, el: 66, dist: 128, fov: 28, roll: 360 },
+    { t: 0.0, why: 'we meet him in the phone light', tx: -74, ty: 108, tz: -8, az: 24, el: 4, dist: 210, fov: 34, roll: 0 },                       // medium close-up, low
+    { t: 1.5, why: 'slow push: tension builds on the phone', tx: -72, ty: 106, tz: -8, az: 16, el: 5, dist: 150, fov: 34, roll: 0 },                       // slow push
+    { t: 3.1, why: 'crane up and back: he is small in a big room', tx: -10, ty: 80, tz: -50, az: 36, el: 22, dist: 1000, fov: 30, roll: 0 },                     // crane up and back
+    { t: 4.1, why: 'isometric: the whole situation at a glance', tx: -10, ty: 70, tz: -50, az: 46, el: 32, dist: 3900, fov: 14, roll: 0 },                     // isometric diorama, long lens
+    { t: 5.0, why: 'orbit: time passes, nothing changes', tx: -4, ty: 66, tz: -58, az: 66, el: 30, dist: 3900, fov: 14, roll: 0, hold: .8 },            // orbit
+    { t: 5.55, why: 'whip: the phone is the problem (eye goes to it)', tx: 30, ty: 58, tz: -120, az: 30, el: 66, dist: 190, fov: 26, roll: 6 },                     // whip to the phone
+    { t: 6.05, why: 'top-down on the screen: the feed', tx: P[0], ty: 52, tz: P[2], az: 0, el: 88, dist: 32, fov: 30, roll: 0, hold: .55 },          // top-down on the screen
+    { t: 6.75, why: 'falling in: he cannot stop', tx: P[0], ty: -60, tz: P[2], az: 0, el: 88, dist: 30, fov: 54, roll: 35 },                   // falls through
+    { t: 7.9, why: 'the feed has no end', tx: P[0], ty: -1400, tz: P[2], az: 0, el: 88, dist: 30, fov: 74, roll: 150 },                 // end of the tunnel
+    { t: 8.7, why: 'out into 2006: where it started', tx: OFFICE[0], ty: OFFICE[1] + 110, tz: OFFICE[2], az: 0, el: 86, dist: 260, fov: 60, roll: 250 },   // out above the office
+    { t: 9.7, why: 'swing round: the office', tx: OFFICE[0], ty: OFFICE[1] + 60, tz: OFFICE[2], az: 35, el: 40, dist: 1700, fov: 20, roll: 330 },
+    { t: 10.7, why: 'isometric hold: the room where the decision was made', tx: OFFICE[0] - 10, ty: OFFICE[1] + 70, tz: OFFICE[2] - 20, az: 46, el: 32, dist: 3700, fov: 14, roll: 360, hold: .7 },   // isometric, the office
+    { t: 11.9, why: 'push to the document: the evidence', tx: DESK[0], ty: DESK[1], tz: DESK[2], az: 18, el: 62, dist: 150, fov: 28, roll: 360, hold: .6 },    // push to the document
+    { t: 14.0, why: 'hold on the stamp: the case is closed', tx: DESK[0], ty: DESK[1], tz: DESK[2], az: 14, el: 66, dist: 128, fov: 28, roll: 360 },
   ], { handheld: t => Math.max(0, 1 - t / 3.1) * .6 + (t > 11.9 ? .25 : 0) });
 
   // ---- visibility + fog: what the camera cannot see is not drawn ----

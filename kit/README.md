@@ -24,6 +24,7 @@ Semua video baru dibuat dari kit ini. Gaya visual, karakter, kartu arsip, captio
 
 ## Alur episode baru
 ```bash
+kit/tools/setup_env.sh                                      # sekali per container/sesi baru (dependensi Python + fluidsynth + Whisper)
 kit/tools/new_episode.sh <slug> <no> <durasi_vo_detik>      # stories/<slug>/ siap — dunia 3D (default); tambah --2d untuk flat lama
 # taruh VO: stories/<slug>/audio/vo_<slug>.mp3 → alignment kata → audio/vo_words.json (SKILL.md langkah 4)
 # bangun shot di film/shots.js (rig + sets-lib + arsip-card), timing di film/film.js, cue di fullmix.py, musik di score_full.py

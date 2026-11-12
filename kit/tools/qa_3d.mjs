@@ -13,6 +13,7 @@ const p = await br.newPage({ viewport: { width: 1080, height: 1920 } }); const e
 p.on('pageerror', e => errors.push('pageerror: ' + e.message)); p.on('console', m => { if (m.type() === 'error' && !/gsap|jsdelivr|ERR_(NAME|INTERNET|CONNECTION)|Failed to load resource/.test(m.text())) errors.push('console.error: ' + m.text()); });
 await p.goto(`http://localhost:${srv.address().port}/index.html`); await p.waitForFunction(() => window.__world, null, { timeout: 120000 });
 const D = await p.evaluate(() => window.__world.duration);
+const keys = await p.evaluate(() => window.__world.keys || []), noWhy = keys.filter(k => !k.why);   // motivated camera: every move needs a story reason
 const grab = t => p.evaluate(t => { window.dispatchEvent(new CustomEvent('hf-seek', { detail: { time: t, waitUntil() { } } })); return document.getElementById('world').toDataURL('image/png'); }, t);
 const md5 = u => crypto.createHash('md5').update(u).digest('hex'); let bad = 0;
 for (const t of [D * .2, D * .55, D * .9]) { const a = md5(await grab(t)); await grab(D * .05); const b = md5(await grab(t)); if (a !== b) { bad++; console.log(`✗ frame at ${t.toFixed(2)} s differs between two renders`); } }
@@ -21,5 +22,6 @@ for (let i = 0; i < N; i++) { const t = AT ? AT[i] : D * i / (N - 1) * .999, f =
 const ms = (Date.now() - t0) / N;
 try { execFileSync('ffmpeg', ['-v', 'error', '-y', '-framerate', '1', '-i', path.join(OUT, 'q_%02d.png'), '-vf', 'scale=270:-1,tile=6x' + Math.ceil(N / 6), '-frames:v', '1', path.join(OUT, 'sheet.png')]); } catch { }
 console.log(`3D QA: camera path ${D.toFixed(1)} s · determinism ${bad ? 'FAIL' : 'ok'} · ${ms.toFixed(0)} ms/frame in this probe (HyperFrames render ≈ ${(D * 28 / 60).toFixed(0)} min for this path, measured ~28 s render per film second) · errors ${errors.length}`);
+if (keys.length && noWhy.length) console.log(`  ⚠ ${noWhy.length}/${keys.length} camera keys have no \`why\` (story reason): t = ${noWhy.map(k => k.t).join(', ')}`);
 errors.slice(0, 8).forEach(e => console.log('  ' + e)); console.log('  contact sheet: ' + path.join(OUT, 'sheet.png'));
 await br.close(); srv.close(); process.exit(bad || errors.length ? 2 : 0);
