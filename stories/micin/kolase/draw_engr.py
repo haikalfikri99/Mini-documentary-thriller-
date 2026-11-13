@@ -66,7 +66,8 @@ def babybottle():
     d.line(pts + [pts[0]], fill=255, width=L, joint='curve')
     d.rectangle([450, 270, 750, 335], outline=255, width=L)                              # collar
     for i in range(6): d.line([455, 280 + i * 10, 745, 280 + i * 10], fill=255, width=3)
-    d.polygon([(520, 270), (680, 270), (640, 140), (600, 70), (560, 140)], outline=255, width=L)   # teat
+    d.chord([505, 150, 695, 400], 180, 360, outline=255, width=L)                       # teat: rubber dome
+    d.ellipse([570, 120, 630, 180], outline=255, width=L)                                 # nipple tip
     for i in range(7):
         y = 560 + i * 65; d.line([420, y, 470 + (40 if i % 2 == 0 else 0), y], fill=255, width=6)
     milk = poly_mask([(404, 640), (796, 640), (796, 1040), (760, 1076), (440, 1076), (404, 1040)])

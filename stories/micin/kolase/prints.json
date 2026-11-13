@@ -123,19 +123,19 @@
   "file": "cow_1.png",
   "width": 430
  },
- "family": {
-  "file": "family_3.jpg",
-  "width": 620,
-  "rect": true,
-  "crop": [
-   0.04,
-   0.04,
-   0.96,
-   0.96
-  ]
- },
  "hand": {
   "file": "hand_2.png",
   "width": 420
+ },
+ "subject": {
+  "file": "subject.jpg",
+  "width": 560,
+  "rect": true,
+  "crop": [
+   0.03,
+   0.02,
+   0.97,
+   0.86
+  ]
  }
 }

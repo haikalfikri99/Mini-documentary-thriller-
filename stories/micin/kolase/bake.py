@@ -183,7 +183,7 @@ def slips():
          ('s_disuntik', 'DISUNTIK, BUKAN DIMAKAN', F_CPB, 38, CARD, RED), ('s_dosis', 'dosis besar · bayi tikus', F_CP, 30, NEWS, INK),
          ('s_bpom', 'BPOM', F_CPB, 44, CARD, INK), ('s_fda', 'FDA', F_CPB, 44, CARD, INK),
          ('s_glutamat', 'GLUTAMAT', F_CPB, 52, CARD, INK), ('s_asi', 'ASI', F_CPB, 50, CARD, INK), ('s_sapi', 'SUSU SAPI', F_CPB, 40, CARD, INK),
-         ('s_taruhan', '"cuma taruhan"', F_CPB, 44, CARD, INK), ('s_keluarga', 'keluarga Dr. Kwok', F_CP, 32, NEWS, INK),
+         ('s_taruhan', '"cuma taruhan"', F_CPB, 44, CARD, INK), ('s_keluarga', 'keluarga Dr. Kwok:', F_CP, 32, NEWS, INK), ('s_tidak', '"tidak benar"', F_CPB, 44, CARD, RED),
          ('s_tanpatahu', 'tanpa tahu mana yang micin', F_CP, 32, NEWS, INK), ('s_A', 'A', F_SLAB, 90, CARD, INK), ('s_B', 'B', F_SLAB, 90, CARD, INK)]
     for i, (n, tx, f, s, pa, ik) in enumerate(T):
         bk.strip(n, tx, f, s * 1.45, pa, ik, 400 + i, mono=f.startswith('Courier'))

@@ -100,7 +100,7 @@ const SHOTS = [
   (u, T, d) => {
     stage(u, d, { z0: 1, z1: 1.04 }); bg('resto');
     putK('patient', [[0, 330, 470, -4, 0, 1]], u, 12, { s: 0.48 });
-    ransomRow('rq', u, 0.5, 800, 430, 0.1, 1.3);
+    ransomRow('rq', u, 0.5, 620, 430, 0.1, 1.3);
     const items = [['bottle', 's_arak', 260, at(5, 'arak')], ['salt', 's_garam', 540, at(5, 'garam')], ['sachet', 's_micin', 820, at(5, 'micin')]];
     items.forEach(([n, sl, x, t0], i) => {
       if (has(n)) putK(n, slap(t0, x, 880, [-4, 3, 5][i]), u, 20 + i, { s: n === 'sachet' ? 0.42 : 1 });
@@ -137,7 +137,7 @@ const SHOTS = [
   // 11 · menyuntikkan micin ke bayi-bayi tikus.
   (u, T, d) => {
     stage(u, d, { z1: 1.05 }); bg('lab');
-    if (has('syringe')) putK('syringe', slide(0, 0.35, 600, 560, -32, 600, -500, 0, 1), u, 61);
+    putK('syringe', slide(0, 0.35, 470, 600, 32, -600, -500, 0, 1), u, 61);
     [230, 540, 850].forEach((x, i) => { putK('mouse', drop(0.45 + i * 0.12, 0.62 + i * 0.12, x, 960 + (i % 2) * 30, (i % 2 ? 6 : -4), 700), u, 70 + i, { s: 0.95 }); });
     putK('s_dosis', slap(1.2, 540, 1140, 2), u, 75);
   },
@@ -173,22 +173,24 @@ const SHOTS = [
   // 15 · Mereka disuntik.
   (u, T, d) => {
     stage(u, d, { z0: 1.02, z1: 1.1, shake: [[0.05, 12]] }); bg('lab');
-    if (has('syringe')) putK('syringe', slap(0.05, 540, 740, -24, -30, -60), u, 84, { s: 1.45 });
+    putK('mouse', [[0, 470, 900, -4, 0, 1]], u, 86, { s: 1.7 });
+    putK('syringe', [[0, 900, 380, 145, 2, 1, null, 0, 1.3], [0.12, 790, 560, 145, 0.3, 1, 'in', 0, 1.3]], u, 84);
     putK('s_disuntik', slap(at(14, 'disuntik') + 0.1, 540, 1130, -2), u, 85);
   },
   // 16 · Waktu manusia dites tanpa tahu mana yang micin,
   (u, T, d) => {
     stage(u, d, { z1: 1.05 }); bg('test');
-    if (has('glass')) { putK('glass', slide(0, 0.3, 320, 820, -2, -700, 0, 0, 0.8), u, 86); putK('glass', slide(0.12, 0.42, 760, 820, 2, 700, 0, 0, -0.8), u, 87); }
-    putK('s_A', slap(0.55, 320, 1080, -4), u, 88); putK('s_B', slap(0.7, 760, 1080, 4), u, 89);
-    typed('s_tanpatahu', u, at(15, 'tanpa') - 0.05, 28, 540, 360, -1.5);
+    putK('subject', slide(0, 0.3, 540, 560, -2, 0, -900, 0, 0.7), u, 85, { s: 0.9 });
+    putK('glass', slide(0.2, 0.45, 300, 1040, -2, -700, 0, 0, 0.8), u, 86, { s: 0.7 }); putK('glass', slide(0.3, 0.55, 780, 1040, 2, 700, 0, 0, -0.8), u, 87, { s: 0.7 });
+    putK('s_A', slap(0.6, 300, 1080, -4), u, 88, { s: 0.6 }); putK('s_B', slap(0.75, 780, 1080, 4), u, 89, { s: 0.6 });
+    typed('s_tanpatahu', u, at(15, 'tanpa') - 0.05, 28, 540, 180, -1.5);
   },
   // 17 · hasilnya nggak konsisten.
   (u, T, d) => {
     stage(u, d, { z0: 1.05, z1: 1.08 }); bg('test');
-    if (has('glass')) { put('glass', 320, 820, -2); put('glass', 760, 820, 2); }
-    put('s_A', 320, 1080, -4); put('s_B', 760, 1080, 4); put('s_tanpatahu', 540, 360, -1.5);
-    [['m_tick_s', 300, 560], ['m_cross_s', 740, 560], ['m_cross_s', 360, 600], ['m_tick_s', 780, 600], ['m_cross_s', 330, 500], ['m_tick_s', 760, 520]]
+    put('subject', 540, 560, -2, 0, 1, 0.9); put('glass', 300, 1040, -2, 0, 1, 0.7); put('glass', 780, 1040, 2, 0, 1, 0.7);
+    put('s_A', 300, 1080, -4, 0, 1, 0.6); put('s_B', 780, 1080, 4, 0, 1, 0.6); put('s_tanpatahu', 540, 180, -1.5);
+    [['m_tick_s', 290, 960], ['m_cross_s', 770, 960], ['m_cross_s', 330, 1000], ['m_tick_s', 810, 1000], ['m_cross_s', 270, 930], ['m_tick_s', 790, 940]]
       .forEach(([n, x, y], i) => stampAt(n, u, 0.05 + i * 0.13, x + (hash(i, 9) - .5) * 60, y, (hash(i, 4) - .5) * 30, 1));
   },
   // 18 · BPOM dan FDA bilang aman.  -> TERUNGKAP
@@ -248,9 +250,9 @@ const SHOTS = [
   (u, T, d) => {
     const tb = at(23, 'membantah');
     stage(u, d, { z1: 1.05, shake: [[tb, 10]] }); bg('bet');
-    if (has('family')) putK('family', slide(0, 0.3, 540, 780, 0, 0, -900, 0, 0.7), u, 109);
-    putK('s_keluarga', slap(0.35, 540, 300, 2), u, 110);
-    stampAt('st_dibantah', u, tb, 540, 1150, -8, 1.2);
+    put('letter', 540, 640, 3, 0, 1, 0.62); put('s_taruhan', 540, 960, -3);
+    putK('s_keluarga', slap(0.15, 420, 300, -2), u, 110); putK('s_tidak', slap(0.45, 640, 380, 3), u, 111);
+    stampAt('st_dibantah', u, tb, 560, 900, -10, 1.35);
   },
   // 25 · Tapi gara-gara satu surat itu...  -> back to the sachet of frame 0 (loop)
   (u, T, d) => {
