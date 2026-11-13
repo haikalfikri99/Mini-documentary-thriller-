@@ -59,6 +59,8 @@ Setiap episode menambah baris di sini. Formula, gaya, dan kit hanya berubah bila
 | 003 Micin Dituduh Bikin Bodoh… | pilar baru + gaya kolase + hero object di frame 0 + caption 84 px + tanpa CTA | stayed-to-watch, views, engaged views, subs |
 Catatan: tiga variabel berubah sekaligus (peluncuran gaya), jadi hasilnya belum bisa diatribusikan ke satu penyebab.
 
+**Data #003 (114 menit setelah tayang jam 18.00 WIB):** **47,0% stayed to watch** (vs #002 37,2% → +9,8 poin), 266 engaged views, ±434 views, 12 like (≈2,8%). Grafik engaged views naik dalam dua gelombang (datar ±30 menit lalu naik lagi) = distribusi tes kedua. Retensi belum diproses (≤ 2 hari). Masih di bawah ambang 60% → hook/frame 0 tetap prioritas perbaikan.
+
 **Pelajaran produksi #003**
 - Storyboard yang benar = frame di **85% shot** (komposisi lengkap); frame tengah menyesatkan karena benda yang disebut belakangan belum muncul.
 - Review user menemukan masalah logika gambar (lihat `2-visual…` §E): manusia di eksperimen manusia, jarum mengarah ke tikus, visual berbeda untuk kalimat mirip, dot botol bulat, gambar tak berhubungan ditolak. **Cek daftar §E sebelum mengirim storyboard.**
