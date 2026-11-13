@@ -1,6 +1,7 @@
 // ARSIP #003 Micin · ARSIP Kolase. 25 shots on the VO timing; each shot is a little paper table with its own camera.
 import { W, H, SP, PAL, setCtx, getCtx, loadAll, put, putA, putK, has, slap, slide, drop, rest, stampAt, drawPaper, cam, applyCam, shake,
-  typed, createFilm, seg, EASE, stepT, hash, M } from './lib/engine.js';
+  typed, createFilm, seg, EASE, stepT, hash, M, EV, arrow, route, bow } from './lib/engine.js';
+export { EV };
 
 export const START = [0, 1.66, 3.98, 6.86, 9.24, 11.10, 16.04, 18.04, 20.62, 22.32, 23.82, 26.00, 27.40, 29.20, 31.96, 33.10, 35.78, 36.76, 38.98, 42.08, 43.04, 45.92, 48.50, 52.54, 54.32, 56.6];
 export const DUR = 56.6;
@@ -80,7 +81,7 @@ const SHOTS = [
       putK('lbl_case2', [[0.45, 560, 400, 3, 3, 1, null, 0, 1.1], [0.56, 560, 400, 3, 0, 1, 'in', 0.9], [out, 560, 400, 3, 0, 1, 'hold'], [out + 0.3, -400, 380, -8, 2, 1, 'in']], u, 7);
       if (u < out) stampAt('st_dibuka', u, 0.7, 700, 520, -10, 1);
     }
-    typed('s_jurnal', u, 1.7, 26, 540, 1120, 1.5);
+    typed('s_jurnal', u, 1.7, 26, 540, 250, 1.5);
   },
   // 04 · tiap habis makan di restoran Tionghoa,
   (u, T, d) => {
@@ -125,7 +126,9 @@ const SHOTS = [
   (u, T, d) => {
     stage(u, d, { z0: 1.06, z1: 1 }); bg('globe');
     if (has('globe')) putK('globe', [[0, 540, 760, 0, 0, 1], [d, 540, 760, 4, 0, 1, 'lin']], u, 41);
-    [[220, 360, -12], [860, 520, 10], [190, 1020, 8], [880, 1080, -9], [540, 1170, 3]].forEach(([x, y, r], i) => putK('clip' + i, slap(0.08 + i * 0.22, x, y, r), u, 50 + i));
+    [[220, 360, -12], [860, 520, 10], [190, 1020, 8], [880, 1080, -9], [540, 1170, 3]].forEach(([x, y, r], i) => {
+      route(u, i * 0.22 - 0.12, i * 0.22 + 0.08, bow([540, 760], [x, y], 0.15 * (i % 2 ? 1 : -1)), { col: PAL.card, comp: 'source-over', seed: 60 + i });
+      putK('clip' + i, slap(0.08 + i * 0.22, x, y, r), u, 50 + i); });
   },
   // 10 · Setahun kemudian, ilmuwan
   (u, T, d) => {
@@ -180,7 +183,7 @@ const SHOTS = [
   // 16 · Waktu manusia dites tanpa tahu mana yang micin,
   (u, T, d) => {
     stage(u, d, { z1: 1.05 }); bg('test');
-    putK('subject', slide(0, 0.3, 540, 560, -2, 0, -900, 0, 0.7), u, 85, { s: 0.9 });
+    putK('subject', slide(0, 0.18, 540, 560, -2, 0, -500, 0, 0.7), u, 85, { s: 0.9 });
     putK('glass', slide(0.2, 0.45, 300, 1040, -2, -700, 0, 0, 0.8), u, 86, { s: 0.7 }); putK('glass', slide(0.3, 0.55, 780, 1040, 2, 700, 0, 0, -0.8), u, 87, { s: 0.7 });
     putK('s_A', slap(0.6, 300, 1080, -4), u, 88, { s: 0.6 }); putK('s_B', slap(0.75, 780, 1080, 4), u, 89, { s: 0.6 });
     typed('s_tanpatahu', u, at(15, 'tanpa') - 0.05, 28, 540, 180, -1.5);
@@ -198,7 +201,8 @@ const SHOTS = [
     const ta = at(17, 'aman');
     stage(u, d, { z1: 1.05, shake: [[ta, 9], [1.55, 12]] }); bg('safe');
     putK('s_bpom', slap(at(17, 'bpom'), 330, 420, -5), u, 90); putK('s_fda', slap(at(17, 'fda'), 760, 430, 4), u, 91);
-    stampAt('st_aman', u, ta, 540, 760, -8, 1.5);
+    putK('sachet', slap(0.1, 540, 780, -4), u, 112, { s: 0.7 });
+    stampAt('st_aman', u, ta, 540, 800, -8, 1.5);
     stampAt('st_terungkap', u, 1.55, 540, 1080, 6, 1.25);
   },
   // 19 · Lucunya, zat yang bikin micin gurih, glutamat,
@@ -214,6 +218,7 @@ const SHOTS = [
     if (has('mother')) putK('mother', slide(0, 0.25, 540, 760, 0, 0, -900, 0, 0.7), u, 95);
     else if (has('babybottle')) putK('babybottle', slide(0, 0.25, 540, 760, 0, 0, -900, 0, 0.7), u, 95);
     putK('molecule', [[0, 840, 220, -4, 2, 1, null, 0, 0.5], [0.4, 800, 330, 10, 0, 1, 'in', 0.8, 0.45]], u, 96);
+    arrow(u, 0.45, 0.7, bow([760, 400], [600, 640], 0.25), { seed: 97 });
     putK('s_asi', slap(at(19, 'asi'), 540, 1130, -3), u, 97);
   },
   // 21 · Banyak banget, kira-kira sepuluh kali susu sapi.  (data engraving: the ASI bar grows ten times the cow's milk bar)
@@ -226,6 +231,8 @@ const SHOTS = [
     putK('s_asi', slap(0.2, 380, base + 70, -2), u, 98); putK('s_sapi', slap(0.35, 720, base + 70, 2), u, 99);
     putK('cow', slap(0.5, 720, base - 230, 3), u, 100, { s: 0.75 });
     putK('babybottle', slap(1.4, 380, base - h * gp - 150, -6), u, 101, { s: 0.6 });
+    route(u, at(20, 'sapi') - 0.25, at(20, 'sapi'), [[640, base - 90], [470, base - 90]], { col: PAL.ink, seed: 103 });
+    arrow(u, at(20, 'sepuluh') - 0.3, at(20, 'sepuluh'), [[490, base - 110], [490, base - h + 30]], { seed: 104, w: 6 });
     putK('s_10x', slap(at(20, 'sepuluh'), 690, base - h + 160, 6), u, 102);
     putK('s_1x', slap(at(20, 'sapi'), 900, base - 60, -4), u, 103);
   },
@@ -242,7 +249,7 @@ const SHOTS = [
     stage(u, d, { z0: 1, z1: 1.06 }); bg('bet', u, true);
     ransomRow('ry18', u, 0.15, 540, 300, 0.1, 1.05);
     putK('sil_man', slide(at(22, 'pria') - 0.2, at(22, 'pria') + 0.2, 330, 1010, 0, -800, 0, 0, 0.6), u, 106, { s: 0.85 });
-    putK('letter', slide(at(22, 'surat') - 0.2, at(22, 'surat') + 0.15, 790, 780, 7, 800, 0, 0, -0.8), u, 107, { s: 0.5 });
+    putK('letter', slide(0.05, 0.3, 790, 780, 7, 800, 0, 0, -0.8), u, 107, { s: 0.5 });
     if (has('dice')) putK('dice', drop(at(22, 'taruhan') - 0.15, at(22, 'taruhan') + 0.05, 820, 1060, 12, 600), u, 108, { s: 0.6 });
     typed('s_taruhan', u, at(22, 'taruhan'), 24, 600, 1140, -3);
   },

@@ -109,3 +109,16 @@ class Mixer:
         if self.failed:
             print('AUDIO QA GAGAL: perbaiki cue/level sebelum render (margin bagian < 10 dB atau ada kata < 8 dB)')
             raise SystemExit(2)
+
+# —— paper foley (ARSIP Kolase): one sound per on-screen paper event (kit/collage/engine.js EV) ———————————
+def paperSlap(size=1.):   # high crack + paper body + low thump; bigger sheets thump lower
+    t = T(.35); f = 70 + 40 / max(.3, size)
+    return (norm(bp(nz(.35), 2500, 8000)) * np.exp(-t * 90) * .5 + norm(bp(nz(.35), 400, 2500)) * np.exp(-t * 30) * .6
+            + np.sin(2 * np.pi * f * t) * np.exp(-t * 18) * min(1.2, .5 + .6 * size))
+def paperSlide(d=.3):     # band-passed fibre noise with grain, swelling over the move
+    t = T(d + .05); g = 1 + .5 * np.sign(np.sin(2 * np.pi * 37 * t)) * .3
+    return norm(bp(nz(d + .05), 900, 6000)) * g * np.sin(np.pi * np.clip(t / (d + .05), 0, 1)) ** 1.5 * .6
+def paperPat(size=1.): t = T(.18); return norm(bp(nz(.18), 300, 2200)) * np.exp(-t * 40) * .6 + np.sin(2 * np.pi * 95 * t) * np.exp(-t * 30) * .35 * size
+def stampThump(): t = T(.5); return np.sin(2 * np.pi * (85 * t - 20 * t * t)) * np.exp(-t * 16) + norm(bp(nz(.5), 250, 1800)) * np.exp(-t * 50) * .5
+def penScratch(d=.3): t = T(d); return norm(bp(nz(d), 2500, 9000)) * (.6 + .4 * np.abs(np.sin(2 * np.pi * 11 * t))) * np.minimum(1, t / .03) * np.minimum(1, (d - t) / .05) * .5
+def typeKey(): t = T(.07); return norm(bp(nz(.07), 1200, 7000)) * np.exp(-t * 120) + np.sin(2 * np.pi * 160 * t) * np.exp(-t * 80) * .35

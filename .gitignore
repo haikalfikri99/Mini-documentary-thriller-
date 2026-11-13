@@ -27,3 +27,7 @@ stories/*/film/board/kf_*.png
 stories/*/kolase/parts/
 stories/*/kolase/raw/
 stories/*/kolase/board/kf_*.png
+stories/*/kolase/renders/
+stories/*/kolase/*.wav
+stories/*/kolase/*.mid
+stories/*/kolase/*.npy

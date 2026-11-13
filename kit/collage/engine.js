@@ -17,7 +17,11 @@ const D2R = Math.PI / 180;
 export const PAL = { paper: '#E6D8BC', card: '#F3EAD6', manila: '#E4C68C', ink: '#1E1915', red: '#B3261E', green: '#2F4F4A', amber: '#D58E2A', news: '#E3DDD0' };
 const EDGE = '#B29A72', BACK = '#E9DFC8', SHADOW = 'rgb(58,38,20)';
 
-let ctx = null; export const SP = {}; export let M = null; let B = 1.5;
+let ctx = null; export const SP = {};
+// sound events: when EV.on, every slap/slide/drop/stamp/type that happens in (u - dt, u] is logged with film time
+export const EV = { on: false, dt: 1 / 30, T0: 0, list: [] };
+const crossed = u0 => EV.on && u0 > EV.u - EV.dt + 1e-6 && u0 <= EV.u + 1e-6;
+const emit = (type, u0, x = 540, extra = {}) => EV.list.push(Object.assign({ t: +(EV.T0 + u0).toFixed(3), type, pan: +clamp((x - 540) / 540, -1, 1).toFixed(2) }, extra)); export let M = null; let B = 1.5;
 export const setCtx = c => { ctx = c; };
 export const getCtx = () => ctx;
 
@@ -103,6 +107,12 @@ export function pose(keys, t, id = 1) {
 }
 // draw with keys at stepped time; returns pose (null before it enters)
 export function putK(name, keys, t, id = 1, opts = {}) {
+  if (EV.on) keys.forEach((k, j) => { if (crossed(k[0])) {
+    const nx = keys[j + 1], w = SP[name] ? SP[name].img.width / SP[name].k : 200;
+    if (j === 0 && nx && nx[6] === 'back') emit('slide', k[0], k[1], { d: nx[0] - k[0], size: w / 600 });
+    if (j > 0 && k[6] === 'in') emit(k[4] > 0.5 ? 'lift' : 'slap', k[0], k[1], { size: w / 600 });
+    if (j > 0 && k[6] === 'back') emit('pat', k[0], k[1], { size: w / 600 });
+  } });
   if (t < keys[0][0] - 1e-6) return null;
   const p = pose(keys, stepT(t), id); put(name, p.x, p.y, p.r, p.z, p.sx, p.s * (opts.s || 1), opts.a ?? 1); return p;
 }
@@ -116,11 +126,28 @@ export const drop = (t0, t1, x, y, r = 0, h = 900, land = 1.2) => [[t0, x, y - h
 export const rest = (x, y, r = 0) => [[-99, x, y, r, 0, 1]];
 // ink stamp pressed at t0: a light blur of contact, then ink
 export function stampAt(name, t, t0, x, y, r = -8, s = 1) {
+  if (crossed(t0)) emit(name.startsWith('m_') ? 'mark' : 'stamp', t0, x);
   if (t < t0 - 0.12) return;
   const p = seg(t, t0 - 0.12, t0), S = SP[name];
   const sc = s * (1.18 - 0.18 * EASE.in(p)), a = t < t0 ? 0.25 * p : 1;
   const [w, h] = sz(S); drawSprite(S, x, y, w / 2, h / 2, r, 0, 1, sc, a);
 }
+
+// ---------- minimal vector layer: dashed route, arrow, measuring bracket (ink, drawn on over [t0, t1]) ----------
+function inkStroke(pts, p, { col = PAL.red, w = 7, dash = null, head = false, seed = 1, comp = 'multiply' } = {}) { const o_comp = comp;
+  if (p <= 0) return; const P = pts.map(([x, y], i) => [x + (hash(seed, i) - .5) * 3, y + (hash(seed + 5, i) - .5) * 3]);
+  let L = 0; const seg_ = []; for (let i = 1; i < P.length; i++) { const l = Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]); seg_.push(l); L += l; }
+  let rem = L * clamp(p, 0, 1); ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = w; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.globalCompositeOperation = o_comp;
+  if (dash) ctx.setLineDash(dash); ctx.beginPath(); ctx.moveTo(...P[0]); let end = P[0], dir = [1, 0];
+  for (let i = 1; i < P.length && rem > 0; i++) { const f = Math.min(1, rem / seg_[i - 1]); end = [lerp(P[i - 1][0], P[i][0], f), lerp(P[i - 1][1], P[i][1], f)]; dir = [P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]]; ctx.lineTo(...end); rem -= seg_[i - 1]; }
+  ctx.stroke(); ctx.setLineDash([]);
+  if (head && p >= 1) { const a = Math.atan2(dir[1], dir[0]), hl = w * 4.2; ctx.beginPath(); ctx.moveTo(end[0] - hl * Math.cos(a - .45), end[1] - hl * Math.sin(a - .45)); ctx.lineTo(...end); ctx.lineTo(end[0] - hl * Math.cos(a + .45), end[1] - hl * Math.sin(a + .45)); ctx.stroke(); }
+  ctx.restore();
+}
+// curve from a to b bowed by k (fraction of length), sampled
+export const bow = (a, b, k = .2, n = 16) => Array.from({ length: n + 1 }, (_, i) => { const t = i / n, mx = lerp(a[0], b[0], t), my = lerp(a[1], b[1], t), nx = -(b[1] - a[1]), ny = b[0] - a[0]; const s = Math.sin(Math.PI * t) * k; return [mx + nx * s, my + ny * s]; });
+export function arrow(t, t0, t1, pts, o = {}) { if (crossed(t0)) emit('pen', t0, pts[0][0], { d: t1 - t0 }); inkStroke(pts, seg(stepT(t), t0, t1), Object.assign({ head: true }, o)); }
+export function route(t, t0, t1, pts, o = {}) { if (crossed(t0)) emit('pen', t0, pts[0][0], { d: t1 - t0 }); inkStroke(pts, seg(stepT(t), t0, t1), Object.assign({ dash: [16, 12], w: 5 }, o)); }
 
 // ---------- table + torn colour fields ----------
 export function drawPaper(x0 = -200, y0 = -300, x1 = W + 200, y1 = H + 300) {
@@ -146,6 +173,7 @@ export const shake = (t, t0, a = 8) => { const s = t - t0; if (s < 0 || s > 0.5)
 export function typed(name, t, t0, cps, x, y, r = 0, z = 0) {
   if (t < t0) return; const S = SP[name], m = S.m, [w, h] = sz(S);
   const n = Math.min(m.n, Math.floor((stepT(t) - t0) * cps));
+  if (EV.on) for (let i = 0; i < m.n; i++) { const ti = t0 + (i + 1) / cps; if (crossed(ti) && m.text[i] !== ' ') emit('key', ti, x); }
   // slip first (blank background is the same sprite clipped to the text start), then the letters revealed left to right
   const frac = m.n ? n / m.n : 1, tx = m.tx || 0, textW = w - 2 * tx;
   ctx.save(); ctx.translate(x, y); ctx.rotate(r * D2R);
@@ -205,7 +233,7 @@ export function createFilm({ shots, start, words, caption = {} }) {
     renderAt(t) {
       let i = start.length - 2; for (let j = 0; j < start.length - 1; j++) if (t < start[j + 1]) { i = j; break; }
       ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = PAL.paper; ctx.fillRect(0, 0, W, H);
-      ctx.save(); shots[i](t - start[i], t, start[i + 1] - start[i]); ctx.restore();
+      EV.T0 = start[i]; EV.u = t - start[i]; ctx.save(); shots[i](t - start[i], t, start[i + 1] - start[i]); ctx.restore();
       if (chunks.length) drawCaption(chunks, t, caption);
     }
   };
