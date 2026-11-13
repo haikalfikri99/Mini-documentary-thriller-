@@ -1,0 +1,67 @@
+id,channel,grup,rasio,views,judul,lang,dur,kata,wps_bicara,wps_total,mulai_bicara,akhir_kalimat1,n_kalimat,kal_med_kata,berpungtuasi,t_inti,t_jawaban,t_payoff,pct_jawaban,pct_payoff,n_tanya,n_kamu,kamu_per100,kita_per100,angka,tokoh,dalang,pola_hook,akhir,cta_tengah,kata_hook_3dtk,kata_hook_obj,dikecualikan,panjang,catatan
+JoQeFiSNFYY,SmartNonsense,top,33.57,9600000,The PHYSICS of a knuckleball..,en,60,166,2.72,2.77,0.0,1.5,14,9.0,1,0.0,30.9,56.1,51.0,94.0,0,4,2.4,0.0,0,False,0,OBJ,PUNCH+CTA,0,8,,,0,
+c1NAYTyAvJE,SmartNonsense,top,26.57,7600000,How ChatGPT WASTES water..,en,65,187,2.83,2.88,0.0,1.4,15,10,1,0.0,5.1,57.8,8.0,89.0,2,6,3.2,0.5,1,False,0,OBJ,RECAP+CTA,0,7,,,0,
+xsM3gVIoF7c,SmartNonsense,top,26.22,7500000,The REAL reason prices end in 99 cents..,en,60,185,3.03,3.08,0.0,4.1,25,6,1,0.0,6.6,54.5,11.0,91.0,4,4,2.2,0.0,1,True,1,Q,PUNCH,0,8,,,0,person
+wH5_JhHxAKo,SmartNonsense,top,23.43,6700000,The TRUTH about Dyson’s bladeless fan..,en,68,220,3.19,3.24,0.0,5.6,20,8.0,1,0.0,39.3,65.4,58.0,96.0,1,6,2.7,1.4,0,False,0,OBJ,LOOP+CTA,0,7,,,0,
+QdZp6XW1wCY,SmartNonsense,bot,0.05,14000,Why Scorpions GLOW in the Dark..,en,45,118,2.57,2.62,0.1,5.6,9,12,1,0.1,22.8,34.8,51.0,77.0,1,1,0.8,0.0,0,False,0,FACT,CTA,0,10,,,0,
+4yfLGxbcjnY,SmartNonsense,bot,0.04,12000,The CRAZIEST Job in the World..,en,41,120,2.86,2.93,0.0,6.5,9,13,1,,,,,,0,10,8.3,1.7,0,False,,,,,8,,sponsor Indeed,0,
+ivJq3H1sI6k,SmartNonsense,bot,0.04,11000,The CRAZY Science of Glowing Animals..,en,46,109,2.32,2.37,0.0,1.7,11,10,1,0.0,7.6,40.6,16.0,88.0,1,0,0.0,0.0,0,False,0,FACT,CTA,0,8,,,0,
+MSPVq-5sbCg,ZackDFilms,top,6.7,67000000,Toucan Gets A Custom Artificial Beak 😌,en,38,111,2.85,2.92,0.0,4.3,7,15,1,0.0,,32.7,,86.0,0,0,0.0,0.0,0,False,0,ACTION,RES,0,9,,,0,
+CRGWDiIgMZ4,ZackDFilms,top,6.0,60000000,How Cookiecutter Sharks Bite Whales 😨,en,28,76,2.62,2.71,0.0,7.9,4,18.5,1,0.0,17.9,17.9,64.0,64.0,0,1,1.3,0.0,0,False,0,ACTION,PUNCH,0,10,,,0,
+gyOZv_ckZQU,ZackDFilms,top,5.0,50000000,Why Dobermans Have Cropped Ears 😞,en,31,97,3.03,3.13,0.0,5.3,6,17.0,1,0.0,5.3,24.7,17.0,80.0,0,0,0.0,0.0,0,False,0,ACTION,ADV,0,10,,,0,
+024WYDL82WY,ZackDFilms,bot,0.05,520000,Her Dog Led Her To A Kidney Donor 😮,en,35,107,2.98,3.06,0.1,8.0,5,23,1,0.1,,27.6,,79.0,0,1,0.9,0.0,1,False,0,ACTION,RES,0,7,,,0,
+eMGvpHOO2xQ,ZackDFilms,bot,0.1,1000000,Could You Watch Yourself Leave Earth 🤔,en,33,93,2.74,2.82,0.0,14.0,4,22.5,1,0.0,16.9,26.3,51.0,80.0,1,9,9.7,0.0,0,False,0,HIPOTESIS,RES,0,10,,,0,
+KNUvtyqbqDc,ZackDFilms,bot,0.09,886000,How Food Companies Make You Eat More 🤤,en,55,140,2.5,2.55,0.1,4.0,10,12.0,1,0.1,18.4,38.2,34.0,69.0,0,8,5.7,0.0,1,False,0,ACTION,ADV,0,8,,,0,
+TdHis8l_U1k,KokBisa,top,19.63,4300000,Perang Ini Cuma Berlangsung 40 Menit,id,59,158,2.64,2.68,0.1,,,,0,0.1,5.8,42.2,10.0,72.0,2,1,0.6,0.0,1,True,1,KLAIM,Q+SIGN,0,7,,,0,person
+WKepFZ2FhLA,KokBisa,top,18.26,4000000,Benarkah Piranha Makan Manusia?,id,59,150,2.5,2.54,0.0,3.7,,,0,5.5,26.3,26.3,45.0,45.0,3,0,0.0,0.7,1,True,1,Q,ADV+SIGN,0,11,,,0,dalang
+4tl-2OYYBeI,KokBisa,top,13.24,2900000,Apa Jadinya Kalau Bola Mata Kita Keluar?,id,59,157,2.62,2.66,0.0,3.5,,,0,0.0,14.9,38.9,25.0,66.0,2,0,0.0,0.6,0,False,0,Q,WARN+SIGN,0,9,,,0,
+ajYD7eF7VcU,KokBisa,bot,0.21,45000,Kenapa Stres Bisa Bikin Maag Kambuh?,id,75,244,3.25,3.25,0.0,2.0,27,9,1,,,,,,7,2,0.8,2.0,0,False,,,,,11,,iklan Promag,0,
+R6OQoqdg9dY,KokBisa,bot,0.2,44000,Ada Berapa Lubang di Tubuh Manusia?,id,85,259,3.03,3.05,0.0,0.8,25,9,1,0.8,16.6,75.8,20.0,89.0,6,1,0.4,3.1,1,False,0,Q,CTA+SIGN,0,11,,,0,
+X-wapogVOyk,KokBisa,top,11.87,2600000,⚠️ Hukuman Paling Ngeri Sepanjang Sejarah!,id,59,146,2.44,2.47,0.1,2.7,,,0,0.1,8.8,37.3,15.0,63.0,2,2,1.4,0.0,0,False,0,Q,Q+SIGN,0,9,,,0,list
+Xbc6fOFf0VE,KamusUnik,top,37.21,2400000,Negara ini sudah ada MBG dari Dulu.! #shortsviral #faktaunik,id,34,78,2.24,2.29,0.0,4.3,6,13.5,1,0.0,,18.7,,55.0,1,0,0.0,0.0,1,False,0,KLAIM,Q,0,7,,,0,jawaban tak diberikan
+YWtn5heIBKk,KamusUnik,top,62.02,4000000,3 Danau Paling Berbahaya &  Mematikan  #virashorts #faktauni,id,48,112,2.29,2.33,0.0,2.6,14,8.0,1,0.0,5.8,34.6,12.0,72.0,0,0,0.0,0.0,1,False,0,LIST,RES,1,8,,,0,list;midCTA
+6ex_4GVZnO0,KokBisa,bot,0.16,34000,Sebut Satu Hal yang Bikin Optimis sama Masa Depan!,id,110,297,2.69,2.7,0.3,5.5,26,10.0,1,,,,,,0,1,0.3,1.7,0,False,,,,,9,,promo Future Makers,1,
+-QH_PJTrDrI,KamusUnik,bot,0.12,7500,3 Ritual Kematian Paling Ekstrem Di Dunia #faktaunik #tradis,id,51,152,2.92,2.98,0.0,2.6,14,12.0,1,0.0,4.9,33.0,10.0,65.0,0,0,0.0,0.0,0,False,0,LIST,RES,0,10,,,0,list
+5kOF5VjPWbE,KamusUnik,top,119.38,7700000,3 Seniman Sang Pembuat Ogoh-Ogoh Bali #shortsviral #fakta #u,id,54,137,2.5,2.54,0.2,5.2,14,11.0,1,0.2,5.2,37.3,10.0,69.0,0,0,0.0,0.0,0,True,0,LIST,RES,1,7,,,0,list;midCTA;person
+3OKQq4YN9bE,KamusUnik,bot,0.07,4500,3 Makanan Paling Ekstrem Di Indonesia #shortsviral #fakta #u,id,51,117,2.26,2.29,0.2,3.5,14,9.5,1,0.2,5.9,34.8,12.0,68.0,0,0,0.0,0.0,0,False,0,LIST,RES,1,7,,,0,list;midCTA
+caIq54l3j2M,KamusUnik,top,103.88,6700000,3 Danau Penuh Misteri Di Indonesia #danau #mistis #shorts,id,46,117,2.5,2.54,0.3,3.5,13,9,1,0.3,6.6,31.6,14.0,69.0,1,1,0.9,0.0,0,False,0,WARN,Q,1,9,,,0,list;midCTA
+1jx7kevc-sU,NgomonginUang,top,73.68,2100000,"Tanpa Sadar, Ternyata Ada Warisan Kolonialisme Belanda di Bu",id,94,281,2.99,2.99,0.0,4.5,26,10.0,1,4.5,18.6,52.7,20.0,56.0,5,2,0.7,3.6,1,True,1,KLAIM,PUNCH,0,9,,,1,person;wawancara
+B2xqmuXjIM0,NgomonginUang,top,22.77,649000,Jurus Pajak Pak Purbaya,id,110,232,2.1,2.11,0.4,5.9,19,13,1,0.6,7.9,33.9,7.0,31.0,3,1,0.4,1.7,1,True,0,KLAIM,Q,0,8,,,1,person;berita
+T7Y0ZapOKmc,NgomonginUang,bot,0.14,3900,"Ide Bisnis Ada Banyak, tapi Mana yang Layak Dijalani? Ngomu ",id,75,175,2.3,2.33,0.0,3.1,12,15.0,1,,,,,,0,4,2.3,0.6,0,False,,,,,8,,promo ebook sendiri,0,
+Pe7EQKCCqYw,NgomonginUang,bot,0.12,3400,Panduan Solusi Tingkatkan Pendapatan Udah Bisa Dipesan!,id,103,254,2.44,2.47,0.0,4.6,17,14,1,,,,,,1,6,2.4,1.2,1,False,,,,,9,,promo produk sendiri,1,
+FOSrkAaPH3o,NgomonginUang,top,19.82,565000,Investasi mana yang cocok di tengah tekanan Rupiah?,id,77,258,3.31,3.35,0.0,4.5,14,19.5,1,,,,,,1,2,0.8,3.9,1,False,,,,,9,,sponsor Makmur,0,
+wCKqtCQpv4w,NgomonginUang,bot,0.13,3700,Apa Kata Mereka Tentang Produk Digital Ngomu? 👀,id,60,151,2.65,2.52,2.6,4.6,11,11,1,,,,,,0,0,0.0,0.7,1,False,,,,,2,,testimoni produk sendiri,0,
+r1qtGDa5qOs,LogicallyAnswered,top,7.91,87000,ProtonMail Is Better Than Gmail. But No One Wants It. #short,en,42,116,2.7,2.76,0.0,2.9,7,15,1,0.0,2.9,22.9,7.0,55.0,1,2,1.7,0.9,0,False,0,Q,PUNCH,0,10,,,0,
+E7Br8dJjvxg,LogicallyAnswered,top,6.45,71000,Will Sundar Pichai Get Fired?,en,60,185,3.03,3.08,0.0,1.5,,,0,0.0,12.3,30.1,21.0,50.0,,1,0.5,0.0,1,True,1,Q,CLIFF,0,10,,,0,person
+AyfubOwOpac,LogicallyAnswered,bot,0.49,5400,How Volkswagen Cheated For 6 Years #shorts,en,50,136,2.76,2.72,0.0,6.0,,,0,0.1,6.4,13.0,13.0,26.0,,1,0.7,0.0,1,True,1,Q,PUNCH,0,10,,,0,perusahaan
+ywC2scetmZQ,LogicallyAnswered,bot,0.48,5300,How Argentina Led To The Creation Of Coinbase #shorts,en,39,120,3.05,3.08,0.0,2.9,,,0,0.0,10.8,33.4,28.0,86.0,,1,0.8,0.8,0,True,0,STORY,RES,0,9,,,0,person
+SdH9GXrDirE,LogicallyAnswered,top,336.36,3700000,Was Toyota Right About EVs All Along?,en,38,99,2.79,2.61,0.1,2.0,12,8.0,1,0.1,8.7,19.4,23.0,51.0,1,0,0.0,0.0,0,False,0,KLAIM,ADV,0,8,,,0,
+kr_2mgPr368,TodayIFoundOut,top,6.5,117000,Your Move Flat Earthers,en,180,525,2.9,2.92,0.2,0.6,25,20,1,0.8,20.4,,11.0,,1,0,0.0,0.2,1,True,0,KLAIM,FACT,0,10,,,1,person;panjang
+dADQ-Jh8k38,TodayIFoundOut,top,3.44,62000,Striking Gold,en,42,130,3.03,3.1,0.0,7.0,,,0,0.0,,15.8,,38.0,,0,0.0,0.0,1,True,0,STORY,RES,0,10,,,0,person
+tEF5Es8T12U,TodayIFoundOut,bot,0.34,6100,How to Wrestle a Crocodile,en,166,588,3.52,3.54,0.1,10.1,29,16,1,0.1,10.1,,6.0,,3,4,0.7,1.4,1,True,0,STORY,RES,0,11,,,1,person;panjang
+2ICOMYqbUdY,TodayIFoundOut,top,3.61,65000,What's Up with the Amish?,en,176,620,3.5,3.52,0.1,10.9,25,24,1,0.1,48.8,,28.0,,2,8,1.3,2.6,1,False,0,KLAIM,RES,0,9,,,1,panjang
+MBh3pDGpVB8,TodayIFoundOut,top,7.5,135000,Why Michael Jackson Turned White as He Got Older,en,42,142,3.37,3.38,0.1,2.9,7,22,1,,2.9,36.3,7.0,86.0,2,0,0.0,0.0,0,True,0,Q,RES,0,12,,,0,person
+U4_hMOkDGoY,TodayIFoundOut,bot,0.29,5300,Organotherapy Aphrodisiacs,en,123,365,2.95,2.97,0.2,9.7,15,26,1,0.2,9.7,,8.0,,0,0,0.0,0.5,1,True,0,FACT,RES,0,9,,,1,person;panjang
+Ipo5zzFqaGA,HowRidiculous,top,53.08,637000000,Extreme Balloon Pop Racing Is INTENSE!!!,en,54,85,1.58,1.57,0.1,,,,0,,,,,,,1,1.2,0.0,0,False,,,,,6,,tanpa narasi (komentar stunt),0,
+TQtBp0w_NiI,TodayIFoundOut,bot,0.32,5800,"""Mandrake, or Mandragora Is a Powerful Restorative...""",en,176,536,3.03,3.05,0.0,3.8,24,23.0,1,0.0,19.2,,11.0,,2,7,1.3,0.0,1,True,0,FACT,RES,0,11,,,1,person;panjang
+uY75RHSs7Nk,HowRidiculous,bot,0.01,170000,Tire Vs FPV Drone,en,37,41,1.08,1.11,0.0,5.6,11,4,1,,,,,,2,2,4.9,2.4,0,False,,,,,1,,tanpa narasi,0,
+-rckiHY2GS4,HowRidiculous,bot,0.01,175000,CAN HE CATCH IT?? ⚾️⛰️,en,11,11,1.12,1.0,0.0,4.0,5,2,1,,,,,,0,0,0.0,9.1,0,False,,,,,4,,tanpa narasi,0,
+hu8eSVXlmi8,TaksakaSeta,top,21.63,93000,Kisah Kematian Jaka Tingkir #shorts,en,21,45,2.05,2.14,0.0,5.4,4,11.5,1,0.0,,10.9,,52.0,0,0,0.0,0.0,1,True,0,STORY,RES,0,7,,,0,person
+Nus7MfF2ytw,HowRidiculous,top,125.0,1500000000,Power Tools Racing Is INTENSE!!,en,48,56,1.26,1.17,4.6,,,,0,,,,,,,0,0.0,0.0,0,False,,,,,0,,tanpa narasi,0,
+AgjpDJKeOMw,TaksakaSeta,top,18.6,80000,Sejarah Nusantara: Kapitayan agama jawa kuno #shorts,id,19,49,2.45,2.58,0.0,,,,0,0.0,,,,,,0,0.0,0.0,0,False,0,DEF,RES,0,8,,,0,
+NsNDI00mfz4,TaksakaSeta,bot,0.14,601,Kisah Calon Arang yang Legendaris #shorts,id,21,51,2.33,2.43,0.1,3.9,,,0,0.1,,4.2,,20.0,,0,0.0,0.0,0,True,1,STORY,RES,0,10,,,0,person
+JMBpO-6XYa0,TaksakaSeta,bot,0.15,657,Kisah Pertempuran Pangeran diponegoro #shorts,en,15,35,2.2,2.33,0.1,,,,0,0.1,,,,,,0,0.0,0.0,0,True,0,STORY,RES,0,8,,,0,person
+Mz1-kM4yV-Y,AlamSemenit,top,12.5,1600000,Cacing yang Selalu Viral -  Proboscis worm #AlamSemenit,id,131,266,2.04,2.03,0.3,7.2,22,12.5,1,0.3,25.9,99.3,20.0,76.0,0,0,0.0,0.8,1,False,0,KLAIM,RES,0,7,,,1,panjang
+h8XR4jyNyZw,AlamSemenit,top,7.81,1000000,Buat Apa Bulus Ditumpuk Kayak Gini? #AlamSemenit,id,116,229,2.11,1.97,6.0,9.7,21,9,1,,14.4,51.8,12.0,45.0,4,0,0.0,0.9,0,False,0,KLAIM,RES,0,0,,,1,panjang
+CQRMBhgupJk,AlamSemenit,top,8.59,1100000,Bukan Lokotre 🙏. ini adalah portuguese man o war.,id,60,132,2.16,2.2,0.0,,,,0,4.6,16.5,20.3,28.0,34.0,,0,0.0,0.0,1,False,0,OBJ,RES,0,5,,,0,transkrip terpotong
+Yyb9B9BmjRE,AlamSemenit,bot,0.22,28000,Cowok itu TIDAK EMOSIONAL! #AlamSemenit #Short,id,59,95,1.83,1.61,5.5,,,,0,5.5,,30.1,,51.0,,0,0.0,0.0,1,False,0,STORY,RES,0,0,,,0,mulai di tengah
+1Hp4Fy7-XH0,AlamSemenit,top,7.81,1000000,Tomcat Jangan Digencet! #AlamSemenit,id,59,149,2.49,2.53,0.2,2.8,,,0,0.2,6.9,39.3,12.0,67.0,,0,0.0,0.0,0,False,0,WARN,ADV,0,8,,,0,mulai di tengah
+5iLQ8smi87M,TakTerdugaID,top,2.36,2600,🥭 Rahasia Sehat Pepaya #shorts #PepayaSehat #NutrisiBuah #Sh,id,40,87,2.12,2.17,0.0,5.9,9,11,1,0.8,12.4,,31.0,,3,1,1.1,3.4,0,False,0,Q,Q,0,7,,,0,template
+4hGuiGeSGkU,TakTerdugaID,bot,0.07,73,Fakta Unik Harimau #shorts #hewan #funfact,id,55,128,2.29,2.33,0.1,,,,0,0.1,7.4,,14.0,,,1,0.8,0.8,1,False,0,Q,CTA,0,7,,,0,template
+SqzFTh5jKCw,TakTerdugaID,bot,0.05,51,Fakta Unik Siberian Husky yang Bikin Kagum! 🐺❄️ #shorts #Anj,id,56,109,1.95,1.95,1.0,,,,0,1.0,10.1,,18.0,,,1,0.9,0.0,1,False,0,Q,CTA,0,5,,,0,template
+ohh7ZVHOnNU,TakTerdugaID,bot,0.02,22,🦁 Fakta Unik Tak Terduga Singa #shorts #faktaunik #hewan #si,id,50,98,1.98,1.96,0.1,2.8,6,7.0,1,0.1,2.8,37.9,6.0,76.0,3,1,1.0,0.0,1,False,0,Q,Q,0,8,,,0,template
+Ab7w1o7Nwck,TakTerdugaID,top,2.18,2400,🦒FAKTA UNIK JERAPAH #shorts #faktaunik #hewan #jerapah,id,36,75,2.12,2.08,0.1,2.3,4,5.5,1,0.1,5.6,,16.0,,3,2,2.7,0.0,1,False,0,Q,Q,0,6,,,0,template
+O-YJTNyzCH8,NgomonginUang,top,16.77,478000,Harga Beras di Daerah Kalimantan Ini Sampai Rp1.000.000? Kok,id,115,255,2.2,2.22,0.2,4.9,22,12.0,1,0.2,73.7,73.7,64.0,64.0,2,1,0.4,1.6,1,False,0,Q,CTA,0,8,,,1,imbauan share
+MDmgtjbGdns,TaksakaSeta,top,24.88,107000,Sejarah Kerajaan Majapahit: Candi Candi di nusantara,en,8,6,1.1,0.75,0.0,,,,0,,,,,,,0,0.0,0.0,0,False,,,,,5,,"1 kalimat/8 dtk, tidak berarti",0,
+0MUxT4jvjSM,LogicallyAnswered,top,727.27,8000000,GoPro Is Going Bankrupt?,en,59,166,2.84,2.81,0.0,4.0,13,15,1,0.0,14.2,36.1,24.0,61.0,1,1,0.6,0.0,1,True,1,OBJ,PUNCH,0,8,,,0,person
+24RSvqNGAQw,TaksakaSeta,top,21.16,91000,Misteri Kematian Gajah Mada: Sejarah Majapahit Terungkap,id,29,72,2.4,2.48,0.0,4.0,6,11.5,1,0.0,14.6,16.6,50.0,57.0,3,1,1.4,2.8,0,True,0,Q,CLIFF+Q,0,9,,,0,person

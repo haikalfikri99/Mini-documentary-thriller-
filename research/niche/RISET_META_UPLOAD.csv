@@ -1,0 +1,31 @@
+channel,id,grup,rasio_vs_median,upload_date,hari,durasi_s,desc_chars_approx,hashtag_di_desc,tags_count,link,referensi,catatan
+SmartNonsense,xsM3gVIoF7c,TOP,26.2,2026-04-24,Jum,60,58,0,0,0,0,domain teks
+SmartNonsense,JoQeFiSNFYY,TOP,33.6,2026-07-03,Jum,60,17,0,4,0,0,domain teks
+SmartNonsense,c1NAYTyAvJE,TOP,26.6,2026-06-24,Rab,65,17,0,4,0,0,domain teks
+SmartNonsense,4yfLGxbcjnY,BOT*,0.0,2026-11-10,Sel,41,17,0,4,0,0,domain teks
+SmartNonsense,QdZp6XW1wCY,BOT*,0.0,2026-11-12,Kam,45,17,0,4,0,0,domain teks
+SmartNonsense,ivJq3H1sI6k,BOT*,0.0,2026-11-11,Rab,46,0,0,0,0,0,-
+ZackDFilms,0BZ1C83I2R4,TOP,7.4,,,24,0,0,0,0,0,-
+ZackDFilms,MSPVq-5sbCg,TOP,6.7,2026-10-04,Min,38,0,0,0,0,0,-
+ZackDFilms,CRGWDiIgMZ4,TOP,6.0,2026-10-09,Jum,28,0,0,0,0,0,-
+ZackDFilms,eMGvpHOO2xQ,BOT*,0.1,2026-11-12,Kam,33,0,0,0,0,0,-
+ZackDFilms,KNUvtyqbqDc,BOT*,0.1,2026-11-12,Kam,55,0,0,0,0,0,-
+ZackDFilms,024WYDL82WY,BOT*,0.1,2026-11-12,Kam,35,0,0,0,0,0,-
+KokBisa,TdHis8l_U1k,TOP,19.6,2024-05-31,Jum,59,2100,0,21,3,3,template + referensi + sosmed
+KokBisa,WKepFZ2FhLA,TOP,18.3,2023-12-28,Kam,59,2700,0,21,7,5,template + referensi + sosmed
+KokBisa,4tl-2OYYBeI,TOP,13.2,2024-09-06,Jum,59,2500,0,21,7,4,template + referensi + sosmed
+KokBisa,ajYD7eF7VcU,BOT,0.2,2026-05-21,Kam,75,2700,2,23,7,4,template + iklan Promag
+KokBisa,R6OQoqdg9dY,BOT,0.2,2026-05-22,Jum,85,2200,0,23,7,3,template + referensi
+KokBisa,6ex_4GVZnO0,BOT,0.2,2026-03-31,Sel,110,1500,0,23,7,0,template + CTA komunitas
+KamusUnik,5kOF5VjPWbE,TOP,119.4,2026-03-27,Jum,54,480,0,2,0,0,daftar kata kunci + disclaimer fair use
+KamusUnik,caIq54l3j2M,TOP,103.9,2026-07-10,Jum,46,750,0,15,0,0,daftar kata kunci + disclaimer
+KamusUnik,YWtn5heIBKk,TOP,62.0,2026-06-05,Jum,48,560,0,6,0,0,daftar kata kunci + disclaimer
+KamusUnik,-QH_PJTrDrI,BOT,0.1,2026-09-02,Rab,51,700,0,14,0,0,daftar kata kunci + disclaimer
+KamusUnik,3OKQq4YN9bE,BOT,0.1,2026-04-04,Sab,51,430,0,5,0,0,daftar kata kunci + disclaimer
+KamusUnik,HAq3S-JrSzw,BOT,0.0,,,28,40,4,11,0,0,hanya 4 hashtag
+NgomonginUang,1jx7kevc-sU,TOP,73.7,2026-08-22,Sab,94,40,0,0,0,0,"teaser ""segera tayang"""
+NgomonginUang,B2xqmuXjIM0,TOP,22.8,2025-09-30,Sel,110,1050,20,0,0,0,ringkasan berita + 20 hashtag
+NgomonginUang,FOSrkAaPH3o,TOP,19.8,2026-05-08,Jum,77,480,0,0,0,0,ringkasan 3 paragraf + CTA
+NgomonginUang,T7Y0ZapOKmc,BOT,0.1,2026-02-26,Kam,75,38,0,0,0,0,teaser rilis produk
+NgomonginUang,wCKqtCQpv4w,BOT,0.1,2026-09-01,Sel,60,230,0,0,1,0,promo produk (Ngomu.id)
+NgomonginUang,Pe7EQKCCqYw,BOT,0.1,2026-08-11,Sel,103,230,0,0,1,0,"promo produk, harga"

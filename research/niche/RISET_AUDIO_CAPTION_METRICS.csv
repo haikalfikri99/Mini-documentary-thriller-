@@ -1,0 +1,12 @@
+video,status,dur_s,lang,lufs,true_peak_dbtp,lra,first_sound_s,words,wps_span,wps_spoken,speech_rms_db,floor_p10_db,voice_minus_floor_db,gap_rms_db,nonspeech_s,silent_s_first3,silent_runs_gt03,silent_total_s,word_pauses_gt03,onsets_per_min_all,cap_presence,cap_pos_y,cap_style,cap_words,cap_highlight
+SmartNonsense 99 sen,WIN,59.88,en,-11.6,0.4,4.6,0.06,190,3.18,3.61,-12.7,-23.8,11.1,-11.8,0.9,0.04,0,0,6,90.2,"jarang; hanya ""FLIP THE BARKEEP."" + label tulisan tangan",bawah-tengah 0.8,putih kapital + outline,frase 2-4 kata (jarang),tidak
+SmartNonsense Dyson,WIN,68.31,en,-16.5,-2.4,3.3,0.06,220,3.23,3.62,-17.6,-35.6,18.0,-22.8,0.9,0.04,0,0,6,102.8,"ada, kecil",0.79,putih kapital kecil,frase 2-4 kata,tidak
+SmartNonsense gempa,FLOP,39.98,en,-14.0,-1.4,2.8,0.07,108,2.71,2.96,-15.6,-23.4,7.8,-17.9,0.2,0.08,0,0,4,72.0,"ada, kecil",0.77-0.8,putih kapital kecil,frase 2-4 kata,tidak
+ZackD tukan,WIN,37.9,en,-10.6,1.0,2.3,0.06,111,2.98,3.38,-10.9,-58.1,47.2,-32.7,0.9,0.04,0,0,10,82.3,"ada, sedang",0.77,putih sentence-case tebal,frase 2-3 kata,tidak
+ZackD food companies,FLOP,54.8,en,-14.1,-2.5,2.7,0.06,141,2.6,3.12,-14.3,-41.3,27.0,-25.0,2.7,0.02,0,0,18,78.8,"ada, sedang",0.77,putih sentence-case tebal,frase 3-5 kata,tidak
+WSJ Twinkies,WIN,91.93,en,-24.0,0.3,2.1,0.14,277,3.02,3.54,-29.5,-43.1,13.6,-35.2,3.4,0.14,0,0,24,86.8,"ada, kecil + lower-third nama",0.70,"putih, reguler",kalimat 5-6 kata,tidak
+KokBisa piranha,WIN,59.05,id,-10.1,0.3,2.3,0.11,156,2.66,3.04,-11.3,-63.4,52.1,-27.9,1.9,0.1,0,0,12,103.6,TIDAK ada di 12 frame sampel,-,-,-,-
+NgomonginUang panjat pinang,WIN,94.16,id,-10.1,0.5,5.1,0.09,285,3.1,3.27,-10.4,-61.5,51.1,-51.9,2.0,0.08,0,0,5,89.2,"ada, besar",0.65,putih kapital TEBAL,frase menumpuk 2-4 kata,kuning pada kata kunci
+KamusUnik danau,WIN,45.53,id,-7.5,0.5,1.6,0.12,118,2.63,3.02,-7.5,-38.8,31.3,-20.9,2.6,0.1,0,0,10,110.7,"ada, besar",0.77,putih kapital tebal+outline,1 kata per layar (word-by-word),kata kunci lebih tebal (putih); tanpa warna
+PantesanLaku harga coret,FLOP,45.12,id,-14.7,-4.1,3.1,0.24,92,2.2,2.9,-14.9,-120.0,>100,-120.0,8.8,0.28,7,6.6,11,87.8,tidak ada subtitle; hanya teks statis di bawah,0.90,abu kecil,kalimat utuh statis,merah-bata pada frasa
+ARSIP #002 (kita),OURS,44.76,id,-14.1,-0.9,2.4,0.02,100,2.24,2.45,-14.9,-35.7,20.8,-28.2,0.8,0.0,0,0,8,112.6,"ada, sedang",0.69,putih kapital + outline,1-2 kata menumpuk (word-by-word kumulatif),kuning/biru pada kata kunci
