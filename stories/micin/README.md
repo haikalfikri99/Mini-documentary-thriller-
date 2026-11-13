@@ -15,5 +15,5 @@
 | 7 | FDA: MSG "generally recognized as safe" (sejak 1959); FAO/WHO JECFA: ADI "tidak ditetapkan" (1987/88); EFSA 2017: ADI 30 mg/kg sebagai asam glutamat | terverifikasi | FDA Q&A MSG; JECFA; PMC9227671 |
 | 8 | BPOM menyatakan MSG aman (rujukan FAO/WHO); penggunaannya diatur Permenkes 033/2012 & Perka BPOM 23/2013 | terverifikasi | JPNN (2009); UNAIR; SWA |
 | 9 | ASI kaya glutamat bebas (asam amino bebas paling melimpah; ±10× susu sapi; bayi ASI menerima ±36 mg/kg/hari vs ±0,7 dari formula susu sapi) | terverifikasi | Koletzko 2018 review (22 studi, 4.747 ibu); Mouritsen & Styrbæk 2014 |
-| 10 | Tubuh memproses glutamat dari MSG sama dengan glutamat alami (tomat, keju) | **cek di FDA Q&A sebelum VO** | FDA Q&A MSG |
+| 10 | Glutamat dalam MSG secara kimia sama dengan glutamat dalam protein makanan; tubuh memprosesnya dengan cara yang sama | terverifikasi | FDA "Questions and Answers on MSG" (2012): "chemically indistinguishable… metabolize both sources… in the same way"; Mayo Clinic |
 | 11 | "Micin bikin bodoh" berasal langsung dari eksperimen Olney | **inferensi — tidak dipakai sebagai klaim sebab-akibat**; VO hanya menyebut urutan peristiwa | — |
