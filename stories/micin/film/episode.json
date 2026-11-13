@@ -1,0 +1,6 @@
+{
+ "slug": "micin", "no": 3, "title": "",
+ "vo": "../audio/vo_micin.mp3", "words": "../audio/vo_words.json", "dur": 56.6,
+ "captions": {"hide": [], "hot_screen": [], "hot_amber": []},
+ "report": [[0, 56.6]]
+}
