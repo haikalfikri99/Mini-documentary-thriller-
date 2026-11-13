@@ -4,3 +4,5 @@
 - **Gaya visual: ARSIP Kolase** (`kit/styles/arsip-kolase/STYLE.md`, mesin `kit/collage/`). Gaya lama (2D RIG, 3D, toon) sudah dihapus; jangan dihidupkan lagi tanpa keputusan user.
 - **Sesi utama pada effort high** untuk kode film dan keputusan kreatif (arahan lemo-opuscar). Bila effort sesi rendah, ingatkan user sekali.
 - **Gambar:** arsip asli dulu (Openverse → Wikimedia, satu permintaan/detik); gambar AI boleh bila perlu; **tanpa video AI**, tanpa stock footage. Catat lisensi di `SOURCES.jsonl`.
+- **Selera & cara kerja user:** `.claude/skills/arsip-kasus/references/7-selera-dan-cara-kerja.md` — baca sebelum mengirim shortlist/script/storyboard/film; tambah baris setiap ada koreksi baru.
+- Google Drive: folder `Mini Thriller IDN/NNN Judul` per episode; Claude hanya bisa mengunggah file < 10 MB (metadata, cover, storyboard); video final diunggah user.

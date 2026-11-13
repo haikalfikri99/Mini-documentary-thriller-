@@ -61,6 +61,7 @@ kit/tools/make_kolase.sh stories/<slug>/kolase 1                 # ±7 menit
 ```
 
 ## Rujukan
+- **`references/7-selera-dan-cara-kerja.md` — selera & cara kerja user dari semua revisi; baca sebelum mengirim apa pun (cek D)**
 - `references/1-cerita-dan-script.md` — identitas, wilayah, aturan faktual, seleksi, **Formula ARSIP v4.1**, scorecard, analitik
 - `references/2-visual-dan-animasi.md` — gaya ARSIP Kolase dalam praktik: frame & tempo, storyboard, sumber gambar, pelajaran review
 - `references/3-audio.md` — rantai VO, skor, foley otomatis, mix, QA tanpa telinga
