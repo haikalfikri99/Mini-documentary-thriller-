@@ -8,15 +8,15 @@ const film = path.resolve(process.argv[2]); const mode = process.argv[3] || 'mid
 fs.mkdirSync(outDir, { recursive: true });
 const types = { '.js': 'text/javascript', '.html': 'text/html', '.woff2': 'font/woff2', '.json': 'application/json' };
 const page = `<!doctype html><html><head><meta charset="UTF-8"><style>@font-face{font-family:"Oswald";src:url("assets/fonts/Oswald.woff2");font-weight:600}@font-face{font-family:"Courier Prime";src:url("assets/fonts/CourierPrime.woff2");font-weight:700}html,body{margin:0;background:#000}</style></head><body><canvas id="c" width="1080" height="1920"></canvas><script type="module">
-import * as F from './film.js'; const c=document.getElementById('c'); F.init(c.getContext('2d'));
+import * as F from './film.js'; const c=document.getElementById('c'); await F.init(c.getContext('2d'));
 await document.fonts.load('600 40px Oswald'); await document.fonts.load('700 30px "Courier Prime"');
 window.render=t=>{F.renderAt(t);return true}; window.START=F.START; window.ready=true;</script></body></html>`;
 const srv = http.createServer((req, res) => { const u = decodeURIComponent(req.url.split('?')[0]); if (u === '/__kf.html') { res.writeHead(200, { 'content-type': 'text/html' }); return res.end(page); }
   const f = path.join(film, u); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); return res.end(); }
   res.writeHead(200, { 'content-type': types[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(res); }).listen(0);
 const port = srv.address().port; const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
-p.on('pageerror', e => console.error('PAGE ERROR', e.message)); p.on('console', m => { if (m.type() === 'error') console.error('console:', m.text()); });
-await p.goto(`http://127.0.0.1:${port}/__kf.html`); await p.waitForFunction('window.ready === true', null, { timeout: 30000 });
+p.on('pageerror', e => console.error('PAGE ERROR', e.message)); p.on('console', m => { if (m.type() === 'error' && !m.text().includes('missing part')) console.error('console:', m.text()); });
+await p.goto(`http://127.0.0.1:${port}/__kf.html`); await p.waitForFunction('window.ready === true', null, { timeout: 180000 });
 const START = await p.evaluate('window.START');
 let T = mode === 'mid' ? START.slice(0, -1).map((a, i) => (a + START[i + 1]) / 2) : mode === 'first' ? START.slice(0, -1).map(a => a + .01) : mode.split(',').map(Number);
 const files = [];

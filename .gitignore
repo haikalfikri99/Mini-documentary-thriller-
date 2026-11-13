@@ -24,3 +24,6 @@ kit/lab/.hyperframes/
 kit/lab/renders/
 __pycache__/
 stories/*/film/board/kf_*.png
+stories/*/kolase/parts/
+stories/*/kolase/raw/
+stories/*/kolase/board/kf_*.png
