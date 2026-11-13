@@ -22,6 +22,7 @@ _Terakhir diperbarui: 2026-11-13 (dibuat dari README, meta.json, dan log git; be
 ## Belum diputuskan
 - Film berikutnya (#004): kalah atau sinila atau judul baru dari `research/niche/BANK_IDE.md`.
 - Hasil data #003 di 48 jam/7 hari belum masuk tabel.
+- Analytics: skrip Apps Script siap di `kit/tools/yt-analytics/AnalyticsSheet.gs` (belum diuji di akun asli; hanya dites dengan mock). Menunggu user menempel, menyetujui izin, dan mengirim link Sheet. "Viewed vs swiped" tetap dari screenshot Studio (tidak ada di API). Bandingkan episode pakai `engagedViews`, bukan `views` (aturan hitung YouTube berubah 27 Agu 2026).
 
 ## Ditolak
 - Gaya 2D RIG, 3D, toon: dihapus 13 Nov 2026 (sumber di git `0259929`). Jangan dihidupkan lagi.
