@@ -48,3 +48,11 @@ Contact sheet: `rekaman/frame0_3dtk_EN.jpg`, `rekaman/frame0_3dtk_ID_dan_002.jpg
 - Performa pilar dan aturan visual ini **di channel kita sendiri** (#003–#005 adalah ujinya; satu variabel besar per video).
 - Thumbnail ≠ frame 0 asli; label gaya adalah penilaian.
 - Ad-suitability resmi untuk tema bencana/kegagalan belum dibaca (dicek per topik).
+
+## 6. Gaya signature & workflow 1 video/hari (usulan, 13 Nov 2026)
+Dasar: `RISET_GAYA_STORYTELLING.md` (18 channel animasi; gaya & host tidak membedakan performa; hanya 6,4% komentar menyebut visual, 1% memuji animasi; hanya Zack (tim) yang ≥1 Short/hari) + `AUDIT_PRODUKSI.md` (#002 = 15 j; 738 baris kode khusus per episode; render 3D 15–28 dtk per dtk film; 3D per episode belum pernah terukur).
+- **Gaya dikunci: 2D datar ARSIP RIG (tampilan #002)**, bukan dunia 3D. Alasan: gaya tidak menentukan performa, 2D sudah ada dan teruji, lebih cepat dibuat & dirender, paling mudah dijadikan template. Dunia 3D disimpan untuk episode khusus.
+- **Tanpa presenter tetap** untuk sekarang: tidak ada bukti host animasi membantu (n kecil), dan host mengambil layar dari benda pahlawan. Diuji nanti sebagai satu variabel.
+- **Tambahan wajib:** (1) "benda pahlawan" besar di frame 0, (2) **pustaka tipe adegan** dipakai ulang (benda close-up, label harga/angka, cutaway cara kerja, peta, dokumen/arsip, tokoh reaksi, dalang terungkap, garis waktu, sebelum-sesudah), (3) frame lebih terang demi keterbacaan (bukan demi performa).
+- **Identitas yang membuat channel dikenali:** kartu ARSIP overlay, stempel merah "TERUNGKAP" di momen twist, tekstur kertas arsip, gaya caption, palet tetap.
+- **Workflow:** VO via konektor ElevenLabs (butuh izin user), satu paket review harian, produksi berlapis (riset H-2, produksi H-1, tayang H). Naik bertahap: 3/minggu selama pustaka adegan dibangun, lalu 1/hari.
