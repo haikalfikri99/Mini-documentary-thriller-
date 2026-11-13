@@ -10,3 +10,6 @@
 | Printed matter | public-domain/CC0 only | public domain, CC0 or **CC BY** (credited in the YouTube description); objects with no free print (modern packaging) are **baked as our own printed cut-outs, no brand logos** | Indonesian everyday objects have no PD prints |
 | End card | title + style + LemoLab sign-off | **none**: the last shot loops into frame 0 | Shorts loop; no watermark |
 | Voice | Kokoro TTS | ElevenLabs (Saos Cocol) | channel voice |
+
+---
+Adapted from "Vintage Engraving Collage" in Lemo-Opuscar by Lemomo (LemoLab), https://github.com/lemomo-ai/lemo-opuscar — docs under CC BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/) with LemoLab's additional permission to adapt them for making our own films (commercial included); code under MIT (kit/collage/LICENSE-lemo-opuscar). Changed: see CHANGES.md.

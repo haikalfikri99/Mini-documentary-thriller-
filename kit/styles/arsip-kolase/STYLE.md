@@ -36,3 +36,6 @@ Pieces too small for a phone (hero ≥ 45 % of frame width); ink stamps on a fie
 
 ## 10. Engine
 `kit/collage/parts.py` (+ `collage_lib.py`) bakes parts; `kit/collage/engine.js` draws them (sprites, poses, slaps, stamps, camera, captions). Each episode: `stories/<slug>/kolase/{bake.py, prints.json, SOURCES.jsonl, film.js}`; storyboard with `node kit/tools/keyframes_2d.mjs stories/<slug>/kolase mid`.
+
+---
+Adapted from "Vintage Engraving Collage" in Lemo-Opuscar by Lemomo (LemoLab), https://github.com/lemomo-ai/lemo-opuscar — docs under CC BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/) with LemoLab's additional permission to adapt them for making our own films (commercial included); code under MIT (kit/collage/LICENSE-lemo-opuscar). Changed: see CHANGES.md.
