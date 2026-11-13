@@ -31,3 +31,4 @@ stories/*/kolase/renders/
 stories/*/kolase/*.wav
 stories/*/kolase/*.mid
 stories/*/kolase/*.npy
+channel/parts/
