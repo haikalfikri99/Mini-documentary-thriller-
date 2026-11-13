@@ -249,7 +249,7 @@ PRINTS = json.load(open(os.path.join(HERE, 'prints.json'))) if os.path.exists(os
 
 def prints():
     for name, p in PRINTS.items():
-        kw = {k: v for k, v in p.items() if k not in ('file', 'width', 'tint', 'plate', 'halftone')}
+        kw = {k: v for k, v in p.items() if k not in ('file', 'width', 'tint', 'plate', 'halftone', 'caption')}
         if p.get('halftone'):
             bk.halftone(name, p['file'], p['width'], crop=p.get('crop'), caption=p.get('caption'), seed=sum(map(ord, name)) % 1000)
             continue

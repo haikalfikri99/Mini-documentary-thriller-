@@ -63,9 +63,9 @@ const SHOTS = [
   // 02 · Padahal semuanya berawal dari satu surat.
   (u, T, d) => {
     stage(u, d, { z1: 1.06, cy: 900 }); bg('hook');
-    putK('envelope', slide(0, 0.32, 540, 820, 3, 900, -60, 12, 1.0), u, 2);
+    putK('envelope', slide(0, 0.32, 540, 820, 3, 900, -60, 12, 1.0), u, 2, { s: 1.35 });
     if (has('stamp1968')) putK('stamp1968', slap(0.62, 765, 715, 6), u, 3, { s: 1 });
-    stampAt('st_post', u, 0.95, 660, 730, -12, 1);
+    stampAt('st_post', u, 0.95, 720, 700, -12, 1.3);
     ransomRow('ry68', u, 1.2, 540, 420, 0.11, 1.1);
   },
   // 03 · Ada dokter yang nulis surat ke jurnal kedokteran Amerika:  (+ the ARSIP case-file tab, overlay <= 1.3 s)
@@ -85,26 +85,23 @@ const SHOTS = [
   // 04 · tiap habis makan di restoran Tionghoa,
   (u, T, d) => {
     stage(u, d, { z1: 1.05 }); bg('resto');
-    if (has('lantern')) { const sw = Math.sin(stepT(u) * 4.2) * 7 * Math.exp(-u * 0.6); putA('lantern', 820, 140, 0.5, 0.02, sw, 0.5); }
-    if (has('doctor')) putK('doctor', slide(0, 0.35, 420, 760, 0, -800, 0, 0, 0.8), u, 8);
-    if (has('bowl')) putK('bowl', slap(0.5, 680, 1060, -3), u, 9);
+    { const sw = Math.sin(stepT(u) * 4.2) * 7 * Math.exp(-u * 0.6); putA('lantern', 860, 120, 0.5, 0.02, sw, 0.5); }
+    putK('meal', slide(0, 0.35, 540, 780, -2, -900, 0, 0, 0.8), u, 8);
+    putK('bowl', slap(0.6, 760, 1090, -3), u, 9, { s: 0.8 });
   },
   // 05 · tengkuknya kebas, jantungnya deg-degan.
   (u, T, d) => {
-    stage(u, d, { cx: 470, cy: 760, z0: 1.25, z1: 1.38 }); bg('resto');
-    if (has('lantern')) putA('lantern', 820, 140, 0.5, 0.02, Math.sin(stepT(u + 2.4) * 4.2) * 2, 0.5);
-    if (has('doctor')) put('doctor', 420, 760);
-    if (has('bowl')) put('bowl', 680, 1060, -3);
-    stampAt('m_circle', u, 0.2, 440, 560, 0, 0.62);
+    stage(u, d, { cy: 860, z0: 1.0, z1: 1.08 }); bg('resto');
+    putK('patient', slap(0.0, 500, 760, 2, -20, -40), u, 10);
     const hb = at(4, 'jantung');
-    if (has('heart') && u > hb - 0.1) putK('heart', [[hb - 0.1, 640, 820, 8, 3, 1, null, 0, 0.6], [hb + 0.05, 640, 820, 8, 0, 1, 'back', 1]], u, 11, { s: heartbeat(u, hb) * 0.6 });
+    if (has('heart') && u > hb - 0.1) putK('heart', [[hb - 0.1, 800, 980, 8, 3, 1, null, 0, 0.8], [hb + 0.05, 800, 980, 8, 0, 1, 'back', 1]], u, 11, { s: heartbeat(u, hb) });
   },
   // 06 · Dia sendiri nggak yakin penyebabnya. Bisa arak masak, bisa garam, bisa micin.
   (u, T, d) => {
     stage(u, d, { z0: 1, z1: 1.04 }); bg('resto');
-    if (has('doctor')) putK('doctor', [[0, 300, 640, 0, 0, 1, null, 0, 0.62]], u, 12, { s: 0.62 });
-    ransomRow('rq', u, 0.6, 520, 420, 0.1, 1.2);
-    const items = [['bottle', 's_arak', 230, at(5, 'arak')], ['salt', 's_garam', 540, at(5, 'garam')], ['sachet', 's_micin', 850, at(5, 'micin')]];
+    putK('patient', [[0, 330, 470, -4, 0, 1]], u, 12, { s: 0.48 });
+    ransomRow('rq', u, 0.5, 800, 430, 0.1, 1.3);
+    const items = [['bottle', 's_arak', 260, at(5, 'arak')], ['salt', 's_garam', 540, at(5, 'garam')], ['sachet', 's_micin', 820, at(5, 'micin')]];
     items.forEach(([n, sl, x, t0], i) => {
       if (has(n)) putK(n, slap(t0, x, 880, [-4, 3, 5][i]), u, 20 + i, { s: n === 'sachet' ? 0.42 : 1 });
       putK(sl, slap(t0 + 0.15, x, 1110, [3, -2, -4][i]), u, 30 + i);
@@ -116,10 +113,11 @@ const SHOTS = [
     stage(u, d, { z1: 1.06, shake: [[0.0, 7], [tm, 12]] }); bg('news');
     putK('newspaper', slap(0.0, 540, 800, -2, -20, -60), u, 40);
     ransomRow('rmic', u, tm, 540, 640, 0.07, 1.25);
+    putK('hand', slide(tm + 0.35, tm + 0.6, 760, 900, -150, 600, 200, 0, 0.8), u, 42, { s: 0.8 });
   },
   // 08 · Lahirlah istilah sindrom restoran Tionghoa, dan beritanya
   (u, T, d) => {
-    stage(u, d, { cy: 620, z0: 1.3, z1: 1.36 }); bg('news');
+    stage(u, d, { cy: 700, z0: 1.12, z1: 1.18 }); bg('news');
     put('newspaper', 540, 800, -2);
     typed('s_sindrom', u, at(7, 'sindrom') - 0.1, 30, 540, 900, -2, 0);
   },
@@ -140,7 +138,7 @@ const SHOTS = [
   (u, T, d) => {
     stage(u, d, { z1: 1.05 }); bg('lab');
     if (has('syringe')) putK('syringe', slide(0, 0.35, 600, 560, -32, 600, -500, 0, 1), u, 61);
-    [180, 400, 640, 880].forEach((x, i) => { if (has('mouse')) putK(i % 2 ? 'mouse2' in SP ? 'mouse2' : 'mouse' : 'mouse', drop(0.45 + i * 0.12, 0.62 + i * 0.12, x, 960 + (i % 2) * 30, (i % 2 ? 6 : -4), 700), u, 70 + i, { s: 0.55 }); });
+    [230, 540, 850].forEach((x, i) => { putK('mouse', drop(0.45 + i * 0.12, 0.62 + i * 0.12, x, 960 + (i % 2) * 30, (i % 2 ? 6 : -4), 700), u, 70 + i, { s: 0.95 }); });
     putK('s_dosis', slap(1.2, 540, 1140, 2), u, 75);
   },
   // 12 · Otak mereka rusak.
@@ -167,7 +165,7 @@ const SHOTS = [
   // 14 · Tapi tikus-tikus itu nggak makan micin.
   (u, T, d) => {
     stage(u, d, { z1: 1.05 }); bg('lab');
-    if (has('mouse')) putK('mouse', slide(0, 0.3, 380, 900, 0, -700, 0, 0, 0.8), u, 81, { s: 0.8 });
+    if (has('mouse')) putK('mouse', slide(0, 0.3, 360, 900, 0, -700, 0, 0, 0.8), u, 81, { s: 1.25 });
     if (has('bowl')) putK('bowl', slap(0.35, 760, 980, 3), u, 82, { s: 0.85 });
     putK('sachet', slap(0.5, 820, 640, -8), u, 83, { s: 0.36 });
     stampAt('m_cross', u, at(13, 'makan'), 780, 900, 0, 1);
@@ -213,27 +211,27 @@ const SHOTS = [
     stage(u, d, { z0: 1.04, z1: 1.1 }); bg('milk');
     if (has('mother')) putK('mother', slide(0, 0.25, 540, 760, 0, 0, -900, 0, 0.7), u, 95);
     else if (has('babybottle')) putK('babybottle', slide(0, 0.25, 540, 760, 0, 0, -900, 0, 0.7), u, 95);
-    putK('molecule', [[0, 840, 300, -4, 2, 1, null, 0, 0.5], [0.4, 700, 560, 10, 0, 1, 'in', 0.8, 0.45]], u, 96);
+    putK('molecule', [[0, 840, 220, -4, 2, 1, null, 0, 0.5], [0.4, 800, 330, 10, 0, 1, 'in', 0.8, 0.45]], u, 96);
     putK('s_asi', slap(at(19, 'asi'), 540, 1130, -3), u, 97);
   },
   // 21 · Banyak banget, kira-kira sepuluh kali susu sapi.  (data engraving: the ASI bar grows ten times the cow's milk bar)
   (u, T, d) => {
     stage(u, d, { cy: 860, z0: 1, z1: 1.03 }); bg('chart');
-    const base = 1150, gp = EASE.out(seg(stepT(u), 0.15, 1.4));
+    const base = 1060, gp = EASE.out(seg(stepT(u), 0.15, 1.4));
     putA('bar_sapi', 720, base, 0.5, 1, 0, 0);
     const S = SP.bar_asi, h = S.img.height / S.k;
     ctx.save(); ctx.beginPath(); ctx.rect(0, base - h * gp - 30, W, h * gp + 60); ctx.clip(); putA('bar_asi', 380, base, 0.5, 1, 0, 0); ctx.restore();
     putK('s_asi', slap(0.2, 380, base + 70, -2), u, 98); putK('s_sapi', slap(0.35, 720, base + 70, 2), u, 99);
-    if (has('cow')) putK('cow', slap(0.5, 760, base - 220, 3), u, 100, { s: 0.6 });
-    if (has('babybottle')) putK('babybottle', slap(1.4, 600, base - h - 10, -6), u, 101, { s: 0.6 });
-    putK('s_10x', slap(at(20, 'sepuluh'), 640, base - h + 140, 6), u, 102);
-    putK('s_1x', slap(at(20, 'sapi'), 840, base - 150, -4), u, 103);
+    putK('cow', slap(0.5, 720, base - 230, 3), u, 100, { s: 0.75 });
+    putK('babybottle', slap(1.4, 380, base - h * gp - 150, -6), u, 101, { s: 0.6 });
+    putK('s_10x', slap(at(20, 'sepuluh'), 690, base - h + 160, 6), u, 102);
+    putK('s_1x', slap(at(20, 'sapi'), 900, base - 60, -4), u, 103);
   },
   // 22 · Jadi lidahmu kenal gurih micin... sejak menyusu.
   (u, T, d) => {
     stage(u, d, { z1: 1.06 }); bg('milk');
     putK('sachet', slap(0.05, 250, 760, -5), u, 104, { s: 0.55 });
-    stampAt('m_eq', u, at(21, 'micin'), 540, 770, 0, 1.1);
+    stampAt('m_eq', u, at(21, 'micin'), 540, 770, 0, 1.7);
     const b = has('babybottle') ? 'babybottle' : (has('mother') ? 'mother' : null);
     if (b) putK(b, slap(at(21, 'sejak'), 820, 760, 5), u, 105, { s: 0.75 });
   },
@@ -251,8 +249,8 @@ const SHOTS = [
     const tb = at(23, 'membantah');
     stage(u, d, { z1: 1.05, shake: [[tb, 10]] }); bg('bet');
     if (has('family')) putK('family', slide(0, 0.3, 540, 780, 0, 0, -900, 0, 0.7), u, 109);
-    putK('s_keluarga', slap(0.35, 540, 1130, 2), u, 110);
-    stampAt('st_dibantah', u, tb, 540, 820, -10, 1.3);
+    putK('s_keluarga', slap(0.35, 540, 300, 2), u, 110);
+    stampAt('st_dibantah', u, tb, 540, 1150, -8, 1.2);
   },
   // 25 · Tapi gara-gara satu surat itu...  -> back to the sachet of frame 0 (loop)
   (u, T, d) => {

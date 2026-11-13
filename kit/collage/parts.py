@@ -278,7 +278,7 @@ class Baker:
         edge = inside & ~ndi.binary_erosion(inside, iterations=max(2, int(1.6 * B)))
         ink = np.maximum(ink, edge * 1.0)
         col = CARD[None, None, :] * np.ones(xx.shape + (1,))
-        col = col * (1 - 0.35 * inside[..., None]) + wash * 0.35 * inside[..., None]
+        col = col * (1 - 0.7 * inside[..., None]) + wash * 0.7 * inside[..., None]
         col = col * (1 - ink[..., None]) + INK * ink[..., None]
         m = np.zeros(xx.shape, bool); m[P // 2:-P // 2, P // 2:-P // 2] = True
         body, _ = torn(ndi.binary_dilation(inside, iterations=int(4 * B)), rough=1.0 * B, seed=seed, amp=0.25)

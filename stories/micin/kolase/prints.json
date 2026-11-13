@@ -1,0 +1,141 @@
+{
+ "meal": {
+  "file": "family_1.jpg",
+  "width": 780,
+  "rect": true,
+  "crop": [
+   0.02,
+   0.02,
+   0.98,
+   0.86
+  ]
+ },
+ "patient": {
+  "file": "doctor_2.jpg",
+  "width": 700,
+  "rect": true,
+  "crop": [
+   0.03,
+   0.03,
+   0.97,
+   0.84
+  ]
+ },
+ "lantern": {
+  "file": "lantern_3.jpg",
+  "width": 230,
+  "crop": [
+   0.36,
+   0.0,
+   0.66,
+   0.8
+  ],
+  "tint": "#B3261E",
+  "tint_k": 0.35
+ },
+ "bowl": {
+  "file": "bowl_3.jpg",
+  "width": 380
+ },
+ "heart": {
+  "file": "heart_2.jpg",
+  "width": 360,
+  "crop": [
+   0.08,
+   0.1,
+   0.52,
+   0.47
+  ],
+  "rect": true,
+  "tint": "#B3261E",
+  "tint_k": 0.0
+ },
+ "bottle": {
+  "file": "bottle_1.jpg",
+  "width": 210,
+  "crop": [
+   0.15,
+   0.12,
+   0.85,
+   0.9
+  ],
+  "thresh": 175,
+  "tint": "#2F4F4A",
+  "tint_k": 0.25
+ },
+ "salt": {
+  "file": "gen_salt.png",
+  "width": 170
+ },
+ "glass": {
+  "file": "gen_glass.png",
+  "width": 250
+ },
+ "syringe": {
+  "file": "gen_syringe.png",
+  "width": 640
+ },
+ "babybottle": {
+  "file": "gen_babybottle.png",
+  "width": 220,
+  "tint": "#F3EAD6",
+  "tint_k": 0.0
+ },
+ "globe": {
+  "file": "gen_globe.png",
+  "width": 560,
+  "tint": "#D58E2A",
+  "tint_k": 0.25
+ },
+ "scientist": {
+  "file": "scientist_1.jpg",
+  "width": 600,
+  "rect": true,
+  "crop": [
+   0.03,
+   0.03,
+   0.97,
+   0.95
+  ]
+ },
+ "mouse": {
+  "file": "mouse_1.png",
+  "width": 340
+ },
+ "brain": {
+  "file": "brain_3.png",
+  "width": 700,
+  "tint": "#E4C68C",
+  "tint_k": 0.35
+ },
+ "mother": {
+  "file": "mother_1.jpg",
+  "width": 600,
+  "rect": true,
+  "crop": [
+   0.08,
+   0.1,
+   0.92,
+   0.84
+  ]
+ },
+ "cow": {
+  "file": "cow_1.png",
+  "width": 430
+ },
+ "family": {
+  "file": "family_3.jpg",
+  "width": 620,
+  "rect": true,
+  "crop": [
+   0.04,
+   0.04,
+   0.96,
+   0.96
+  ]
+ },
+ "hand": {
+  "file": "hand_2.png",
+  "width": 420
+ }
+}
