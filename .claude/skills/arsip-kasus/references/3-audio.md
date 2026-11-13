@@ -46,3 +46,8 @@ Rasa musik dan karakter SFX tetap dinilai user.
 - Laporan margin per bagian bisa menyembunyikan satu kata yang tertutup: dentuman + denting + hentakan musik tepat di "hilang" = 3 dB. Sejak #002 `Mixer.finish(words=…)` melaporkan setiap kata < 8 dB; targetnya **none**.
 - Bunyi UI (swipe) diletakkan di atas pita bicara (4,2–9,5 kHz); denting koin/kaca dipelankan saat VO bicara; piano tidak ditaruh di atas kata kunci yang diucapkan pelan.
 - "Tanpa suara di sini" pada satu kata = stempel waktu alignment meleset → koreksi `vo_words.json` (caption ikut benar).
+
+## Revisi v4.1 (13 Nov 2026, `research/niche/RISET_AUDIO_CAPTION_META.md`, sampel 11 video — lemah)
+- Tempo VO target **2,6–3,0 kata/dtk** (#002 2,24 terlalu lambat); minta ElevenLabs bicara lebih cepat/bertenaga; speed bisa dinaikkan ringan saat proses.
+- Bunyi mulai ≤ 0,2 dtk; tanpa jeda hening panjang (satu-satunya jeda 8,8 dtk ada di video gagal).
+- Loudness −14 LUFS dipertahankan (loudness tidak membedakan performa); bed musik boleh ada/tidak.

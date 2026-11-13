@@ -19,7 +19,7 @@ Semua video dibuat dengan **kit** (`kit/README.md`): ARSIP RIG, pustaka set, kar
 2. **Cahaya:** satu sumber per shot yang terlihat atau bisa ditebak; rim light warna sumber pada tokoh; pool cahaya + vignette + grain; DOF 3 lapis (latar blur, subjek tajam, latar depan blur).
 3. **Warna makna:** cahaya layar/ancaman `#7fe3ff` · rem/aksen cerita amber `#ffb43a`; latar desaturasi; warna jenuh hanya untuk tokoh utama dan satu aksen.
 4. **Kartu ARSIP KASUS** (`kit/src/arsip-card.js`) setelah hook sebagai **overlay** di atas aksi yang tetap bergerak (sejak #003, data #002: 37,2% stayed); ≤ 1,3 dtk, stempel di waktu/tempat. Kartu layar penuh yang menghentikan cerita tidak dipakai lagi.
-5. **Caption per kata** (`kit/tools/build_captions.py`): Oswald 600 kapital bergaris tinta, ≤ 3 kata, pop-in, y 1290, kata kunci cyan/amber; disembunyikan saat tipografi besar (kutipan).
+5. **Caption** (`kit/tools/build_captions.py`): Oswald 600 kapital bergaris tinta, putih tebal, **ukuran +30–40% dari #002** (v4.1; pemenang ID memakai caption terbesar), 1–3 kata, pop-in, pita y 0,63–0,80 layar (±1290), kata kunci cyan/amber; disembunyikan saat tipografi besar (kutipan).
 6. **Loop:** detik terakhir menyambung ke frame 0.
 
 ## B. Aturan menggambar (dari referensi)

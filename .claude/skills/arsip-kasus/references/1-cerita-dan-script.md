@@ -135,7 +135,7 @@ Lulus bila: spesifik (ada objek/angka/tokoh), jujur (dibayar oleh isi), bisa dig
 **Gerbang hook (semua wajib; gagal satu = tulis ulang hook):**
 | # | Aturan | Ukuran lulus |
 |---|---|---|
-| H1 | Kontradiksi utuh terucap cepat | kalimat hook selesai ≤ 2,0 dtk; payoff kedua (taruhan pribadi) selesai ≤ 3,0 dtk |
+| H1 | Kalimat pertama = benda + klaim langsung (v4.1) | selesai ≤ 4 dtk (median pemenang 3,7 dtk; aturan lama ≤ 2,0 dtk dicabut — `RISET_STRUKTUR_SCRIPT.md`); tanpa sapaan/template ("Halo guys", "Tahukah kamu") |
 | H2 | Benda konkret di kata 1–3 | kata benda yang bisa digambar (mesin slot, tangki, kapal), bukan "fitur/hal/pria ini" |
 | H3 | Tanpa jeda di jendela 3 dtk | tidak ada hening > 0,25 dtk sebelum dtk 3 (elipsis hook dihapus); tanpa tag [pause] di hook |
 | H4 | Frame 0 = momen paling aneh, bergerak, terang | gerak terlihat ≤ 0,3 dtk; kontras tinggi; **jangan** meniru tampilan feed (layar HP di layar HP = kamuflase) |
@@ -153,6 +153,16 @@ Lulus bila: spesifik (ada objek/angka/tokoh), jujur (dibayar oleh isi), bisa dig
 | R5 | Panjang | wilayah 2: 40–46 dtk sampai data APV kita sendiri berkata lain |
 | R6 | Kartu ARSIP KASUS jadi **overlay** | stempel/kartu kecil di atas aksi yang tetap bergerak, ≤ 1,3 dtk; tidak boleh layar penuh yang menghentikan cerita |
 
+### F8. Revisi v4.1 dari sprint riset (13 Nov 2026)
+| Aturan | Bukti | Kekuatan |
+|---|---|---|
+| **Anggaran kata = durasi × 2,6** (VO ID ±2,6 kata/dtk; pemenang 2,6–3,0; #002 2,24 = terlalu lambat) | RISET_STRUKTUR_SCRIPT, RISET_AUDIO_CAPTION_META | sedang |
+| Jawaban mulai dibuka ±15–25% durasi (median pemenang 17%); twist 50–90% (65–75% = pusat, bukan syarat) | RISET_STRUKTUR_SCRIPT | lemah |
+| Penutup: punchline (5/6 top) **atau** satu pertanyaan ringan ke penonton (7/8 top); CTA subscribe bukan penutup | RISET_STRUKTUR_SCRIPT | sedang |
+| Tokoh/dalang dianjurkan, tidak wajib | RISET_STRUKTUR_SCRIPT | lemah |
+| **Judul:** sebut benda/merek konkret, 6–8 kata (31–60 karakter), **pakai angka konkret** bila ada (22,4% vs 16,3%); "ternyata/rahasia/real reason", "Kenapa"/tanda tanya, CAPS, emoji, "!", hashtag di judul = tidak membantu | RISET_JUDUL (7.421 Shorts) | angka & panjang: sedang–kuat; sisanya tidak terbukti |
+| Deskripsi/hashtag/tag tidak membedakan performa → cukup sumber + 3 hashtag, jangan habiskan waktu | RISET_AUDIO_CAPTION_META | lemah |
+
 ### F6. Scorecard script (semua harus LULUS sebelum dikirim ke user)
 **Cek v4 tambahan:** V1 benda/tempat/merek dikenal penonton ID di kata 1–3 · V2 jawaban tidak tertebak (shock ≥ 80; bila jawaban = yang sudah diduga penonton, ganti sudut/topik) · V3 ada tokoh/dalang/momen konkret · V4 penutup punchline, bukan nasihat · V5 tanpa sponsor/promo/CTA.
 | # | Cek | Lulus bila |
@@ -168,7 +178,7 @@ Lulus bila: spesifik (ada objek/angka/tokoh), jujur (dibayar oleh isi), bisa dig
 | 9 | Akhir | kalimat terakhir menyambung ke kalimat pertama; tanpa CTA |
 | 10 | Faktual | setiap kalimat cocok dengan fact sheet (≥ 2 sumber per klaim) |
 | 11 | Bahasa | lolos F5 + `humanizer`; dibaca keras tanpa tersandung |
-| 12 | Durasi | kata = target × 2,2 (±8%); stopwatch dalam ±10% |
+| 12 | Durasi | kata = target × 2,6 (±8%) (v4.1); stopwatch dalam ±10% |
 | 13 | Bisu | versi teks layar + gambar saja tetap bisa diikuti |
 | 14 | Visual | setiap kalimat punya satu gambar yang bisa dibuat dengan kit |
 Plus **H1–H7 dan R1–R6 dari F7** (diukur pada VO jadi: cek ulang H1/H3 dari `vo_words.json` sebelum storyboard).
