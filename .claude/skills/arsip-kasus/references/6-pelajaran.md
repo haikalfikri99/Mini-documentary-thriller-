@@ -35,6 +35,11 @@ Setiap episode menambah baris di sini. Formula, gaya, dan kit hanya berubah bila
 ### Data Studio
 - #002 (12 jam): 37,2% stayed to watch / 62,9% swiped, 185 engaged views. Di bawah ambang 60% (Galloway 2023). Diagnosis & aturan baru: `1-cerita…` §F7 (gerbang 3 detik + rantai retensi). Rubrik internal (hook 9/10) terbukti terlalu murah hati.
 
+### Riset niche (13 Nov 2026)
+- Pilar dibingkai ulang: pintu masuk = benda/tempat/merek dikenal + anggapan dibalik; psikologi jadi isi jawaban (2,8% vs 17,9% breakout). Selingan: W4 + W6; W3/klenik keluar.
+- Gaya tidak menentukan performa → 2D ARSIP RIG dikunci, berhenti ganti gaya; yang diatur = isi frame 0 (benda besar, gerak 0,0 dtk, shot 2–3 dtk).
+- Target 1 video/hari → pustaka tipe adegan, VO via konektor, paket review harian.
+
 ### Proses
 - Storyboard sebagai artifact dengan keyframe asli, komentar user di artifact, baru animasi.
 - Analisa referensi dengan mengukur (shot length, luma, LUFS, kata/menit), bukan kesan.

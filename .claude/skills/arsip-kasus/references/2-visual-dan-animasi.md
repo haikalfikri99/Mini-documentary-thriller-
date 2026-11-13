@@ -1,4 +1,16 @@
-# 2. Visual dan Animasi — gaya terkunci (sejak ARSIP #002)
+# 2. Visual dan Animasi — gaya terkunci: 2D ARSIP RIG (keputusan 13 Nov 2026)
+**Keputusan berbasis riset** (`research/niche/KEPUTUSAN_RISET.md` §3 & §6, `RISET_VISUAL_THUMBNAIL.md`, `RISET_GAYA_STORYTELLING.md`, `AUDIT_PRODUKSI.md`): gaya animasi **tidak** membedakan performa (1.886 thumbnail dalam channel: selisih ≈ 0; tidak ada family yang menang; 6,4% komentar menyebut visual). Yang menentukan adalah **isi frame 0** dan kecepatan produksi (target 1 video/hari). Maka: **2D datar ARSIP RIG (tampilan #002) dikunci**; dunia 3D (bagian H) hanya untuk episode khusus; **tanpa presenter tetap** (diuji kelak sebagai satu variabel). **Dilarang mengganti gaya** kecuali data video kita sendiri menunjukkan masalah visual.
+
+## 0. Aturan frame & tempo (dari pengukuran 11 rekaman + thumbnail)
+1. **Frame 0 = benda pahlawan** (benda/merek/tempat yang dibahas) **besar, di tengah, langsung dikenali**, atau **aksi yang sedang terjadi**. Bukan tokoh kecil di ruangan, bukan latar kosong, bukan benda kecil. [terukur dari rekaman: semua pemenang; #002 gagal]
+2. **Gerak sejak 0,0 dtk** (#002: 0,5 dtk = paling lambat). [terukur]
+3. **Shot 2–3 dtk** (pemenang 2,1–3,1; 1,1 dtk kalah; satu shot 45 dtk gagal). [terukur]
+4. Kecerahan/warna cukup terbaca di HP (luma frame 0 ±90–180 sebagai patokan keterbacaan, bukan performa); jangan dijadikan proyek revisi. [terukur: tidak membedakan performa]
+5. Satu ide per frame; benda ≥ 40% lebar frame saat diperkenalkan. [penilaian]
+
+## 0b. Pustaka tipe adegan (dipakai ulang; episode mengisi data, bukan menulis kode adegan baru)
+benda close-up (benda pahlawan) · label harga/angka besar · cutaway cara kerja (benda dibelah + panah) · peta · dokumen arsip (sensor, stabilo, stempel) · tokoh bereaksi (ARSIP RIG) · dalang terungkap (siluet → wajah + stempel merah **TERUNGKAP**) · garis waktu · sebelum-sesudah. Benda baru → tambah ke pustaka, bukan ke episode.
+**Ciri khas channel:** kartu ARSIP overlay, stempel merah TERUNGKAP di twist, tekstur kertas arsip, caption Oswald, palet tetap.
 Semua video dibuat dengan **kit** (`kit/README.md`): ARSIP RIG, pustaka set, kartu arsip, film engine. Tanpa AI image/video, tanpa stock. Gaya ini **tidak didesain ulang per episode**. Dasar keputusannya: `research/referensi/ANALISA_IFVERSE.md` dan `ANALISA_VISUAL_2D.md` (dua video referensi 2D dianalisis dan diukur), studi warna kulit, review user #002.
 #001 (Molase) dibuat dengan engine lama `toon/` (garis boil); dibiarkan untuk rebuild, bukan acuan baru.
 
@@ -48,8 +60,8 @@ Render keyframe tiap shot dari kode (`film/board/`) → artifact storyboard (for
 | Sejarah & tempat | kartu arsip, sepia | peta lama, then-vs-now |
 Set baru yang dibuat untuk satu episode dipindah ke `kit/src/sets-lib.js` agar dipakai ulang.
 
-## H. Dunia 3D dan kamera kontinu (standar sejak #003)
-Keputusan pemilik channel: **semua scene** memakai dunia 3D (diorama cutaway + karakter ARSIP RIG sebagai billboard) dengan **satu kamera kontinu**; panduan pakai di `kit/HYBRID3D.md`. Aturan tambahan yang tetap berlaku dari A–G: tanpa outline, satu cahaya kunci (cyan layar) + satu praktikal hangat, rim light pada tokoh, kamera selalu bergerak.
+## H. Dunia 3D dan kamera kontinu (hanya episode khusus sejak 13 Nov 2026)
+Sebelumnya direncanakan untuk **semua scene**; dibatalkan karena biaya produksi belum terukur dan gaya tidak menentukan performa. Bila dipakai: dunia 3D (diorama cutaway + karakter ARSIP RIG sebagai billboard) dengan **satu kamera kontinu**; panduan pakai di `kit/HYBRID3D.md`. Aturan tambahan yang tetap berlaku dari A–G: tanpa outline, satu cahaya kunci (cyan layar) + satu praktikal hangat, rim light pada tokoh, kamera selalu bergerak.
 - **Transisi antar-ruang = kamera menembus objek** (layar HP → terowongan, jendela, pintu, kartu ARSIP), bukan cut. Cut hanya dengan alasan cerita.
 - **Beat kamera dari kata VO** (`vo-sync.js`: `T('menyesal')`), bukan detik buta. Gerak tercepat (whip) pada kata kejutan, `hold` (tahan) pada kata kunci.
 - **Bahasa kamera yang sudah terbukti**: close-up rendah dengan getar tangan → crane naik-mundur → isometrik lensa panjang (efek miniatur) + orbit → whip + motion blur → jatuh lewat layar. Jangan orbit lebih dari ±50° di dekat tokoh (billboard terlihat seperti kertas).

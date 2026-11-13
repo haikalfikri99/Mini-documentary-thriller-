@@ -70,7 +70,8 @@ Menurut konsep editorial kita (dirangkum user dari YouTube Help & wawancara krea
 
 Yang terverifikasi (Studio → Analytics → Content → Shorts): **Viewed vs Swiped Away** ("berapa yang memilih menonton"), Engaged views, rata-rata durasi & persentase ditonton, retensi. YouTube **tidak** mempublikasikan ambang resmi; target 75–80% "viewed" hanyalah patokan kreator. Tidak ada formula yang terbukti menjamin viral — kita pakai prinsip yang didukung praktik kreator dan sinyal resmi, lalu uji dengan data channel sendiri.
 
-## F. FORMULA ARSIP v3 — terkunci (berlaku mulai #003)
+## F. FORMULA ARSIP v4 — terkunci (berlaku mulai #003, 13 Nov 2026)
+**Perubahan v4 dari riset niche** (`research/niche/KEPUTUSAN_RISET.md`; 7.064 Shorts, 48+ transkrip, 625 komentar): pintu masuk = **benda/tempat/merek yang dikenal + anggapan dibalik**, bukan psikologi/"kamu sedang dimanipulasi" (2,8% breakout vs 17,9%); jawaban harus **tidak tertebak**; cerita dengan **tokoh/dalang**; nada **santai, sedikit jahil**; penutup = **punchline/twist**, bukan nasihat; tanpa sponsor/promo di Shorts. Motivasi penonton: aha/cara kerja + anggapan dibalik (menonton); musuh, perdebatan, pengalaman pribadi, kebanggaan lokal (berkomentar). "Melindungi diri" hampir tidak ada → jangan jadikan sudut utama.
 Disusun dari bukti, bukan selera. Dipakai **apa adanya** untuk setiap script; yang boleh diubah hanya isi cerita. Perubahan formula hanya lewat `6-pelajaran.md` (butuh data dari video tayang).
 
 ### F1. Dasar bukti (kenapa formulanya begini)
@@ -101,16 +102,17 @@ Disusun dari bukti, bukan selera. Dipakai **apa adanya** untuk setiap script; ya
 ### F3. Kerangka 7 beat (45 dtk ≈ 100 kata; skala linier untuk 35–60 dtk)
 | Beat | Waktu | Kata | Tugas | Aturan |
 |---|---|---|---|---|
-| 1 HOOK | 0–3 | 8–12 | hasil/akibat yang terdengar mustahil + menyangkut penonton | konfirmasi judul; tanpa "Tahukah kamu/Pada tahun/Kali ini"; frame 0 = gambar kalimat ini |
-| 2 SETUP | 3–9 | 12–16 | siapa, kapan, niat awal (satu tokoh) | stempel waktu/tempat → **kartu ARSIP KASUS** di sini |
-| 3 TAPI (mekanisme) | 9–17 | 14–18 | hal tersembunyi yang tidak disadari, dibuat **dialami** penonton ("coba perhatiin…") | satu konsep, diberi nama lengket ("titik berhenti") |
+| 1 HOOK | 0–3 | 8–12 | **benda/tempat/merek yang dikenal + kontradiksi atau akibat mustahil** | konfirmasi judul; benda di kata 1–3; tanpa "Tahukah kamu/Pada tahun/Kali ini"; frame 0 = benda itu, besar |
+| 2 SETUP | 3–9 | 12–16 | anggapan umum ("semua orang kira…") atau tokoh + niat awal | waktu/tempat hanya di layar; **kartu ARSIP overlay** di sini |
+| 3 TAPI (alasan asli dimulai) | 9–17 | 14–18 | adegan cerita yang membuka alasan asli (tokoh, tempat, momen konkret) | cerita dengan adegan, bukan definisi; tanpa istilah teknis di depan |
 | 4 MAKA | 17–24 | 10–14 | akibat langsung pada penonton | gambar konkret, bukan istilah |
 | 5 MAKA (taruhan naik) | 24–30 | 10–14 | siapa memanfaatkan / uang / skala | angka hanya bila membuka mata |
 | 6 TAPI (twist) | 30–37 | 14–18 | pengakuan, bukti, atau fakta yang membalik pandangan (±70% durasi) | puncak emosi (peak); jeda 0,3–0,6 dtk sebelumnya |
-| 7 KE KAMU + LOOP | 37–45 | 14–18 | jawaban eksplisit untuk pertanyaan penonton → apa artinya bagi kamu sekarang → kalimat terakhir menyambung ke kalimat pertama | akhir = momen terkuat (end); tanpa CTA di VO |
+| 7 PUNCHLINE + LOOP | 37–45 | 10–16 | jawaban eksplisit dalam satu kalimat yang bisa diceritakan ulang → punchline/fakta penutup → kalimat terakhir menyambung ke kalimat pertama | **bukan nasihat**; boleh satu pertanyaan ringan & konkret yang mengundang pengalaman ("di kotamu harganya berapa?"); tanpa CTA |
 
 ### F4. Pola hook yang terbukti (pilih dari sini dulu)
-1. **Pengakuan pembuat:** "Pria ini merancang [hal yang kamu pakai]… dan dia menyesal." (#002)
+0. **Benda dikenal + bantahan (utama, v4):** "Ini [benda/merek]. Tapi [anggapan] itu salah." / "[Benda] ini [fakta mustahil]." (Dyson 6,7 jt: "This is the Dyson bladeless fan, but it isn't actually bladeless"; "Bananas are berries, strawberries aren't" 5,8 jt; "Perang ini cuma 40 menit" 4,3 jt; panjat pinang 2,1 jt)
+1. **Pengakuan pembuat:** "Pria ini merancang [hal yang kamu pakai]… dan dia menyesal." (#002 — **gagal: 37,2% stayed**; pakai hanya dengan benda konkret di kata 1–3)
 2. **Kontradiksi:** "Banjir ini bukan datang dari sungai." (#001)
 3. **Mekanisme di tanganmu:** "Jempolmu baru saja melakukan [X], dan itu disengaja."
 4. **Angka yang tidak masuk akal:** "[Angka] [satuan] … dari [hal sepele]."
@@ -120,7 +122,8 @@ Lulus bila: spesifik (ada objek/angka/tokoh), jujur (dibayar oleh isi), bisa dig
 
 ### F5. Bahasa VO
 - Lisan santai-sopan (bikin, nggak, ngaku, udah); kutipan tokoh baku dan terdengar seperti orang Indonesia bicara.
-- Kalimat ≤ 12 kata, satu kalimat = satu gambar; kata kerja aktif; sapa "kamu" minimal 3 kali.
+- Kalimat ≤ 12 kata, satu kalimat = satu gambar; kata kerja aktif; sapa "kamu" secukupnya (tidak wajib 3×).
+- **Nada v4:** santai, sedikit jahil/lucu, seperti teman yang baru tahu rahasia; bukan guru atau penceramah. Tanpa istilah bias/teori di depan ("efek angka kiri", "chasing losses"); istilah boleh di akhir bila membantu.
 - Peran sebelum nama; nama asing hanya bila dikenal/berulang (≤ 2 nama per video).
 - Dilarang: "bukan X tapi Y", penutup fragmen yang mengulang, triad paksa, kata megah, statistik yang tidak dibutuhkan beat.
 - Tanda baca = arahan baca: elipsis untuk jeda berpikir, titik untuk berhenti, satu kata kapital per video untuk tekanan.
@@ -151,6 +154,7 @@ Lulus bila: spesifik (ada objek/angka/tokoh), jujur (dibayar oleh isi), bisa dig
 | R6 | Kartu ARSIP KASUS jadi **overlay** | stempel/kartu kecil di atas aksi yang tetap bergerak, ≤ 1,3 dtk; tidak boleh layar penuh yang menghentikan cerita |
 
 ### F6. Scorecard script (semua harus LULUS sebelum dikirim ke user)
+**Cek v4 tambahan:** V1 benda/tempat/merek dikenal penonton ID di kata 1–3 · V2 jawaban tidak tertebak (shock ≥ 80; bila jawaban = yang sudah diduga penonton, ganti sudut/topik) · V3 ada tokoh/dalang/momen konkret · V4 penutup punchline, bukan nasihat · V5 tanpa sponsor/promo/CTA.
 | # | Cek | Lulus bila |
 |---|---|---|
 | 1 | Konfirmasi judul | kalimat 1 menyatakan hal yang sama dengan judul, ≤ 3 dtk |
