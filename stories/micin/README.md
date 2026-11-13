@@ -81,3 +81,15 @@ Perubahan: "koran cuma ingat **micin**" ditulis eksplisit; "uji buta" → "dites
 
 ## Pengingat untuk akhir sesi (permintaan user)
 Gabungkan semua riset & keputusan sampai titik ini ke **main**, lalu rapikan dokumen yang bertentangan (mis. referensi 3D sebagai standar, Formula v3 di tempat lain, alur VO lama) agar sesuai keputusan terbaru. **Ingatkan user di akhir.**
+
+## Script v3 — FINAL disetujui user (13 Nov 2026)
+Perubahan dari v2: "Ada dokter **yang** nulis" (paling natural untuk lisan); "Waktu **manusia** dites" (kontras langsung dengan tikus); punchline "Jadi lidahmu kenal gurih micin… sejak menyusu" dikembalikan (penutup punchline = pola pemenang).
+> [curious] Micin dituduh bikin bodoh. Padahal semuanya berawal dari satu surat.
+> [warmly] Ada dokter yang nulis surat ke jurnal kedokteran Amerika: tiap habis makan di restoran Tionghoa, tengkuknya kebas, jantungnya deg-degan.
+> [mysteriously] Dia sendiri nggak yakin penyebabnya. Bisa arak masak, bisa garam, bisa micin. Tapi koran cuma ingat micin.
+> Lahirlah istilah sindrom restoran Tionghoa, dan beritanya nyebar ke mana-mana.
+> [serious] Setahun kemudian, ilmuwan menyuntikkan micin ke bayi-bayi tikus. Otak mereka rusak. Sejak itu, micin jadi musuh.
+> [slowly] Tapi tikus-tikus itu nggak makan micin. Mereka disuntik. Waktu manusia dites tanpa tahu mana yang micin, hasilnya nggak konsisten. BPOM dan FDA bilang aman.
+> [warmly] Lucunya, zat yang bikin micin gurih, glutamat, juga ada di ASI. Banyak banget, kira-kira sepuluh kali susu sapi. Jadi lidahmu kenal gurih micin… sejak menyusu.
+> [curious] Oh iya, lima puluh tahun kemudian, ada pria ngaku surat itu cuma taruhan. Keluarga si dokter membantah. Tapi gara-gara satu surat itu…
+143 kata ≈ 51–55 dtk (2,6–2,8 kata/dtk).
