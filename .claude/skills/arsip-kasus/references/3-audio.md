@@ -1,5 +1,5 @@
 # 3. Audio
-Tanpa API key berbayar: musik = MIDI yang ditulis dengan kode lalu dirender fluidsynth + FluidR3_GM (MIT); SFX = disintesis numpy/scipy. **Kit:** `kit/audio/score_lib.py` (skor), `kit/audio/arsip_audio.py` (±35 SFX + `Mixer` standar), `kit/audio/vo_chain.py`, `kit/audio/check_audio.py`; episode hanya menulis cue (`film/fullmix.py`) dan not (`film/score_full.py`). Contoh lengkap: `stories/scroll/film/`.
+Tanpa API key berbayar: musik = MIDI yang ditulis dengan kode lalu dirender fluidsynth + FluidR3_GM (MIT); SFX = disintesis numpy/scipy. **Kit:** `kit/audio/score_lib.py` (skor), `kit/audio/arsip_audio.py` (±35 SFX + `Mixer` standar), `kit/audio/vo_chain.py`, `kit/audio/check_audio.py`; episode hanya menulis not (`kolase/score_full.py`) dan aturan foley (`kolase/fullmix.py`). Contoh lengkap: `stories/micin/kolase/`.
 
 ## A. Prioritas (prinsip Murch): VO selalu nomor satu
 **Rantai VO** (file asli tidak diubah):
@@ -30,14 +30,14 @@ Saluran GM yang dipakai: 44 tremolo strings, 61 brass, 47 timpani, 116 taiko, 55
 
 ## C. SFX (fungsi di `kit/audio/arsip_audio.py`)
 `roar` (gemuruh: noise < 220 Hz + sub), `thud` (slam/stempel besar), `stampS`, `ping` (logam/paku), `crack` (kayu), `whoosh`, `boom` (ledakan), `screech` (logam bengkok), `groan` (tangki berderit), `gloop` (cairan kental), `plink` (tetes), `flip` (halaman), `air` (ambience), `horn` (kapal).
-Setiap kejadian di layar yang punya bunyi diberi SFX pada detik yang sama (ambil waktunya dari `film.js`: awal panel + waktu kejadian di dalam panel).
+Sejak #003 waktu SFX diambil **otomatis** dari kejadian di layar (bagian G), bukan ditulis tangan.
 
 ## D. Loudness & mux
 `loudnorm=I=-14:TP=-1:LRA=11` → hasil terukur ±−14,5 LUFS, peak −1 dBTP (cek: `ffmpeg -i f.mp4 -af ebur128=peak=true -f null -`). AAC 192 kbps, 48 kHz.
 
-## E. QA audio tanpa telinga (`film/check_audio.py`)
+## E. QA audio tanpa telinga (`kit/audio/check_audio.py`)
 Claude tidak bisa mendengar, jadi setiap mix dicek dengan alat dan hasilnya dilaporkan apa adanya:
-1. **Kejelasan VO:** Whisper pada mix akhir vs Whisper pada VO saja. Angka harus sama (musik/SFX tidak menutupi kata). #002: 93/102 = 93/102.
+1. **Kejelasan VO:** Whisper pada mix akhir vs Whisper pada VO saja. Mix harus **≥** VO (musik/SFX tidak menutupi kata). Whisper bervariasi ±2–3 kata pada kata pendek/gaul ("nggak"): bila gagal tipis padahal margin per kata lulus, turunkan foley (`FOLEY`) atau musik 2 dB, jangan mengakali gerbang. #003: 118/143 ≥ 116/143.
 2. **Timing SFX:** onset pada stem SFX dibandingkan dengan daftar cue di `fullmix.py`.
 3. Level pita bicara VO vs latar (dicetak `fullmix.py`) ≥ 10 dB.
 Rasa musik dan karakter SFX tetap dinilai user.
@@ -51,3 +51,10 @@ Rasa musik dan karakter SFX tetap dinilai user.
 - Tempo VO target **2,6–3,0 kata/dtk** (#002 2,24 terlalu lambat); minta ElevenLabs bicara lebih cepat/bertenaga; speed bisa dinaikkan ringan saat proses.
 - Bunyi mulai ≤ 0,2 dtk; tanpa jeda hening panjang (satu-satunya jeda 8,8 dtk ada di video gagal).
 - Loudness −14 LUFS dipertahankan (loudness tidak membedakan performa); bed musik boleh ada/tidak.
+
+## G. ARSIP Kolase (#003): foley otomatis + ansambel kecil
+- **Kejadian suara dari animasi:** `node kit/tools/render_2d.mjs <kolase> events` merekam setiap slap/slide/pat/drop/stempel/ketikan/coretan/pena yang terjadi di layar (waktu film + pan + ukuran) ke `events.json`. `fullmix.py` memetakan jenis → foley kertas (`paperSlap`, `paperSlide`, `paperPat`, `stampThump`, `penScratch`, `typeKey`). Potongan yang keluar layar = geser lembut, bukan dentuman.
+- **Aturan pukulan di dalam kata:** bila slap/stempel jatuh di dalam kata yang diucapkan, hanya badan < 200 Hz yang dipakai (`hit=True`). Ini yang membuat #003 lulus tanpa kata < 8 dB.
+- **Level #003:** foley ×0,75, musik −32 dBFS RMS, VO −17 → margin terburuk 19,8 dB.
+- **Skor:** ansambel kecil gaya lama (GM 45 pizzicato, 70 bassoon, 58 tuba, 71 clarinet, 9 glockenspiel, 13 xilofon, 47 timpani, 115 woodblock, 44 tremolo), satu ide per babak; minor "licik" untuk misteri/kesalahan, mayor hangat untuk jawaban yang menenangkan; timpani pada stempel vonis (BODOH?, MUSUH, TERUNGKAP, DIBANTAH); tanpa piano/strings generik.
+- Mux: grain tipis `noise=alls=2`, CRF 21, `loudnorm I=-14:TP=-1.5` → file ±35 MB/56 dtk (kirim preview CRF 27 bila file > 30 MB gagal terkirim).

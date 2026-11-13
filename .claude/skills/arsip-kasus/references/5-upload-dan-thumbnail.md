@@ -48,3 +48,10 @@ Tiga pertama tampil di atas judul: `#shorts #faktaunik #kisahnyata`, lalu hashta
 
 ## E. Identitas channel
 Nama, bio, kata kunci, foto profil, banner: `channel/README.md` (aset dirender dari `channel/art.js`). Tambahkan frame film baru ke `channel/assets/` dan render ulang banner bila perlu.
+
+## Sejak #003 (ARSIP Kolase)
+- **Kredit gambar wajib** untuk setiap gambar CC BY (Wellcome dll.) di deskripsi: nama/ID karya + lisensi; domain publik/CC0 cukup disebut sumbernya. Ambil dari `kolase/SOURCES.jsonl`. Tambahkan satu baris kredit gaya: "Gaya visual diadaptasi dari Vintage Engraving Collage, Lemo-Opuscar oleh LemoLab".
+- **3 hashtag** (`#shorts` + topik + satu umum); deskripsi/tag tidak membedakan performa, jadi jangan habiskan waktu.
+- **Cover:** frame detik ±0,5 (benda pahlawan + stempel hook); `ffmpeg -ss 0.5 -i film.mp4 -frames:v 1 cover.jpg`.
+- Klaim yang diperdebatkan ditulis apa adanya ("mengaku… dibantah… masih diperdebatkan").
+- Contoh: `stories/micin/UPLOAD.md`.

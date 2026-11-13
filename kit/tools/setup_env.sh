@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # One-time setup for a fresh container/session (idempotent): everything the film pipeline needs that is not in git.
-#   kit/tools/setup_env.sh        # then: kit/tools/new_episode.sh … / make_film.sh …
-# Needs network to: PyPI, the apt mirror, huggingface.co (Whisper model for the audio QA gate), npm (hyperframes via npx).
+#   kit/tools/setup_env.sh        # then: kit/tools/new_episode.sh … / make_kolase.sh …
+# Needs network to: PyPI, the apt mirror, huggingface.co (Whisper model for the audio QA gate). Playwright + Chromium are preinstalled
+# in the cloud container (renderer: kit/tools/render_2d.mjs); archive prints come from Wikimedia/Openverse (kit/collage/fetch_raw.py).
 set -uo pipefail
 ok=1
 python3 -c "import scipy, mido, faster_whisper" 2>/dev/null || { echo "→ pip: scipy mido faster-whisper"; pip install -q scipy mido faster-whisper || ok=0; }

@@ -1,23 +1,11 @@
 {
   "version": 2,
   "skills": {
-    "2d-character-rig-animation": {
-      "source": "calesthio/generative-media-skills",
-      "sourceType": "github",
-      "skillPath": "skills/production/creative-direction/2d-character-rig-animation/SKILL.md",
-      "computedHash": "e8b206483d1393d0eaad1cb8cb79fa3084545eb5cbb621b8087aea8c1002069a"
-    },
     "animation-principles": {
       "source": "iart-ai/motion-design-skills",
       "sourceType": "github",
       "skillPath": "skills/animation-principles/SKILL.md",
       "computedHash": "429233e8c4a429b072130b231afb072eace2f5f5e9d6d7c7566ed8c2bd4aec83"
-    },
-    "character-animation-qa": {
-      "source": "openmontageinc/openmontage",
-      "sourceType": "github",
-      "skillPath": ".agents/skills/character-animation-qa/SKILL.md",
-      "computedHash": "ad8a6916adb55b21341e150a02373cfbd3007845b2e8b5026d70037dee493297"
     },
     "cinematography-180-degree-rule": {
       "source": "geegl/directorskills",
@@ -60,18 +48,6 @@
       "sourceType": "github",
       "skillPath": "SKILL.md",
       "computedHash": "04cdabbcceaa7b5d4bd4b1ea02339013503d623b270b5b3b2e274837494d7134"
-    },
-    "hyperframes": {
-      "source": "heygen-com/hyperframes",
-      "sourceType": "github",
-      "skillPath": "skills/hyperframes/SKILL.md",
-      "computedHash": "373b4b19ec8564cbf23f7f3b8399ee9fb4d92609d66948d4b98c13ebe63bbcbc"
-    },
-    "hyperframes-cli": {
-      "source": "heygen-com/hyperframes",
-      "sourceType": "github",
-      "skillPath": "skills/hyperframes-cli/SKILL.md",
-      "computedHash": "864689d1c8b30389bb9dbc04dfd7a61ce8e62d2ba6924334e04a156e074c3029"
     },
     "illustration-style": {
       "source": "owl-listener/designer-skills",

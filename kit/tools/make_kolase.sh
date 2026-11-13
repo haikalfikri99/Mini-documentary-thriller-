@@ -6,6 +6,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; FILM="$(cd "$1" && pwd)"; V="${2:-1}"
 SLUG=$(python3 -c "import json;print(json.load(open('$FILM/episode.json'))['slug'])"); NO=$(python3 -c "import json;print('%03d'%json.load(open('$FILM/episode.json'))['no'])")
+python3 "$ROOT/kit/collage/fetch_raw.py" "$FILM" | tail -1                     # archive prints + engraved stand-ins (raw/ is git-ignored)
 [ -f "$FILM/parts/manifest.json" ] || (cd "$FILM" && python3 bake.py | tail -1)
 python3 "$ROOT/kit/audio/vo_chain.py" "$FILM" | tail -1
 node "$ROOT/kit/tools/render_2d.mjs" "$FILM" events "$FILM/events.json" 30

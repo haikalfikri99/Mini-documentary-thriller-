@@ -5,16 +5,16 @@ color-grading-finishing, sound-design-film (prinsip Walter Murch) + sound-design
 
 | # | Aspek | Seperti apa 10/10 | Cara cek |
 |---|---|---|---|
-| 1 | **Hook (0–1 dtk)** | Frame 0 sudah visual terkuat + teks hook; tidak ada fade-in dari hitam; wajah manusia + ancaman dalam satu frame | Still t=0 dibaca dalam 1 detik tanpa suara **dan** gerbang F7 (H1–H7) lulus terukur. Nilai > 8 hanya boleh bila data Studio episode sebelumnya ≥ 60% stayed to watch (#002: 9 internal vs 37,2% nyata) |
+| 1 | **Hook (0–1 dtk)** | Frame 0 = benda pahlawan besar di tengah, sudah bergerak; stempel/kata hook mendarat ≤ 0,2 dtk; tidak ada fade-in | Still t=0 dibaca dalam 1 detik tanpa suara **dan** gerbang F7 (H1–H7) lulus terukur. Nilai > 8 hanya boleh bila data video sebelumnya ≥ 60% stayed |
 | 2 | **Kejelasan cerita per shot** | Satu shot = satu gagasan dari kalimat VO; penonton tahu apa yang harus dilihat (fokus tunggal) | Tes "bisu": tiap still dimengerti tanpa caption |
-| 3 | **Komposisi** | Fokus di 900×1400 tengah; garis pengarah (perspektif) menuju subjek; latar depan/tengah/belakang; skala (ancaman lebih besar dari manusia) | Contact sheet; nilai tonal dibaca dalam grayscale |
-| 4 | **Akting karakter** | Gerak hanya yang mendukung kalimat (menoleh, tertunduk, tangan di perangkat); antisipasi → aksi → settle; kedip/napas idle; tangan dan benda logis (monitor + keyboard + mouse) | Putar 0,25×; cek tak ada pose "boneka" atau benda melayang |
-| 5 | **Animasi efek (cairan, debu, partikel)** | Massa terasa berat dan terus bergerak (surge), kental (lambat, melengkung), bukan garis-garis statis | Bandingkan frame awal vs akhir shot |
-| 6 | **Sinematografi** | Setiap gerak kamera punya motif (reveal, slam, push-in, establishing); parallax multiplane; aturan 180° konsisten | Tulis alasan tiap gerak kamera dalam satu kalimat |
+| 3 | **Komposisi & kepadatan** | Satu subjek per frame, ±5–6 potongan maksimum, subjek y 150–1150, pita caption bersih, tidak ada momen layar kosong | Contact sheet per 1,7 dtk dari render |
+| 4 | **Logika gambar** | Gambar sesuai kalimat dan fakta (manusia di uji manusia, jarum mengarah ke subjek, benda realistis); kalimat mirip = visual berbeda; tidak ada gambar yang tak berhubungan | Daftar `2-visual…` §E per shot |
+| 5 | **Gerak kertas** | On twos dengan overshoot/settle; bayangan membesar saat terangkat; stempel/slap terasa berat; tidak ada skala/fade halus ala software | Putar 0,25× beberapa shot |
+| 6 | **Kamera** | Setiap gerak punya motif (push ke detail, shake di benturan, pull back untuk skala); tetap di atas meja kertas | Tulis alasan tiap gerak kamera dalam satu kalimat |
 | 7 | **Editing & transisi** | Pergantian visual tiap 1,5–3 dtk, interval tidak seragam; cut di kata VO; transisi bermakna (freeze→foto arsip, foto→hidup) | Timeline vs timestamp kata VO |
-| 8 | **Caption & tipografi** | Sinkron per kata (alignment whisper), pop-in, frasa ≤ 3 kata, kata kunci warna ancaman, y≈1330 (di atas 320 px UI bawah) | Cek t0 tiap kata vs `vo_words.json` |
-| 9 | **Warna & cahaya** | Satu sumber cahaya logis per shot, rim warna sumber, latar desaturasi + satu aksen (cyan ancaman / amber rem); latar tidak kosong; DOF 3 lapis | Grayscale + cek arah cahaya |
-| 10 | **Suara** | VO jernih di atas segalanya; skor mengikuti emosi per babak; SFX untuk setiap kejadian; −14 LUFS, peak ≤ −1 dBTP; margin per kata ≥ 8 dB | `make_film.sh` (ebur128, laporan per kata, Whisper mix = VO) |
+| 8 | **Caption & tipografi** | Sinkron per kata (alignment Whisper), slip hitam 84 px, 1–3 kata, kata kunci amber, pusat y≈1360; teks layar ≥ 40 px, angka dengan figur lining | Cek t0 tiap kata vs `vo_words.json` |
+| 9 | **Warna & cetakan** | Palet ARSIP Kolase; merah hanya untuk vonis/angka kunci; stempel kontras dengan latarnya; cetakan arsip bersih (tanpa clip-art/foto modern), lisensi tercatat | Grayscale + `SOURCES.jsonl` |
+| 10 | **Suara** | VO jernih di atas segalanya; skor mengikuti emosi per babak; SFX untuk setiap kejadian; −14 LUFS, peak ≤ −1 dBTP; margin per kata ≥ 8 dB | `make_kolase.sh` (ebur128, laporan per kata, Whisper mix = VO) |
 
 ## Cara memakai
 - Nilai dari **frame** (still di 2–3 titik per panel + contact sheet film penuh) dan **angka** (level audio, loudness), bukan dari ingatan. Jangan menaikkan skor tanpa bukti.

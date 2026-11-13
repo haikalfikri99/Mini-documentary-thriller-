@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
-# Start a new episode from the channel template: kit/tools/new_episode.sh <slug> <no> <vo_duration_s> [--2d]
-# Default = the 3D world (template/film3d: diorama + one continuous camera). --2d = the legacy flat-shot template.
+# New ARSIP Kolase episode scaffold.   kit/tools/new_episode.sh <slug> <no> ["CASE LINE"]
+#   → stories/<slug>/{README.md, meta.json, audio/} + stories/<slug>/kolase/ (template bake.py, film.js, score_full.py, fullmix.py,
+#     prints.json, SOURCES.jsonl, episode.json; lib → kit/collage, audio → ../audio)
 set -euo pipefail
-ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; SLUG="$1"; NO="$2"; DUR="${3:-45}"; MODE="${4:---3d}"; D="$ROOT/stories/$SLUG"
-[ -e "$D/film" ] && { echo "stories/$SLUG/film already exists"; exit 1; }
-mkdir -p "$D/audio" "$D/renders"; cp -r "$ROOT/kit/template/film" "$D/film"
-if [ "$MODE" != "--2d" ]; then cp "$ROOT"/kit/template/film3d/* "$D/film/"; rm -f "$D/film/film.js" "$D/film/shots.js"; fi
-for f in "$D"/film/*.js "$D"/film/*.py "$D"/film/*.json "$D"/film/index.html; do sed -i "s/__SLUG__/$SLUG/g; s/__NO__/$NO/g; s/__DUR__/$DUR/g" "$f"; done
-ln -s ../../../kit/src "$D/film/rig"
-[ -e "$D/README.md" ] || printf '# ARSIP KASUS #%03d — %s\n\n## Fact sheet (≥ 2 sumber per klaim)\n\n## Script (formula: references/1-cerita-dan-script.md)\n\n## Catatan produksi & pelajaran\n' "$NO" "$SLUG" > "$D/README.md"
-echo "stories/$SLUG ready ($MODE): put vo_$SLUG.mp3 + vo_words.json in audio/, build the world in film/world.js (3D) or shots in film/shots.js (2D), then kit/tools/make_film.sh stories/$SLUG/film"
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; SLUG="$1"; NO="$2"; LINE="${3:-$(echo "$SLUG" | tr a-z A-Z)}"
+S="$ROOT/stories/$SLUG"; K="$S/kolase"
+[ -e "$K" ] && { echo "sudah ada: $K"; exit 1; }
+mkdir -p "$S/audio" "$K"
+cp "$ROOT/kit/collage/template/"* "$K/"
+ln -s ../../../kit/collage "$K/lib"; ln -s ../audio "$K/audio"
+python3 - "$K/episode.json" "$SLUG" "$NO" "$LINE" <<'PY'
+import json, sys
+p, slug, no, line = sys.argv[1:]
+json.dump(dict(slug=slug, no=int(no), title='', case_line=line, vo=f'audio/vo_{slug}.mp3', words='audio/vo_words.json', dur=0, report=[[0, 0]]), open(p, 'w'), indent=1)
+PY
+[ -f "$S/meta.json" ] || printf '{"id":"%s","series":"ARSIP KASUS #%03d","style":"arsip-kolase","status":"fact sheet"}\n' "$SLUG" "$NO" > "$S/meta.json"
+[ -f "$S/README.md" ] || printf '# ARSIP KASUS #%03d — %s\n\n## Fact sheet\n| # | Klaim | Status | Sumber |\n|---|---|---|---|\n\n## Judul\n\n## Script\n' "$NO" "$SLUG" > "$S/README.md"
+echo "→ $K   langkah berikut: VO + vo_words.json, lalu python3 kit/tools/line_starts.py stories/$SLUG"

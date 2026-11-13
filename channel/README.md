@@ -1,9 +1,6 @@
 # Mini Thriller IDN — identitas channel
-**Real Stories. Unexpected Truths.** Cerita nyata yang lebih mengejutkan daripada yang terlihat — 6 wilayah cerita (lihat skill `arsip-kasus`, rujukan 1). Perangkat seri visual: **ARSIP KASUS** (`#arsipkasus`). Terpisah dari channel Ruang Cermat. Aset dirender dari kode (`index.html` + `art.js`, bahasa gambar sama dengan film) — render ulang dari `toon/`:
-```
-node core/render/still.mjs ../channel 0 --q "w=800&h=800"   --size 800x800   --out ../channel   # foto profil
-node core/render/still.mjs ../channel 1 --q "w=2560&h=1440" --size 2560x1440 --out ../channel   # banner
-```
+**Real Stories. Unexpected Truths.** Cerita nyata yang lebih mengejutkan daripada yang terlihat — 6 wilayah cerita (lihat skill `arsip-kasus`, rujukan 1). Perangkat seri visual: **ARSIP KASUS** (`#arsipkasus`). Terpisah dari channel Ruang Cermat. Foto profil dan banner sudah dirender (Google Drive `Mini Thriller IDN/00 Channel`); kode render lamanya (engine toon) ada di riwayat git commit `0259929`. Versi baru bergaya ARSIP Kolase bisa dibuat dengan `kit/collage` bila diperlukan.
+
 `assets/` = frame bersih film #001 (`?film&nocap`) untuk foto-foto arsip di banner; ganti/ tambah dengan frame film baru seiring channel tumbuh.
 
 Hasil render disimpan di Google Drive `Mini Thriller IDN/00 Channel (profil, banner)/` (file .jpg di folder ini diabaikan git).

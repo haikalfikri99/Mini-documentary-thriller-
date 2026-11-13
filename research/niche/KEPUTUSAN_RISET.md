@@ -42,7 +42,7 @@ Contact sheet: `rekaman/frame0_3dtk_EN.jpg`, `rekaman/frame0_3dtk_ID_dan_002.jpg
 - YPP: sekarang 1.000 sub + 10 jt views Shorts/90 hari; **mulai 1 Feb 2027 → 20 jt/90 hari** (resmi, Help 12843009; yang sudah YPP tidak terdampak). Tier awal 500 sub + 3 jt (fan funding/Shopping) tidak berubah.
 - 20 jt/90 hari ≈ 222 rb views/hari. Dengan 1 video/minggu, tiap video harus ±1,5 jt views; dengan 3/minggu ±510 rb; dengan 5/minggu ±310 rb. Views Shorts mengikuti hukum pangkat (sedikit video membawa sebagian besar views) → **jumlah tembakan penting**.
 - #002 memakan ±15 jam sesi dengan ±5 kali ganti arah visual (riwayat git). Render 3D 44,8 dtk = 11 m 24 s (terukur).
-- **Usulan:** gaya dikunci = kit yang sudah ada (dunia 3D diorama + ARSIP RIG; tidak membuat gaya baru), ditambah satu jenis aset baru yang dipakai ulang: **"benda pahlawan"** (model 3D benda yang dibahas, besar di frame 0). Target irama: **3 video/minggu**, diukur per episode (jam kerja + render); bila #003 > 1 hari kerja, sederhanakan shot, bukan mengganti gaya.
+- (usulan lama, sudah diganti — lihat §6) **Usulan:** gaya dikunci = kit yang sudah ada (dunia 3D diorama + ARSIP RIG; tidak membuat gaya baru), ditambah satu jenis aset baru yang dipakai ulang: **"benda pahlawan"** (model 3D benda yang dibahas, besar di frame 0). Target irama: **3 video/minggu**, diukur per episode (jam kerja + render); bila #003 > 1 hari kerja, sederhanakan shot, bukan mengganti gaya.
 
 ## 5. Yang tetap belum diketahui
 - Performa pilar dan aturan visual ini **di channel kita sendiri** (#003–#005 adalah ujinya; satu variabel besar per video).
@@ -51,7 +51,8 @@ Contact sheet: `rekaman/frame0_3dtk_EN.jpg`, `rekaman/frame0_3dtk_ID_dan_002.jpg
 
 ## 6. Gaya signature & workflow 1 video/hari (usulan, 13 Nov 2026)
 Dasar: `RISET_GAYA_STORYTELLING.md` (18 channel animasi; gaya & host tidak membedakan performa; hanya 6,4% komentar menyebut visual, 1% memuji animasi; hanya Zack (tim) yang ≥1 Short/hari) + `AUDIT_PRODUKSI.md` (#002 = 15 j; 738 baris kode khusus per episode; render 3D 15–28 dtk per dtk film; 3D per episode belum pernah terukur).
-- **Gaya dikunci: 2D datar ARSIP RIG (tampilan #002)**, bukan dunia 3D. Alasan: gaya tidak menentukan performa, 2D sudah ada dan teruji, lebih cepat dibuat & dirender, paling mudah dijadikan template. Dunia 3D disimpan untuk episode khusus.
+- ~~Gaya dikunci: 2D datar ARSIP RIG (tampilan #002)~~ **Diganti 13 Nov 2026 (keputusan user setelah storyboard #003): gaya = ARSIP Kolase** (`kit/styles/arsip-kolase/STYLE.md`); 2D RIG dan 3D dihapus dari kit. Alasan asli di bawah tetap berlaku untuk prinsipnya (gaya tidak menentukan performa → kunci satu gaya, atur frame 0).
+- (catatan lama) Gaya dikunci: 2D datar ARSIP RIG (tampilan #002), bukan dunia 3D. Alasan: gaya tidak menentukan performa, 2D sudah ada dan teruji, lebih cepat dibuat & dirender, paling mudah dijadikan template. Dunia 3D disimpan untuk episode khusus.
 - **Tanpa presenter tetap** untuk sekarang: tidak ada bukti host animasi membantu (n kecil), dan host mengambil layar dari benda pahlawan. Diuji nanti sebagai satu variabel.
 - **Tambahan wajib:** (1) "benda pahlawan" besar di frame 0, (2) **pustaka tipe adegan** dipakai ulang (benda close-up, label harga/angka, cutaway cara kerja, peta, dokumen/arsip, tokoh reaksi, dalang terungkap, garis waktu, sebelum-sesudah), (3) frame lebih terang demi keterbacaan (bukan demi performa).
 - **Identitas yang membuat channel dikenali:** kartu ARSIP overlay, stempel merah "TERUNGKAP" di momen twist, tekstur kertas arsip, gaya caption, palet tetap.

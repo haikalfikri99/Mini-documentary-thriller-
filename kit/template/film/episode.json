@@ -1,6 +1,0 @@
-{
- "slug": "__SLUG__", "no": __NO__, "title": "",
- "vo": "../audio/vo___SLUG__.mp3", "words": "../audio/vo_words.json", "dur": __DUR__,
- "captions": {"hide": [], "hot_screen": [], "hot_amber": []},
- "report": [[0, __DUR__]]
-}

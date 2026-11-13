@@ -22,7 +22,7 @@
 **Micin Dituduh Bikin Bodoh Gara-gara Satu Surat 1968** (8 kata, 50 karakter). Cadangan: "Ketakutan Micin Berawal dari Satu Surat 1968".
 
 ## Script v1 — Formula ARSIP v4.1 (122 kata ≈ 47 dtk @2,6 kata/dtk) ✋
-| Beat | ±Waktu | VO (prompt ElevenLabs bertag) | Teks layar | Gambar (2D ARSIP RIG + pustaka adegan) |
+| Beat | ±Waktu | VO (prompt ElevenLabs bertag) | Teks layar | Gambar (rencana awal gaya lama; final: kolase, lihat kolase/board/storyboard.jpg) |
 |---|---|---|---|---|
 | 1 HOOK | 0–4 | [curious] Micin dituduh bikin bodoh. Padahal semuanya berawal dari satu surat. | MICIN = BODOH? | **Frame 0:** sachet micin polos (tanpa merek) raksasa di tengah, robek sejak 0,0 dtk, kristal berhamburan; stempel merah "BODOH?" membanting (SFX 0,00) → kristal jatuh di atas amplop surat |
 | 2 SETUP | 4–11 | [warmly] Seorang dokter menulis ke jurnal kedokteran Amerika: tiap habis makan di restoran Tionghoa, tengkuknya kebas dan jantungnya berdebar. | stempel 1968 · NEJM · overlay ARSIP KASUS #003 | dokumen arsip: surat diketik, kalimat kunci disorot; sisipan tokoh dokter memegang tengkuk |
