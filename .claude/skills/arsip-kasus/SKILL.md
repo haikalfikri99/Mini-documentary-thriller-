@@ -11,7 +11,9 @@ Gaya visual, karakter, kartu arsip, caption, audio, dan pipeline **tidak didesai
 - **Kebenaran:** dramatisasi penyajian, jangan mengarang bukti; klaim penting ≥ 2 sumber.
 - **Tanpa AI image/video dan tanpa stock.** Semua gambar dari kode (`kit/`). Musik/SFX dibuat dengan kode (FluidR3 MIT + sintesis).
 - **VO:** ElevenLabs, suara Saos Cocol (`R86jddkroI9bJwXFfjsr`), `eleven_v4`, prompt bertag; user yang generate bila kuota habis. Isi VO tidak diubah setelah disetujui; boleh diproses.
-- **Komposisi konten:** wilayah 2 pilar (~70%), sisanya selingan bila kasus sangat kuat. Topik sensitif: bahas mekanisme, jangan promosikan. Video dibuat satu per satu.
+- **Komposisi konten (keputusan 13 Nov 2026, `research/niche/KEPUTUSAN_RISET.md`):** pilar ±70% = **"alasan ASLI di balik benda, tempat, harga, dan merek yang kamu kenal, terutama di Indonesia"** (psikologi/ekonomi/sejarah/kartel = isi jawaban, bukan pintu masuk). Selingan ±30%: **W4 keputusan fatal** (proyek/perusahaan/desain gagal, ±20%) + **W6 sejarah & tempat** (asal-usul tersembunyi, ±10%), W1/W5 sesekali; **W3 misteri, klenik, kasus pidana berjalan = tidak dipakai**. Semua selingan memakai lensa "alasan asli di balik…". Ide: `research/niche/BANK_IDE.md`, `RISET_SELINGAN.md`. Topik sensitif: bahas mekanisme, jangan promosikan.
+- **Target produksi: 1 video/hari** (keputusan user) → workflow harus dirancang untuk itu; gaya tidak diganti per episode.
+- **Subagen paralel:** pilih model sesuai kesulitan tugas agar hemat token: Haiku untuk tugas mekanis (unduh/daftar/ekstraksi data, format ulang, cek file), Sonnet untuk riset terstruktur, analisis data, dan penulisan laporan dengan instruksi jelas, Opus hanya untuk penilaian kreatif/strategis yang sulit (keputusan editorial, script final, review kualitas). Jangan memberi tugas sulit ke model kecil.
 - Jawab dalam bahasa Indonesia, lugas, kritis, beri rekomendasi; minim beban CLI untuk user.
 - Claude tidak bisa mendengar: audio selalu dicek dengan alat dan dilaporkan apa adanya.
 - Commit/push ke branch sesi; tanpa PR kecuali diminta.
