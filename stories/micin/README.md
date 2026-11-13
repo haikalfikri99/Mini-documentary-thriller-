@@ -65,3 +65,19 @@
 | H3 tanpa jeda < 3 dtk | LULUS (rencana) | diverifikasi dari VO |
 | H5/H6 teks & SFX frame 0 | LULUS (rencana) | "MICIN = BODOH?" + stempel |
 | R1 loop terbuka berantai | LULUS | "satu surat" → "koran ingat satu" → "jadi musuh" → twist → stinger |
+
+## Script v2 — revisi bahasa dari review user (13 Nov 2026) ✋
+Perubahan: "koran cuma ingat **micin**" ditulis eksplisit; "uji buta" → "dites tanpa tahu mana yang micin"; bentuk jamak "bayi-bayi tikus / tikus-tikus itu" (eksperimen Olney memakai banyak anak tikus); pass kenaturalan (nulis, deg-degan, nyebar, lucunya); ASI diberi angka konkret (±10× susu sapi — Mouritsen & Styrbæk 2014; Koletzko 2018 asupan 35,7 vs 0,7 mg/kg/hari). Visual per beat tetap seperti tabel v1.
+> [curious] Micin dituduh bikin bodoh. Padahal semuanya berawal dari satu surat.
+> [warmly] Ada dokter nulis surat ke jurnal kedokteran Amerika: tiap habis makan di restoran Tionghoa, tengkuknya kebas, jantungnya deg-degan.
+> [mysteriously] Dia sendiri nggak yakin penyebabnya. Bisa arak masak, bisa garam, bisa micin. Tapi koran cuma ingat micin.
+> Lahirlah istilah sindrom restoran Tionghoa, dan beritanya nyebar ke mana-mana.
+> [serious] Setahun kemudian, ilmuwan menyuntikkan micin ke bayi-bayi tikus. Otak mereka rusak. Sejak itu, micin jadi musuh.
+> [slowly] Tapi tikus-tikus itu nggak makan micin. Mereka disuntik. Waktu orang dites tanpa tahu mana yang micin, hasilnya nggak konsisten. BPOM dan FDA bilang aman.
+> [warmly] Lucunya, zat yang bikin micin gurih, glutamat, juga ada di ASI. Banyak banget, kira-kira sepuluh kali susu sapi.
+> [curious] Oh iya, lima puluh tahun kemudian, ada pria ngaku surat itu cuma taruhan. Keluarga si dokter membantah. Tapi gara-gara satu surat itu…
+
+136 kata ≈ 49–52 dtk (2,6–2,8 kata/dtk). Twist mulai kata ke-75/136 = 55%. Scorecard v1 tetap lulus; #12 durasi: target 50 dtk × 2,7.
+
+## Pengingat untuk akhir sesi (permintaan user)
+Gabungkan semua riset & keputusan sampai titik ini ke **main**, lalu rapikan dokumen yang bertentangan (mis. referensi 3D sebagai standar, Formula v3 di tempat lain, alur VO lama) agar sesuai keputusan terbaru. **Ingatkan user di akhir.**
