@@ -7,7 +7,7 @@ Semua video baru dibuat dari kit ini. Gaya, komponen seri, caption, audio, dan p
 | `styles/arsip-kolase/` | STYLE.md (aturan), CHANGES.md (beda dari lemo-opuscar *vintage-collage*), style.json |
 | `collage/engine.js` | meja kertas: sprite (tepi potong, bayangan sesuai tinggi, sisi belakang), `putK` pose on twos dengan overshoot/settle/jitter, `slap` `slide` `drop` `rest`, `putA` (engsel/pendulum), `stampAt`, `typed`, kamera rostrum `cam/applyCam/shake`, vektor minimal `arrow/route/bow`, caption slip robek, `EV` (kejadian suara) |
 | `collage/shotkit.js` | helper episode: `at` (waktu kata), `bg` (meja + bidang warna, set `BG`), `stage` (kamera per shot), `ransomRow`, `fileOverlay` (map ARSIP), `heartbeat` |
-| `collage/parts.py` + `collage_lib.py` | baker: kertas meja, bidang warna robek, slip ketik, ransom letters, potongan cetakan (`cut`), halftone, stempel karet, coretan tinta, batang gravir data, siluet, dokumen PIL (`doc`) |
+| `collage/parts.py` + `collage_lib.py` | baker: kertas meja, bidang warna robek, slip ketik, ransom letters, potongan cetakan (`cut`, `tint_poly` untuk mewarnai sebagian gambar), halftone, stempel karet (`stamp(legible=True)` = tinta transparan yang terbaca), `mirror` (balik kiri-kanan), coretan tinta, batang gravir data, siluet, dokumen PIL (`doc`) |
 | `collage/signature.py` | bagian tetap seri: bidang warna, map ARSIP + label, stempel TERUNGKAP/DIBUKA, coretan, siluet; `bake_prints` dari `prints.json` |
 | `collage/engr_objects.py` | benda bergaya gravir bila tidak ada arsip (jarum suntik, gelas, botol susu, garam, bola dunia; tambah di sini) |
 | `collage/fetch_raw.py` | unduh arsip episode dari `SOURCES.jsonl` (sopan pada rate limit) + gambar benda gravir yang dibutuhkan |
@@ -19,7 +19,11 @@ Semua video baru dibuat dari kit ini. Gaya, komponen seri, caption, audio, dan p
 | `tools/setup_env.sh` | sekali per container (scipy, mido, faster-whisper, fluidsynth) |
 | `tools/new_episode.sh` | `stories/<slug>/kolase` dari template (+ symlink `lib`, `audio`) |
 | `tools/line_starts.py` | START per kalimat dari `vo_words.json` + durasi ke `episode.json` |
-| `tools/keyframes_2d.mjs` | storyboard bernomor (`board/storyboard.jpg`) dalam hitungan detik |
+| `tools/keyframes_2d.mjs` | storyboard bernomor (`board/storyboard.jpg`) dalam hitungan detik; juga frame di waktu tertentu |
+| `tools/storyboard_page/` | `make_page.py` + `tpl.html`: halaman storyboard yang bisa dikomentari (Artifact) dari `kolase/storyboard.json`, kotak "Revisi vN" per shot |
+| `tools/align_vo.py` | timing per kata dari VO (Whisper) → `vo_words.json` |
+| `tools/riset_topik.py` · `tools/gali_topik.py` | riset topik gratis: permintaan (autocomplete YouTube) + celah (yt-dlp) per kandidat · penggalian massal kandidat (benda × awalan tanya, kueri pola niche) |
+| `collage/template/flow_prompt_template.md` | pola satu prompt Google Flow untuk banyak gambar AI + tokoh konsisten |
 | `tools/render_2d.mjs` | render frame → H.264, atau dump kejadian suara (`events`) |
 | `tools/make_kolase.sh` | satu perintah: arsip → VO chain → kejadian → skor → mix → **gerbang QA audio** → render → mux (grain, −14 LUFS) |
 

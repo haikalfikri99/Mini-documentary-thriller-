@@ -1,6 +1,6 @@
 # Riset tempo VO Shorts narasi Indonesia (14 Nov 2026)
 
-Data mentah: `research/niche/data_vo_tempo.csv` (42 baris). Rencana asal: `RENCANA_RISET_VO.md` (opsi 2, Apify).
+Data mentah: `research/niche/data_vo_tempo.csv` (42 baris). Rencana asal (file dihapus, ada di riwayat git; opsi 2, Apify).
 
 ## Ringkasan
 - Tidak ada perbedaan tempo yang berarti antara Short yang laku dan yang gagal. Median kata/dtk (rentang bicara) video narasi: **atas 2,21 vs bawah 2,23** (n = 16 vs 12). Selisih -0,02; selang 95% bootstrap -0,62 s/d +0,43; uji permutasi p = 0,998. Di dalam channel yang sama, selisihnya +0,03 (selang -0,19 s/d +0,15).

@@ -31,12 +31,6 @@
       "skillPath": "skills/03-by-role-persona/filmmaker/SKILL.md",
       "computedHash": "99d21ea4e298c3d274201b6cae86338570c88db4f6ff493796404a245595723c"
     },
-    "find-skills": {
-      "source": "vercel-labs/skills",
-      "sourceType": "github",
-      "skillPath": "skills/find-skills/SKILL.md",
-      "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f"
-    },
     "hook-and-headline-writing": {
       "source": "cdeistopened/skill-stack",
       "sourceType": "github",
@@ -49,47 +43,17 @@
       "skillPath": "SKILL.md",
       "computedHash": "04cdabbcceaa7b5d4bd4b1ea02339013503d623b270b5b3b2e274837494d7134"
     },
-    "illustration-style": {
-      "source": "owl-listener/designer-skills",
-      "sourceType": "github",
-      "skillPath": "ui-design/skills/illustration-style/SKILL.md",
-      "computedHash": "397d27de067f053ab8fef804eb4881c65fdec9234b6ed401adb55e71c9579861"
-    },
-    "impeccable": {
-      "source": "pbakaus/impeccable",
-      "sourceType": "github",
-      "skillPath": ".agents/skills/impeccable/SKILL.md",
-      "computedHash": "86e265bf3df79c65215f7244d71892ca278370d56dec47a8cc15e8373db3f714"
-    },
-    "kinetic-typography": {
-      "source": "iart-ai/kinetic-typography-skills",
-      "sourceType": "github",
-      "skillPath": "skills/kinetic-typography/SKILL.md",
-      "computedHash": "7f5a42a68017f67a8dc140ecf676820319cd22b98b909f9e8b615448baf19d8c"
-    },
     "motion-art-direction": {
       "source": "iart-ai/motion-design-skills",
       "sourceType": "github",
       "skillPath": "skills/motion-art-direction/SKILL.md",
       "computedHash": "4a43cd9cd57b01e77e3c76e63a4722b3c8a74277aae1d9d471a93e7fea8a7038"
     },
-    "p5-brush": {
-      "source": "progen/p5-brush-skill",
-      "sourceType": "github",
-      "skillPath": "SKILL.md",
-      "computedHash": "3e1ece5b29da5745a76c7e8d46f004d44c9db64d0ee1618b9dd473b7a6720f27"
-    },
     "photo-composition-critic": {
       "source": "curiositech/some_claude_skills",
       "sourceType": "github",
       "skillPath": ".claude/skills/photo-composition-critic/SKILL.md",
       "computedHash": "2725876c57d5863668add6fb959f275f001df3bbd5c10a2b8e186af950cde6cd"
-    },
-    "ponytail": {
-      "source": "dietrichgebert/ponytail",
-      "sourceType": "github",
-      "skillPath": "skills/ponytail/SKILL.md",
-      "computedHash": "56d72677aca02689ac89bd48734e8c19b40ab86716d1257eaf5f1238b43cda6b"
     },
     "short-form-video": {
       "source": "iart-ai/tiktok-video-skills",

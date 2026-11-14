@@ -109,7 +109,7 @@ Disusun dari bukti, bukan selera. Dipakai **apa adanya** untuk setiap script; ya
 | 4 MAKA | 17–24 | 10–14 | akibat langsung pada penonton | gambar konkret, bukan istilah |
 | 5 MAKA (taruhan naik) | 24–30 | 10–14 | siapa memanfaatkan / uang / skala | angka hanya bila membuka mata |
 | 6 TAPI (twist) | 30–37 | 14–18 | pengakuan, bukti, atau fakta yang membalik pandangan (±70% durasi) | puncak emosi (peak); jeda 0,3–0,6 dtk sebelumnya |
-| 7 PUNCHLINE + LOOP | 37–45 | 10–16 | jawaban eksplisit dalam satu kalimat yang bisa diceritakan ulang → punchline/fakta penutup → kalimat terakhir menyambung ke kalimat pertama | **bukan nasihat**; boleh satu pertanyaan ringan & konkret yang mengundang pengalaman ("di kotamu harganya berapa?"); tanpa CTA |
+| 7 PUNCHLINE + LOOP | 37–45 | 10–16 | jawaban eksplisit dalam satu kalimat yang bisa diceritakan ulang → punchline/fakta penutup → **penutup**: default #004 = satu pertanyaan konkret ke pengalaman penonton (loop jahitan R4 hanya opsional, belum terbukti di data kita; penutup pertanyaan menang 7/8) | **bukan nasihat**; boleh satu pertanyaan ringan & konkret yang mengundang pengalaman ("di kotamu harganya berapa?"); tanpa CTA |
 
 ### F4. Pola hook yang terbukti (pilih dari sini dulu)
 0. **Benda dikenal + bantahan (utama, v4):** "Ini [benda/merek]. Tapi [anggapan] itu salah." / "[Benda] ini [fakta mustahil]." (Dyson 6,7 jt: "This is the Dyson bladeless fan, but it isn't actually bladeless"; "Bananas are berries, strawberries aren't" 5,8 jt; "Perang ini cuma 40 menit" 4,3 jt; panjat pinang 2,1 jt)
@@ -150,14 +150,14 @@ Lulus bila: spesifik (ada objek/angka/tokoh), jujur (dibayar oleh isi), bisa dig
 | R1 | Loop terbuka berantai | sebelum menjawab satu pertanyaan, tanam yang berikut ("dan itu baru trik pertama"); maks 10 dtk tanpa pertanyaan terbuka; janji harus dibayar |
 | R2 | Tiap kalimat = aksi/gambar | tidak ada kalimat yang hanya konteks/data tanpa kejadian di layar |
 | R3 | Re-hook di 40–55% | eskalasi visual + kalimat pembuka babak baru |
-| R4 | Loop tanpa jahitan | kalimat terakhir terpotong dan **diselesaikan** oleh kalimat pertama (dibaca berurutan = satu kalimat utuh) |
+| R4 | Loop tanpa jahitan (**opsional**; #004 memakai penutup pertanyaan, lihat `8-hook…` §F) | kalimat terakhir terpotong dan **diselesaikan** oleh kalimat pertama (dibaca berurutan = satu kalimat utuh) |
 | R5 | Panjang | wilayah 2: 40–46 dtk sampai data APV kita sendiri berkata lain |
 | R6 | Kartu ARSIP KASUS jadi **overlay** | stempel/kartu kecil di atas aksi yang tetap bergerak, ≤ 1,3 dtk; tidak boleh layar penuh yang menghentikan cerita |
 
 ### F8. Revisi v4.1 dari sprint riset (13 Nov 2026)
 | Aturan | Bukti | Kekuatan |
 |---|---|---|
-| **Anggaran kata = durasi × 2,6** (VO ID ±2,6 kata/dtk; pemenang 2,6–3,0; #002 2,24 = terlalu lambat) | RISET_STRUKTUR_SCRIPT, RISET_AUDIO_CAPTION_META | sedang |
+| **Anggaran kata = durasi × 2,66** (keputusan #004: 2,66 kata/dtk; rentang aman 2,5–2,8; #002 2,24 = terlalu lambat; tempo tidak membedakan laku/gagal, `RISET_VO_TEMPO.md`) | RISET_STRUKTUR_SCRIPT, RISET_AUDIO_CAPTION_META | sedang |
 | Jawaban mulai dibuka ±15–25% durasi (median pemenang 17%); twist 50–90% (65–75% = pusat, bukan syarat) | RISET_STRUKTUR_SCRIPT | lemah |
 | Penutup: punchline (5/6 top) **atau** satu pertanyaan ringan ke penonton (7/8 top); CTA subscribe bukan penutup | RISET_STRUKTUR_SCRIPT | sedang |
 | Tokoh/dalang dianjurkan, tidak wajib | RISET_STRUKTUR_SCRIPT | lemah |
