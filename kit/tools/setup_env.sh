@@ -6,6 +6,7 @@
 set -uo pipefail
 ok=1
 python3 -c "import scipy, mido, faster_whisper" 2>/dev/null || { echo "→ pip: scipy mido faster-whisper"; pip install -q scipy mido faster-whisper || ok=0; }
+command -v yt-dlp >/dev/null || { echo "→ pip: yt-dlp (riset topik)"; pip install -q yt-dlp || ok=0; }
 if ! command -v fluidsynth >/dev/null || [ ! -f /usr/share/sounds/sf2/FluidR3_GM.sf2 ]; then echo "→ apt: fluidsynth fluid-soundfont-gm"; (apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq fluidsynth fluid-soundfont-gm) >/dev/null 2>&1 || ok=0; fi
 command -v ffmpeg >/dev/null || { echo "✗ ffmpeg missing"; ok=0; }
 python3 - <<'PY' 2>&1 | tail -1 || ok=0

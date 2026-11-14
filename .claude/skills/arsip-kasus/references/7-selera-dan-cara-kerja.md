@@ -37,6 +37,9 @@ Dibaca **sebelum** mengirim apa pun ke user (shortlist, script, storyboard, film
 12. **Minim CLI untuk user:** user bekerja dari HP/aplikasi; media di Google Drive per episode (`NNN Judul`); upload YouTube dan ElevenLabs (saat kuota konektor habis) dikerjakan user secara manual. File > 10 MB tidak bisa diunggah Claude ke Drive → kirim lewat chat (preview < 30 MB bila perlu) dan minta user menaruhnya.
 13. User yakin persetujuan bisa cepat bila kualitas sudah benar: targetnya **1 video/hari** tanpa putaran revisi panjang.
 
+14. **Shortlist wajib berbasis riset segar, bukan hanya bank ide** (koreksi 14 Nov, #004): tiap kandidat dicek permintaan (autocomplete) dan celah (video Indonesia yang sudah ada) dengan `kit/tools/riset_topik.py`, gratis tanpa API key. vidIQ bisa habis kredit; jangan bergantung padanya.
+15. **Sudut Indonesia syarat lulus, bukan nilai tambah:** user menolak cerita yang "gak relate orang Indo" (bohlam/kartel Phoebus ditolak walau fakta kuat). Kandidat tanpa benda/merek/peristiwa yang dikenal penonton Indonesia gugur sebelum shortlist.
+
 ## D. Cek wajib sebelum mengirim storyboard/film (ringkas)
 - [ ] Setiap kalimat VO punya gambar yang **menunjukkan** isinya, logis secara fisik dan fakta.
 - [ ] Benda yang disebut terlihat; simbol jelas pemiliknya; tidak ada gambar tak berhubungan.

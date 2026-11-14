@@ -60,6 +60,7 @@ Contoh: "Sebuah kapal ditemukan tanpa awak." Boleh: "Ketika kapal itu ditemukan,
 | **Conflict** | Ada masalah, risiko, atau pertentangan (manusia vs sistem/alam/keputusan)? |
 | **Escalation** | Apakah ceritanya makin menarik di setiap langkah? |
 | **Payoff** | Apakah ending memberikan jawaban atau kejutan yang memuaskan dan bisa didiskusikan? |
+**Filter sebelum skor (sejak #004):** jalankan `kit/tools/riset_topik.py` dan terapkan `research/niche/topik/RUMUS_PEMILIHAN.md` (Permintaan, Celah, Lokal, Cerita, Bahan; gerbang Lokal ≥ 4, Celah ≥ 3, Cerita ≥ 3).
 Tambahan: ada manusia untuk close-up; ada visual yang belum pernah dilihat orang; **Shock score** fakta (berapa persen penonton yang TIDAK tahu ini? kumpulkan 5–10 fakta ≥ 80 sebelum menulis).
 
 ## E. Apa yang membuat Shorts didistribusikan

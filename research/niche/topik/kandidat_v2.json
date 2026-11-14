@@ -1,0 +1,20 @@
+[
+{"id":"skm","judul":"Susu kental manis bukan susu (BPOM 2018)","demand":["susu kental manis","kental manis"],"supply":["susu kental manis bukan susu","susu kental manis bpom larangan iklan"]},
+{"id":"pulsa","judul":"Sedot pulsa 2011","demand":["sedot pulsa","pulsa berkurang sendiri"],"supply":["kasus sedot pulsa 2011","kenapa pulsa berkurang sendiri sedot pulsa"]},
+{"id":"aqua","judul":"Aqua melarang toko jual Le Minerale (KPPU)","demand":["aqua le minerale","kppu aqua"],"supply":["aqua le minerale kppu","aqua melarang toko jual le minerale"]},
+{"id":"token","judul":"Token listrik cepat habis","demand":["token listrik","token pln"],"supply":["kenapa token listrik cepat habis","token listrik 100 ribu kenapa tidak penuh"]},
+{"id":"tiket","judul":"Tiket pesawat domestik lebih mahal dari luar negeri","demand":["tiket pesawat mahal","harga tiket pesawat domestik"],"supply":["kenapa tiket pesawat domestik mahal","tiket pesawat domestik lebih mahal dari luar negeri"]},
+{"id":"tupper","judul":"Tupperware arisan bangkrut","demand":["tupperware","tupperware bangkrut"],"supply":["kenapa tupperware bangkrut","tupperware arisan sejarah"]},
+{"id":"bb","judul":"BlackBerry & BBM: Indonesia pasar terbesar","demand":["blackberry","bbm blackberry"],"supply":["kenapa blackberry hilang","blackberry indonesia pasar terbesar kenapa bangkrut"]},
+{"id":"indomie","judul":"Indomie ditarik di Taiwan 2010","demand":["indomie taiwan","indomie ditarik"],"supply":["indomie dilarang di taiwan","kenapa indomie ditarik taiwan 2010"]},
+{"id":"bioskop","judul":"Makanan bioskop mahal (siapa dapat uang tiket)","demand":["makanan bioskop mahal","popcorn bioskop"],"supply":["kenapa popcorn bioskop mahal","kenapa makanan di bioskop mahal"]},
+{"id":"indomaret","judul":"Indomaret-Alfamart berdekatan (kontrol jenuh)","demand":["indomaret alfamart berdekatan"],"supply":["kenapa indomaret dan alfamart selalu berdekatan","indomaret alfamart sebelahan shorts"]},
+{"id":"sinila","judul":"Sinila Dieng 1979","demand":["sinila dieng","kawah sinila"],"supply":["sinila dieng 1979","tragedi kawah sinila dieng bukan letusan"]},
+{"id":"sachet","judul":"Kenapa semua dijual sachet","demand":["sachet","kenapa dijual sachet"],"supply":["kenapa produk dijual sachet","sejarah sachet shampo indonesia"]},
+{"id":"antam","judul":"Harga emas Antam lebih mahal / buyback","demand":["harga emas antam","antam buyback"],"supply":["kenapa harga emas antam beda","kenapa emas antam jual beli selisih"]},
+{"id":"kodak","judul":"Kodak menyimpan kamera digital","demand":["kodak bangkrut","kodak kamera digital"],"supply":["kenapa kodak bangkrut","kodak menemukan kamera digital"]},
+{"id":"printer","judul":"Printer murah tinta mahal (chip penolak tinta)","demand":["printer tinta mahal","tinta printer"],"supply":["kenapa tinta printer mahal","printer murah tinta mahal rahasia"]},
+{"id":"bohlam","judul":"Bohlam 1.000 jam (kontrol: topik yang tadi dibuang)","demand":["bohlam cepat putus","kartel bohlam"],"supply":["kenapa bohlam cepat putus kartel","phoebus cartel bohlam"]},
+{"id":"yakult","judul":"Botol Yakult kecil","demand":["yakult","botol yakult kecil"],"supply":["kenapa botol yakult kecil","yakult kenapa kecil rahasia"]},
+{"id":"hp_iklan","judul":"Iklan muncul sendiri di HP baru","demand":["iklan muncul sendiri hp","iklan bawaan hp"],"supply":["kenapa hp muncul iklan sendiri","iklan bawaan pabrik hp xiaomi"]}
+]
