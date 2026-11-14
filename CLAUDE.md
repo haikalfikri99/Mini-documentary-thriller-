@@ -1,4 +1,5 @@
 # Aturan kerja untuk Claude di repo ini
+- **Awal sesi: baca `STATE.md` saja** (status, keputusan, tabel "Muat saat"). Jangan membaca `references/` atau riwayat sebelum langkahnya tiba. Perbarui `STATE.md` di akhir tiap langkah (ganti isi, bukan ditumpuk).
 - Workflow produksi video: skill `arsip-kasus` (`.claude/skills/arsip-kasus/SKILL.md`).
 - **Subagen paralel: pilih model sesuai kapabilitas agar hemat token.** Haiku = tugas mekanis (unduh/daftar data, ekstraksi, format ulang, cek file). Sonnet = riset terstruktur, analisis data, laporan dengan instruksi jelas. Opus = penilaian kreatif/strategis sulit (keputusan editorial, script final, review kualitas). Jangan memberi tugas sulit ke model kecil, dan jangan memakai model besar untuk tugas mudah.
 - **Gaya visual: ARSIP Kolase** (`kit/styles/arsip-kolase/STYLE.md`, mesin `kit/collage/`). Gaya lama (2D RIG, 3D, toon) sudah dihapus; jangan dihidupkan lagi tanpa keputusan user.
