@@ -1,5 +1,5 @@
 # VO ARSIP #004 aqua v5 — ElevenLabs (Saos Cocol R86jddkroI9bJwXFfjsr, eleven_v4)
-Target: 142 kata, 46–52 dtk (2,6–2,8 kata/dtk). Hook tanpa jeda, energi naik. Nada santai, sedikit jahil.
+Target: 142 kata, 50–55 dtk (2,6–2,8 kata/dtk). Hook tanpa jeda, energi naik. Nada santai, sedikit jahil.
 
 [curious] Aqua didenda tiga belas koma delapan miliar. Gara-gara warung kayak gini jual air mineral merek lain.
 [warmly] Kok bisa? Ada warung berstatus bintang, star outlet. Warung ini dapat harga Aqua lebih murah.
