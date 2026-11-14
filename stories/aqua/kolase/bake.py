@@ -211,6 +211,13 @@ def slips():
     bk.ransom('rq2', '?', 150, 2)
 
 
+def mirror(name):
+    """left-right mirrored copy of a baked part (<name>_m): a negative sx in film.js would show the paper's back."""
+    im = Image.open(os.path.join(bk.out, name + '.png')).transpose(Image.FLIP_LEFT_RIGHT)
+    im.save(os.path.join(bk.out, name + '_m.png'))
+    bk.M[name + '_m'] = dict(bk.M[name])
+
+
 if __name__ == '__main__':
     ai_to_raw()
     prev = os.path.join(bk.out, 'manifest.json')
@@ -218,6 +225,6 @@ if __name__ == '__main__':
         bk.M = json.load(open(prev)); bk.M.pop('_', None)
     for g, fn in [('signature', lambda: bake_signature(bk, '#%03d' % EP['no'], EP.get('case_line', EP['slug'].upper()))),
                   ('stars', stars), ('tags', tags), ('docs', documents), ('stamps', stamps), ('slips', slips),
-                  ('prints', lambda: bake_prints(bk, HERE))]:
+                  ('prints', lambda: (bake_prints(bk, HERE), mirror('wasit_kartu')))]:
         if want(g): fn(); print('baked', g)
     bk.done()

@@ -130,7 +130,8 @@ const SHOTS = [
   (u, T, d) => {
     const tb = at(10, 'membantah'), tk = at(10, 'katanya');
     stage(u, d, { z1: 1.05, shake: [[tb, 9]] }); bg(SET.deny);
-    putK('wasit_kartu', [[0, 905, 690, 2, 0, 1]], u, 125, { s: 0.55 });
+    putK('wasit_kartu_m', [[0, 865, 700, -2, 0, 1]], u, 125, { s: 0.55 });
+    putK('s_kppu', [[0, 880, 870, 5, 0, 1]], u, 126, { s: 0.42 });
     putK('bos_bantah', slide(0, 0.25, 520, 770, 0, 0, 700, 0, 0.6), u, 120, { s: 0.86 });
     putK('s_pihak', slap(0.3, 520, 330, -3), u, 124, { s: 0.85 });
     stampAt('st_dibantah', u, tb, 560, 1110, -5, 0.9);
