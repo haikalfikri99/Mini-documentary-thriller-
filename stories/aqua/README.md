@@ -232,6 +232,14 @@ Lisensi: dibuat pemilik channel dengan Google Flow; dicatat di SOURCES.jsonl seb
 ## Storyboard v1 (14 Nov) — `kolase/board/storyboard_v1.jpg` ✋
 bake.py + film.js selesai; 22 shot sesuai tabel di atas (dengan perubahan shot 9, 10, 12). Kredit di `kolase/SOURCES.jsonl`. Kit: `parts.Baker.cut(tint_poly=…)` (warna tangan hanya pada satu benda di cetakan), `engr_objects.whistle`.
 
+## Storyboard v2 (14 Nov) — artifact https://claude.ai/artifact/Gk2GAV8wRuJ2UFh9jEoczU · `kolase/board/storyboard_v2.jpg` ✋
+Review user lewat komentar artifact (S01, S07, S10–S13, S15, S17–S20). Perubahan: Aqua = pabrik (`pabrik`) + "pihak AQUA" (`bos_bantah`/`bos_lega`/`bos_lemas`, wajah generik); KPPU = wasit (`wasit_tiup` + `kantor` S09, `wasit_kartu` S10, `wasit_kartu_m` cermin S11, `wasit_map` S17); S20 = botol air di kursi terdakwa (`botol_sidang`, zoom 2,6→1,0, label "terdakwa: air putih"); cap = tinta transparan pekat + pendar kertas (bukan kartu); S10 cap DIDENDA di pabrik, label KPPU di wasit. Gambar AI dibuat user (Google Flow), dicatat di `SOURCES.jsonl`.
+
+## Lanjut setelah /compact
+1. Tunggu user bilang storyboard oke (atau "cek komentar": baca `ArtifactComments read`, jawab di chat, perbarui kotak "Revisi v2" lewat `scratchpad/sb004/gen.py` bila masih ada; bila scratchpad hilang, buat ulang halaman dari keyframe `node kit/tools/keyframes_2d.mjs stories/aqua/kolase`).
+2. `score_full.py` + `fullmix.py` (contoh `stories/micin/kolase/`), lalu `kit/tools/make_kolase.sh stories/aqua/kolase 1` → QA audio + contact sheet → kirim film.
+3. `UPLOAD.md` (judul "Aqua Didenda Rp13,8 Miliar Gara-Gara Warung", deskripsi + sumber + tahun 2017/2019 + bantahan Aqua + "tidak disponsori merek mana pun" + kredit gambar), Drive folder `Mini Thriller IDN/004 Aqua Didenda Rp13,8 Miliar Gara-Gara Warung`.
+
 ## Catatan lanjut (lama, sebelum storyboard)
 1. Tunggu dua agen: riset tempo VO (Apify → `research/niche/RISET_VO_TEMPO.md`) dan gambar arsip (→ `kolase/raw/` + `kolase/SOURCES.jsonl`: document, gavel, scale, whistle, hand, money, dll.).
 2. `bake.py`: salin `ai/*.jpg` ke `raw/`; potong (cutout) tiap gambar AI; cetakan sendiri: bintang emas, label harga (MURAH/MAHAL), perjanjian + klausul, email cetak (subjek "Star Outlet Degradation…"), slip terjemahan, stempel DIDENDA Rp13,8 M / DIBANTAH / DIBATALKAN / BELUM / DICOPOT / KPPU MENANG, label KPPU, tahun 2016/2017/2019, "?".

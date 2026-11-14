@@ -132,11 +132,11 @@ const SHOTS = [
     stage(u, d, { z1: 1.05, shake: [[tb, 9]] }); bg(SET.deny);
     putK('wasit_kartu_m', [[0, 865, 700, -2, 0, 1]], u, 125, { s: 0.55 });
     putK('s_kppu', [[0, 880, 870, 5, 0, 1]], u, 126, { s: 0.42 });
-    putK('bos_bantah', slide(0, 0.25, 520, 770, 0, 0, 700, 0, 0.6), u, 120, { s: 0.86 });
-    putK('s_pihak', slap(0.3, 520, 330, -3), u, 124, { s: 0.85 });
+    putK('bos_bantah', slide(0, 0.25, 560, 770, 0, 0, 700, 0, 0.6), u, 120, { s: 0.8 });
+    putK('s_pihak', slap(0.3, 560, 360, -3), u, 124, { s: 0.85 });
     stampAt('st_dibantah', u, tb, 560, 1110, -5, 0.9);
-    putK('truck', slide(tk, tk + 0.35, 215, 590, 2, -600, 0, 0, 0.8), u, 121, { s: 0.38 });
-    putK('s_distributor', slap(at(10, 'distributor'), 215, 470, -3), u, 123, { s: 0.75 });
+    putK('truck', slide(tk, tk + 0.35, 165, 712, 0, -600, 0, 0, 0.8), u, 121, { s: 0.34 });
+    putK('s_distributor', slap(at(10, 'distributor'), 180, 590, -3), u, 123, { s: 0.7 });
   },
   // 12 · Dan pengadilan… membatalkan denda Aqua.   (2019)
   (u, T, d) => {
