@@ -47,7 +47,7 @@ export async function loadAll(partsDir, fontDir) {
   const names = Object.keys(M).filter(k => !k.startsWith('_') && k !== 'paper');
   await Promise.all(names.map(async n => {
     const img = await loadImg(`${partsDir}/${n}.png`);
-    SP[n] = M[n].ink ? { img, k: B, ink: true } : sprite(img, M[n].k || B, true);
+    SP[n] = M[n].ink ? { img, k: B, ink: true, over: !!M[n].over } : sprite(img, M[n].k || B, true);   // over=1: opaque ink (stamps that must read over engravings)
     SP[n].m = M[n];
   }));
   SP.paper = { img: await loadImg(partsDir + '/paper.jpg'), m: M.paper };
@@ -69,7 +69,7 @@ export function drawSprite(S, ax, ay, lx, ly, r, z, sx = 1, s = 1, alpha = 1) {
     place(0.9 + 2.4 * side * Math.sign(sx || 1), 1.2); ctx.globalAlpha = alpha; ctx.drawImage(S.edge, -lx, -ly, w, h); ctx.restore();
   }
   place(0, 0); ctx.globalAlpha = alpha;
-  if (S.ink) ctx.globalCompositeOperation = 'multiply';
+  if (S.ink && !S.over) ctx.globalCompositeOperation = 'multiply';
   ctx.drawImage(sx < 0 && S.back ? S.back : img, -lx, -ly, w, h);
   ctx.restore(); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
 }

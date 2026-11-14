@@ -168,19 +168,20 @@ def documents():
 def stamps():
     """verdict stamps pressed onto a small cream card, so the red reads over busy engravings (review #004)."""
     def card(name, text, size, color, seed, sub=None):
+        """transparent ink stamp that still reads over busy engravings: denser ink drawn opaque (no multiply), plus a faint
+        paper-coloured halo hugging the letters and frame so the red separates from black lines. No card, no paper edge."""
         bk.stamp(name + '_ink', text, size, color, seed=seed, sub=sub)
         a = np.asarray(Image.open(os.path.join(bk.out, name + '_ink.png')), float)[..., 3] / 255
         os.remove(os.path.join(bk.out, name + '_ink.png')); bk.M.pop(name + '_ink')
-        a = np.clip(a * 1.7, 0, 1)
-        P = int(14 * bk.B); h, w = a.shape
+        a = np.clip(a * 1.6, 0, 1)
+        P = int(10 * bk.B); h, w = a.shape
         A = np.zeros((h + 2 * P, w + 2 * P)); A[P:P + h, P:P + w] = a
-        m = np.zeros(A.shape, bool); m[P // 3:-P // 3, P // 3:-P // 3] = True
-        from collage_lib import torn, paper_texture
-        body, _ = torn(m, rough=1.2 * bk.B, seed=seed, amp=0.4)
-        tex = paper_texture(*A.shape, seed=seed, fibers=200); tex = 1 + (tex - 1) * 0.6
-        col = CARD[None, None, :] * tex[..., None]
-        col = col * (1 - A[..., None]) + color * A[..., None]
-        bk.save(name, col, body)
+        from scipy import ndimage as ndi
+        halo = ndi.gaussian_filter(ndi.binary_dilation(A > 0.25, iterations=int(4 * bk.B)).astype(float), 2.5 * bk.B) * 0.55
+        alpha = np.maximum(A, halo)
+        wink = A / np.maximum(alpha, 1e-6)
+        col = CARD[None, None, :] * (1 - wink[..., None]) + color * wink[..., None]
+        bk.save(name, col, alpha, ink=1, over=1)
     card('st_denda', 'DIDENDA', 120, RED, 81)
     card('st_dibantah', 'DIBANTAH', 104, RED, 82)
     card('st_batal', 'DIBATALKAN', 96, GREEN * 0.85, 83, sub='PENGADILAN NEGERI')

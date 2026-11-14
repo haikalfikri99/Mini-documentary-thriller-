@@ -210,7 +210,7 @@ const SHOTS = [
     stage(u, d, { z0: 1.02, z1: 1.07, cy: 880, shake: [[0.08, 12]] }); bg(SET.hook);
     put('pabrik', 600, 520, 0, 0, 1, 0.78);
     putK('bos_lemas', slide(0, 0.2, 330, 800, 0, 0, -300, 0, 0.6), u, 190, { s: 0.78 });
-    stampAt('st_denda', u, 0.08, 720, 1040, -8, 1.1);
+    stampAt('st_denda', u, 0.08, 660, 1040, -8, 1.0);
     putK('s_138', slap(at(18, 'berlaku'), 560, 215, -3), u, 191);
   },
   // 20 · Air putih doang, sampai Mahkamah Agung.   tight on one small bottle in the defendant's chair, then pull back to the grand courtroom
