@@ -177,3 +177,10 @@ Pertanyaan eksplisit di VO total tiga: "Kok bisa?" (hook), "Aqua bebas? Belum." 
 **Perubahan:** (1) "menghukum itu" → "bilang itu persaingan nggak sehat. Aqua didenda." (siapa dihukum dan kenapa jelas; Jakarta Post: "punishes Aqua for unhealthy competition"); (2) "membatalkan hukumannya" → "membatalkan denda Aqua" (warung tidak pernah dihukum); (3) "naik ke MA… dan menang" → "membawa kasus ini ke Mahkamah Agung. Hasilnya… Mahkamah Agung memihak KPPU. Denda Aqua berlaku lagi." (kasasi dikabulkan; VIVA 29/11/2019: KPPU menyiapkan penagihan Rp13,8 miliar); (4) "harga beli" → "dapat harga Aqua lebih murah / jadi lebih mahal"; (5) judul email diterjemahkan: "alias turunin status warung bintang".
 Durasi naik ke ±50 dtk: diterima karena tiap tambahan menutup kebingungan (aturan F6: kalimat tambahan harus membuka/membayar loop atau mencegah swipe karena bingung).
 **Prompt:** `audio/vo_prompt_elevenlabs.md` (v5).
+
+## VO (14 Nov) — take 1 (user, ElevenLabs Saos Cocol eleven_v4)
+- Mentah `audio/raw_take1.mp3`: 63,0 dtk, 142 kata = **2,25 kata/dtk** (di bawah standar 2,6; #002 2,24 dinilai terlalu lambat).
+- Proses (`vo_aqua.mp3`): jeda > 0,25 dtk dirapatkan ke 0,25 dtk (jeda hook 0,35 → 0,18 dtk untuk H3; jeda dramatis sebelum "KPPU nggak terima" dipertahankan 0,34 dtk), lalu **atempo 1,12** (nada tidak berubah) → **54,8 dtk, 2,60 kata/dtk**.
+- Whisper (small) atas VO jadi: 129/142 kata cocok langsung; sisanya hanya ejaan ("13,8", "gak", "di denda", "Gara -gara"); isi sesuai script. **Pelafalan untuk dicek telinga user:** "Le Minerale" terdeteksi "lay/leh mineral" (huruf akhir -e mungkin samar).
+- `audio/vo_words.json`: 142 kata, ejaan dari script (termasuk "nggak"), waktu dari Whisper; kata yang tak cocok langsung diinterpolasi per panjang huruf.
+- Gerbang hook terukur: kalimat 1 selesai **2,2 dtk** (H1 ≤ 4 ✓), tanpa jeda > 0,25 dtk sebelum 3 dtk (H3 ✓).
