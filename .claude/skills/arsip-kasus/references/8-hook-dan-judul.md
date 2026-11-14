@@ -32,7 +32,7 @@ Semua: **subjek konkret yang dikenal penonton di kata 1–3 (benda, merek, tempa
 3. **Tulis ≥ 8 varian hook + 5 judul**; skor tiap varian (0–2): (a) satu kali baca: siapa/kena apa/kenapa aneh? (b) subjek dikenal di kata 1–3? (c) ada angka/uang/kontras berukuran? (d) ≤ 10 kata, inti ≤ 1 dtk? (e) setiap pernyataan faktual benar (cek fact sheet)? (f) frame 0 bisa digambar (benda besar, gerak 0,0)? Ambil skor tertinggi dengan (e) wajib 2.
 4. **Judul** = subjek yang dikenal (benda, merek, tempat, harga, atau peristiwa/hal) + angka/uang/ukuran bila ada, 6–8 kata, KAPITAL satu kata penting boleh; tanpa "padahal/tapi/ternyata", tanpa tanda tanya kecuali tak terhindar; harus selaras dengan hook (kalimat pertama = konfirmasi judul).
 5. **Cover** = angka besar sebagai stempel + subjek (benda generik/tempat/adegan) + satu pemicu "kok bisa" (benda kecil di sudut).
-6. **Paket pembuka** ditulis di `stories/<slug>/README.md` sebelum script: hook, kalimat 2, judul, cover, struktur tengah (TAPI/MAKA), penutup (punchline atau kembali ke hook).
+6. **Paket pembuka** ditulis di `stories/<slug>/README.md` sebelum script: hook, kalimat 2, judul, cover, struktur tengah (TAPI/MAKA), penutup (default: loop jahitan ke kalimat pertama; varian: pertanyaan pengalaman; lihat `1-cerita…` §F3).
 7. Setelah tayang: catat stayed-to-watch per arketipe di `6-pelajaran.md`; ubah satu variabel per video.
 
 ## F. Pola alur yang menahan sampai akhir: jawaban bertahap + loop bertumpuk
@@ -48,7 +48,7 @@ Semua: **subjek konkret yang dikenal penonton di kata 1–3 (benda, merek, tempa
 - **P — Janji pilar:** tulis "penonton nonton untuk apa → pulang membawa apa". Wajib satu kalimat jawaban "alasan asli" yang menyentuh pengalaman penonton sendiri (contoh #004: "isi rak warung itu nggak selalu pilihan pemilik warungnya").
 - **J — Jargon:** tiap lembaga/istilah dijelaskan ≤ 4 kata lisan atau dihapus.
 - **K — Kesan:** tidak terkesan iklan pesaing (seimbangkan dengan bantahan pihak yang dikritik), tidak terkesan kejadian baru bila kasus lama (tahun di layar).
-- **C — Pemicu kembali:** penutup pertanyaan pengalaman ("warung dekat rumahmu jual merek apa aja?") atau punchline; identitas seri ARSIP KASUS tetap terlihat.
+- **C — Pemicu kembali:** penutup: loop jahitan (default) atau pertanyaan pengalaman ("warung dekat rumahmu jual merek apa aja?", varian dipakai #004) atau punchline; identitas seri ARSIP KASUS tetap terlihat.
 
 ## D. Batas bukti (jujur)
 Tidak ada data retensi per detik di tangan kita; semua pola hook berasal dari views relatif (bukan retensi) dan n transkrip kecil. Efek judul (angka/uang) terukur lebih baik daripada efek hook lisan. #003 (hook OBJ) memberi 47,0% stayed-to-watch; target ≥ 60% belum tercapai; data kita sendiri (#004 dan seterusnya) adalah uji sebenarnya.

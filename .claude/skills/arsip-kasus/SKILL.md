@@ -30,7 +30,7 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 | 0 | Sesi/container baru: `kit/tools/setup_env.sh` (±40 dtk) | | |
 | 1a | **Shortlist 8–10 judul** berbasis riset segar (`python3 kit/tools/riset_topik.py`: permintaan + celah; uji hook + sudut Indonesia sebagai gerbang) ✋ | chat | `1-cerita…` §D, `8-hook…`, `7-selera` #14–16 |
 | 1b | Fact sheet (≥ 2 sumber/klaim; PubMed/Consensus untuk klaim sains) | `stories/<slug>/README.md` | `1-cerita…` §C, §J |
-| 2 | **Script Formula ARSIP v4.1** + scorecard F6 + V1–V5 + gerbang F7, dikirim bersama ✋ | README | `1-cerita…` §F |
+| 2 | **Script Formula ARSIP v4.2** + scorecard F6 (16 cek) + gerbang F7, dikirim bersama ✋ | README | `1-cerita…` §F |
 | 3 | VO ElevenLabs (2 take, pilih dengan alat; **target tempo 2,6–2,7 kata/dtk**, rapatkan jeda ≤ 0,25 dtk lalu atempo ±1,2; kredit user → tanya dulu; `kit/tools/align_vo.py`) → `audio/vo_<slug>.mp3`; alignment Whisper → `audio/vo_words.json` (ejaan dari script) | | `3-audio` |
 | 4 | `kit/tools/new_episode.sh <slug> <no> "CASE LINE"` → `python3 kit/tools/line_starts.py stories/<slug>` (START per kalimat; gabung/potong manual sampai ±2–2,5 dtk/shot) | `kolase/` | — |
 | 5 | **Gambar:** daftar benda per shot → cari arsip (Openverse dulu, Wikimedia; lihat `2-visual…` §C) → `kolase/prints.json` + `SOURCES.jsonl` (lisensi & kredit); benda tanpa arsip → `kit/collage/engr_objects.py` atau gambar sendiri di `bake.py` | | `2-visual…` §C |
@@ -78,7 +78,7 @@ kit/tools/make_kolase.sh stories/<slug>/kolase 1                 # ±7 menit
 
 ## Rujukan
 - **`references/7-selera-dan-cara-kerja.md` — selera & cara kerja user dari semua revisi; baca sebelum mengirim apa pun (cek D)**
-- `references/1-cerita-dan-script.md` — identitas, wilayah, aturan faktual, seleksi, **Formula ARSIP v4.1**, scorecard, analitik
+- `references/1-cerita-dan-script.md` — identitas, wilayah, aturan faktual, seleksi, **Formula ARSIP v4.2**, scorecard, analitik
 - `references/2-visual-dan-animasi.md` — gaya ARSIP Kolase dalam praktik: frame & tempo, storyboard, sumber gambar, pelajaran review
 - `references/3-audio.md` — rantai VO, skor, foley otomatis, mix, QA tanpa telinga
 - `references/4-standar-kualitas-10.md` — rubrik 10 aspek

@@ -71,119 +71,104 @@ Menurut konsep editorial kita (dirangkum user dari YouTube Help & wawancara krea
 
 Yang terverifikasi (Studio → Analytics → Content → Shorts): **Viewed vs Swiped Away** ("berapa yang memilih menonton"), Engaged views, rata-rata durasi & persentase ditonton, retensi. YouTube **tidak** mempublikasikan ambang resmi; target 75–80% "viewed" hanyalah patokan kreator. Tidak ada formula yang terbukti menjamin viral — kita pakai prinsip yang didukung praktik kreator dan sinyal resmi, lalu uji dengan data channel sendiri.
 
-## F. FORMULA ARSIP v4 — terkunci (berlaku mulai #003, 13 Nov 2026)
-**Perubahan v4 dari riset niche** (`research/niche/KEPUTUSAN_RISET.md`; 7.064 Shorts, 48+ transkrip, 625 komentar): pintu masuk = **benda/tempat/merek yang dikenal + anggapan dibalik**, bukan psikologi/"kamu sedang dimanipulasi" (2,8% breakout vs 17,9%); jawaban harus **tidak tertebak**; cerita dengan **tokoh/dalang**; nada **santai, sedikit jahil**; penutup = **punchline/twist**, bukan nasihat; tanpa sponsor/promo di Shorts. Motivasi penonton: aha/cara kerja + anggapan dibalik (menonton); musuh, perdebatan, pengalaman pribadi, kebanggaan lokal (berkomentar). "Melindungi diri" hampir tidak ada → jangan jadikan sudut utama.
-Disusun dari bukti, bukan selera. Dipakai **apa adanya** untuk setiap script; yang boleh diubah hanya isi cerita. Perubahan formula hanya lewat `6-pelajaran.md` (butuh data dari video tayang).
+## F. FORMULA ARSIP v4.2: terkunci (v4 13 Nov 2026 + revisi riset 13–14 Nov + pelajaran #004)
+**Dasar** (`research/niche/KEPUTUSAN_RISET.md`; 7.064 Shorts, 66 transkrip, 625 komentar): pintu masuk = **subjek yang dikenal penonton (benda/tempat/merek/peristiwa) + anggapan dibalik**, bukan psikologi/"kamu sedang dimanipulasi" (2,8% breakout vs 17,9%); jawaban **tidak tertebak**; cerita dengan **tokoh/dalang**; nada **santai, sedikit jahil**; penutup = punchline/twist/pertanyaan konkret, bukan nasihat; tanpa sponsor/promo. Motivasi penonton: aha/cara kerja + anggapan dibalik (menonton); musuh, perdebatan, pengalaman pribadi, kebanggaan lokal (berkomentar). "Melindungi diri" hampir tidak ada → jangan jadi sudut utama.
+**Fakta benar, kemasan semaksimal mungkin.** Rantai shortlist → judul → hook → alur → cover: `8-hook-dan-judul.md` (baca sebelum menulis). Perubahan formula hanya lewat `6-pelajaran.md` dengan data video tayang.
 
-### F1. Dasar bukti (kenapa formulanya begini)
+### F1. Dasar bukti
 | Bukti | Sumber | Aturan yang diturunkan |
 |---|---|---|
-| Penonton memutuskan di detik awal; >63% video ber-CTR tertinggi menyampaikan pesan kunci ≤ 3 dtk | TikTok Auction Ads Creative Tips (data iklan, bukan semua video) | Hook = pesan inti ≤ 3 dtk, tanpa pembuka |
-| "Viewed vs swiped away" (resmi: Stayed to watch) adalah metrik hook; YouTube tak memberi ambang | YouTube Help 12220281; analisis Galloway 2023 (5.400 Shorts): < 60% jarang berhasil, 70–90% unggul | Target ≥ 70% viewed; hook diuji dulu sebelum hal lain |
-| Rasa penasaran muncul dari celah informasi yang **kecil dan terasa bisa ditutup**; total ketidaktahuan tidak memicu penasaran | Loewenstein 1994, *The Psychology of Curiosity* | Hook memberi cukup konteks + satu celah spesifik; jangan misterius kabur |
-| Urutan penyajian menentukan emosi: hasil di depan → penasaran; hasil ditunda → suspense; kejadian tak terduga → kejutan | Brewer & Lichtenstein 1982 (structural-affect theory); diuji ulang Hoeken & van Vliet 2000 | Hook membuka **hasil/akibat** (penasaran), tengah menunda jawaban (suspense), twist di ±70% (kejutan) |
-| Penonton yang "terbawa" cerita lebih sedikit membantah dan lebih ingat | Green & Brock 2000 (narrative transportation), JPSP 79(5) | Cerita satu tokoh + gambar konkret, bukan daftar fakta |
-| Pengalaman dinilai dari puncak dan akhirnya, bukan durasinya | Kahneman & Fredrickson 1993 (peak-end) | Satu puncak emosi jelas + akhir terkuat; jangan habis dengan CTA |
-| Penonton memutuskan tetap/pergi di awal; pembuka harus menepati janji judul/thumbnail | Dokumen "How to Succeed in MrBeast Production" (bocor 2024, keaslian dikonfirmasi beberapa mantan staf) | Kalimat 1 = konfirmasi judul |
-| Hubungan antar-beat "tapi/maka" lebih menegangkan dari "lalu" | Trey Parker & Matt Stone, kuliah NYU | Setiap transisi beat = TAPI atau MAKA |
-| Replay dihitung view sejak 31 Mar 2025; monetisasi tetap engaged views | TechCrunch 26/3/2025; pernyataan YouTube | Ending yang menyambung ke frame 0 (loop) menambah view; tetap jangan menipu |
-| Pemenang di niche kita: Skinner Box 26,7 jt (42 dtk, ±85 kata), Beer Tsunami 4,3 jt; referensi animasi ifverse: 129 kata/mnt saat bicara, VO mengisi 75% durasi | transkrip vidIQ; pengukuran sendiri (`research/referensi/ANALISA_IFVERSE.md`) | 85–110 kata; ruang 20–25% tanpa kata untuk aksi/SFX |
-| #001 2,15 kata/dtk (101 kata ≈ 47 dtk); #002 2,28 kata/dtk (102 kata = 44,8 dtk), Saos Cocol eleven_v4 | pengukuran VO kita | Anggaran kata = durasi × 2,2 |
+| Pesan kunci ≤ 3 dtk di video ber-CTR tertinggi | TikTok Auction Ads Creative Tips (data iklan) | Hook = pesan inti ≤ 3 dtk, tanpa pembuka |
+| "Stayed to watch" = metrik hook; < 60% jarang berhasil, 70–90% unggul | YouTube Help 12220281; Galloway 2023 (5.400 Shorts) | Target ≥ 70%; hook diuji dulu |
+| Penasaran = celah informasi **kecil dan terasa bisa ditutup** | Loewenstein 1994 | Hook beri konteks + satu celah spesifik |
+| Hasil di depan → penasaran; ditunda → suspense; tak terduga → kejutan | Brewer & Lichtenstein 1982 | Hook buka akibat; tengah tunda jawaban; twist ±70% |
+| Penonton "terbawa" cerita lebih ingat | Green & Brock 2000 | Satu tokoh + gambar konkret |
+| Dinilai dari puncak dan akhir | Kahneman & Fredrickson 1993 | Satu puncak emosi + akhir terkuat; tanpa CTA |
+| Kalimat 1 = konfirmasi judul | dokumen MrBeast Production (bocor 2024) | Kalimat 1 menyatakan hal yang sama dengan judul |
+| "Tapi/maka" lebih menegangkan dari "lalu" | Parker & Stone | Transisi beat = TAPI atau MAKA |
+| Replay dihitung view sejak 31 Mar 2025 | TechCrunch 26/3/2025 | Penutup yang menyambung ke frame 0 (loop) menambah view |
+| Pemenang niche: Skinner Box 26,7 jt (42 dtk, ±85 kata), Beer Tsunami 4,3 jt | transkrip vidIQ | 85–145 kata; sisakan ruang tanpa kata untuk aksi |
+| Tempo VO tidak membedakan laku/gagal (median 2,21 vs 2,23, p = 0,998); #002 2,24 = terlalu lambat; #004 2,66 dipilih user | `RISET_VO_TEMPO.md` | Anggaran kata = durasi × 2,66 (aman 2,5–2,8) |
 
 ### F2. Lembar kerja (urut, jangan dilompati)
-1. **Satu kalimat cerita:** "[Tokoh/objek] melakukan [X] dengan niat [Y], **tapi** [mekanisme tersembunyi], **maka** [akibat yang menyangkut penonton], dan [twist/pengakuan]." Kalau tidak bisa ditulis, cerita belum siap.
-2. **Pertanyaan penonton** (celah Loewenstein): satu pertanyaan yang muncul di detik 3 dan **dijawab eksplisit** sebelum akhir. Tulis juga jawabannya dalam satu kalimat yang bisa diceritakan ulang ke teman.
-3. **Untuk wilayah 2:** jawaban = mekanisme tiga lapis: psikologi (bias apa), desain (fitur apa), uang (siapa untung, bagaimana).
-4. **Daftar fakta** dari fact sheet yang dipakai (maks 5 angka/klaim; sisanya ke deskripsi). Tandai shock score; pakai yang ≥ 80.
-5. **10 hook** (pola di F4), nilai 4U, pilih satu; hook = judul = teks frame 0 = gambar frame 0.
-6. **Tulis 7 beat** dengan anggaran kata (F3). Tiga track sekaligus: VO · teks layar · gambar.
-7. **Pass bahasa** (F5) + `humanizer`, lalu **baca keras dengan stopwatch**.
-8. **Scorecard** (F6): semua lulus → kirim ke user. Ada yang gagal → perbaiki beat itu saja, bukan menulis ulang.
+1. **Satu kalimat cerita:** "[Tokoh/objek] melakukan [X] dengan niat [Y], **tapi** [mekanisme tersembunyi], **maka** [akibat yang menyangkut penonton], dan [twist/pengakuan]." Tidak bisa ditulis = belum siap.
+2. **Pertanyaan penonton:** satu pertanyaan di detik 3 yang **dijawab eksplisit**; tulis jawabannya satu kalimat yang bisa diceritakan ulang. Janji pilar ("alasan ASLI di balik hal yang kamu kenal") harus dibayar dengan satu kalimat yang menyentuh pengalaman penonton.
+3. **Wilayah 2:** jawaban = mekanisme: psikologi, desain, uang.
+4. **Daftar fakta** (maks 5 angka/klaim; sisanya ke deskripsi). Yang tidak diketahui tidak diucapkan; yang diperdebatkan "kata X / dibantah".
+5. **Tulis banyak varian hook** (F4), pilih satu; hook = judul = teks frame 0 = gambar frame 0.
+6. **Tulis 7 beat** (F3): tiga track sekaligus VO · teks layar · gambar. Pertanyaan eksplisit hanya di titik yang terdengar seperti akhir cerita (2–3 per video), dijawab setengah.
+7. **Pass bahasa** (F5) + `humanizer`; **uji POV penonton baru**: siapa melakukan apa ke siapa, akibatnya apa; jargon dijelaskan; kata kerja punya objek. Baca keras dengan stopwatch.
+8. **Scorecard** (F6) + gerbang (F7): semua lulus → kirim. Ada yang gagal → perbaiki beat itu saja.
 
-### F3. Kerangka 7 beat (45 dtk ≈ 100 kata; skala linier untuk 35–60 dtk)
-| Beat | Waktu | Kata | Tugas | Aturan |
-|---|---|---|---|---|
-| 1 HOOK | 0–3 | 8–12 | **benda/tempat/merek yang dikenal + kontradiksi atau akibat mustahil** | konfirmasi judul; benda di kata 1–3; tanpa "Tahukah kamu/Pada tahun/Kali ini"; frame 0 = benda itu, besar |
-| 2 SETUP | 3–9 | 12–16 | anggapan umum ("semua orang kira…") atau tokoh + niat awal | waktu/tempat hanya di layar; **kartu ARSIP overlay** di sini |
-| 3 TAPI (alasan asli dimulai) | 9–17 | 14–18 | adegan cerita yang membuka alasan asli (tokoh, tempat, momen konkret) | cerita dengan adegan, bukan definisi; tanpa istilah teknis di depan |
-| 4 MAKA | 17–24 | 10–14 | akibat langsung pada penonton | gambar konkret, bukan istilah |
-| 5 MAKA (taruhan naik) | 24–30 | 10–14 | siapa memanfaatkan / uang / skala | angka hanya bila membuka mata |
-| 6 TAPI (twist) | 30–37 | 14–18 | pengakuan, bukti, atau fakta yang membalik pandangan (±70% durasi) | puncak emosi (peak); jeda 0,3–0,6 dtk sebelumnya |
-| 7 PUNCHLINE + LOOP | 37–45 | 10–16 | jawaban eksplisit dalam satu kalimat yang bisa diceritakan ulang → punchline/fakta penutup → **penutup**: default #004 = satu pertanyaan konkret ke pengalaman penonton (loop jahitan R4 hanya opsional, belum terbukti di data kita; penutup pertanyaan menang 7/8) | **bukan nasihat**; boleh satu pertanyaan ringan & konkret yang mengundang pengalaman ("di kotamu harganya berapa?"); tanpa CTA |
+### F3. Kerangka 7 beat (45–55 dtk ≈ 120–145 kata; skala linier)
+| Beat | ±Waktu | Tugas | Aturan |
+|---|---|---|---|
+| 1 HOOK | 0–3 dtk | **subjek dikenal + akibat berangka + sebab kecil/kontradiksi** ("Aqua didenda Rp13,8 miliar. Gara-gara warung kayak gini…") | konfirmasi judul; subjek di kata 1–3; kata tunjuk yang terhubung ke visual; tanpa "Tahukah kamu"; frame 0 = subjek itu, besar |
+| 2 SETUP | 3–10 | anggapan umum atau tokoh + niat; "Kok bisa?" | waktu/tempat hanya di layar; kartu ARSIP overlay |
+| 3 TAPI | 10–20 | adegan yang membuka alasan asli | cerita dengan adegan, bukan definisi; istilah dijelaskan lisan singkat |
+| 4 MAKA | 20–30 | akibat/benturan; titik yang terdengar selesai → pertanyaan eksplisit + jawab setengah ("Aqua bebas? Belum.") | gambar konkret |
+| 5 MAKA (bukti/taruhan naik) | 30–40 | bukti, uang, skala; bantahan pihak lain bila ada | angka hanya bila membuka mata |
+| 6 TAPI (twist) | ±65–75% | pengakuan/bukti/pembalikan | puncak emosi; jeda ≤ 0,3 dtk sebelumnya |
+| 7 PAYOFF + PENUTUP | akhir | jawaban pilar eksplisit satu kalimat → punchline → **penutup** | bukan nasihat; tanpa CTA |
+**Penutup.** *Default: loop jahitan*, kalimat terakhir terpotong dan diselesaikan oleh kalimat pertama (R4). *Varian: satu pertanyaan konkret ke pengalaman penonton* ("Warung dekat rumahmu jual merek apa aja?"), dipakai #004; di data transkrip penutup pertanyaan 7/8 top, loop jahitan belum teruji di data kita. Pilih loop bila kalimat pertama kuat dan menyambung natural; pilih pertanyaan bila topiknya menyentuh pengalaman sehari-hari dan loop terdengar dipaksa. Jawaban bertahap + loop bertumpuk: `8-hook-dan-judul.md` §F.
 
-### F4. Pola hook yang terbukti (pilih dari sini dulu)
-0. **Benda dikenal + bantahan (utama, v4):** "Ini [benda/merek]. Tapi [anggapan] itu salah." / "[Benda] ini [fakta mustahil]." (Dyson 6,7 jt: "This is the Dyson bladeless fan, but it isn't actually bladeless"; "Bananas are berries, strawberries aren't" 5,8 jt; "Perang ini cuma 40 menit" 4,3 jt; panjat pinang 2,1 jt)
-1. **Pengakuan pembuat:** "Pria ini merancang [hal yang kamu pakai]… dan dia menyesal." (#002 — **gagal: 37,2% stayed**; pakai hanya dengan benda konkret di kata 1–3)
-2. **Kontradiksi:** "Banjir ini bukan datang dari sungai." (#001)
-3. **Mekanisme di tanganmu:** "Jempolmu baru saja melakukan [X], dan itu disengaja."
-4. **Angka yang tidak masuk akal:** "[Angka] [satuan] … dari [hal sepele]."
-5. **Satu kesalahan kecil:** "Satu [benda kecil] membuat [akibat besar]."
-6. **Yang tidak pernah seharusnya ditemukan:** "Mereka tidak pernah seharusnya menemukan ini."
-Lulus bila: spesifik (ada objek/angka/tokoh), jujur (dibayar oleh isi), bisa digambar dalam satu frame, ≤ 12 kata.
+### F4. Pola hook (pilih menurut jenis cerita; rumus lengkap `8-hook-dan-judul.md` §B)
+0. **Subjek dikenal + akibat berangka + sebab kecil (utama, uang/denda/putusan/harga):** "[Merek] didenda [angka]. Gara-gara [hal kecil]." Angka/uang di judul +6,4/+8,6 poin breakout.
+1. **Subjek dikenal + bantahan:** "Ini [benda]. Tapi [anggapan] itu salah." (Dyson 6,7 jt; "Perang ini cuma 40 menit" 4,3 jt)
+2. **Pengakuan pembuat:** hanya dengan benda konkret di kata 1–3 (#002 gagal 37,2%).
+3. **Kontradiksi:** "Banjir ini bukan datang dari sungai." (#001)
+4. **Angka tak masuk akal / satu kesalahan kecil / yang tak seharusnya ditemukan.**
+Lulus bila: spesifik, jujur (dibayar isi), terpahami **sekali baca/lihat**, bisa digambar satu frame, ≤ 12 kata.
 
 ### F5. Bahasa VO
-- Lisan santai-sopan (bikin, nggak, ngaku, udah); kutipan tokoh baku dan terdengar seperti orang Indonesia bicara.
-- Kalimat ≤ 12 kata, satu kalimat = satu gambar; kata kerja aktif; sapa "kamu" secukupnya (tidak wajib 3×).
-- **Nada v4:** santai, sedikit jahil/lucu, seperti teman yang baru tahu rahasia; bukan guru atau penceramah. Tanpa istilah bias/teori di depan ("efek angka kiri", "chasing losses"); istilah boleh di akhir bila membantu.
-- Peran sebelum nama; nama asing hanya bila dikenal/berulang (≤ 2 nama per video).
-- Dilarang: "bukan X tapi Y", penutup fragmen yang mengulang, triad paksa, kata megah, statistik yang tidak dibutuhkan beat.
-- Tanda baca = arahan baca: elipsis untuk jeda berpikir, titik untuk berhenti, satu kata kapital per video untuk tekanan.
-- **Tag ElevenLabs (Saos Cocol, eleven_v4)** hanya di titik perubahan emosi: [curious] hook · [warmly] setup · [mysteriously] TAPI · [serious] akibat · [pause][softly][slowly] kutipan/twist · [warmly] penutup. Dua take, pilih; cek pelafalan nama, durasi ±10% dari target.
+- Lisan santai-sopan (bikin, nggak, ngaku, udah); kata yang paling dipahami penonton ("email", bukan "surel"). Kalimat ≤ 12 kata, satu kalimat = satu gambar; kata kerja aktif **dengan objek jelas**.
+- **Nada:** santai, sedikit jahil, seperti teman yang baru tahu rahasia. Tanpa istilah bias/teori di depan. Lembaga/istilah dijelaskan ≤ 4 kata lisan ("KPPU, wasitnya persaingan bisnis"; "bintangnya dicopot", bukan "wholesaler").
+- Peran sebelum nama; ≤ 2 nama per video. Dilarang: "bukan X tapi Y", penutup fragmen yang mengulang, triad paksa, kata megah, statistik yang tidak dibutuhkan beat.
+- Tanda baca = arahan baca (elipsis jeda berpikir, titik berhenti, satu kapital per video).
+- **Tag ElevenLabs (Saos Cocol, eleven_v4)** hanya di titik perubahan emosi: [curious] hook · [warmly] setup · [mysteriously] TAPI · [serious] akibat · [pause][slowly] twist · [warmly] penutup. Dua take; cek pelafalan (KPPU per huruf, angka diucap penuh), durasi; tempo `3-audio.md` §I.
 
-### F7. Gerbang 3 detik + rantai retensi (v3.1, lahir dari data #002: 37,2% stayed to watch)
-**Diagnosis #002 (diukur dari `vo_words.json`):** objek hook kabur ("fitur yang lagi kamu pakai" — fitur apa?), jeda hening 0,54 dtk di dtk 2,42–2,96, kata kunci "menyesal" baru terdengar di 3,94–4,6 dtk (di luar jendela 3 dtk), frame 0 = pria + pantulan feed (gelap, pelan, mirip isi feed itu sendiri), lalu dtk 4,6 langsung "Tahun 2006, Aza Raskin" (tanggal + nama asing = titik buang kedua). Rubrik internal memberi hook 9/10 → **rubrik kita terlalu murah hati; data menang atas penilaian sendiri.**
-
-**Gerbang hook (semua wajib; gagal satu = tulis ulang hook):**
-| # | Aturan | Ukuran lulus |
-|---|---|---|
-| H1 | Kalimat pertama = benda + klaim langsung (v4.1) | selesai ≤ 4 dtk (median pemenang 3,7 dtk; aturan lama ≤ 2,0 dtk dicabut — `RISET_STRUKTUR_SCRIPT.md`); tanpa sapaan/template ("Halo guys", "Tahukah kamu") |
-| H2 | Benda konkret di kata 1–3 | kata benda yang bisa digambar (mesin slot, tangki, kapal), bukan "fitur/hal/pria ini" |
-| H3 | Tanpa jeda di jendela 3 dtk | tidak ada hening > 0,25 dtk sebelum dtk 3 (elipsis hook dihapus); tanpa tag [pause] di hook |
-| H4 | Frame 0 = momen paling aneh, bergerak, terang | gerak terlihat ≤ 0,3 dtk; kontras tinggi; **jangan** meniru tampilan feed (layar HP di layar HP = kamuflase) |
-| H5 | Teks frame 0 untuk penonton tanpa suara | ≤ 5 kata, sudah tampil di frame 0 (tanpa animasi masuk), menyatakan kontradiksi, bukan emosi |
-| H6 | Suara di frame 0 | VO + satu SFX yang menyatakan kejadian (bukan musik pelan) mulai di 0,00 |
-| H7 | Tanpa tanggal/nama di VO 10 dtk pertama | waktu/tempat hanya stempel layar; nama tokoh hanya bila terkenal |
-
-**Rantai retensi (tengah sampai akhir):**
-| # | Aturan | Ukuran lulus |
-|---|---|---|
-| R1 | Loop terbuka berantai | sebelum menjawab satu pertanyaan, tanam yang berikut ("dan itu baru trik pertama"); maks 10 dtk tanpa pertanyaan terbuka; janji harus dibayar |
-| R2 | Tiap kalimat = aksi/gambar | tidak ada kalimat yang hanya konteks/data tanpa kejadian di layar |
-| R3 | Re-hook di 40–55% | eskalasi visual + kalimat pembuka babak baru |
-| R4 | Loop tanpa jahitan (**opsional**; #004 memakai penutup pertanyaan, lihat `8-hook…` §F) | kalimat terakhir terpotong dan **diselesaikan** oleh kalimat pertama (dibaca berurutan = satu kalimat utuh) |
-| R5 | Panjang | wilayah 2: 40–46 dtk sampai data APV kita sendiri berkata lain |
-| R6 | Kartu ARSIP KASUS jadi **overlay** | stempel/kartu kecil di atas aksi yang tetap bergerak, ≤ 1,3 dtk; tidak boleh layar penuh yang menghentikan cerita |
-
-### F8. Revisi v4.1 dari sprint riset (13 Nov 2026)
-| Aturan | Bukti | Kekuatan |
-|---|---|---|
-| **Anggaran kata = durasi × 2,66** (keputusan #004: 2,66 kata/dtk; rentang aman 2,5–2,8; #002 2,24 = terlalu lambat; tempo tidak membedakan laku/gagal, `RISET_VO_TEMPO.md`) | RISET_STRUKTUR_SCRIPT, RISET_AUDIO_CAPTION_META | sedang |
-| Jawaban mulai dibuka ±15–25% durasi (median pemenang 17%); twist 50–90% (65–75% = pusat, bukan syarat) | RISET_STRUKTUR_SCRIPT | lemah |
-| Penutup: punchline (5/6 top) **atau** satu pertanyaan ringan ke penonton (7/8 top); CTA subscribe bukan penutup | RISET_STRUKTUR_SCRIPT | sedang |
-| Tokoh/dalang dianjurkan, tidak wajib | RISET_STRUKTUR_SCRIPT | lemah |
-| **Judul:** sebut benda/merek konkret, 6–8 kata (31–60 karakter), **pakai angka konkret** bila ada (22,4% vs 16,3%); "ternyata/rahasia/real reason", "Kenapa"/tanda tanya, CAPS, emoji, "!", hashtag di judul = tidak membantu | RISET_JUDUL (7.421 Shorts) | angka & panjang: sedang–kuat; sisanya tidak terbukti |
-| Deskripsi/hashtag/tag tidak membedakan performa → cukup sumber + 3 hashtag, jangan habiskan waktu | RISET_AUDIO_CAPTION_META | lemah |
-
-### F6. Scorecard script (semua harus LULUS sebelum dikirim ke user)
-**Cek v4 tambahan:** V1 benda/tempat/merek dikenal penonton ID di kata 1–3 · V2 jawaban tidak tertebak (shock ≥ 80; bila jawaban = yang sudah diduga penonton, ganti sudut/topik) · V3 ada tokoh/dalang/momen konkret · V4 penutup punchline, bukan nasihat · V5 tanpa sponsor/promo/CTA.
+### F6. Scorecard script (semua LULUS sebelum dikirim)
+V1 subjek dikenal ID di kata 1–3 · V2 jawaban tidak tertebak · V3 ada tokoh/dalang/momen konkret · V4 penutup bukan nasihat · V5 tanpa sponsor/promo/CTA.
 | # | Cek | Lulus bila |
 |---|---|---|
-| 1 | Konfirmasi judul | kalimat 1 menyatakan hal yang sama dengan judul, ≤ 3 dtk |
-| 2 | Celah | pertanyaan penonton bisa ditulis dalam 1 kalimat dan muncul ≤ 3 dtk |
-| 3 | Jawaban | pertanyaan itu dijawab eksplisit sebelum detik terakhir |
-| 4 | Mekanisme (wil. 2) | psikologi + desain + uang ada, masing-masing ≤ 2 kalimat |
-| 5 | Tapi/maka | setiap transisi beat bisa disambung "tapi" atau "maka" |
-| 6 | Uji hapus | menghapus beat mana pun merusak cerita (kalau tidak rusak, beat dibuang) |
-| 7 | Satu tokoh | satu tokoh/objek pusat; tokoh lain hanya fungsi |
-| 8 | Twist | ada di 65–75% durasi dan mengubah cara pandang |
-| 9 | Akhir | kalimat terakhir menyambung ke kalimat pertama; tanpa CTA |
-| 10 | Faktual | setiap kalimat cocok dengan fact sheet (≥ 2 sumber per klaim) |
-| 11 | Bahasa | lolos F5 + `humanizer`; dibaca keras tanpa tersandung |
-| 12 | Durasi | kata = target × 2,6 (±8%) (v4.1); stopwatch dalam ±10% |
-| 13 | Bisu | versi teks layar + gambar saja tetap bisa diikuti |
-| 14 | Visual | setiap kalimat punya satu gambar yang bisa dibuat dengan kit |
-Plus **H1–H7 dan R1–R6 dari F7** (diukur pada VO jadi: cek ulang H1/H3 dari `vo_words.json` sebelum storyboard).
-Laporkan scorecard ke user bersama script (14 baris + gerbang F7, lulus/gagal + catatan).
+| 1 | Konfirmasi judul | kalimat 1 = hal yang sama dengan judul, ≤ 3 dtk |
+| 2 | Celah | pertanyaan penonton satu kalimat, muncul ≤ 3 dtk |
+| 3 | Jawaban | dijawab eksplisit sebelum detik terakhir; janji pilar dibayar |
+| 4 | Mekanisme (wil. 2) | psikologi + desain + uang, masing-masing ≤ 2 kalimat |
+| 5 | Tapi/maka | tiap transisi beat bisa disambung "tapi"/"maka" |
+| 6 | Uji hapus | menghapus beat mana pun merusak cerita |
+| 7 | Satu tokoh | satu tokoh/objek pusat |
+| 8 | Twist | di 65–75% durasi, mengubah cara pandang |
+| 9 | Akhir | loop jahitan (default) atau penutup pertanyaan (varian); tanpa CTA |
+| 10 | Faktual | tiap kalimat cocok dengan fact sheet (≥ 2 sumber/klaim); yang tidak diketahui tidak diucapkan |
+| 11 | Bahasa | lolos F5 + `humanizer`; kata paling dipahami; dibaca keras tanpa tersandung |
+| 12 | Durasi | kata = durasi × 2,66 (±8%); stopwatch ±10% |
+| 13 | Bisu | versi teks layar + gambar saja bisa diikuti |
+| 14 | Visual | tiap kalimat punya gambar yang bisa dibuat dengan kit; benda yang disebut terlihat |
+| 15 | POV penonton | tidak ada jargon tak dijelaskan, kata kerja tanpa objek, atau kalimat yang terdengar seperti akhir tanpa jembatan |
+| 16 | Kemasan aman | atribusi di kalimat sesudah hook, bantahan disebut, tidak menyiratkan praktik masih berjalan, tahun di layar, tidak terkesan iklan merek |
+
+### F7. Gerbang 3 detik + rantai retensi
+**Diagnosis #002 (37,2% stayed):** objek hook kabur, jeda 0,54 dtk di detik 2,4–3,0, kata kunci baru di 3,9–4,6 dtk, frame 0 gelap dan pelan, tanggal + nama asing di detik 4,6. Rubrik internal memberi 9/10: **data menang atas penilaian sendiri.**
+| # | Gerbang hook (gagal satu = tulis ulang) | Ukuran lulus |
+|---|---|---|
+| H1 | Kalimat pertama = subjek + klaim langsung | selesai ≤ 4 dtk (median pemenang 3,7; aturan lama ≤ 2 dtk dicabut); tanpa sapaan |
+| H2 | Subjek konkret di kata 1–3 | bisa digambar, bukan "fitur/hal/pria ini" |
+| H3 | Tanpa jeda di 3 dtk pertama | hening ≤ 0,25 dtk; tanpa [pause] di hook |
+| H4 | Frame 0 = momen paling aneh, bergerak, terang | gerak ≤ 0,3 dtk; jangan meniru tampilan feed |
+| H5 | Teks frame 0 untuk penonton tanpa suara | ≤ 5 kata, tampil tanpa animasi masuk |
+| H6 | Suara di frame 0 | VO + satu SFX yang menyatakan kejadian mulai di 0,00 |
+| H7 | Tanpa tanggal/nama di VO 10 dtk pertama | waktu/tempat hanya stempel layar |
+| # | Rantai retensi | Ukuran lulus |
+|---|---|---|
+| R1 | Loop terbuka berantai | sebelum menjawab satu pertanyaan, buka yang berikut; maks 10 dtk tanpa pertanyaan terbuka; janji dibayar |
+| R2 | Tiap kalimat = aksi/gambar | tidak ada kalimat konteks tanpa kejadian di layar |
+| R3 | Re-hook di 40–55% | eskalasi visual + kalimat pembuka babak baru |
+| R4 | Penutup loop jahitan (default) | kalimat terakhir terpotong dan diselesaikan kalimat pertama; varian: pertanyaan konkret |
+| R5 | Panjang | 40–60 dtk; panjangkan hanya bila tiap kalimat membuka/membayar loop |
+| R6 | Kartu ARSIP KASUS = overlay | ≤ 1,3 dtk di atas aksi yang tetap bergerak |
+**Aturan tambahan dari riset (13 Nov):** jawaban mulai dibuka ±15–25% durasi (median 17%, lemah); judul: subjek konkret, 6–8 kata, angka bila ada (22,4% vs 16,3%), "ternyata/rahasia/Kenapa", CAPS, emoji, "!", hashtag di judul tidak membantu (`RISET_JUDUL.md`, 7.421 Shorts); deskripsi/hashtag/tag tidak membedakan performa → sumber + 3 hashtag saja.
+Laporkan scorecard (16 baris) + gerbang H1–H7/R1–R6 ke user bersama script, lulus/gagal + catatan; H1/H3 dicek ulang dari `vo_words.json` setelah VO jadi.
 
 ## G. Prinsip pendukung
 Concrete hook · curiosity gap kecil · eskalasi taruhan · information economy · variasi tempo (kalimat pendek setelah hening) · narasi dan visual saling melengkapi · emotional payoff · akhir yang menyisakan bahan diskusi. **Ketegangan butuh jeda**: beri 0,3–0,6 dtk sebelum reveal; bangun rasa penasaran, bukan kelelahan.
