@@ -1,5 +1,5 @@
 # Upload — ARSIP KASUS #004 Aqua
-**File:** `renders/ARSIP_004_aqua_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 53,6 dtk · LUFS_TBD
+**File:** `renders/ARSIP_004_aqua_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 53,6 dtk · −14,2 LUFS, puncak −1,4 dBFS · 45 MB (preview CRF 28: `renders/ARSIP_004_aqua_v1_preview.mp4`)
 **Gaya:** ARSIP Kolase · **QA audio:** margin VO terburuk 20,0 dB, tidak ada kata < 8 dB, Whisper mix 119/142 vs VO 121/142. Selisih dua kata ("didenda") juga muncul saat musik dan foley dibisukan, jadi selisihnya berasal dari normalisasi level VO di mixer, bukan dari kata yang tertutup.
 
 ## Judul (43 karakter)

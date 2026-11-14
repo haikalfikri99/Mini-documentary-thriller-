@@ -235,7 +235,12 @@ bake.py + film.js selesai; 22 shot sesuai tabel di atas (dengan perubahan shot 9
 ## Storyboard v2 (14 Nov) — artifact https://claude.ai/artifact/Gk2GAV8wRuJ2UFh9jEoczU · `kolase/board/storyboard_v2.jpg` ✋
 Review user lewat komentar artifact (S01, S07, S10–S13, S15, S17–S20). Perubahan: Aqua = pabrik (`pabrik`) + "pihak AQUA" (`bos_bantah`/`bos_lega`/`bos_lemas`, wajah generik); KPPU = wasit (`wasit_tiup` + `kantor` S09, `wasit_kartu` S10, `wasit_kartu_m` cermin S11, `wasit_map` S17); S20 = botol air di kursi terdakwa (`botol_sidang`, zoom 2,6→1,0, label "terdakwa: air putih"); cap = tinta transparan pekat + pendar kertas (bukan kartu); S10 cap DIDENDA di pabrik, label KPPU di wasit. Gambar AI dibuat user (Google Flow), dicatat di `SOURCES.jsonl`.
 
-## Lanjut setelah /compact
+## Status 14 Nov: film v1 selesai ✋
+- `renders/ARSIP_004_aqua_v1.mp4` (gitignored): 53,6 dtk · −14,2 LUFS · margin VO 20 dB · Whisper mix 119/142 vs VO 121/142. Selisihnya tetap ada saat musik dan foley dibisukan, jadi bukan masking (lihat `3-audio.md` §H).
+- Drive `Mini Thriller IDN/004 Aqua`: UPLOAD (.txt), cover detik 0,6, storyboard v2. Video final diunggah user.
+- Tunggu catatan user tentang film (musik/foley/visual) → revisi v2, atau upload.
+
+## Lanjut setelah /compact (lama)
 1. Tunggu user bilang storyboard oke (atau "cek komentar": baca `ArtifactComments read`, jawab di chat, perbarui kotak "Revisi v2" lewat `scratchpad/sb004/gen.py` bila masih ada; bila scratchpad hilang, buat ulang halaman dari keyframe `node kit/tools/keyframes_2d.mjs stories/aqua/kolase`).
 2. `score_full.py` + `fullmix.py` (contoh `stories/micin/kolase/`), lalu `kit/tools/make_kolase.sh stories/aqua/kolase 1` → QA audio + contact sheet → kirim film.
 3. `UPLOAD.md` (judul "Aqua Didenda Rp13,8 Miliar Gara-Gara Warung", deskripsi + sumber + tahun 2017/2019 + bantahan Aqua + "tidak disponsori merek mana pun" + kredit gambar), Drive folder `Mini Thriller IDN/004 Aqua Didenda Rp13,8 Miliar Gara-Gara Warung`.
