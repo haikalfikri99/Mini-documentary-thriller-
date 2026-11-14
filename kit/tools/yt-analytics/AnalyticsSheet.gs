@@ -1,10 +1,8 @@
-/**
- * ARSIP KASUS: penarik analytics YouTube ke Google Sheet (hanya MEMBACA).
- * Jalan di Google Apps Script, di akun Google pemilik channel.
- * Layanan yang harus ditambahkan (Services +): "YouTube Analytics API" (id: YouTubeAnalytics)
- * dan "YouTube Data API v3" (id: YouTube). Jangan ubah id-nya.
- * Fungsi utama: jalankanSemua(). Opsional: pasangJadwalHarian(), linkSheet().
- */
+// ARSIP KASUS: penarik analytics YouTube ke Google Sheet (hanya MEMBACA).
+// Jalan di Google Apps Script, di akun Google pemilik channel.
+// Layanan yang harus ditambahkan (Services +): YouTube Analytics API (id: YouTubeAnalytics)
+// dan YouTube Data API v3 (id: YouTube). Jangan ubah id-nya.
+// Fungsi utama: jalankanSemua(). Opsional: pasangJadwalHarian(), linkSheet().
 var NAMA_SHEET = 'ARSIP Analytics - Mini Thriller IDN';
 var TZ = 'Asia/Jakarta';
 var KOLOM = ['views', 'engagedViews', 'estimatedMinutesWatched', 'averageViewDuration', 'averageViewPercentage',
@@ -63,7 +61,7 @@ function jalankanSemua() {
   });
 
   // 4) Tingkat channel: harian 90 hari, Shorts vs panjang, demografi, negara
-  var awal90 = tgl_(new Date(Date.now() - 90 * 864e5).toISOString());
+  var awal90 = tgl_(new Date(Date.now() - 7776000000).toISOString());
   seksi_(log, 'harian', function () {
     var r = q_(awal90, hariIni_(), ['views,engagedViews,estimatedMinutesWatched,subscribersGained', 'views,estimatedMinutesWatched,subscribersGained'],
               { dimensions: 'day', sort: 'day' });
@@ -105,7 +103,7 @@ function hapusJadwal() {
   });
 }
 
-/* ---------- pembantu ---------- */
+// ---------- pembantu ----------
 function ambilVideo_() {
   var ch = YouTube.Channels.list('contentDetails,snippet,statistics', { mine: true });
   if (!ch.items || !ch.items.length) throw new Error('Tidak ada channel untuk akun ini. Login dengan akun pemilik channel.');
@@ -151,7 +149,7 @@ function seksi_(log, nama, fn) { try { fn(); } catch (e) { log.push(nama + ': ' 
 function sheet_() {
   var props = PropertiesService.getScriptProperties();
   var id = props.getProperty('SSID');
-  if (id) { try { return SpreadsheetApp.openById(id); } catch (e) { /* dibuat ulang */ } }
+  if (id) { try { return SpreadsheetApp.openById(id); } catch (e) { id = null; } }
   var ss = SpreadsheetApp.create(NAMA_SHEET);
   props.setProperty('SSID', ss.getId());
   return ss;
@@ -180,5 +178,8 @@ function hariIni_() { return Utilities.formatDate(new Date(), TZ, 'yyyy-MM-dd');
 function tgl_(iso) { return Utilities.formatDate(new Date(iso), TZ, 'yyyy-MM-dd'); }
 function durasi_(iso) {
   var m = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/.exec(iso || '') || [];
-  return (Number(m[1] || 0) * 3600) + (Number(m[2] || 0) * 60) + Number(m[3] || 0);
+  // dikali lewat pembagian supaya skrip ini tidak memuat karakter bintang
+  var jam = Math.round(Number(m[1] || 0) / (1 / 3600));
+  var mnt = Math.round(Number(m[2] || 0) / (1 / 60));
+  return jam + mnt + Number(m[3] || 0);
 }
