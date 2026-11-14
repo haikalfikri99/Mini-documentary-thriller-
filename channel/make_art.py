@@ -27,9 +27,11 @@ def place(canvas, im, cx, cy, scale=1.0, rot=0.0, shadow=True, ink=False):
         sh = Image.new('RGBA', im.size, (58, 38, 20, 0)); sh.putalpha(a.point(lambda v: int(v * 0.38)))
         canvas.alpha_composite(sh, (x + max(4, im.width // 70), y + max(5, im.width // 55)))
     if ink:   # multiply ink onto the paper below
-        base = canvas.crop((x, y, x + im.width, y + im.height)).convert('RGB'); rgb = im.convert('RGB')
-        mul = Image.fromarray((np.asarray(base, float) * np.asarray(rgb, float) / 255).astype(np.uint8))
-        base.paste(mul, (0, 0), im.split()[3]); canvas.paste(base, (x, y))
+        x0, y0, x1, y1 = max(0, x), max(0, y), min(canvas.width, x + im.width), min(canvas.height, y + im.height)   # clamp to the canvas: crop() outside it returns black boxes
+        if x1 > x0 and y1 > y0:
+            sub = im.crop((x0 - x, y0 - y, x1 - x, y1 - y)); base = canvas.crop((x0, y0, x1, y1)).convert('RGB'); rgb = sub.convert('RGB')
+            mul = Image.fromarray((np.asarray(base, float) * np.asarray(rgb, float) / 255).astype(np.uint8))
+            base.paste(mul, (0, 0), sub.split()[3]); canvas.paste(base, (x0, y0))
     else:
         canvas.alpha_composite(im, (max(0, x), max(0, y)) if x >= 0 and y >= 0 else (0, 0)) if (x >= 0 and y >= 0) else _paste_clip(canvas, im, x, y)
 

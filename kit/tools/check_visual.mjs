@@ -15,7 +15,7 @@ import http from 'node:http'; import fs from 'node:fs'; import path from 'node:p
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url); const { chromium } = require('playwright');
 const args = process.argv.slice(2); const film = path.resolve(args[0]); const strict = args.includes('--strict');
-const STEP = +(args[args.indexOf('--step') + 1] || 0.25) || 0.25;
+const si = args.indexOf('--step'); const STEP = si >= 0 ? (+args[si + 1] || 0.25) : 0.25;
 const DUMP = args.includes('--dump') ? +args[args.indexOf('--dump') + 1] : null;   // --dump <t>: print every piece's opaque box at time t, then exit
 if (!fs.existsSync(path.join(film, 'lib'))) spawnSync('bash', [path.join(path.dirname(new URL(import.meta.url).pathname), 'links.sh')]);
 const types = { '.js': 'text/javascript', '.html': 'text/html', '.json': 'application/json', '.ttf': 'font/ttf', '.woff2': 'font/woff2' };
@@ -57,6 +57,7 @@ await p.goto(`http://127.0.0.1:${srv.address().port}/__cv.html`); await p.waitFo
 const START = await p.evaluate('window.START'); const DUR = await p.evaluate('window.DUR');
 const ep = JSON.parse(fs.readFileSync(path.join(film, 'episode.json'), 'utf8'));
 if (DUMP !== null) { const { rec } = await p.evaluate(t => window.sample(t), DUMP); for (const r of rec) console.log(`${r.n.padEnd(16)} x ${Math.round(r.x0)}–${Math.round(r.x1)}  y ${Math.round(r.y0)}–${Math.round(r.y1)}`); await b.close(); srv.close(); process.exit(0); }
+const TEXT = /^(s_|st_|tag_|r_|ry|rq|lbl_|m_)/;    // text-bearing parts (labels, stamps, ransom letters, marks)
 const serious = [], warn = []; const shotOf = t => { let i = START.length - 2; for (let j = 0; j < START.length - 1; j++) if (t < START[j + 1]) { i = j; break; } return i + 1; };
 // 1) START
 for (let i = 1; i < START.length; i++) if (!(START[i] > START[i - 1])) serious.push(`START tidak naik di indeks ${i}: ${START[i - 1]} → ${START[i]}`);
@@ -71,9 +72,10 @@ for (let i = 0; i <= N; i++) {
     if (diff < 0.35) { if (!still) stillFrom = t - STEP; still += STEP; } else { if (still > 2.5 + 1e-6) serious.push(`S${String(shotOf(stillFrom)).padStart(2, '0')} dead frame ${stillFrom.toFixed(2)}–${t.toFixed(2)} dtk (${still.toFixed(2)} dtk tanpa perubahan di area panggung)`); still = 0; } }
   prev = px;
   const seen = new Set();
+  if (i === 0 && !rec.some(r => r.w >= 486 && !TEXT.test(r.n))) warn.push('Frame 0 (t = 0): tidak ada gambar/objek non-latar selebar ≥ 486 px (45% lebar frame; label, stempel, dan slip tidak dihitung); objek utama harus besar sejak frame pertama');
   for (const r of rec) {
     if (r.w >= 900 || r.h >= 1000 || r.n === 'folder') continue;                       // backdrops + ARSIP folder overlay are exempt
-    const text = /^(s_|st_|tag_|ry|rq|lbl_|m_)/.test(r.n), [z0, z1] = text ? [1300, 1440] : [1210, 1536], bandDepth = Math.max(0, Math.min(r.y1, z1) - Math.max(r.y0, z0));
+    const text = TEXT.test(r.n), [z0, z1] = text ? [1300, 1440] : [1210, 1536], bandDepth = Math.max(0, Math.min(r.y1, z1) - Math.max(r.y0, z0));
     if (bandDepth >= (text ? 30 : 150)) { const key = `band:${r.n}`; seen.add(key); const cur = run[key] || (run[key] = { from: t, depth: 0, sev: text }); cur.depth = Math.max(cur.depth, bandDepth); cur.msg = x => `${r.n} masuk pita caption sedalam ${Math.round(x.depth)} px (${text ? 'teks di bawah caption' : 'gambar besar, hanya peringatan'})`; }
     const cut = Math.max(0, -r.x0, r.x1 - 1080, -r.y0), frac = cut / Math.max(1, Math.min(r.w, r.h));
     if (cut >= 20) { const key = `edge:${r.n}`; seen.add(key); const cur = run[key] || (run[key] = { from: t, depth: 0, sev: false }); cur.depth = Math.max(cur.depth, cut); cur.sev = cur.sev || frac >= 0.25; cur.msg = x => `${r.n} terpotong tepi frame ${Math.round(x.depth)} px`; }

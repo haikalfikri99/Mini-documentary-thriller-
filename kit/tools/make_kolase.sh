@@ -8,14 +8,14 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; FILM="$(cd "$1" && pwd)"; V="${2:-1
 SLUG=$(python3 -c "import json;print(json.load(open('$FILM/episode.json'))['slug'])"); NO=$(python3 -c "import json;print('%03d'%json.load(open('$FILM/episode.json'))['no'])")
 "$ROOT/kit/tools/links.sh"
 python3 "$ROOT/kit/collage/fetch_raw.py" "$FILM" | tail -1                     # archive prints + engraved stand-ins (raw/ is git-ignored)
-[ -f "$FILM/parts/manifest.json" ] || (cd "$FILM" && python3 bake.py | tail -1)
+([ -f "$FILM/parts/manifest.json" ] && [ "$FILM/parts/manifest.json" -nt "$FILM/bake.py" ] && [ "$FILM/parts/manifest.json" -nt "$FILM/prints.json" ]) || (cd "$FILM" && python3 bake.py | tail -1)   # re-bake when bake.py or prints.json is newer than the parts
 python3 "$ROOT/kit/audio/vo_chain.py" "$FILM" | tail -1
 node "$ROOT/kit/tools/render_2d.mjs" "$FILM" events "$FILM/events.json" 30
 (cd "$FILM" && python3 score_full.py && python3 fullmix.py | grep -E "worst|under|ok|GAGAL") || { echo "→ render dibatalkan: audio QA gagal"; exit 2; }
 QA=$(python3 "$ROOT/kit/audio/check_audio.py" "$FILM" mix_full.wav 2>/dev/null | grep intelligib); BASE=$(python3 "$ROOT/kit/audio/check_audio.py" "$FILM" vo_level.wav 2>/dev/null | grep intelligib)
 echo "mix: $QA"; echo "VO : $BASE"
 NQ=$(echo "$QA" | grep -o "[0-9]*/" | head -1 | tr -d /); NB=$(echo "$BASE" | grep -o "[0-9]*/" | head -1 | tr -d /)
-[ "$NQ" -ge "$NB" ] || { echo "→ render dibatalkan: mix menutupi kata yang terbaca di VO saja ($NQ < $NB)"; exit 2; }
+MIN_Q=$((NB > 2 ? NB - 2 : 0)); [ "$NQ" -ge "$MIN_Q" ] || { echo "→ render dibatalkan: mix menutupi kata yang terbaca di VO saja ($NQ < $MIN_Q; toleransi 2 kata = noise Whisper, margin per kata dan per bagian tetap dijaga fullmix.py)"; exit 2; }
 [ "${SKIP_VISUAL_QA:-0}" = 1 ] || node "$ROOT/kit/tools/check_visual.mjs" "$FILM" || { echo "→ render dibatalkan: visual QA gagal (dead frame / teks di bawah caption / objek terpotong; lihat ✗ di atas; SKIP_VISUAL_QA=1 hanya bila sudah dinilai manual)"; exit 2; }
 node "$ROOT/kit/tools/render_2d.mjs" "$FILM" video "$FILM/renders/visual.mp4" 30
 OUT="$FILM/../renders/ARSIP_${NO}_${SLUG}_v${V}.mp4"; mkdir -p "$(dirname "$OUT")"

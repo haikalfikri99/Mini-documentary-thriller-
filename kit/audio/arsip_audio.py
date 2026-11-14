@@ -17,7 +17,7 @@ hpf = lambda x, f: sosfilt(butter(2, f, 'high', fs=SR, output='sos'), x)
 T = lambda d: np.arange(int(d * SR)) / SR
 nz = lambda d: rng.standard_normal(int(d * SR))
 norm = lambda x: x / (np.abs(x).max() + 1e-9)
-rms = lambda x: np.sqrt((x[np.abs(x) > 1e-4] ** 2).mean())
+def rms(x): v = x[np.abs(x) > 1e-4]; return float(np.sqrt((v ** 2).mean())) if v.size else 1e-6    # safe on fully silent segments (no NaN)
 
 # —— sound library ——————————————————————————————————————————————————————————
 # impacts: thud stampS boom crack crackle lid · air/rooms: air hum fan roar groan · motion: whoosh swipe unroll step creak screech

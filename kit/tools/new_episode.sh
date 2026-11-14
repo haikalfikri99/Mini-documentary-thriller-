@@ -64,7 +64,7 @@ Penutup (default: Circular Reframe Loop; varian: pertanyaan reflektif):
 **VO bersih:**
 >
 
-## Scorecard (Formula v4.2, 16 cek + gerbang H1–H7/R1–R6)
+## Scorecard (Formula v5.0, 16 cek + gerbang H1–H7/R1–R6)
 
 ## Catatan lanjut
 README_TPL

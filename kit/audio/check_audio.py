@@ -1,6 +1,6 @@
 # Audio QA without ears (usage: python3 kit/audio/check_audio.py stories/<slug>/film [file]): (1) is the voice still intelligible in the final mix? whisper on the mix vs the script;
 # (2) do SFX land where planned? onset detection on the SFX stem vs the cue list; (3) a spectrogram to look at.
-import numpy as np, json, re, subprocess, wave
+import numpy as np, json, re, subprocess, wave, difflib
 from faster_whisper import WhisperModel
 SR = 48000
 def load(path, sr=16000):
@@ -13,10 +13,14 @@ m = WhisperModel('small', compute_type='int8')
 segs, _ = m.transcribe(load(sys.argv[2] if len(sys.argv) > 2 else 'mix_full.wav'), language='id', word_timestamps=True)
 heard = [norm(w.word) for s in segs for w in s.words]
 ref = [norm(w) for w in words]
-hit = sum(1 for w in ref if w in heard)
+# order-aware alignment: a common word that is heard anywhere (e.g. "aqua", "nggak") no longer counts as recognised everywhere it is scripted
+sm = difflib.SequenceMatcher(None, ref, heard, autojunk=False); matched = set()
+for blk in sm.get_matching_blocks(): matched.update(range(blk.a, blk.a + blk.size))
+hit = len(matched)
 print(f'intelligibility: {hit}/{len(ref)} script words recognised in the final mix ({100 * hit / len(ref):.0f}%)')
-print('missed:', [w for w in ref if w not in heard])
+print('missed:', [w for i, w in enumerate(ref) if i not in matched])
 # onsets on the SFX stem
+if not os.path.exists('stem_sfx.npy'): print('SFX onsets: skipped (no stem_sfx.npy; run fullmix.py first)'); sys.exit(0)
 x = np.load('stem_sfx.npy'); hop = 480; e = np.sqrt(np.convolve(x ** 2, np.ones(hop) / hop, 'same'))[::hop]
 d = np.diff(np.log(e + 1e-5)); on = [i * hop / SR for i in range(1, len(d)) if d[i] > 1.2 and e[i + 1] > 2e-3 and (i < 2 or d[i - 1] <= 1.2)]
 print('SFX onsets (s):', ' '.join(f'{t:.2f}' for t in on))

@@ -1,43 +1,44 @@
-# Score (template = #003 Micin): small period ensemble, one musical idea per act, written against the VO line times.
-# D minor with an F major turn for the breast-milk act. 120 bpm grid: one beat = 0.5 s. Written against the VO acts.
+# Score template (ARSIP Kolase v5.0): small period ensemble, one musical idea per segment, written against the VO word times.
+# EDIT: replace every time below with the real cue times from audio/vo_words.json (hook end, micro-rehooks, stamps, last word).
+# D minor "sneaky" for the scheme, F major for a warm/relieved moment; 120 bpm grid: one beat = 0.5 s. Timpani on verdict stamps; rule:
+# a loud hit goes on the stamp or right AFTER a spoken word, never on top of a key word (see references/3-audio.md §F/§H).
+# Segments (references/1-cerita-dan-script.md §F3): 1 hook 0–4 · 2A 4–16 · micro-rehook 1 16–18 · 2B 18–36 · micro-rehook 2 36–39 · 3–4 payoff 39–end
 import sys; sys.path.insert(0, '../../../kit/audio')
 from score_lib import *
+E3, Eb4, Cs4, Bb2 = 52, 63, 61, 46
 PIZZ, BSN, TUBA, CLAR, GLOCK, XYL, TIMP, WOOD, TREM = 0, 1, 2, 3, 4, 5, 6, 7, 8
 for ch, p in [(PIZZ, 45), (BSN, 70), (TUBA, 58), (CLAR, 71), (GLOCK, 9), (XYL, 13), (TIMP, 47), (WOOD, 115), (TREM, 44)]: prog(ch, p)
 reverb(range(10), 55)
-b = lambda i: i * 0.5
-# Act 1 · hook + the letter (0–11.1): sneaky pizzicato walk, bassoon answers
+END = 52.0                                                          # EDIT: = episode.json dur (last word + 0.15 s)
 walk = [D3, F3, A3, F3, D3, F3, A3, C4]
-for bar in range(0, 22):
-    t = b(bar)
-    if t > 11.0: break
-    note(PIZZ, walk[bar % 8], t, .3, 70 if bar % 2 == 0 else 52)
-note(TIMP, D2, 0.12, .8, 100)                                     # BODOH? stamp
-for t, n in [(1.7, A2), (2.2, D3), (4.0, F3), (4.5, E4 - 12), (5.0, D3), (7.0, A2), (8.0, D3), (9.3, F3), (10.2, A2)]: note(BSN, n, t, .45, 70)
-note(GLOCK, A5, 4.7, .8, 60)                                      # ARSIP file opens
-# Act 2 · doubt + newspaper + spread (11.1–22.3): woodblock clock, xylophone headlines
-for k in range(int((22.3 - 11.1) / .5)):
-    t = 11.1 + k * .5; note(WOOD, 76, t, .1, 50 if k % 2 else 64)
-    if k % 2 == 0: note(TUBA, [D2, A2, D2, A2][(k // 2) % 4], t, .35, 72)
-for i, n in enumerate([D5, F5, A5, F5, D5]): note(XYL, n, 16.4 + i * .08, .1, 80)   # MICIN! ransom letters
-for i, n in enumerate([A4, C5, D5, F5, A5]): note(XYL, n, 20.7 + i * .22, .12, 70)  # the news spreads
-# Act 3 · 1969 lab (22.3–33.1): tremolo strings, timpani on the needle and the brain
-note(TREM, D3, 22.3, 10.8, 46); note(TREM, A3, 22.3, 10.8, 40); note(TREM, F3, 27.4, 5.7, 40)
-for t, v in [(23.9, 80), (26.0, 110), (27.4, 95), (31.96, 110)]: note(TIMP, D2, t, .9, v)
-for k in range(8): note(PIZZ, [D3, C4 - 12 + 12, A2, D3][k % 4], 28.0 + k * .5, .25, 48)
-# Act 4 · the blind test + TERUNGKAP (33.1–39.0): thin clock, near-silence before the verdict, then the hit
-for k in range(5): note(WOOD, 77, 33.2 + k * .5, .08, 44)
-note(TIMP, D2, 38.31, 1.6, 120); note(TUBA, D2, 38.31, 1.2, 100); note(GLOCK, D5, 38.31, 1.0, 70)
-# Act 5 · glutamate in breast milk (39.0–48.5): F major music box, warm clarinet
-melody = [(39.2, F4), (39.7, A4), (40.2, C5), (40.7, A4), (41.2, G4), (42.2, F4), (43.1, A4), (43.6, C5), (44.1, F5), (45.0, E5), (46.0, F5), (46.9, C5), (47.5, A4)]
-for t, n in melody: note(GLOCK, n + 12, t, .5, 58)
-for t, n, d in [(39.0, F3, 2.0), (41.0, C4, 2.0), (43.0, F3, 2.0), (45.0, A3, 1.5), (46.5, C4, 2.0)]: note(CLAR, n + 12, t, d, 52)
-for k in range(19): note(PIZZ, [F3, C4 - 12, A2 + 3, C4 - 12][k % 4], 39.0 + k * .5, .25, 46)
-# Act 6 · 2018 + the denial (48.5–54.3): sneaky bassoon in D minor again, xylophone on "taruhan"
-for t, n in [(48.6, D3), (49.1, F3), (49.6, E4 - 12), (50.1, D3), (51.0, A2), (51.5, C4 - 12), (52.0, D3)]: note(BSN, n, t, .4, 68)
-for k in range(11): note(PIZZ, [D3, A2][k % 2], 48.5 + k * .5, .25, 50)
-note(TIMP, D2, 53.4, .9, 105)                                     # DIBANTAH
-# Out (54.3–56.6): the walk returns so the loop lands back on bar 1
-for k in range(5): note(PIZZ, walk[k], 54.3 + k * .5, .3, 62)
-note(BSN, A2, 55.8, .7, 60)
+def pizz(t0, t1, seq, v0=62, v1=50):                                # steady pizzicato pulse on the 0.5 s grid
+    k, t = 0, t0
+    while t < t1 - .05: note(PIZZ, seq[k % len(seq)], t, .28, v0 if k % 2 == 0 else v1); k += 1; t += .5
+# 1 · HOOK (0–4): stamp slam on frame 0, tuba waits for the end of the first spoken word, then the sneaky walk
+note(TIMP, D2, 0.14, .5, 96); note(TUBA, D2, 0.6, .9, 92); note(GLOCK, D5, 0.6, .6, 50)
+pizz(0.6, 4.0, walk)
+# 2A · RULES OF THE GAME (4–16): the mechanism in plain words; glockenspiel sparkle on the first object/label that lands
+pizz(4.0, 16.0, [D3, A2, F3, A2], 58, 46)
+note(GLOCK, A5, 5.0, .6, 58)                                        # EDIT: object / label lands
+for t, n in [(8.0, F3), (10.0, A2), (12.5, D3)]: note(BSN, n, t, .45, 64)
+# MICRO-REHOOK 1 (16–18): expectation-breaker of 3–6 words — one dry woodblock + low bassoon sting, then drop the pulse
+note(WOOD, 76, 16.0, .1, 70); note(BSN, A2, 16.2, .5, 74); note(TIMP, A2 - 12, 16.9, .6, 80)
+# 2B · THE INTRIGUE / MECHANISM (18–36): thin clock, tremolo under the evidence, timpani on each verdict stamp
+note(TREM, D3, 18.0, 17.5, 44); note(TREM, A3, 18.0, 17.5, 38)
+for k in range(int((36.0 - 18.0) / .5)):
+    t = 18.0 + k * .5; note(WOOD, 76, t, .08, 46 if k % 2 else 60)
+    if k % 2 == 0: note(TUBA, [D2, A2, D2, Bb2][(k // 2) % 4], t, .35, 66)
+for t, v in [(24.0, 100), (30.0, 84)]: note(TIMP, D2, t, .9, v)    # EDIT: stamp times (after the spoken word)
+for i, n in enumerate([D5, F5, A5]): note(XYL, n, 28.0 + i * .1, .1, 66)   # EDIT: document / email lands
+# MICRO-REHOOK 2 (36–39): near-silence, then the final reversal (2–3 words) and the hit
+note(GLOCK, F5, 36.0, .3, 40)
+note(TIMP, D2, 37.5, 1.2, 120); note(TUBA, D2, 37.5, 1.0, 100); note(TREM, D3, 37.5, 1.0, 50)
+# 3–4 · PAYOFF + CIRCULAR REFRAME LOOP (39–END): roll into the biggest stamp, warm clarinet on the pillar answer, the walk returns
+cc(TIMP, 7, 41.0, 42.0, 70, 120)
+for k in range(10): note(TIMP, D2, 41.0 + k * .1, .1, 50 + k * 6)   # roll — EDIT to land on the final stamp
+note(TIMP, D2, 42.0, 1.4, 124); note(TUBA, D2, 42.0, 1.2, 104); note(GLOCK, D5, 42.0, .9, 70)
+pizz(43.0, 47.0, [D3, F3, A3, D4, F3, A3, D4, F4], 66, 56)
+for t, n, d in [(47.0, F4, 1.0), (48.0, A4, .8), (48.8, C5, .6)]: note(CLAR, n, t, d, 54)   # the pillar answer: warm, major
+pizz(49.0, END, walk, 60, 48)                                       # the walk returns so the replay lands back on bar 1
+note(BSN, A2, END - 1.0, .7, 58)
 render()
