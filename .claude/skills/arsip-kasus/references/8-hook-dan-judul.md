@@ -35,5 +35,11 @@ Semua: **subjek konkret yang dikenal penonton di kata 1–3 (benda, merek, tempa
 6. **Paket pembuka** ditulis di `stories/<slug>/README.md` sebelum script: hook, kalimat 2, judul, cover, struktur tengah (TAPI/MAKA), penutup (punchline atau kembali ke hook).
 7. Setelah tayang: catat stayed-to-watch per arketipe di `6-pelajaran.md`; ubah satu variabel per video.
 
+## E. Janji ke penonton (gerbang sebelum script dikirim)
+- **P — Janji pilar:** tulis "penonton nonton untuk apa → pulang membawa apa". Wajib satu kalimat jawaban "alasan asli" yang menyentuh pengalaman penonton sendiri (contoh #004: "isi rak warung itu nggak selalu pilihan pemilik warungnya").
+- **J — Jargon:** tiap lembaga/istilah dijelaskan ≤ 4 kata lisan atau dihapus.
+- **K — Kesan:** tidak terkesan iklan pesaing (seimbangkan dengan bantahan pihak yang dikritik), tidak terkesan kejadian baru bila kasus lama (tahun di layar).
+- **C — Pemicu kembali:** penutup pertanyaan pengalaman ("warung dekat rumahmu jual merek apa aja?") atau punchline; identitas seri ARSIP KASUS tetap terlihat.
+
 ## D. Batas bukti (jujur)
 Tidak ada data retensi per detik di tangan kita; semua pola hook berasal dari views relatif (bukan retensi) dan n transkrip kecil. Efek judul (angka/uang) terukur lebih baik daripada efek hook lisan. #003 (hook OBJ) memberi 47,0% stayed-to-watch; target ≥ 60% belum tercapai; data kita sendiri (#004 dan seterusnya) adalah uji sebenarnya.

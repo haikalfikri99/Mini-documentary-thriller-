@@ -40,6 +40,9 @@ Dibaca **sebelum** mengirim apa pun ke user (shortlist, script, storyboard, film
 14. **Shortlist wajib berbasis riset segar, bukan hanya bank ide** (koreksi 14 Nov, #004): tiap kandidat dicek permintaan (autocomplete) dan celah (video Indonesia yang sudah ada) dengan `kit/tools/riset_topik.py`, gratis tanpa API key. vidIQ bisa habis kredit; jangan bergantung padanya.
 15. **Sudut Indonesia syarat lulus, bukan nilai tambah:** user menolak cerita yang "gak relate orang Indo" (bohlam/kartel Phoebus ditolak walau fakta kuat). Kandidat tanpa benda/merek/peristiwa yang dikenal penonton Indonesia gugur sebelum shortlist.
 16. **Cerita benar, kemasan semaksimal mungkin** (koreksi user 14 Nov, dua kali): bukan "hook jujur yang datar". Fakta tidak boleh salah, tetapi hook, judul, urutan, dan ritme harus mengejar retensi, views, dan potensi viral. Tulis banyak varian hook, pilih yang terkuat, lalu cek kebenarannya. Jangan menolak topik hanya karena kalimat paling aman terdengar datar; kemas ulang dulu.
+17. **Janji pilar harus dibayar** (14 Nov, #004): penonton datang untuk "alasan ASLI di balik hal yang kamu kenal"; script wajib punya satu kalimat yang menjawab itu terhadap sesuatu yang penonton alami sendiri (rak warung, harga, tempat), bukan sekadar menceritakan kasus. Tanyakan: penonton nonton untuk apa, dan pulang membawa apa? Kalau tidak terjawab, penonton tidak kembali dan tidak subscribe.
+18. **Tanpa jargon yang tidak dijelaskan** (14 Nov): user sendiri tidak tahu KPPU. Setiap lembaga/istilah (KPPU, kasasi, star outlet, wholesaler) dijelaskan dalam ≤ 4 kata yang lucu/lisan ("wasitnya persaingan bisnis") atau dihapus; kepanjangan resmi cukup di layar.
+19. **Proaktif mencari celah yang tidak terpikir user** (14 Nov): sebelum mengirim script, cek: jargon, janji pilar, kesan iklan/dibayar merek, kesan kejadian sekarang padahal lama (tahun di layar), keseimbangan (bantahan pihak yang dikritik), pemicu komentar, alasan kembali/subscribe.
 
 ## D. Cek wajib sebelum mengirim storyboard/film (ringkas)
 - [ ] Setiap kalimat VO punya gambar yang **menunjukkan** isinya, logis secara fisik dan fakta.
@@ -48,3 +51,4 @@ Dibaca **sebelum** mengirim apa pun ke user (shortlist, script, storyboard, film
 - [ ] ≤ 6 potongan per frame; pita caption bersih; benda kecil tetap terbaca di HP.
 - [ ] Bahasa VO/teks natural, presisi, eksplisit; punchline lucu dipertahankan.
 - [ ] Tidak ada watermark; kredit gambar tercatat.
+- [ ] Janji pilar dibayar (satu kalimat alasan asli yang menyentuh pengalaman penonton); jargon dijelaskan; tahun di layar untuk kasus lama; tidak terkesan iklan merek mana pun.
