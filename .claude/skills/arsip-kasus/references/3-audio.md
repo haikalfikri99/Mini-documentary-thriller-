@@ -58,3 +58,7 @@ Rasa musik dan karakter SFX tetap dinilai user.
 - **Level #003:** foley ×0,75, musik −32 dBFS RMS, VO −17 → margin terburuk 19,8 dB.
 - **Skor:** ansambel kecil gaya lama (GM 45 pizzicato, 70 bassoon, 58 tuba, 71 clarinet, 9 glockenspiel, 13 xilofon, 47 timpani, 115 woodblock, 44 tremolo), satu ide per babak; minor "licik" untuk misteri/kesalahan, mayor hangat untuk jawaban yang menenangkan; timpani pada stempel vonis (BODOH?, MUSUH, TERUNGKAP, DIBANTAH); tanpa piano/strings generik.
 - Mux: grain tipis `noise=alls=2`, CRF 21, `loudnorm I=-14:TP=-1.5` → file ±35 MB/56 dtk (kirim preview CRF 27 bila file > 30 MB gagal terkirim).
+
+## H. Pelajaran #004 (gerbang Whisper)
+- Gerbang `mix ≥ VO` bisa gagal 1–2 kata tanpa ada kata yang tertutup: #004 tetap 119/142 saat musik −70 dB dan foley ×0,001, sedangkan `vo_level.wav` 121/142. Penyebabnya normalisasi level VO di `Mixer`, bukan masking. **Diagnosis wajib sebelum mengubah mix:** ulang mix dengan musik dibisukan, lalu dengan foley dibisukan. Bila keduanya tetap gagal dan margin per kata lulus (tidak ada < 8 dB), render boleh lanjut dan angka apa adanya ditulis di UPLOAD.md.
+- Pukulan musik pada stempel yang jatuh di awal kata ("didenda"): timpani boleh di stempel, tuba/glock ditaruh **sesudah** kata. `fullmix.py`: pukulan yang mendarat ≤ 0,2 dtk sebelum kata juga dianggap "di dalam kata" (hanya badan < 200 Hz).
