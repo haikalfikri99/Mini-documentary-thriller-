@@ -35,6 +35,13 @@ Semua: **subjek konkret yang dikenal penonton di kata 1–3 (benda, merek, tempa
 6. **Paket pembuka** ditulis di `stories/<slug>/README.md` sebelum script: hook, kalimat 2, judul, cover, struktur tengah (TAPI/MAKA), penutup (punchline atau kembali ke hook).
 7. Setelah tayang: catat stayed-to-watch per arketipe di `6-pelajaran.md`; ubah satu variabel per video.
 
+## F. Pola alur yang menahan sampai akhir: jawaban bertahap + loop bertumpuk
+1. Pertanyaan hook dijawab **sebagian** di ±15–25% (median pemenang 17%) supaya hook terasa jujur; menunda total memicu swipe karena merasa dikibuli.
+2. **Jangan menutup satu loop tanpa membuka loop baru** di kalimat yang sama atau berikutnya ("Tapi Aqua membantah… pengadilan membatalkan").
+3. Re-hook di 40–55% berupa pembalikan, bukan tambahan fakta.
+4. **Jawaban terbesar (kalimat pilar) dan pembalik terakhir disimpan di 75–90%**: payoff yang lebih akhir berkorelasi positif dengan views (ρ +0,30, n=29) dan sesuai peak-end (Kahneman).
+5. Urutan kronologi boleh dibolak-balik asal tidak menyesatkan (beri penanda waktu: "dari awal", tahun di layar).
+
 ## E. Janji ke penonton (gerbang sebelum script dikirim)
 - **P — Janji pilar:** tulis "penonton nonton untuk apa → pulang membawa apa". Wajib satu kalimat jawaban "alasan asli" yang menyentuh pengalaman penonton sendiri (contoh #004: "isi rak warung itu nggak selalu pilihan pemilik warungnya").
 - **J — Jargon:** tiap lembaga/istilah dijelaskan ≤ 4 kata lisan atau dihapus.
