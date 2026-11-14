@@ -5,6 +5,7 @@
 // Fungsi utama: jalankanSemua(). Opsional: pasangJadwalHarian(), linkSheet().
 var NAMA_SHEET = 'ARSIP Analytics - Mini Thriller IDN';
 var TZ = 'Asia/Jakarta';
+var KANAL_ID = 'UCRV6nTJ6oJqIXmZUXq8t9gA'; // channel Mini Thriller IDN. Kosongkan ('') untuk memakai channel akun yang menjalankan skrip.
 var KOLOM = ['views', 'engagedViews', 'estimatedMinutesWatched', 'averageViewDuration', 'averageViewPercentage',
              'likes', 'comments', 'shares', 'subscribersGained', 'subscribersLost'];
 var BATAS_VIDEO = 30; // video terbaru yang dianalisis mendalam (retensi, trafik)
@@ -87,7 +88,7 @@ function jalankanSemua() {
     sh.getRange(1, 1, 1, 6).setValues([['video_id_atau_judul', 'tanggal_ukur', 'sejak_tayang', 'viewed_persen', 'swiped_persen', 'catatan']]).setFontWeight('bold');
     sh.setFrozenRows(1);
   }
-  log.unshift('channel: ' + data.channel.title + ' | subs ' + data.channel.subs + ' | video ' + data.videos.length);
+  log.unshift('channel: ' + data.channel.title + ' (' + data.channel.id + ') | subs ' + data.channel.subs + ' | video ' + data.videos.length);
   tulisLog_(ss, log);
 }
 
@@ -105,8 +106,8 @@ function hapusJadwal() {
 
 // ---------- pembantu ----------
 function ambilVideo_() {
-  var ch = YouTube.Channels.list('contentDetails,snippet,statistics', { mine: true });
-  if (!ch.items || !ch.items.length) throw new Error('Tidak ada channel untuk akun ini. Login dengan akun pemilik channel.');
+  var ch = YouTube.Channels.list('contentDetails,snippet,statistics', KANAL_ID ? { id: KANAL_ID } : { mine: true });
+  if (!ch.items || !ch.items.length) throw new Error('Channel tidak ditemukan (KANAL_ID atau akun salah).');
   var c = ch.items[0];
   var uploads = c.contentDetails.relatedPlaylists.uploads;
   var ids = [], tok = null;
@@ -126,14 +127,16 @@ function ambilVideo_() {
     });
   }
   out.sort(function (a, b) { return a.terbit < b.terbit ? 1 : -1; }); // terbaru dulu
-  return { videos: out, channel: { title: c.snippet.title, subs: (c.statistics || {}).subscriberCount, views: (c.statistics || {}).viewCount } };
+  return { videos: out, channel: { id: c.id, title: c.snippet.title, subs: (c.statistics || {}).subscriberCount, views: (c.statistics || {}).viewCount } };
 }
 
 // Coba tiap set metrik berurutan; pakai yang pertama yang diterima API.
 function q_(start, end, metricSets, opts) {
   var err = null;
   for (var i = 0; i < metricSets.length; i++) {
-    try { return YouTubeAnalytics.Reports.query('channel==MINE', start, end, metricSets[i], opts || {}); }
+    var a = { ids: 'channel==' + (KANAL_ID || 'MINE'), startDate: start, endDate: end, metrics: metricSets[i] };
+    for (var k in (opts || {})) a[k] = opts[k];
+    try { return YouTubeAnalytics.Reports.query(a); }
     catch (e) { err = e; }
   }
   throw err;
