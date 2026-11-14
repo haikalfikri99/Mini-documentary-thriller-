@@ -5,6 +5,12 @@ Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.** Gaya visual *
 ## Mulai dari sini
 **Workflow lengkap (cerita → script → VO → gambar arsip → storyboard → animasi → audio → render → upload):** skill [`.claude/skills/arsip-kasus/`](.claude/skills/arsip-kasus/SKILL.md). Di Claude Code cukup minta "buat video ARSIP KASUS berikutnya" atau panggil `/arsip-kasus`. Sesi/container baru: jalankan `kit/tools/setup_env.sh` dulu (±40 dtk); script final dan kode film pakai Opus + `/effort high`. Aturan kerja dan selera user: `CLAUDE.md` dan `references/7-selera-dan-cara-kerja.md`.
 
+## Kerja di luar Claude cloud (lokal / agen lain / zip GitHub)
+- **Paling mudah untuk laptop ringan: GitHub Codespaces** (tombol *Code → Codespaces → Create*): `.devcontainer/` memasang semuanya otomatis, dikerjakan dari browser. (Belum teruji di sini; bila gagal, jalankan `kit/tools/setup_env.sh` manual.)
+- **Lokal:** unduh ZIP atau `git clone`, lalu Linux/macOS/WSL2: `kit/tools/setup_env.sh` (Python 3.10+, Node 18+, ffmpeg; `requirements.txt` + `package.json`). Windows native tidak didukung. Render film ±7 menit dan butuh RAM ≥ 8 GB.
+- **Agen lain:** mulai dari `AGENTS.md`. Fitur khusus Claude (konektor, Artifact, subagen) punya pengganti manual di sana.
+- Folder `raw/`, `parts/`, `renders/`, `*.wav` dibuat ulang oleh skrip (`make_kolase.sh`); symlink `lib`/`audio` dibuat otomatis oleh `kit/tools/links.sh`.
+
 ## Struktur repo
 ```
 .claude/skills/arsip-kasus/   skill produksi (SKILL.md + references/ 1 cerita & Formula v4.1, 2 visual, 3 audio, 4 standar, 5 upload, 6 pelajaran, 7 selera & cara kerja, 8 hook & judul)

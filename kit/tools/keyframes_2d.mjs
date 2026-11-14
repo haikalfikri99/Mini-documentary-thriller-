@@ -3,10 +3,11 @@
 // board (default) = 85% into every shot (the shot's composition is complete) + a numbered grid board/storyboard.jpg for review;
 // mid = middle of every shot; first = frame 0 of every shot. Output: <film>/board/kf_XX.png + sheet.jpg
 import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
-import { createRequire } from 'node:module';
+import { createRequire } from 'node:module'; import { spawnSync } from 'node:child_process';
 const require = createRequire(import.meta.url); const { chromium } = require('playwright');
 const film = path.resolve(process.argv[2]); const mode = process.argv[3] || 'board'; const outDir = path.resolve(process.argv[4] || path.join(film, 'board'));
 fs.mkdirSync(outDir, { recursive: true });
+if (!fs.existsSync(path.join(film, 'lib'))) spawnSync('bash', [path.join(path.dirname(new URL(import.meta.url).pathname), 'links.sh')]);
 const types = { '.js': 'text/javascript', '.html': 'text/html', '.woff2': 'font/woff2', '.json': 'application/json' };
 const page = `<!doctype html><html><head><meta charset="UTF-8"><style>html,body{margin:0;background:#000}</style></head><body><canvas id="c" width="1080" height="1920"></canvas><script type="module">
 import * as F from './film.js'; const c=document.getElementById('c'); await F.init(c.getContext('2d'));

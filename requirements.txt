@@ -1,0 +1,8 @@
+# Python deps for the film pipeline (kit/tools/setup_env.sh installs these). Python 3.10+.
+numpy
+scipy
+pillow
+requests
+mido
+faster-whisper
+yt-dlp

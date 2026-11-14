@@ -1,0 +1,7 @@
+{
+  "name": "Mini Thriller IDN (ARSIP Kolase)",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+  "features": { "ghcr.io/devcontainers/features/node:1": { "version": "20" } },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y ffmpeg fluidsynth fluid-soundfont-gm && npm install && npx playwright install --with-deps chromium && bash kit/tools/setup_env.sh",
+  "hostRequirements": { "cpus": 4, "memory": "8gb" }
+}

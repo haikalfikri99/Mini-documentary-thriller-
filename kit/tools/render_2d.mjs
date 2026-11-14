@@ -2,11 +2,12 @@
 //   node kit/tools/render_2d.mjs <film dir> video [out.mp4] [fps=30] [from] [to]   → silent H.264 (frames piped to ffmpeg)
 //   node kit/tools/render_2d.mjs <film dir> events [events.json] [fps=30]           → on-screen events for the SFX mix
 import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path'; import { spawn } from 'node:child_process';
-import { createRequire } from 'node:module';
+import { createRequire } from 'node:module'; import { spawnSync } from 'node:child_process';
 const require = createRequire(import.meta.url); const { chromium } = require('playwright');
 const film = path.resolve(process.argv[2]), mode = process.argv[3] || 'video';
 const out = path.resolve(process.argv[4] || path.join(film, mode === 'video' ? 'renders/visual.mp4' : 'events.json'));
 const fps = +(process.argv[5] || 30);
+if (!fs.existsSync(path.join(film, 'lib'))) spawnSync('bash', [path.join(path.dirname(new URL(import.meta.url).pathname), 'links.sh')]);
 const types = { '.js': 'text/javascript', '.html': 'text/html', '.json': 'application/json', '.ttf': 'font/ttf', '.woff2': 'font/woff2' };
 const page = `<!doctype html><html><head><meta charset="UTF-8"><style>html,body{margin:0;background:#000}</style></head><body><canvas id="c" width="1080" height="1920"></canvas><script type="module">
 import * as F from './film.js'; const c=document.getElementById('c'); await F.init(c.getContext('2d'));

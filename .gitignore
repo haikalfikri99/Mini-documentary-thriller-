@@ -34,3 +34,5 @@ stories/*/kolase/*.npy
 channel/parts/
 stories/*/kolase/board/page/
 stories/*/kolase/board/
+stories/*/kolase/lib
+stories/*/kolase/audio

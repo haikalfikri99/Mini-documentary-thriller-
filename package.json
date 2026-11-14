@@ -1,0 +1,2 @@
+{ "name": "mini-thriller-idn", "private": true, "description": "ARSIP Kolase renderer (kit/tools/render_2d.mjs, keyframes_2d.mjs)",
+  "dependencies": { "playwright": "^1.40.0" } }

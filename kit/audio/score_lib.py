@@ -1,6 +1,8 @@
 # Score kit: write music as timed MIDI events (seconds), render with fluidsynth + FluidR3_GM (MIT). Key notes + GM palette
 # used by the channel. usage: from score_lib import *; prog(0, 49); note(0, D3, 1.0, 2.0, 60); cc(...); render()
-import mido, subprocess
+import mido, subprocess, os
+SF2 = next((p for p in [os.environ.get('SF2', ''), '/usr/share/sounds/sf2/FluidR3_GM.sf2', '/usr/share/soundfonts/FluidR3_GM.sf2',
+            '/opt/homebrew/share/soundfonts/FluidR3_GM.sf2', '/usr/local/share/soundfonts/FluidR3_GM.sf2'] if p and os.path.exists(p)), '/usr/share/sounds/sf2/FluidR3_GM.sf2')
 TPB = 480; sec = lambda t: int(round(t * TPB * 2))   # 120 bpm: 1 s = 2 beats
 ev = []
 def prog(ch, p): ev.append((0, ch, mido.Message('program_change', channel=ch, program=p)))
@@ -19,5 +21,5 @@ def render(name='score_full'):
     last = 0
     for tt, ch, m in sorted(ev, key=lambda e: (e[0], e[2].type == 'note_on')): kk = sec(tt); tr.append(m.copy(time=kk - last)); last = kk
     mid.save(f'{name}.mid')
-    subprocess.run(['fluidsynth', '-ni', '-g', '0.8', '-r', '48000', '-F', f'{name}.wav', '/usr/share/sounds/sf2/FluidR3_GM.sf2', f'{name}.mid'], check=True, capture_output=True)
+    subprocess.run(['fluidsynth', '-ni', '-g', '0.8', '-r', '48000', '-F', f'{name}.wav', SF2, f'{name}.mid'], check=True, capture_output=True)
     print(f'{name}.wav ok')

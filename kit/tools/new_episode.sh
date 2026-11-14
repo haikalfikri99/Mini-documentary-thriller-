@@ -8,7 +8,7 @@ S="$ROOT/stories/$SLUG"; K="$S/kolase"
 [ -e "$K" ] && { echo "sudah ada: $K"; exit 1; }
 mkdir -p "$S/audio" "$K"
 cp "$ROOT/kit/collage/template/"* "$K/"
-ln -s ../../../kit/collage "$K/lib"; ln -s ../audio "$K/audio"
+"$ROOT/kit/tools/links.sh"
 python3 - "$K/episode.json" "$SLUG" "$NO" "$LINE" <<'PY'
 import json, sys
 p, slug, no, line = sys.argv[1:]
