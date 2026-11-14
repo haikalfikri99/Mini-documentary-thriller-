@@ -14,22 +14,24 @@ Dasar bukti: (a) 66 transkrip Shorts (44 set inti) dari `research/niche/RISET_ST
 | **Kata negatif di judul: tidak terbukti di Shorts kita** (id +5,0 [−0,6…+11,8]; en −1,4; gabungan +0,5). Studi berita (Robertson) menunjukkan efek kecil di judul berita; jangan dijadikan syarat | tidak terbukti | 7.421 judul; Robertson 2023 |
 
 ## B. Rumus hook (3 detik pertama) — 5 arketipe, pilih menurut jenis cerita
-Semua: **benda/merek dikenal di kata 1–3; inti terucap ≤ 1 dtk; ≤ 10 kata; angka/kapital muncul di layar sejak 0–1 dtk; frame 0 = benda besar yang bergerak.** Kalimat ke-2 (≤ 3 dtk setelahnya) menutup salah paham ("siapa yang bertindak").
+Semua: **subjek konkret yang dikenal penonton di kata 1–3 (benda, merek, tempat, harga, atau peristiwa/hal yang dikenal); inti terucap ≤ 1 dtk; ≤ 10 kata; angka/kapital muncul di layar sejak 0–1 dtk; frame 0 = benda besar yang bergerak.** Kalimat ke-2 (≤ 3 dtk setelahnya) menutup salah paham ("siapa yang bertindak").
 | Arketipe | Pola | Cocok untuk | Contoh (benar) |
 |---|---|---|---|
-| **H-A Angka–Merek–Anomali** | [Merek] + [akibat berangka] + [sebab kecil/tak sebanding] | uang, denda, harga, kartel, putusan | "Aqua didenda Rp13,8 miliar. Gara-gara warung jual air mineral merek lain." |
+| **H-A Angka–Subjek–Anomali** | [Subjek dikenal: merek/benda/tempat/peristiwa] + [akibat berangka] + [sebab kecil/tak sebanding] | uang, denda, harga, kartel, putusan | "Aqua didenda Rp13,8 miliar. Gara-gara warung jual air mineral merek lain." |
 | **H-B Klaim mustahil** | [Peristiwa/benda] + [klaim ekstrem yang bisa diucapkan benar] | sejarah, peristiwa ganjil | "Perang ini cuma berlangsung 40 menit." (KokBisa 4,3 jt) |
 | **H-C Peringatan lokal** | "Jangan pernah …" + [tempat/benda di Indonesia] | bahaya, tempat | "Jangan pernah datang sendirian ke tiga danau di Indonesia ini." |
 | **H-D Pertanyaan tentang benda** | "Benarkah [benda] [anggapan]?" | mitos, anggapan dibalik | "Benarkah piranha makan manusia?" |
 | **H-E Aksi in medias res** | kejadian fisik sedang berlangsung | peristiwa fisik/hewan | (Zack; tidak membedakan menang/kalah, topik yang membedakan) |
 **Hindari sebagai pembuka:** sapaan ("Hai guys"), pengantar tokoh/tanggal ("Pada tahun 1968…"), fenomena tanpa benda dikenal, kata "padahal/tapi" di kalimat pertama, "ternyata" sebagai kata pertama, ringkasan alur ("kalah, menang, kalah") — itu struktur tengah, bukan hook.
 
+**Subjek tidak terkunci ke benda atau merek.** Pilar tetap "alasan ASLI di balik benda, tempat, harga, merek yang kamu kenal, terutama di Indonesia"; peristiwa atau hal yang dikenal penonton boleh bila menarik (data: KLAIM "perang 40 menit" dan WARN "tiga danau di Indonesia" juga menang). Batas lama tetap: tanpa misteri/klenik/kasus pidana berjalan; fakta benar.
+
 ## C. Rantai satu kesatuan
 1. **Shortlist** (`topik/RUMUS_PEMILIHAN.md`): lima sumbu + gerbang. Tambahan: tiap finalis harus punya **angka/uang/merek konkret** yang bisa dipakai di judul dan hook (kalau tidak ada angka, cari fakta berangka di riset).
 2. **Arketipe hook** ditentukan dari jenis cerita (tabel B), bukan dipilih belakangan.
-3. **Tulis ≥ 8 varian hook + 5 judul**; skor tiap varian (0–2): (a) satu kali baca: siapa/kena apa/kenapa aneh? (b) benda/merek di kata 1–3? (c) ada angka/uang/kontras berukuran? (d) ≤ 10 kata, inti ≤ 1 dtk? (e) setiap pernyataan faktual benar (cek fact sheet)? (f) frame 0 bisa digambar (benda besar, gerak 0,0)? Ambil skor tertinggi dengan (e) wajib 2.
-4. **Judul** = benda + angka/uang, 6–8 kata, KAPITAL satu kata penting boleh; tanpa "padahal/tapi/ternyata", tanpa tanda tanya kecuali tak terhindar; harus selaras dengan hook (kalimat pertama = konfirmasi judul).
-5. **Cover** = angka besar sebagai stempel + benda generik + satu pemicu "kok bisa" (benda kecil di sudut).
+3. **Tulis ≥ 8 varian hook + 5 judul**; skor tiap varian (0–2): (a) satu kali baca: siapa/kena apa/kenapa aneh? (b) subjek dikenal di kata 1–3? (c) ada angka/uang/kontras berukuran? (d) ≤ 10 kata, inti ≤ 1 dtk? (e) setiap pernyataan faktual benar (cek fact sheet)? (f) frame 0 bisa digambar (benda besar, gerak 0,0)? Ambil skor tertinggi dengan (e) wajib 2.
+4. **Judul** = subjek yang dikenal (benda, merek, tempat, harga, atau peristiwa/hal) + angka/uang/ukuran bila ada, 6–8 kata, KAPITAL satu kata penting boleh; tanpa "padahal/tapi/ternyata", tanpa tanda tanya kecuali tak terhindar; harus selaras dengan hook (kalimat pertama = konfirmasi judul).
+5. **Cover** = angka besar sebagai stempel + subjek (benda generik/tempat/adegan) + satu pemicu "kok bisa" (benda kecil di sudut).
 6. **Paket pembuka** ditulis di `stories/<slug>/README.md` sebelum script: hook, kalimat 2, judul, cover, struktur tengah (TAPI/MAKA), penutup (punchline atau kembali ke hook).
 7. Setelah tayang: catat stayed-to-watch per arketipe di `6-pelajaran.md`; ubah satu variabel per video.
 
