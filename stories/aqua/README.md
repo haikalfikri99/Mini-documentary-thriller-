@@ -213,3 +213,24 @@ Durasi naik ke ±50 dtk: diterima karena tiap tambahan menutup kebingungan (atur
 | 20 | 45,74–48,28 | Air putih doang, sampai Mahkamah Agung. | gelas air putih kecil di depan gedung besar | punchline: kontras ukuran | engr `glass` + AI `court` |
 | 21 | 48,28–51,56 | Jadi isi rak warung itu… nggak selalu pilihan pemilik warungnya. | pemilik warung ragu di depan rak | tangan berhenti di antara dua botol | AI `shopkeeper` |
 | 22 | 51,56–53,34 | Warung dekat rumahmu jual merek apa aja? | rak warung generik dengan beberapa merek | "?" besar | AI `warung_shelf` |
+
+## Gambar AI (14 Nov; Google Flow, Nano Banana, dibuat user; 14 kandidat → 10 dipakai) — `kolase/ai/`
+| File | Dipakai di shot | Catatan |
+|---|---|---|
+| bottle_hero.jpg | 1, 10, 11, 13, 19 | botol bergerigi, label kosong (merek "besar") |
+| bottle_rival.jpg | 2, 5, 6 | bentuk botol lain = merek pesaing (tanpa logo) |
+| warung_front.jpg | 2, 3, 7, 16 | punya papan kosong di atas → tempat bintang |
+| hand_star.jpg | 7 | genggaman wajar, bintang dicabut dari papan |
+| warung_shelf.jpg | 22 | tiga bentuk botol = beberapa merek |
+| shelf_onebrand.jpg | 21 | rak satu jenis botol (isi rak "cuma satu merek") |
+| shopkeeper.jpg | 21 | pemilik warung sawo matang, tangan menjangkau rak |
+| truck.jpg | 11 | truk bak dengan krat |
+| court.jpg | 17, 18, 20 | gedung pengadilan berpilar (generik) |
+| court_alt.jpg | cadangan | atap bertingkat (bisa terkesan Thailand → tidak dipakai) |
+Lisensi: dibuat pemilik channel dengan Google Flow; dicatat di SOURCES.jsonl sebagai "AI-generated (Google Flow), channel owner". Tanpa logo/teks.
+
+## Catatan lanjut (untuk sesi setelah /compact)
+1. Tunggu dua agen: riset tempo VO (Apify → `research/niche/RISET_VO_TEMPO.md`) dan gambar arsip (→ `kolase/raw/` + `kolase/SOURCES.jsonl`: document, gavel, scale, whistle, hand, money, dll.).
+2. `bake.py`: salin `ai/*.jpg` ke `raw/`; potong (cutout) tiap gambar AI; cetakan sendiri: bintang emas, label harga (MURAH/MAHAL), perjanjian + klausul, email cetak (subjek "Star Outlet Degradation…"), slip terjemahan, stempel DIDENDA Rp13,8 M / DIBANTAH / DIBATALKAN / BELUM / DICOPOT / KPPU MENANG, label KPPU, tahun 2016/2017/2019, "?".
+3. `film.js`: gabungkan START dari `line_starts.py` (31 kalimat) ke 22 shot sesuai tabel "Rencana shot storyboard v1"; frame 0 = bottle_hero + stempel di 0,00.
+4. `node kit/tools/keyframes_2d.mjs stories/aqua/kolase` → `board/storyboard.jpg` → kirim ke user bersama tabel shot. Cek daftar 2-visual §E dan 7-selera §D.
