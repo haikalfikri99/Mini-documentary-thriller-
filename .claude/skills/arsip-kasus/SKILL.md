@@ -17,7 +17,7 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 - **Rantai shortlist → judul → hook → cover → alur menahan penonton: baca `references/8-hook-dan-judul.md` sebelum shortlist dan sebelum script.** Fakta benar, kemasan semaksimal mungkin; benda/merek dikenal + klaim di kata 1–3; angka/uang/KAPITAL di judul; jawaban bertahap + loop bertumpuk; janji pilar dibayar; uji POV penonton baru.
 - **Batasan tetap sesi:** YouTube memblokir pengambilan otomatis dari server (jangan ditembus; riset memakai data yang sudah ada). Apify hanya dipakai bila user menyetujui dan dengan batas biaya (riset tempo VO #004 selesai, US$1,50). Generate ElevenLabs memakai kredit user → tanya dulu. Wikimedia: satu permintaan/detik, hormati 429. Tanpa logo/foto bermerek asli, tanpa video AI, tanpa stock footage.
 - **Pengingat model/effort:** di awal episode baru ingatkan user kapan harus Opus + effort high (script final, keputusan kreatif, kode film); riset dan fact sheet cukup Sonnet. Subagen memakai model sesuai tugas (CLAUDE.md).
-- **Pengingat `/compact` atau `/clear`:** ingatkan user di akhir tiap tahap besar (storyboard disetujui, film terkirim) dan tulis catatan "Lanjut setelah /compact" di `stories/<slug>/README.md` sebelum konteks penuh.
+- **Pengingat `/compact` / `/clear` (wajib, user meminta):** di tiap titik di tabel "Titik ingat" bawah, Claude menulis catatan "Lanjut setelah /compact" di `stories/<slug>/README.md`, commit + push, lalu **mengatakan jelas di akhir balasan**: "Silakan `/compact` sekarang" (atau `/clear`) + kalimat apa yang diketik setelahnya. Ingatkan juga bila konteks terasa berat di luar titik itu (banyak gambar/tangkapan layar, keluaran alat panjang, >3 putaran revisi).
 - Jawab dalam bahasa Indonesia, lugas, kritis, beri rekomendasi; minim beban CLI untuk user. Claude tidak bisa mendengar: audio dicek dengan alat dan dilaporkan apa adanya.
 - Commit/push ke branch sesi; tanpa PR kecuali diminta; `main` hanya diperbarui atas izin user.
 
@@ -40,6 +40,16 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 | 8 | `kit/tools/make_kolase.sh stories/<slug>/kolase <versi>`: ambil arsip → **gerbang QA audio** (margin ≥ 10 dB, tidak ada kata < 8 dB, Whisper mix ≥ Whisper VO) → render frame → mux (grain tipis, −14 LUFS). Lalu cek contact sheet (tidak ada frame kosong, tidak ada teks di pita caption) → kirim film ✋ (preview < 30 MB bila file final gagal terkirim) | `renders/ARSIP_<no>_<slug>_v1.mp4` | `4-standar…` |
 | 9 | `UPLOAD.md`: judul, deskripsi + sumber + kredit gambar CC BY, 3 hashtag, cover detik ±0,5 | | `5-upload…` |
 | 10 | Revisi → tulis pelajaran di `6-pelajaran.md`; 48 jam/7 hari setelah tayang: data Studio ke tabel | | `6-pelajaran.md` |
+
+## Titik ingat (compact / clear / model)
+| Titik | Ingatkan | Setelahnya user bilang |
+|---|---|---|
+| Awal episode baru | sesi baru (`/clear`) bila sesi lama sudah ada episode selesai; riset + fact sheet cukup Sonnet | "lanjut episode berikutnya" |
+| Script disetujui, sebelum VO/gambar | `/compact`; **ganti ke Opus + effort high** sebelum storyboard (kode film) | "lanjut storyboard" |
+| Gambar AI + VO sudah masuk, sebelum membangun storyboard | `/compact` (zip + tangkapan layar membuat konteks berat) | "lanjut storyboard" |
+| Storyboard v2/v3 disetujui, sebelum audio + render | `/compact` | "lanjut render" / "cek komentar" |
+| Film terkirim + UPLOAD.md + Drive selesai, sebelum merge pelajaran | `/clear` (episode selesai) setelah semua di-push ke `main` | "lanjut episode berikutnya" |
+Catatan lanjut ditulis **sebelum** mengingatkan, supaya tidak ada yang hilang saat compact.
 
 ## Struktur
 ```
