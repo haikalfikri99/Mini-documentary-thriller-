@@ -13,6 +13,17 @@ def autocomplete(q):
                      params={"client": "firefox", "ds": "yt", "hl": "id", "gl": "id", "q": q}, timeout=15)
     return r.json()[1]
 
+def relevant(suggestion, terms):
+    """A suggestion is relevant when it contains a whole term (phrase) or every meaningful word (>= 4 letters) of a term, in any order.
+    Old filter kept only the first word of each term, so 'lampu merah' matched any 'lampu ...' and 'kental manis' any 'kental ...'."""
+    s = suggestion.lower()
+    for t in terms:
+        t = t.lower().strip()
+        words = [w for w in t.split() if len(w) >= 4]
+        if t in s or (words and all(w in s for w in words)) or (not words and t and t in s):
+            return True
+    return False
+
 def demand(terms):
     seen = {}
     for t in terms:
@@ -24,9 +35,7 @@ def demand(terms):
             except Exception:
                 pass
             time.sleep(0.25)
-    key = [t.lower() for t in terms]
-    rel = [s for s in seen if any(k.split()[0] in s.lower() for k in key)]
-    return sorted(rel)
+    return sorted(s for s in seen if relevant(s, terms))
 
 def supply(queries, n=10):
     vids = {}

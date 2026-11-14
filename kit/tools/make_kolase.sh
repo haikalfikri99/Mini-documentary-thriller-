@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ARSIP Kolase: one command from approved shots to the final file. AUDIO QA IS A GATE BEFORE THE RENDER:
 #   VO chain → on-screen events (render_2d events) → score → foley mix → audio QA (margin ≥ 10 dB, no word < 8 dB,
-#   Whisper on the mix hears what it hears on the VO) → only if it passes: frame render → mux (light grain, loudnorm −14 LUFS)
+#   Whisper on the mix hears what it hears on the VO) → visual QA gate (check_visual.mjs: dead frame > 2.5 s, text under captions, pieces cut by the frame) → only if both pass: frame render → mux (light grain, loudnorm −14 LUFS)
 # usage: kit/tools/make_kolase.sh stories/<slug>/kolase [version]  → stories/<slug>/renders/ARSIP_<no>_<slug>_v<version>.mp4
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; FILM="$(cd "$1" && pwd)"; V="${2:-1}"
@@ -16,6 +16,7 @@ QA=$(python3 "$ROOT/kit/audio/check_audio.py" "$FILM" mix_full.wav 2>/dev/null |
 echo "mix: $QA"; echo "VO : $BASE"
 NQ=$(echo "$QA" | grep -o "[0-9]*/" | head -1 | tr -d /); NB=$(echo "$BASE" | grep -o "[0-9]*/" | head -1 | tr -d /)
 [ "$NQ" -ge "$NB" ] || { echo "→ render dibatalkan: mix menutupi kata yang terbaca di VO saja ($NQ < $NB)"; exit 2; }
+[ "${SKIP_VISUAL_QA:-0}" = 1 ] || node "$ROOT/kit/tools/check_visual.mjs" "$FILM" || { echo "→ render dibatalkan: visual QA gagal (dead frame / teks di bawah caption / objek terpotong; lihat ✗ di atas; SKIP_VISUAL_QA=1 hanya bila sudah dinilai manual)"; exit 2; }
 node "$ROOT/kit/tools/render_2d.mjs" "$FILM" video "$FILM/renders/visual.mp4" 30
 OUT="$FILM/../renders/ARSIP_${NO}_${SLUG}_v${V}.mp4"; mkdir -p "$(dirname "$OUT")"
 ffmpeg -v error -y -i "$FILM/renders/visual.mp4" -i "$FILM/mix_full.wav" -map 0:v -map 1:a -vf "noise=alls=2:allf=t" -c:v libx264 -crf 21 -preset slow -pix_fmt yuv420p \

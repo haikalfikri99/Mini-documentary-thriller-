@@ -8,6 +8,7 @@ from pathlib import Path
 from scipy.signal import butter, sosfilt, sosfiltfilt
 from scipy.io import wavfile
 import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent)); from vo_tail import trim_tail, voiced_end, TAIL
 HERE = Path(sys.argv[1]); EP = json.load(open(HERE / 'episode.json'))
 SR = 48000
 a = np.frombuffer(subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', str(HERE / EP['vo']), '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-'], capture_output=True).stdout, np.float32).astype(np.float64)
@@ -38,8 +39,11 @@ y = a * 10 ** (gain / 20)
 pres = sosfiltfilt(butter(2, [2000, 5000], 'bandpass', fs=SR, output='sos'), y); y = y + .4 * pres
 y = y / (np.sqrt(np.mean(y[np.abs(y) > 1e-3] ** 2)) + 1e-9) * 10 ** (-17 / 20)
 pk = np.max(np.abs(y)); y = y / max(1, pk / .89)
+src_len = len(y) / SR; ve = voiced_end(y); y, new_len = trim_tail(y)       # tight tail: ≤ 0.15 s after the last audible syllable, no long fade-out
 wavfile.write(HERE / 'vo_level.wav', SR, (y * 32767).astype(np.int16))
 bd = sosfilt(butter(4, [300, 4000], 'bandpass', fs=SR, output='sos'), y)
 print('phrase levels after chain (speech band):')
 for p, l in zip(ph, L):
     print(f"{p[0][0]:5.2f} before {l:6.1f}  after {lv(bd[int(p[0][0]*SR):int(p[-1][1]*SR)]):6.1f}  {' '.join(w[2] for w in p)[:40]}")
+print(f'tail: source {src_len:.2f} s → vo_level.wav {new_len:.2f} s (last audible sound {ve:.2f} s, tail {new_len - ve:.2f} s ≤ {TAIL} s)')
+if EP.get('dur', 0) - ve > TAIL + 0.35: print(f"  ⚠ film dur {EP['dur']:.2f} s is {EP['dur'] - ve:.2f} s after the last sound: run kit/tools/line_starts.py so the film ends right after the VO (auto-replay)")
