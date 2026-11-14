@@ -170,10 +170,10 @@ const SHOTS = [
   // 15 · email berjudul Star Outlet Degradation, alias turunin status warung bintang.
   (u, T, d) => {
     const ts = at(14, 'star'), ta = at(14, 'alias');
-    camK(u, [[0, 540, 760, 0.98], [ts - 0.1, 540, 760, 1.0], [ts + 0.5, 610, 610, 1.45, 'io'], [ta, 610, 620, 1.48], [ta + 0.5, 580, 680, 1.25, 'io'], [d, 580, 680, 1.28]]);
+    camK(u, [[0, 540, 760, 0.98], [ts - 0.1, 540, 760, 1.0], [ts + 0.5, 580, 620, 1.4, 'io'], [ta, 580, 625, 1.42], [ta + 0.5, 540, 690, 1.15, 'io'], [d, 540, 690, 1.18]]);
     bg(SET.doc);
-    putK('email', slide(0, 0.3, 540, 640, -1, 0, 1100, 0, 0.6), u, 160);
-    putK('s_turunin', slap(ta + 0.05, 580, 830, -2), u, 161, { s: 0.75 });
+    putK('email', slide(0, 0.3, 540, 640, -1, 0, 1100, 0, 0.6), u, 160, { s: 0.84 });
+    putK('s_turunin', slap(ta + 0.05, 540, 820, -2), u, 161, { s: 0.75 });
   },
   // 16 · Dan satu warung beneran dicopot bintangnya.   the star flies off, the ghost of it stays on the board
   (u, T, d) => {
