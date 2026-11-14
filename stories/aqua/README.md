@@ -53,3 +53,67 @@ Teks putusan KPPU 22/KPPU-I/2016 (kppu.go.id) dan putusan MA 806 K/Pdt.Sus-KPPU/
 **Struktur tengah (retensi):** surel "Star Outlet Degradation Being a Wholesaler" (bukti) → bantahan Aqua (distributor yang salah) → TAPI: PN Jaksel membatalkan putusan (2019) → MAKA: KPPU kasasi, MA mengabulkan → penutup kembali ke "Rp13,8 miliar".
 **Judul:** Aqua Didenda Rp13,8 Miliar Gara-Gara Warung (6 kata, benda + angka).
 **Teks cover:** "Rp13,8 M" besar + botol generik + warung kecil. **Pernyataan faktual yang harus dicek di script:** denda ditetapkan KPPU (benar, #1); "gara-gara" = akibat dari tindakan Aqua/distributor terhadap warung (#4–#6), bukan kesalahan warung.
+
+## Script v1 — Formula ARSIP v4.1 + arketipe hook H-A (115 kata ≈ 44,2 dtk @ 2,6 kata/dtk) ✋
+**Judul:** Aqua Didenda Rp13,8 Miliar Gara-Gara Warung · **Pertanyaan penonton (dtk 3–5):** "Kok Aqua yang didenda gara-gara warung jual merek lain?" · **Jawaban yang bisa diceritakan ulang:** warung yang jual Le Minerale statusnya diturunkan, jadi beli Aqua-nya lebih mahal; KPPU menghukum ancaman itu, dan Mahkamah Agung memihak KPPU.
+
+| Beat | ±Waktu | VO (prompt ElevenLabs bertag) | Teks layar | Gambar (kolase; ≤ 6 potongan) | Fakta |
+|---|---|---|---|---|---|
+| 1 HOOK | 0–5,4 | [curious] Aqua didenda tiga belas koma delapan miliar. Gara-gara warung jual air mineral merek lain. | **DIDENDA Rp13,8 M** (sudah tampil di frame 0) | **Frame 0:** botol air mineral generik raksasa di tengah, stempel merah DIDENDA membanting di 0,00 (SFX stempel); dtk 2,7: warung kecil masuk dari bawah, botol kedua (warna tutup lain) di raknya | #1 |
+| 2 SETUP | 5,4–11,2 | [warmly] Kok bisa? Warung tertentu dapat status star outlet dari distributor Aqua. Harga belinya lebih murah. | ⭐ STAR OUTLET = HARGA MURAH · overlay ARSIP KASUS #004 (≤ 1,3 dtk) | warung + bintang emas ditempel; label harga kecil di dus | #4 (status), #4 implisit: turun status → beli lebih mahal |
+| 3 TAPI | 11,2–20,0 | [mysteriously] Tapi di perjanjiannya ada satu syarat. Kalau warung itu jual Le Minerale, yang katanya ada manis-manisnya… statusnya turun jadi wholesaler. Belinya lebih mahal. | SYARAT · STAR OUTLET → WHOLESALER | lembar perjanjian, satu klausul disorot; botol pesaing ditaruh di rak → bintang dicopot; label harga naik | #5 |
+| 4 MAKA | 20,0–26,2 | [serious] Jadi warung disuruh milih: murah tapi cuma Aqua, atau jual dua merek dan bayar lebih mahal. | MURAH (1 MEREK) / MAHAL (2 MEREK) | timbangan kertas: satu sisi rak satu merek + harga murah, sisi lain dua merek + harga mahal (**re-hook visual**, ±45%) | #4–#5 (konsekuensi klausul) |
+| 5 MAKA | 26,2–31,5 | Buktinya ada. KPPU nemu surel berjudul Star Outlet Degradation. Dan satu toko beneran diturunkan. | SUBJEK: "STAR OUTLET DEGRADATION…" · KPPU | cetakan surel dengan subjek disorot; stempel bintang retak di satu toko | #6 |
+| 6 TAPI (twist ±71%) | 31,5–36,2 | [pause][slowly] Aqua membantah, katanya itu ulah distributor. Lalu pengadilan negeri… membatalkan putusan KPPU. | DIBANTAH · 2019: DIBATALKAN | botol menunjuk ke truk distributor; palu hakim kertas → stempel hijau DIBATALKAN menutupi stempel DIDENDA | #7, #8 |
+| 7 PUNCH + LOOP | 36,2–44,2 | [serious] KPPU nggak terima, naik ke Mahkamah Agung. Dan hakim agung memihak KPPU. [warmly] Air putih doang, sampai Mahkamah Agung. Jadi tetap saja… | MAHKAMAH AGUNG · KASASI DIKABULKAN | gedung pengadilan gravir; stempel DIKABULKAN; gelas air putih kecil di depan gedung besar (punchline); kamera kembali ke botol + stempel DIDENDA (frame 0) | #9 (+ #1 untuk loop) |
+
+**VO bersih (115 kata):**
+> Aqua didenda tiga belas koma delapan miliar. Gara-gara warung jual air mineral merek lain. Kok bisa? Warung tertentu dapat status star outlet dari distributor Aqua. Harga belinya lebih murah. Tapi di perjanjiannya ada satu syarat. Kalau warung itu jual Le Minerale, yang katanya ada manis-manisnya… statusnya turun jadi wholesaler. Belinya lebih mahal. Jadi warung disuruh milih: murah tapi cuma Aqua, atau jual dua merek dan bayar lebih mahal. Buktinya ada. KPPU nemu surel berjudul Star Outlet Degradation. Dan satu toko beneran diturunkan. Aqua membantah, katanya itu ulah distributor. Lalu pengadilan negeri… membatalkan putusan KPPU. KPPU nggak terima, naik ke Mahkamah Agung. Dan hakim agung memihak KPPU. Air putih doang, sampai Mahkamah Agung. Jadi tetap saja…
+(loop → "Aqua didenda tiga belas koma delapan miliar.")
+
+**Catatan kata/fakta (kemasan yang dipilih sadar):**
+- "Warung" = kata sehari-hari untuk toko/outlet ritel; sumber menulis *shops / pedagang ritel dan eceran / star outlet*. Tidak ada klaim bahwa semua warung Indonesia terdampak.
+- "Harga belinya lebih murah" (star outlet) diturunkan dari Jakarta Post: toko yang diturunkan statusnya "harus membeli Aqua dengan harga lebih tinggi".
+- "Ada manis-manisnya" = slogan iklan Le Minerale (jurnal UPR, Smartlegal 2025, Mojok) — lelucon, bukan klaim produk.
+- "Hakim agung memihak KPPU" = kasasi KPPU dikabulkan (VIVA: juru bicara MA; Smartlegal). "Tetap saja… didenda" ≠ "membayar" (status bayar tidak diketahui).
+- Tidak disebut: alasan PN/MA, pangsa pasar, siapa pelapor, tahun peluncuran Le Minerale.
+- Pass `humanizer`: "Itu bukan tebakan" (kontras ke klaim yang tak ada) diganti "Buktinya ada"; pengulangan "Mahkamah Agung" dikurangi dari tiga jadi dua (satu jadi "hakim agung"). Punchline "Air putih doang…" dipertahankan (lelucon, menambah sudut baru).
+
+## Scorecard v4.1
+| Cek | Hasil | Catatan |
+|---|---|---|
+| 1 Konfirmasi judul | LULUS | kalimat 1 = judul (denda + Aqua), selesai ±2,7 dtk |
+| 2 Celah | LULUS | "Kok bisa?" diucapkan di dtk ±5,4; celah sudah terasa sejak kalimat 2 (dtk 2,7) |
+| 3 Jawaban | LULUS | dijawab di beat 3 (25%), ditegaskan beat 4 |
+| 4 Mekanisme | LULUS | desain: status star outlet/klausul · uang: harga beli · psikologi: pilihan "murah satu merek vs mahal dua merek" |
+| 5 Tapi/maka | LULUS | hook → setup → TAPI → MAKA → MAKA (bukti) → TAPI (bantah + batal) → punchline/loop |
+| 6 Uji hapus | LULUS | tiap beat memikul alur; beat 5 (bukti) mencegah cerita terdengar seperti tuduhan |
+| 7 Satu pusat | LULUS | Aqua vs warung; KPPU/pengadilan = fungsi |
+| 8 Twist | LULUS | 71% (pembatalan PN), pembalik kedua 82% (MA) |
+| 9 Akhir | LULUS | "Jadi tetap saja…" + "Aqua didenda…" = satu kalimat utuh; tanpa CTA |
+| 10 Faktual | LULUS* | #1, #4–#9 dua sumber atau lebih; *#9 tanggal & isi putusan MA hanya dari laporan (VIVA, Smartlegal) |
+| 11 Bahasa | LULUS* | lisan, jahil ringan; *baca keras saat VO ("Star Outlet Degradation" harus terdengar jelas) |
+| 12 Durasi | LULUS | 115 kata ≈ 44,2 dtk (target R5 40–46) |
+| 13 Bisu | LULUS | teks layar membawa alur (DIDENDA → STAR OUTLET → SYARAT → MURAH/MAHAL → SUREL → DIBATALKAN → DIKABULKAN) |
+| 14 Visual | LULUS | semua benda bisa digambar sendiri (botol generik, warung, perjanjian, surel, palu, gedung, stempel) |
+| V1 subjek dikenal kata 1 | LULUS | "Aqua" |
+| V2 tak tertebak | LULUS | status bintang + klausul; pembalikan dua kali di pengadilan |
+| V3 tokoh/dalang/momen | LULUS | Aqua + distributor; surel; satu toko diturunkan |
+| V4 penutup punchline | LULUS | "Air putih doang, sampai Mahkamah Agung" |
+| V5 tanpa sponsor/CTA | LULUS | — |
+| H1 kalimat 1 ≤ 4 dtk | LULUS | ±2,7 dtk (diukur ulang dari `vo_words.json` setelah VO) |
+| H2 benda di kata 1–3 | LULUS | Aqua (kata 1) |
+| H3 tanpa jeda di 3 dtk | LULUS | tanpa elipsis/[pause] di hook |
+| H4 frame 0 bergerak, terang | LULUS (rencana) | stempel membanting di 0,00 di atas botol besar |
+| H5 teks frame 0 ≤ 5 kata | LULUS | "DIDENDA Rp13,8 M" |
+| H6 SFX di 0,00 | LULUS (rencana) | dentum stempel + VO |
+| H7 tanpa tanggal/nama di 10 dtk | LULUS | KPPU pertama kali di dtk ±27; tahun hanya di layar |
+| R1 loop berantai | LULUS | "kok bisa" → "satu syarat" → "buktinya" → "membatalkan" → "nggak terima" |
+| R2 tiap kalimat = gambar | LULUS | lihat kolom gambar |
+| R3 re-hook 40–55% | LULUS | timbangan murah/mahal di ±45% |
+| R4 loop tanpa jahitan | LULUS | lihat cek 9 |
+| R5 panjang | LULUS | 44,2 dtk |
+| R6 kartu ARSIP overlay | LULUS | beat 2, ≤ 1,3 dtk |
+
+**Prompt ElevenLabs (Saos Cocol, `R86jddkroI9bJwXFfjsr`, eleven_v4) — dipakai setelah script disetujui:**
+> [curious] Aqua didenda tiga belas koma delapan miliar. Gara-gara warung jual air mineral merek lain. [warmly] Kok bisa? Warung tertentu dapat status star outlet dari distributor Aqua. Harga belinya lebih murah. [mysteriously] Tapi di perjanjiannya ada satu syarat. Kalau warung itu jual Le Minerale, yang katanya ada manis-manisnya… statusnya turun jadi wholesaler. Belinya lebih mahal. [serious] Jadi warung disuruh milih: murah tapi cuma Aqua, atau jual dua merek dan bayar lebih mahal. Buktinya ada. KPPU nemu surel berjudul Star Outlet Degradation. Dan satu toko beneran diturunkan. [pause][slowly] Aqua membantah, katanya itu ulah distributor. Lalu pengadilan negeri… membatalkan putusan KPPU. [serious] KPPU nggak terima, naik ke Mahkamah Agung. Dan hakim agung memihak KPPU. [warmly] Air putih doang, sampai Mahkamah Agung. Jadi tetap saja…
