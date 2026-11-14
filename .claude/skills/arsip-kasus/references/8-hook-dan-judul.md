@@ -40,7 +40,9 @@ Semua: **subjek konkret yang dikenal penonton di kata 1–3 (benda, merek, tempa
 2. **Jangan menutup satu loop tanpa membuka loop baru** di kalimat yang sama atau berikutnya ("Tapi Aqua membantah… pengadilan membatalkan").
 3. Re-hook di 40–55% berupa pembalikan, bukan tambahan fakta.
 4. **Jawaban terbesar (kalimat pilar) dan pembalik terakhir disimpan di 75–90%**: payoff yang lebih akhir berkorelasi positif dengan views (ρ +0,30, n=29) dan sesuai peak-end (Kahneman).
-5. Urutan kronologi boleh dibolak-balik asal tidak menyesatkan (beri penanda waktu: "dari awal", tahun di layar).
+5. **Pertanyaan penonton tidak perlu semua ditulis.** Pemenang rata-rata hanya 1 pertanyaan eksplisit (jumlah pertanyaan tak berkorelasi dengan views, ρ +0,08); loop dibuka lewat kata sambung (tapi, masalahnya, jadi, "why? because"). Tulis pertanyaan eksplisit **hanya di titik yang terdengar seperti akhir cerita** (mis. "Aqua bebas? Belum."), lalu jawab setengah; total 2–3 per video.
+6. **Durasi:** Shorts boleh sampai 3 menit, tetapi durasi tidak berkorelasi dengan views di data kita (ρ −0,02; median pemenang 47 dtk). Panjangkan hanya bila cerita butuh (kejadian 45–60 dtk; pilar 40–50 dtk); setiap kalimat tambahan harus membuka atau membayar loop.
+7. Urutan kronologi boleh dibolak-balik asal tidak menyesatkan (beri penanda waktu: "dari awal", tahun di layar).
 
 ## E. Janji ke penonton (gerbang sebelum script dikirim)
 - **P — Janji pilar:** tulis "penonton nonton untuk apa → pulang membawa apa". Wajib satu kalimat jawaban "alasan asli" yang menyentuh pengalaman penonton sendiri (contoh #004: "isi rak warung itu nggak selalu pilihan pemilik warungnya").
