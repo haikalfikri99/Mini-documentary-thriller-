@@ -11,6 +11,7 @@ Latar: shortlist #004 pertama hanya dari bank ide → bohlam (fakta kuat, tidak 
 | **Cerita** | Ada dalang/tokoh, taruhan nyata (uang/kesehatan/nyawa/kehilangan), twist yang tidak tertebak? | Penilaian; gerbang ≥ 3 |
 | **Bahan** | ≥ 2 sumber (idealnya dokumen primer) dan arsip gambar domain publik/CC? | Penilaian; benda modern bermerek = gambar kita sendiri, kemasan generik |
 
+**Uji hook (gerbang keenam, sejak 14 Nov, setelah kental manis):** sebelum finalis dikirim, tulis hook 1 kalimat (≤ 2 dtk, benda di kata 1–3) **hanya dari klaim yang boleh diucapkan** (status terverifikasi). Gugur bila: (a) hook yang jujur terdengar seperti pasal/regulasi, bukan benturan; (b) twist menggembosi anggapan populer tanpa pengganti yang lebih kuat; (c) satu-satunya hook kuat bersandar pada klaim yang tidak boleh dipakai (sensitif/tak terverifikasi). Judul clickbait boleh, **selama benar**.
 **Gerbang (gugur bila gagal):** Lokal < 4 · Celah < 3 · Cerita < 3 · fakta inti tidak bisa diverifikasi ≥ 2 sumber.
 **Ranking:** total sumbu; seri dipecah dengan Celah, lalu Bahan.
 
