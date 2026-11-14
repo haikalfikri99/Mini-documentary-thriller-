@@ -45,3 +45,11 @@ Slap (ditepuk), slide (geser + overshoot), drop (jatuh memantul), pendulum (`put
 - **Frame 0** sudah memuat perusahaan + angka + stempel di 0,0 dtk (hook visual).
 - Cek keyframe 85% shot sebelum mengirim; label tidak boleh masuk pita caption (y > 1190) dan tidak boleh menutupi wajah.
 - Alat review: `kit/tools/storyboard_page/make_page.py` (halaman Artifact bisa dikomentari; kotak "Revisi vN").
+
+## §H. Visual QA gate otomatis (v5.0)
+`node kit/tools/check_visual.mjs stories/<slug>/kolase` (dipasang di `make_kolase.sh` setelah gerbang audio, sebelum render penuh; `SKIP_VISUAL_QA=1` hanya bila sudah dinilai manual; `--dump <t>` mencetak kotak tiap potongan pada waktu t; ±70 dtk). Memeriksa dari frame nyata (kotak buram potongan melalui transformasi kamera, nama bagian dari `SP`):
+- **START** naik terus dan = `episode.json` dur; peringatan shot < 0,9 atau > 4,0 dtk.
+- **Dead frame:** area panggung (y 120–1190, tanpa caption) harus berubah tiap ≤ 2,5 dtk (sampel 0,25 dtk). Gagal = serius.
+- **Teks di bawah caption:** bagian bertulisan (`s_*`, `st_*`, `tag_*`, `ry*`, `rq*`, `lbl_*`, `m_*`) tidak boleh masuk ≥ 30 px ke zona slip caption nyata (y 1300–1440; pita dokumentasi 1210–1536 mencakup margin) selama ≥ 0,5 dtk. Gambar besar boleh menimpa pita karena caption digambar di atasnya (peringatan bila ≥ 150 px). Latar penuh (≥ 900 px lebar atau ≥ 1000 px tinggi) dan map ARSIP dikecualikan.
+- **Terpotong tepi:** potongan keluar frame ≥ 25% ukurannya sendiri selama ≥ 0,5 dtk = serius; ≥ 20 px = peringatan.
+Kalibrasi: lulus pada film #004 yang sudah disetujui (3 peringatan, 0 serius) dan menolak film uji dengan label di zona caption, objek terpotong tepi, dan shot statis 4,25 dtk. **Tidak diperiksa otomatis:** ukuran objek frame 0 ≥ 45% dan waktu stempel ≤ 0,25 dtk, proporsi dan arah gestur, logika gambar; semua itu tetap dicek manual di keyframe (`7-selera…` #26).

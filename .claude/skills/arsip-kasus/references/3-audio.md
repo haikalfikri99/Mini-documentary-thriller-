@@ -69,3 +69,10 @@ Rasa musik dan karakter SFX tetap dinilai user.
 - Uji di kanal sendiri: bandingkan stayed-to-watch antar episode dengan tempo berbeda (hook sejenis), riset luar hanya titik awal.
 - Cek pengucapan saat user mendengarkan: "KPPU" per huruf (ka-pe-pe-u), "tiga belas koma delapan miliar" (bukan "tiga belas delapan"), nama merek asing ("Le Minerale"), istilah Inggris di layar boleh asing. Kalimat pertama selesai ≤ 2,2 dtk, tanpa jeda di 3 dtk pertama, suara mulai di detik 0.
 - Pengaturan ElevenLabs yang diberikan ke user: suara Saos Cocol, `eleven_v4`, 2 take, MP3, stability Natural bila ada (saran, belum teruji); tag kurung siku di titik perubahan emosi; user menaruh `raw_take1/2.mp3` di Drive atau mengunggah ke chat.
+
+## J. Tight Audio Tail ≤ 0,15 dtk (v5.0, untuk auto-replay)
+Hening setelah suku kata terakhir dipangkas ≤ 0,15 dtk tanpa fade-out panjang, supaya replay langsung menyambar frame 0 (Circular Reframe Loop, `1-cerita…` §F3). Ambang "terdengar" = tingkat jangka pendek (jendela 10 ms) di atas −45 dBFS setelah VO dinormalkan ke −17 dBFS RMS.
+- `kit/audio/vo_tail.py` (`voiced_end`, `trim_tail`: potong ke bunyi terakhir + 0,15 dtk dengan fade cosinus 12 ms agar tidak berdetak).
+- `kit/audio/vo_chain.py` memangkas `vo_level.wav` dan mencetak "tail: source … → vo_level.wav … (last audible sound …, tail … ≤ 0.15 s)"; memberi peringatan bila `episode.json` dur lebih dari ±0,5 dtk sesudah bunyi terakhir.
+- `kit/tools/line_starts.py` kini menetapkan `dur` = min(durasi file, bunyi terakhir + 0,15 dtk), jadi film berakhir tepat sesudah VO. Episode lama (#004: dur 53,64 dtk, bunyi terakhir 53,42) tidak diubah.
+- File sumber VO tidak pernah diubah. Tempo tetap 2,60–2,75 kata/dtk (§I) dan gerbang QA audio tetap berlaku.

@@ -21,6 +21,8 @@ Semua video baru dibuat dari kit ini. Gaya, komponen seri, caption, audio, dan p
 | `tools/line_starts.py` | START per kalimat dari `vo_words.json` + durasi ke `episode.json` |
 | `tools/keyframes_2d.mjs` | storyboard bernomor (`board/storyboard.jpg`) dalam hitungan detik; juga frame di waktu tertentu |
 | `tools/storyboard_page/` | `make_page.py` + `tpl.html`: halaman storyboard yang bisa dikomentari (Artifact) dari `kolase/storyboard.json`, kotak "Revisi vN" per shot |
+| `tools/check_visual.mjs` | visual QA gate sebelum render: dead frame, teks di bawah caption, objek terpotong tepi (`--dump <t>` untuk debug); dipanggil `make_kolase.sh` |
+| `audio/vo_tail.py` | tight audio tail ≤ 0,15 dtk (dipakai `vo_chain.py` dan `line_starts.py`) |
 | `tools/align_vo.py` | timing per kata dari VO (Whisper) → `vo_words.json` |
 | `tools/riset_topik.py` · `tools/gali_topik.py` | riset topik gratis: permintaan (autocomplete YouTube) + celah (yt-dlp) per kandidat · penggalian massal kandidat (benda × awalan tanya, kueri pola niche) |
 | `collage/template/flow_prompt_template.md` | pola satu prompt Google Flow untuk banyak gambar AI + tokoh konsisten |

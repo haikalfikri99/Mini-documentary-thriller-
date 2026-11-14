@@ -30,14 +30,14 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 | 0 | Sesi/container baru: `kit/tools/setup_env.sh` (±40 dtk) | | |
 | 1a | **Shortlist 8–10 judul** berbasis riset segar (`python3 kit/tools/riset_topik.py`: permintaan + celah; uji hook + sudut Indonesia sebagai gerbang) ✋ | chat | `1-cerita…` §D, `8-hook…`, `7-selera` #14–16 |
 | 1b | Fact sheet (≥ 2 sumber/klaim; PubMed/Consensus untuk klaim sains) | `stories/<slug>/README.md` | `1-cerita…` §C, §J |
-| 2 | **Script Formula ARSIP v4.2** + scorecard F6 (16 cek) + gerbang F7, dikirim bersama ✋ | README | `1-cerita…` §F |
+| 2 | **Script Formula ARSIP v5.0** + scorecard F6 (16 cek) + gerbang F7, dikirim bersama ✋ | README | `1-cerita…` §F |
 | 3 | VO ElevenLabs (2 take, pilih dengan alat; **target tempo 2,6–2,7 kata/dtk**, rapatkan jeda ≤ 0,25 dtk lalu atempo ±1,2; kredit user → tanya dulu; `kit/tools/align_vo.py`) → `audio/vo_<slug>.mp3`; alignment Whisper → `audio/vo_words.json` (ejaan dari script) | | `3-audio` |
 | 4 | `kit/tools/new_episode.sh <slug> <no> "CASE LINE"` → `python3 kit/tools/line_starts.py stories/<slug>` (START per kalimat; gabung/potong manual sampai ±2–2,5 dtk/shot) | `kolase/` | — |
 | 5 | **Gambar:** daftar benda per shot → cari arsip (Openverse dulu, Wikimedia; lihat `2-visual…` §C) → `kolase/prints.json` + `SOURCES.jsonl` (lisensi & kredit); benda tanpa arsip → `kit/collage/engr_objects.py` atau gambar sendiri di `bake.py` | | `2-visual…` §C |
 | 6 | **Storyboard:** `bake.py` + `film.js` (shot = fungsi waktu) → tulis `kolase/storyboard.json` (contoh `stories/aqua/kolase/storyboard.json`) → `python3 kit/tools/storyboard_page/make_page.py stories/<slug>/kolase <scratchpad>/sbNNN` → terbitkan sebagai **Artifact yang bisa dikomentari** (bukan gambar grid); user berkomentar lalu bilang "cek komentar" → baca semua dengan `ArtifactComments`, jawab di chat, isi `note` = kotak "Revisi vN", terbitkan ulang ke URL sama (7-selera #24) ✋ | storyboard | `2-visual…` §B, §D |
 | 6b | Gambar AI (bila arsip tidak ada; user boleh diminta menyediakan walau aturan awal mengutamakan arsip: pertimbangkan sendiri mana yang lebih kuat): Claude menulis **satu prompt blok untuk semua gambar sekaligus** (`kit/collage/template/flow_prompt_template.md`), **user membuatnya di Google Flow (Nano Banana)** → taruh di `kolase/ai/*.jpg`; `bake.py ai_to_raw()` menyalin ke `raw/`, `prints.json` memotongnya (`tint_poly` untuk mewarnai sebagian), `SOURCES.jsonl` mencatat "AI-generated image (Google Flow), made by the channel owner; no logos" | | `2-visual…` §C |
 | 7 | `score_full.py` (ansambel kecil per babak) + `fullmix.py` (foley otomatis dari kejadian layar) | | `3-audio` §G |
-| 8 | `kit/tools/make_kolase.sh stories/<slug>/kolase <versi>`: ambil arsip → **gerbang QA audio** (margin ≥ 10 dB, tidak ada kata < 8 dB, Whisper mix ≥ Whisper VO) → render frame → mux (grain tipis, −14 LUFS). Lalu cek contact sheet (tidak ada frame kosong, tidak ada teks di pita caption) → kirim film ✋ (preview < 30 MB bila file final gagal terkirim) | `renders/ARSIP_<no>_<slug>_v1.mp4` | `4-standar…` |
+| 8 | `kit/tools/make_kolase.sh stories/<slug>/kolase <versi>`: ambil arsip → **gerbang QA audio** → **gerbang visual QA** (`check_visual.mjs`) (margin ≥ 10 dB, tidak ada kata < 8 dB, Whisper mix ≥ Whisper VO) → render frame → mux (grain tipis, −14 LUFS). Lalu cek contact sheet (tidak ada frame kosong, tidak ada teks di pita caption) → kirim film ✋ (preview < 30 MB bila file final gagal terkirim) | `renders/ARSIP_<no>_<slug>_v1.mp4` | `4-standar…` |
 | 9 | `UPLOAD.md`: judul, deskripsi + sumber + kredit gambar CC BY, 3 hashtag, cover detik ±0,5 | | `5-upload…` |
 | 10 | Revisi → tulis pelajaran di `6-pelajaran.md`; 48 jam/7 hari setelah tayang: data Studio ke tabel | | `6-pelajaran.md` |
 
@@ -48,6 +48,7 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 | Script disetujui, sebelum VO/gambar | `/compact`; **ganti ke Opus + effort high** sebelum storyboard (kode film) | "lanjut storyboard" |
 | Gambar AI + VO sudah masuk, sebelum membangun storyboard | `/compact` (zip + tangkapan layar membuat konteks berat) | "lanjut storyboard" |
 | Storyboard v2/v3 disetujui, sebelum audio + render | `/compact` | "lanjut render" / "cek komentar" |
+| Sebelum render (`make_kolase.sh`): audio QA lalu **visual QA** (`check_visual.mjs`: dead frame, teks di bawah caption, objek terpotong; ±70 dtk) | bila gagal: perbaiki shot yang disebut, jangan `SKIP_VISUAL_QA` tanpa menilai manual | "perbaiki lalu render" |
 | Film terkirim + UPLOAD.md + Drive selesai, sebelum merge pelajaran | `/clear` (episode selesai) setelah semua di-push ke `main` | "lanjut episode berikutnya" |
 Catatan lanjut ditulis **sebelum** mengingatkan, supaya tidak ada yang hilang saat compact.
 
@@ -78,7 +79,7 @@ kit/tools/make_kolase.sh stories/<slug>/kolase 1                 # ±7 menit
 
 ## Rujukan
 - **`references/7-selera-dan-cara-kerja.md` — selera & cara kerja user dari semua revisi; baca sebelum mengirim apa pun (cek D)**
-- `references/1-cerita-dan-script.md` — identitas, wilayah, aturan faktual, seleksi, **Formula ARSIP v4.2**, scorecard, analitik
+- `references/1-cerita-dan-script.md` — identitas, wilayah, aturan faktual, seleksi, **Formula ARSIP v5.0**, scorecard, analitik
 - `references/2-visual-dan-animasi.md` — gaya ARSIP Kolase dalam praktik: frame & tempo, storyboard, sumber gambar, pelajaran review
 - `references/3-audio.md` — rantai VO, skor, foley otomatis, mix, QA tanpa telinga
 - `references/4-standar-kualitas-10.md` — rubrik 10 aspek

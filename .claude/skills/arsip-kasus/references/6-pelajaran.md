@@ -18,7 +18,7 @@ Setiap episode menambah baris di sini. Formula, gaya, dan kit hanya berubah bila
 - Shortlist judul + cerita singkat + penilaian dulu, riset hanya untuk judul terpilih.
 - Bahasa lisan natural; hindari bahasa berita/tulis dan istilah kaku ("kontrol orang tua").
 - Wilayah 2 harus menjawab "kenapa" dengan mekanisme (psikologi, desain, uang), bukan kumpulan pernyataan.
-- Pakai framework yang terbukti, jangan berputar-putar menulis ulang: Formula ARSIP v4.2 + scorecard.
+- Pakai framework yang terbukti, jangan berputar-putar menulis ulang: Formula ARSIP v5.0 + scorecard.
 
 ### Visual
 - Hitam/putih polos untuk kepala ditolak; sawo matang dipilih lewat studi warna.

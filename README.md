@@ -17,7 +17,7 @@ Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.** Gaya visual *
 kit/styles/arsip-kolase/      aturan gaya ARSIP Kolase (STYLE.md, CHANGES.md)
 kit/collage/                  mesin kolase (engine.js, shotkit.js, parts.py, signature.py, engr_objects.py, fetch_raw.py, template/, fonts/)
 kit/audio/                    VO chain, skor MIDI, SFX + foley kertas, Mixer, QA audio
-kit/tools/                    setup_env, new_episode, line_starts, align_vo, riset_topik + gali_topik (riset topik gratis), keyframes_2d, storyboard_page (halaman Artifact berkomentar), render_2d, make_kolase
+kit/tools/                    setup_env, new_episode (README v5), line_starts, align_vo, check_visual (visual QA gate), riset_topik + gali_topik (riset topik gratis), keyframes_2d, storyboard_page (halaman Artifact berkomentar), render_2d, make_kolase
 research/niche/               riset pilar, selingan, judul, struktur script, audio/caption, tempo VO, thumbnail + keputusan (KEPUTUSAN_RISET.md); topik/ = riset topik + rumus pemilihan; topik/ditolak/ = fact sheet yang tidak diproduksi
 channel/                      identitas channel (bio, kata kunci, aset profil)
 stories/<slug>/               satu folder per film: fact sheet + script (README), UPLOAD.md, audio/, kolase/

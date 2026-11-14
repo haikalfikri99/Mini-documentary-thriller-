@@ -32,7 +32,7 @@ Semua: **subjek konkret yang dikenal penonton di kata 1–3 (benda, merek, tempa
 3. **Tulis ≥ 8 varian hook + 5 judul**; skor tiap varian (0–2): (a) satu kali baca: siapa/kena apa/kenapa aneh? (b) subjek dikenal di kata 1–3? (c) ada angka/uang/kontras berukuran? (d) ≤ 10 kata, inti ≤ 1 dtk? (e) setiap pernyataan faktual benar (cek fact sheet)? (f) frame 0 bisa digambar (benda besar, gerak 0,0)? Ambil skor tertinggi dengan (e) wajib 2.
 4. **Judul** = subjek yang dikenal (benda, merek, tempat, harga, atau peristiwa/hal) + angka/uang/ukuran bila ada, 6–8 kata, KAPITAL satu kata penting boleh; tanpa "padahal/tapi/ternyata", tanpa tanda tanya kecuali tak terhindar; harus selaras dengan hook (kalimat pertama = konfirmasi judul).
 5. **Cover** = angka besar sebagai stempel + subjek (benda generik/tempat/adegan) + satu pemicu "kok bisa" (benda kecil di sudut).
-6. **Paket pembuka** ditulis di `stories/<slug>/README.md` sebelum script: hook, kalimat 2, judul, cover, struktur tengah (TAPI/MAKA), penutup (default: loop jahitan ke kalimat pertama; varian: pertanyaan pengalaman; lihat `1-cerita…` §F3).
+6. **Paket pembuka** ditulis di `stories/<slug>/README.md` sebelum script: hook, kalimat 2, judul, cover, struktur tengah (TAPI/MAKA), penutup (default: Circular Reframe Loop yang memanggil ulang objek kalimat pertama; varian: pertanyaan pengalaman; lihat `1-cerita…` §F3).
 7. Setelah tayang: catat stayed-to-watch per arketipe di `6-pelajaran.md`; ubah satu variabel per video.
 
 ## F. Pola alur yang menahan sampai akhir: jawaban bertahap + loop bertumpuk
@@ -48,7 +48,22 @@ Semua: **subjek konkret yang dikenal penonton di kata 1–3 (benda, merek, tempa
 - **P — Janji pilar:** tulis "penonton nonton untuk apa → pulang membawa apa". Wajib satu kalimat jawaban "alasan asli" yang menyentuh pengalaman penonton sendiri (contoh #004: "isi rak warung itu nggak selalu pilihan pemilik warungnya").
 - **J — Jargon:** tiap lembaga/istilah dijelaskan ≤ 4 kata lisan atau dihapus.
 - **K — Kesan:** tidak terkesan iklan pesaing (seimbangkan dengan bantahan pihak yang dikritik), tidak terkesan kejadian baru bila kasus lama (tahun di layar).
-- **C — Pemicu kembali:** penutup: loop jahitan (default) atau pertanyaan pengalaman ("warung dekat rumahmu jual merek apa aja?", varian dipakai #004) atau punchline; identitas seri ARSIP KASUS tetap terlihat.
+- **C — Pemicu kembali:** penutup: Circular Reframe Loop (default) atau pertanyaan pengalaman ("warung dekat rumahmu jual merek apa aja?", varian dipakai #004) atau punchline; identitas seri ARSIP KASUS tetap terlihat.
 
 ## D. Batas bukti (jujur)
 Tidak ada data retensi per detik di tangan kita; semua pola hook berasal dari views relatif (bukan retensi) dan n transkrip kecil. Efek judul (angka/uang) terukur lebih baik daripada efek hook lisan. #003 (hook OBJ) memberi 47,0% stayed-to-watch; target ≥ 60% belum tercapai; data kita sendiri (#004 dan seterusnya) adalah uji sebenarnya.
+
+## G. Judul: 5 pola, uji POV penonton, penguncian 3-titik (v5.0, 14 Nov 2026)
+**5 pola judul (≤ 55 karakter, ideal 38–48).** Status bukti ditulis jujur; data judul = 7.421 Shorts (`RISET_JUDUL.md`):
+| # | Pola | Status bukti |
+|---|---|---|
+| 1 | `[Merek/Subjek] [Tindakan/Hukuman] Gara-Gara [Objek Familiar]` | **sesuai data** (subjek konkret + angka/uang; dipakai #004: "Aqua Didenda Rp13,8 Miliar Gara-Gara Warung", 43 karakter). Tambahkan angka/uang bila ada (+6,4/+8,6 poin). |
+| 2 | `Trik Psikologi di Balik [Benda Familiar] yang Bikin Kamu [Perilaku]` | **hipotesis, berlawanan dengan data pilar** (psikologi sebagai pintu masuk 2,8% breakout vs 17,9% untuk benda/merek dikenal). Pakai hanya bila benda familiar jadi subjek dan bias disebut di akhir. |
+| 3 | `Kenapa [Fitur/Aturan] Justru Bikin Orang Makin [Kebalikannya]?` | **hipotesis, berlawanan dengan data judul** ("Kenapa"/tanda tanya tidak membantu). Pakai untuk kasus efek kebalikan yang jelas; uji di data Studio. |
+| 4 | `Cara Halus [Sistem/Produk] Bikin Kamu Bayar Lebih Mahal` | hipotesis; selaras dengan uang/harga (+8,6) tetapi "cara halus" belum teruji. |
+| 5 | `Alasan Asli [Kebiasaan/Desain] yang Selama Ini Kamu Anggap Sepele` | hipotesis; "alasan asli" = janji pilar, tetapi "rahasia/real reason" tidak terbukti membantu di data. |
+Aturan tetap berlaku: tanpa "padahal/tapi/ternyata" (−5,2 poin untuk "padahal/tapi"); bila ada angka/uang, pakai. Pola 2–5 diperlakukan sebagai **hipotesis yang diuji lewat data video tayang** (catat pola yang dipakai di `6-pelajaran.md`).
+
+**Wajib uji POV penonton: 4 pertanyaan sebelum menulis script** (melengkapi uji POV kalimat per kalimat, `7-selera…` #20/#30): (1) siapa melawan siapa / siapa pelakunya? (2) objek fisik konkret apa yang ditunjuk di layar? (3) apa taruhan langsung ke penonton (uang, waktu, keselamatan)? (4) apa "alasan ASLI" yang dibawa pulang penonton (satu kalimat)? Jawabannya ditulis di bagian "Uji POV penonton" README episode (`new_episode.sh` menyediakan kerangkanya).
+
+**Penguncian 3-titik (0,0–4,0 dtk).** Tiga hal dikunci satu sama lain sebelum VO direkam: **Judul** menjanjikan satu anomali/konsekuensi spesifik ↔ **Frame 0** (shot 01, 0,00 dtk) menampilkan objek utama ≥ 45% lebar frame di zona y 150–1150 dengan hantaman stempel/label ≤ 0,25 dtk ↔ **Kalimat H1** (baris pertama `script_vo.txt`) selesai ≤ 4,0 dtk, ≤ 14 kata, memakai kata tunjuk visual ("kayak gini", "ini") bila merujuk objek di layar. Pemeriksa otomatis `check_visual.mjs` **tidak** memeriksa ukuran objek frame 0 dan waktu stempel; itu dicek manual di keyframe t = 0,3 dtk.
