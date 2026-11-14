@@ -1,0 +1,10 @@
+[
+ {"id":"skutik","judul":"Kartel harga skutik Yamaha-Honda (KPPU/MA Rp47,5 M)","demand":["kartel skutik","kartel yamaha honda","harga skutik yamaha honda"],"supply":["kartel skutik yamaha honda kppu","kppu denda yamaha honda skutik"]},
+ {"id":"shopee","judul":"Algoritma kurir Shopee & pakta integritas KPPU","demand":["algoritma kurir shopee","kppu shopee","shopee pakta integritas kppu"],"supply":["kppu shopee pakta integritas kurir","shopee kppu algoritma pengiriman"]},
+ {"id":"timer","judul":"Timer lampu merah bikin pelanggaran naik (studi Sukoharjo & Malang)","demand":["timer lampu merah","countdown lampu merah","lampu merah hitung mundur"],"supply":["timer lampu merah bikin pelanggaran naik","countdown lampu merah pelanggaran studi"]},
+ {"id":"3in1","judul":"Penghapusan 3-in-1 Jakarta (Science 2017)","demand":["3 in 1 jakarta","penghapusan 3 in 1","ganjil genap vs 3 in 1"],"supply":["penghapusan 3 in 1 jakarta macet","3 in 1 jakarta joki sejarah macet"]},
+ {"id":"qris","judul":"QRIS (cashless)","demand":["qris","qris cashless","kenapa qris"],"supply":["sejarah qris kenapa dibuat","qris cashless pedagang kecil"]},
+ {"id":"cipali","judul":"Tol Cipali (highway hypnosis)","demand":["tol cipali","highway hypnosis","tol cipali kecelakaan"],"supply":["tol cipali kenapa banyak kecelakaan highway hypnosis","highway hypnosis tol cipali"]},
+ {"id":"hpiklan","judul":"HP murah penuh iklan (margin <= 5%)","demand":["hp murah iklan","hp xiaomi iklan","iklan di hp murah"],"supply":["kenapa hp murah banyak iklan","xiaomi iklan hp murah laba 5 persen"]},
+ {"id":"kesurupan","judul":"Kesurupan massal pabrik","demand":["kesurupan massal pabrik","kesurupan massal","kesurupan massal buruh"],"supply":["kesurupan massal pabrik penyebab","kesurupan massal pabrik psikologi"]}
+]
