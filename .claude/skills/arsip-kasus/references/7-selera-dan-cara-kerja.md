@@ -53,3 +53,7 @@ Dibaca **sebelum** mengirim apa pun ke user (shortlist, script, storyboard, film
 - [ ] Bahasa VO/teks natural, presisi, eksplisit; punchline lucu dipertahankan.
 - [ ] Tidak ada watermark; kredit gambar tercatat.
 - [ ] Janji pilar dibayar (satu kalimat alasan asli yang menyentuh pengalaman penonton); jargon dijelaskan; tahun di layar untuk kasus lama; tidak terkesan iklan merek mana pun.
+21. **Merek = perusahaan, bukan cuma produknya** (review storyboard #004): kalau VO bilang "Aqua didenda/membantah/bebas", yang tampil harus perusahaannya (pabrik berlabel tag ketik + orang berjas "pihak X", wajah generik), bukan botol. Lembaga tampil sebagai metafora orang (KPPU = wasit), konsisten satu tokoh dengan baju sama di semua shot.
+22. **Cap/stempel harus terbaca di HP:** tinta tipis di atas gambar gravir tidak terbaca; cap dicetak di kartu krem (`bake.py` stamps → card).
+23. **Adegan lucu butuh kontras visual yang jelas** (botol air sendirian di kursi terdakwa ruang sidang megah, zoom dari dekat ke lebar), bukan sekadar benda kecil di depan gedung.
+24. **Review storyboard lewat halaman artifact yang bisa dikomentari** (bukan gambar grid): user menaruh komentar per shot tanpa "Send to Claude", lalu bilang "cek komentar" di chat; Claude membaca semua dengan `ArtifactComments read`, menjawab di chat, dan menulis jawaban per shot sebagai kotak "Revisi vN" di halaman.

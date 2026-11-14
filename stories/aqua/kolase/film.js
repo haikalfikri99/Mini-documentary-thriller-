@@ -41,13 +41,14 @@ function warung(u, keys, s, star = 'on', id = 20, tOff = 0) {
 const camK = (u, keys, sh = []) => { let o = [0, 0]; for (const [t0, a] of sh) { const s = shake(u, t0, a); o = [o[0] + s[0], o[1] + s[1]]; } applyCam(cam(keys, u), o); };
 
 const SHOTS = [
-  // 01 · Aqua didenda tiga belas koma delapan miliar.   hero bottle already moving at 0.00, the fine slaps at once
+  // 01 · Aqua didenda tiga belas koma delapan miliar.   the company (factory + its bottle) is on the table at 0.00, the fine slaps at once
   (u, T, d) => {
     stage(u, d, { z0: 1.02, z1: 1.08, cy: 880, shake: [[0.0, 8], [0.14, 12]] }); bg(SET.hook);
-    putK('bottle_hero', [[0, 540, 690, -7, 1.2, 1, null, 0, 1.04], [0.14, 540, 710, -4, 0, 1, 'in', 1.2, 1.0]], u, 1);
+    putK('pabrik', [[0, 540, 560, -2, 1.2, 1, null, 0, 1.0], [0.1, 540, 570, -1, 0, 1, 'in', 1.0, 0.98]], u, 4);
+    putK('bottle_hero', [[0, 830, 800, -5, 1.2, 1, null, 0, 0.66], [0.14, 830, 820, -3, 0, 1, 'in', 1.2, 0.62]], u, 1);
+    putK('s_aqua', slap(0.25, 300, 440, -6), u, 2, { s: 1.3 });
     putK('s_138', [[0, 540, 225, -3, 2, 1, null, 0, 1.06], [0.08, 540, 235, -3, 0, 1, 'in', 1.0, 1.0]], u, 3);
-    putK('s_aqua', slap(0.3, 800, 560, 8), u, 2, { s: 0.9 });
-    stampAt('st_denda', u, 0.14, 560, 1020, -8, 1.3);
+    stampAt('st_denda', u, 0.14, 470, 1040, -8, 1.2);
   },
   // 02 · Gara-gara warung kayak gini jual air mineral merek lain.
   (u, T, d) => {
@@ -114,25 +115,26 @@ const SHOTS = [
     putK('s_kppu2', slap(0.45, 540, 190, 2), u, 101);
     putK('s_wasit', slap(at(8, 'wasitnya'), 640, 1120, -2), u, 103);
   },
-  // 10 · bilang itu persaingan nggak sehat. Aqua didenda.   the referee's red card, then the fine (2017)
+  // 10 · bilang itu persaingan nggak sehat. Aqua didenda.   the KPPU referee shows the red card to the company (2017)
   (u, T, d) => {
     const tk = at(9, 'nggak'), td = at(9, 'didenda');
     stage(u, d, { z0: 1.0, z1: 1.07, shake: [[tk, 8], [td, 12]] }); bg(SET.ref);
-    putK('bottle_hero', [[0, 760, 760, 3, 0, 1]], u, 110, { s: 0.7 });
-    putK('wasit_kartu', slide(tk - 0.25, tk, 330, 680, -3, -700, 0, 0, 0.8), u, 111, { s: 0.95 });
-    putK('s_kppu', slap(tk + 0.1, 300, 1000, -6), u, 112, { s: 0.7 });
-    stampAt('st_denda', u, td, 720, 1060, -8, 0.95);
+    put('pabrik', 760, 640, 0, 0, 1, 0.5);
+    putK('s_aqua', slap(0.1, 780, 430, 4), u, 113, { s: 0.9 });
+    putK('wasit_kartu', slide(tk - 0.25, tk, 330, 720, -2, -700, 0, 0, 0.8), u, 111, { s: 0.92 });
+    putK('s_kppu', slap(tk + 0.1, 250, 1010, -6), u, 112, { s: 0.7 });
+    stampAt('st_denda', u, td, 760, 920, -8, 0.9);
     if (u > td + 0.15) ransomRow('ry17', u, td + 0.15, 800, 190, 0.07, 0.8);
   },
-  // 11 · Tapi Aqua membantah, katanya itu ulah distributor.
+  // 11 · Tapi Aqua membantah, katanya itu ulah distributor.   the company man says "not us" and points at the distributor's truck
   (u, T, d) => {
-    const tb = at(10, 'membantah'), tk = at(10, 'katanya'), tu = at(10, 'ulah');
+    const tb = at(10, 'membantah'), tk = at(10, 'katanya');
     stage(u, d, { z1: 1.05, shake: [[tb, 9]] }); bg(SET.deny);
-    putK('bottle_hero', [[0, 290, 740, -3, 0, 1]], u, 120, { s: 0.6 });
-    stampAt('st_dibantah', u, tb, 330, 1090, -8, 0.85);
-    putK('truck', slide(tk, tk + 0.35, 700, 430, 2, 800, 0, 0, -0.8), u, 121, { s: 0.72 });
-    arrow(u, tu - 0.2, tu + 0.15, bow([400, 620], [620, 560], -0.2), { seed: 122 });
-    putK('s_distributor', slap(at(10, 'distributor'), 720, 680, 3), u, 123);
+    putK('bos_bantah', slide(0, 0.25, 690, 740, 0, 600, 0, 0, -0.6), u, 120, { s: 0.92 });
+    putK('s_pihak', slap(0.3, 760, 290, 4), u, 124, { s: 0.85 });
+    stampAt('st_dibantah', u, tb, 700, 1090, -6, 0.9);
+    putK('truck', slide(tk, tk + 0.35, 230, 470, 2, -700, 0, 0, 0.8), u, 121, { s: 0.52 });
+    putK('s_distributor', slap(at(10, 'distributor'), 250, 680, -3), u, 123, { s: 0.9 });
   },
   // 12 · Dan pengadilan… membatalkan denda Aqua.   (2019)
   (u, T, d) => {
@@ -145,13 +147,14 @@ const SHOTS = [
     stampAt('st_batal', u, tm + 0.1, 560, 1090, 4, 0.95);
     if (u > tm + 0.4) ransomRow('ry19', u, tm + 0.4, 830, 190, 0.07, 0.75);
   },
-  // 13 · Aqua bebas? Belum.   the bottle lifts on "bebas?", slams down on "Belum"
+  // 13 · Aqua bebas? Belum.   the company man sighs with relief on "bebas?", BELUM slams down
   (u, T, d) => {
     const tq = at(12, 'bebas'), tb = at(12, 'belum');
     stage(u, d, { z1: 1.06, shake: [[tb, 14]] }); bg(SET.hook);
-    putK('bottle_hero', [[0, 540, 680, -2, 0, 1], [tq + 0.1, 540, 600, 3, 3, 1, 'out'], [tb, 540, 680, -3, 0, 1, 'in', 1.3]], u, 140, { s: 0.92 });
-    ransomRow('rq', u, tq, 860, 330, 0.1, 0.9);
-    stampAt('st_belum', u, tb, 540, 1010, -10, 1.15);
+    putK('bos_lega', [[0, 540, 720, 0, 0, 1], [tq + 0.1, 540, 690, 2, 1.5, 1, 'out'], [tb, 540, 720, -2, 0, 1, 'in', 1.0]], u, 140, { s: 0.92 });
+    putK('s_pihak', slap(0.05, 260, 300, -5), u, 141, { s: 0.85 });
+    ransomRow('rq', u, tq, 850, 300, 0.1, 0.9);
+    stampAt('st_belum', u, tb, 540, 1050, -10, 1.15);
   },
   // 14 · Masalahnya, KPPU pegang bukti dari awal:   the case file, documents peeking out
   (u, T, d) => {
@@ -182,19 +185,16 @@ const SHOTS = [
     putK('s_satu', slap(at(15, 'satu'), 220, 230, -6), u, 171);
     stampAt('st_dicopot', u, tc + 0.12, 540, 1085, -7, 1.0);
   },
-  // 17 · KPPU nggak terima, dan membawa kasus ini ke Mahkamah Agung.   the file travels to the court
+  // 17 · KPPU nggak terima, dan membawa kasus ini ke Mahkamah Agung.   the referee walks the case file to the court
   (u, T, d) => {
     const tb = at(16, 'membawa'), tm = at(16, 'mahkamah');
     stage(u, d, { z0: 1.0, z1: 1.04 }); bg(SET.court);
-    putK('court', slide(0.8, 1.15, 640, 420, 0, 900, 0, 0, -0.6), u, 180, { s: 0.68 });
-    const path = bow([290, 1010], [620, 640], 0.22);
-    route(u, tb - 0.1, tb + 0.6, path, { seed: 181 });
-    const f = EASE.io(seg(stepT(u), tb + 0.3, tm + 0.1)), i = Math.min(path.length - 1, Math.floor(f * (path.length - 1)));
-    const [fx, fy] = path[i];
-    putK('folder', [[0, 290, 1010, -6, 0, 1, null, 0, 0.42], [0.01, 290, 1010, -6, 0, 1]], u, 182, { s: 0.42 + (0.28 - 0.42) * f });
-    if (f > 0) put('folder', fx, fy, -6 + 8 * f, 2 * Math.sin(f * Math.PI), 1, 0.42 + (0.28 - 0.42) * f);
-    put('s_kppu', (f > 0 ? fx : 290) - 20, (f > 0 ? fy : 1010) + 20, -4, 0, 1, 0.42 * (1 - 0.35 * f));
-    putK('s_ma', slap(tm, 640, 760, 3), u, 183);
+    putK('court', slide(0.2, 0.5, 760, 430, 0, 700, 0, 0, -0.6), u, 180, { s: 0.55 });
+    const f = EASE.lin(seg(stepT(u), 0, d)), bob = Math.abs(Math.sin(stepT(u) * 9)) * -10;
+    put('wasit_map', 220 + 300 * f, 820 + bob, 0, 0, 1, 0.82);
+    put('s_kppu', 165 + 300 * f, 690 + bob, -5, 0, 1, 0.42);
+    route(u, tb, tb + 0.7, bow([420, 700], [680, 560], 0.15), { seed: 181 });
+    putK('s_ma', slap(tm, 740, 190, 3), u, 183);
   },
   // 18 · Hasilnya… Mahkamah Agung memihak KPPU.   (2019)
   (u, T, d) => {
@@ -204,19 +204,20 @@ const SHOTS = [
     stampAt('st_menang', u, tm, 540, 950, -6, 1.15);
     if (u > tm + 0.35) ransomRow('ry19', u, tm + 0.35, 540, 170, 0.07, 0.8);
   },
-  // 19 · Denda Aqua berlaku lagi.   echo of frame 0
+  // 19 · Denda Aqua berlaku lagi.   the company man slumps in front of the factory; echo of frame 0
   (u, T, d) => {
-    stage(u, d, { z0: 1.02, z1: 1.08, cy: 880, shake: [[0.08, 12]] }); bg(SET.hook);
-    putK('bottle_hero', [[0, 540, 690, -7, 1.2, 1, null, 0, 1.04], [0.1, 540, 710, -4, 0, 1, 'in', 1.2, 1.0]], u, 190);
-    stampAt('st_denda', u, 0.08, 560, 1020, -8, 1.3);
-    putK('s_138', slap(at(18, 'berlaku'), 540, 235, -3), u, 191);
+    stage(u, d, { z0: 1.02, z1: 1.07, cy: 880, shake: [[0.08, 12]] }); bg(SET.hook);
+    put('pabrik', 600, 520, 0, 0, 1, 0.78);
+    putK('bos_lemas', slide(0, 0.2, 330, 800, 0, 0, -300, 0, 0.6), u, 190, { s: 0.78 });
+    stampAt('st_denda', u, 0.08, 720, 1040, -8, 1.1);
+    putK('s_138', slap(at(18, 'berlaku'), 560, 215, -3), u, 191);
   },
-  // 20 · Air putih doang, sampai Mahkamah Agung.   tight on a glass of water, then pull back to the huge court
+  // 20 · Air putih doang, sampai Mahkamah Agung.   tight on one small bottle in the defendant's chair, then pull back to the grand courtroom
   (u, T, d) => {
     const ts = at(19, 'sampai');
-    camK(u, [[0, 540, 1010, 2.1], [ts - 0.05, 540, 1000, 2.2], [ts + 0.7, 540, 760, 0.98, 'io'], [d, 540, 760, 1.0]]); bg(SET.court);
-    put('court', 540, 520, 0, 0, 1, 1.0);
-    putK('glass', [[0, 540, 1030, 0, 0, 1]], u, 200, { s: 0.6 });
+    camK(u, [[0, 538, 880, 2.6], [ts - 0.05, 538, 885, 2.7], [ts + 0.75, 540, 660, 1.0, 'io'], [d, 540, 660, 1.02]]); bg(SET.court);
+    put('botol_sidang', 540, 660, 0, 0, 1, 1.0);
+    if (u > ts + 0.8) { arrow(u, ts + 0.8, ts + 1.05, bow([620, 290], [560, 820], 0.12), { seed: 201 }); putK('s_terdakwa', slap(ts + 1.05, 600, 235, -3), u, 202); }
   },
   // 21 · Jadi isi rak warung itu… nggak selalu pilihan pemilik warungnya.
   (u, T, d) => {

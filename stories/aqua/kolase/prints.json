@@ -116,37 +116,61 @@
  },
  "wasit_kartu": {
   "file": "ai_wasit_kartu.jpg",
-  "width": 560,
+  "width": 580,
   "tint": "#B3261E",
   "tint_poly": [
    [
-    0.336,
-    0.046
+    0.279,
+    0.067
    ],
    [
-    0.466,
-    0.046
+    0.408,
+    0.067
    ],
    [
-    0.466,
-    0.185
+    0.408,
+    0.198
    ],
    [
-    0.4,
-    0.185
+    0.342,
+    0.198
    ],
    [
-    0.385,
-    0.15
+    0.335,
+    0.172
    ],
    [
-    0.336,
-    0.15
+    0.279,
+    0.172
    ]
   ]
  },
  "kantor": {
   "file": "ai_kantor.jpg",
   "width": 800
+ },
+ "pabrik": {
+  "file": "ai_pabrik.jpg",
+  "width": 900
+ },
+ "bos_bantah": {
+  "file": "ai_bos_bantah.jpg",
+  "width": 600
+ },
+ "bos_lega": {
+  "file": "ai_bos_lega.jpg",
+  "width": 560
+ },
+ "bos_lemas": {
+  "file": "ai_bos_lemas.jpg",
+  "width": 520
+ },
+ "botol_sidang": {
+  "file": "ai_botol_sidang.jpg",
+  "width": 980
+ },
+ "wasit_map": {
+  "file": "ai_wasit_map.jpg",
+  "width": 520
  }
 }

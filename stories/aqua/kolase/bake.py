@@ -200,7 +200,7 @@ def slips():
          ('s_ulah', '"ulah distributor"', F_FELLI, 42, CARD, INK), ('s_pn', 'PENGADILAN', F_CPB, 44, CARD, INK),
          ('s_ma', 'MAHKAMAH AGUNG', F_CPB, 44, CARD, INK), ('s_turunin', '= turunin status warung bintang', F_CPB, 32, AMBER, INK),
          ('s_satu', '1 warung', F_CPB, 40, CARD, RED), ('s_pilihan', 'pilihan siapa?', F_FELLI, 44, CARD, INK),
-         ('s_rumah', 'warung dekat rumahmu', F_CPB, 38, CARD, INK)]
+         ('s_rumah', 'warung dekat rumahmu', F_CPB, 38, CARD, INK), ('s_pihak', 'pihak AQUA', F_CPB, 40, CARD, INK), ('s_terdakwa', 'terdakwa: air putih', F_CPB, 38, CARD, RED)]
     for i, (n, tx, f, s, pa, ik) in enumerate(T):
         bk.strip(n, tx, f, s * 1.3, pa, ik, 410 + i, mono=f.startswith('Courier'))
     bk.ransom('ry16', '2016', 120, 3)
