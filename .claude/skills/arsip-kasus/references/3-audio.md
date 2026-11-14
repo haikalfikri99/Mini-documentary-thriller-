@@ -48,7 +48,7 @@ Rasa musik dan karakter SFX tetap dinilai user.
 - "Tanpa suara di sini" pada satu kata = stempel waktu alignment meleset → koreksi `vo_words.json` (caption ikut benar).
 
 ## Revisi v4.1 (13 Nov 2026, `research/niche/RISET_AUDIO_CAPTION_META.md`, sampel 11 video — lemah)
-- Tempo VO target **2,6–3,0 kata/dtk** (#002 2,24 terlalu lambat); minta ElevenLabs bicara lebih cepat/bertenaga; speed bisa dinaikkan ringan saat proses.
+- **Tempo VO target 2,8 kata/dtk (rentang 2,6–3,0)** dari bukti riset, bukan dari video kita: pemenang diukur dari audio rata-rata 2,97 (2,63–3,23), pemenang Indonesia 2,63/2,66/3,10 (rata-rata 2,80), gagal 2,20–2,71 (`RISET_AUDIO_CAPTION_META.md`, n=11, lemah). Tanpa sunyi > 0,3 dtk; bunyi mulai ≤ 0,15 dtk. ElevenLabs Saos Cocol eleven_v4 cenderung ±2,25 kata/dtk → proses: rapatkan jeda ke ≤ 0,25 dtk lalu atempo ±1,2 (nada tetap); cek Whisper masih mengenali semua kata. Alignment: `kit/tools/align_vo.py`.
 - Bunyi mulai ≤ 0,2 dtk; tanpa jeda hening panjang (satu-satunya jeda 8,8 dtk ada di video gagal).
 - Loudness −14 LUFS dipertahankan (loudness tidak membedakan performa); bed musik boleh ada/tidak.
 
