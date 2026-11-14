@@ -27,3 +27,5 @@ Latar: shortlist #004 pertama hanya dari bank ide → bohlam (fakta kuat, tidak 
 - Hasil pencarian diurutkan relevansi YouTube, bukan views; kandidat di luar 10–20 teratas tak terhitung.
 - Tidak ada data kita sendiri yang membuktikan topik "belum dibahas" mengalahkan "sudah dibahas"; Celah adalah hipotesis (uji lewat data Studio #004 dst).
 - Shorts vs video panjang tidak dipisah (flat search); jangan menyimpulkan "tidak ada Shorts".
+
+**Tambahan 14 Nov:** hook dan judul mengikuti `.claude/skills/arsip-kasus/references/8-hook-dan-judul.md` (5 arketipe; judul wajib memuat angka/uang/merek; hindari "padahal/tapi/ternyata"). Uji judul: `topik/analisis_judul_v2.py`.
