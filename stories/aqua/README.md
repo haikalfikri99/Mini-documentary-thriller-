@@ -199,10 +199,10 @@ Durasi naik ke ±50 dtk: diterima karena tiap tambahan menutup kebingungan (atur
 | 6 | 13,06–14,54 | yang katanya ada manis-manisnya… | botol pesaing + kilau gula kecil | label tulisan tangan "manis-manisnya?" | kode |
 | 7 | 14,54–15,74 | bintangnya dicopot. | tangan mencabut bintang dari papan warung | bintang terlempar | AI `hand_star` |
 | 8 | 15,74–17,36 | Harga Aqua-nya jadi lebih mahal. | label harga | label naik ↑ "MAHAL" | kode |
-| 9 | 17,36–19,46 | KPPU, wasitnya persaingan bisnis, | peluit wasit + map | label "KPPU = Komisi Pengawas Persaingan Usaha" | arsip `whistle` |
-| 10 | 19,46–22,00 | bilang itu persaingan nggak sehat. Aqua didenda. | timbangan miring; botol di piring berat | stempel **DIDENDA** · 2017 | arsip `scale` |
+| 9 | 17,36–19,46 | KPPU, wasitnya persaingan bisnis, | peluit wasit | label KPPU + kepanjangan + "wasit persaingan bisnis" | gravir sendiri `whistle` (arsip PSF ternyata peluit uap → ditolak) |
+| 10 | 19,46–22,00 | bilang itu persaingan nggak sehat. Aqua didenda. | botol + **kartu merah** wasit (lanjutan metafora wasit) | stempel **DIDENDA** · 2017 | kode `kartu` |
 | 11 | 22,00–24,62 | Tapi Aqua membantah, katanya ulah distributor. | botol + truk distributor | stempel DIBANTAH · panah ke truk | AI `truck` |
-| 12 | 24,62–27,38 | Dan pengadilan… membatalkan denda Aqua. | palu hakim | stempel hijau **DIBATALKAN** menutupi DIDENDA · 2019 | arsip `gavel` |
+| 12 | 24,62–27,38 | Dan pengadilan… membatalkan denda Aqua. | hakim mengetuk palu | DIDENDA dicoret, stempel hijau **DIBATALKAN** · 2019 | arsip PSF `gavel` (domain publik) |
 | 13 | 27,38–28,92 | Aqua bebas? Belum. | botol + "?" di sampingnya | stempel BELUM | kode |
 | 14 | 28,92–31,74 | Masalahnya, KPPU pegang bukti dari awal: | map ARSIP terbuka | label "BUKTI · 2017" | kode (signature) |
 | 15 | 31,74–36,04 | email berjudul Star Outlet Degradation, alias turunin status warung bintang. | cetakan email, subjek disorot | slip terjemahan "= turunin status warung bintang" | kode |
@@ -229,7 +229,10 @@ Durasi naik ke ±50 dtk: diterima karena tiap tambahan menutup kebingungan (atur
 | court_alt.jpg | cadangan | atap bertingkat (bisa terkesan Thailand → tidak dipakai) |
 Lisensi: dibuat pemilik channel dengan Google Flow; dicatat di SOURCES.jsonl sebagai "AI-generated (Google Flow), channel owner". Tanpa logo/teks.
 
-## Catatan lanjut (untuk sesi setelah /compact)
+## Storyboard v1 (14 Nov) — `kolase/board/storyboard_v1.jpg` ✋
+bake.py + film.js selesai; 22 shot sesuai tabel di atas (dengan perubahan shot 9, 10, 12). Kredit di `kolase/SOURCES.jsonl`. Kit: `parts.Baker.cut(tint_poly=…)` (warna tangan hanya pada satu benda di cetakan), `engr_objects.whistle`.
+
+## Catatan lanjut (lama, sebelum storyboard)
 1. Tunggu dua agen: riset tempo VO (Apify → `research/niche/RISET_VO_TEMPO.md`) dan gambar arsip (→ `kolase/raw/` + `kolase/SOURCES.jsonl`: document, gavel, scale, whistle, hand, money, dll.).
 2. `bake.py`: salin `ai/*.jpg` ke `raw/`; potong (cutout) tiap gambar AI; cetakan sendiri: bintang emas, label harga (MURAH/MAHAL), perjanjian + klausul, email cetak (subjek "Star Outlet Degradation…"), slip terjemahan, stempel DIDENDA Rp13,8 M / DIBANTAH / DIBATALKAN / BELUM / DICOPOT / KPPU MENANG, label KPPU, tahun 2016/2017/2019, "?".
 3. `film.js`: gabungkan START dari `line_starts.py` (31 kalimat) ke 22 shot sesuai tabel "Rencana shot storyboard v1"; frame 0 = bottle_hero + stempel di 0,00.

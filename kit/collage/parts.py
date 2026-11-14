@@ -153,12 +153,17 @@ class Baker:
             k = maxdim / max(im.size); im = im.resize((int(im.size[0] * k), int(im.size[1] * k)), Image.LANCZOS)
         return im
 
-    def cut(self, name, file, width, crop=None, thresh=205, close=0.012, tint=None, tint_k=0.55, margin=4, seed=0, rect=False, keep=0.04, ink_gain=1.0, plate=None, **meta):
-        """width = world width of the cut-out. tint = hand colour inside the cut (np colour). plate = re-ink colour for the lines (e.g. RED)."""
+    def cut(self, name, file, width, crop=None, thresh=205, close=0.012, tint=None, tint_k=0.55, margin=4, seed=0, rect=False, keep=0.04, ink_gain=1.0, plate=None, tint_poly=None, **meta):
+        """width = world width of the cut-out. tint = hand colour inside the cut (np colour). plate = re-ink colour for the lines (e.g. RED).
+        tint_poly = [[x, y], ...] in 0..1 of the (cropped) source: hand colour only inside that polygon (e.g. one object in a print)."""
         B = self.B
         im = self.load(file, crop, maxdim=int(width * B * 2.2))
         g = np.asarray(im.convert('L'), float)
         h, w = g.shape
+        if tint_poly is not None:
+            tm = poly_mask(h, w, [(x * w, y * h) for x, y in tint_poly])
+            tm = ndi.gaussian_filter((tm > 0.5).astype(float), 1.5)
+            tint, tint_poly = None, (tint if tint is not None else AMBER, tm)
         if rect:
             mask = np.zeros((h, w)); e = int(0.01 * max(h, w)); mask[e:h - e, e:w - e] = 1
         else:
@@ -174,7 +179,8 @@ class Baker:
             mask = (ndi.gaussian_filter(m.astype(float), max(1.0, it / 3)) > 0.5).astype(float)
         ys, xs = np.nonzero(mask > 0.5)
         scale = width * B / (xs.max() - xs.min() + 1)
-        rgba = cl.cutout(g, mask, scale, tint=None, margin=margin * B, seed=seed, paper=CARD, ink_gain=ink_gain)
+        rgba = cl.cutout(g, mask, scale, tint=None if tint_poly is None else tint_poly[0], tint_mask=None if tint_poly is None else tint_poly[1],
+                         margin=margin * B, seed=seed, paper=CARD, ink_gain=ink_gain)
         col, a = rgba[..., :3], rgba[..., 3]
         if tint is not None or plate is not None:
             inkamt = np.clip(1 - (col.mean(2) - INK.mean()) / (CARD.mean() - INK.mean()), 0, 1)

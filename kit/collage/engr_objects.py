@@ -1,7 +1,7 @@
 """Engraving-style line drawings for objects with no free print, drawn as ink on white into <raw>/gen_<name>.png and then
 cut out by the episode's bake.py like any found print (prints.json: "file": "gen_<name>.png").
     python3 kit/collage/engr_objects.py stories/<slug>/kolase/raw [name ...]      (no names = all)
-Library (grows per episode; add a function, then add it to OBJECTS): syringe, glass, babybottle, salt, globe.
+Library (grows per episode; add a function, then add it to OBJECTS): syringe, glass, babybottle, salt, globe, whistle.
 Style: outline 9 px on a 1200 px canvas + engrave() hatching, light from the top left (darker at the right edge)."""
 import os, sys, math
 import numpy as np
@@ -115,7 +115,37 @@ def globe():
     base = poly_mask([(cx - 200, 1100), (cx + 200, 1100), (cx + 120, 1010), (cx - 120, 1010)])
     finish('globe', o, np.maximum(h, shade(base, cx - 200, cx + 200, 8, 0.2, 0.6, 0)))
 
-OBJECTS = dict(syringe=syringe, glass=glass, babybottle=babybottle, salt=salt, globe=globe)
+def whistle():
+    """referee whistle, side view: round chamber, mouthpiece tangent to its top, air slot, ring + cord. Outline from the
+    silhouette mask, engraved shading heavier toward the lower right."""
+    from scipy import ndimage as ndi
+    o = canvas(); d = ImageDraw.Draw(o)
+    cx, cy, r = 720, 660, 240
+    yy, xx = np.mgrid[:N, :N].astype(float)
+    chamber = (xx - cx) ** 2 + (yy - cy) ** 2 < r ** 2
+    tube = (xx > 110) & (xx < cx) & (yy > cy - r) & (yy < cy - r + 170)
+    sil = chamber | tube
+    slot = (xx > 470) & (xx < 590) & (yy > cy - r - 2) & (yy < cy - r + 46)
+    sil &= ~slot
+    edge = sil & ~ndi.binary_erosion(sil, iterations=9)
+    seam = (np.abs(xx - (cx - 175)) < 3) & tube & ~chamber                                       # where the mouthpiece is soldered
+    lip = (np.abs(xx - 190) < 3) & tube                                                            # mouth grip
+    inner_slot = slot & ndi.binary_dilation(sil, iterations=14)
+    tone_c = np.clip(0.1 + 0.8 * (((xx - cx) * 0.55 + (yy - cy)) / r + 0.4) / 1.6, 0, 1)
+    tone_t = np.clip(0.15 + 0.7 * ((yy - (cy - r)) / 170) ** 1.5, 0, 1)
+    tone = np.where(chamber, tone_c, tone_t)
+    h = engrave(tone, yy + 0.18 * xx, 9, wobble=0.04 * fbm(N, N, scales=(30,), weights=(1,), seed=5)) * sil
+    glint = ((xx - (cx - 100)) ** 2 + (yy - (cy - 90)) ** 2 < 50 ** 2) | ((yy > cy - r + 22) & (yy < cy - r + 38) & (xx > 200) & (xx < cx - 120))
+    h = h * (1 - glint)
+    rx, ry, rr = cx + 175, cy - 205, 62
+    d.ellipse([rx - rr, ry - rr, rx + rr, ry + rr], outline=255, width=16)                        # ring
+    pts = [(rx + 40, ry + 45)] + [(rx + 60 + 170 * t, ry + 70 + 430 * t * t + 25 * math.sin(t * 7)) for t in np.linspace(0, 1, 40)]
+    d.line(pts, fill=255, width=13, joint='curve')                                                # cord
+    o2 = np.asarray(o, float) / 255
+    ink = np.maximum.reduce([o2 * ~sil, edge * 1.0, seam * 1.0, lip * 1.0, inner_slot * 1.0, h])
+    Image.fromarray((255 * (1 - np.clip(ink, 0, 1))).astype(np.uint8)).save(os.path.join(RAW, 'gen_whistle.png'))
+
+OBJECTS = dict(syringe=syringe, glass=glass, babybottle=babybottle, salt=salt, globe=globe, whistle=whistle)
 if __name__ == '__main__':
     for n in (sys.argv[2:] or OBJECTS):
         OBJECTS[n](); print('drawn', n)

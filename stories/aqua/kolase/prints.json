@@ -1,1 +1,117 @@
-{}
+{
+ "bottle_hero": {
+  "file": "ai_bottle_hero.jpg",
+  "width": 300
+ },
+ "bottle_rival": {
+  "file": "ai_bottle_rival.jpg",
+  "width": 300
+ },
+ "warung": {
+  "file": "ai_warung_front.jpg",
+  "width": 860
+ },
+ "hand_star": {
+  "file": "ai_hand_star.jpg",
+  "width": 760,
+  "tint": "#D9A43A",
+  "tint_poly": [
+   [
+    0.479,
+    0.188
+   ],
+   [
+    0.532,
+    0.293
+   ],
+   [
+    0.552,
+    0.332
+   ],
+   [
+    0.539,
+    0.41
+   ],
+   [
+    0.547,
+    0.488
+   ],
+   [
+    0.559,
+    0.518
+   ],
+   [
+    0.527,
+    0.562
+   ],
+   [
+    0.469,
+    0.566
+   ],
+   [
+    0.41,
+    0.535
+   ],
+   [
+    0.337,
+    0.496
+   ],
+   [
+    0.327,
+    0.459
+   ],
+   [
+    0.262,
+    0.379
+   ],
+   [
+    0.256,
+    0.363
+   ],
+   [
+    0.293,
+    0.352
+   ],
+   [
+    0.386,
+    0.334
+   ],
+   [
+    0.439,
+    0.273
+   ]
+  ]
+ },
+ "shelf_many": {
+  "file": "ai_warung_shelf.jpg",
+  "width": 860
+ },
+ "shelf_one": {
+  "file": "ai_shelf_onebrand.jpg",
+  "width": 600
+ },
+ "shopkeeper": {
+  "file": "ai_shopkeeper.jpg",
+  "width": 620
+ },
+ "truck": {
+  "file": "ai_truck.jpg",
+  "width": 780
+ },
+ "court": {
+  "file": "ai_court.jpg",
+  "width": 940
+ },
+ "glass": {
+  "file": "gen_glass.png",
+  "width": 260
+ },
+ "gavel": {
+  "file": "gavel_1.jpg",
+  "width": 620
+ },
+ "whistle": {
+  "file": "gen_whistle.png",
+  "width": 420
+ }
+}
