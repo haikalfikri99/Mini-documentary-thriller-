@@ -14,6 +14,9 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 - **Komposisi konten (`research/niche/KEPUTUSAN_RISET.md`):** pilar ±70% = **"alasan ASLI di balik benda, tempat, harga, dan merek yang kamu kenal, terutama di Indonesia"**; peristiwa/hal yang dikenal penonton boleh ditambah bila menarik (keputusan user 14 Nov). Selingan ±30%: **W4 keputusan fatal** (±20%) + **W6 sejarah & tempat** (±10%), W1/W5 sesekali; **W3 misteri, klenik, kasus pidana berjalan = tidak dipakai**. Ide: `research/niche/BANK_IDE.md`, `RISET_SELINGAN.md`.
 - **Target produksi: 1 video/hari.**
 - **Model & effort:** sesi utama (kode film, keputusan kreatif) = Opus dengan **effort high** (arahan lemo-opuscar; user mengatur `/effort high`). Subagen dipilih Claude sesuai kesulitan: Haiku = mekanis (unduh, cek file), Sonnet = riset terstruktur (cari gambar, data), Opus = penilaian kreatif sulit.
+- **Rantai shortlist → judul → hook → cover → alur menahan penonton: baca `references/8-hook-dan-judul.md` sebelum shortlist dan sebelum script.** Fakta benar, kemasan semaksimal mungkin; benda/merek dikenal + klaim di kata 1–3; angka/uang/KAPITAL di judul; jawaban bertahap + loop bertumpuk; janji pilar dibayar; uji POV penonton baru.
+- **Batasan tetap sesi:** YouTube memblokir pengambilan otomatis dari server (jangan ditembus; riset memakai data yang sudah ada). Apify hanya dipakai bila user menyetujui dan dengan batas biaya (riset tempo VO #004 selesai, US$1,50). Generate ElevenLabs memakai kredit user → tanya dulu. Wikimedia: satu permintaan/detik, hormati 429. Tanpa logo/foto bermerek asli, tanpa video AI, tanpa stock footage.
+- **Pengingat `/compact` atau `/clear`:** ingatkan user di akhir tiap tahap besar (storyboard disetujui, film terkirim) dan tulis catatan "Lanjut setelah /compact" di `stories/<slug>/README.md` sebelum konteks penuh.
 - Jawab dalam bahasa Indonesia, lugas, kritis, beri rekomendasi; minim beban CLI untuk user. Claude tidak bisa mendengar: audio dicek dengan alat dan dilaporkan apa adanya.
 - Commit/push ke branch sesi; tanpa PR kecuali diminta; `main` hanya diperbarui atas izin user.
 
@@ -24,13 +27,14 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 | # | Langkah | Hasil | Rujukan |
 |---|---|---|---|
 | 0 | Sesi/container baru: `kit/tools/setup_env.sh` (±40 dtk) | | |
-| 1a | **Shortlist 8–10 judul** (cerita 1–2 kalimat, wilayah, skor, rekomendasi) ✋ | chat | `1-cerita…` §D |
+| 1a | **Shortlist 8–10 judul** berbasis riset segar (`python3 kit/tools/riset_topik.py`: permintaan + celah; uji hook + sudut Indonesia sebagai gerbang) ✋ | chat | `1-cerita…` §D, `8-hook…`, `7-selera` #14–16 |
 | 1b | Fact sheet (≥ 2 sumber/klaim; PubMed/Consensus untuk klaim sains) | `stories/<slug>/README.md` | `1-cerita…` §C, §J |
 | 2 | **Script Formula ARSIP v4.1** + scorecard F6 + V1–V5 + gerbang F7, dikirim bersama ✋ | README | `1-cerita…` §F |
-| 3 | VO ElevenLabs (2 take, pilih dengan alat; atempo bila < 2,6 kata/dtk) → `audio/vo_<slug>.mp3`; alignment Whisper → `audio/vo_words.json` (ejaan dari script) | | `3-audio` |
+| 3 | VO ElevenLabs (2 take, pilih dengan alat; **target tempo 2,6–2,7 kata/dtk**, rapatkan jeda ≤ 0,25 dtk lalu atempo ±1,2; kredit user → tanya dulu; `kit/tools/align_vo.py`) → `audio/vo_<slug>.mp3`; alignment Whisper → `audio/vo_words.json` (ejaan dari script) | | `3-audio` |
 | 4 | `kit/tools/new_episode.sh <slug> <no> "CASE LINE"` → `python3 kit/tools/line_starts.py stories/<slug>` (START per kalimat; gabung/potong manual sampai ±2–2,5 dtk/shot) | `kolase/` | — |
 | 5 | **Gambar:** daftar benda per shot → cari arsip (Openverse dulu, Wikimedia; lihat `2-visual…` §C) → `kolase/prints.json` + `SOURCES.jsonl` (lisensi & kredit); benda tanpa arsip → `kit/collage/engr_objects.py` atau gambar sendiri di `bake.py` | | `2-visual…` §C |
 | 6 | **Storyboard:** `bake.py` + `film.js` (shot = fungsi waktu) → tulis `kolase/storyboard.json` (contoh `stories/aqua/kolase/storyboard.json`) → `python3 kit/tools/storyboard_page/make_page.py stories/<slug>/kolase <scratchpad>/sbNNN` → terbitkan sebagai **Artifact yang bisa dikomentari** (bukan gambar grid); user berkomentar lalu bilang "cek komentar" → baca semua dengan `ArtifactComments`, jawab di chat, isi `note` = kotak "Revisi vN", terbitkan ulang ke URL sama (7-selera #24) ✋ | storyboard | `2-visual…` §B, §D |
+| 6b | Gambar AI (bila arsip tidak ada): Claude menulis prompt per gambar, **user membuatnya di Google Flow (Nano Banana)** → taruh di `kolase/ai/*.jpg`; `bake.py ai_to_raw()` menyalin ke `raw/`, `prints.json` memotongnya (`tint_poly` untuk mewarnai sebagian), `SOURCES.jsonl` mencatat "AI-generated image (Google Flow), made by the channel owner; no logos" | | `2-visual…` §C |
 | 7 | `score_full.py` (ansambel kecil per babak) + `fullmix.py` (foley otomatis dari kejadian layar) | | `3-audio` §G |
 | 8 | `kit/tools/make_kolase.sh stories/<slug>/kolase <versi>`: ambil arsip → **gerbang QA audio** (margin ≥ 10 dB, tidak ada kata < 8 dB, Whisper mix ≥ Whisper VO) → render frame → mux (grain tipis, −14 LUFS). Lalu cek contact sheet (tidak ada frame kosong, tidak ada teks di pita caption) → kirim film ✋ (preview < 30 MB bila file final gagal terkirim) | `renders/ARSIP_<no>_<slug>_v1.mp4` | `4-standar…` |
 | 9 | `UPLOAD.md`: judul, deskripsi + sumber + kredit gambar CC BY, 3 hashtag, cover detik ±0,5 | | `5-upload…` |
@@ -68,6 +72,8 @@ kit/tools/make_kolase.sh stories/<slug>/kolase 1                 # ±7 menit
 - `references/3-audio.md` — rantai VO, skor, foley otomatis, mix, QA tanpa telinga
 - `references/4-standar-kualitas-10.md` — rubrik 10 aspek
 - `references/5-upload-dan-thumbnail.md` — judul, deskripsi, kredit, cover
+- `references/8-hook-dan-judul.md` — rantai shortlist → judul → hook → cover → alur menahan penonton (bukti + batasnya)
+- `research/niche/RISET_VO_TEMPO.md` (tempo VO tidak membedakan laku/gagal; target 2,6–2,7), `RISET_STRUKTUR_SCRIPT.md`, `topik/` (riset topik)
 - `references/6-pelajaran.md` — aturan dari review, data per episode, hipotesis
 - `references/riset-viral-shorts.md` — data vidIQ dan pola retensi
 - Skill pendukung: `short-form-video-script`, `humanizer` (wajib di setiap script), `hook-and-headline-writing`, `youtube-shorts`, `fact-checking`, `filmmaker`, `animation-principles`, `motion-art-direction`, `photo-composition-critic`, `sound-design-film`, `sound-design-foley`.

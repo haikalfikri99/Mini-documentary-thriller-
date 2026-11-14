@@ -1,4 +1,4 @@
-# 7. Selera & cara kerja pemilik channel (dari semua revisi #001–#003)
+# 7. Selera & cara kerja pemilik channel (dari semua revisi #001–#004)
 Dibaca **sebelum** mengirim apa pun ke user (shortlist, script, storyboard, film). Tujuannya agar user tidak perlu mengulang instruksi yang sama. Sumber: review #001 (Molase), #002 (Scroll), #003 (Micin), riwayat commit, dan percakapan 11–13 Nov 2026. Tambahkan baris baru setiap kali user mengoreksi sesuatu yang bersifat selera atau cara kerja.
 
 ## A. Selera visual
@@ -52,6 +52,7 @@ Dibaca **sebelum** mengirim apa pun ke user (shortlist, script, storyboard, film
 - [ ] ≤ 6 potongan per frame; pita caption bersih; benda kecil tetap terbaca di HP.
 - [ ] Bahasa VO/teks natural, presisi, eksplisit; punchline lucu dipertahankan.
 - [ ] Tidak ada watermark; kredit gambar tercatat.
+- [ ] Perusahaan = pabrik + "pihak X"; lembaga = tokoh konsisten; cap menempel pada pihak yang dikenai; proporsi kepala diukur (#21, #25, #26); keyframe 85% dicek sendiri.
 - [ ] Janji pilar dibayar (satu kalimat alasan asli yang menyentuh pengalaman penonton); jargon dijelaskan; tahun di layar untuk kasus lama; tidak terkesan iklan merek mana pun.
 21. **Merek = perusahaan, bukan cuma produknya** (review storyboard #004): kalau VO bilang "Aqua didenda/membantah/bebas", yang tampil harus perusahaannya (pabrik berlabel tag ketik + orang berjas "pihak X", wajah generik), bukan botol. Lembaga tampil sebagai metafora orang (KPPU = wasit), konsisten satu tokoh dengan baju sama di semua shot.
 22. **Cap/stempel harus terbaca di HP tapi tetap tinta transparan** (bukan kartu): tinta pekat digambar opak (`over=1`, tanpa multiply) + pendar kertas tipis di sekeliling huruf (kit: `bk.stamp(..., legible=True)`; arah hadap dibalik dengan `bk.mirror(name)` → `<name>_m`, bukan sx negatif). Kartu krem ditolak user ("harusnya tetap transparan").
@@ -59,3 +60,10 @@ Dibaca **sebelum** mengirim apa pun ke user (shortlist, script, storyboard, film
 24. **Review storyboard lewat halaman artifact yang bisa dikomentari** (bukan gambar grid): user menaruh komentar per shot tanpa "Send to Claude", lalu bilang "cek komentar" di chat; Claude membaca semua dengan `ArtifactComments read`, menjawab di chat, dan menulis jawaban per shot sebagai kotak "Revisi vN" di halaman. Alat: `kit/tools/storyboard_page/make_page.py` + `kolase/storyboard.json` (`note` per shot = kotak Revisi); terbitkan ulang ke URL yang sama.
 25. **Cap menempel pada pihak yang dikenai, jauh dari label pihak lain** (review S10 #004): label KPPU di sebelah cap DIDENDA terbaca "KPPU didenda". Cap hukuman ditempel langsung di benda/tokoh yang dihukum, di bawah labelnya sendiri.
 26. **Proporsi antar-gambar dalam satu frame harus wajar** (review S11 #004, "paskanlah proporsi tiap gambar"): dua orang dalam satu frame = ukuran kepala sama (ukur tinggi kepala di render, bukan perkiraan lebar gambar), ada jarak di antara mereka, dan gestur menunjuk harus berakhir tepat di bendanya. Cek keyframe sebelum dikirim.
+27. **Gambar AI dibuat user di Google Flow dari prompt yang Claude tulis** (#004): Claude tidak menggambar ulang; bila hasil kurang pas ("kalau ada yang kurang kirim prompt lagi"), Claude mengirim prompt revisi spesifik. Gambar AI diperlakukan sebagai cetakan (dipotong, bisa diwarnai sebagian). Tanpa logo asli; kemasan generik; tokoh wajah generik (bukan orang sungguhan).
+28. **Balas komentar sekaligus, di chat** (bukan satu per satu): komentar tanpa "Send to Claude" dibaca semua lewat `ArtifactComments read`; komentar yang dikirim ke Claude dibalas di thread lalu di-resolve. Jawaban per shot juga ditulis di kotak hijau "Revisi vN" di halaman.
+29. **Jawab dengan perbaikan terukur, bukan perkiraan:** user mengulang "paskan proporsi" dua kali karena aku menyamakan ukuran dari lebar gambar. Ukur di render, lihat keyframe sendiri sebelum bilang selesai.
+30. **Penonton bukan orang dalam:** tiap istilah/lembaga dijelaskan atau digantikan metafora (KPPU = wasit); setiap kalimat VO harus punya gambar yang menunjukkan siapa melakukan apa ke siapa (uji POV #20); kalimat yang terdengar seperti akhir cerita ("pengadilan membatalkan") diikuti jembatan eksplisit ("Aqua bebas? Belum.").
+31. **Tempo VO 2,6–2,7 kata/dtk** (user: 2,66 enak); tempo tidak membedakan laku/gagal (riset Apify), jadi jangan dikejar lebih cepat; kejelasan lebih penting. Riset berbayar (Apify) selalu dengan batas biaya dan persetujuan.
+32. **Dokumentasikan tiap koreksi di sesi yang sama:** aturan baru → baris di file ini; alat baru → kit + SKILL.md; pelajaran produksi → `6-pelajaran.md`; supaya sesi baru langsung sesuai. Ingatkan user `/compact` bila konteks panjang.
+33. **Hasil riset ikut ke repo, termasuk data mentah ringkas** (`research/niche/`), dan setiap temuan dicatat kekuatannya (kuat/sedang/lemah, n sampel) di file referensi, bukan di chat saja.

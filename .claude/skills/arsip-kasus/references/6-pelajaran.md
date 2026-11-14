@@ -69,3 +69,15 @@ Catatan: tiga variabel berubah sekaligus (peluncuran gaya), jadi hasilnya belum 
 - Gerbang Whisper: syaratnya mix ≥ VO (bukan sama persis); variasi ±2–3 kata pada kata gaul adalah noise ASR.
 - File final > 30 MB bisa gagal terkirim (503) → kirim preview CRF 27 dulu, kirim ulang final kemudian.
 - Waktu produksi #003 (setelah script/VO): mesin kolase + storyboard v1 ±2 jam (sekali saja), revisi storyboard ±20 menit, audio + render ±30 menit. Episode berikutnya memakai template: target storyboard ≤ 1 jam.
+
+## #004 Aqua Didenda Rp13,8 Miliar Gara-Gara Warung (14 Nov 2026)
+Pilar baru kedua: benda/merek yang dikenal + kasus putusan KPPU. Bahan tidak punya arsip foto → gambar AI (Google Flow) untuk pertama kali, dibuat user dari prompt Claude. Film: 22 shot, 53,6 dtk, VO 2,66 kata/dtk, −14,2 LUFS. **Belum tayang; data 48 jam dicatat setelah tayang.**
+**Proses (urutan yang berhasil):** riset topik berbasis data (`riset_topik.py` + gerbang hook/sudut Indonesia) → script v1→v5 (jargon dibuang, janji pilar dibayar, jembatan eksplisit, POV penonton) → VO 2 take + atempo → riset tempo VO (Apify, 28 Shorts, tempo tidak membedakan) → daftar benda + prompt AI → storyboard v1 → v2 lewat halaman Artifact berkomentar → audio → render.
+**Pelajaran:**
+- Metafora tokoh menang: perusahaan = pabrik + orang berjas, lembaga = wasit, distributor = truk (user menolak "hanya botol" tiga kali).
+- Cap harus terbaca di HP tetapi transparan (kartu krem ditolak).
+- Proporsi dan arah gestur harus diukur di render; dua revisi terbuang karena perkiraan.
+- Review lewat halaman Artifact yang bisa dikomentari jauh lebih ringan bagi user daripada gambar grid; baca semua komentar sekaligus.
+- Gerbang Whisper mix ≥ VO gagal 1–2 kata walau musik/foley dibisukan → diagnosis dulu (`3-audio.md` §H); margin per kata tetap 20 dB.
+- Tool baru ke kit: `storyboard_page/make_page.py`, `Baker.stamp(legible=True)`, `Baker.mirror`, `cut(tint_poly)`, `align_vo.py`, `riset_topik.py`.
+- Waktu: script + riset topik + VO paling lama; storyboard 2 putaran revisi; audio + render ±15 menit.

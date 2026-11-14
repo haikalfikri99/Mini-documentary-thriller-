@@ -18,7 +18,7 @@ Slap (ditepuk), slide (geser + overshoot), drop (jatuh memantul), pendulum (`put
 2. **Openverse** (`api.openverse.org/v1/images/?q=…&license=cc0,pdm,by`) — gratis, tanpa kunci, mengumpulkan Wikimedia/Met/NGA/rawpixel/Flickr Commons.
 3. **Wikimedia Commons** (Pearson Scott Foresman "(PSF)" = garis bersih domain publik; Gray's Anatomy; Wellcome Collection = CC BY wajib kredit). API dibatasi kecepatan (HTTP 429): satu permintaan per detik, User-Agent generik; URL langsung `upload.wikimedia.org/wikipedia/commons/<a>/<ab>/<File>` (a/ab = md5 nama file) lebih ringan.
 4. Tolak: clip-art modern, foto produk bermerek, foto orang modern yang bisa dikenali, lisensi BY-SA/tidak jelas, gambar dengan banyak teks di dalamnya.
-5. Tidak ada arsipnya → gambar bergaya gravir (`kit/collage/engr_objects.py`, tambah fungsi baru ke pustaka) atau cetakan kita sendiri di `bake.py` (contoh: sachet MICIN, surat, koran). Gambar AI boleh bila tetap tidak ada, lalu diperlakukan sebagai cetakan (dipotong, diberi tinta).
+5. Tidak ada arsipnya → gambar bergaya gravir (`kit/collage/engr_objects.py`, tambah fungsi baru ke pustaka) atau cetakan kita sendiri di `bake.py` (contoh: sachet MICIN, surat, koran). Gambar AI boleh bila tetap tidak ada, lalu diperlakukan sebagai cetakan (dipotong, diberi tinta). **Alur #004:** Claude menulis prompt (gaya gravir hitam-putih, latar polos/terang, tanpa logo/teks, tokoh konsisten per peran: pabrik = perusahaan, orang berjas generik = "pihak X", wasit berpolo gelap = KPPU) → user membuat di Google Flow → file ke `kolase/ai/` → `bake.py ai_to_raw()` → `prints.json` (`cut` dengan `tint_poly` bila sebagian gambar perlu diwarnai: bintang emas, kartu merah) → catat di `SOURCES.jsonl`. Gambar yang kurang pas: kirim prompt revisi, jangan memaksakan. Peluit/benda kecil digambar sendiri tidak cukup jelas di HP → lebih kuat tokoh yang meniup peluit dengan latar gedung.
 6. Catat setiap file di `SOURCES.jsonl` (url, page, license, credit) → kredit CC BY masuk deskripsi YouTube.
 
 ## D. Storyboard (gerbang wajib sebelum animasi penuh)
@@ -36,3 +36,12 @@ Slap (ditepuk), slide (geser + overshoot), drop (jatuh memantul), pendulum (`put
 - Dunia = layar 1080×1920; part di-bake pada B = 1,5×. Gerak potongan on twos (12/dtk), kamera tiap frame; jitter tangan saat bergerak.
 - Caption: slip hitam robek, Courier Prime Bold 84 px kapital, 1–3 kata, kata kunci amber (`caption.hot`), pusat y 1360.
 - Render: `kit/tools/render_2d.mjs` (Playwright → JPEG → ffmpeg), ±5 menit/56 dtk; grain ditambahkan saat mux.
+
+## §G. Pelajaran visual #004 (14 Nov 2026)
+- **Penonton memahami lewat tokoh, bukan benda:** perusahaan = pabrik + orang berjas (bukan botol); lembaga = satu tokoh konsisten (wasit KPPU) di semua shot; distributor = truk berlabel.
+- **Cap hukuman menempel pada pihak yang dikenai** dan jauh dari label pihak lain; tetap tinta transparan (`bk.stamp(legible=True)`).
+- **Proporsi:** ukur tinggi kepala di render; dua orang dalam satu frame = kepala sama besar + ada jarak; gestur menunjuk berakhir tepat di bendanya; benda mengarah ke yang dimaksud (cermin lewat `bk.mirror`, bukan sx negatif).
+- **Kecil-besar untuk lucu:** zoom dari botol sendirian di kursi terdakwa ke ruang sidang megah (shot punchline).
+- **Frame 0** sudah memuat perusahaan + angka + stempel di 0,0 dtk (hook visual).
+- Cek keyframe 85% shot sebelum mengirim; label tidak boleh masuk pita caption (y > 1190) dan tidak boleh menutupi wajah.
+- Alat review: `kit/tools/storyboard_page/make_page.py` (halaman Artifact bisa dikomentari; kotak "Revisi vN").
