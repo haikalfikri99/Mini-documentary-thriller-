@@ -57,3 +57,4 @@ Dibaca **sebelum** mengirim apa pun ke user (shortlist, script, storyboard, film
 22. **Cap/stempel harus terbaca di HP:** tinta tipis di atas gambar gravir tidak terbaca; cap dicetak di kartu krem (`bake.py` stamps → card).
 23. **Adegan lucu butuh kontras visual yang jelas** (botol air sendirian di kursi terdakwa ruang sidang megah, zoom dari dekat ke lebar), bukan sekadar benda kecil di depan gedung.
 24. **Review storyboard lewat halaman artifact yang bisa dikomentari** (bukan gambar grid): user menaruh komentar per shot tanpa "Send to Claude", lalu bilang "cek komentar" di chat; Claude membaca semua dengan `ArtifactComments read`, menjawab di chat, dan menulis jawaban per shot sebagai kotak "Revisi vN" di halaman.
+25. **Cap menempel pada pihak yang dikenai, jauh dari label pihak lain** (review S10 #004): label KPPU di sebelah cap DIDENDA terbaca "KPPU didenda". Cap hukuman ditempel langsung di benda/tokoh yang dihukum, di bawah labelnya sendiri.
