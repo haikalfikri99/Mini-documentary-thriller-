@@ -94,7 +94,7 @@ const SHOTS = [
   (u, T, d) => {
     const tc = at(6, 'dicopot');
     stage(u, d, { z0: 1.0, z1: 1.06, shake: [[tc + 0.1, 16]] }); bg(SET.hook);
-    putK('hand_star', [[0, 1100, 700, 12, 2, 1], [0.2, 560, 660, 0, 0, 1, 'back', 0.8], [tc, 560, 660, 0, 0, 1, 'hold'], [tc + 0.14, 680, 470, 14, 3.5, 1, 'out']], u, 80, { s: 1.15 });
+    putK('hand_star', [[0, 1100, 700, 12, 2, 1], [0.2, 540, 680, 0, 0, 1, 'back', 0.8], [tc, 540, 680, 0, 0, 1, 'hold'], [tc + 0.14, 600, 590, 9, 3.5, 1, 'out']], u, 80, { s: 1.0 });
   },
   // 08 · Harga Aqua-nya jadi lebih mahal.   same table as shot 04, star gone, the tag flips
   (u, T, d) => {
@@ -108,19 +108,21 @@ const SHOTS = [
   // 09 · KPPU, wasitnya persaingan bisnis,
   (u, T, d) => {
     stage(u, d, { z1: 1.06, shake: [[0.05, 10]] }); bg(SET.ref, u, true);
-    putK('s_kppu', slap(0.05, 540, 280, -3), u, 100);
-    putK('s_kppu2', slap(0.4, 540, 430, 2), u, 101);
-    if (has('whistle')) putK('whistle', [[0, 560, 700, -18, 3, 1, null, 0, 1.6], [0.12, 540, 760, -12, 0, 1, 'in', 1.2, 1.5]], u, 102);
-    putK('s_wasit', slap(at(8, 'wasitnya'), 540, 1100, -2), u, 103);
+    putK('kantor', slide(0, 0.25, 540, 470, 0, 0, -900, 0, 0.5), u, 99, { s: 0.95 });
+    putK('wasit_tiup', [[0, 500, 820, -3, 3, 1, null, 0, 1.1], [0.1, 500, 810, -2, 0, 1, 'in', 1.2, 1.0]], u, 102);
+    putK('s_kppu', slap(0.12, 330, 950, -6), u, 100, { s: 0.8 });
+    putK('s_kppu2', slap(0.45, 540, 190, 2), u, 101);
+    putK('s_wasit', slap(at(8, 'wasitnya'), 640, 1120, -2), u, 103);
   },
   // 10 · bilang itu persaingan nggak sehat. Aqua didenda.   the referee's red card, then the fine (2017)
   (u, T, d) => {
     const tk = at(9, 'nggak'), td = at(9, 'didenda');
     stage(u, d, { z0: 1.0, z1: 1.07, shake: [[tk, 8], [td, 12]] }); bg(SET.ref);
-    putK('bottle_hero', [[0, 520, 690, -3, 0, 1]], u, 110, { s: 0.88 });
-    putK('kartu', [[tk - 0.25, 1000, 260, 30, 4, 1], [tk, 790, 470, 12, 0, 1, 'in', 1.2]], u, 111);
-    stampAt('st_denda', u, td, 540, 1030, -8, 1.2);
-    if (u > td + 0.15) ransomRow('ry17', u, td + 0.15, 300, 180, 0.07, 0.8);
+    putK('bottle_hero', [[0, 760, 760, 3, 0, 1]], u, 110, { s: 0.7 });
+    putK('wasit_kartu', slide(tk - 0.25, tk, 330, 680, -3, -700, 0, 0, 0.8), u, 111, { s: 0.95 });
+    putK('s_kppu', slap(tk + 0.1, 300, 1000, -6), u, 112, { s: 0.7 });
+    stampAt('st_denda', u, td, 720, 1060, -8, 0.95);
+    if (u > td + 0.15) ransomRow('ry17', u, td + 0.15, 800, 190, 0.07, 0.8);
   },
   // 11 · Tapi Aqua membantah, katanya itu ulah distributor.
   (u, T, d) => {

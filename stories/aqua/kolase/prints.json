@@ -110,8 +110,43 @@
   "file": "gavel_1.jpg",
   "width": 620
  },
- "whistle": {
-  "file": "gen_whistle.png",
-  "width": 420
+ "wasit_tiup": {
+  "file": "ai_wasit_tiup.jpg",
+  "width": 640
+ },
+ "wasit_kartu": {
+  "file": "ai_wasit_kartu.jpg",
+  "width": 560,
+  "tint": "#B3261E",
+  "tint_poly": [
+   [
+    0.336,
+    0.046
+   ],
+   [
+    0.466,
+    0.046
+   ],
+   [
+    0.466,
+    0.185
+   ],
+   [
+    0.4,
+    0.185
+   ],
+   [
+    0.385,
+    0.15
+   ],
+   [
+    0.336,
+    0.15
+   ]
+  ]
+ },
+ "kantor": {
+  "file": "ai_kantor.jpg",
+  "width": 800
  }
 }

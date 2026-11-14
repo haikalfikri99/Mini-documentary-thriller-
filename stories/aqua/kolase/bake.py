@@ -166,14 +166,28 @@ def documents():
 
 
 def stamps():
-    bk.stamp('st_denda', 'DIDENDA', 116, RED, seed=81)
-    bk.stamp('st_dibantah', 'DIBANTAH', 100, RED, seed=82)
-    bk.stamp('st_batal', 'DIBATALKAN', 92, GREEN * 0.85, seed=83, sub='PENGADILAN NEGERI')
-    bk.stamp('st_belum', 'BELUM', 120, RED, seed=84)
-    bk.stamp('st_dicopot', 'DICOPOT', 104, RED, seed=85)
-    bk.stamp('st_menang', 'KPPU MENANG', 92, RED, seed=86, sub='MAHKAMAH AGUNG')
-    bk.stamp('st_berlaku', 'BERLAKU LAGI', 84, RED, seed=87)
-    bk.stamp('st_bukti', 'BUKTI', 96, RED, seed=88)
+    """verdict stamps pressed onto a small cream card, so the red reads over busy engravings (review #004)."""
+    def card(name, text, size, color, seed, sub=None):
+        bk.stamp(name + '_ink', text, size, color, seed=seed, sub=sub)
+        a = np.asarray(Image.open(os.path.join(bk.out, name + '_ink.png')), float)[..., 3] / 255
+        os.remove(os.path.join(bk.out, name + '_ink.png')); bk.M.pop(name + '_ink')
+        a = np.clip(a * 1.7, 0, 1)
+        P = int(14 * bk.B); h, w = a.shape
+        A = np.zeros((h + 2 * P, w + 2 * P)); A[P:P + h, P:P + w] = a
+        m = np.zeros(A.shape, bool); m[P // 3:-P // 3, P // 3:-P // 3] = True
+        from collage_lib import torn, paper_texture
+        body, _ = torn(m, rough=1.2 * bk.B, seed=seed, amp=0.4)
+        tex = paper_texture(*A.shape, seed=seed, fibers=200); tex = 1 + (tex - 1) * 0.6
+        col = CARD[None, None, :] * tex[..., None]
+        col = col * (1 - A[..., None]) + color * A[..., None]
+        bk.save(name, col, body)
+    card('st_denda', 'DIDENDA', 120, RED, 81)
+    card('st_dibantah', 'DIBANTAH', 104, RED, 82)
+    card('st_batal', 'DIBATALKAN', 96, GREEN * 0.85, 83, sub='PENGADILAN NEGERI')
+    card('st_belum', 'BELUM', 124, RED, 84)
+    card('st_dicopot', 'DICOPOT', 108, RED, 85)
+    card('st_menang', 'KPPU MENANG', 96, RED, 86, sub='MAHKAMAH AGUNG')
+    card('st_bukti', 'BUKTI', 100, RED, 88)
 
 
 def slips():
