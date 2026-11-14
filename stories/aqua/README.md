@@ -187,3 +187,29 @@ Durasi naik ke ±50 dtk: diterima karena tiap tambahan menutup kebingungan (atur
 - **Revisi 14 Nov (atas permintaan user: tempo dari bukti riset, bukan dari video kita):** target dinaikkan ke **2,8 kata/dtk**. Dasar: rekaman pemenang yang diukur langsung dari audio (Whisper) rata-rata 2,97 kata/dtk (rentang 2,63–3,23); tiga pemenang berbahasa Indonesia 2,63 (Kamus Unik), 2,66 (Kok Bisa), 3,10 (Ngomongin Uang), rata-rata 2,80; video gagal 2,20–2,71 (`research/niche/RISET_AUDIO_CAPTION_META.md`, n=11, lemah). Estimasi dari caption (`RISET_STRUKTUR_SCRIPT.md`) lebih rendah (ID 2,3–2,6) karena dihitung dari segmen caption; ukuran audio langsung dipakai. Semua sumber sepakat < 2,3 adalah kelompok terlemah.
 - `vo_aqua.mp3` sekarang: jeda dirapatkan (jeda dramatis 0,28 dtk; aturan riset: tanpa sunyi > 0,3 dtk), **atempo total 1,21 → 50,5 dtk, 2,81 kata/dtk**; Whisper tetap mengenali 142/142 kata (beda ejaan saja: "Akwa", "13,8", "mineral"); kalimat 1 selesai 2,0 dtk. Versi 2,6 kata/dtk disimpan sebagai `vo_aqua_2-6.mp3` untuk pembanding. Alignment: `kit/tools/align_vo.py` (alat baru, dipakai ulang).
 - **Revisi tempo ke-2 (14 Nov):** user merasa 2,8 "ngebut banget". Dipilih **2,66 kata/dtk (53,3 dtk)** = setara pemenang Indonesia yang formatnya paling mirip kita (narasi bercerita: Kok Bisa 2,66, Kamus Unik 2,63); 3,10 Ngomongin Uang adalah talking head, format lain. `vo_aqua.mp3` = 2,66; pembanding `vo_aqua_2-6.mp3`, `vo_aqua_2-8.mp3`. Patokan tempo masih lemah (n=11) → rencana riset tempo, lihat `research/niche/RENCANA_RISET_VO.md`.
+
+## Rencana shot storyboard v1 (dari `audio/vo_words.json`, 22 shot, rata-rata 2,4 dtk)
+| # | Detik | VO | Isi (≤ 6 potongan) | Gerak / teks layar | Gambar |
+|---|---|---|---|---|---|
+| 1 | 0,00–2,14 | Aqua didenda 13,8 miliar. | botol air generik raksasa di tengah | stempel merah **DIDENDA Rp13,8 M** membanting di 0,00 | AI `bottle_hero` |
+| 2 | 2,14–4,58 | Gara-gara warung kayak gini jual merek lain. | warung tampak depan + rak; botol tutup lain masuk rak | warung slide naik tepat di "warung kayak gini" | AI `warung_front` |
+| 3 | 4,58–7,88 | Kok bisa? Ada warung berstatus bintang, star outlet. | warung + bintang emas ditepuk ke papan | overlay ARSIP KASUS #004 (≤ 1,3 dtk) · stempel 2016 · label STAR OUTLET | kode (bintang) |
+| 4 | 7,88–9,96 | Warung ini dapat harga Aqua lebih murah. | dus botol + label harga | label harga turun ↓ "HARGA MURAH" | kode |
+| 5 | 9,96–12,78 | Tapi ada satu syarat. Kalau warung itu jual Le Minerale, | lembar perjanjian, satu klausul disorot; botol pesaing | slip ketik "SYARAT" · highlight | arsip `document` + kode |
+| 6 | 13,06–14,54 | yang katanya ada manis-manisnya… | botol pesaing + kilau gula kecil | label tulisan tangan "manis-manisnya?" | kode |
+| 7 | 14,54–15,74 | bintangnya dicopot. | tangan mencabut bintang dari papan warung | bintang terlempar | AI `hand_star` |
+| 8 | 15,74–17,36 | Harga Aqua-nya jadi lebih mahal. | label harga | label naik ↑ "MAHAL" | kode |
+| 9 | 17,36–19,46 | KPPU, wasitnya persaingan bisnis, | peluit wasit + map | label "KPPU = Komisi Pengawas Persaingan Usaha" | arsip `whistle` |
+| 10 | 19,46–22,00 | bilang itu persaingan nggak sehat. Aqua didenda. | timbangan miring; botol di piring berat | stempel **DIDENDA** · 2017 | arsip `scale` |
+| 11 | 22,00–24,62 | Tapi Aqua membantah, katanya ulah distributor. | botol + truk distributor | stempel DIBANTAH · panah ke truk | AI `truck` |
+| 12 | 24,62–27,38 | Dan pengadilan… membatalkan denda Aqua. | palu hakim | stempel hijau **DIBATALKAN** menutupi DIDENDA · 2019 | arsip `gavel` |
+| 13 | 27,38–28,92 | Aqua bebas? Belum. | botol + "?" di sampingnya | stempel BELUM | kode |
+| 14 | 28,92–31,74 | Masalahnya, KPPU pegang bukti dari awal: | map ARSIP terbuka | label "BUKTI · 2017" | kode (signature) |
+| 15 | 31,74–36,04 | email berjudul Star Outlet Degradation, alias turunin status warung bintang. | cetakan email, subjek disorot | slip terjemahan "= turunin status warung bintang" | kode |
+| 16 | 36,04–38,20 | Dan satu warung beneran dicopot bintangnya. | papan warung dengan bekas bintang kosong (beda dari shot 7) | stempel DICOPOT | AI `warung_front` + kode |
+| 17 | 38,20–41,54 | KPPU nggak terima, dan membawa kasus ini ke Mahkamah Agung. | map bergerak sepanjang rute ke gedung pengadilan | panah rute | AI `court` |
+| 18 | 41,54–44,30 | Hasilnya… Mahkamah Agung memihak KPPU. | gedung + stempel | stempel **KPPU MENANG** · 2019 | AI `court` |
+| 19 | 44,30–45,74 | Denda Aqua berlaku lagi. | botol + stempel kembali | **DIDENDA Rp13,8 M** (gema frame 0) | AI `bottle_hero` |
+| 20 | 45,74–48,28 | Air putih doang, sampai Mahkamah Agung. | gelas air putih kecil di depan gedung besar | punchline: kontras ukuran | engr `glass` + AI `court` |
+| 21 | 48,28–51,56 | Jadi isi rak warung itu… nggak selalu pilihan pemilik warungnya. | pemilik warung ragu di depan rak | tangan berhenti di antara dua botol | AI `shopkeeper` |
+| 22 | 51,56–53,34 | Warung dekat rumahmu jual merek apa aja? | rak warung generik dengan beberapa merek | "?" besar | AI `warung_shelf` |

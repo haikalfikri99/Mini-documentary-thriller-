@@ -1,0 +1,15 @@
+{
+ "slug": "aqua",
+ "no": 4,
+ "title": "",
+ "case_line": "AIR MINERAL \u00b7 2017",
+ "vo": "audio/vo_aqua.mp3",
+ "words": "audio/vo_words.json",
+ "dur": 53.64,
+ "report": [
+  [
+   0,
+   53.64
+  ]
+ ]
+}
