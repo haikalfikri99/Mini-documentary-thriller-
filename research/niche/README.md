@@ -1,2 +1,3 @@
 # research/niche
 Ringkasan riset ada di file .md; data mentah di `data_*` dan `topik/`. Gambar riset lama (`visual_sheets/` contact sheet thumbnail, `rekaman/` frame 0) **dihapus 14 Nov 2026** untuk memperkecil repo; temuannya sudah ditulis di `RISET_VISUAL_THUMBNAIL.md`, `RISET_GAYA_STORYTELLING.md`, `KEPUTUSAN_RISET.md`. Bila perlu: `git show 7e8ef84:research/niche/visual_sheets/<file>`. Skrip pembuatnya ada di `visual_scripts/`.
+Dihapus 14 Nov 2026 (ada di git `6fe8616`): RISET_GAYA_STORYTELLING, RISET_NICHE_V1, BANK_IDE, data_storytelling_channels. Dipertahankan: riset thumbnail (`RISET_VISUAL_THUMBNAIL.md`, `data_visual_thumbs.csv`, `visual_scripts/`) untuk pembuatan thumbnail custom.

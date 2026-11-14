@@ -86,5 +86,4 @@ kit/tools/make_kolase.sh stories/<slug>/kolase 1                 # ±7 menit
 - `references/8-hook-dan-judul.md` — rantai shortlist → judul → hook → cover → alur menahan penonton (bukti + batasnya)
 - `research/niche/RISET_VO_TEMPO.md` (tempo VO tidak membedakan laku/gagal; target 2,6–2,7), `RISET_STRUKTUR_SCRIPT.md`, `topik/` (riset topik)
 - `references/6-pelajaran.md` — aturan dari review, data per episode, hipotesis
-- `references/riset-viral-shorts.md` — data vidIQ dan pola retensi
-- Skill pendukung: `short-form-video-script`, `humanizer` (wajib di setiap script), `hook-and-headline-writing`, `youtube-shorts`, `fact-checking`, `filmmaker`, `animation-principles`, `motion-art-direction`, `photo-composition-critic`, `sound-design-film`, `sound-design-foley`.
+- Skill pendukung (terpasang): `short-form-video-script`, `humanizer` (wajib di setiap script), `hook-and-headline-writing`, `youtube-shorts`, `fact-checking`. Skill animasi/sinema/sound-design generik dihapus 14 Nov 2026 (tidak dipakai pipeline kolase; ada di riwayat git `6fe8616`).

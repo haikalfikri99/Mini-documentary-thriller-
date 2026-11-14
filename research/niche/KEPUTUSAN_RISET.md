@@ -1,5 +1,5 @@
 # Keputusan dari riset (13 Nov 2026) — pilar, selingan, visual, produksi
-Menggabungkan: `RISET_NICHE_V1.md`, `RISET_NICHE_V2.md` (pilar), `RISET_SELINGAN.md` (30% wilayah), `RISET_VISUAL_THUMBNAIL.md` (1.886 thumbnail, 42 channel), dan pengukuran 11 rekaman layar (bagian 3). Status: **usulan, menunggu persetujuan pemilik channel** sebelum dikunci ke skill.
+Menggabungkan: `RISET_NICHE_V2.md` (pilar), `RISET_SELINGAN.md` (30% wilayah), `RISET_VISUAL_THUMBNAIL.md` (1.886 thumbnail, 42 channel), dan pengukuran 11 rekaman layar (bagian 3). Status: **usulan, menunggu persetujuan pemilik channel** sebelum dikunci ke skill.
 
 ## 1. Pilar (±70%)
 **"Alasan ASLI di balik benda, tempat, harga, dan merek yang kamu kenal — terutama yang ada di Indonesia."** Psikologi/ekonomi/sejarah/kartel = isi jawaban, bukan pintu masuk.
@@ -50,7 +50,7 @@ Contact sheet: `rekaman/frame0_3dtk_EN.jpg`, `rekaman/frame0_3dtk_ID_dan_002.jpg
 - Ad-suitability resmi untuk tema bencana/kegagalan belum dibaca (dicek per topik).
 
 ## 6. Gaya signature & workflow 1 video/hari (usulan, 13 Nov 2026)
-Dasar: `RISET_GAYA_STORYTELLING.md` (18 channel animasi; gaya & host tidak membedakan performa; hanya 6,4% komentar menyebut visual, 1% memuji animasi; hanya Zack (tim) yang ≥1 Short/hari) + `AUDIT_PRODUKSI.md` (#002 = 15 j; 738 baris kode khusus per episode; render 3D 15–28 dtk per dtk film; 3D per episode belum pernah terukur).
+Dasar: `RISET_GAYA_STORYTELLING.md` (dihapus 14 Nov, ada di git; 18 channel animasi; gaya & host tidak membedakan performa; hanya 6,4% komentar menyebut visual, 1% memuji animasi; hanya Zack (tim) yang ≥1 Short/hari) + `AUDIT_PRODUKSI.md` (#002 = 15 j; 738 baris kode khusus per episode; render 3D 15–28 dtk per dtk film; 3D per episode belum pernah terukur).
 - ~~Gaya dikunci: 2D datar ARSIP RIG (tampilan #002)~~ **Diganti 13 Nov 2026 (keputusan user setelah storyboard #003): gaya = ARSIP Kolase** (`kit/styles/arsip-kolase/STYLE.md`); 2D RIG dan 3D dihapus dari kit. Alasan asli di bawah tetap berlaku untuk prinsipnya (gaya tidak menentukan performa → kunci satu gaya, atur frame 0).
 - (catatan lama) Gaya dikunci: 2D datar ARSIP RIG (tampilan #002), bukan dunia 3D. Alasan: gaya tidak menentukan performa, 2D sudah ada dan teruji, lebih cepat dibuat & dirender, paling mudah dijadikan template. Dunia 3D disimpan untuk episode khusus.
 - **Tanpa presenter tetap** untuk sekarang: tidak ada bukti host animasi membantu (n kecil), dan host mengambil layar dari benda pahlawan. Diuji nanti sebagai satu variabel.

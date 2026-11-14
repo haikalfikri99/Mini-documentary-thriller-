@@ -1,5 +1,5 @@
 # Riset Niche v2 — keputusan pilar dengan data lebih besar (13 Nov 2026)
-Melanjutkan `RISET_NICHE_V1.md`. Tujuan: memastikan pembingkaian ulang pilar sebelum memilih judul, menjamin persediaan ide, dan menemukan faktor yang belum pernah kita pikirkan.
+Melanjutkan riset niche v1 (file dihapus 14 Nov; ada di git `6fe8616`). Tujuan: memastikan pembingkaian ulang pilar sebelum memilih judul, menjamin persediaan ide, dan menemukan faktor yang belum pernah kita pikirkan.
 
 ## 0. Data
 | Sumber | Jumlah | Alat |
@@ -53,4 +53,4 @@ Aha/cara kerja (C) dan anggapan dibalik (A) membuat orang menonton; musuh (D), p
 **Keyakinan: tinggi, bukan 100%.** Tiga bukti independen menunjuk ke arah yang sama (statistik dalam channel, transkrip top vs bottom, komentar), ditambah dua keuntungan praktis (persediaan ide dari permintaan pencarian nyata; lebih mudah divisualkan). Yang belum terbukti: performa pilar baru **di channel kita sendiri**. Uji: #003 dan #004 dengan pilar baru; bila stayed to watch tetap < 40%, masalahnya ada di hook/visual, bukan pilar (data v2 sudah memisahkan keduanya).
 
 ## 6. Persediaan ide
-Lihat `BANK_IDE.md`: 70+ ide awal (belum dicek) dan **6 sumber ide tak terbatas** (autocomplete, putusan KPPU/regulator, gugatan & paten, judul pemenang EN untuk dilokalkan, permintaan di komentar, kalender berita/musim).
+Lihat bank ide (dihapus 14 Nov, digantikan `kit/tools/riset_topik.py` + `topik/`): 70+ ide awal (belum dicek) dan **6 sumber ide tak terbatas** (autocomplete, putusan KPPU/regulator, gugatan & paten, judul pemenang EN untuk dilokalkan, permintaan di komentar, kalender berita/musim).

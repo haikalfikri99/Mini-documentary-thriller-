@@ -2,28 +2,11 @@
 # Outputs (videos, thumbnails, channel art, generated audio) live in Google Drive: "Mini Thriller IDN/".
 node_modules/
 __pycache__/
-toon/out/
 stories/*/renders/
 stories/*/thumbnail/
-stories/*/film/*.wav
-stories/*/film/*.mid
 channel/*.jpg
 channel/*.png
 
-# HyperFrames local artifacts and renders
-stories/*/film/vo_level.wav
-# episode build outputs (re-made by kit/tools/make_film.sh)
-stories/*/film/.hyperframes/
-stories/*/film/renders/
-stories/*/film/assets/mix.wav
-stories/*/film/*.wav
-stories/*/film/*.mid
-stories/*/film/*.npy
-stories/*/film/board/.hyperframes/
-kit/lab/.hyperframes/
-kit/lab/renders/
-__pycache__/
-stories/*/film/board/kf_*.png
 stories/*/kolase/parts/
 stories/*/kolase/raw/
 stories/*/kolase/board/kf_*.png
