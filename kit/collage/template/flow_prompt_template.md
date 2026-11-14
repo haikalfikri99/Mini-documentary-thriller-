@@ -18,6 +18,12 @@ Name each result with its label above.
 Tokoh berulang (pihak perusahaan, wasit, pemilik warung): tulis ciri yang sama persis di tiap prompt (pakaian, usia, warna kulit sawo matang untuk orang Indonesia) supaya konsisten; wajah generik.
 Tangan/orang: tulis "anatomically correct hand, five fingers, the grip looks physically real".
 
+## Tokoh konsisten antar-batch (#004)
+Setelan Flow yang dipakai: Model Nano Banana (Pro bila ada), 2 hasil per prompt, rasio Portrait 3:4 untuk orang, Square 1:1 untuk gedung/pabrik/ruangan, 4:3 untuk kendaraan.
+Untuk tokoh yang sama di banyak gambar (wasit, pihak perusahaan): generate gambar pertama dulu, lalu pakai hasilnya sebagai **gambar referensi (ingredient)** di prompt berikutnya dan tulis "the SAME man/referee, same face and same clothing". Beda baju antar shot terbaca sebagai orang lain (wasit garis-garis vs polo gelap ditolak).
+Aksi yang dibutuhkan: satu pose per gambar (menunjuk, angkat kartu, berjalan membawa map, lega, lemas, menolak). Hasil berwarna dicetak ulang hitam-putih di `bake.py`, tidak perlu generate ulang.
+Gedung lembaga nyata: tulis gedung generik tanpa papan/teks; label dipasang di tokoh.
+
 ## Saat memilih hasil (checklist user)
 Buang variasi dengan huruf/logo palsu · tangan wajar · latar putih polos · simpan 1 terbaik per nama (`<nama>.jpg`) dan kirim sebagai .zip di chat atau taruh di Drive → Claude menyalin ke `kolase/ai/`.
 Revisi: bila ada gambar kurang pas, kirim **prompt revisi spesifik untuk gambar itu saja** (bukan seluruh daftar).
