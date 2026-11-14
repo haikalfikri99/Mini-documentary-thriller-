@@ -25,4 +25,4 @@ stories/<slug>/               satu folder per film: fact sheet + script (README)
 | 003 | `micin` | Micin Dituduh Bikin Bodoh Gara-gara Satu Surat 1968 | tayang (ARSIP Kolase pertama) — `stories/micin/UPLOAD.md` |
 | 004 | `aqua` | Aqua Didenda Rp13,8 Miliar Gara-Gara Warung | v1 dirender; menunggu upload user — `stories/aqua/UPLOAD.md` (gambar AI Google Flow pertama) |
 
-**Penyimpanan:** repo hanya berisi kode, panduan, dan input (VO). Semua media hasil (video, thumbnail, profil, banner) ada di Google Drive folder **Mini Thriller IDN**.
+**Penyimpanan:** repo hanya berisi kode, panduan, dan input (VO final + take mentah yang dipakai; VO episode 1–2 dan gambar storyboard lama dihapus, ada di riwayat git `7e8ef84`). Semua media hasil (video, thumbnail, profil, banner) ada di Google Drive folder **Mini Thriller IDN**.

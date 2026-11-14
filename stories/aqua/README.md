@@ -226,7 +226,7 @@ Durasi naik ke ±50 dtk: diterima karena tiap tambahan menutup kebingungan (atur
 | shopkeeper.jpg | 21 | pemilik warung sawo matang, tangan menjangkau rak |
 | truck.jpg | 11 | truk bak dengan krat |
 | court.jpg | 17, 18, 20 | gedung pengadilan berpilar (generik) |
-| court_alt.jpg | cadangan | atap bertingkat (bisa terkesan Thailand → tidak dipakai) |
+| court_alt.jpg | cadangan, **dihapus dari repo 14 Nov** | atap bertingkat (bisa terkesan Thailand → tidak dipakai) |
 Lisensi: dibuat pemilik channel dengan Google Flow; dicatat di SOURCES.jsonl sebagai "AI-generated (Google Flow), channel owner". Tanpa logo/teks.
 
 ## Storyboard v1 (14 Nov) — `kolase/board/storyboard_v1.jpg` ✋
@@ -250,3 +250,5 @@ Review user lewat komentar artifact (S01, S07, S10–S13, S15, S17–S20). Perub
 2. `bake.py`: salin `ai/*.jpg` ke `raw/`; potong (cutout) tiap gambar AI; cetakan sendiri: bintang emas, label harga (MURAH/MAHAL), perjanjian + klausul, email cetak (subjek "Star Outlet Degradation…"), slip terjemahan, stempel DIDENDA Rp13,8 M / DIBANTAH / DIBATALKAN / BELUM / DICOPOT / KPPU MENANG, label KPPU, tahun 2016/2017/2019, "?".
 3. `film.js`: gabungkan START dari `line_starts.py` (31 kalimat) ke 22 shot sesuai tabel "Rencana shot storyboard v1"; frame 0 = bottle_hero + stempel di 0,00.
 4. `node kit/tools/keyframes_2d.mjs stories/aqua/kolase` → `board/storyboard.jpg` → kirim ke user bersama tabel shot. Cek daftar 2-visual §E dan 7-selera §D.
+
+**Pembersihan repo (14 Nov):** dihapus dari folder kerja (ada di riwayat git): `vo_aqua_2-6.mp3`, `vo_aqua_2-8.mp3` (versi tempo pembanding), gambar `board/` lama (buat ulang: `node kit/tools/keyframes_2d.mjs stories/aqua/kolase`), `court_alt.jpg`.
