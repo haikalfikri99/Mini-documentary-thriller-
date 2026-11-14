@@ -39,7 +39,7 @@ Dibaca **sebelum** mengirim apa pun ke user (shortlist, script, storyboard, film
 
 14. **Shortlist wajib berbasis riset segar, bukan hanya bank ide** (koreksi 14 Nov, #004): tiap kandidat dicek permintaan (autocomplete) dan celah (video Indonesia yang sudah ada) dengan `kit/tools/riset_topik.py`, gratis tanpa API key. vidIQ bisa habis kredit; jangan bergantung padanya.
 15. **Sudut Indonesia syarat lulus, bukan nilai tambah:** user menolak cerita yang "gak relate orang Indo" (bohlam/kartel Phoebus ditolak walau fakta kuat). Kandidat tanpa benda/merek/peristiwa yang dikenal penonton Indonesia gugur sebelum shortlist.
-16. **Cerita yang benar tapi tidak menarik = ganti topik, jangan dipaksakan** (14 Nov, kental manis): user menilai kerangka yang terverifikasi terlalu datar untuk retensi. Fact sheet tak boleh membunuh hook; lakukan uji hook (RUMUS_PEMILIHAN) sebelum fact sheet penuh. Clickbait boleh asal benar; tidak boleh menyesatkan ("bukan susu" ditolak karena bertentangan dengan klasifikasi BPOM).
+16. **Cerita benar, kemasan semaksimal mungkin** (koreksi user 14 Nov, dua kali): bukan "hook jujur yang datar". Fakta tidak boleh salah, tetapi hook, judul, urutan, dan ritme harus mengejar retensi, views, dan potensi viral. Tulis banyak varian hook, pilih yang terkuat, lalu cek kebenarannya. Jangan menolak topik hanya karena kalimat paling aman terdengar datar; kemas ulang dulu.
 
 ## D. Cek wajib sebelum mengirim storyboard/film (ringkas)
 - [ ] Setiap kalimat VO punya gambar yang **menunjukkan** isinya, logis secara fisik dan fakta.
