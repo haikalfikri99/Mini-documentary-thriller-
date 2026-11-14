@@ -30,7 +30,7 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 | 3 | VO ElevenLabs (2 take, pilih dengan alat; atempo bila < 2,6 kata/dtk) → `audio/vo_<slug>.mp3`; alignment Whisper → `audio/vo_words.json` (ejaan dari script) | | `3-audio` |
 | 4 | `kit/tools/new_episode.sh <slug> <no> "CASE LINE"` → `python3 kit/tools/line_starts.py stories/<slug>` (START per kalimat; gabung/potong manual sampai ±2–2,5 dtk/shot) | `kolase/` | — |
 | 5 | **Gambar:** daftar benda per shot → cari arsip (Openverse dulu, Wikimedia; lihat `2-visual…` §C) → `kolase/prints.json` + `SOURCES.jsonl` (lisensi & kredit); benda tanpa arsip → `kit/collage/engr_objects.py` atau gambar sendiri di `bake.py` | | `2-visual…` §C |
-| 6 | **Storyboard:** `bake.py` + `film.js` (shot = fungsi waktu) → `node kit/tools/keyframes_2d.mjs stories/<slug>/kolase` → kirim `board/storyboard.jpg` (bernomor) + tabel shot ✋ | storyboard | `2-visual…` §B, §D |
+| 6 | **Storyboard:** `bake.py` + `film.js` (shot = fungsi waktu) → tulis `kolase/storyboard.json` (contoh `stories/aqua/kolase/storyboard.json`) → `python3 kit/tools/storyboard_page/make_page.py stories/<slug>/kolase <scratchpad>/sbNNN` → terbitkan sebagai **Artifact yang bisa dikomentari** (bukan gambar grid); user berkomentar lalu bilang "cek komentar" → baca semua dengan `ArtifactComments`, jawab di chat, isi `note` = kotak "Revisi vN", terbitkan ulang ke URL sama (7-selera #24) ✋ | storyboard | `2-visual…` §B, §D |
 | 7 | `score_full.py` (ansambel kecil per babak) + `fullmix.py` (foley otomatis dari kejadian layar) | | `3-audio` §G |
 | 8 | `kit/tools/make_kolase.sh stories/<slug>/kolase <versi>`: ambil arsip → **gerbang QA audio** (margin ≥ 10 dB, tidak ada kata < 8 dB, Whisper mix ≥ Whisper VO) → render frame → mux (grain tipis, −14 LUFS). Lalu cek contact sheet (tidak ada frame kosong, tidak ada teks di pita caption) → kirim film ✋ (preview < 30 MB bila file final gagal terkirim) | `renders/ARSIP_<no>_<slug>_v1.mp4` | `4-standar…` |
 | 9 | `UPLOAD.md`: judul, deskripsi + sumber + kredit gambar CC BY, 3 hashtag, cover detik ±0,5 | | `5-upload…` |
@@ -56,7 +56,8 @@ kit/tools/setup_env.sh
 kit/tools/new_episode.sh <slug> <no> "BENDA · TAHUN"
 python3 kit/tools/line_starts.py stories/<slug>
 python3 kit/collage/fetch_raw.py stories/<slug>/kolase && (cd stories/<slug>/kolase && python3 bake.py)
-node kit/tools/keyframes_2d.mjs stories/<slug>/kolase            # board/storyboard.jpg
+node kit/tools/keyframes_2d.mjs stories/<slug>/kolase            # board/storyboard.jpg (cek cepat Claude)
+python3 kit/tools/storyboard_page/make_page.py stories/<slug>/kolase <outdir>   # halaman storyboard untuk review user
 kit/tools/make_kolase.sh stories/<slug>/kolase 1                 # ±7 menit
 ```
 

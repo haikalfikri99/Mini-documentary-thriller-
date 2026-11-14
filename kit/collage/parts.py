@@ -222,7 +222,10 @@ class Baker:
         return self.save(name, col, body)
 
     # ---------- rubber stamp (ink only: distressed, no paper) ----------
-    def stamp(self, name, text, size=90, color=RED, seed=0, frame=True, sub=None, fnt=F_SLAB):
+    def stamp(self, name, text, size=90, color=RED, seed=0, frame=True, sub=None, fnt=F_SLAB, legible=False):
+        """rubber-stamp ink. legible=True (standard since #004, 7-selera #22): ink ×1.6 drawn opaque (over=1, no multiply) plus a
+        faint paper-coloured halo hugging letters and frame, so the red reads over busy engravings while staying transparent ink
+        (no card, no paper edge). Default False keeps the look of #001–#003 when they are re-baked."""
         B = self.B
         f = font(fnt, size * B); fs = font(F_CPB, size * 0.32 * B)
         tw = f.getlength(text); asc, desc = f.getmetrics()
@@ -243,7 +246,18 @@ class Baker:
         n = fbm(h, w, scales=(1.2, 3, 9), weights=(0.4, 0.35, 0.25), seed=seed)
         a = a * np.clip(0.55 + 0.6 * n + 0.35, 0, 1) * (np.random.default_rng(seed).random((h, w)) > 0.06)
         a = ndi.gaussian_filter(a, 0.5) * 0.92
-        return self.save(name, color[None, None, :], a, ink=1)
+        if not legible:
+            return self.save(name, color[None, None, :], a, ink=1)
+        a = np.clip(a * 1.6, 0, 1)
+        halo = ndi.gaussian_filter(ndi.binary_dilation(a > 0.25, iterations=int(4 * B)).astype(float), 2.5 * B) * 0.55
+        alpha = np.maximum(a, halo); wink = a / np.maximum(alpha, 1e-6)
+        col = CARD[None, None, :] * (1 - wink[..., None]) + color * wink[..., None]
+        return self.save(name, col, alpha, ink=1, over=1)
+
+    def mirror(self, name):
+        """left-right mirrored copy <name>_m of a baked part (a negative sx in film.js would show the paper's back)."""
+        Image.open(os.path.join(self.out, name + '.png')).transpose(Image.FLIP_LEFT_RIGHT).save(os.path.join(self.out, name + '_m.png'))
+        self.M[name + '_m'] = dict(self.M[name])
 
     # ---------- ink marks: tick, cross, circle, arrow (hand-drawn strokes, ink only) ----------
     def mark(self, name, kind, size=120, color=RED, seed=0, width=0.11):

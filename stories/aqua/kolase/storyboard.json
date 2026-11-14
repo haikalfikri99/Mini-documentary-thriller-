@@ -1,0 +1,194 @@
+{
+ "no": 4,
+ "slug": "aqua",
+ "version": "v2",
+ "title": "Aqua didenda <em>Rp13,8 miliar</em> gara-gara warung",
+ "sub": "Storyboard 22 shot. Tiap keyframe adalah render kode asli dari mesin kolase, diambil di 85% durasi shot, jadi stempel atau teks yang masih bergerak bisa terlihat belum lengkap. Timing mengikuti VO 53,6 detik (2,66 kata/dtk) yang sudah disetujui.",
+ "rules": [
+  "Botol tanpa logo. Merek hanya muncul sebagai tag ketik AQUA / LE MINERALE.",
+  "Perjanjian dan email adalah rekonstruksi isi putusan KPPU, masing-masing ada catatan kecil \"menurut putusan KPPU\". Nama pengirim/penerima disensor.",
+  "Tahun selalu di layar (2016, 2017, 2019) supaya tidak terkesan kejadian sekarang.",
+  "Pita caption (tengah bawah) dibiarkan bersih; semua potongan di atasnya.",
+  "Semua cap tetap tinta transparan (tanpa kartu), tapi tintanya lebih pekat dan ada pendar kertas tipis di sekeliling huruf, jadi terbaca di atas gambar gravir.",
+  "Aqua tampil sebagai perusahaan: pabrik berlabel AQUA + orang berjas \"pihak AQUA\" (wajah generik). KPPU tampil sebagai wasit."
+ ],
+ "shots": [
+  {
+   "vo": "Aqua didenda tiga belas koma delapan miliar.",
+   "aksi": "Detik 0: pabrik air minum berlabel AQUA (= perusahaannya) + botolnya di depan sudah di layar; Rp13,8 M dan kartu DIDENDA menghantam di 0,00–0,14 dtk.",
+   "kamera": "Push-in 1,02→1,08, getar di tiap hantaman",
+   "teks": "Rp13,8 M · AQUA · DIDENDA",
+   "gambar": "AI pabrik + bottle_hero",
+   "beat": "Hook",
+   "note": "Yang didenda perusahaan, jadi sekarang pabriknya yang tampil, bukan cuma botol. Label AQUA berupa tag ketik (tanpa logo)."
+  },
+  {
+   "vo": "Gara-gara warung kayak gini jual air mineral merek lain.",
+   "aksi": "Warung naik ke layar tepat di kata \"warung\"; botol bentuk lain jatuh ke etalase di kata \"merek\".",
+   "kamera": "Push-in ke botol pesaing",
+   "teks": "merek lain",
+   "gambar": "AI warung_front, bottle_rival"
+  },
+  {
+   "vo": "Kok bisa? Ada warung berstatus bintang, star outlet.",
+   "aksi": "Map ARSIP KASUS #004 lewat ±1,2 dtk saat \"Kok bisa?\"; bintang emas ditempel ke papan warung di kata \"bintang\".",
+   "kamera": "Push-in ke papan",
+   "teks": "#004 · AIR MINERAL · 2017 · 2016 · STAR OUTLET",
+   "gambar": "AI warung_front + bintang cetak sendiri",
+   "beat": "Kok bisa? · warung bintang"
+  },
+  {
+   "vo": "Warung ini dapat harga Aqua lebih murah.",
+   "aksi": "Warung berbintang (kecil, kiri) + botol (kanan); label harga dibanting di kata \"harga\".",
+   "kamera": "Push-in pelan",
+   "teks": "HARGA AQUA · MURAH ↓",
+   "gambar": "kode tag_murah"
+  },
+  {
+   "vo": "Tapi ada satu syarat. Kalau warung itu jual Le Minerale,",
+   "aksi": "Lembar perjanjian masuk; kamera mendekat ke Pasal 4 yang disorot amber; botol pesaing + tag LE MINERALE dibanting di \"Le\".",
+   "kamera": "Tahan, lalu zoom 1,0→1,25 ke klausul",
+   "teks": "SATU SYARAT · Pasal 4 · LE MINERALE",
+   "gambar": "kode perjanjian (rekonstruksi, ada catatan \"menurut putusan KPPU\")"
+  },
+  {
+   "vo": "yang katanya ada manis-manisnya…",
+   "aksi": "Botol pesaing besar; kutipan slogan diketik huruf demi huruf; \"?\" ransom.",
+   "kamera": "Push-in",
+   "teks": "\"ada manis-manisnya\" · ?",
+   "gambar": "AI bottle_rival"
+  },
+  {
+   "vo": "bintangnya dicopot.",
+   "aksi": "Tangan memegang bintang emas di papan kayu lalu menariknya lepas di kata \"dicopot\".",
+   "kamera": "Getar saat dicabut",
+   "teks": "—",
+   "gambar": "AI hand_star (bintang diwarnai emas)",
+   "note": "Tangan dan bintang sekarang tetap di dalam frame saat dicabut."
+  },
+  {
+   "vo": "Harga Aqua-nya jadi lebih mahal.",
+   "aksi": "Komposisi sama dengan shot 04 (sengaja: sebelum/sesudah): papan tinggal bekas bintang; label MURAH ditimpa MAHAL di kata \"mahal\".",
+   "kamera": "Getar di \"mahal\"",
+   "teks": "HARGA AQUA · MAHAL ↑",
+   "gambar": "kode tag_mahal, star_ghost"
+  },
+  {
+   "vo": "KPPU, wasitnya persaingan bisnis,",
+   "aksi": "Gedung kantor turun dari atas; wasit berlabel KPPU meniup peluit sambil menunjuk; kepanjangan KPPU di atas; label \"wasit persaingan bisnis\" di kata \"wasitnya\".",
+   "kamera": "Getar kecil saat wasit masuk",
+   "teks": "Komisi Pengawas Persaingan Usaha · KPPU · wasit persaingan bisnis",
+   "gambar": "AI wasit_tiup + kantor",
+   "beat": "Wasit",
+   "note": "Peluit saja diganti wasit beneran meniup peluit dengan latar gedung kantor, label KPPU di wasitnya."
+  },
+  {
+   "vo": "bilang itu persaingan nggak sehat. Aqua didenda.",
+   "aksi": "Pabrik AQUA di kanan; wasit KPPU (baju sama dengan S09) masuk dari kiri mengangkat kartu merah di \"nggak\"; kartu DIDENDA menempel di pabrik AQUA di \"didenda\" (jauh dari label KPPU); 2017.",
+   "kamera": "Getar dua kali",
+   "teks": "AQUA · KPPU · DIDENDA · 2017",
+   "gambar": "AI wasit_kartu (kartu diwarnai merah) + pabrik",
+   "note": "Botol diganti pabrik (perusahaannya). Wasit sekarang orang dan baju yang sama dengan S09. Label KPPU dipindah ke dada wasit, kartu DIDENDA menempel di pabrik di bawah label AQUA, jadi jelas yang didenda AQUA, bukan KPPU."
+  },
+  {
+   "vo": "Tapi Aqua membantah, katanya itu ulah distributor.",
+   "aksi": "Pihak AQUA di tengah: telapak tangan \"bukan kami\" menolak kartu merah wasit KPPU di kanan (dicerminkan supaya menghadap pihak AQUA, berlabel KPPU), jari menunjuk truk DISTRIBUTOR yang masuk dari kiri; kartu DIBANTAH.",
+   "kamera": "Getar di \"membantah\"",
+   "teks": "pihak AQUA · DIBANTAH · DISTRIBUTOR",
+   "gambar": "AI bos_bantah (versi tangan bersilang, 2 tangan normal) + truck",
+   "note": "Gambar tangan 3 diganti versi lengan bersilang yang tangannya normal. Sisi kanan kini diisi wasit KPPU dengan kartu merah, jadi jelas yang dibantah adalah hukuman KPPU. Truk tetap: distributor = perusahaan pengantar barang dari pabrik ke warung, dan truk berlabel DISTRIBUTOR adalah simbol yang paling cepat dikenali. Botol diganti pihak perusahaan yang membantah sambil menunjuk distributor. Sesuai fakta: bantahan datang dari pihak Aqua dan pengacaranya; wajahnya generik."
+  },
+  {
+   "vo": "Dan pengadilan… membatalkan denda Aqua.",
+   "aksi": "Hakim mengetuk palu; kartu DIDENDA dicoret silang, kartu hijau DIBATALKAN (Pengadilan Negeri); 2019.",
+   "kamera": "Getar di \"membatalkan\"",
+   "teks": "PENGADILAN · DIBATALKAN · 2019",
+   "gambar": "arsip PSF gavel (domain publik)",
+   "beat": "Twist 1",
+   "note": "Cap tetap tinta transparan, tapi lebih pekat dengan pendar kertas tipis di sekeliling huruf, jadi terbaca jelas."
+  },
+  {
+   "vo": "Aqua bebas? Belum.",
+   "aksi": "Pihak AQUA mengelus dada lega di \"bebas?\", lalu kartu BELUM menghantam.",
+   "kamera": "Getar di \"Belum\"",
+   "teks": "pihak AQUA · ? · BELUM",
+   "gambar": "AI bos_lega",
+   "note": "Botol diganti orang perusahaan yang lega, lalu harapannya dipatahkan BELUM."
+  },
+  {
+   "vo": "Masalahnya, KPPU pegang bukti dari awal:",
+   "aksi": "Map ARSIP masuk, perjanjian dan email menyembul dari dalam; label KPPU; kartu BUKTI; 2016.",
+   "kamera": "Push-in",
+   "teks": "KPPU · BUKTI · 2016",
+   "gambar": "signature folder + kode dokumen",
+   "beat": "Bukti"
+  },
+  {
+   "vo": "email berjudul Star Outlet Degradation, alias turunin status warung bintang.",
+   "aksi": "Cetakan email (pengirim/penerima disensor); kamera mendekat ke subjek yang disorot; slip terjemahan dibanting di \"alias\".",
+   "kamera": "Zoom 1,0→1,4 ke subjek, lalu mundur ke 1,15",
+   "teks": "Subjek: Star Outlet Degradation Being a Wholesaler · = turunin status warung bintang",
+   "gambar": "kode email (rekonstruksi, catatan \"menurut putusan KPPU\")",
+   "note": "Email diperkecil dan kamera digeser ke tengah, jadi tidak lagi mepet tepi frame."
+  },
+  {
+   "vo": "Dan satu warung beneran dicopot bintangnya.",
+   "aksi": "Warung utuh; di \"dicopot\" bintang terlempar ke luar layar, papan tinggal bekasnya; kartu DICOPOT.",
+   "kamera": "Getar",
+   "teks": "1 warung · DICOPOT",
+   "gambar": "AI warung_front"
+  },
+  {
+   "vo": "KPPU nggak terima, dan membawa kasus ini ke Mahkamah Agung.",
+   "aksi": "Wasit KPPU berjalan membawa map kasus ke gedung Mahkamah Agung di kanan atas; garis rute ke gedung di \"membawa\".",
+   "kamera": "Statis, sedikit push-in; wasit melangkah",
+   "teks": "KPPU · MAHKAMAH AGUNG",
+   "gambar": "AI wasit_map + court",
+   "beat": "Twist 2",
+   "note": "Map yang bergerak sendiri diganti usulmu: wasit KPPU membawa map kasus."
+  },
+  {
+   "vo": "Hasilnya… Mahkamah Agung memihak KPPU.",
+   "aksi": "Gedung besar, jeda tegang di \"Hasilnya…\", kartu KPPU MENANG (Mahkamah Agung) di \"memihak\"; 2019.",
+   "kamera": "Push-in lambat, getar",
+   "teks": "KPPU MENANG · 2019",
+   "gambar": "AI court",
+   "note": "Cap tinta transparan yang lebih pekat, terbaca jelas."
+  },
+  {
+   "vo": "Denda Aqua berlaku lagi.",
+   "aksi": "Pihak AQUA duduk lemas memegang kepala di depan pabrik; kartu DIDENDA dan Rp13,8 M kembali (gema frame 0).",
+   "kamera": "Getar",
+   "teks": "Rp13,8 M · DIDENDA",
+   "gambar": "AI bos_lemas + pabrik",
+   "note": "Botol diganti orang perusahaan yang lemas di depan pabriknya; cap tinta transparan yang lebih pekat."
+  },
+  {
+   "vo": "Air putih doang, sampai Mahkamah Agung.",
+   "aksi": "Mulai sangat dekat: satu botol air kecil duduk sendirian di kursi terdakwa. Di \"sampai\" kamera mundur, ternyata ruang sidangnya megah; panah + label \"terdakwa: air putih\".",
+   "kamera": "Zoom 2,6→1,0 (lihat frame awal di bawah)",
+   "teks": "terdakwa: air putih",
+   "gambar": "AI botol_sidang",
+   "beat": "Pilar · penutup",
+   "note": "Gelas diganti botol air di kursi terdakwa ruang sidang raksasa: kontras kecil vs megah jadi lucunya.",
+   "alt": {
+    "t": "first",
+    "caption": "frame awal"
+   }
+  },
+  {
+   "vo": "Jadi isi rak warung itu… nggak selalu pilihan pemilik warungnya.",
+   "aksi": "Rak satu merek; pemilik warung (sawo matang) masuk dari kiri, tangan menjangkau rak; tulisan \"pilihan siapa?\" di dekat kepalanya.",
+   "kamera": "Push-in pelan",
+   "teks": "pilihan siapa?",
+   "gambar": "AI shelf_onebrand, shopkeeper"
+  },
+  {
+   "vo": "Warung dekat rumahmu jual merek apa aja?",
+   "aksi": "Rak banyak merek; label \"warung dekat rumahmu\"; \"?\" besar; bintang emas jatuh ke rak sebagai aksi penutup, lalu loop ke frame 0.",
+   "kamera": "Push-in pelan",
+   "teks": "warung dekat rumahmu · ?",
+   "gambar": "AI warung_shelf"
+  }
+ ]
+}

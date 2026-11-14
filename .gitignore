@@ -32,3 +32,4 @@ stories/*/kolase/*.wav
 stories/*/kolase/*.mid
 stories/*/kolase/*.npy
 channel/parts/
+stories/*/kolase/board/page/
