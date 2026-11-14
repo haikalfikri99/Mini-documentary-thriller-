@@ -1,5 +1,5 @@
 # 1. Cerita dan Script
-Gabungan: konsep editorial channel dari user (positioning, 6 wilayah cerita, aturan faktual, seleksi 5 kriteria, framework 6 babak, 8 prinsip), riset data nyata (`riset-viral-shorts.md`), dan skill `youtube-scriptwriting`, `hook-and-headline-writing`, `youtube-shorts`, `fact-checking`. Setiap video wajib lolos panduan ini **sebelum VO direkam**.
+Gabungan: konsep editorial channel dari user (positioning, 6 wilayah cerita, aturan faktual, seleksi 5 kriteria, framework 6 babak, 8 prinsip), riset data nyata (`research/niche/`), dan skill `hook-and-headline-writing`, `youtube-shorts`, `fact-checking`. Setiap video wajib lolos panduan ini **sebelum VO direkam**.
 
 ## A. Identitas editorial
 **Mini Thriller IDN — Real Stories. Unexpected Truths.**
