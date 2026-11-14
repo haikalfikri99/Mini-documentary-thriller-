@@ -8,8 +8,7 @@ cd "$(dirname "$0")/../.."
 ok=1; OS="$(uname -s)"
 bash kit/tools/links.sh
 pip install -q -r requirements.txt || ok=0
-[ -d node_modules/playwright ] || python3 -c "import playwright" 2>/dev/null || npm install --silent || ok=0
-node -e "require('playwright').chromium.executablePath()" >/dev/null 2>&1 || true
+node -e "require('playwright')" 2>/dev/null || { echo "→ npm: playwright"; npm install --silent || ok=0; }   # the Claude cloud container already has a global playwright: never shadow it
 # Chromium: preinstalled in the Claude cloud container; elsewhere install once
 node -e "const {chromium}=require('playwright');chromium.launch().then(b=>b.close()).catch(()=>process.exit(1))" 2>/dev/null || { echo "→ playwright chromium"; npx --yes playwright install chromium >/dev/null 2>&1 || ok=0; }
 sf2() { for p in "${SF2:-}" /usr/share/sounds/sf2/FluidR3_GM.sf2 /usr/share/soundfonts/FluidR3_GM.sf2 /opt/homebrew/share/soundfonts/FluidR3_GM.sf2 /usr/local/share/soundfonts/FluidR3_GM.sf2; do [ -n "$p" ] && [ -f "$p" ] && return 0; done; return 1; }
