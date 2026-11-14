@@ -120,10 +120,10 @@ const SHOTS = [
     const tk = at(9, 'nggak'), td = at(9, 'didenda');
     stage(u, d, { z0: 1.0, z1: 1.07, shake: [[tk, 8], [td, 12]] }); bg(SET.ref);
     put('pabrik', 760, 640, 0, 0, 1, 0.5);
-    putK('s_aqua', slap(0.1, 780, 430, 4), u, 113, { s: 0.9 });
+    putK('s_aqua', slap(0.1, 790, 420, 4), u, 113, { s: 0.9 });
     putK('wasit_kartu', slide(tk - 0.25, tk, 330, 720, -2, -700, 0, 0, 0.8), u, 111, { s: 0.92 });
-    putK('s_kppu', slap(tk + 0.1, 250, 1010, -6), u, 112, { s: 0.7 });
-    stampAt('st_denda', u, td, 760, 920, -8, 0.9);
+    putK('s_kppu', slap(tk + 0.1, 230, 860, -6), u, 112, { s: 0.6 });
+    stampAt('st_denda', u, td, 770, 640, -7, 0.72);
     if (u > td + 0.15) ransomRow('ry17', u, td + 0.15, 800, 190, 0.07, 0.8);
   },
   // 11 · Tapi Aqua membantah, katanya itu ulah distributor.   the company man says "not us" and points at the distributor's truck
