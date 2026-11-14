@@ -46,3 +46,10 @@ Catatan hukum: judul harus tegas bahwa ini **putusan**, bukan tuduhan.
 
 ## Yang masih bisa dilengkapi (opsional, sebelum rilis)
 Teks putusan KPPU 22/KPPU-I/2016 (kppu.go.id) dan putusan MA 806 K/Pdt.Sus-KPPU/2019 (direktori putusan MA) — kedua situs memblokir pengambilan otomatis; jika kamu bisa mengunduh PDF-nya dan menaruhnya di Drive, aku bisa membaca alasan hakim dan menutup #8–#10.
+
+## Paket pembuka v2 (14 Nov, setelah koreksi user: hook harus terbaca sekali baca)
+**Hook (0–2 dtk):** "Aqua didenda Rp13,8 miliar." → (jeda 0,3 dtk) "Gara-gara warung jual air mineral merek lain."
+**Kalimat 2 (menutup salah paham, 2–6 dtk):** "Kata KPPU, warung yang jual Le Minerale diancam turun status — dan Aqua yang kena."
+**Struktur tengah (retensi):** surel "Star Outlet Degradation Being a Wholesaler" (bukti) → bantahan Aqua (distributor yang salah) → TAPI: PN Jaksel membatalkan putusan (2019) → MAKA: KPPU kasasi, MA mengabulkan → penutup kembali ke "Rp13,8 miliar".
+**Judul:** Aqua Didenda Rp13,8 Miliar Gara-Gara Warung (6 kata, benda + angka).
+**Teks cover:** "Rp13,8 M" besar + botol generik + warung kecil. **Pernyataan faktual yang harus dicek di script:** denda ditetapkan KPPU (benar, #1); "gara-gara" = akibat dari tindakan Aqua/distributor terhadap warung (#4–#6), bukan kesalahan warung.
