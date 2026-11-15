@@ -1,5 +1,5 @@
-# VO ARSIP KASUS #008 indomie v3 (tayang ke-4) — ElevenLabs (Saos Cocol R86jddkroI9bJwXFfjsr, eleven_v4)
-Target: 140 kata, 50,9–53,8 dtk (2,6–2,75 kata/dtk; patokan 2,66 = 52,6 dtk). Speed ±1,1 bila ada, stability Natural, 2 take, MP3.
+# VO ARSIP KASUS #008 indomie v4 final (tayang ke-4) — ElevenLabs (Saos Cocol R86jddkroI9bJwXFfjsr, eleven_v4)
+Target: 144 kata, 52,4–55,4 dtk (2,6–2,75 kata/dtk; patokan 2,66 = 54,1 dtk). Speed ±1,1 bila ada, stability Natural, 2 take, MP3.
 Hook tanpa jeda, energi naik. Nada santai, sedikit jahil, berwibawa. Simpan hasil sebagai raw_take1.mp3 / raw_take2.mp3.
 
 ## Pelafalan (cek di take pertama)
@@ -16,4 +16,4 @@ Hook tanpa jeda, energi naik. Nada santai, sedikit jahil, berwibawa. Simpan hasi
 [serious] Di Taiwan, zat ini nggak boleh terdeteksi sedikit pun. Di Indonesia ada batasnya, dan kata BPOM, kadarnya jauh di bawah itu.
 [curious] Lalu terulang lagi.
 [pause][slowly] Satu kiriman Soto Banjar ditolak Taiwan. Kata BPOM, kiriman itu bukan ekspor resmi dari pabriknya. Indofood bilang, di sampel batch yang sama, zat itu nggak terdeteksi.
-[warmly] Satu merek, dua jawaban. Jadi Indomie yang wajib masuk koper kita… ternyata dinilai pakai aturan yang beda di tiap negara.
+[warmly] Satu merek, dua jawaban. Jadi mi instan yang selalu ada di dapur rumah kita… ternyata dinilai pakai standar keamanan yang beda di tiap negara.

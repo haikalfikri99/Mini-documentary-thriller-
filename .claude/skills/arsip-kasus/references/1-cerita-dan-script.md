@@ -128,6 +128,7 @@ Lulus bila: spesifik, jujur (dibayar isi), terpahami **sekali baca/lihat**, bisa
 - **Sapaan: "kamu" (orang kedua tunggal) dan "kita"**, natural dan konsisten dengan #001–#004; kasus harus terasa menyentuh dompet, kebiasaan, atau keputusan penonton hari ini. Nada investigatif tajam, lincah, sedikit jahil saat mengungkap ironi, berwibawa dan berbasis dokumen. Tanpa basa-basi pembuka ("Halo guys", "Tahukah kamu", "Pernahkah kalian berpikir") dan tanpa klise AI ("Di dunia yang serba cepat ini…", "Mari kita selami lebih dalam…").
 - Lisan santai-sopan (bikin, nggak, ngaku, udah); kata yang paling dipahami penonton dan terbaca Whisper ("email", bukan "surel"; "nggak" pada narasi kasual). Kalimat 6–13 kata, satu kalimat = satu gambar; kata kerja aktif **dengan objek jelas**.
 - **Nada:** santai, sedikit jahil, seperti teman yang baru tahu rahasia. Tanpa istilah bias/teori di depan. Lembaga/istilah dijelaskan ≤ 4 kata lisan ("KPPU, wasitnya persaingan bisnis"; "bintangnya dicopot", bukan "wholesaler").
+- **Lisan dulu, uji mute, psikologi penonton** (`7-selera…` #60–#62): atribusi sekali di klaim sensitif saja; tiap kata kerja/lokasi punya objek atau nama jelas di caption; segmen tengah dan penutup menyentuh situasi harian penonton (dealer, HP murah, dapur rumah).
 - Peran sebelum nama; ≤ 2 nama per video. Dilarang: "bukan X tapi Y", penutup fragmen yang mengulang, triad paksa, kata megah, statistik yang tidak dibutuhkan beat.
 - Tanda baca = arahan baca (elipsis jeda berpikir, titik berhenti, satu kapital per video).
 - **Tag ElevenLabs (Saos Cocol, eleven_v4)** hanya di titik perubahan emosi: [curious] hook · [warmly] setup · [mysteriously] TAPI · [serious] akibat · [pause][slowly] twist · [warmly] penutup. Dua take; cek pelafalan (KPPU per huruf, angka diucap penuh), durasi; tempo `3-audio.md` §I.
@@ -150,7 +151,7 @@ V1 subjek dikenal ID di kata 1–3 · V2 jawaban tidak tertebak · V3 ada tokoh/
 | 12 | Durasi | 120–145 kata, 48–55 dtk; kata = durasi × 2,66 (±8%); stopwatch ±10% |
 | 13 | Bisu | versi teks layar + gambar saja bisa diikuti |
 | 14 | Visual | tiap kalimat punya gambar yang bisa dibuat dengan kit; benda yang disebut terlihat |
-| 15 | POV penonton | tidak ada jargon tak dijelaskan, kata kerja tanpa objek, atau kalimat yang terdengar seperti akhir tanpa jembatan |
+| 15 | POV penonton | tidak ada jargon tak dijelaskan, kata kerja tanpa objek, atau kalimat yang terdengar seperti akhir tanpa jembatan; lolos uji mute (caption berdiri sendiri, `7-selera…` #61) |
 | 16 | Kemasan aman | atribusi di kalimat sesudah hook, bantahan disebut, tidak menyiratkan praktik masih berjalan, tahun di layar, tidak terkesan iklan merek |
 
 ### F7. Gerbang 3 detik + rantai retensi
@@ -163,7 +164,7 @@ V1 subjek dikenal ID di kata 1–3 · V2 jawaban tidak tertebak · V3 ada tokoh/
 | H4 | Frame 0 = momen paling aneh, bergerak, terang | gerak ≤ 0,3 dtk; jangan meniru tampilan feed |
 | H5 | Teks frame 0 untuk penonton tanpa suara | ≤ 5 kata, tampil tanpa animasi masuk |
 | H6 | Suara di frame 0 | VO + satu SFX yang menyatakan kejadian mulai di 0,00 |
-| H7 | Tanpa tanggal/nama di VO 10 dtk pertama | waktu/tempat hanya stempel layar |
+| H7 | Tanpa tanggal/nama orang di VO 10 dtk pertama | tanggal hanya stempel layar; nama tempat yang menjadi subjek dikenal (Sudirman, Taiwan) boleh diucapkan (`7-selera…` #61) |
 | # | Rantai retensi | Ukuran lulus |
 |---|---|---|
 | R1 | Loop terbuka berantai | sebelum menjawab satu pertanyaan, buka yang berikut; maks 10 dtk tanpa pertanyaan terbuka; janji dibayar |

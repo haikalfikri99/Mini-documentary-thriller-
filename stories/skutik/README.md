@@ -57,44 +57,44 @@ Catatan: "gara-gara harga skutik" adalah ringkasan putusan (kartel harga), bukan
 Frame 0 (objek utama ≥ 45% lebar frame di y 150–1150 + hantaman stempel/label ≤ 0,25 dtk): belum ditentukan (usul: skutik generik besar + stempel "DENDA Rp47,5 M"; tanpa logo).
 Kalimat H1 (selesai ≤ 4,0 dtk, ≤ 14 kata, kata tunjuk visual bila merujuk objek di layar): belum ditulis (tugas script; bukan bagian riset ini).
 
-## Paket final script (v3, bahasa lisan diluweskan 15 Nov 2026)
+## Paket final script (v4 FINAL dari user, 15 Nov 2026; 3 koreksi fakta kecil oleh Claude)
 **Nomor:** ARSIP KASUS #005 = folder = urutan tayang ke-1 (diseragamkan 15 Nov) · **Pola judul:** Pola 1 · **Penutup:** Circular Reframe Loop (uji tunggal #005, aturan keputusan selera #54)
 **Judul (pilih satu):**
 1. **Yamaha-Honda Didenda Rp47,5 M Gara-Gara Harga Skutik** (52 karakter): rekomendasi: Pola 1 persis, angka total di depan, "harga" menjaga makna putusan (kartel harga, bukan "gara-gara golf")
 2. **Yamaha dan Honda Didenda Rp47,5 M Gara-Gara Harga Matik** (55 karakter): cadangan: "matik" sama dengan kata di H1, tapi tepat 55 karakter
 **Penguncian 3-titik:** judul ↔ frame 0: Skutik generik (tanpa logo) ≥ 45% lebar frame dengan label harga tergantung; stempel merah "DENDA Rp47,5 M" menghantam ≤ 0,25 dtk; label tahun "2017" kecil di sudut ↔ H1: "Yamaha dan Honda didenda empat puluh tujuh koma lima miliar."
-**Hitungan:** 140 kata ≈ 52,6 dtk @2,66 (rentang 50,9–53,8 dtk). File: `audio/script_vo.txt` (bersih) dan `audio/vo_prompt_elevenlabs.md` (bertag).
+**Hitungan:** 143 kata ≈ 53,8 dtk @2,66 (rentang 52,0–55,0 dtk). File: `audio/script_vo.txt` (bersih) dan `audio/vo_prompt_elevenlabs.md` (bertag).
 **VO bersih (per segmen = satu baris):**
 ```
 Yamaha dan Honda didenda empat puluh tujuh koma lima miliar. Gara-gara harga motor matik kayak gini.
-Kamu kira mereka bersaing ketat, jadi harganya adu murah.
-Tapi KPPU, wasitnya persaingan bisnis, menuduh mereka diam-diam janjian harga. Kalau pesaing janjian, pembeli nggak punya pilihan lebih murah.
+Di dealer, kamu kira mereka bersaing ketat, jadi harganya adu murah.
+Tapi KPPU, wasitnya persaingan bisnis, menuduh mereka diam-diam janjian harga. Kalau pesaing janjian, pembeli kehilangan pilihan yang lebih murah.
 Buktinya? Lapangan golf. Kata KPPU, bos-bos kedua perusahaan pernah ketemu di sana. Habis itu, lewat email, Yamaha disuruh ngikutin harga Honda. Dan harganya… beneran disesuaikan.
 Yamaha kena denda dua puluh lima miliar. Honda, dua puluh dua koma lima miliar. Dua-duanya membantah. Yamaha bilang, golf dan email itu bukan bukti. Honda bilang, nggak mungkin mereka atur harga.
-Mereka bawa ke pengadilan. Lolos? Nggak.
+Mereka bawa kasus ini ke pengadilan. Lolos? Nggak.
 Pengadilan sampai Mahkamah Agung tetap memihak KPPU.
-Di jalanan kelihatan musuhan. Di lapangan golf… ternyata sepakat. Jadi motor matik yang tiap hari kamu lihat di jalan… menurut KPPU, harganya pernah diatur dari lapangan golf.
+Di jalanan kelihatan musuhan. Di lapangan golf… ternyata sepakat. Jadi tiap kamu bandingin harga motor matik di dealer… menurut KPPU, harganya pernah diatur dari lapangan golf.
 ```
 **Peta waktu (perkiraan @2,66, sebelum VO direkam):**
 | dtk | kata | kalimat |
 |---|---|---|
 | 0,0 | 10 | Yamaha dan Honda didenda empat puluh tujuh koma lima miliar. |
 | 3,8 | 6 | Gara-gara harga motor matik kayak gini. |
-| 6,0 | 9 | Kamu kira mereka bersaing ketat, jadi harganya adu murah. |
-| 9,4 | 10 | Tapi KPPU, wasitnya persaingan bisnis, menuduh mereka diam-diam janjian harga. |
-| 13,2 | 9 | Kalau pesaing janjian, pembeli nggak punya pilihan lebih murah. |
-| 16,5 | 3 | Buktinya? Lapangan golf. |
-| 17,7 | 9 | Kata KPPU, bos-bos kedua perusahaan pernah ketemu di sana. |
-| 21,1 | 9 | Habis itu, lewat email, Yamaha disuruh ngikutin harga Honda. |
-| 24,4 | 4 | Dan harganya… beneran disesuaikan. |
-| 25,9 | 14 | Yamaha kena denda dua puluh lima miliar. Honda, dua puluh dua koma lima miliar. |
-| 31,2 | 2 | Dua-duanya membantah. |
-| 32,0 | 8 | Yamaha bilang, golf dan email itu bukan bukti. |
-| 35,0 | 7 | Honda bilang, nggak mungkin mereka atur harga. |
-| 37,6 | 6 | Mereka bawa ke pengadilan. Lolos? Nggak. |
-| 39,8 | 7 | Pengadilan sampai Mahkamah Agung tetap memihak KPPU. |
-| 42,5 | 9 | Di jalanan kelihatan musuhan. Di lapangan golf… ternyata sepakat. |
-| 45,9 | 18 | Jadi motor matik yang tiap hari kamu lihat di jalan… menurut KPPU, harganya pernah diatur dari lapangan golf. |
+| 6,0 | 11 | Di dealer, kamu kira mereka bersaing ketat, jadi harganya adu murah. |
+| 10,2 | 10 | Tapi KPPU, wasitnya persaingan bisnis, menuduh mereka diam-diam janjian harga. |
+| 13,9 | 9 | Kalau pesaing janjian, pembeli kehilangan pilihan yang lebih murah. |
+| 17,3 | 3 | Buktinya? Lapangan golf. |
+| 18,4 | 9 | Kata KPPU, bos-bos kedua perusahaan pernah ketemu di sana. |
+| 21,8 | 9 | Habis itu, lewat email, Yamaha disuruh ngikutin harga Honda. |
+| 25,2 | 4 | Dan harganya… beneran disesuaikan. |
+| 26,7 | 14 | Yamaha kena denda dua puluh lima miliar. Honda, dua puluh dua koma lima miliar. |
+| 32,0 | 2 | Dua-duanya membantah. |
+| 32,7 | 8 | Yamaha bilang, golf dan email itu bukan bukti. |
+| 35,7 | 7 | Honda bilang, nggak mungkin mereka atur harga. |
+| 38,3 | 8 | Mereka bawa kasus ini ke pengadilan. Lolos? Nggak. |
+| 41,4 | 7 | Pengadilan sampai Mahkamah Agung tetap memihak KPPU. |
+| 44,0 | 9 | Di jalanan kelihatan musuhan. Di lapangan golf… ternyata sepakat. |
+| 47,4 | 17 | Jadi tiap kamu bandingin harga motor matik di dealer… menurut KPPU, harganya pernah diatur dari lapangan golf. |
 **Teks layar kunci (uji bisu):** 0,0 dtk: DENDA Rp47,5 M · KPPU = wasit persaingan bisnis · DIAM-DIAM JANJIAN HARGA · lapangan golf + amplop EMAIL 2014 · 2015 · YAMAHA Rp25 M · HONDA Rp22,5 M (2017) · BANTAH: "bukan bukti" · "mustahil" · PN 2017 · MA 2019 · PK 2021: KPPU MENANG
 **Risiko yang tersisa:** Permintaan sangat rendah (2 saran autocomplete). Kekuatan ada di angka + merek, sama seperti #004.
 
@@ -112,15 +112,15 @@ Di jalanan kelihatan musuhan. Di lapangan golf… ternyata sepakat. Jadi motor m
 | 9 | Lulus: Circular Reframe Loop memanggil "motor matik" dari kalimat 2 lewat "yang tiap hari kamu lihat di jalan"; harganya = dompet pembeli; berdiri utuh |
 | 10 | Lulus: semua lewat sumber sekunder yang mengutip putusan (primer 403, ditandai); tidak memuat amar PK, pembayaran denda, angka Rp8,7 juta, "50%", Faisal Basri, "tanpa perjanjian tertulis" |
 | 11 | Lulus: kata "kartel" dihapus, langsung "diam-diam janjian harga"; "bos-bos" pengganti "petinggi" |
-| 12 | Lulus: 140 kata ≈ 52,6 dtk @2,66 |
+| 12 | Lulus: 143 kata ≈ 53,8 dtk @2,66 (di atas target user 140, masih dalam formula 120–145) |
 | 13 | Lulus bila teks layar di atas dipasang |
 | 14 | Lulus: tiap kalimat punya gambar kit (skutik, golf, amplop, palu, stempel) |
 | 15 | Lulus: "bawa ke pengadilan" diikuti "Lolos? Nggak."; PK tidak disebut |
 | 16 | Lulus: atribusi "menurut KPPU" sesudah hook, bantahan kedua merek, "pernah" (bukan praktik sekarang), tahun di layar, kemasan generik |
-**Gerbang:** H1 lulus (kalimat 1 ≈ 3,4 dtk, 9 kata) · H2 lulus (Yamaha di kata 1) · H3 lulus (tanpa [pause] di hook) · H4/H5/H6 dirancang di frame 0 (stempel + SFX "dok") · H7 lulus (tanpa tahun/nama orang di 10 dtk pertama) · R1 lulus (POV pembeli → buktinya? → lolos?) · R3 lulus (rehook 16,5 dtk dan 37,6 dtk) · R4 lulus · R5 lulus (≈53 dtk) · R6 kartu ARSIP sesudah hook. H1/H3 dicek ulang dari `vo_words.json` setelah VO jadi.
+**Gerbang:** H1 lulus (kalimat 1 ≈ 3,4 dtk, 9 kata) · H2 lulus (Yamaha di kata 1) · H3 lulus (tanpa [pause] di hook) · H4/H5/H6 dirancang di frame 0 (stempel + SFX "dok") · H7 lulus (tanpa tahun/nama orang di 10 dtk pertama) · R1 lulus (POV pembeli → buktinya? → lolos?) · R3 lulus (rehook ±17 dtk dan ±38 dtk) · R4 lulus · R5 lulus (≈53,8 dtk) · R6 kartu ARSIP sesudah hook. H1/H3 dicek ulang dari `vo_words.json` setelah VO jadi.
 
 ## Catatan lanjut
-- **Fase 2 selesai (15 Nov 2026):** script v3 (v2 + bahasa lisan diluweskan, "koma lima", elipsis hanya jeda dramatis) + prompt ElevenLabs dengan catatan pelafalan. Berikutnya: user merekam VO (2 take) → `/compact` → Fase 3 (prompt blok Google Flow).
+- **Fase 2 selesai (15 Nov 2026):** script v4 FINAL (teks user + 3 koreksi fakta kecil) + prompt ElevenLabs dengan catatan pelafalan. Berikutnya: user merekam VO (2 take) → `/compact` → Fase 3 (prompt blok Google Flow).
 - Fakta inti (denda Rp25 M + Rp22,5 M = Rp47,5 M; putusan 20 Feb 2017; PN 5 Des 2017; kasasi 23 Apr 2019; PK 2021) kuat dan konsisten, tetapi **semua lewat sumber sekunder**; putusan KPPU/MA tidak terbaca (kppu.go.id dan Kontan/Bisnis 403, tidak ditembus).
 - Bila lanjut script, kerangka fakta yang aman: KPPU memutus Yamaha dan Honda sepakat harga (golf + dua email, menurut KPPU) → denda total Rp47,5 M → keduanya membantah → PN, kasasi, PK semua menguatkan → pembayaran: berhenti di "diperintahkan disetor ke kas negara"; jangan "sudah membayar".
 - Sebelum script: coba buka teks putusan (direktori putusan MA, kppu.go.id) lewat sesi lain atau user, dan tonton video Faisal Basri bila ingin dipakai; periksa tanggal PK (21 vs 24 Feb 2021; ringkasan pencarian ulang kembali 24 Feb 2021 dari CNN, 21 Feb dari detik tidak terkonfirmasi) dan amar ("ditolak" vs "Tidak Dapat Diterima"; ucapan aman "PK ditolak/tidak diterima") dan nomor perkara PN.
