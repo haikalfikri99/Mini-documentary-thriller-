@@ -211,7 +211,7 @@ const SHOTS = [
     stage(u, d, { z0: 1.0, z1: 1.04, cy: 880, shake: [[td, 10]] }); bg(SET.hook, u, true);
     sign(u, drop(0.05, 0.3, 540, 650, -2, 900), 1.0, 240);
     stampAt('st_tahan', u, td, 560, 1020, -6, 0.85);
-    typed('s_kita', u, at(23, 'kita'), 24, 540, 190, -2);
+    typed('s_kita', u, at(23, 'kita') - 0.3, 45, 540, 190, -2);
   },
 ];
 

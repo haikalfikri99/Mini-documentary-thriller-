@@ -136,10 +136,10 @@ const SHOTS = [
   // 15 · Di Taiwan, zat ini nggak boleh terdeteksi sedikit pun.   the Taiwan gauge: limit = zero
   (u, T, d) => {
     const ts = at(14, 'sedikit');
-    stage(u, d, { z0: 1.0, z1: 1.05, cy: 880, shake: [[ts, 12]] }); bg(SET.tw, u, true);
-    putK('petugas_tw_tolak', slide(0, 0.2, 330, 680, 0, -700, 0, 0, 0.6), u, 150, { s: 0.8 });
-    putK('meter_tw', slide(0.3, 0.5, 820, 640, 3, 600, 0, 0, -0.5), u, 151, { s: 0.8 });
-    putK('s_taiwan', slap(0.05, 330, 240, -4), u, 152);
+    stage(u, d, { z0: 1.0, z1: 1.05, cy: 880, shake: [[ts, 12]] }); bg(SET.tw);
+    putK('petugas_tw_tolak', [[0, 330, 680, 0, 0, 1]], u, 150, { s: 0.8 });
+    putK('meter_tw', slide(0.62, 0.85, 820, 640, 3, 600, 0, 0, -0.5), u, 151, { s: 0.8 });
+    putK('s_taiwan', slap(0.62, 330, 240, -4), u, 152);
     stampAt('st_nol', u, ts, 560, 1040, -6, 0.75);
   },
   // 16 · Di Indonesia ada batasnya,
