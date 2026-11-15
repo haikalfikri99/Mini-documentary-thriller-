@@ -7,7 +7,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; SLUG="$1"; NO="$2"; LINE="${3:-$(ec
 S="$ROOT/stories/$SLUG"; K="$S/kolase"
 [ -e "$K" ] && { echo "sudah ada: $K"; exit 1; }
 mkdir -p "$S/audio" "$K"
-cp "$ROOT/kit/collage/template/"* "$K/"
+find "$ROOT/kit/collage/template" -maxdepth 1 -type f -exec cp {} "$K/" \;   # files only (a __pycache__ dir in the template made `cp *` abort under set -e)
 "$ROOT/kit/tools/links.sh"
 python3 - "$K/episode.json" "$SLUG" "$NO" "$LINE" <<'PY'
 import json, sys
