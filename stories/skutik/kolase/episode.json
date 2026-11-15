@@ -1,0 +1,15 @@
+{
+ "slug": "skutik",
+ "no": 5,
+ "title": "",
+ "case_line": "SKUTIK \u00b7 2026",
+ "vo": "audio/vo_skutik.mp3",
+ "words": "audio/vo_words.json",
+ "dur": 0,
+ "report": [
+  [
+   0,
+   0
+  ]
+ ]
+}
