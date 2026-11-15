@@ -4,7 +4,7 @@ Hook tanpa jeda, energi naik. Nada santai, sedikit jahil, berwibawa. Simpan hasi
 
 ## Pelafalan (cek di take pertama)
 - KPPU = "ka-pe-pe-u" (per huruf; bila dibaca "kepu", tulis di prompt: Ka Pe Pe U)
-- "empat puluh tujuh setengah miliar" utuh, tanpa jeda di tengah
+- "empat puluh tujuh koma lima miliar" dan "dua puluh dua koma lima miliar" utuh, tanpa jeda di tengah
 - Yamaha, Honda: lafal Indonesia biasa
 - Bila satu kata salah ucap: ganti kata itu di PROMPT saja dengan ejaan fonetik di atas (tanpa kurung siku, karena kurung siku dibaca sebagai tag emosi), lalu generate ulang. `audio/script_vo.txt` jangan diubah (QA Whisper membandingkan ke teks itu).
 
