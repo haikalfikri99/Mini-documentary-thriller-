@@ -227,10 +227,10 @@ const SHOTS = [
   (u, T, d) => {
     const ts = at(25, 'standar'), tb = at(25, 'beda');
     stage(u, d, { z0: 1.0, z1: 1.04, cy: 860, shake: [[tb, 8]] }); bg(SET.hook, u, true);
-    putK('timbangan', slide(0, 0.22, 540, 440, 0, 0, -900, 0, 0.5), u, 260, { s: 0.7 });
+    putK('timbangan', slide(0, 0.22, 540, 450, 0, 0, -900, 0, 0.5), u, 260, { s: 0.86 });
     putK('s_standar', slap(ts, 540, 1110, -2), u, 261);
-    putK('s_taiwan', slap(tb, 300, 680, -4), u, 262);
-    putK('s_indonesia', slap(tb + 0.15, 780, 680, 4), u, 263);
+    putK('s_tw_nol', slap(tb, 310, 650, -4), u, 262, { s: 0.95 });
+    putK('s_bpom_batas', slap(tb + 0.15, 770, 565, 4), u, 263, { s: 0.95 });
     putK('mi_bungkus', drop(at(25, 'tiap') - 0.1, at(25, 'tiap') + 0.15, 540, 880, -3, 900), u, 264, { s: 0.62 });
   },
 ];

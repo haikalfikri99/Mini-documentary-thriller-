@@ -139,3 +139,5 @@ Jadi macet parah di Sudirman kayak gini… dulu sebenarnya ditahan sama aturan y
 - Penutup yang cocok: pertanyaan refleksi (mis. ganjil-genap masih ada, hasilnya tidak diketahui dari studi ini).
 
 **Fase 4 (15 Nov 2026):** 10 gambar Flow terpilih di `kolase/ai/`; wajah rambu "3 IN 1", jam, dan batang 2,8 → 5,3 mnt/km dibuat kode. `film.js` 24 shot; visual QA 1 peringatan (shot 2 = 4,10 dtk, kalimat panjang). Label map: `3-IN-1 · 2016`. Render: `renders/ARSIP_006_tigainsatu_v1.mp4`.
+
+**v2 (15 Nov 2026, review user):** papan yang dicabut petugas diberi wajah "3 IN 1" (miring −20°); tiga joki dibedakan skala/posisi/ketukan; batang 2,8 → 5,3 naik 70 px dan masuk dari samping. Render `renders/ARSIP_006_tigainsatu_v2.mp4`.

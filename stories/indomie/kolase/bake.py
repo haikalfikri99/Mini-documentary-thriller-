@@ -45,19 +45,31 @@ def meters():
 
 
 def balance():
-    """a two-pan balance drawn as an engraved cut-out (the archive prints we found carried lettering)"""
+    """a two-pan balance cut out along its own silhouette (no white card), beam tipped: two standards weigh differently"""
+    PV = (300, 110); L = 240; ang = math.radians(12)
+    ends = [(PV[0] - L * math.cos(ang), PV[1] + L * math.sin(ang)), (PV[0] + L * math.cos(ang), PV[1] - L * math.sin(ang))]
+    def geo(d, k, P, m, fill):
+        X = lambda v: P + v * k
+        d.rectangle([X(286 - m), X(PV[1] - m), X(314 + m), X(560 + m)], fill=fill)
+        d.polygon([(X(200 - m), X(600 + m)), (X(400 + m), X(600 + m)), (X(330 + m), X(560 - m)), (X(270 - m), X(560 - m))], fill=fill)
+        d.line([X(ends[0][0]), X(ends[0][1]), X(ends[1][0]), X(ends[1][1])], fill=fill, width=max(3, int((10 + 2 * m) * k)))
+        d.ellipse([X(PV[0] - 18 - m), X(PV[1] - 18 - m), X(PV[0] + 18 + m), X(PV[1] + 18 + m)], fill=fill)
+        for cx, top in ends:
+            for sx in (-70, 70): d.line([X(cx), X(top), X(cx + sx), X(top + 250)], fill=fill, width=max(1, int((2.5 + 2 * m) * k)))
+            d.chord([X(cx - 90 - m), X(top + 220 - m), X(cx + 90 + m), X(top + 300 + m)], 0, 180, fill=fill)
+    def shape(dm, k, P): geo(dm, k, P, 12, 255)
     def draw(img, d, k, P):
         X = lambda v: P + v * k
         w = max(2, int(5 * k))
-        d.rectangle([X(286), X(60), X(314), X(560)], fill=C(INK))
+        d.rectangle([X(286), X(PV[1]), X(314), X(560)], fill=C(INK))
         d.polygon([(X(200), X(600)), (X(400), X(600)), (X(330), X(560)), (X(270), X(560))], fill=C(INK))
-        d.line([X(60), X(110), X(540), X(90)], fill=C(INK), width=max(3, int(10 * k)))
-        d.ellipse([X(282), X(80), X(318), X(116)], fill=C(AMBER), outline=C(INK), width=w)
-        for cx, top in [(60, 110), (540, 90)]:
-            d.line([X(cx), X(top), X(cx - 70), X(top + 250)], fill=C(INK), width=max(1, int(2.5 * k)))
-            d.line([X(cx), X(top), X(cx + 70), X(top + 250)], fill=C(INK), width=max(1, int(2.5 * k)))
+        d.line([X(ends[0][0]), X(ends[0][1]), X(ends[1][0]), X(ends[1][1])], fill=C(INK), width=max(3, int(10 * k)))
+        d.ellipse([X(PV[0] - 18), X(PV[1] - 18), X(PV[0] + 18), X(PV[1] + 18)], fill=C(AMBER), outline=C(INK), width=w)
+        for cx, top in ends:
+            for sx in (-70, 70): d.line([X(cx), X(top), X(cx + sx), X(top + 250)], fill=C(INK), width=max(1, int(2.5 * k)))
             d.chord([X(cx - 90), X(top + 220), X(cx + 90), X(top + 300)], 0, 180, fill=C(NEWS), outline=C(INK), width=w)
-    bk.doc('timbangan', 600, 620, CARD, draw, seed=801, rough=0.3)
+            for i in range(4): d.line([X(cx - 70 + i * 40), X(top + 268), X(cx - 50 + i * 40), X(top + 292)], fill=C(INK * 2), width=max(1, int(1.5 * k)))
+    bk.doc('timbangan', 600, 640, CARD, draw, seed=801, rough=0.5, shape=shape)
 
 
 def stamps():
@@ -82,7 +94,8 @@ def slips():
          ('s_kiriman', '1 kiriman', F_CPB, 44, AMBER, INK), ('s_indofood', 'pihak INDOFOOD', F_CPB, 40, CARD, INK),
          ('s_batch', 'sampel batch yang sama', F_CPB, 38, NEWS, INK), ('s_merek', 'satu merek', F_FELLI, 50, CARD, INK),
          ('s_jawaban', 'dua jawaban', F_FELLI, 50, AMBER, INK), ('s_dapur', 'dapur rumah kita', F_FELLI, 48, CARD, INK),
-         ('s_standar', 'standar keamanan beda tiap negara', F_CPB, 34, AMBER, INK), ('s_pabrik', 'pabrik', F_CP, 34, NEWS, INK)]
+         ('s_standar', 'standar keamanan beda tiap negara', F_CPB, 34, AMBER, INK), ('s_pabrik', 'pabrik', F_CP, 34, NEWS, INK),
+         ('s_tw_nol', 'TAIWAN: NOL', F_CPB, 42, CARD, RED), ('s_bpom_batas', 'BPOM: ADA BATAS', F_CPB, 42, CARD, GREEN)]
     for i, (n, tx, f, s, pa, ik) in enumerate(T):
         bk.strip(n, tx, f, s * 1.3, pa, ik, 410 + i, mono=f.startswith('Courier'))
     for n, y, sd in [('ry10', '2010', 3), ('ry23', '2023', 5), ('ry25', '2025', 7)]:

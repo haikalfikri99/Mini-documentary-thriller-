@@ -84,7 +84,7 @@ def slips():
     T = [('s_xiaomi', 'XIAOMI', F_SLAB, 70, CARD, INK), ('s_pihak', 'pihak XIAOMI', F_CPB, 40, CARD, INK),
          ('s_semua', 'semua barang jualannya', F_CPB, 38, CARD, INK), ('s_kembali', 'lebihnya = balik ke pengguna', F_CPB, 36, AMBER, INK),
          ('s_jarang', 'jarang ada yang mau', F_FELLI, 46, CARD, INK), ('s_dari', 'untung besar dari mana?', F_FELLI, 46, CARD, INK),
-         ('s_dok', 'prospektus Xiaomi, 2018', F_CP, 32, NEWS, INK), ('s_quote', '"We are primarily an internet company."', F_CPB, 30, CARD, INK),
+         ('s_dok', 'prospektus Xiaomi, 2018', F_CP, 32, NEWS, INK), ('s_quote', '"Kami sebenarnya perusahaan internet."', F_CPB, 32, CARD, INK),
          ('s_tipis', 'HP: untung tipis', F_CPB, 44, CARD, INK), ('s_dapat', 'buat dapetin pengguna', F_CPB, 40, AMBER, INK),
          ('s_kamu', 'kamu', F_FELLI, 56, CARD, INK), ('s_miring', 'HP bagus, harga miring', F_CPB, 40, CARD, INK),
          ('s_papan', 'layar = papan iklan', F_CPB, 44, AMBER, INK), ('s_per100', 'tiap Rp100 penjualan', F_CPB, 40, CARD, INK),
@@ -93,7 +93,7 @@ def slips():
          ('s_sumber', 'sumber uang terbesar layanan internet:', F_CPB, 30, CARD, INK),
          ('s_ganggu', '"nggak mengganggu"', F_FELLI, 46, CARD, INK), ('s_atur', 'bisa dikurangi di pengaturan', F_CPB, 36, CARD, INK),
          ('s_kecil', 'iklan kecil', F_FELLI, 48, CARD, INK), ('s_penting', '"bagian penting bisnisnya"', F_FELLI, 44, AMBER, INK),
-         ('s_kata', 'kata Xiaomi', F_CP, 32, NEWS, INK)]
+         ('s_kata', 'kata Xiaomi', F_CP, 32, NEWS, INK), ('s_laba', 'LABA HP ≤ 5%', F_CPB, 34, CARD, INK), ('s_cuan', 'CUAN DARI IKLAN', F_CPB, 34, AMBER, RED)]
     for i, (n, tx, f, s, pa, ik) in enumerate(T):
         bk.strip(n, tx, f, s * 1.3, pa, ik, 410 + i, mono=f.startswith('Courier'))
     bk.ransom('ry18', '2018', 120, 3)

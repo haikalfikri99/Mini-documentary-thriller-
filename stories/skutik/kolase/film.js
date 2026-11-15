@@ -165,10 +165,10 @@ const SHOTS = [
   (u, T, d) => {
     const tdu = at(16, 'dua');
     stage(u, d, { z0: 1.0, z1: 1.05, shake: [[at(16, 'miliar'), 10]] }); bg(SET.hook);
-    putK('pabrik_motor_m', slide(0, 0.2, 540, 470, 0, 900, 0, 0, -0.5), u, 170, { s: 0.7 });
+    putK('pabrik_motor_m', slide(0, 0.2, 540, 430, 0, 900, 0, 0, -0.5), u, 170, { s: 0.66 });
     putK('s_honda', slap(0.05, 820, 230, 4), u, 171, { s: 1.2 });
-    stampAt('st_denda', u, at(16, 'miliar'), 600, 560, -7, 0.62);
-    putK('bars', slide(tdu - 0.1, tdu + 0.15, 540, 960, -1, 0, 700, 0, 0.5), u, 172, { s: 0.95 });
+    stampAt('st_denda', u, at(16, 'miliar'), 600, 520, -7, 0.62);
+    putK('bars', slide(tdu - 0.1, tdu + 0.15, 540, 890, -1, 1100, 0, 0, -0.5), u, 172, { s: 0.95 });   // bottom ≤ 1180 on screen; enters from the side, never through the caption band
   },
   // 18 · Dua-duanya membantah.   both men push back (head sizes matched)
   (u, T, d) => {
@@ -259,13 +259,13 @@ const SHOTS = [
   // 29 · harganya pernah diatur dari lapangan golf.   both tags turn SAMA, the golf flag is planted between them (then the loop hits frame 0)
   (u, T, d) => {
     const tg = at(28, 'lapangan');
-    stage(u, d, { z0: 1.07, z1: 1.02, cy: 880, shake: [[tg + 0.2, 12]] }); bg(SET.hook);
+    stage(u, d, { z0: 1.07, z1: 1.02, cy: 880, shake: [[tg - 1.0, 12]] }); bg(SET.hook);
     duoScoot(u);
     put('s_kppu', 540, 240, -4, 0, 1, 0.7);
     putK('tag_sama', slap(at(28, 'harganya') + 0.1, 290, 1000, -6), u, 291, { s: 0.7 });
     putK('tag_sama', slap(at(28, 'harganya') + 0.25, 800, 1010, 5), u, 292, { s: 0.7 });
     putK('s_diatur', slap(at(28, 'diatur'), 540, 380, -2), u, 293, { s: 0.85 });
-    putK('flag', drop(tg, tg + 0.2, 545, 840, 4, 900), u, 294, { s: 0.75 });
+    putK('flag', drop(tg - 1.2, tg - 1.0, 545, 840, 4, 900), u, 294, { s: 0.75 });   // planted 1.2 s before "lapangan" so it reads before the replay
   },
 ];
 

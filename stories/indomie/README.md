@@ -152,3 +152,5 @@ Satu merek, dua jawaban. Jadi mi instan yang selalu ada di dapur rumah kita… t
 - Pengecek legal: setiap kalimat zat/Taiwan diawali "menurut ...", bantahan BPOM/Indofood dalam durasi yang sama.
 
 **Fase 4 (15 Nov 2026):** 12 gambar Flow terpilih di `kolase/ai/` (inspektur Taiwan & BPOM = pria, sesuai revisi filter Flow). Meteran batas (Taiwan NOL vs Indonesia BATAS), timbangan, dan slip lab dibuat kode; timbangan arsip ditolak karena berhuruf. `film.js` 26 shot; visual QA 2 peringatan ringan. Render: `renders/ARSIP_008_indomie_v1.mp4`.
+
+**v2 (15 Nov 2026, review user):** timbangan penutup digambar ulang tanpa kotak putih (potong siluet), lengan dimiringkan, label "TAIWAN: NOL" vs "BPOM: ADA BATAS". Render `renders/ARSIP_008_indomie_v2.mp4`.

@@ -53,7 +53,11 @@ def flag():
         d.rectangle([X(20), X(10), X(30), X(420)], fill=C(INK))
         d.polygon([(X(30), X(14)), (X(210), X(70)), (X(30), X(130))], fill=C(RED), outline=C(INK), width=max(2, int(3 * k)))
         d.ellipse([X(12), X(2), X(38), X(24)], fill=C(INK))
-    bk.doc('flag', 230, 430, CARD, draw, seed=505, rough=0.3)
+    def shape(dm, k, P):   # cut along the flag's own outline (no white card)
+        X = lambda v: P + v * k
+        dm.rectangle([X(8), X(0), X(42), X(430)], fill=255)
+        dm.polygon([(X(20), X(2)), (X(226), X(70)), (X(20), X(142))], fill=255)
+    bk.doc('flag', 230, 430, CARD, draw, seed=505, rough=0.3, shape=shape)
 
 
 def bars():
@@ -96,7 +100,7 @@ def slips():
          ('s_bukan', '"bukan bukti"', F_FELLI, 46, CARD, INK), ('s_mustahil', '"nggak mungkin atur harga"', F_FELLI, 40, CARD, INK),
          ('s_pn', 'PENGADILAN NEGERI', F_CPB, 40, CARD, INK), ('s_ma', 'MAHKAMAH AGUNG', F_CPB, 44, CARD, INK),
          ('s_pk', 'PK DITOLAK', F_CPB, 40, CARD, RED), ('s_jalan', 'DI JALANAN', F_CPB, 44, CARD, INK),
-         ('s_diatur', 'diatur dari lapangan golf?', F_CPB, 34, AMBER, INK), ('s_menurut', 'menurut KPPU', F_CP, 32, NEWS, INK),
+         ('s_diatur', 'diatur dari lapangan golf.', F_CPB, 34, AMBER, INK), ('s_menurut', 'menurut KPPU', F_CP, 32, NEWS, INK),
          ('s_terdakwa', 'terdakwa: motor matik', F_CPB, 38, CARD, RED)]
     for i, (n, tx, f, s, pa, ik) in enumerate(T):
         bk.strip(n, tx, f, s * 1.3, pa, ik, 410 + i, mono=f.startswith('Courier'))

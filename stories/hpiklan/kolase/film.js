@@ -144,34 +144,34 @@ const SHOTS = [
   // 16 · Memang, dari tiap seratus rupiah jualan HP,   the small pile for phones
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.04, cy: 880 }); bg(SET.data, u, true);
-    putK('s_per100', slap(at(15, 'tiap'), 420, 200, -2), u, 162);
-    putK('s_kotor', slap(at(15, 'tiap') + 0.25, 420, 290, 1), u, 163);
+    putK('s_per100', slap(at(15, 'tiap'), 360, 200, -2), u, 162, { s: 0.9 });
+    putK('s_kotor', slap(at(15, 'tiap') + 0.25, 360, 290, 1), u, 163, { s: 0.9 });
     stackSmall(u, at(15, 'jualan'));
     putK('s_hp', slap(at(15, 'hp'), 300, 1080, -3), u, 164);
-    putK('hp_tangan', slap(at(15, 'jualan') - 0.3, 300, 640, -6), u, 165, { s: 0.38 });
+    putK('hp_tangan', slap(at(15, 'jualan') - 0.3, 300, 560, -6), u, 165, { s: 0.38 });
   },
   // 17 · untung kotornya cuma sebelas rupiah.
   (u, T, d) => {
     stage(u, d, { z0: 1.04, z1: 1.08, cy: 880 }); bg(SET.data);
-    put('s_per100', 420, 200, -2); put('s_kotor', 420, 290, 1); put('s_hp', 300, 1080, -3);
-    put('koin_tumpuk', 300, 990 - 51, 0, 0, 1, 0.17); put('hp_tangan', 300, 640, -6, 0, 1, 0.38);
+    put('s_per100', 360, 200, -2, 0, 1, 0.9); put('s_kotor', 360, 290, 1, 0, 1, 0.9); put('s_hp', 300, 1080, -3);
+    put('koin_tumpuk', 300, 990 - 51, 0, 0, 1, 0.17); put('hp_tangan', 300, 560, -6, 0, 1, 0.38);
     putK('s_11', slap(at(16, 'sebelas'), 300, 800, -4), u, 170);
   },
   // 18 · Tapi dari layanan internet…   the big stack grows
   (u, T, d) => {
     stage(u, d, { z0: 1.08, z1: 1.02, cy: 860 }); bg(SET.data);
-    put('s_per100', 420, 200, -2); put('s_kotor', 420, 290, 1); put('s_hp', 300, 1080, -3); put('s_11', 300, 800, -4);
-    put('koin_tumpuk', 300, 990 - 51, 0, 0, 1, 0.17); put('hp_tangan', 300, 640, -6, 0, 1, 0.38);
+    put('s_per100', 360, 200, -2, 0, 1, 0.9); put('s_kotor', 360, 290, 1, 0, 1, 0.9); put('s_hp', 300, 1080, -3); put('s_11', 300, 800, -4);
+    put('koin_tumpuk', 300, 990 - 51, 0, 0, 1, 0.17); put('hp_tangan', 300, 560, -6, 0, 1, 0.38);
     stackBig(u, at(17, 'layanan'));
     putK('s_net', slap(at(17, 'internet'), 760, 1080, 3), u, 180);
   },
   // 19 · tembus tujuh puluh enam rupiah.
   (u, T, d) => {
     stage(u, d, { z0: 1.02, z1: 1.06, cy: 860, shake: [[at(18, 'tujuh'), 12]] }); bg(SET.data);
-    put('s_per100', 420, 200, -2); put('s_kotor', 420, 290, 1); put('s_hp', 300, 1080, -3); put('s_11', 300, 800, -4); put('s_net', 760, 1080, 3);
-    put('koin_tumpuk', 300, 990 - 51, 0, 0, 1, 0.17); put('hp_tangan', 300, 640, -6, 0, 1, 0.38);
+    put('s_per100', 360, 200, -2, 0, 1, 0.9); put('s_kotor', 360, 290, 1, 0, 1, 0.9); put('s_hp', 300, 1080, -3); put('s_11', 300, 800, -4); put('s_net', 760, 1080, 3);
+    put('koin_tumpuk', 300, 990 - 51, 0, 0, 1, 0.17); put('hp_tangan', 300, 560, -6, 0, 1, 0.38);
     put('koin_tumpuk', 760, 990 - 602 * 1.15 / 2 + 51 - 50, 0, 0, 1, 1.15);
-    putK('s_76', slap(at(18, 'tujuh'), 400, 560, -5), u, 190);
+    putK('s_76', slap(at(18, 'tujuh'), 830, 350, 5), u, 190);   // on top of the tall stack, clear of the phone and Rp11
   },
   // 20 · Sumber uang terbesarnya?   coins pour out of the screen
   (u, T, d) => {
@@ -209,6 +209,9 @@ const SHOTS = [
     put('s_kecil', 850, 320, 6);
     putK('s_kata', slap(0.05, 270, 230, -4), u, 241);
     putK('s_penting', slap(at(23, 'penting'), 540, 1090, -2), u, 242);
+    // the takeaway printed on the screen itself, below the ad card (screen tilted ≈ 12°)
+    putK('s_laba', slap(0.45, 520, 680, 12), u, 243, { s: 0.85 });
+    putK('s_cuan', slap(at(23, 'bagian'), 505, 760, 12), u, 244, { s: 0.85 });
   },
 ];
 

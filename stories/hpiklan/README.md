@@ -172,3 +172,5 @@ Jadi iklan kecil kayak gini, kata Xiaomi, memang bagian penting dari bisnisnya.
 - Halaman primer yang dikutip: prospektus (ringkasan, "Our Pledge" dan tabel "Key operating data"), laporan FY2019 (bagian "Our Pledge", margin kotor), laporan 2020 (bagian "Our Pledge", iklan RMB 12,7 miliar, bagian 6.2), laporan 2025 (bagian "Our Pledge", catatan kaki 12, iklan RMB 28,5 miliar, tabel margin kotor segmen). Semua dari hkexnews.hk.
 
 **Fase 4 (15 Nov 2026):** 11 gambar Flow terpilih di `kolase/ai/` + bola dunia gravir. Kartu iklan, plafon MAKS 5%, lembar laporan tahunan (<1%, <1%, 2,3%), tumpukan koin Rp11 vs Rp76 (tinggi proporsional, laba kotor 2025) dibuat kode. `film.js` 24 shot; visual QA 0 peringatan. Label map: `HP XIAOMI · 2018`. Render: `renders/ARSIP_007_hpiklan_v1.mp4`.
+
+**v2 (15 Nov 2026, review user):** kutipan prospektus diterjemahkan "Kami sebenarnya perusahaan internet."; badge Rp76 dipindah ke atas tumpukan tinggi (HP kecil naik agar Rp11 bersih); penegas di layar HP penutup "LABA HP ≤ 5%" + "CUAN DARI IKLAN". Render `renders/ARSIP_007_hpiklan_v2.mp4`.

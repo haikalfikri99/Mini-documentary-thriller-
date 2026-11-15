@@ -79,16 +79,18 @@ const SHOTS = [
   // 07 · Joki malah jadi masalah,   a row of jockeys
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.07, shake: [[at(6, 'masalah'), 10]] }); bg(SET.joki);
-    putK('joki', slap(0.05, 260, 640, -2), u, 70, { s: 0.55 });
-    putK('joki_m', slap(0.25, 540, 660, 1), u, 71, { s: 0.55 });
-    putK('joki', slap(0.45, 820, 640, 2), u, 72, { s: 0.55 });
+    // three different jockeys along the curb: far (small, high), middle (mirrored), near (large, low), arriving at different beats
+    putK('joki', slap(0.45, 840, 560, 3), u, 72, { s: 0.4 });
+    putK('joki_m', slide(0.2, 0.42, 590, 620, 1, 500, 0, 0, -0.6), u, 71, { s: 0.5 });
+    putK('joki', slap(0.05, 250, 690, -3), u, 70, { s: 0.64 });
     putK('s_masalah', slap(at(6, 'masalah'), 540, 1060, -3), u, 73, { s: 1.1 });
   },
   // 08 · jadi pemerintah menghapusnya.   the sign comes down (2016)
   (u, T, d) => {
     const th = at(7, 'menghapusnya');
     stage(u, d, { z0: 1.0, z1: 1.05, shake: [[th + 0.3, 12]] }); bg(SET.late, u, true);
-    putK('petugas_cabut', slide(0, 0.22, 540, 660, 0, 800, 0, 0, -0.5), u, 80, { s: 0.88 });
+    const pc = putK('petugas_cabut', slide(0, 0.22, 540, 660, 0, 800, 0, 0, -0.5), u, 80, { s: 0.88 });
+    if (pc) put('sign_3in1', pc.x + 122, pc.y - 314, pc.r - 20, 0, 1, 0.44);   // the same 3 IN 1 face on the sign he takes down (panel ≈ 300×166, tilted −20°)
     putK('s_pemerintah', slap(at(7, 'pemerintah'), 280, 210, -4), u, 81);
     stampAt('st_dihapus', u, th + 0.3, 560, 860, -7, 0.8);
     ransomRow('ry16', u, 0.3, 810, 210, 0.07, 0.7);
@@ -132,7 +134,7 @@ const SHOTS = [
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.06, shake: [[at(12, 'tiga'), 12]] }); bg(SET.data);
     put('s_1km', 540, 260, -3, 0, 1, 1.0);
-    putK('bars', slide(0, 0.22, 540, 640, -1, 0, 800, 0, 0.5), u, 130, { s: 1.0 });
+    putK('bars', slide(0, 0.22, 540, 570, -1, 1100, 0, 0, -0.5), u, 130, { s: 1.0 });   // raised 70 px, enters from the side (never through the caption band)
     putK('s_53', slap(at(12, 'menit'), 680, 960, 3), u, 131);
   },
   // 14 · Anehnya, jalanan di luar jalur three in one,
