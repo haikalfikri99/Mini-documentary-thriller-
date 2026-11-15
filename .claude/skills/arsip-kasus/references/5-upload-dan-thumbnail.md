@@ -40,11 +40,12 @@ Tiga pertama tampil di atas judul: `#shorts #faktaunik #kisahnyata`, lalu hashta
 ## D. Thumbnail Shorts
 **Status fitur (dicek November 2026, sumber blog/vendor, verifikasi ke Help Center YouTube):** upload thumbnail kustom untuk Shorts dibuka mulai untuk kreator **YouTube Partner Program** lewat YouTube Studio desktop (Konten → ✏️ → Thumbnail → Upload), ukuran 1080×1920 (9:16); akun harus terverifikasi; Test & Compare (A/B) belum mendukung Shorts. Dukungan di aplikasi ponsel dilaporkan masih bertahap. **Kalau belum eligible:** pilih frame dari video saat upload di aplikasi — pilih frame yang paling mirip thumbnail (film #001: detik ±1,3 saat pekerja lari di depan ombak).
 
-**Desain** (render dengan `?thumb` di halaman film, lihat `film.js`):
-- Dasar: frame paling dramatis yang memperlihatkan **manusia + ancaman sekaligus** (bukan wajah saja: ancamannya harus terlihat).
-- Teks hook 2 baris besar di sepertiga atas (baris kedua = kata kunci dalam Warna Ancaman), tag merah "ARSIP KASUS #nnn" di atasnya, tempat + tahun di bawah.
-- Semua elemen penting di tengah (Shorts sering dipotong di rak/feed); kontras tinggi, terbaca di ukuran kecil.
-- Hasil: `stories/<slug>/thumbnail/thumbnail_shorts_1080x1920.jpg` (< 2 MB).
+**Desain (ARSIP Kolase, sejak #005):** `python3 kit/tools/make_cover.py stories/<slug>/kolase` membaca `kolase/cover.json` (detik frame, 2 baris hook, tag, baris sumber, benda pemicu) → `renders/thumbnail_<slug>_1080x1920.jpg` (±450 KB) + `renders/cover_frame_<t>s.jpg` (frame cadangan dari render terbaru).
+- Dasar: frame awal film (benda pahlawan + angka/stempel hook), dirender dari `film.js` **tanpa caption** (`NOCAP=1`).
+- Hook 2 slip sobek besar di bawah stempel (y 1330–1600): baris 1 slip hitam, baris 2 slip merah/hijau = kata kunci/pertanyaan "kok bisa"; tag merah "ARSIP KASUS #nnn" di atasnya; baris sumber kecil ("menurut putusan KPPU · 2017") di bawahnya. Teks hook **tidak boleh** mengulang judul kata per kata; ia menambah rasa penasaran, tetap benar dan beratribusi.
+- Satu benda pemicu kecil di lingkaran oranye (bendera golf, jam, koin, kaca pembesar), tidak menutup stempel.
+- Jangan taruh teks penting di bawah y ±1620: rak Shorts bisa menimpa bagian bawah kartu dengan judul.
+- Hasil lama #001–#002: `stories/<slug>/thumbnail/thumbnail_shorts_1080x1920.jpg` (< 2 MB).
 
 ## E. Identitas channel
 Nama, bio, kata kunci, foto profil, banner: `channel/README.md` (aset dirender dari `channel/art.js`). Tambahkan frame film baru ke `channel/assets/` dan render ulang banner bila perlu.

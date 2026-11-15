@@ -234,7 +234,7 @@ export function createFilm({ shots, start, words, caption = {} }) {
       let i = start.length - 2; for (let j = 0; j < start.length - 1; j++) if (t < start[j + 1]) { i = j; break; }
       ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = PAL.paper; ctx.fillRect(0, 0, W, H);
       EV.T0 = start[i]; EV.u = t - start[i]; ctx.save(); shots[i](t - start[i], t, start[i + 1] - start[i]); ctx.restore();
-      if (chunks.length) drawCaption(chunks, t, caption);
+      if (chunks.length && !globalThis.__NOCAP) drawCaption(chunks, t, caption);   // __NOCAP: clean frames for covers (make_cover.py)
     }
   };
 }

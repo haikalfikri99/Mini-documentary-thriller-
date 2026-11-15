@@ -154,3 +154,5 @@ Satu merek, dua jawaban. Jadi mi instan yang selalu ada di dapur rumah kita… t
 **Fase 4 (15 Nov 2026):** 12 gambar Flow terpilih di `kolase/ai/` (inspektur Taiwan & BPOM = pria, sesuai revisi filter Flow). Meteran batas (Taiwan NOL vs Indonesia BATAS), timbangan, dan slip lab dibuat kode; timbangan arsip ditolak karena berhuruf. `film.js` 26 shot; visual QA 2 peringatan ringan. Render: `renders/ARSIP_008_indomie_v1.mp4`.
 
 **v2 (15 Nov 2026, review user):** timbangan penutup digambar ulang tanpa kotak putih (potong siluet), lengan dimiringkan, label "TAIWAN: NOL" vs "BPOM: ADA BATAS". Render `renders/ARSIP_008_indomie_v2.mp4`.
+
+**Upload (15 Nov 2026):** `UPLOAD.md` (judul, deskripsi + sumber + kredit, thumbnail kustom `renders/thumbnail_indomie_1080x1920.jpg` dari `kolase/cover.json`, frame cadangan, komentar pin, pengaturan). Drive folder episode: thumbnail .jpg + `UPLOAD_*.txt`. Video final diunggah user.

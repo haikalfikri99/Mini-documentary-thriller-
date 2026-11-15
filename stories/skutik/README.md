@@ -131,3 +131,5 @@ Di jalanan kelihatan musuhan. Di lapangan golf… ternyata sepakat. Jadi tiap ka
 **Fase 4 (15 Nov 2026):** gambar Flow dipilih 1 per slot ke `kolase/ai/` (15 baru + wasit/court #004 dipakai ulang), sisa varian di Drive dibuang ke Trash. `bake.py`, `film.js` (29 shot), `score_full.py`, `fullmix.py` (boom 45,45 dtk) selesai; visual QA 0 peringatan; audio margin 20,3 dB. Timing kata shot 17–18 diperbaiki manual (Whisper menggabung "22,5"). Label map ARSIP: `SKUTIK · 2017`. Render: `renders/ARSIP_005_skutik_v1.mp4` (lokal, di-ignore git).
 
 **v2 (15 Nov 2026, review user):** batang denda naik 70 px dan masuk dari samping (bawah ≤ 1180); slip penutup jadi pernyataan "diatur dari lapangan golf."; bendera golf ditancapkan 1,2 dtk lebih awal; bendera dipotong mengikuti siluet. Render `renders/ARSIP_005_skutik_v2.mp4`.
+
+**Upload (15 Nov 2026):** `UPLOAD.md` (judul, deskripsi + sumber + kredit, thumbnail kustom `renders/thumbnail_skutik_1080x1920.jpg` dari `kolase/cover.json`, frame cadangan, komentar pin, pengaturan). Drive folder episode: thumbnail .jpg + `UPLOAD_*.txt`. Video final diunggah user.

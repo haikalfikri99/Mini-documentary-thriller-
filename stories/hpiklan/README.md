@@ -174,3 +174,5 @@ Jadi iklan kecil kayak gini, kata Xiaomi, memang bagian penting dari bisnisnya.
 **Fase 4 (15 Nov 2026):** 11 gambar Flow terpilih di `kolase/ai/` + bola dunia gravir. Kartu iklan, plafon MAKS 5%, lembar laporan tahunan (<1%, <1%, 2,3%), tumpukan koin Rp11 vs Rp76 (tinggi proporsional, laba kotor 2025) dibuat kode. `film.js` 24 shot; visual QA 0 peringatan. Label map: `HP XIAOMI · 2018`. Render: `renders/ARSIP_007_hpiklan_v1.mp4`.
 
 **v2 (15 Nov 2026, review user):** kutipan prospektus diterjemahkan "Kami sebenarnya perusahaan internet."; badge Rp76 dipindah ke atas tumpukan tinggi (HP kecil naik agar Rp11 bersih); penegas di layar HP penutup "LABA HP ≤ 5%" + "CUAN DARI IKLAN". Render `renders/ARSIP_007_hpiklan_v2.mp4`.
+
+**Upload (15 Nov 2026):** `UPLOAD.md` (judul, deskripsi + sumber + kredit, thumbnail kustom `renders/thumbnail_hpiklan_1080x1920.jpg` dari `kolase/cover.json`, frame cadangan, komentar pin, pengaturan). Drive folder episode: thumbnail .jpg + `UPLOAD_*.txt`. Video final diunggah user.
