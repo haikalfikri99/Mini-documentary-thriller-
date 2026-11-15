@@ -137,3 +137,5 @@ Jadi macet parah di Sudirman kayak gini… dulu sebenarnya ditahan sama aturan y
 - **Risiko tersisa:** gambar 2016 tidak bebas lisensi (skor visual 3); sensitivitas joki ibu-bayi (kasus eksploitasi anak 2016: jangan visualkan anak); angka beda antar versi Science/NBER; penonton muda tidak kenal 3-in-1.
 - Nuansa yang harus ada di VO: pemerintah sendiri awalnya menganggap aturan tidak efektif; studi menunjukkan sebaliknya; studi tidak menilai kesejahteraan keseluruhan.
 - Penutup yang cocok: pertanyaan refleksi (mis. ganjil-genap masih ada, hasilnya tidak diketahui dari studi ini).
+
+**Fase 4 (15 Nov 2026):** 10 gambar Flow terpilih di `kolase/ai/`; wajah rambu "3 IN 1", jam, dan batang 2,8 → 5,3 mnt/km dibuat kode. `film.js` 24 shot; visual QA 1 peringatan (shot 2 = 4,10 dtk, kalimat panjang). Label map: `3-IN-1 · 2016`. Render: `renders/ARSIP_006_tigainsatu_v1.mp4`.

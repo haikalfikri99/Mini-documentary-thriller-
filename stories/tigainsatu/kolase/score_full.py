@@ -1,44 +1,47 @@
-# Score template (ARSIP Kolase v5.0): small period ensemble, one musical idea per segment, written against the VO word times.
-# EDIT: replace every time below with the real cue times from audio/vo_words.json (hook end, micro-rehooks, stamps, last word).
-# D minor "sneaky" for the scheme, F major for a warm/relieved moment; 120 bpm grid: one beat = 0.5 s. Timpani on verdict stamps; rule:
-# a loud hit goes on the stamp or right AFTER a spoken word, never on top of a key word (see references/3-audio.md §F/§H).
-# Segments (references/1-cerita-dan-script.md §F3): 1 hook 0–4 · 2A 4–16 · micro-rehook 1 16–18 · 2B 18–36 · micro-rehook 2 36–39 · 3–4 payoff 39–end
+# Score for ARSIP #006 3-in-1 (ARSIP Kolase v5.0): small period ensemble, one musical idea per segment, cues from audio/vo_words.json.
+# D minor "traffic" walk for the jam, a lighter F major for the jockeys (the rule we laughed at), a ticking clock under the study,
+# timpani on every verdict stamp (after the spoken word). 120 bpm grid: one beat = 0.5 s.
 import sys; sys.path.insert(0, '../../../kit/audio')
 from score_lib import *
-E3, Eb4, Cs4, Bb2 = 52, 63, 61, 46
+E3, Bb2, D6, F2 = 52, 46, 86, 41
 PIZZ, BSN, TUBA, CLAR, GLOCK, XYL, TIMP, WOOD, TREM = 0, 1, 2, 3, 4, 5, 6, 7, 8
 for ch, p in [(PIZZ, 45), (BSN, 70), (TUBA, 58), (CLAR, 71), (GLOCK, 9), (XYL, 13), (TIMP, 47), (WOOD, 115), (TREM, 44)]: prog(ch, p)
 reverb(range(10), 55)
-END = 52.0                                                          # EDIT: = episode.json dur (last word + 0.15 s)
+END = 54.7
 walk = [D3, F3, A3, F3, D3, F3, A3, C4]
-def pizz(t0, t1, seq, v0=62, v1=50):                                # steady pizzicato pulse on the 0.5 s grid
+def pizz(t0, t1, seq, v0=62, v1=50):
     k, t = 0, t0
     while t < t1 - .05: note(PIZZ, seq[k % len(seq)], t, .28, v0 if k % 2 == 0 else v1); k += 1; t += .5
-# 1 · HOOK (0–4): stamp slam on frame 0, tuba waits for the end of the first spoken word, then the sneaky walk
-note(TIMP, D2, 0.14, .5, 96); note(TUBA, D2, 0.6, .9, 92); note(GLOCK, D5, 0.6, .6, 50)
-pizz(0.6, 4.0, walk)
-# 2A · RULES OF THE GAME (4–16): the mechanism in plain words; glockenspiel sparkle on the first object/label that lands
-pizz(4.0, 16.0, [D3, A2, F3, A2], 58, 46)
-note(GLOCK, A5, 5.0, .6, 58)                                        # EDIT: object / label lands
-for t, n in [(8.0, F3), (10.0, A2), (12.5, D3)]: note(BSN, n, t, .45, 64)
-# MICRO-REHOOK 1 (16–18): expectation-breaker of 3–6 words — one dry woodblock + low bassoon sting, then drop the pulse
-note(WOOD, 76, 16.0, .1, 70); note(BSN, A2, 16.2, .5, 74); note(TIMP, A2 - 12, 16.9, .6, 80)
-# 2B · THE INTRIGUE / MECHANISM (18–36): thin clock, tremolo under the evidence, timpani on each verdict stamp
-note(TREM, D3, 18.0, 17.5, 44); note(TREM, A3, 18.0, 17.5, 38)
-for k in range(int((36.0 - 18.0) / .5)):
-    t = 18.0 + k * .5; note(WOOD, 76, t, .08, 46 if k % 2 else 60)
-    if k % 2 == 0: note(TUBA, [D2, A2, D2, Bb2][(k // 2) % 4], t, .35, 66)
-for t, v in [(24.0, 100), (30.0, 84)]: note(TIMP, D2, t, .9, v)    # EDIT: stamp times (after the spoken word)
-for i, n in enumerate([D5, F5, A5]): note(XYL, n, 28.0 + i * .1, .1, 66)   # EDIT: document / email lands
-# MICRO-REHOOK 2 (36–39): near-silence, then the final reversal (2–3 words) and the hit
-note(GLOCK, F5, 36.0, .3, 40)
-note(TIMP, D2, 37.5, 1.2, 120); note(TUBA, D2, 37.5, 1.0, 100); note(TREM, D3, 37.5, 1.0, 50)
-# 3–4 · PAYOFF + CIRCULAR REFRAME LOOP (39–END): roll into the biggest stamp, warm clarinet on the pillar answer, the walk returns
-cc(TIMP, 7, 41.0, 42.0, 70, 120)
-for k in range(10): note(TIMP, D2, 41.0 + k * .1, .1, 50 + k * 6)   # roll — EDIT to land on the final stamp
-note(TIMP, D2, 42.0, 1.4, 124); note(TUBA, D2, 42.0, 1.2, 104); note(GLOCK, D5, 42.0, .9, 70)
-pizz(43.0, 47.0, [D3, F3, A3, D4, F3, A3, D4, F4], 66, 56)
-for t, n, d in [(47.0, F4, 1.0), (48.0, A4, .8), (48.8, C5, .6)]: note(CLAR, n, t, d, 54)   # the pillar answer: warm, major
-pizz(49.0, END, walk, 60, 48)                                       # the walk returns so the replay lands back on bar 1
-note(BSN, A2, END - 1.0, .7, 58)
+# 1 · HOOK (0–2.24): DIHAPUS on frame 0; the tuba waits for the end of "dihapus" (≈1.9)
+note(TIMP, D2, 0.14, .5, 96); note(TUBA, D2, 1.95, .9, 88); note(GLOCK, D5, 1.95, .6, 48)
+# 2A · THE RULE (2.24–18.02): slow traffic walk, a clock tick on "sore", the "?" sting, jockeys in F major, the sign comes down
+pizz(2.24, 6.3, [D3, A2, F3, A2], 58, 46)
+note(GLOCK, A5, 2.3, .4, 52); note(BSN, A2, 5.85, .5, 66)                      # "lebih lambat"
+note(WOOD, 76, 6.5, .1, 70); note(TIMP, A2 - 12, 7.0, .5, 70)                    # "Kok bisa?"
+pizz(7.94, 13.0, walk, 58, 46)
+note(GLOCK, F5, 11.0, .5, 52)                                                     # the "3" lands
+pizz(13.02, 16.2, [F3, A3, C4, A3], 60, 50); note(CLAR, F4, 13.5, .6, 50); note(CLAR, A4, 14.2, .5, 48)
+note(BSN, D3, 15.5, .5, 66)                                                       # "masalah"
+pizz(16.24, 18.0, [D3, A2, D3, A2], 56, 44); note(TIMP, D2, 17.55, .8, 96)       # DIHAPUS (2016)
+# MICRO-REHOOK 1 (18.02–20.32): "Tapi ada yang keburu mengukur." — dry woodblock, the pulse stops, a pen line
+note(WOOD, 76, 18.1, .1, 72); note(BSN, A2, 18.6, .5, 70); note(GLOCK, D6, 19.5, .3, 46)
+# 2B · THE STUDY (20.32–36.22): ticking clock, tremolo, xylophone on the numbers, timpani on IKUT MACET
+note(TREM, D3, 20.32, 15.9, 40); note(TREM, A3, 20.32, 15.9, 34)
+for k in range(int((36.22 - 20.32) / .5)):
+    t = 20.32 + k * .5; note(WOOD, 76, t, .08, 42 if k % 2 else 56)
+    if k % 2 == 0: note(TUBA, [D2, A2, D2, Bb2][(k // 2) % 4], t, .35, 62)
+for i, n in enumerate([D5, F5, A5]): note(XYL, n, 27.0 + i * .1, .1, 62)          # 2,8 menit
+for i, n in enumerate([A5, F5, D5]): note(XYL, n, 29.45 + i * .1, .1, 66)         # 5,3 menit
+note(TIMP, D2, 34.32, .9, 96)                                                     # IKUT MACET
+# reasons (36.22–41.68): the walk thins out
+pizz(36.22, 41.6, [D3, F3, A2, F3], 54, 44)
+# MICRO-REHOOK 2 (41.68–43.56): "Joki bikin aturan ini percuma?" → "Nggak." — PERCUMA? stamp, near-silence, the hit
+note(TIMP, A2 - 12, 42.8, .6, 82); note(GLOCK, F5, 43.0, .3, 40)
+note(TIMP, D2, 43.95, 1.2, 116); note(TUBA, D2, 43.95, 1.0, 98); note(TREM, D3, 43.95, 1.0, 48)
+# 3 · PAYOFF (45.78–49.0): warm clarinet on the paid jockey (the rule worked)
+pizz(45.78, 49.0, [F3, A3, C4, A3], 58, 48)
+for t, n, d in [(46.6, F4, .8), (47.6, A4, .6), (48.3, C5, .5)]: note(CLAR, n, t, d, 52)
+# 4 · CIRCULAR REFRAME LOOP (49.0–END): the traffic walk returns, DITAHAN lands, replay hits bar 1
+pizz(49.0, END, walk, 60, 48)
+note(TIMP, D2, 52.35, 1.0, 104); note(GLOCK, D5, 52.35, .7, 60); note(BSN, A2, END - 1.0, .7, 58)
 render()

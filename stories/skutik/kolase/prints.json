@@ -1,1 +1,109 @@
-{}
+{
+ "skutik_a": {
+  "file": "ai_skutik_a.jpg",
+  "width": 640
+ },
+ "skutik_b": {
+  "file": "ai_skutik_b.jpg",
+  "width": 640
+ },
+ "pihak_a_bantah": {
+  "file": "ai_pihak_a_bantah.jpg",
+  "width": 560
+ },
+ "pihak_b_bantah": {
+  "file": "ai_pihak_b_bantah.jpg",
+  "width": 560
+ },
+ "pembeli_banding": {
+  "file": "ai_pembeli_banding.jpg",
+  "width": 560
+ },
+ "golf_lapangan": {
+  "file": "ai_golf_lapangan.jpg",
+  "width": 940
+ },
+ "amplop": {
+  "file": "ai_amplop.jpg",
+  "width": 380
+ },
+ "tangan_label": {
+  "file": "ai_tangan_label.jpg",
+  "width": 780
+ },
+ "pabrik_motor": {
+  "file": "ai_pabrik_motor.jpg",
+  "width": 900
+ },
+ "duo_bisik": {
+  "file": "ai_duo_bisik.jpg",
+  "width": 820
+ },
+ "duo_golf": {
+  "file": "ai_duo_golf.jpg",
+  "width": 880
+ },
+ "pihak_a_baca": {
+  "file": "ai_pihak_a_baca.jpg",
+  "width": 560
+ },
+ "pembeli_kecewa": {
+  "file": "ai_pembeli_kecewa.jpg",
+  "width": 540
+ },
+ "skutik_balap": {
+  "file": "ai_skutik_balap.jpg",
+  "width": 940
+ },
+ "skutik_sidang": {
+  "file": "ai_skutik_sidang.jpg",
+  "width": 960
+ },
+ "wasit_tiup": {
+  "file": "ai_wasit_tiup.jpg",
+  "width": 640
+ },
+ "wasit_map": {
+  "file": "ai_wasit_map.jpg",
+  "width": 520
+ },
+ "court": {
+  "file": "ai_court.jpg",
+  "width": 940
+ },
+ "wasit_kartu": {
+  "file": "ai_wasit_kartu.jpg",
+  "width": 580,
+  "tint": "#B3261E",
+  "tint_poly": [
+   [
+    0.279,
+    0.067
+   ],
+   [
+    0.408,
+    0.067
+   ],
+   [
+    0.408,
+    0.198
+   ],
+   [
+    0.342,
+    0.198
+   ],
+   [
+    0.335,
+    0.172
+   ],
+   [
+    0.279,
+    0.172
+   ]
+  ]
+ },
+ "gavel": {
+  "file": "gavel_1.jpg",
+  "width": 620
+ }
+}

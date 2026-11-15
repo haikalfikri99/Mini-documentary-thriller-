@@ -1,1 +1,50 @@
-{}
+{
+ "mi_bungkus": {
+  "file": "ai_mi_bungkus.jpg",
+  "width": 700
+ },
+ "sachet_tiga": {
+  "file": "ai_sachet_tiga.jpg",
+  "width": 760
+ },
+ "petugas_tw_tolak": {
+  "file": "ai_petugas_tw_tolak.jpg",
+  "width": 560
+ },
+ "petugas_tw_periksa": {
+  "file": "ai_petugas_tw_periksa.jpg",
+  "width": 560
+ },
+ "petugas_id_aman": {
+  "file": "ai_petugas_id_aman.jpg",
+  "width": 560
+ },
+ "petugas_id_jelaskan": {
+  "file": "ai_petugas_id_jelaskan.jpg",
+  "width": 560
+ },
+ "pihak_indofood": {
+  "file": "ai_pihak_indofood.jpg",
+  "width": 560
+ },
+ "rempah_fumigasi": {
+  "file": "ai_rempah_fumigasi.jpg",
+  "width": 860
+ },
+ "kaca_pembesar": {
+  "file": "ai_kaca_pembesar.jpg",
+  "width": 820
+ },
+ "kardus_kiriman": {
+  "file": "ai_kardus_kiriman.jpg",
+  "width": 860
+ },
+ "pabrik_mi": {
+  "file": "ai_pabrik_mi.jpg",
+  "width": 860
+ },
+ "dapur": {
+  "file": "ai_dapur.jpg",
+  "width": 900
+ }
+}

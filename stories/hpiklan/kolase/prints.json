@@ -1,1 +1,50 @@
-{}
+{
+ "hp_tangan": {
+  "file": "ai_hp_tangan.jpg",
+  "width": 640
+ },
+ "pihak_x_janji": {
+  "file": "ai_pihak_x_janji.jpg",
+  "width": 560
+ },
+ "produk_jejer": {
+  "file": "ai_produk_jejer.jpg",
+  "width": 960
+ },
+ "tangan_koin": {
+  "file": "ai_tangan_koin.jpg",
+  "width": 640
+ },
+ "hp_kail": {
+  "file": "ai_hp_kail.jpg",
+  "width": 520
+ },
+ "pembeli_hp": {
+  "file": "ai_pembeli_hp.jpg",
+  "width": 560
+ },
+ "papan_iklan": {
+  "file": "ai_papan_iklan.jpg",
+  "width": 900
+ },
+ "koin_tumpuk": {
+  "file": "ai_koin_tumpuk.jpg",
+  "width": 300
+ },
+ "hp_koin": {
+  "file": "ai_hp_koin.jpg",
+  "width": 720
+ },
+ "tangan_saklar": {
+  "file": "ai_tangan_saklar.jpg",
+  "width": 680
+ },
+ "pihak_x_tunjuk": {
+  "file": "ai_pihak_x_tunjuk.jpg",
+  "width": 560
+ },
+ "globe": {
+  "file": "gen_globe.png",
+  "width": 360
+ }
+}

@@ -21,5 +21,5 @@ for e in EV:
     elif e['type'] == 'mark': add(penScratch(.18), t - .08, .28, p)
     elif e['type'] == 'pen':  add(penScratch(max(.15, e.get('d', .25))), t, .22, p)
     elif e['type'] == 'key':  add(hpf(typeKey(), 2500), t, .12, p)
-# add(boom(1.6), <twist time>, .35, hit=True)                      # the TERUNGKAP hit
+add(boom(1.6), 47.75, .35, hit=True)                                 # "Satu merek, dua jawaban."
 mx.finish('vo_level.wav', 'score_full.wav', report=EP['report'], words=EP['words'], score_db=-32)

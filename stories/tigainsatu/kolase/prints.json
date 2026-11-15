@@ -1,1 +1,42 @@
-{}
+{
+ "rambu": {
+  "file": "ai_rambu.jpg",
+  "width": 620
+ },
+ "sudirman": {
+  "file": "ai_sudirman.jpg",
+  "width": 700
+ },
+ "mobil_tiga": {
+  "file": "ai_mobil_tiga.jpg",
+  "width": 900
+ },
+ "pengemudi_sendirian": {
+  "file": "ai_pengemudi_sendirian.jpg",
+  "width": 880
+ },
+ "joki": {
+  "file": "ai_joki.jpg",
+  "width": 560
+ },
+ "petugas_cabut": {
+  "file": "ai_petugas_cabut.jpg",
+  "width": 600
+ },
+ "ekonom": {
+  "file": "ai_ekonom.jpg",
+  "width": 900
+ },
+ "jalan_samping": {
+  "file": "ai_jalan_samping.jpg",
+  "width": 900
+ },
+ "mobil_sendiri": {
+  "file": "ai_mobil_sendiri.jpg",
+  "width": 940
+ },
+ "bayar_joki": {
+  "file": "ai_bayar_joki.jpg",
+  "width": 920
+ }
+}
