@@ -27,3 +27,11 @@ Gedung lembaga nyata: tulis gedung generik tanpa papan/teks; label dipasang di t
 ## Saat memilih hasil (checklist user)
 Buang variasi dengan huruf/logo palsu · tangan wajar · latar putih polos · simpan 1 terbaik per nama (`<nama>.jpg`) dan kirim sebagai .zip di chat atau taruh di Drive → Claude menyalin ke `kolase/ai/`.
 Revisi: bila ada gambar kurang pas, kirim **prompt revisi spesifik untuk gambar itu saja** (bukan seluruh daftar).
+
+## Batch A/B + logika visual (batch #005–#008, 15 Nov 2026)
+- Tiap episode: `stories/<slug>/kolase/flow_prompts.md` berisi tabel **kalimat VO → gambar → sumber (AI/kode/arsip/pakai ulang)** lalu prompt. Gambar hanya dibuat bila punya tempat di shot; teks, angka, cap, tag, dan grafik selalu dari kode.
+- **Batch A** = objek + tokoh jangkar (★, satu pose pertama tiap tokoh). **Batch B** = pose lanjutan tokoh yang sama, dijalankan dengan hasil Batch A sebagai ingredient.
+- Objek frame 0 ditulis "fills about 85% of the image width" supaya potongan tetap ≥ 486 px (45% lebar layar) setelah dipotong.
+- Tempat/latar ditulis sebagai vignette yang memudar ke putih (mudah dipotong, tetap gaya cetakan).
+- Lembaga yang sudah punya tokoh di seri (wasit KPPU #004) **dipakai ulang dari `stories/aqua/kolase/ai/`**, tidak di-generate ulang: penonton seri mengenali tokoh yang sama.
+- Generator: daftar per episode ditulis sebagai data (nama, rasio, prompt, tokoh) lalu dicetak ke md, supaya kalimat gaya identik di keempat episode.

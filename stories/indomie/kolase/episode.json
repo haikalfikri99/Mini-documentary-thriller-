@@ -2,14 +2,14 @@
  "slug": "indomie",
  "no": 8,
  "title": "Indomie Ditolak Taiwan 3 Kali Gara-Gara Bumbunya",
- "case_line": "INDOMIE · TAIWAN",
+ "case_line": "INDOMIE \u00b7 TAIWAN",
  "vo": "audio/vo_indomie.mp3",
  "words": "audio/vo_words.json",
- "dur": 0,
+ "dur": 54.42,
  "report": [
   [
    0,
-   0
+   54.42
   ]
  ]
 }
