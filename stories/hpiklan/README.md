@@ -106,14 +106,14 @@ Kalimat H1 (selesai ≤ 4,0 dtk, ≤ 14 kata, kata tunjuk visual bila merujuk ob
 1. **Alasan Asli Iklan di HP Xiaomi, Ditulis Xiaomi Sendiri** (54 karakter): DIKUNCI (keputusan user 15 Nov): Pola 5, "ditulis Xiaomi sendiri" dibayar oleh atribusi laporan resmi; catat hasil 48 jam di 6-pelajaran
 2. **Alasan Asli Iklan di HP Xiaomi yang Kamu Anggap Sepele** (54 karakter): tidak dipakai (opsi lama)
 **Penguncian 3-titik:** judul ↔ frame 0: HP generik (tanpa logo) ≥ 45% lebar frame dengan kartu iklan muncul di layar; stempel "JANJI ≤ 5%" menghantam kotak HP ≤ 0,25 dtk; label kecil "LAPORAN RESMI XIAOMI" ↔ H1: "HP Xiaomi kayak gini sering muncul iklan di aplikasinya."
-**Hitungan:** 135 kata ≈ 50,8 dtk @2,66 (rentang 49,1–51,9 dtk). File: `audio/script_vo.txt` (bersih) dan `audio/vo_prompt_elevenlabs.md` (bertag).
+**Hitungan:** 133 kata ≈ 50,0 dtk @2,66 (rentang 48,4–51,2 dtk). File: `audio/script_vo.txt` (bersih) dan `audio/vo_prompt_elevenlabs.md` (bertag).
 **VO bersih (per segmen = satu baris):**
 ```
 HP Xiaomi kayak gini sering muncul iklan di aplikasinya. Padahal Xiaomi janji, untung bersih dari semua barang jualannya maksimal lima persen setahun. Kok bisa?
 Kalau lebih, kelebihannya dikembalikan ke pengguna. Jarang lho ada perusahaan yang mau untungnya dibatasi.
 Dan menurut laporan resminya, janji itu ditepati. Terus untung besarnya dari mana?
 Dokumen resmi Xiaomi sendiri mengaku: bisnis utama kami sebenarnya perusahaan internet. HP-nya dijual dengan untung tipis, buat dapetin pengguna. Kamu merasa untung dapat HP bagus harga miring, padahal layar HP-mu ikut jadi papan iklan. Memang, dari tiap seratus rupiah jualan HP, untung kotornya cuma sebelas rupiah. Tapi dari layanan internet… tembus tujuh puluh enam rupiah.
-Sumber uang terbesar layanan internetnya? Iklan.
+Sumber uang terbesarnya? Iklan.
 Xiaomi sendiri bilang, iklannya dibuat nggak mengganggu dan bisa dikurangi di pengaturan.
 Jadi iklan kecil kayak gini, kata Xiaomi, memang bagian penting dari bisnisnya.
 ```
@@ -132,10 +132,10 @@ Jadi iklan kecil kayak gini, kata Xiaomi, memang bagian penting dari bisnisnya.
 | 25,9 | 15 | Kamu merasa untung dapat HP bagus harga miring, padahal layar HP-mu ikut jadi papan iklan. |
 | 31,6 | 12 | Memang, dari tiap seratus rupiah jualan HP, untung kotornya cuma sebelas rupiah. |
 | 36,1 | 9 | Tapi dari layanan internet… tembus tujuh puluh enam rupiah. |
-| 39,5 | 6 | Sumber uang terbesar layanan internetnya? Iklan. |
-| 41,7 | 12 | Xiaomi sendiri bilang, iklannya dibuat nggak mengganggu dan bisa dikurangi di pengaturan. |
-| 46,2 | 12 | Jadi iklan kecil kayak gini, kata Xiaomi, memang bagian penting dari bisnisnya. |
-**Teks layar kunci (uji bisu):** 0,0 dtk: IKLAN? · JANJI UNTUNG ≤ 5% · JANJI 2018: untung bersih HP + perangkat lain ≤ 5%/tahun · DITEPATI (menurut laporan Xiaomi) · "kami terutama perusahaan internet" (prospektus 2018) · UNTUNG KOTOR 2025 per Rp100: HP ±Rp11 · layanan internet ±Rp76 · layanan internet: paling banyak IKLAN · LAYARMU = LAPAK IKLAN · KATA XIAOMI 2018: "tidak mengganggu", bisa dikurangi
+| 39,5 | 4 | Sumber uang terbesarnya? Iklan. |
+| 41,0 | 12 | Xiaomi sendiri bilang, iklannya dibuat nggak mengganggu dan bisa dikurangi di pengaturan. |
+| 45,5 | 12 | Jadi iklan kecil kayak gini, kata Xiaomi, memang bagian penting dari bisnisnya. |
+**Teks layar kunci (uji bisu):** 0,0 dtk: IKLAN? · JANJI UNTUNG ≤ 5% · JANJI 2018: untung bersih HP + perangkat lain ≤ 5%/tahun · DITEPATI (menurut laporan Xiaomi) · "kami terutama perusahaan internet" (prospektus 2018) · UNTUNG KOTOR 2025 per Rp100: HP ±Rp11 · layanan internet ±Rp76 · SUMBER UANG TERBESAR LAYANAN INTERNET: IKLAN · LAYARMU = LAPAK IKLAN · KATA XIAOMI 2018: "tidak mengganggu", bisa dikurangi
 **Risiko yang tersisa:** Cerita 3 (tanpa dalang). Penonton dari pencarian "cara hapus iklan" bisa kecewa; naskah sengaja tidak mengajari langkah.
 
 ## Scorecard (Formula v5.0, 16 cek + gerbang H1–H7/R1–R6)

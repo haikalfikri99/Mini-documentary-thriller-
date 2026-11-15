@@ -76,34 +76,34 @@ Kalimat H1 (selesai <= 4,0 dtk, <= 14 kata, kata tunjuk visual bila merujuk obje
 **Judul (pilih satu):**
 1. **Macet Sudirman Hampir 2x Lipat Gara-Gara 3-in-1 Dihapus** (55 karakter): rekomendasi: Pola 1 + angka (2,8 → 5,3 menit/km = 1,89×, hitungan dari abstrak Science); berlaku jam sore, jadi H1 dan stempel layar wajib menyebut "SORE"
 2. **Sudirman Makin Lambat Gara-Gara 3-in-1 Dihapus** (46 karakter): cadangan paling aman (46 karakter), tanpa angka; dipakai bila ingin nol risiko salah baca
-**Penguncian 3-titik:** judul ↔ frame 0: Jalan Sudirman generik (gedung + mobil padat) dengan rambu "3 IN 1" dicoret stempel merah "DIHAPUS"; jam "SORE" dan label "2,8 → 5,3 menit/km" muncul ≤ 0,25 dtk ↔ H1: "Aturan three in one Jakarta dihapus. Sore hari, jalan protokol kayak Sudirman malah hampir dua kali lebih lambat."
-**Hitungan:** 147 kata ≈ 55,3 dtk @2,66 (rentang 53,5–56,5 dtk). File: `audio/script_vo.txt` (bersih) dan `audio/vo_prompt_elevenlabs.md` (bertag).
+**Penguncian 3-titik:** judul ↔ frame 0: Jalan Sudirman generik (gedung + mobil padat) dengan rambu "3 IN 1" dicoret stempel merah "DIHAPUS"; jam "SORE" dan label "2,8 → 5,3 menit/km" muncul ≤ 0,25 dtk ↔ H1: "Aturan three in one Jakarta dihapus. Sore hari, jalan protokol kayak Sudirman hampir dua kali lebih lambat."
+**Hitungan:** 145 kata ≈ 54,5 dtk @2,66 (rentang 52,7–55,8 dtk). File: `audio/script_vo.txt` (bersih) dan `audio/vo_prompt_elevenlabs.md` (bertag).
 **VO bersih (per segmen = satu baris):**
 ```
-Aturan three in one Jakarta dihapus. Sore hari, jalan protokol kayak Sudirman malah hampir dua kali lebih lambat. Kok bisa?
+Aturan three in one Jakarta dihapus. Sore hari, jalan protokol kayak Sudirman hampir dua kali lebih lambat. Kok bisa?
 Dulu, mobil yang lewat sini pas jam sibuk wajib isi minimal tiga orang. Yang nyetir sendirian, tinggal sewa joki di pinggir jalan. Joki malah jadi masalah, jadi pemerintah menghapusnya.
 Tapi ada yang keburu mengukur. Ekonom Harvard dan MIT memantau kecepatan jalan lewat Google Maps.
 Sore hari di Sudirman, satu kilometer yang tadinya dua koma delapan menit… jadi lima koma tiga menit. Anehnya, jalanan di luar jalur three in one, bahkan di luar jam sibuk, ikut macet. Dugaan penelitinya, begitu aturan hilang, nyetir sendirian gratis lagi, jadi pengendara ramai-ramai bawa mobil sendiri.
 Joki bikin aturan ini percuma? Nggak.
-Kata studi itu, ongkos sewa joki aja udah cukup buat nahan orang bawa mobil.
+Kata studi itu, ongkos sewa joki udah cukup buat nahan orang bawa mobil.
 Jadi macet parah di Sudirman kayak gini… dulu sebenarnya ditahan sama aturan yang kita anggap percuma.
 ```
 **Peta waktu (perkiraan @2,66, sebelum VO direkam):**
 | dtk | kata | kalimat |
 |---|---|---|
-| 0,0 | 18 | Aturan three in one Jakarta dihapus. Sore hari, jalan protokol kayak Sudirman malah hampir dua kali lebih lambat. |
-| 6,8 | 2 | Kok bisa? |
-| 7,5 | 13 | Dulu, mobil yang lewat sini pas jam sibuk wajib isi minimal tiga orang. |
-| 12,4 | 9 | Yang nyetir sendirian, tinggal sewa joki di pinggir jalan. |
-| 15,8 | 7 | Joki malah jadi masalah, jadi pemerintah menghapusnya. |
-| 18,4 | 5 | Tapi ada yang keburu mengukur. |
-| 20,3 | 10 | Ekonom Harvard dan MIT memantau kecepatan jalan lewat Google Maps. |
-| 24,1 | 17 | Sore hari di Sudirman, satu kilometer yang tadinya dua koma delapan menit… jadi lima koma tiga menit. |
-| 30,5 | 15 | Anehnya, jalanan di luar jalur three in one, bahkan di luar jam sibuk, ikut macet. |
-| 36,1 | 15 | Dugaan penelitinya, begitu aturan hilang, nyetir sendirian gratis lagi, jadi pengendara ramai-ramai bawa mobil sendiri. |
-| 41,7 | 6 | Joki bikin aturan ini percuma? Nggak. |
-| 44,0 | 14 | Kata studi itu, ongkos sewa joki aja udah cukup buat nahan orang bawa mobil. |
-| 49,2 | 16 | Jadi macet parah di Sudirman kayak gini… dulu sebenarnya ditahan sama aturan yang kita anggap percuma. |
+| 0,0 | 17 | Aturan three in one Jakarta dihapus. Sore hari, jalan protokol kayak Sudirman hampir dua kali lebih lambat. |
+| 6,4 | 2 | Kok bisa? |
+| 7,1 | 13 | Dulu, mobil yang lewat sini pas jam sibuk wajib isi minimal tiga orang. |
+| 12,0 | 9 | Yang nyetir sendirian, tinggal sewa joki di pinggir jalan. |
+| 15,4 | 7 | Joki malah jadi masalah, jadi pemerintah menghapusnya. |
+| 18,0 | 5 | Tapi ada yang keburu mengukur. |
+| 19,9 | 10 | Ekonom Harvard dan MIT memantau kecepatan jalan lewat Google Maps. |
+| 23,7 | 17 | Sore hari di Sudirman, satu kilometer yang tadinya dua koma delapan menit… jadi lima koma tiga menit. |
+| 30,1 | 15 | Anehnya, jalanan di luar jalur three in one, bahkan di luar jam sibuk, ikut macet. |
+| 35,7 | 15 | Dugaan penelitinya, begitu aturan hilang, nyetir sendirian gratis lagi, jadi pengendara ramai-ramai bawa mobil sendiri. |
+| 41,4 | 6 | Joki bikin aturan ini percuma? Nggak. |
+| 43,6 | 13 | Kata studi itu, ongkos sewa joki udah cukup buat nahan orang bawa mobil. |
+| 48,5 | 16 | Jadi macet parah di Sudirman kayak gini… dulu sebenarnya ditahan sama aturan yang kita anggap percuma. |
 **Teks layar kunci (uji bisu):** 0,0 dtk: 3 IN 1 DIHAPUS · SORE · WAJIB 3 ORANG (sejak 1992) · JOKI · 2016: DIHAPUS · Ekonom Harvard & MIT · jurnal Science 2017 · data Google Maps · SORE: 2,8 → 5,3 menit per km (jalan terdampak) · jalan & jam lain IKUT MELAMBAT · teks layar penutup kecil: "menurut peneliti, belum tentu berlaku di kota lain"
 **Risiko yang tersisa:** riset_topik.py belum dijalankan untuk topik ini (Permintaan/Celah belum terukur). Penonton muda mungkin tidak kenal 3-in-1; hook menutupnya dengan "jalan kayak gini" + rambu.
 
@@ -121,12 +121,12 @@ Jadi macet parah di Sudirman kayak gini… dulu sebenarnya ditahan sama aturan y
 | 9 | Lulus: Circular Reframe Loop memanggil "jalan kayak gini" dari kalimat 1 |
 | 10 | Lulus: angka hanya 2,8 → 5,3 (abstrak Science via MIT DSpace); tanpa 69%/87%/km/jam; perilaku komuter ditulis sebagai "dugaan penelitinya" (lebih banyak mobil; makalah tidak bisa memisahkan sebabnya); "mengira jalan bakal lancar" TIDAK dipakai (tidak ada di sumber); caveat Olken ("belum tentu berlaku di kota lain") dihapus dari VO atas keputusan user 15 Nov, dipindah ke teks layar/deskripsi; alasan penghapusan = joki (CNN, Suara, Medcom) |
 | 11 | Lulus; cek ElevenLabs: "three in one" diucap Inggris, "MIT" per huruf |
-| 12 | Lulus dengan catatan: 147 kata ≈ 55,3 dtk @2,66 (di atas batas formula 145 kata/55 dtk; teks final user, pangkas 2–3 kata bila take > 56 dtk) |
+| 12 | Lulus: 145 kata ≈ 54,5 dtk @2,66 ("malah" dan "aja" dipangkas, keputusan user) |
 | 13 | Lulus bila teks layar dipasang |
 | 14 | Lulus dengan catatan: tanpa foto 2016 (lisensi) → ilustrasi AI/gambar sendiri; joki tanpa anak/bayi |
 | 15 | Lulus: "joki" tanpa definisi (dikenal warga Jakarta; "ongkos joki" di 39 dtk memperjelas bahwa joki dibayar) |
 | 16 | Lulus: tanpa merek; tahun di layar; tidak menyebut "Ahok salah" |
-**Gerbang:** H1 lulus (kalimat 1 "Three in one dihapus." ≈ 1,5 dtk; hook 14 kata) · H2 lulus · H3 lulus · H7 lulus (tahun dan nama hanya di layar) · R1 lulus · R3 lulus (rehook ±17 dtk dan ±41 dtk) · R4 lulus · R5 lulus (≈55,3 dtk). H1/H3 dicek ulang dari `vo_words.json` setelah VO jadi.
+**Gerbang:** H1 lulus (kalimat 1 "Three in one dihapus." ≈ 1,5 dtk; hook 14 kata) · H2 lulus · H3 lulus · H7 lulus (tahun dan nama hanya di layar) · R1 lulus · R3 lulus (rehook ±17 dtk dan ±41 dtk) · R4 lulus · R5 lulus (≈54,5 dtk). H1/H3 dicek ulang dari `vo_words.json` setelah VO jadi.
 
 ## Catatan lanjut
 - **Fase 2 selesai (15 Nov 2026):** script v4 FINAL (teks user + 3 koreksi fakta kecil) + prompt ElevenLabs dengan catatan pelafalan. Berikutnya: user merekam VO (2 take) → `/compact` → Fase 3 (prompt blok Google Flow).
