@@ -1,4 +1,4 @@
-# ARSIP KASUS #008: tigainsatu (penghapusan 3-in-1 Jakarta, 2016)
+# ARSIP KASUS #006: tigainsatu (penghapusan 3-in-1 Jakarta, 2016)
 **Status:** fact sheet terisi (riset Sonnet, 15 Nov 2026); belum ada script. Opus + effort high sebelum script (SKILL.md "Titik ingat").
 **Dibaca langsung:** teks lengkap NBER WP 23295 (PDF diekstrak, bagian Intro, II, III, IV), abstrak NBER (nber.org), halaman MIT DSpace (metadata Science), ScienceDaily 6 Jul 2017, Suara.com 28 Mar 2016, Liputan6 11 Mei 2016, Republika (EN) 12 Mei 2016, Republika 8 Apr 2016. **Ditambah di putaran 2 (dibaca langsung):** abstrak Science via MIT DSpace (angka persis), Europe PMC (metadata, PMID 28684524), Medcom 13 Mei 2016 (dua artikel) dan 16 Mei 2016, CNN Indonesia 4 Mei 2016, Republika 13 Mei 2016, Gridoto (5 Sep 2022). **Hanya cuplikan hasil pencarian (belum dibuka):** Kabar24/Bisnis (403), Tempo (403), Tirto (403), Kompas TV/Detik (ganjil-genap), Voi (403), Jakarta Post, JDIH DKI (pergub ganjil-genap). **science.org: 403, tidak ditembus (`primer: tidak terbaca` untuk teks/halaman Science); PubMed: halaman minta cookie, tidak terbaca.** Abstrak Science dibaca lewat repositori resmi MIT DSpace.
 
@@ -71,8 +71,8 @@ Judul (pilih satu setelah verifikasi):
 Frame 0 (objek utama >= 45% lebar frame di y 150-1150 + hantaman stempel/label <= 0,25 dtk): **belum ditentukan.**
 Kalimat H1 (selesai <= 4,0 dtk, <= 14 kata, kata tunjuk visual bila merujuk objek di layar): **belum ditulis (tahap script).**
 
-## Paket final script (v1, Fase 2, 15 Nov 2026)
-**Nomor di layar:** ARSIP KASUS #006 (urutan tayang ke-2; folder tetap #008) · **Pola judul:** Pola 1 · **Penutup:** Circular Reframe Loop (default; #005 adalah uji resminya)
+## Paket final script (v2, revisi audit user 15 Nov 2026)
+**Nomor:** ARSIP KASUS #006 = folder = urutan tayang ke-2 (diseragamkan 15 Nov) · **Pola judul:** Pola 1 · **Penutup:** Circular Reframe Loop (default; #005 adalah uji resminya)
 **Judul (pilih satu):**
 1. **Macet Sudirman Hampir 2x Lipat Gara-Gara 3-in-1 Dihapus** (55 karakter): rekomendasi: Pola 1 + angka (2,8 → 5,3 menit/km = 1,89×, hitungan dari abstrak Science); berlaku jam sore, jadi H1 dan stempel layar wajib menyebut "SORE"
 2. **Sudirman Makin Lambat Gara-Gara 3-in-1 Dihapus** (46 karakter): cadangan paling aman (46 karakter), tanpa angka; dipakai bila ingin nol risiko salah baca
@@ -81,11 +81,11 @@ Kalimat H1 (selesai <= 4,0 dtk, <= 14 kata, kata tunjuk visual bila merujuk obje
 **VO bersih (per segmen = satu baris):**
 ```
 Three in one dihapus. Sore hari, jalan kayak gini hampir dua kali lebih lambat. Kok bisa?
-Dulu, mobil di sini jam sibuk wajib isi tiga orang. Yang sendirian bisa nyewa joki, penumpang bayaran. Pemerintah menghapusnya. Alasannya, joki jadi masalah baru.
+Dulu, mobil di sini jam sibuk wajib isi tiga orang. Yang sendirian bisa nyewa joki. Pemerintah menghapusnya. Alasannya, joki jadi masalah baru.
 Tapi ada yang keburu mengukur. Ekonom Harvard dan MIT memantau kecepatan jalan lewat Google Maps.
-Hasilnya, sore hari di jalan ini, satu kilometer yang tadinya dua koma delapan menit… jadi lima koma tiga. Dan anehnya, jalan dan jam yang nggak pernah kena aturan… ikut melambat. Dugaan penelitinya, begitu aturan hilang, makin banyak orang bawa mobil.
+Hasilnya, sore hari di jalan ini, satu kilometer yang tadinya dua koma delapan menit… jadi lima koma tiga. Dan anehnya, jalan dan jam yang nggak pernah kena aturan… ikut melambat. Dugaan penelitinya: begitu aturan hilang, nyetir sendirian gratis lagi, jadi makin banyak orang bawa mobil sendiri.
 Joki bikin aturan ini percuma? Nggak.
-Menurut studi itu, bayar joki tetap bikin nyetir sendirian lebih mahal. Cukup buat ngurangin macet.
+Kata studi itu, ongkos joki aja udah cukup buat ngurangin macet.
 Mereka juga bilang, hasilnya belum tentu berlaku di kota lain. Jadi macet di jalan kayak gini… dulu ditahan sama aturan yang kita anggap percuma.
 ```
 **Peta waktu (perkiraan @2,66, sebelum VO direkam):**
@@ -94,18 +94,18 @@ Mereka juga bilang, hasilnya belum tentu berlaku di kota lain. Jadi macet di jal
 | 0,0 | 14 | Three in one dihapus. Sore hari, jalan kayak gini hampir dua kali lebih lambat. |
 | 5,3 | 2 | Kok bisa? |
 | 6,0 | 10 | Dulu, mobil di sini jam sibuk wajib isi tiga orang. |
-| 9,8 | 7 | Yang sendirian bisa nyewa joki, penumpang bayaran. |
-| 12,4 | 7 | Pemerintah menghapusnya. Alasannya, joki jadi masalah baru. |
-| 15,0 | 5 | Tapi ada yang keburu mengukur. |
-| 16,9 | 10 | Ekonom Harvard dan MIT memantau kecepatan jalan lewat Google Maps. |
-| 20,7 | 18 | Hasilnya, sore hari di jalan ini, satu kilometer yang tadinya dua koma delapan menit… jadi lima koma tiga. |
-| 27,4 | 12 | Dan anehnya, jalan dan jam yang nggak pernah kena aturan… ikut melambat. |
-| 32,0 | 10 | Dugaan penelitinya, begitu aturan hilang, makin banyak orang bawa mobil. |
-| 35,7 | 6 | Joki bikin aturan ini percuma? Nggak. |
-| 38,0 | 15 | Menurut studi itu, bayar joki tetap bikin nyetir sendirian lebih mahal. Cukup buat ngurangin macet. |
+| 9,8 | 5 | Yang sendirian bisa nyewa joki. |
+| 11,7 | 7 | Pemerintah menghapusnya. Alasannya, joki jadi masalah baru. |
+| 14,3 | 5 | Tapi ada yang keburu mengukur. |
+| 16,2 | 10 | Ekonom Harvard dan MIT memantau kecepatan jalan lewat Google Maps. |
+| 19,9 | 18 | Hasilnya, sore hari di jalan ini, satu kilometer yang tadinya dua koma delapan menit… jadi lima koma tiga. |
+| 26,7 | 12 | Dan anehnya, jalan dan jam yang nggak pernah kena aturan… ikut melambat. |
+| 31,2 | 16 | Dugaan penelitinya: begitu aturan hilang, nyetir sendirian gratis lagi, jadi makin banyak orang bawa mobil sendiri. |
+| 37,2 | 6 | Joki bikin aturan ini percuma? Nggak. |
+| 39,5 | 11 | Kata studi itu, ongkos joki aja udah cukup buat ngurangin macet. |
 | 43,6 | 10 | Mereka juga bilang, hasilnya belum tentu berlaku di kota lain. |
 | 47,4 | 14 | Jadi macet di jalan kayak gini… dulu ditahan sama aturan yang kita anggap percuma. |
-**Teks layar kunci (uji bisu):** 0,0 dtk: 3 IN 1 DIHAPUS · SORE · WAJIB 3 ORANG (sejak 1992) · JOKI = penumpang bayaran · 2016: DIHAPUS · Ekonom Harvard & MIT · jurnal Science 2017 · data Google Maps · SORE: 2,8 → 5,3 menit per km (jalan terdampak) · jalan & jam lain IKUT MELAMBAT · "belum tentu berlaku di kota lain"
+**Teks layar kunci (uji bisu):** 0,0 dtk: 3 IN 1 DIHAPUS · SORE · WAJIB 3 ORANG (sejak 1992) · JOKI · 2016: DIHAPUS · Ekonom Harvard & MIT · jurnal Science 2017 · data Google Maps · SORE: 2,8 → 5,3 menit per km (jalan terdampak) · jalan & jam lain IKUT MELAMBAT · "belum tentu berlaku di kota lain"
 **Risiko yang tersisa:** riset_topik.py belum dijalankan untuk topik ini (Permintaan/Celah belum terukur). Penonton muda mungkin tidak kenal 3-in-1; hook menutupnya dengan "jalan kayak gini" + rambu.
 
 ## Scorecard (Formula v5.0, 16 cek + gerbang H1–H7/R1–R6)
@@ -114,23 +114,23 @@ Mereka juga bilang, hasilnya belum tentu berlaku di kota lain. Jadi macet di jal
 | 1 | Lulus: kalimat 1 = 3-in-1 dihapus + sore hampir 2× lebih lambat |
 | 2 | Lulus: "Kok bisa?" di 5,3 dtk |
 | 3 | Lulus: pilar dibayar di kalimat terakhir (macet ditahan aturan yang kita anggap percuma) |
-| 4 | Lulus: psikologi (aturan dianggap percuma) · desain (wajib 3 orang, joki) · uang/waktu (ongkos joki, menit per km) |
+| 4 | Lulus: psikologi (aturan dianggap percuma; tanpa aturan nyetir sendirian terasa gratis lagi) · desain (wajib 3 orang, joki) · uang/waktu (ongkos joki, menit per km) |
 | 5 | Lulus: TAPI ada yang mengukur → MAKA angka → TAPI jalan lain ikut melambat → MAKA "joki bikin percuma? Nggak." |
 | 6 | Lulus |
 | 7 | Lulus: objek pusat = jalan Sudirman + rambu 3-in-1 |
-| 8 | Lulus: twist "joki bikin percuma? Nggak" di 68% (35,7 dtk) |
+| 8 | Lulus: twist "joki bikin percuma? Nggak" di 71% (37,2 dtk) |
 | 9 | Lulus: Circular Reframe Loop memanggil "jalan kayak gini" dari kalimat 1 |
-| 10 | Lulus: angka hanya 2,8 → 5,3 (abstrak Science via MIT DSpace); tanpa 69%/87%/km/jam; "dugaan penelitinya" untuk mekanisme; caveat Olken dimuat; alasan penghapusan = joki (CNN, Suara, Medcom) |
+| 10 | Lulus: angka hanya 2,8 → 5,3 (abstrak Science via MIT DSpace); tanpa 69%/87%/km/jam; perilaku komuter ditulis sebagai "dugaan penelitinya" (lebih banyak mobil; makalah tidak bisa memisahkan sebabnya); "mengira jalan bakal lancar" TIDAK dipakai (tidak ada di sumber); caveat Olken dimuat; alasan penghapusan = joki (CNN, Suara, Medcom) |
 | 11 | Lulus; cek ElevenLabs: "three in one" diucap Inggris, "MIT" per huruf |
 | 12 | Lulus: 140 kata ≈ 52,6 dtk |
 | 13 | Lulus bila teks layar dipasang |
 | 14 | Lulus dengan catatan: tanpa foto 2016 (lisensi) → ilustrasi AI/gambar sendiri; joki tanpa anak/bayi |
-| 15 | Lulus: "penumpang bayaran" menjelaskan joki; "Google Maps" dipahami umum |
+| 15 | Lulus: "joki" tanpa definisi (dikenal warga Jakarta; "ongkos joki" di 39 dtk memperjelas bahwa joki dibayar) |
 | 16 | Lulus: tanpa merek; tahun di layar; tidak menyebut "Ahok salah" |
-**Gerbang:** H1 lulus (kalimat 1 "Three in one dihapus." ≈ 1,5 dtk; hook 14 kata) · H2 lulus · H3 lulus · H7 lulus (tahun dan nama hanya di layar) · R1 lulus · R3 lulus (rehook 15,0 dtk dan 35,7 dtk) · R4 lulus · R5 lulus (≈52,6 dtk). H1/H3 dicek ulang dari `vo_words.json` setelah VO jadi.
+**Gerbang:** H1 lulus (kalimat 1 "Three in one dihapus." ≈ 1,5 dtk; hook 14 kata) · H2 lulus · H3 lulus · H7 lulus (tahun dan nama hanya di layar) · R1 lulus · R3 lulus (rehook 14,3 dtk dan 37,2 dtk) · R4 lulus · R5 lulus (≈52,6 dtk). H1/H3 dicek ulang dari `vo_words.json` setelah VO jadi.
 
 ## Catatan lanjut
-- **Fase 2 selesai (15 Nov 2026):** script v1 + prompt ElevenLabs. Berikutnya: user merekam VO (2 take) → `/compact` → Fase 3 (prompt blok Google Flow).
+- **Fase 2 selesai (15 Nov 2026):** script v2 (revisi audit user: istilah, POV pembeli/komuter, nomor seragam) + prompt ElevenLabs dengan catatan pelafalan. Berikutnya: user merekam VO (2 take) → `/compact` → Fase 3 (prompt blok Google Flow).
 - **Rekomendasi: lanjut ke script dengan sudut diubah.** Sudut aman: "aturan yang dihujat ternyata mengurangi macet" (twist asli, ada di makalah). Bukan sudut: "3-in-1 pasti bagus" atau "Ahok salah."
 - **Wajib sebelum script:** (1) ~~science.org~~ sudah dicoba (403, `primer: tidak terbaca`); angka Science terkunci via MIT DSpace; (2) masih kurang sumber Indonesia terbaca untuk #12 (tanggal uji coba 5 April: hanya cuplikan + Republika 8 Apr) dan #17 (ganjil-genap: semua cuplikan); (3) jalankan `kit/tools/riset_topik.py`; (4) tentukan angka H1 (satu angka, label "menurut studi Harvard-MIT").
 - **Risiko tersisa:** gambar 2016 tidak bebas lisensi (skor visual 3); sensitivitas joki ibu-bayi (kasus eksploitasi anak 2016: jangan visualkan anak); angka beda antar versi Science/NBER; penonton muda tidak kenal 3-in-1.

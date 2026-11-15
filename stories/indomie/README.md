@@ -1,4 +1,4 @@
-# ARSIP KASUS #007: indomie (Indomie ditolak Taiwan: 2010, 2023, 2025)
+# ARSIP KASUS #008: indomie (Indomie ditolak Taiwan: 2010, 2023, 2025)
 **Status:** fact sheet terisi (15 Nov 2026), BELUM ada script. **Model:** Sonnet untuk riset/fact sheet, Opus + effort high sebelum script (SKILL.md "Titik ingat"). Topik ini menggantikan "printer tangki tinta Epson" (ditolak 15/20, arsip: `research/niche/topik/ditolak/printer-tangki-tinta.md`).
 **Dibaca langsung (isi halaman terbaca, 15 Nov 2026):** Food Safety News 14/10/2010 dan 18/10/2010; ANTARA 12/10/2010; JPNN 13, 15 (dua artikel) Okt 2010; DDHK (Hong Kong, 11 dan 14/10/2010); Hong Kong Centre for Food Safety (info.gov.hk) 14/10/2010; Jakarta Post 26/4/2023 dan 12/9/2025; TVBS 24-25/4/2023; BPOM 27/4/2023 dan 12/9/2025 (pom.go.id); detikHealth 27, 28/4/2023 dan 12/9/2025; Indofood 19/9/2025; CNBC Indonesia 27/4/2023; PTS (Taiwan) artikel bertanda 2011.
 **Tidak terbaca / kosong, TIDAK dipakai sebagai bukti:** semua artikel Kompas 2010 (halaman kosong), SCMP (403), Bisnis.com 2023 (403), Tempo arsip (403), PDF DPR Komisi IX (403), keterangan pers BPOM 2010 di kopertis12 (521), SFA Singapura (halaman kosong; hanya cuplikan pencarian), situs FDA Taiwan dan Dinas Kesehatan Taipei (tidak ditemukan/terbaca; angka 2023 dibaca lewat TVBS), basis data Codex GSFA (tidak dibuka). Situs yang memblokir tidak ditembus.
@@ -82,22 +82,22 @@ Pola 1 (bukti sesuai data: merek + tindakan + angka; tanpa "padahal/tapi/ternyat
 | 3 | Bumbu Indomie 0,187 mg/kg Bikin Taiwan Tarik Rak | 48 | Sachet bumbu generik besar + label "0,187 mg/kg" | "Sachet bumbu kayak gini membuat Taiwan menarik satu varian dari rak, 2023." (13 kata) | Satu insiden saja (2023), "bikin" = hubungan sebab yang diakui Dinas Kesehatan Taipei; angka butuh atribusi di kalimat 2 |
 Catatan pilihan: judul 1 menjual kontras (nasional, ulang) tanpa menuduh. Ukur ulang Celah sebelum mengunci (video berita 2023/2025).
 
-## Paket final script (v1, Fase 2, 15 Nov 2026)
-**Nomor di layar:** ARSIP KASUS #008 (urutan tayang ke-4; folder tetap #007) · **Pola judul:** Pola 1 · **Penutup:** Circular Reframe Loop (default)
+## Paket final script (v2, revisi audit user 15 Nov 2026)
+**Nomor:** ARSIP KASUS #008 = folder = urutan tayang ke-4 (diseragamkan 15 Nov) · **Pola judul:** Pola 1 · **Penutup:** Circular Reframe Loop (default)
 **Judul (pilih satu):**
 1. **Indomie Ditolak Taiwan 3 Kali Gara-Gara Bumbunya** (48 karakter): rekomendasi: Pola 1 persis (48 karakter), terkunci dengan H1 "ditolak Taiwan tiga kali, gara-gara isi sachet bumbunya"
 2. **Indomie Ditolak Taiwan 3 Kali dalam 15 Tahun** (44 karakter): cadangan dari fact sheet (44 karakter); lebih netral, tanpa objek "bumbu"
 **Penguncian 3-titik:** judul ↔ frame 0: Bungkus mi instan generik (tanpa logo) ≥ 45% lebar frame dengan sachet bumbu dan kecap keluar; stempel "DITOLAK ×3" + "2010 · 2023 · 2025" menghantam ≤ 0,25 dtk ↔ H1: "Indomie kayak gini ditolak Taiwan tiga kali."
-**Hitungan:** 141 kata ≈ 53,0 dtk @2,66 (rentang 51,3–54,2 dtk). File: `audio/script_vo.txt` (bersih) dan `audio/vo_prompt_elevenlabs.md` (bertag).
+**Hitungan:** 139 kata ≈ 52,3 dtk @2,66 (rentang 50,5–53,5 dtk). File: `audio/script_vo.txt` (bersih) dan `audio/vo_prompt_elevenlabs.md` (bertag).
 **VO bersih (per segmen = satu baris):**
 ```
 Indomie kayak gini ditolak Taiwan tiga kali. Gara-gara isi sachet bumbunya. Kok bisa? Di sini, BPOM bilang aman.
-Pertama, menurut otoritas Taiwan, kecap di sachetnya mengandung nipagin. Pengawet ini nggak diizinkan di Taiwan. Di Indonesia boleh, asal di bawah batas. BPOM bilang, dua-duanya aman menurut standar masing-masing.
-Selesai? Belum. Tiga belas tahun kemudian, dinas kesehatan Taipei nemu etilen oksida di bumbu Ayam Spesial.
-Di Taiwan, zat ini dihitung sisa pestisida, dan nggak boleh terdeteksi sama sekali. Di Indonesia ada batasnya, dan menurut BPOM, kadar itu jauh di bawahnya.
+Pertama, menurut otoritas Taiwan, kecap di sachetnya mengandung nipagin, zat pengawet. Di Taiwan, pengawet ini nggak diizinkan. Di Indonesia boleh, asal di bawah batas. BPOM bilang, dua-duanya aman menurut standar masing-masing.
+Selesai? Belum. Tiga belas tahun kemudian, dinas kesehatan Taipei nemu etilen oksida, zat sisa pestisida, di bumbu Ayam Spesial.
+Di Taiwan, zat ini nggak boleh terdeteksi sama sekali. Di Indonesia ada batasnya, dan menurut BPOM, kadar itu jauh di bawahnya.
 Lalu terjadi lagi.
 Satu kiriman varian Soto Banjar ditolak Taiwan. Kata BPOM, barang itu bukan ekspor resmi dari pabriknya. Dan menurut Indofood, di sampel batch yang sama, etilen oksidanya nggak terdeteksi.
-Satu merek, dua jawaban. Jadi sachet bumbu kayak gini… bisa aman di sini, dan ditolak di sana, karena aturan tiap negara beda.
+Satu merek, dua jawaban. Jadi Indomie yang wajib masuk koper kita… ternyata dinilai pakai aturan beda di tiap negara.
 ```
 **Peta waktu (perkiraan @2,66, sebelum VO direkam):**
 | dtk | kata | kalimat |
@@ -105,21 +105,21 @@ Satu merek, dua jawaban. Jadi sachet bumbu kayak gini… bisa aman di sini, dan 
 | 0,0 | 7 | Indomie kayak gini ditolak Taiwan tiga kali. |
 | 2,6 | 4 | Gara-gara isi sachet bumbunya. |
 | 4,1 | 7 | Kok bisa? Di sini, BPOM bilang aman. |
-| 6,8 | 9 | Pertama, menurut otoritas Taiwan, kecap di sachetnya mengandung nipagin. |
-| 10,2 | 6 | Pengawet ini nggak diizinkan di Taiwan. |
-| 12,4 | 7 | Di Indonesia boleh, asal di bawah batas. |
-| 15,0 | 7 | BPOM bilang, dua-duanya aman menurut standar masing-masing. |
-| 17,7 | 2 | Selesai? Belum. |
-| 18,4 | 14 | Tiga belas tahun kemudian, dinas kesehatan Taipei nemu etilen oksida di bumbu Ayam Spesial. |
-| 23,7 | 13 | Di Taiwan, zat ini dihitung sisa pestisida, dan nggak boleh terdeteksi sama sekali. |
-| 28,6 | 12 | Di Indonesia ada batasnya, dan menurut BPOM, kadar itu jauh di bawahnya. |
-| 33,1 | 3 | Lalu terjadi lagi. |
-| 34,2 | 7 | Satu kiriman varian Soto Banjar ditolak Taiwan. |
-| 36,8 | 9 | Kata BPOM, barang itu bukan ekspor resmi dari pabriknya. |
-| 40,2 | 12 | Dan menurut Indofood, di sampel batch yang sama, etilen oksidanya nggak terdeteksi. |
-| 44,7 | 4 | Satu merek, dua jawaban. |
-| 46,2 | 18 | Jadi sachet bumbu kayak gini… bisa aman di sini, dan ditolak di sana, karena aturan tiap negara beda. |
-**Teks layar kunci (uji bisu):** 0,0 dtk: DITOLAK TAIWAN ×3 · BPOM: AMAN · 2010: nipagin di kecap sachet (menurut otoritas Taiwan) · Indonesia: boleh ≤ 250 mg/kg (aturan 2010) · 2023: etilen oksida 0,187 mg/kg (Dinas Kesehatan Kota Taipei) · Taiwan: TIDAK BOLEH TERDETEKSI · Indonesia: ada batas (BPOM) · 2025: 1 kiriman Soto Banjar ditolak · BPOM: bukan ekspor resmi · Indofood: sampel batch sama TIDAK TERDETEKSI
+| 6,8 | 11 | Pertama, menurut otoritas Taiwan, kecap di sachetnya mengandung nipagin, zat pengawet. |
+| 10,9 | 6 | Di Taiwan, pengawet ini nggak diizinkan. |
+| 13,2 | 7 | Di Indonesia boleh, asal di bawah batas. |
+| 15,8 | 7 | BPOM bilang, dua-duanya aman menurut standar masing-masing. |
+| 18,4 | 2 | Selesai? Belum. |
+| 19,2 | 17 | Tiga belas tahun kemudian, dinas kesehatan Taipei nemu etilen oksida, zat sisa pestisida, di bumbu Ayam Spesial. |
+| 25,6 | 9 | Di Taiwan, zat ini nggak boleh terdeteksi sama sekali. |
+| 28,9 | 12 | Di Indonesia ada batasnya, dan menurut BPOM, kadar itu jauh di bawahnya. |
+| 33,5 | 3 | Lalu terjadi lagi. |
+| 34,6 | 7 | Satu kiriman varian Soto Banjar ditolak Taiwan. |
+| 37,2 | 9 | Kata BPOM, barang itu bukan ekspor resmi dari pabriknya. |
+| 40,6 | 12 | Dan menurut Indofood, di sampel batch yang sama, etilen oksidanya nggak terdeteksi. |
+| 45,1 | 4 | Satu merek, dua jawaban. |
+| 46,6 | 15 | Jadi Indomie yang wajib masuk koper kita… ternyata dinilai pakai aturan beda di tiap negara. |
+**Teks layar kunci (uji bisu):** 0,0 dtk: DITOLAK TAIWAN ×3 · BPOM: AMAN · 2010: NIPAGIN = zat pengawet, di kecap sachet (menurut otoritas Taiwan) · Indonesia: boleh ≤ 250 mg/kg (aturan 2010) · 2023: ETILEN OKSIDA = zat sisa pestisida, 0,187 mg/kg (Dinas Kesehatan Kota Taipei) · Taiwan: TIDAK BOLEH TERDETEKSI · Indonesia: ada batas (BPOM) · 2025: 1 kiriman Soto Banjar ditolak · BPOM: bukan ekspor resmi · Indofood: sampel batch sama TIDAK TERDETEKSI
 **Risiko yang tersisa:** Rubrik 16/20 (keamanan hukum 3). Celah belum diukur ulang setelah insiden 2023/2025. Klaim kecap 2010 bersandar pada Antara + JPNN + CFS Hong Kong; rilis asli Taiwan tidak terbaca.
 
 ## Scorecard (Formula v5.0, 16 cek + gerbang H1–H7/R1–R6)
@@ -132,19 +132,19 @@ Satu merek, dua jawaban. Jadi sachet bumbu kayak gini… bisa aman di sini, dan 
 | 5 | Lulus: TAPI BPOM bilang aman → MAKA aturan beda → TAPI terulang 2023 → MAKA terjadi lagi 2025 |
 | 6 | Lulus |
 | 7 | Lulus: objek pusat = sachet bumbu |
-| 8 | Lulus: twist "bukan ekspor resmi" + "tidak terdeteksi" di 70–77% |
-| 9 | Lulus: loop memanggil "sachet bumbu kayak gini" (kalimat 1–2) |
+| 8 | Lulus: twist "bukan ekspor resmi" + "tidak terdeteksi" di 71–86% |
+| 9 | Lulus: loop memanggil "Indomie" dari kalimat 1 lewat kebiasaan "wajib masuk koper kita"; tidak mengklaim Indomie di koper pribadi ditolak |
 | 10 | Lulus: tiap zat diatribusikan; tanpa "dilarang", "berbahaya", "kanker"; tanpa angka Codex, 96/158, motif dagang; "satu merek" (bukan "mi yang sama") |
-| 11 | Lulus: nipagin dijelaskan "pengawet", etilen oksida "sisa pestisida" (istilah Taiwan FDA) |
-| 12 | Lulus: 141 kata ≈ 53,0 dtk |
+| 11 | Lulus: "nipagin, zat pengawet", "etilen oksida, zat sisa pestisida" (istilah standar residu pestisida Taiwan FDA) |
+| 12 | Lulus: 139 kata ≈ 52,3 dtk |
 | 13 | Lulus bila teks layar dipasang |
 | 14 | Lulus: bungkus generik, rak, kop surat generik |
 | 15 | Lulus: "dinas kesehatan Taipei" = lembaga, cukup jelas |
 | 16 | Lulus: bantahan BPOM + Indofood, tahun di layar, kemasan generik, nada netral |
-**Gerbang:** H1 lulus (≈2,6 dtk, 7 kata) · H2 lulus (Indomie di kata 1) · H3 lulus · H7 lulus (tahun hanya di layar; "Taiwan" adalah bagian klaim, seperti #004) · R1 lulus · R3 lulus dengan catatan (rehook 17,7 dtk dan 33,1 dtk, sedikit awal) · R4 lulus · R5 lulus (≈53 dtk). H1/H3 dicek ulang dari `vo_words.json` setelah VO jadi.
+**Gerbang:** H1 lulus (≈2,6 dtk, 7 kata) · H2 lulus (Indomie di kata 1) · H3 lulus · H7 lulus (tahun hanya di layar; "Taiwan" adalah bagian klaim, seperti #004) · R1 lulus · R3 lulus dengan catatan (rehook 18,4 dtk dan 33,5 dtk, yang kedua sedikit awal) · R4 lulus · R5 lulus (≈53 dtk). H1/H3 dicek ulang dari `vo_words.json` setelah VO jadi.
 
 ## Catatan lanjut
-- **Fase 2 selesai (15 Nov 2026):** script v1 + prompt ElevenLabs. Berikutnya: user merekam VO (2 take) → `/compact` → Fase 3 (prompt blok Google Flow).
+- **Fase 2 selesai (15 Nov 2026):** script v2 (revisi audit user: istilah, POV pembeli/komuter, nomor seragam) + prompt ElevenLabs dengan catatan pelafalan. Berikutnya: user merekam VO (2 take) → `/compact` → Fase 3 (prompt blok Google Flow).
 - Sebelum script: (1) ukur ulang `riset_topik.py` untuk Celah; (2) cari 1 sumber Indonesia terbaca tambahan untuk klaim 2 (Antara tunggal) dan sumber kedua untuk klaim 7; (3) coba baca rilis asli Dinas Kesehatan Kota Taipei / Taiwan FDA (2023, 2025) dan teks Keputusan Kepala BPOM 229/2022; (4) cari arsip foto asli 2010 (demonstrasi pembakaran mi di Jakarta, Wikimedia/Openverse).
 - Alur cerita yang disarankan (untuk Opus): 2010 (nipagin, "aman di sini, ditarik di sana") → micro-rehook: 2023 (etilen oksida, zat berbeda) → 2025 (varian lain; bukan ekspor resmi) → payoff: aturan tiap negara berbeda (mekanisme klaim 13).
 - Pengecek legal: setiap kalimat zat/Taiwan diawali "menurut ...", bantahan BPOM/Indofood dalam durasi yang sama.
