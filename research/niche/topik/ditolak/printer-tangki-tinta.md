@@ -1,3 +1,5 @@
+> **DITOLAK 15 Nov 2026** (rubrik 15/20, di bawah ambang 16): tidak ada dalang, tidak ada kasus Indonesia, Epson tidak pernah dihukum. Sudut cadangan: "Indonesia jadi tempat peluncuran pertama printer tangki tinta Epson, Okt 2010 → Epson 64,3% pasar 4Q23". Slot #007 diganti `stories/indomie`.
+
 # ARSIP KASUS #007: printer (kartrid mahal vs printer tangki tinta)
 **Status:** fact sheet terisi (15 Nov 2026), BELUM ada script. **Model:** Sonnet untuk riset/fact sheet, Opus + effort high sebelum script (SKILL.md "Titik ingat").
 **Dibaca langsung (isi halaman terbaca):** Consumer NZ via Scoop 5/4/2022; Which? 8/4/2021; AGCM Italia 9/12/2020 dan 19/1/2023; IDC Indonesia 26/3/2023 dan 19/2/2024; The Register 19/3/2025; The Recycler 4/12/2018, 14/2/2020 dan April 2018; Resource Recycling 24/10/2019; Action Intell 24/3/2021; siaran pers Epson (press.epson.eu; Epson Singapura via MyNewsDesk 12/10/2020; Epson Indonesia via MyNewsDesk 25/8/2016); detikInet 13/12/2010, 3/8/2021, 10/11/2021, 3/11/2022, 5/12/2022; JPNN 20/10/2017; HP Indonesia (halaman keamanan kartrid dan toko); Euroconsumers 29/5/2021; Wikipedia "Supertank printer".

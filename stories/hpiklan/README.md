@@ -100,17 +100,68 @@ Judul (≤ 55 karakter, ideal 38–48), **DRAF**, Pola 1 `[Merek] … Gara-Gara 
 Frame 0 (objek utama ≥ 45% lebar frame di y 150–1150 + hantaman stempel/label ≤ 0,25 dtk): usul: HP generik besar di meja kertas, stempel merah "5%" menghantam kotak HP; kartu iklan menempel di layar. (belum dirancang)
 Kalimat H1 (selesai ≤ 4,0 dtk, ≤ 14 kata, kata tunjuk visual bila merujuk objek di layar): belum ditulis (script bukan tugas tahap ini). Syarat dari fact sheet: sebut "janji" dan "menurut Xiaomi", jangan "Xiaomi menipu".
 
-## Paket final script
-120–145 kata, 48–55 dtk @ 2,60–2,75 kata/dtk. Salin VO bersih ke `kolase/audio/script_vo.txt`; prompt bertag ke `audio/vo_prompt_elevenlabs.md`.
-6 segmen + 2 micro-rehook: (1) hook 0–4 dtk · (2A) aturan main · micro-rehook 1 (~16–18 dtk) · (2B) bedah intrik · micro-rehook 2 (~36–39 dtk) · (3–4) payoff + penutup.
-Penutup (default: Circular Reframe Loop; varian: pertanyaan reflektif):
-
-**VO bersih:**
->
+## Paket final script (v1, Fase 2, 15 Nov 2026)
+**Nomor di layar:** ARSIP KASUS #007 (urutan tayang ke-3; folder tetap #006) · **Pola judul:** Pola 5 (Kuota Uji 3 : 1 batch ini) · **Penutup:** Circular Reframe Loop (default)
+**Judul (pilih satu):**
+1. **Alasan Asli Iklan di HP Xiaomi yang Kamu Anggap Sepele** (54 karakter): rekomendasi: Pola 5 persis (54 karakter) supaya uji kuota bersih; catat hasil 48 jam di 6-pelajaran
+2. **Alasan Asli Iklan di HP Xiaomi, Ditulis Xiaomi Sendiri** (54 karakter): cadangan Pola 5 yang lebih dekat ke H1, tapi tidak memuat bagian "anggap sepele" yang sedang diuji
+**Penguncian 3-titik:** judul ↔ frame 0: HP generik (tanpa logo) ≥ 45% lebar frame dengan kartu iklan menempel di layar; stempel "LAPORAN RESMI" + "5%" menghantam kotak HP ≤ 0,25 dtk ↔ H1: "Iklan di HP Xiaomi kayak gini… alasan aslinya ditulis Xiaomi sendiri."
+**Hitungan:** 139 kata ≈ 52,3 dtk @2,66 (rentang 50,5–53,5 dtk). File: `audio/script_vo.txt` (bersih) dan `audio/vo_prompt_elevenlabs.md` (bertag).
+**VO bersih (per segmen = satu baris):**
+```
+Iklan di HP Xiaomi kayak gini… alasan aslinya ditulis Xiaomi sendiri.
+Awalnya dari janji yang nggak biasa. Untung bersih dari jualan semua perangkatnya, HP sampai elektronik lain, maksimal lima persen setahun. Lebih dari itu, kelebihannya dikembalikan ke pengguna. Perusahaan mana yang mau untungnya dibatasi?
+Dan janji itu ditepati. Menurut laporan resmi Xiaomi, untung bersihnya di bawah satu persen, lalu dua koma tiga persen. Terus untung besarnya dari mana?
+Dokumen resminya sendiri bilang: kami terutama perusahaan internet. HP dijual dengan untung tipis, buat mendapatkan pengguna. Dari tiap seratus rupiah jualan HP, untung kotornya sekitar sebelas rupiah. Dari layanan internet… sekitar tujuh puluh enam rupiah.
+Isinya paling banyak? Iklan.
+Xiaomi bilang, iklannya dibuat nggak mengganggu, dan bisa dikurangi di pengaturan.
+Untung tipisnya di HP. Untung tebalnya… di layar HP-mu. Jadi iklan kecil kayak gini… kata Xiaomi sendiri, bagian penting model bisnisnya.
+```
+**Peta waktu (perkiraan @2,66, sebelum VO direkam):**
+| dtk | kata | kalimat |
+|---|---|---|
+| 0,0 | 11 | Iklan di HP Xiaomi kayak gini… alasan aslinya ditulis Xiaomi sendiri. |
+| 4,1 | 6 | Awalnya dari janji yang nggak biasa. |
+| 6,4 | 14 | Untung bersih dari jualan semua perangkatnya, HP sampai elektronik lain, maksimal lima persen setahun. |
+| 11,7 | 7 | Lebih dari itu, kelebihannya dikembalikan ke pengguna. |
+| 14,3 | 6 | Perusahaan mana yang mau untungnya dibatasi? |
+| 16,5 | 4 | Dan janji itu ditepati. |
+| 18,0 | 15 | Menurut laporan resmi Xiaomi, untung bersihnya di bawah satu persen, lalu dua koma tiga persen. |
+| 23,7 | 5 | Terus untung besarnya dari mana? |
+| 25,6 | 8 | Dokumen resminya sendiri bilang: kami terutama perusahaan internet. |
+| 28,6 | 8 | HP dijual dengan untung tipis, buat mendapatkan pengguna. |
+| 31,6 | 11 | Dari tiap seratus rupiah jualan HP, untung kotornya sekitar sebelas rupiah. |
+| 35,7 | 8 | Dari layanan internet… sekitar tujuh puluh enam rupiah. |
+| 38,7 | 4 | Isinya paling banyak? Iklan. |
+| 40,2 | 11 | Xiaomi bilang, iklannya dibuat nggak mengganggu, dan bisa dikurangi di pengaturan. |
+| 44,4 | 9 | Untung tipisnya di HP. Untung tebalnya… di layar HP-mu. |
+| 47,7 | 12 | Jadi iklan kecil kayak gini… kata Xiaomi sendiri, bagian penting model bisnisnya. |
+**Teks layar kunci (uji bisu):** 0,0 dtk: IKLAN DI HP-MU · LAPORAN RESMI · JANJI 2018: untung bersih perangkat ≤ 5%/tahun · 2019–2020: < 1% · 2025: 2,3% (termasuk mobil listrik; dihitung Xiaomi) · "kami terutama perusahaan internet" (prospektus 2018) · UNTUNG KOTOR 2025: HP ±11% · layanan internet ±76% · layanan internet: paling banyak IKLAN · KATA XIAOMI 2018: "tidak mengganggu", bisa dikurangi
+**Risiko yang tersisa:** Cerita 3 (tanpa dalang). Penonton dari pencarian "cara hapus iklan" bisa kecewa; naskah sengaja tidak mengajari langkah.
 
 ## Scorecard (Formula v5.0, 16 cek + gerbang H1–H7/R1–R6)
+| # | Hasil |
+|---|---|
+| 1 | Lulus: kalimat 1 = iklan di HP Xiaomi + alasan asli (sama dengan judul Pola 5) |
+| 2 | Lulus dengan catatan: celah dibuka lewat "janji yang nggak biasa" (4,1 dtk), pertanyaan eksplisit di 14,3 dtk |
+| 3 | Lulus: pilar dibayar (iklan kecil = bagian penting model bisnis, kata Xiaomi) |
+| 4 | Lulus: psikologi (iklan dianggap sepele) · desain (HP sebagai pintu pengguna) · uang (11 vs 76 per Rp100) |
+| 5 | Lulus: TAPI janji ditepati → MAKA untung dari mana → TAPI isinya iklan |
+| 6 | Lulus |
+| 7 | Lulus: objek pusat = HP dengan iklan |
+| 8 | Lulus: twist (11 vs 76, isinya iklan) di 60–74% |
+| 9 | Lulus: loop memanggil "iklan … kayak gini" dari kalimat 1 |
+| 10 | Lulus: hanya dokumen Xiaomi terbaca; tanpa "subsidi/menutup harga"; tanpa "janji menyebabkan iklan"; bersih dan kotor tidak dibandingkan; "semua perangkat", bukan "tiap HP" |
+| 11 | Lulus: "untung bersih/kotor" pengganti "margin" |
+| 12 | Lulus: 139 kata ≈ 52,3 dtk |
+| 13 | Lulus bila teks layar dipasang |
+| 14 | Lulus dengan catatan: banyak angka → tabel arsip + stempel; jaga ≤ 6 potongan per frame |
+| 15 | Lulus: "prospektus" diganti "dokumen resminya" |
+| 16 | Lulus: atribusi "menurut laporan resmi Xiaomi"/"kata Xiaomi", penjelasan Xiaomi dimuat, tidak mengajari cara mematikan, tahun di layar |
+**Gerbang:** H1 lulus (≈4,1 dtk, 11 kata, objek "iklan di HP Xiaomi" di kata 1–4) · H3 lulus · H7 lulus (2018/2025 hanya di layar) · R1 lulus · R3 lulus (rehook 16,5 dtk dan 38,7 dtk) · R4 lulus · R5 lulus (≈52,3 dtk). H1/H3 dicek ulang dari `vo_words.json` setelah VO jadi.
 
 ## Catatan lanjut
+- **Fase 2 selesai (15 Nov 2026):** script v1 + prompt ElevenLabs. Berikutnya: user merekam VO (2 take) → `/compact` → Fase 3 (prompt blok Google Flow).
 - **Rekomendasi: lanjut ke script, dengan syarat** (Opus + effort high; skor 16/20 lolos tipis, Cerita 3). Keputusan user dulu: (a) pilih judul 1–3, (b) apakah topik ini boleh tanpa dalang/putusan, (c) apakah sebut "HP murah" atau "HP Xiaomi/Redmi".
 - Kerangka alur yang didukung fakta: janji 5% (prospektus 2018) → ditepati (< 1% 2019/2020; 2,3% 2025, menurut Xiaomi) → tempat uang: layanan internet (margin kotor 76,5%, iklan RMB 28,5 miliar 2025, 28% laba kotor dari 8% pendapatan) → kata Xiaomi sendiri: iklan "bagian penting model bisnis" → bantahan/penjelasan Xiaomi → penutup tentang layar penonton. Jangan memakai "mensubsidi harga HP" dan jangan "2,3% vs 76,5%" tanpa menjelaskan bersih vs kotor.
 - Verifikasi tambahan sebelum script final (opsional, Haiku/Sonnet): baca teks The Verge 20 Sep 2018 (kutipan penuh), laporan tahunan 2021–2024 (margin hardware dan iklan per tahun, bila ingin tabel tahunan), halaman resmi Xiaomi Indonesia soal iklan/rekomendasi dan toggle "ads in system apps" bila sudah rilis.
