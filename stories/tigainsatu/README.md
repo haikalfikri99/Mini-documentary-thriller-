@@ -1,49 +1,79 @@
-# ARSIP KASUS #008: tigainsatu
-**Status:** validasi topik · **Model:** Sonnet untuk riset/fact sheet, Opus + effort high sebelum script (SKILL.md "Titik ingat")
+# ARSIP KASUS #008: tigainsatu (penghapusan 3-in-1 Jakarta, 2016)
+**Status:** fact sheet terisi (riset Sonnet, 15 Nov 2026); belum ada script. Opus + effort high sebelum script (SKILL.md "Titik ingat").
+**Dibaca langsung:** teks lengkap NBER WP 23295 (PDF diekstrak, bagian Intro, II, III, IV), abstrak NBER (nber.org), halaman MIT DSpace (metadata Science), ScienceDaily 6 Jul 2017, Suara.com 28 Mar 2016, Liputan6 11 Mei 2016, Republika (EN) 12 Mei 2016, Republika 8 Apr 2016. **Hanya cuplikan hasil pencarian (belum dibuka):** Kabar24/Bisnis (403), Tempo (403), Tirto (403), Republika 13 Mei/ Kompas TV/ Detik (ganjil-genap), Voi, Gridoto, Jakarta Post, JDIH DKI (pergub ganjil-genap). **Teks Science asli (science.org) tidak dibuka**; abstrak Science dikutip lewat MIT DSpace dan cuplikan pencarian.
 
-## Validasi topik (skor ≥ 16/20, tidak ada nilai ≤ 2)
-Rubrik: `research/niche/topik/RUMUS_PEMILIHAN.md` (4 kriteria × 5) + gerbang lama (Lokal ≥ 4, Celah ≥ 3, Cerita ≥ 3).
-| Kriteria | Skor (1–5) | Alasan |
+## Validasi topik (skor >= 16/20, tidak ada nilai <= 2)
+Rubrik: `research/niche/topik/RUMUS_PEMILIHAN.md` (4 kriteria x 5) + gerbang lama (Lokal >= 4, Celah >= 3, Cerita >= 3). Rubrik tidak dibuka ulang di sesi ini; skor di bawah memakai empat kriteria yang tertulis di kerangka.
+| Kriteria | Skor (1-5) | Alasan |
 |---|---|---|
-| Kedekatan sehari-hari | | |
-| Kontras intuisi / twist | | |
-| Ketersediaan bukti visual kolase | | |
-| Keamanan hukum & monetisasi | | |
-| **Total** | /20 | |
-Hasil `riset_topik.py`: saran = , video = , ≥100k = , ≥1M =
+| Kedekatan sehari-hari | 4 | 3-in-1, joki, dan macet Sudirman dikenal jutaan warga Jabodetabek; tapi aturannya sudah 10 tahun hilang, penonton muda mungkin tidak ingat |
+| Kontras intuisi / twist | 5 | Aturan yang dibenci dan dianggap tidak berguna (banyak joki) ternyata terbukti mengurangi macet; menghapusnya memperburuk lalu lintas se-kota. Berlawanan dengan anggapan umum, dan ada dalam makalah Science |
+| Ketersediaan bukti visual kolase | 3 | Objek konkret ada (rambu "3 in 1", mobil, joki ibu-bayi, jalan Sudirman, grafik delay), tapi foto 2016 tidak bebas lisensi dan arsip domain publik tidak cocok (aturan #46); sebagian besar harus gambar AI/gambar sendiri. Joki ibu-bayi sensitif (eksploitasi anak): jangan divisualkan realistis |
+| Keamanan hukum & monetisasi | 4 | Tanpa merek; sumber akademik dan pernyataan pejabat publik. Risiko: anak/joki (hindari menampilkan wajah/bayi nyata), dan klaim ilmiah tidak boleh dibesar-besarkan |
+| **Total** | **16/20** | Lolos batas minimum persis; nilai terendah 3 (visual) |
+Hasil `riset_topik.py`: tidak dijalankan di sesi ini (saran = tidak diketahui, video = tidak diketahui, >=100k = tidak diketahui, >=1M = tidak diketahui). Jalankan sebelum keputusan akhir.
 
 ## Uji POV penonton (4 pertanyaan, jawab sebelum menulis script)
-1. Siapa melawan siapa / siapa pelakunya?
-2. Objek fisik konkret apa yang ditunjuk di layar?
-3. Taruhan langsung ke penonton (uang, waktu, keselamatan)?
-4. "Alasan ASLI" yang dibawa pulang penonton (satu kalimat):
+1. **Siapa melawan siapa:** Pemprov DKI (Gubernur Ahok) yang menghapus 3-in-1 melawan kemacetan Jakarta; secara tidak langsung, pengendara mobil pribadi vs jalan yang sama. Pelaku "tersangka": aturan yang dianggap sia-sia karena joki.
+2. **Objek fisik di layar:** rambu/papan "3 in 1" di Jalan Sudirman, mobil pribadi, joki di pinggir jalan (ilustrasi tanpa wajah), jam digital dan grafik waktu tempuh per kilometer.
+3. **Taruhan ke penonton:** waktu di jalan. Menurut makalah, sore hari di Sudirman waktu tempuh naik dari 2,8 ke 5,3 menit per km setelah aturan dicabut (versi Science).
+4. **"Alasan ASLI" (satu kalimat):** Aturan yang paling dihujat warga ternyata memang mengurangi macet; saat dicabut, jalan makin lambat di seluruh kota, bukan hanya di jalan yang dulu dibatasi. (Jangan ucapkan "jadi 3-in-1 pasti bagus": makalah sendiri menyatakan tidak bisa memastikan kesejahteraan total.)
 
 ## Fact sheet (2 lapis sumber)
-Lapis lokal: ≥ 2 sumber yang membuktikan peristiwa/putusan di Indonesia. Lapis mekanisme/primer: ≥ 1 putusan/dokumen/penelitian primer; bila primer tidak terbaca (403/PDF), tulis "primer: tidak terbaca" dan ucapkan klaimnya sebagai "menurut [lembaga/laporan]".
+Lapis lokal: >= 2 sumber Indonesia untuk peristiwa/putusan. Lapis primer: makalah NBER/Science atau dokumen resmi Pemprov. Penanda: **[AK]** = riset akademik; **[BR]** = klaim berita/pejabat.
 | # | Klaim | Lapis | Status | Sumber |
 |---|---|---|---|---|
-| 1 | | lokal | | |
-| 2 | | primer | | |
-Angka hanya bila eksplisit di sumber dan konsisten antar-sumber; bila sumber hanya menyebut arah ("lebih murah"), pakai perbandingan perilaku.
+| 1 | Makalah: Hanna, Kreindler, Olken, "Citywide effects of high-occupancy vehicle restrictions: Evidence from 'three-in-one' in Jakarta", *Science* 357(6346):89-93, Juli 2017, DOI 10.1126/science.aan2747. Versi awal: NBER Working Paper 23295, Maret 2017, judul "...Evidence from the Elimination of '3-in-1' in Jakarta" (NBER bukan peer-reviewed). [AK] | primer | **primer: terbaca** untuk NBER (teks penuh); Science: abstrak terbaca lewat MIT DSpace, teks lengkap tidak dibuka | nber.org/papers/w23295; https://www.nber.org/system/files/working_papers/w23295/w23295.pdf; https://dspace.mit.edu/handle/1721.1/114521 |
+| 2 | Abstrak Science (dikutip cuplikan MIT DSpace): setelah kebijakan "dibuang mendadak" April 2016, delay naik dari **2,1 ke 3,1 menit/km (pagi)** dan dari **2,8 ke 5,3 menit/km (sore)**. [AK] | primer | primer: abstrak terbaca via cuplikan hasil pencarian dan halaman MIT (WebFetch memparafrasekan; angka dari cuplikan pencarian). **Verifikasi angka persis di science.org sebelum script** | MIT DSpace 1721.1/114521; DOI di atas |
+| 3 | Abstrak NBER (terbaca langsung): delay naik "about 39 percent" di jalan terdampak pagi dan "nearly 69%" sore. Badan makalah: 39-45% (pagi) dan 69-85% (sore) tergantung pembanding; kecepatan rata-rata pagi 28 ke 20 km/jam, sore 21 ke 12 km/jam. [AK] **Catatan: ScienceDaily (membaca versi Science) menulis 46% pagi dan 87% sore** dan kecepatan 17 ke 12 mph (pagi), 13 ke 7 mph (sore); angka beda antar versi/pembanding, jadi sebut keduanya atau pakai satu versi dengan label | primer | **primer: terbaca** (NBER, Intro hal. 4-5); angka Science berbeda dari NBER | NBER w23295 PDF; ScienceDaily 6/7/2017 https://www.sciencedaily.com/releases/2017/07/170706143100.htm |
+| 4 | Dampak meluas: setelah pukul 19-20 (tidak pernah dibatasi) delay naik 50-53% di Sudirman; tengah hari tidak berubah atau naik 17-30%; dua jalan alternatif (Rasuna Said, Tentara Pelajar) delay sore naik sekitar 13%. Jadi bukan sekadar pindahnya lalu lintas. [AK] | primer | **primer: terbaca** (NBER Intro) | NBER w23295 PDF |
+| 5 | Periode data: pengumpulan data Google Maps mulai 31 Maret 2016 (dua hari setelah pengumuman), tiap 20 menit; analisis utama sampai 3 Juni 2016 (awal Ramadan); bulan pertama dipakai untuk perbandingan utama (5 April-4 Mei); grafik tambahan sampai 16/18 Agustus. Data: kecepatan dari ponsel Android lewat Google Maps, **bukan hitungan kendaraan**. [AK] | primer | **primer: terbaca** (NBER bag. II-III); ScienceDaily (batas data) | NBER w23295 PDF; ScienceDaily |
+| 6 | Mengapa hasilnya begitu (penjelasan penulis): mayoritas dugaan = lebih banyak orang membawa mobil begitu aturan dicabut, lalu memakainya juga di jam lain; alternatif = limpahan macet dari pusat bisnis (feeder). Data "paling konsisten" dengan bertambahnya jumlah mobil (naik juga di satu jalan alternatif yang menjauhi CBD); **penulis mengaku data tidak bisa memisahkan kedua hipotesis secara langsung**. [AK] | primer | **primer: terbaca** (NBER Intro); ScienceDaily menyebut mekanisme "belum tuntas" | NBER w23295 PDF; ScienceDaily |
+| 7 | Joki: makalah menolak anggapan bahwa joki membuat kebijakan sia-sia: "bukti dengan tegas menolak" pandangan itu; joki (sekitar Rp15.000 / US$1,20 sekali jalan) tetap menambah biaya marginal sehingga mengurangi kemacetan. Penulis: menyiratkan elastisitas permintaan mobil sendirian yang besar dan/atau biaya kemacetan marginal yang besar. [AK] | primer | **primer: terbaca** | NBER w23295 PDF |
+| 8 | Batas penulis: tidak bisa memastikan 3-in-1 menaikkan kesejahteraan (tergantung nilai alternatif bagi pemilik mobil), meski diperkirakan keseimbangan setelah pencabutan "sangat tidak efisien". Olken (ScienceDaily): "Saya tidak berpikir kita harus menerapkan hasil ini di mana-mana." Data = Google Maps, bukan hitungan kendaraan. [AK] | primer | **primer: terbaca** (NBER Bag. IV); ScienceDaily | NBER w23295 PDF; ScienceDaily |
+| 9 | Kebijakan 3-in-1: berlaku sejak 1992 (NBER: Maret 1992; Voi/Gridoto via cuplikan: Agustus 1992, terkait persiapan KTT Non-Blok). Koridor Sudirman-Thamrin dan Gatot Subroto. Awalnya pagi 06-10; sejak Des 2003 pagi 07-10 dan sore 16-19 (sore 16.30-19 sejak Sept 2004). Dasar: Keputusan Gubernur DKI No. 4104/2003. Denda maks Rp500.000 atau 2 bulan kurungan (menurut makalah). **Tahun mulai tidak seragam (Maret vs Agustus 1992) dan siapa gubernur yang memutuskan: tidak diketahui.** | lokal+primer | primer: terbaca (NBER); lokal: hanya cuplikan Voi, Gridoto (belum dibuka) -> **belum 2 sumber Indonesia terbaca penuh**; tulis "sejak 1992" saja | NBER w23295 PDF; https://voi.id/en/amp/244300 ; https://www.gridoto.com/read/223461990/mengenang-three-in-one-usaha-mengurai-kemacetan-jakarta-sebelum-lahirnya-ganjil-genap |
+| 10 | Joki: penumpang bayaran agar mobil memenuhi syarat 3 orang; Jakarta Post 2013: sekitar Rp15.000-20.000 per perjalanan. Makalah: seorang ibu dan anak bisa disewa sekaligus. [BR]+[AK] | lokal | satu sumber Indonesia terbaca (Suara, konteks); Jakarta Post 2013 hanya cuplikan -> **perlu satu sumber Indonesia lagi** | NBER; https://www.thejakartapost.com/news/2013/10/02/dead-end-jakarta-s-jockeys.html (cuplikan) |
+| 11 | Pencetus penghapusan: **28 Maret 2016** Gubernur Basuki Tjahaja Purnama (Ahok) di Balai Kota: "Makanya saya lagi kaji 3 in 1 mungkin saya mau hapus saja" -- dipicu kasus eksploitasi anak (bayi diberi obat penenang untuk mengemis) dan alasan joki. Makalah: pengumuman 29 Maret 2016 (Poskota), berlaku 7 hari kemudian, sebagai uji coba satu pekan. [BR] | lokal | **lokal: Suara.com dibaca; Poskota 29 Mar hanya via catatan kaki NBER (tidak dibuka)** -> 28 Mar (Suara) vs 29 Mar (NBER/Poskota) beda sehari: "akhir Maret 2016" | https://www.suara.com/news/2016/03/28/110941/buntut-ekspoitasi-anak-ahok-ingin-hapus-3-in-1 ; NBER fn. 12 |
+| 12 | Uji coba dimulai **Selasa 5 April 2016** (hasil pencarian Detik/Republika; NBER: periode "post" mulai 5 April). Diperpanjang beberapa kali: Tempo 14 Apr 2016 "diperpanjang jadi empat pekan"; Kabar24 14 Apr "hingga 14 Mei". [BR] | lokal | lokal: 2 sumber via cuplikan (belum dibuka, Tempo & Kabar24 403); NBER fn. 13 mengutip Tempo | NBER fn. 13; https://kabar24.bisnis.com/read/20160414/385/537986/uji-coba-penghapusan-3-in-1-hingga-14-mei (cuplikan) |
+| 13 | Data pemerintah selama uji coba: volume kendaraan di lima ruas bekas 3-in-1 naik **24,35%** (tiga hari pertama; sumber lain menyebut periode 5-13 April); Kadishubtrans Andri Yansyah (8 Apr): ada penambahan kendaraan di ruas bekas 3-in-1 sehingga macet bertambah. Tidak ada angka kecepatan/waktu tempuh dalam artikel yang dibaca. [BR] | lokal | **lokal: Republika 8/4/2016 dibaca (angka 24,35%)**; sumber kedua hanya cuplikan hasil pencarian | https://news.republika.co.id/berita/o5bg9r335/ini-hasil-uji-coba-penghapusan-3-in-1 |
+| 14 | Penghapusan resmi: **11 Mei 2016** Ahok mengumumkan di Balai Kota bersama Dishubtrans (Andri Yansyah) dan Ditlantas Polda Metro: "Mereka (Dirlantas) sepakat untuk dihapus"; Andri: "Semuanya (pagi-sore) dihapus. Polisi sudah setuju." Uji coba berakhir 14 Mei; ditulis resmi berakhir Senin 16 Mei; Pergub penghapusan disiapkan sesudahnya. Republika EN 12 Mei: "We have removed the 3-in-1 traffic restriction policy"; alasan: macet berkurang di jalan lain selama uji coba dan masalah joki. NBER mencatat 10 Mei (Liputan6). **Tanggal beda antar sumber (10, 11, 12, 16 Mei)** -> ucapkan "Mei 2016". Sebelumnya 3-9 Mei Ahok sempat berwacana mempertahankan 3-in-1 sore hari saja | lokal | **lokal: Liputan6 11/5/2016 + Republika EN 12/5/2016, keduanya dibaca**; primer (Pergub penghapusan): **tidak ditemukan/tidak dibaca** | https://www.liputan6.com/news/read/2504488/pemprov-dki-resmi-hapus-jalur-3-in-1 ; https://en.republika.co.id/berita/o72nwo317/jakarta-governor-officially-removes-3in1-policy |
+| 15 | Alasan resmi/pernyataan Ahok: macet "tidak jauh beda" ada atau tidak ada 3-in-1 (Liputan6 menyebut ini sebagai pandangan Ahok); joki dan eksploitasi anak. **Ini bertentangan dengan temuan makalah.** YLKI (Tulus Abadi) mendukung penghapusan: "Three in one gagal mengatasi kemacetan, khususnya koridor Sudirman-Thamrin" (cuplikan pencarian Bisnis/Liputan6, belum dibuka) | lokal | lokal: Liputan6 dibaca (pandangan Ahok); YLKI hanya cuplikan | Liputan6 11/5/2016; https://kabar24.bisnis.com/read/20160329/15/532229/ylki-setuju-aturan-3-in-1-dihapus (cuplikan) |
+| 16 | Pengganti: ganjil-genap. Uji coba **27 Juli-26 Agustus 2016** (07-10 dan 16-20, Senin-Jumat; hanya teguran); Pergub ditetapkan **23 Agustus 2016** (ttd Basuki T. Purnama); berlaku dan ditilang mulai **30 Agustus 2016**; ruas: Medan Merdeka Barat, Thamrin, Sudirman, Sisingamangaraja (+ sebagian Gatot Subroto); 1.099 tilang 30 Agu-1 Sep 2016 (Liputan6/Republika via cuplikan). [BR] | lokal+primer | lokal: cuplikan banyak sumber (Detik, Liputan6, Republika, Gridoto) belum dibuka; primer: dokumen JDIH DKI terlihat lewat cuplikan, **tidak dibaca** | https://jdih.jakarta.go.id/link/download-fulltext/11246 (tidak dibaca); https://www.liputan6.com/news/read/2588602/polisi-tilang-pelanggar-ganjil-genap-di-jakarta-mulai-besok |
+| 17 | Data pemerintah soal ganjil-genap 2016 (cuplikan Gridoto): waktu tempuh koridor turun 19% (18 ke 14,6 menit), kecepatan naik 20% (24,6 ke 28,9 km/jam) saat uji coba. [BR] **Klaim pemerintah, bukan studi independen; ruas dan metode tidak diketahui.** Kritik: ganjil-genap "hanya memindahkan kemacetan" (Detik, cuplikan). Makalah Science sendiri mencatat kebijakan plat ganjil-genap di kota lain ternyata sering tidak efektif (catatan kaki 2). | lokal | **hanya cuplikan hasil pencarian; belum dibuka** -> jangan dipakai di VO tanpa dibaca | https://otomotifnet.gridoto.com/read/231131881/ganjil-genap-dinyatakan-berhasil-bakal-resmi-diberlakukan-mulai-30-agustus-2016 (cuplikan) |
+| 18 | Konteks makalah: Jakarta tanpa metro/LRT saat itu; mobil pribadi 1,64 juta (2004) ke 3,26 juta (2014); makalah menyebut TomTom/Castrol hanya sebagai "Stop-Start Index" (33.240 stop-start per tahun, terburuk dunia, Castrol). **Data TomTom Traffic Index 2016: tidak ditemukan/tidak diketahui** | lokal+primer | primer: terbaca (NBER); angka TomTom: tidak diketahui | NBER w23295 PDF |
 
 ## Celah & batas hukum
-Tidak diketahui (tidak boleh diucapkan):
-Bantahan pihak terkait:
-Atribusi ("menurut ..."), tahun di layar, tanpa logo asli, "tidak disponsori":
+**Tidak diketahui (tidak boleh diucapkan):**
+- Kenapa tepatnya macet bertambah (bukan hanya "banyak orang kembali bawa mobil": itu dugaan penulis, bukan terbukti).
+- Siapa gubernur yang memutuskan 3-in-1 tahun 1992 dan alasan resmi dokumen aslinya; Pergub penghapusan 3-in-1 (nomor/tanggal) tidak dibaca.
+- Besaran kecepatan versi Dishub DKI selama uji coba 2016 (hanya volume 24,35% terbaca); data TomTom 2016.
+- Apakah ganjil-genap "memperbaiki" Jakarta: hanya klaim pemerintah via cuplikan, belum dibaca; makalah tidak mengevaluasinya.
+- Apakah efek bertahan sampai sekarang: makalah menganalisis 2016 (utama sampai 3 Juni; grafik sampai Agustus 2016).
+- Angka persis Science (2,1 ke 3,1 dan 2,8 ke 5,3 min/km): terbaca dari cuplikan abstrak, bukan teks science.org.
+**Status klaim yang beredar ("penghapusan bikin macet tambah"):** **Sebagian besar benar, dengan batas.** Benar untuk jalan dan jam yang diteliti (Sudirman-Thamrin dan jalan alternatif terdekat, April-Juni 2016; ada pelebaran grafik sampai Agustus): delay naik tajam, termasuk di luar jam dan jalan yang dibatasi. Tidak boleh dikatakan: "macet seluruh Jakarta," "makalah membuktikan 3-in-1 bagus untuk semua kota," atau "joki tidak berarti." Makalah menolak kesimpulan "kesejahteraan naik" secara tegas.
+**Beda dari yang diberikan:** (a) penghapusan tidak "Maret 2016": pengumuman akhir Maret, uji coba mulai 5 April, penghapusan permanen Mei 2016; (b) "bertambah" jadi angka beragam: 39-45% / 69-85% (NBER, delay jalan terdampak) vs 46% / 87% (laporan Science via ScienceDaily) vs 2,1 ke 3,1 dan 2,8 ke 5,3 menit per km (abstrak Science); (c) temuan itu tentang efek yang terjadi lewat uji coba yang tiba-tiba, dan Ahok sendiri menganggap macet "tidak jauh beda."
+**Bantahan pihak terkait:** Ahok dan pejabat Dishub menyatakan 3-in-1 tidak efektif/joki bermasalah (pandangan 2016, sebelum studi terbit); Pemprov mencatat macet bertambah selama uji coba (volume +24,35%), tapi memutuskan hapus; polisi awalnya ingin mempertahankan (Jakarta Post 13 Apr, cuplikan). Olken sendiri membatasi generalisasi.
+**Atribusi:** "Menurut studi ekonom Harvard dan MIT di jurnal Science (2017)"; tahun di layar (2016, 2017); tanpa logo Google/Science/media; foto 2016 apa pun tidak bebas lisensi (ilustrasi AI/sendiri); joki ibu-bayi jangan digambar realistis; "tidak disponsori"; tidak ada merek.
 
-## Judul & penguncian 3-titik (0,0–4,0 dtk)
-Judul (≤ 55 karakter, ideal 38–48):
-Frame 0 (objek utama ≥ 45% lebar frame di y 150–1150 + hantaman stempel/label ≤ 0,25 dtk):
-Kalimat H1 (selesai ≤ 4,0 dtk, ≤ 14 kata, kata tunjuk visual bila merujuk objek di layar):
+## Judul & penguncian 3-titik (0,0-4,0 dtk)
+Draf Pola 1 (subjek konkret + angka). **Pilih angka yang bisa dibela: 2,8 ke 5,3 min/km dan 21 ke 12 km/jam keduanya dari makalah, tetapi beda versi (Science vs NBER). Verifikasi di science.org sebelum mengunci.**
+1. 3-in-1 Dihapus, Macet Sore Jakarta Naik 69 Persen (49 karakter; angka NBER "nearly 69%" delay sore jalan terdampak)
+2. Jakarta Hapus 3-in-1, Sore Jadi 5,3 Menit per Km (48 karakter; angka Science)
+3. 3-in-1 Dihapus: Kecepatan Sore Turun 21 ke 12 km/jam (52 karakter; angka NBER, perlu tanda "kecepatan rata-rata di jalan terdampak")
+Catatan: judul 1 dan 3 mudah salah dibaca sebagai "seluruh Jakarta"; label "jalan Sudirman" di layar.
+Judul (pilih satu setelah verifikasi):
+Frame 0 (objek utama >= 45% lebar frame di y 150-1150 + hantaman stempel/label <= 0,25 dtk): **belum ditentukan.**
+Kalimat H1 (selesai <= 4,0 dtk, <= 14 kata, kata tunjuk visual bila merujuk objek di layar): **belum ditulis (tahap script).**
 
 ## Paket final script
-120–145 kata, 48–55 dtk @ 2,60–2,75 kata/dtk. Salin VO bersih ke `kolase/audio/script_vo.txt`; prompt bertag ke `audio/vo_prompt_elevenlabs.md`.
-6 segmen + 2 micro-rehook: (1) hook 0–4 dtk · (2A) aturan main · micro-rehook 1 (~16–18 dtk) · (2B) bedah intrik · micro-rehook 2 (~36–39 dtk) · (3–4) payoff + penutup.
-Penutup (default: Circular Reframe Loop; varian: pertanyaan reflektif):
+Belum ada. Aturan: 120-145 kata, 48-55 dtk @ 2,60-2,75 kata/dtk; baca `8-hook-dan-judul.md` dan `7-selera...` sebelum script. Salin VO bersih ke `kolase/audio/script_vo.txt` dan prompt bertag ke `audio/vo_prompt_elevenlabs.md` kelak.
 
-**VO bersih:**
->
-
-## Scorecard (Formula v5.0, 16 cek + gerbang H1–H7/R1–R6)
+## Scorecard (Formula v5.0, 16 cek + gerbang H1-H7/R1-R6)
+Belum dinilai (belum ada script).
 
 ## Catatan lanjut
+- **Rekomendasi: lanjut ke script dengan sudut diubah.** Sudut aman: "aturan yang dihujat ternyata mengurangi macet" (twist asli, ada di makalah). Bukan sudut: "3-in-1 pasti bagus" atau "Ahok salah."
+- **Wajib sebelum script:** (1) buka science.org/doi/10.1126/science.aan2747 (bila 403, tandai "primer: tidak terbaca") dan kunci angka satu versi; (2) cari 1-2 sumber Indonesia tambahan yang bisa dibaca untuk klaim #9, #10, #12, #17 (Kompas, Detik, Tempo versi Indonesia; Tempo/Bisnis tadi 403); (3) jalankan `kit/tools/riset_topik.py`; (4) tentukan angka H1 (satu angka, label "menurut studi Harvard-MIT").
+- **Risiko tersisa:** gambar 2016 tidak bebas lisensi (skor visual 3); sensitivitas joki ibu-bayi (kasus eksploitasi anak 2016: jangan visualkan anak); angka beda antar versi Science/NBER; penonton muda tidak kenal 3-in-1.
+- Nuansa yang harus ada di VO: pemerintah sendiri awalnya menganggap aturan tidak efektif; studi menunjukkan sebaliknya; studi tidak menilai kesejahteraan keseluruhan.
+- Penutup yang cocok: pertanyaan refleksi (mis. ganjil-genap masih ada, hasilnya tidak diketahui dari studi ini).
