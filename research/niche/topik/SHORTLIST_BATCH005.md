@@ -43,3 +43,12 @@ Data mentah: `kandidat_batch005.json`, `hasil_batch005.json` (`kit/tools/riset_t
 - **Usulan penugasan (kuota 3 : 1):** #005 HP murah penuh iklan (Pola 1, merek + uang); #006 3-in-1 Jakarta (Pola 1, kebijakan + angka); #007 timer lampu merah (**uji Pola 3/4/5**, tetap diawali objek lampu merah, tanpa frasa "Trik Psikologi"); #008 dari kandidat tambahan. Skutik Yamaha–Honda adalah cerita Pola 1 yang kuat tetapi permintaan nyaris nol dan rubrik 15/20: simpan sebagai cadangan.
 - **Pelajaran dari data:** #004 dibuat dengan permintaan 17 saran (skor 3) dan hasilnya 72,5% stayed-to-watch, jadi sumbu Permintaan bukan penentu di feed Shorts; jangan menggugurkan kandidat kuat hanya karena n_saran rendah.
 - **Wajib diverifikasi sebelum fact sheet** (belum bisa dipastikan dari sini): angka dan arah temuan 3-in-1 (Science 2017: apakah penghapusan memperburuk macet, seberapa besar), studi Sukoharjo & Malang untuk timer, margin ≤ 5% dan sumbernya untuk HP murah, "manfaat Rp1,47 T" Shopee, putusan akhir MA untuk skutik, dan semua primer yang mungkin tidak terbaca.
+
+## Keputusan penutup Fase 1 (15 Nov 2026, setelah verifikasi subagen)
+| Folder | Topik | Pola judul | Urutan tayang | Catatan |
+|---|---|---|---|---|
+| `stories/skutik` (#005) | Kartel harga skutik Yamaha–Honda | Pola 1 | **1** | kontrol paling mirip #004 (merek + denda KPPU) untuk uji Circular Reframe Loop; primer KPPU/MA tidak terbaca |
+| `stories/tigainsatu` (#008) | 3-in-1 Jakarta | Pola 1 | **2** | fakta paling kuat dan twist jelas (waktu tunda +39% pagi/+69% sore menurut NBER); angka Science dicek ulang |
+| `stories/hpiklan` (#006) | HP murah penuh iklan | Pola 1 | **3** | lanjut **tanpa klaim "subsidi"**; hanya "menurut laporan resmi Xiaomi" (janji laba bersih hardware gabungan ≤ 5%/tahun + layanan internet/iklan) |
+| `stories/printer` (#007) | Printer kartrid vs tangki tinta Epson | uji Pola 3/4/5 (kuota 3:1) | **4** | menggantikan timer lampu merah (klaim utama tidak terverifikasi, fact sheet diarsipkan di `ditolak/timer-lampu-merah.md`) |
+**Nomor folder ≠ urutan tayang.** Nomor folder dipertahankan agar efisien; urutan tayang #005 → #008 → #006 → #007. Penomoran seri di layar ("ARSIP KASUS #00X") mengikuti **urutan tayang**, bukan nomor folder: perbarui `case_line`/map saat episode dibuat.

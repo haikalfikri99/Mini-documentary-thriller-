@@ -1,9 +1,9 @@
 {
- "slug": "timer",
+ "slug": "printer",
  "no": 7,
  "title": "",
- "case_line": "TIMER \u00b7 2026",
- "vo": "audio/vo_timer.mp3",
+ "case_line": "PRINTER \u00b7 2026",
+ "vo": "audio/vo_printer.mp3",
  "words": "audio/vo_words.json",
  "dur": 0,
  "report": [
