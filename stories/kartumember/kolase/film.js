@@ -73,9 +73,9 @@ const SHOTS = [
     stage(u, d, sg({ z0: 1.04, z1: 1.08, shake: [[tb, 12]] })); bg(SET.hook);
     putK('tangan_a', [[0, HA.x, HA.y, HA.r, 0, 1, null, 0, 1], [0.5, HA.x - 60, HA.y - 40, -6, 0, 1, 'io', 0, 0.86]], u, 31, { s: HA.s, a: u < 0.5 ? 1 - 0.5 * u / 0.5 : 0.5 });
     putK('tangan_b', [[0, HB.x, HB.y, HB.r, 0, 1, null, 0, 1], [0.5, HB.x - 10, HB.y - 30, 0, 0.6, 1, 'back', 0.6, 1.08]], u, 32, { s: HB.s });
-    stampAt('st_beda', u, tb, 560, 660, -6, 0.72);
+    stampAt('st_beda', u, tb, 560, 605, -6, 0.72);
     const [bx, by] = on(HB.x - 10, HB.y - 30, 0, HB.s * 1.08, SP.tangan_b.m.card);
-    stampAt('m_tick_s', u, tj, bx + 150, by - 120, 0, 1.0);
+    stampAt('m_tick_s', u, tj, bx + 175, by + 15, 0, 1.0);
     putK('s_210', slap(tj + 0.12, bx - 40, by + 205, -3), u, 33, { s: 0.8 });
   },
   // 04 · Kartu begini pasti kamu kenal   a fan of everyday stamp cards on the table (coffee, scooter wash, a plain one)
@@ -175,7 +175,7 @@ const SHOTS = [
     putK('tiket', slap(th, 880, 425, 5), u, 123, { s: 0.55 });
     putK('tiket', slap(th + 0.1, 880, 800, -4), u, 124, { s: 0.55 });
     route(u, th + 0.05, th + 0.35, [[670, 430], [780, 428]], { seed: 125, col: PAL.ink }); route(u, th + 0.15, th + 0.45, [[670, 802], [780, 800]], { seed: 126, col: PAL.ink });
-    stampAt('st_sama', u, ts, 640, 615, -6, 0.72);
+    stampAt('st_sama', u, ts, 845, 615, -8, 0.55);
   },
   // 13 · delapan kali cuci lagi.   an amber 8 on each road to the voucher, "=" between
   (u, T, d) => {
@@ -187,7 +187,7 @@ const SHOTS = [
     route(u, -1, 0, [[670, 430], [780, 428]], { seed: 125, col: PAL.ink }); route(u, -1, 0, [[670, 802], [780, 800]], { seed: 126, col: PAL.ink });
     putK('n8', slap(t8, 725, 405, 4), u, 131, { s: 0.3 });
     putK('n8b', slap(t8 + 0.12, 725, 780, -4), u, 132, { s: 0.3 });
-    stampAt('m_eq', u, tk, 725, 605, 0, 0.75);
+    stampAt('m_eq', u, tk, 725, 605, 0, 1.1);
   },
   // 14 · Anehnya, dibanding yang kartunya kosong,   20 customers with the empty card: 4 of them reach the free wash
   (u, T, d) => {
@@ -229,26 +229,27 @@ const SHOTS = [
   (u, T, d) => {
     const tp = at(16, 'penuh'), tc = at(16, 'cepat');
     stage(u, d, sg({ z0: 1.0, z1: 1.06, ease: 'out' })); bg(SET.result);
-    putK('garis_waktu', slide(0, 0.2, 540, 560, 0, 900, 0, 0, -0.5), u, 171);
-    putK('kartu_a', slap(0.15, 168, 513, -4), u, 172, { s: 0.2 });
-    putK('kartu_b', slap(0.25, 168, 653, 4), u, 173, { s: 0.2 });
-    arrow(u, 0.3, 1.75, [[250, 513], [850, 513]], { seed: 174, col: PAL.ink, w: 12 });
-    arrow(u, 0.3, tp + 0.15, [[250, 653], [640, 653]], { seed: 175, col: PAL.amber, w: 14, comp: 'source-over' });
-    putK('s_penuh_b', slap(tp + 0.18, 700, 600, -4), u, 176, { s: 0.85 });
-    putK('s_penuh', slap(1.8, 880, 462, 3), u, 177, { s: 0.85 });
-    stampAt('st_cepat', u, tc, 560, 880, -6, 0.8);
+    putK('garis_waktu', slide(0, 0.2, 540, 600, 0, 900, 0, 0, -0.5), u, 171);
+    putK('kartu_a', slap(0.15, 168, 553, -4), u, 172, { s: 0.2 });
+    putK('kartu_b', slap(0.25, 168, 693, 4), u, 173, { s: 0.2 });
+    arrow(u, 0.3, 1.75, [[250, 553], [850, 553]], { seed: 174, col: PAL.ink, w: 12 });
+    arrow(u, 0.3, tp + 0.15, [[250, 693], [640, 693]], { seed: 175, col: PAL.amber, w: 14, comp: 'source-over' });
+    putK('s_penuh_b', slap(tp + 0.18, 700, 640, -4), u, 176, { s: 0.85 });
+    putK('s_penuh', slap(1.8, 880, 502, 3), u, 177, { s: 0.85 });
+    stampAt('st_cepat', u, tc, 650, 925, -6, 0.8);
   },
   // 18 · Bukan karena hadiahnya lebih besar.   the same voucher on both cards; "HADIAH LEBIH BESAR" is crossed out
   (u, T, d) => {
     const th = at(17, 'hadiahnya'), tb = at(17, 'besar');
     stage(u, d, sg({ z0: 1.0, z1: 1.05 })); bg(SET.why, u, true);
-    putK('kartu_a', slide(0, 0.2, 300, 370, -5, -700, 0, 0, 0.5), u, 181, { s: 0.38 });
-    putK('kartu_b', slide(0.06, 0.26, 780, 370, 5, 700, 0, 0, -0.5), u, 182, { s: 0.38 });
-    putK('tiket', slide(0.12, 0.32, 300, 590, -4, -700, 0, 0, 0.5), u, 183, { s: 0.85 });
-    putK('tiket', slide(0.18, 0.38, 780, 590, 4, 700, 0, 0, -0.5), u, 184, { s: 0.85 });
-    stampAt('m_eq', u, 0.4, 540, 590, 0, 0.9);
-    putK('s_hadiah', slap(th, 540, 840, -2), u, 185, { s: 0.85 });
-    stampAt('m_cross', u, tb, 540, 840, 0, 0.8);
+    putK('kartu_a', slide(0, 0.2, 280, 390, -5, -700, 0, 0, 0.5), u, 181, { s: 0.52 });
+    putK('kartu_b', slide(0.06, 0.26, 800, 390, 5, 700, 0, 0, -0.5), u, 182, { s: 0.52 });
+    putK('tiket', slide(0.12, 0.32, 280, 660, -4, -700, 0, 0, 0.5), u, 183, { s: 1.0 });
+    putK('tiket', slide(0.18, 0.38, 800, 660, 4, 700, 0, 0, -0.5), u, 184, { s: 1.0 });
+    arrow(u, 0.3, 0.45, [[280, 520], [280, 570]], { seed: 186, col: PAL.ink, w: 6 }); arrow(u, 0.35, 0.5, [[800, 520], [800, 570]], { seed: 187, col: PAL.ink, w: 6 });
+    stampAt('m_eq', u, 0.45, 540, 660, 0, 1.2);
+    putK('s_hadiah', slap(th, 540, 920, -2), u, 185, { s: 0.9 });
+    stampAt('m_cross', u, tb, 540, 920, 0, 0.85);
   },
   // 19 · Kartu kosong terasa seperti pekerjaan yang belum dimulai.   the runner still crouched at the start; the 8-box track ahead
   (u, T, d) => {
@@ -277,11 +278,11 @@ const SHOTS = [
     stage(u, d, sg({ z0: 1.02, z1: 1.06, shake: [[tn, 10]] })); bg(SET.why);
     put('lintasan_b', LX, LY, 0, 0, 1, LS);
     [0, 1].forEach(i => put('cap_gratis', LX + L.marks[i] * LS, LY + L.lane * LS, [-6, 5][i], 0, 1, 0.55));
-    putK('pelari_tengah', [[0, 560, 590, 0, 0.6, 1], [d, 700, 588, 0, 0.6, 1, 'lin']], u, 211, { s: 0.8 });
+    putK('pelari_tengah', [[0, 600, 590, 0, 0.6, 1], [d, 730, 588, 0, 0.6, 1, 'lin']], u, 211, { s: 0.8 });
     putK('tiket', slide(0.1, 0.3, LX + L.finish * LS, 860, 6, 600, 0, 0, -0.4), u, 212, { s: 0.45 });
-    stampAt('st_nanggung', u, tn, 390, 330, -7, 0.72);
-    putK('s_berhenti', slap(at(20, 'kalo'), 250, 560, -4), u, 213, { s: 0.8 });
-    stampAt('m_cross', u, tb + 0.05, 250, 560, 0, 0.6);
+    stampAt('st_nanggung', u, tn, 300, 455, -7, 0.62);
+    putK('s_berhenti', slap(at(20, 'kalo'), 225, 650, -4), u, 213, { s: 0.8 });
+    stampAt('m_cross', u, tb + 0.05, 225, 650, 0, 0.6);
   },
   // 22 · Lain kali, kalo kasir ngasih kartu yang sudah ada dua capnya,   the cashier hands over card B; the two caps are circled
   (u, T, d) => {
