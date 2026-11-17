@@ -1,0 +1,193 @@
+{
+ "no": 10,
+ "slug": "kantong",
+ "version": "v1",
+ "title": "Kantong plastik ini mendadak ditolak <em>gara-gara Rp200</em>",
+ "sub": "Storyboard 23 shot. Tiap keyframe adalah render kode asli dari mesin kolase, diambil di 85% durasi shot, jadi cap atau teks yang masih bergerak bisa terlihat belum lengkap. Timing mengikuti VO final 55,2 dtk (jeda pengungkapan 0,6 dtk sebelum \"Nilainya sama-sama lima sen\").",
+ "rules": [
+  "Tiap frame: 1 subjek utama + 2–4 bukti pendukung (label, koin, struk, siluet, kalender), sesuai review #009 \"jangan sepi\".",
+  "Perbandingan Amerika ditampilkan berdampingan: kiri merah = bayar 5 sen, kanan kuning = bonus 5 sen; barisan siluet 2/5 berhenti vs 0/5 (sesuai turun 42 poin vs nyaris sama).",
+  "Angka fakta persis: Rp200, 2016, 3 bulan, s.d. 30% (KLHK), 5 sen, Maryland 2012. Harga barang di struk = ilustrasi wajar; grafik hanya titik awal dan akhir.",
+  "Warna tangan (cat air) hanya pada permen (nada lucu \"diganti permen\"); koin tetap tinta. Merah = kerugian/tolak, hijau arsip = aturan lama (GRATIS), kuning = sorotan angka.",
+  "Tanpa strip sumber; atribusi hanya tulisan sangat kecil di sudut grafik (KLHK, 2016) dan di halaman jurnal (2018). Sumber lengkap di deskripsi YouTube.",
+  "Tanpa logo/merek minimarket; struk generik \"MINIMARKET\". Semua teks layar Bahasa Indonesia; label di atas y 1180, pita caption bersih. Visual QA otomatis: 0 peringatan.",
+  "Shot terakhir kembali ke komposisi frame 0 (kantong besar + Rp200 + koin + cap) untuk loop."
+ ],
+ "shots": [
+  {
+   "beat": "Hook (H1)",
+   "vo": "Kantong plastik ini cuma dua ratus perak—tapi",
+   "aksi": "Detik 0: kantong plastik besar (≥ 550 px) sudah di meja dan bergerak, label harga Rp200 tergantung di pegangan; cap merah DITOLAK menghantam di 0,20 dtk; koin 200 rupiah ditepuk di kata \"dua\".",
+   "kamera": "Push-in 1,02→1,07, getar di hantaman cap",
+   "teks": "DITOLAK · Rp200 · 200 RUPIAH",
+   "gambar": "AI kantong_hero + kode (label, koin, cap)"
+  },
+  {
+   "vo": "banyak pembeli menolaknya.",
+   "aksi": "Kantong + label + koin naik mengecil; barisan 10 siluet pembeli (pria & perempuan berkerudung) masuk dari kanan, tiap orang menjinjing kantong; di \"menolaknya\" 3 kantong dicoret merah (≈ 30%, selaras data KLHK, bukan mayoritas).",
+   "kamera": "Push-in pelan",
+   "teks": "—",
+   "gambar": "kode: siluet, ikon kantong, coretan"
+  },
+  {
+   "beat": "Pledge 2016",
+   "vo": "Tahun dua ribu enam belas, di puluhan kota,",
+   "aksi": "Map ARSIP KASUS #010 menutup layar ≤ 1 dtk (cap DIBUKA); di bawahnya peta Indonesia \"UJI COBA KANTONG BERBAYAR\"; huruf tebusan 2016 ditempel; di \"puluhan\" 17 pin merah berjatuhan; slip \"puluhan kota\".",
+   "kamera": "Statis 1,00→1,06",
+   "teks": "ARSIP KASUS #010 · 2016 · puluhan kota",
+   "gambar": "kode: peta (pin tanpa nama kota; jumlah persis 22/23 beda antar-sumber)",
+   "alt": {
+    "t": "first",
+    "caption": "Awal shot: map ARSIP masuk"
+   }
+  },
+  {
+   "vo": "kantong plastik minimarket nggak lagi gratis.",
+   "aksi": "Meja kasir dengan gulungan kantong; slip \"kasir minimarket\"; cap hijau GRATIS · SEBELUM 2016 dicoret merah di kata \"gratis\", lalu label Rp200 ditepuk ke gulungan kantong.",
+   "kamera": "Push-in + getar di coretan",
+   "teks": "kasir minimarket · GRATIS ✗ · Rp200",
+   "gambar": "AI kasir_kantong + kode"
+  },
+  {
+   "vo": "Harganya dua ratus rupiah—",
+   "aksi": "Struk minimarket 2016 meluncur; baris KANTONG PLASTIK 200 distabilo kuning di \"dua\"; panah tinta ke koin 200; label Rp200.",
+   "kamera": "Push-in 1,02→1,08",
+   "teks": "struk (harga barang = ilustrasi) · 200 RUPIAH · Rp200",
+   "gambar": "kode: struk_hl, koin200, tag"
+  },
+  {
+   "vo": "recehan yang biasanya diganti permen.",
+   "aksi": "Koin + tiga permen (diwarnai tangan, §L: hijau, jingga, merah bata; koin tetap tinta); koin 200 terbang ke pojok, panah tinta koin → permen; slip \"kembalian Rp200 = permen\".",
+   "kamera": "Push-in pelan",
+   "teks": "kembalian Rp200 = permen",
+   "gambar": "AI koin_permen + peta tint koin_permen.tint.png"
+  },
+  {
+   "beat": "Turn: angka",
+   "vo": "Sejak itu, cuma dalam tiga bulan,",
+   "aksi": "Lembar kalender 2016 ditepuk bertumpuk: FEB → MAR (\"cuma\") → APR (\"tiga\") → MEI (\"bulan\"); kantong + label Rp200 di kiri; slip 3 BULAN.",
+   "kamera": "Statis 1,00→1,05",
+   "teks": "2016 · FEB/MAR/APR/MEI · 3 BULAN",
+   "gambar": "kode: kalender + AI kantong_hero"
+  },
+  {
+   "vo": "pemakaian kantong plastik turun sampai tiga puluh persen.",
+   "aksi": "Grafik PEMAKAIAN KANTONG (FEB–MEI, skala 0–100, garis putus 70): garis merah ditarik dari 100 ke 70; ikon kantong besar di awal, kecil di akhir; slip TURUN S.D. 30%. Atribusi sangat kecil di sudut grafik (sumber: KLHK, 2016).",
+   "kamera": "Push-in + getar di \"tiga\"",
+   "teks": "PEMAKAIAN KANTONG · TURUN S.D. 30%",
+   "gambar": "kode: grafik (hanya titik akhir; tanpa angka antara yang dikarang)"
+  },
+  {
+   "vo": "Anehnya, dua ratus perak itu bukan rugi besar.",
+   "aksi": "Struk lagi: baris 200 dilingkari merah, TOTAL 24.200 distabilo; koin 200 kecil; slip RUGI BESAR? dicoret.",
+   "kamera": "Push-in pelan",
+   "teks": "RUGI BESAR? ✗",
+   "gambar": "kode: struk_tot, m_circle, koin200"
+  },
+  {
+   "vo": "Lalu kenapa orang sampai menolak?",
+   "aksi": "Dua tangan: kiri menyodorkan kantong (berlabel Rp200), kanan telapak terbuka menolak; tanda ? huruf tebusan; cap DITOLAK di \"menolak\".",
+   "kamera": "Push-in + getar",
+   "teks": "? · DITOLAK · Rp200",
+   "gambar": "AI tolak_kantong + kode"
+  },
+  {
+   "beat": "Turn: petunjuk Amerika",
+   "vo": "Petunjuknya datang dari Amerika.",
+   "aksi": "Halaman JURNAL EKONOMI · 2018 (\"Pajak 5 sen vs bonus 5 sen\", tabel: pajak → turun jauh, bonus → nyaris sama); kasir supermarket Amerika masuk; peta Indonesia kecil di pojok + garis putus merah dari Amerika ke Indonesia; slip AMERIKA SERIKAT.",
+   "kamera": "Push-in pelan",
+   "teks": "JURNAL EKONOMI · 2018 · AMERIKA SERIKAT",
+   "gambar": "kode: jurnal (Homonoff 2018, diterjemahkan) + AI toko_as"
+  },
+  {
+   "vo": "Di satu daerah, tiap kantong harus dibayar lima sen.",
+   "aksi": "Sisi kiri (merah): slip Montgomery County, Maryland · 2012, DAERAH INI, kantong, label BAYAR 5 SEN, koin 5¢ jatuh.",
+   "kamera": "Kamera fokus kiri (1,06→1,10)",
+   "teks": "Montgomery County, Maryland · 2012 · DAERAH INI · BAYAR 5 SEN",
+   "gambar": "AI kantong_hero + kode"
+  },
+  {
+   "vo": "Di toko lain, yang bawa tas sendiri justru dapat bonus lima sen.",
+   "aksi": "Kamera membuka ke dua sisi berdampingan (garis putus pemisah): kanan (kuning) TOKO LAIN, tangan mengangkat tas kain, label BONUS 5 SEN, koin 5¢. Dua kebijakan, nilai sama, terlihat bersebelahan.",
+   "kamera": "Geser kiri→tengah, zoom keluar",
+   "teks": "TOKO LAIN · BONUS 5 SEN",
+   "gambar": "AI tas_kain + kode"
+  },
+  {
+   "vo": "Yang harus bayar, banyak yang berhenti pakai kantong.",
+   "aksi": "Kiri: pembeli Amerika memeluk belanjaan tanpa kantong (lucu) + label BAYAR 5 SEN + slip \"berhenti pakai kantong\"; barisnya 5 siluet, 2 kantong dicoret (≈ turun 42 poin persen). Kanan: pembeli yang sama berjalan dengan kantong, masih redup. Tinggi kepala keduanya disamakan.",
+   "kamera": "Geser pelan ke kiri",
+   "teks": "berhenti pakai kantong · BAYAR 5 SEN",
+   "gambar": "AI pembeli_peluk + pembeli_kantong (redup) + kode"
+  },
+  {
+   "vo": "Yang dapat bonus? Tetap pakai kantong seperti biasa.",
+   "aksi": "Kanan menyala: pembeli dengan kantong penuh + label BONUS 5 SEN; barisnya 5 siluet, semua tetap menjinjing kantong, centang hijau. Kiri jadi redup.",
+   "kamera": "Geser pelan ke kanan",
+   "teks": "BONUS 5 SEN · ✓",
+   "gambar": "AI pembeli_kantong + kode"
+  },
+  {
+   "beat": "Prestige: rasa rugi",
+   "vo": "Nilainya sama-sama lima sen.",
+   "aksi": "[jeda 0,6 dtk] Timbangan arsip (gambar AI dipotong jadi tiang, lengan, dua piring) jatuh masuk dan diam seimbang; koin 5¢ di tiap piring; label BAYAR | BONUS di bawah piring; slip SAMA-SAMA 5 SEN.",
+   "kamera": "Push-in pelan, getar saat timbangan mendarat",
+   "teks": "SAMA-SAMA 5 SEN · BAYAR · BONUS",
+   "gambar": "AI timbangan (4 potongan teregistrasi) + kode",
+   "alt": {
+    "t": 36.4,
+    "caption": "Jeda pengungkapan: timbangan mendarat seimbang"
+   }
+  },
+  {
+   "vo": "Tapi bonus terasa seperti untung kecil,",
+   "aksi": "Lengan timbangan mulai miring (piring tetap tergantung tegak); piring bonus sedikit naik, label UNTUNG (kuning) kecil.",
+   "kamera": "Geser ke piring kanan, push-in",
+   "teks": "UNTUNG",
+   "gambar": "AI timbangan + kode"
+  },
+  {
+   "vo": "sedangkan bayar kantong",
+   "aksi": "Kamera ke piring kiri: kantong jatuh ke piring BAYAR, piring itu turun jauh (getar).",
+   "kamera": "Geser ke kiri",
+   "teks": "BAYAR",
+   "gambar": "AI timbangan + kantong_hero"
+  },
+  {
+   "vo": "terasa seperti kehilangan barang yang tadinya gratis.",
+   "aksi": "Tangan terbuka, koin terlepas dari jari; kantong yang tadinya di telapak melayang pergi; slip \"tadinya gratis\"; cap RUGI menempel di tangan (yang merasa rugi).",
+   "kamera": "Push-in + getar di \"gratis\"",
+   "teks": "tadinya gratis · RUGI",
+   "gambar": "AI koin_jatuh + kantong_hero"
+  },
+  {
+   "vo": "Otak kita lebih benci rugi daripada senang untung.",
+   "aksi": "Timbangan miring penuh: piring RUGI (kantong + koin) di bawah dengan panah merah ke bawah; piring UNTUNG di atas dengan panah tinta ke atas.",
+   "kamera": "Push-in + getar di \"rugi\"",
+   "teks": "RUGI · UNTUNG",
+   "gambar": "AI timbangan + kode"
+  },
+  {
+   "beat": "Penutup (Lain kali)",
+   "vo": "Lain kali, kalo yang biasanya gratis tiba-tiba berbayar,",
+   "aksi": "Kembali ke Indonesia: struk + kantong; cap hijau GRATIS di \"gratis\" lalu dicoret merah di \"berbayar\"; label Rp200 ditepuk; baris KANTONG PLASTIK 200 distabilo.",
+   "kamera": "Push-in + getar",
+   "teks": "GRATIS ✗ · Rp200",
+   "gambar": "kode: struk_hl + AI kantong_hero"
+  },
+  {
+   "vo": "perhatikan rasa beratnya—",
+   "aksi": "Timbangan lagi, kali ini kantong ber-label Rp200 di piring kiri yang turun, koin 200 di piring kanan yang ringan; slip \"rasa beratnya\".",
+   "kamera": "Push-in pelan",
+   "teks": "rasa beratnya · Rp200 · 200",
+   "gambar": "AI timbangan + kantong_hero + koin200"
+  },
+  {
+   "vo": "yang kamu hitung bukan uangnya, tapi rasa ruginya.",
+   "aksi": "Loop ke frame 0: kantong besar + label Rp200 + koin 200 di posisi yang sama; koin dicoret di \"uangnya\"; cap RASA RUGI di posisi cap DITOLAK frame 0 di \"ruginya\".",
+   "kamera": "Push-in 1,02→1,07 + getar",
+   "teks": "RASA RUGI · Rp200",
+   "gambar": "AI kantong_hero + kode"
+  }
+ ]
+}

@@ -119,11 +119,11 @@ const SHOTS = [
   // 07 · Sejak itu, cuma dalam tiga bulan,   calendar pages FEB → MAR → APR → MEI; 3 BULAN; the bag with its tag stays in the corner
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 800 }); bg(SET.data, u, true);
-    putK('kantong_hero', slide(0, 0.2, 200, 820, -6, -700, 0, 0, 0.5), u, 70, { s: 0.42 });
+    putK('kantong_hero', slide(0, 0.2, 200, 830, -6, -700, 0, 0, 0.5), u, 70, { s: 0.46 });
     putK('tag_rp200', slide(0.05, 0.25, 240, 1010, -8, -700, 0, 0, 0.5), u, 71, { s: 0.55 });
     const pages = [['kal_feb', 0.05], ['kal_mar', at(6, 'cuma')], ['kal_apr', at(6, 'tiga')], ['kal_mei', at(6, 'bulan')]];
-    pages.forEach(([n, t], i) => putK(n, slap(t, 600 + i * 22, 520 + i * 14, [-4, 3, -2, 4][i]), u, 72 + i, { s: 1.15 }));
-    putK('s_3bulan', slap(at(6, 'bulan') + 0.1, 640, 960, -3), u, 77);
+    pages.forEach(([n, t], i) => putK(n, slap(t, 610 + i * 20, 540 + i * 14, [-4, 3, -2, 4][i]), u, 72 + i, { s: 1.4 }));
+    putK('s_3bulan', slap(at(6, 'bulan') + 0.1, 680, 1010, -3), u, 77);
   },
   // 08 · pemakaian kantong plastik turun sampai tiga puluh persen.   the chart: the red line runs from 100 (FEB) down to 70 (MEI); -30%
   (u, T, d) => {
@@ -243,8 +243,8 @@ const SHOTS = [
     stage(u, d, { z0: 1.0, z1: 1.06, cy: 760, shake: [[tg, 12]] }); bg(SET.loss, u, true);
     putK('koin_jatuh', slide(0, 0.2, 600, 640, 0, 900, 0, 0, -0.4), u, 190, { s: 0.9 });
     const fl = seg(u, at(18, 'kehilangan'), d);
-    put('kantong_hero', 230 - 40 * fl, 420 - 160 * fl, -8 - 10 * fl, 1.5 + fl, 1, 0.34 - 0.06 * fl, 1 - 0.35 * fl);
-    putK('s_tadinya', slap(at(18, 'tadinya'), 250, 700 - 160 * fl, -4), u, 191, { s: 0.85, a: 1 - 0.3 * fl });
+    const fe = EASE.out(fl); put('kantong_hero', 470 - 250 * fe, 500 - 220 * fe, -4 - 14 * fe, 0.5 + 2 * fe, 1, 0.34 - 0.06 * fe, 1 - 0.3 * fe);
+    putK('s_tadinya', slap(at(18, 'tadinya'), 250, 520, -4), u, 191, { s: 0.85 });
     stampAt('st_rugi', u, tg, 640, 960, -8, 0.85);
   },
   // 20 · Otak kita lebih benci rugi daripada senang untung.   the balance fully tipped: RUGI pan (bag + coin) down, UNTUNG up; a head silhouette
