@@ -55,3 +55,6 @@ Whisper medium mendengar "sepertiga **tahun**" untuk "paun" pertama (±6 dtk men
 
 ## Prompt Flow (17 Nov 2026)
 `kolase/flow_prompts.md` (dibuat generator batch `research/batch_009_012/flow_prompts_gen.py`; halaman salin https://claude.ai/artifact/FhZiaveDueextaSFX3VAab). Hasil → folder Drive episode → `kolase/ai/<label>.jpg`.
+
+## Gambar Flow diterima (17 Nov 2026)
+Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 diterima kecuali `burger_dua` (beda tebal patty kurang terbaca → ulang). Resolusi 2400 px. Prompt perbaikan: `research/batch_009_012/flow_ulang_lokal.txt`. VO + script_vo diunggah ke folder Drive episode.

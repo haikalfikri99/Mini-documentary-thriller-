@@ -67,3 +67,6 @@ Penutup (default: Reframing Sistemik / Circular Reframe Loop; ekor audio ≤ 0,1
 
 ## Prompt Flow (17 Nov 2026)
 `kolase/flow_prompts.md` (dibuat generator batch `research/batch_009_012/flow_prompts_gen.py`; halaman salin https://claude.ai/artifact/FhZiaveDueextaSFX3VAab). Hasil → folder Drive episode → `kolase/ai/<label>.jpg`.
+
+## Gambar Flow diterima (17 Nov 2026)
+Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 9/9 ada; `kasir_kantong` diulang (gulungan kantong terbaca seperti tisu); tambah `timbangan` (prestige). Resolusi ±1024 px → minta unduhan upscaled. Prompt perbaikan: `research/batch_009_012/flow_ulang_lokal.txt`. VO + script_vo diunggah ke folder Drive episode.

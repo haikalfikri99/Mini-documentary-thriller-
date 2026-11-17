@@ -1,0 +1,34 @@
+TUGAS: perbaikan gambar Google Flow ARSIP KASUS #009-#012 lewat MCP flow-mcp, lalu unggah ke Google Drive. Pakai flow_agent_images (Agent mode, banyak gambar sekaligus), JANGAN flow_generate satu per satu. Jangan membuka/melihat gambar (hemat token); sesi cloud yang memeriksa. Jangan regenerate tanpa izin user.
+
+LANGKAH 1 — 5 gambar baru (3 panggilan, berurutan). Hasil per panggilan diberi nama sesuai URUTAN scene. Bila urutan file tidak pasti: unggah dengan nama asli + catat panggilannya.
+
+PANGGILAN U1: flow_agent_images project="ARSIP_ulang_43" aspect_ratio="4:3" download_quality="upscaled"
+  urutan label: burger_dua, kasir_kartu
+  scenes:
+  1. Two generic hamburgers side by side, seen from the side at eye level, identical sesame-free buns, each half-wrapped in plain paper; the LEFT burger has a beef patty about one and a half times as thick as the RIGHT burger's patty, so the difference in thickness is obvious at a glance; no table, no floor line. Vintage 19th-century steel engraving illustration, black ink cross-hatching, no color; one isolated subject on a plain pure-white background, no shadow, no frame, white margin; absolutely no text, letters, numbers, logos or watermark; generic faces, natural hands with five fingers.
+  2. Close-up of a hand reaching across a shop counter toward the viewer, holding a large blank rectangular paper loyalty card flat and facing the viewer squarely, the card filling about half of the image width, completely empty with no boxes, no marks and no text. Vintage 19th-century steel engraving illustration, black ink cross-hatching, no color; one isolated subject on a plain pure-white background, no shadow, no frame, white margin; absolutely no text, letters, numbers, logos or watermark; generic faces, natural hands with five fingers.
+
+PANGGILAN U2: flow_agent_images project="ARSIP_ulang_11" aspect_ratio="1:1" download_quality="upscaled"
+  urutan label: kasir_kantong, timbangan
+  scenes:
+  1. A small Indonesian minimarket checkout counter seen from the customer side, no people: a cash register, and hanging prominently from a hook beside it a thick bundle of thin crinkled plastic shopping bags with two loop handles (the singlet-style bags given at checkout), a few snacks on the counter; no signs, no text. Vintage 19th-century steel engraving illustration, black ink cross-hatching, no color; one isolated subject on a plain pure-white background, no shadow, no frame, white margin; absolutely no text, letters, numbers, logos or watermark; generic faces, natural hands with five fingers.
+  2. A classic brass two-pan balance scale, front view, perfectly level, both pans empty, simple vertical stand with a center pointer. Vintage 19th-century steel engraving illustration, black ink cross-hatching, no color; one isolated subject on a plain pure-white background, no shadow, no frame, white margin; absolutely no text, letters, numbers, logos or watermark.
+
+PANGGILAN U3: flow_agent_images project="ARSIP_ulang_34" aspect_ratio="3:4" download_quality="upscaled"
+  urutan label: kalender_sobek
+  scenes:
+  1. A wall tear-off day calendar hanging on a nail: a neat rectangular block of clean blank pages with a plain header strip, the top page half torn off and curling forward with a clean tear line, the page below perfectly blank; all pages completely blank with no numbers. Vintage 19th-century steel engraving illustration, black ink cross-hatching, no color; one isolated subject on a plain pure-white background, no shadow, no frame, white margin; absolutely no text, letters, numbers, logos or watermark.
+
+UNGGAH hasil LANGKAH 1 ke subfolder "Bahan images" episode (create_file, title=<label>.<ext>, disableConversionToGoogleType=true, base64Content = sha256:<hash>:<path absolut pakai />; hash: (Get-FileHash -Algorithm SHA256 <path>).Hash.ToLower()):
+  burger_dua     -> 1mLeIWKZIyl5hDOVZTqTBPD7e_LKJDm10 (009)
+  kasir_kantong  -> 1M0YwQh_uPQiZmnAWwhNNAQcOlYeBMnmV (010)
+  timbangan      -> 1M0YwQh_uPQiZmnAWwhNNAQcOlYeBMnmV (010)
+  kalender_sobek -> 1eb3h6hprh710jWGOI64-XspLZhrnWbQF (011)
+  kasir_kartu    -> 1LwNaRXPPVYJN56cjHzJK9ayx8vPn9CCb (012)
+Nama sama dengan file lama tidak apa-apa; sesi cloud yang membuang versi lama.
+
+LANGKAH 2 (resolusi; hanya bila TIDAK memakan kredit — kalau Flow minta kredit untuk upscale, lewati dan lapor): gambar #010-#012 kemarin terunduh kecil (sekitar 1024 px), #009 sudah 2400 px. Untuk tiap proyek kemarin ARSIP_010_34, ARSIP_010_11, ARSIP_010_43, ARSIP_010_B, ARSIP_011_34, ARSIP_011_11, ARSIP_011_43, ARSIP_012_43, ARSIP_012_11, ARSIP_012_B: lihat asetnya dengan flow_assets, lalu flow_download project=<proyek> assets=[semua aset gambar di proyek itu] quality="upscaled". Ganti nama ke label yang sama seperti kemarin (pakai pemetaan kemarin), lalu unggah ke "Bahan images" episodenya:
+  010 -> 1M0YwQh_uPQiZmnAWwhNNAQcOlYeBMnmV · 011 -> 1eb3h6hprh710jWGOI64-XspLZhrnWbQF · 012 -> 1LwNaRXPPVYJN56cjHzJK9ayx8vPn9CCb
+Jangan unggah ulang kasir_kantong, kalender_sobek, kasir_kartu versi lama.
+
+LAPORAN: tabel label -> file -> status (OK / gagal + alasan) + apakah LANGKAH 2 jalan. Lalu user mengetik di sesi cloud: "perbaikan gambar sudah di Drive".
