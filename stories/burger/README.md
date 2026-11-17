@@ -38,7 +38,7 @@ Kedekatan sehari-hari 3 (kasus AS, tetapi label pecahan di rak dikenal) · Kontr
 Tidak diketahui (tidak boleh diucapkan): ukuran sampel, metode tes rasa, besaran penurunan penjualan, apakah pecahan adalah satu-satunya penyebab, hasil penjualan relaunch 2021.
 
 ## Paket terkunci (user)
-**Judul:** `Burger Lebih Besar Ini Gagal Gara-Gara Angka` (44 karakter; "& Murah" dihapus, revisi #1). Judul asli user: `Burger Lebih Besar & Murah Ini Gagal Gara-Gara Angka`.
+**Judul:** `Burger Lebih Besar dan Lebih Enak Ini Gagal Gara-Gara Angka` (59 karakter; revisi user 17 Nov: "& Murah" dihapus, "dan Lebih Enak" ditambah). Judul asli user: `Burger Lebih Besar & Murah Ini Gagal Gara-Gara Angka`.
 **Skrip AV 2 kolom:** `audio/script_av_locked.md`; VO bersih `audio/script_vo.txt`; prompt bertag `audio/vo_prompt_elevenlabs.md`.
 
 ## Catatan lanjut
@@ -47,3 +47,4 @@ Tidak diketahui (tidak boleh diucapkan): ukuran sampel, metode tes rasa, besaran
 - **Keputusan user 17 Nov 2026:** opsi B **terbatas**: hanya "lebih murah" yang diperbaiki (H1, "Harganya lebih miring", judul); 4 temuan lain tidak disentuh. Skrip dikirim di chat (durasi + skrip, tanda bagian/formula), tanpa tabel AV. VO digenerate setelah user ketik "lanjut" (Opus + effort high). #009 = gold standard rasa tulisan #010–#012 (`7-selera` #78–#79).
 
 - **17 Nov 2026 (Opus):** revisi #1 diterapkan di `script_vo.txt`, `vo_prompt_elevenlabs.md`, `script_av_locked.md` (teks H1/seg. 2 + visual frame 0: dua label harga identik). `script_vo_usulan_patch.txt` dihapus (usang). VO belum digenerate: user hanya meminta revisi teks di langkah ini.
+- **17 Nov 2026 (review user ke-2):** judul + "dan Lebih Enak"; H1 "justru gagal total" → "justru nggak laku"; penutup jadi "Lain kali, kalo kamu bandingin … sebelum sempat ngitung". Gaya tutur diseragamkan "nggak" untuk seluruh batch.
