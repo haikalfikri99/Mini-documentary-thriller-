@@ -48,3 +48,7 @@ Tidak diketahui (tidak boleh diucapkan): ukuran sampel, metode tes rasa, besaran
 
 - **17 Nov 2026 (Opus):** revisi #1 diterapkan di `script_vo.txt`, `vo_prompt_elevenlabs.md`, `script_av_locked.md` (teks H1/seg. 2 + visual frame 0: dua label harga identik). `script_vo_usulan_patch.txt` dihapus (usang). VO belum digenerate: user hanya meminta revisi teks di langkah ini.
 - **17 Nov 2026 (review user ke-2):** judul + "dan Lebih Enak"; H1 "justru gagal total" → "justru nggak laku"; penutup jadi "Lain kali, kalo kamu bandingin … sebelum sempat ngitung". Gaya tutur diseragamkan "nggak" untuk seluruh batch.
+
+## VO (17 Nov 2026)
+`audio/raw_take1.mp3` (konektor ElevenLabs, Saos Cocol, eleven_v4, 1 take, 834 kredit) → `vo_tighten.py --min-dur 0 --max-dur 999 --hold <idx>:<dtk>` → `audio/vo_burger.mp3`: akhir kata 43,1 dtk, 2,48 kata/dtk, atempo 1,100, jeda pengungkapan 0,61 dtk (diukur). `vo_words.json` = align_vo pada file final.
+Whisper medium mendengar "sepertiga **tahun**" untuk "paun" pertama (±6 dtk mentah); "pound" kedua terdengar benar. Menunggu dengar user.

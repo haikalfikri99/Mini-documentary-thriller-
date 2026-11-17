@@ -1,0 +1,15 @@
+{
+ "slug": "kantong",
+ "no": 10,
+ "title": "",
+ "case_line": "KANTONG",
+ "vo": "audio/vo_kantong.mp3",
+ "words": "audio/vo_words.json",
+ "dur": 0,
+ "report": [
+  [
+   0,
+   0
+  ]
+ ]
+}

@@ -13,7 +13,9 @@ ap = argparse.ArgumentParser(); ap.add_argument('raw'); ap.add_argument('words')
 ap.add_argument('--max', type=float, default=1.10); ap.add_argument('--wps', type=float, default=2.66)
 ap.add_argument('--sent', type=float, default=.22); ap.add_argument('--comma', type=float, default=.13)
 ap.add_argument('--min-dur', type=float, default=50.5); ap.add_argument('--max-dur', type=float, default=54.5)
+ap.add_argument('--hold', action='append', default=[], help='IDX:DTK = jeda dramatis FINAL setelah kata ke-IDX (0-based) di raw_words; dipotong ATAU ditambah hening agar tepat (batch #009+: 0,6 dtk sebelum pengungkapan)')
 A = ap.parse_args()
+HOLD = {int(h.split(':')[0]): float(h.split(':')[1]) for h in A.hold}
 SR, HOP = 48000, 480
 TGT = {'.': A.sent, '?': A.sent, '!': A.sent, '…': .25, ':': .15, ',': A.comma, '': .10}
 y = np.frombuffer(subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', A.raw, '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-'],
@@ -43,14 +45,17 @@ def runs():
 R = runs()
 def tighten(f):
     """cut list [(start_sample, end_sample)] for tempo factor f (targets are final values, so pre-tempo target = t*f)"""
-    cuts = [(0, max(0, first * HOP - int(.03 * SR)))]
-    for (s, e), p in R:
-        have = (e - s) * HOP / SR; want = TGT[p] * f
+    cuts = [(0, max(0, first * HOP - int(.03 * SR)))]; ins.clear()
+    for k, ((s, e), p) in enumerate(R):
+        have = (e - s) * HOP / SR; want = HOLD.get(k, TGT[p]) * f
         if have > want + .02:
             mid = (s + e) * HOP // 2; half = int((have - want) * SR / 2); cuts.append((mid - half, mid + half))
+        elif k in HOLD and have < want - .02:   # jeda dramatis terlalu pendek: sisipkan hening digital di tengah celah
+            mid = (s + e) * HOP // 2 if e > s else int(W[k][1] * SR); ins.append((mid, int((want - have) * SR)))
     return cuts
+ins = []
 def new_time(t, cuts):
-    x = int(t * SR); return (x - sum(min(max(x - a, 0), b - a) for a, b in cuts)) / SR
+    x = int(t * SR); return (x - sum(min(max(x - a, 0), b - a) for a, b in cuts) + sum(L for q, L in ins if q < x)) / SR
 target = min(max(len(W) / A.wps, A.min_dur), A.max_dur)
 def solve():
     f = 1.0
@@ -62,8 +67,10 @@ if f >= A.max - 1e-6:                      # tempo mentok di batas: pakai batas 
     TGT.update({'.': .18, '?': .18, '!': .18, ',': .10}); f = solve(); mode = 'rapat (tempo mentok di batas)'
 cuts = tighten(f)
 keep, pos, xf = [], 0, int(.008 * SR)
-for a, b in sorted(cuts):
-    if b > a: keep.append(y[pos:a]); pos = b
+ops = sorted([(a, b, 0) for a, b in cuts if b > a] + [(q, q, L) for q, L in ins])
+for a, b, L in ops:
+    keep.append(y[pos:a]); pos = b
+    if L: keep.append(np.zeros(L))
 keep.append(y[pos:])
 out = keep[0]
 for seg in keep[1:]:
@@ -76,4 +83,4 @@ raw_end, tight_end = W[-1][1], new_time(W[-1][1], cuts); fin = tight_end / f
 cut_s = sum(b - a for a, b in cuts) / SR
 print(json.dumps({'kata': len(W), 'mentah_akhir_kata': round(raw_end, 2), 'mentah_wps': round(len(W) / raw_end, 2),
                   'jeda_dipangkas_dtk': round(cut_s, 2), 'setelah_rapat': round(tight_end, 2), 'atempo': round(f, 3),
-                  'akhir_kata_final': round(fin, 2), 'wps_final': round(len(W) / fin, 2), 'target': round(target, 2), 'jeda': mode}))
+                  'akhir_kata_final': round(fin, 2), 'wps_final': round(len(W) / fin, 2), 'target': round(target, 2), 'jeda': mode, 'hold': {k: v for k, v in HOLD.items()}, 'hening_disisipkan_dtk': round(sum(L for _, L in ins) / SR, 2)}))
