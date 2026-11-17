@@ -1,0 +1,15 @@
+{
+ "slug": "burger",
+ "no": 9,
+ "title": "",
+ "case_line": "BURGER \u00b7 1980-AN",
+ "vo": "audio/vo_burger.mp3",
+ "words": "audio/vo_words.json",
+ "dur": 0,
+ "report": [
+  [
+   0,
+   0
+  ]
+ ]
+}
