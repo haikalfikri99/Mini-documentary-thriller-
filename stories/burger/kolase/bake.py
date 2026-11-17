@@ -34,7 +34,7 @@ def price_tag():
         d.ellipse([X(28), X(80), X(58), X(110)], fill=C(INK * 1.2))
         d.line([X(43), X(95), X(-10), X(40)], fill=C(INK), width=max(2, int(3 * k)))
         f = font(F_SLAB, 44 * k); d.text((X(84), X(34)), 'HARGA', font=f, fill=C(INK))
-        for x in range(84, 280, 22): d.line([X(x), X(140), X(x + 12), X(140)], fill=C(INK), width=max(2, int(4 * k)))
+        fp = font(F_CPB, 40 * k); d.text((X(84), X(104)), 'Rp25.000', font=fp, fill=C(RED))   # illustrative price (user: any estimate, as long as both are the same)
     bk.doc('tag_harga', 300, 190, CARD, draw, seed=901, rough=0.3, shape=shape)
 
 
@@ -61,6 +61,9 @@ def chart():
         d.line([X(70), X(40), X(70), X(460), X(640), X(460)], fill=C(INK), width=w)
         for y in range(90, 460, 70): d.line([X(70), X(y), X(640), X(y)], fill=C(INK * 3.2), width=max(1, int(1.5 * k)))
         f = font(F_SLAB, 44 * k); d.text((X(100), X(470)), 'PENJUALAN', font=f, fill=C(INK))
+        ft = font(F_CPB, 26 * k); d.text((X(470), X(478)), 'waktu ->', font=ft, fill=C(INK))
+        d.line([X(140), X(60), X(140), X(450)], fill=C(INK * 2.2), width=max(2, int(3 * k)))
+        d.text((X(150), X(56)), 'PELUNCURAN', font=ft, fill=C(INK))
     bk.doc('grafik', 680, 540, CARD, draw, seed=921, rough=0.4)
 
 
@@ -79,6 +82,22 @@ def interview():
             d.text((X(140), X(y + 2)), t, font=fr, fill=C(INK))
         for y in (460, 510): d.line([X(40), X(y), X(640), X(y)], fill=C(INK * 3), width=max(1, int(1.5 * k)))
     bk.doc('lembar_wawancara', 680, 560, NEWS, draw, seed=931, rough=0.5)
+
+
+def crowd():
+    """'more than half of the people': ten pictogram people; the red version marks six of them (illustrative, sources say ~half or more)"""
+    def mk(name, red):
+        def draw(img, d, k, P):
+            X = lambda v: P + v * k
+            for i in range(10):
+                cx, cy = 60 + (i % 5) * 120, 40 + (i // 5) * 230
+                col = C(RED) if i < red else C(INK)
+                d.ellipse([X(cx - 26), X(cy), X(cx + 26), X(cy + 52)], fill=col)
+                d.rounded_rectangle([X(cx - 42), X(cy + 60), X(cx + 42), X(cy + 170)], radius=int(26 * k), fill=col)
+                if i < red:
+                    fq = font(F_SLAB, 44 * k); d.text((X(cx + 22), X(cy - 26)), '?', font=fq, fill=C(RED))
+        bk.doc(name, 620, 470, CARD, draw, seed=961, rough=0.4)
+    mk('orang10', 0); mk('orang10_merah', 6)
 
 
 def half_bar():
@@ -109,15 +128,14 @@ def slips():
          ('s_c3', '1/3 = 0,33', F_CPB, 64, CARD, INK), ('s_c4', '1/4 = 0,25', F_CPB, 64, CARD, INK),
          ('s_pecahan', 'pecahan', F_FELLI, 52, AMBER, INK),
          ('tag_13', 'BONUS 1/3', F_SLAB, 52, CARD, RED), ('tag_14', 'HEMAT 1/4', F_SLAB, 52, CARD, RED),
-         ('s_src1', 'menurut memoar pemilik A&W (2007)', F_CP, 30, NEWS, INK),
+         ('s_iklan', 'iklan TV & radio', F_FELLI, 40, CARD, INK), ('s_gt', '1/3 > 1/4', F_SLAB, 80, CARD, GREEN),
+         ('s_a', 'A', F_SLAB, 60, CARD, INK), ('s_tebal', 'lebih tebal', F_FELLI, 46, AMBER, INK), ('s_b', 'B', F_SLAB, 60, CARD, INK), ('s_riset', 'firma riset pasar', F_CPB, 38, NEWS, INK),
          ('tag_13h', 'BONUS 1/3', F_SLAB, 52, AMBER, RED)]
     for i, (n, tx, f, s, pa, ik) in enumerate(T):
         bk.strip(n, tx, f, s * 1.3, pa, ik, 410 + i, mono=f.startswith('Courier'))
     for n, tx, f, s, pa, ik, sd in [('n3', '3', F_SLAB, 420, CARD, INK, 471), ('n4', '4', F_SLAB, 420, CARD, INK, 472),
                                     ('n_lt', '<', F_SLAB, 260, AMBER, INK, 473), ('n_vs', 'vs', F_FELLI, 110, NEWS, INK, 474)]:
         bk.strip(n, tx, f, s, pa, ik, sd, padx=26, pady=4)
-    src = ['sumber: Culinary Lore · blog A&W (2021) · Wikipedia', 'memoar A. Alfred Taubman, Threshold Resistance (2007)']
-    bk.strip('s_src', src[0], F_CP, 26, NEWS, INK, 480, mono=True, lines=src, align='center')
     bk.ransom('ry80', '1980-AN', 120, 3)
     bk.ransom('rq', '?', 190, 4)
 
@@ -128,7 +146,7 @@ if __name__ == '__main__':
     if ONLY and os.path.exists(prev):
         bk.M = json.load(open(prev)); bk.M.pop('_', None)
     for g, fn in [('signature', lambda: bake_signature(bk, '#%03d' % EP['no'], EP.get('case_line', EP['slug'].upper()))),
-                  ('docs', lambda: (price_tag(), taste_card(), chart(), interview(), half_bar())),
+                  ('docs', lambda: (price_tag(), taste_card(), chart(), interview(), half_bar(), crowd())),
                   ('stamps', stamps), ('slips', slips), ('prints', lambda: bake_prints(bk, HERE))]:
         if want(g): fn(); print('baked', g)
     bk.done()
