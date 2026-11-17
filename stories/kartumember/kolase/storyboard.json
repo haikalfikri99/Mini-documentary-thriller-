@@ -1,0 +1,199 @@
+{
+ "no": 12,
+ "slug": "kartumember",
+ "version": "v1",
+ "title": "Cara halus kartu member <em>bikin kamu balik lagi</em>",
+ "sub": "Storyboard 24 shot. Tiap keyframe adalah render kode asli dari mesin kolase, diambil di 85% durasi shot, jadi cap atau teks yang masih bergerak bisa terlihat belum lengkap. Timing mengikuti VO final 50,0 dtk (film 50,4 dtk; jeda pengungkapan 0,59 dtk sebelum \"Bukan karena hadiahnya lebih besar\").",
+ "rules": [
+  "Pelajaran review #009 diterapkan: tiap shot punya subjek utama + 2–4 elemen pendukung (kartu, label angka, voucher, pelanggan, catatan); perbandingan selalu dua benda berdampingan (kartu 8 kosong vs kartu 10 dengan 2 cap, 4 dari 20 vs 7 dari 20, 19% vs 34%).",
+  "Kartu di tangan (tangan kiri = kartu 8 kotak kosong, tangan kanan/kasir = kartu 10 kotak dengan 2 cap GRATIS) dicetak kode langsung di kartu kosong gambar AI, jadi terbaca sebagai bagian gravir; cap GRATIS merah lewat peta warna (§L).",
+  "34% vs 19% (sumber sekunder) hanya di layar, tidak diucapkan; kerumunan 20 orang = 4 vs 7 (≈19% vs 34%). Garis waktu tanpa jumlah hari (tidak diketahui).",
+  "Kode warna: merah = cap jebakan/vonis (8 CAP, BEDA JAUH, NANGGUNG, CUMA TERASA, cap GRATIS), biru arsip = sistem (0 CAP, SAMA PERSIS, LEBIH CEPAT, centang), kuning = sorotan angka (8, stabilo kotak sisa, 34%).",
+  "Tanpa logo dan tanpa strip sumber; atribusi studi hanya sangat kecil di sudut shot 7. Semua teks layar Bahasa Indonesia; label di atas y 1180, pita caption bersih. Visual QA otomatis: 0 peringatan.",
+  "Shot terakhir kembali ke komposisi frame 0 (dua tangan, dua kartu) untuk loop."
+ ],
+ "shots": [
+  {
+   "beat": "Hook (H1)",
+   "vo": "Dua kartu member ini sama-sama",
+   "aksi": "Detik 0: dua tangan sudah bergerak memegang dua kartu member — atas kartu 8 kotak kosong (tangan kiri), bawah kartu 10 kotak dengan 2 cap GRATIS merah (tangan kanan). Cap merah 8 CAP menghantam kartu atas di 0,12 dtk dan kartu bawah di 0,22 dtk.",
+   "kamera": "Push-in 1,02→1,06, getar di dua hantaman cap",
+   "teks": "8 CAP · 8 CAP",
+   "gambar": "AI kartu_tangan (kartu dicetak kode di dalam gambar; versi cermin untuk kartu 8 kotak) + kode",
+   "alt": {
+    "t": "first",
+    "caption": "Frame 0 (0,00 dtk): kedua kartu sudah di meja, cap belum mendarat"
+   }
+  },
+  {
+   "vo": "butuh delapan cap—tapi",
+   "aksi": "Label 8 KOTAK dan 10 KOTAK meluncur dari samping ke celah di antara kartu; angka 8 kuning besar ditepuk di samping tiap kartu pada kata \"delapan\".",
+   "kamera": "Push-in 1,05→1,08 + getar di \"delapan\"",
+   "teks": "8 KOTAK · 10 KOTAK · 8 · 8",
+   "gambar": "AI kartu_tangan ×2 + kode"
+  },
+  {
+   "vo": "hasilnya beda jauh.",
+   "aksi": "Kartu kosong (atas) mengecil dan memudar; kartu bercap (bawah) maju dan membesar. Cap merah BEDA JAUH di antara keduanya, centang biru arsip di kartu bercap, slip 2 / 10.",
+   "kamera": "Push-in + getar di \"beda\"",
+   "teks": "BEDA JAUH · 2 / 10",
+   "gambar": "AI kartu_tangan ×2 + kode"
+  },
+  {
+   "beat": "Pledge · jangkar Indonesia",
+   "vo": "Kartu begini pasti kamu kenal",
+   "aksi": "Tiga kartu cap sehari-hari jatuh ke meja seperti isi dompet: KARTU KOPI (6 cap), CUCI MOTOR (5 cap), kartu member polos; dua cap ditekan di kartu polos pada kata \"kenal\".",
+   "kamera": "Push-in pelan",
+   "teks": "KARTU KOPI · CUCI MOTOR · KARTU MEMBER",
+   "gambar": "kode (kartu cap) + cap"
+  },
+  {
+   "vo": "di kedai kopi atau cuci motor:",
+   "aksi": "Meja kedai kopi (kiri atas) dan motor berbusa (kanan bawah) meluncur masuk; kartu masing-masing ditepuk di sebelahnya tepat di kata \"kopi\" / \"motor\" + label tulisan tangan.",
+   "kamera": "Geser kanan pelan",
+   "teks": "kedai kopi · cuci motor",
+   "gambar": "AI kedai_kopi, cuci_motor + kartu kode"
+  },
+  {
+   "vo": "kumpulkan cap, dapat gratis satu.",
+   "aksi": "Tangan berstempel mengisi 8 kotak satu per satu (±0,1 dtk per cap), lalu voucher 1x CUCI GRATIS ditepuk di kata \"gratis\".",
+   "kamera": "Statis 1,00→1,05 + getar di voucher",
+   "teks": "8 cap = 1x GRATIS · VOUCHER 1x CUCI GRATIS",
+   "gambar": "AI stempel_tangan (kertas & bantalan tinta dihapus di kode) + kode"
+  },
+  {
+   "beat": "Pledge · kasus cuci mobil",
+   "vo": "Dua peneliti mencobanya di sebuah tempat cuci mobil.",
+   "aksi": "Map ARSIP KASUS #012 · KARTU · 2006 menutup layar ≤ 1,2 dtk (cap DIBUKA); di bawahnya tempat cuci mobil otomatis, dua siluet pengamat di kiri-kanan, lembar CATATAN KUNJUNGAN di tengah, label cuci mobil. Atribusi sangat kecil di sudut kiri atas.",
+   "kamera": "Push-in 1,04→1,08",
+   "teks": "ARSIP KASUS #012 · KARTU · 2006 · cuci mobil · studi: Nunes & Drèze, 2006 (kecil)",
+   "gambar": "AI cuci_mobil + seri (map, siluet) + kode (catatan)",
+   "alt": {
+    "t": "first",
+    "caption": "Awal shot: map ARSIP masuk"
+   }
+  },
+  {
+   "vo": "Sebagian pelanggan dapat kartu delapan kotak,",
+   "aksi": "Barisan 10 pelanggan (piktogram gravir) di atas; kurung kuning di bawah 5 orang kiri + slip \"sebagian\", panah ke tangan kiri yang menyodorkan kartu 8 kotak; label 8 KOTAK.",
+   "kamera": "Push-in pelan",
+   "teks": "sebagian · 8 KOTAK",
+   "gambar": "kode (barisan) + AI kartu_tangan (cermin)"
+  },
+  {
+   "vo": "capnya masih kosong.",
+   "aksi": "Kartu 8 kotak dekat; tangan berstempel melayang di atasnya tapi tidak menekan apa pun; slip 0 / 8, cap biru arsip 0 CAP di kata \"kosong\".",
+   "kamera": "Push-in 1,04→1,09",
+   "teks": "0 / 8 · 0 CAP",
+   "gambar": "kode + AI stempel_tangan"
+  },
+  {
+   "vo": "Sebagian lagi dapat kartu sepuluh kotak,",
+   "aksi": "Barisan yang sama; kurung kuning pindah ke 5 orang kanan + slip \"sebagian lagi\", panah ke tangan kanan yang menyodorkan kartu 10 kotak (masih kosong); label 10 KOTAK.",
+   "kamera": "Push-in pelan",
+   "teks": "sebagian lagi · 10 KOTAK",
+   "gambar": "kode + AI kartu_tangan"
+  },
+  {
+   "vo": "tapi dua kotaknya sudah dicap gratis.",
+   "aksi": "Tangan berstempel menekan cap merah GRATIS di kotak 1 (kata \"dua\") dan kotak 2 (kata \"dicap\"); slip 2 / 10; kartu 8 kotak kecil di pojok sebagai pembanding.",
+   "kamera": "Push-in + getar di tiap cap",
+   "teks": "GRATIS · GRATIS · 2 / 10",
+   "gambar": "kode + AI stempel_tangan"
+  },
+  {
+   "beat": "Turn · micro-rehook",
+   "vo": "Jarak ke hadiahnya sama persis:",
+   "aksi": "Dua kartu bertumpuk (8 kosong di atas, 10 dengan 2 cap di bawah). Stabilo kuning menyapu kotak yang masih harus diisi — 8 di atas, 8 di bawah; garis putus-putus ke voucher di ujung tiap kartu; cap SAMA PERSIS.",
+   "kamera": "Push-in + getar di \"sama\"",
+   "teks": "SAMA PERSIS · VOUCHER ×2",
+   "gambar": "kode"
+  },
+  {
+   "vo": "delapan kali cuci lagi.",
+   "aksi": "Komposisi sama, kamera mendekat; angka 8 kuning ditepuk di jalan menuju tiap voucher, tanda = di antara keduanya.",
+   "kamera": "Push-in 1,05→1,10, geser kanan",
+   "teks": "8 = 8",
+   "gambar": "kode"
+  },
+  {
+   "vo": "Anehnya, dibanding yang kartunya kosong,",
+   "aksi": "20 pelanggan kartu kosong (piktogram, 2 baris); di kata \"kosong\" 4 orang menyala kuning (= dapat cuci gratis) + slip 4 dari 20; kartu kosong kecil + label, lembar catatan kunjungan di kanan.",
+   "kamera": "Push-in pelan",
+   "teks": "kartu kosong · 4 dari 20",
+   "gambar": "kode"
+  },
+  {
+   "vo": "pelanggan yang kartunya sudah dicap hampir dua kali",
+   "aksi": "Kerumunan kartu kosong naik; kerumunan kartu bercap masuk dari kanan, 7 dari 20 menyala kuning di kata \"dicap\"; slip HAMPIR 2× di kata \"hampir\".",
+   "kamera": "Push-in pelan",
+   "teks": "kartu kosong · 4 dari 20 · kartu bercap · 7 dari 20 · HAMPIR 2×",
+   "gambar": "kode"
+  },
+  {
+   "vo": "lebih banyak yang dapat cuci gratis.",
+   "aksi": "Grafik DAPAT CUCI GRATIS: sumbu 0–40%, batang abu 19% (kartu kosong) dan batang kuning 34% (kartu bercap) masuk dari kiri; panah merah 19→34; HAMPIR 2×; voucher kecil di pojok. Angka hanya di layar (sumber sekunder), tidak diucapkan.",
+   "kamera": "Push-in pelan",
+   "teks": "DAPAT CUCI GRATIS · 19% · 34% · HAMPIR 2× · ± 9 bulan",
+   "gambar": "kode"
+  },
+  {
+   "vo": "Dan kartunya penuh lebih cepat. [hening 0,6 dtk]",
+   "aksi": "Garis waktu SAMPAI KARTU PENUH: dua garis mulai bersamaan; garis kuning kartu bercap berhenti lebih dulu dengan bendera PENUH, garis hitam kartu kosong lebih panjang; cap LEBIH CEPAT. Layar diam selama jeda pengungkapan.",
+   "kamera": "Push-in lambat lalu diam",
+   "teks": "SAMPAI KARTU PENUH · PENUH · PENUH · LEBIH CEPAT",
+   "gambar": "kode (tanpa jumlah hari: tidak diketahui)"
+  },
+  {
+   "beat": "Prestige (sesudah hening)",
+   "vo": "Bukan karena hadiahnya lebih besar.",
+   "aksi": "Kartu kosong dan kartu bercap, di bawah masing-masing voucher yang identik (panah ke bawah), tanda = di antara voucher; slip HADIAH LEBIH BESAR dicoret silang merah di kata \"besar\".",
+   "kamera": "Push-in pelan",
+   "teks": "VOUCHER = VOUCHER · HADIAH LEBIH BESAR ✗",
+   "gambar": "kode"
+  },
+  {
+   "vo": "Kartu kosong terasa seperti pekerjaan yang belum dimulai.",
+   "aksi": "Pelari masih jongkok di garis start; di bawahnya lintasan 8 kotak (START → 1…8 → GRATIS); kartu kosong kecil + 0 / 8; label BELUM MULAI.",
+   "kamera": "Push-in pelan",
+   "teks": "0 / 8 · BELUM MULAI · START … GRATIS",
+   "gambar": "AI pelari_start + kode (lintasan)"
+  },
+  {
+   "vo": "Kartu bercap terasa sudah berjalan—",
+   "aksi": "Pelari yang sama sudah berlari; lintasan 10 kotak dengan 2 cap GRATIS di tanda 1 dan 2; kartu bercap kecil + 2 / 10; label SUDAH JALAN.",
+   "kamera": "Push-in, pelari bergerak ke kanan",
+   "teks": "2 / 10 · SUDAH JALAN",
+   "gambar": "AI pelari_tengah (tokoh sama, Batch B) + kode"
+  },
+  {
+   "vo": "dan yang sudah dimulai, rasanya nanggung kalo berhenti.",
+   "aksi": "Pelari terus melaju ke garis GRATIS (voucher di garis finis); cap merah NANGGUNG di kata \"nanggung\"; slip BERHENTI dicoret silang di kata \"berhenti\".",
+   "kamera": "Push-in + getar di \"nanggung\"",
+   "teks": "NANGGUNG · BERHENTI ✗",
+   "gambar": "AI pelari_tengah + kode"
+  },
+  {
+   "beat": "Penutup (X-Ray Detail → loop)",
+   "vo": "Lain kali, kalo kasir ngasih kartu yang sudah ada dua capnya,",
+   "aksi": "Tangan kasir menyodorkan kartu 10 kotak yang sudah ada 2 cap GRATIS (kartu dicetak kode di dalam gambar); meja kedai kopi kecil di latar; label kasir; lingkaran merah mengelilingi 2 cap di kata \"dua\"; slip 2 / 10.",
+   "kamera": "Push-in 1,00→1,07",
+   "teks": "kasir · 2 / 10",
+   "gambar": "AI kasir_kartu + kedai_kopi + kode"
+  },
+  {
+   "vo": "ingat: hadiahnya nggak makin dekat—cuma",
+   "aksi": "Kartu bercap dari dekat: stabilo kuning di 8 kotak sisa, 2 cap GRATIS dicoret silang merah di kata \"nggak\"; slip SISA 8; voucher di ujung garis putus-putus.",
+   "kamera": "Push-in + getar di \"nggak\"",
+   "teks": "SISA 8 · ✗ ✗",
+   "gambar": "kode"
+  },
+  {
+   "vo": "terasa lebih dekat.",
+   "aksi": "Kembali ke komposisi frame 0 (dua tangan, dua kartu); cap merah CUMA TERASA menghantam kartu bercap. Loop ke detik 0.",
+   "kamera": "Push-in pelan + getar",
+   "teks": "CUMA TERASA",
+   "gambar": "AI kartu_tangan ×2 + kode"
+  }
+ ]
+}
