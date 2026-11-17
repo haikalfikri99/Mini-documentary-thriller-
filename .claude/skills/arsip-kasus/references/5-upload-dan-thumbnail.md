@@ -56,3 +56,11 @@ Nama, bio, kata kunci, foto profil, banner: `channel/README.md` (aset dirender d
 - **Cover:** frame detik ±0,5 (benda pahlawan + stempel hook); `ffmpeg -ss 0.5 -i film.mp4 -frames:v 1 cover.jpg`.
 - Klaim yang diperdebatkan ditulis apa adanya ("mengaku… dibantah… masih diperdebatkan").
 - Contoh: `stories/micin/UPLOAD.md`.
+
+## Paket upload wajib (v6.0, 17 Nov 2026; tersedia lokal tanpa konektor cloud)
+Tiap episode menghasilkan **`stories/<slug>/upload_pack/`** (`python3 kit/tools/pack_upload.py <slug>`; di-ignore git karena berisi mp4):
+1. `ARSIP_<no>_<slug>_v<N>.mp4` (versi terbaru di `renders/`).
+2. `thumbnail_<slug>_1080x1920.jpg` — dari `kit/tools/make_cover.py` + `kolase/cover.json` (frame tanpa caption + 2 slip hook + tag ARSIP + baris sumber; §D di atas). Teks thumbnail tunduk Aturan Kuda Troya (`8-hook…` §H).
+3. `cover_frame_<t>s.jpg` — frame cadangan bila upload thumbnail Shorts belum tersedia (non-YPP).
+4. `UPLOAD_<no>_<slug>.txt` — salinan **mentah UTF-8** dari `UPLOAD.md` (judul, deskripsi + sumber + kredit, komentar pin, pengaturan). **Jangan dikonversi ke Google Doc**: emoji 4-byte (📁 👇) rusak. Di Drive unggah sebagai .txt tanpa konversi.
+`UPLOAD.md` wajib memuat: judul (Pola sesuai kuota 3:1) · deskripsi + sumber + kredit gambar · 3 hashtag · thumbnail + frame cadangan · **komentar pin** (catatan yang meluruskan salah baca + **satu** pertanyaan debat) · pengaturan (bukan untuk anak-anak, Pendidikan, Indonesia, konten sintetis **Ya**) · jadwal · catatan hukum. Komentar pin dikirim user dari akun channel setelah tayang (⋮ → Sematkan).

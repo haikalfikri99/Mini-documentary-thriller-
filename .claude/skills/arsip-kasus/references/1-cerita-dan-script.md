@@ -74,7 +74,7 @@ Menurut konsep editorial kita (dirangkum user dari YouTube Help & wawancara krea
 
 Yang terverifikasi (Studio → Analytics → Content → Shorts): **Viewed vs Swiped Away** ("berapa yang memilih menonton"), Engaged views, rata-rata durasi & persentase ditonton, retensi. YouTube **tidak** mempublikasikan ambang resmi; target 75–80% "viewed" hanyalah patokan kreator. Tidak ada formula yang terbukti menjamin viral — kita pakai prinsip yang didukung praktik kreator dan sinyal resmi, lalu uji dengan data channel sendiri.
 
-## F. FORMULA ARSIP v5.0: terkunci (v4 13 Nov 2026 + revisi riset 13–14 Nov + pelajaran #004 + spesifikasi v5.0 14 Nov)
+## F. FORMULA ARSIP v5.0 [dilengkapi dan di banyak titik DIGANTIKAN oleh Formula v6.0, §M di bawah, untuk #009+; sisanya tetap berlaku]: terkunci (v4 13 Nov 2026 + revisi riset 13–14 Nov + pelajaran #004 + spesifikasi v5.0 14 Nov)
 **Dasar** (`research/niche/KEPUTUSAN_RISET.md`; 7.064 Shorts, 66 transkrip, 625 komentar): pintu masuk = **subjek yang dikenal penonton (benda/tempat/merek/peristiwa) + anggapan dibalik**, bukan psikologi/"kamu sedang dimanipulasi" (2,8% breakout vs 17,9%); jawaban **tidak tertebak**; cerita dengan **tokoh/dalang**; nada **santai, sedikit jahil**; penutup = punchline/twist/pertanyaan konkret, bukan nasihat; tanpa sponsor/promo. Motivasi penonton: aha/cara kerja + anggapan dibalik (menonton); musuh, perdebatan, pengalaman pribadi, kebanggaan lokal (berkomentar). "Melindungi diri" hampir tidak ada → jangan jadi sudut utama.
 **Fakta benar, kemasan semaksimal mungkin.** Rantai shortlist → judul → hook → alur → cover: `8-hook-dan-judul.md` (baca sebelum menulis). Perubahan formula hanya lewat `6-pelajaran.md` dengan data video tayang.
 
@@ -202,3 +202,35 @@ Gagasan dulu, lalu durasi terpendek yang lengkap. Patokan: wilayah 2 = 40–50 d
 Baca di Studio: Viewed vs Swiped Away (appeal), rata-rata % ditonton & grafik retensi (engagement), like/komentar/share/subscriber dan returning viewers (satisfaction). Diagnosis: swipe tinggi → hook/frame 0; turun di tengah → repetisi atau konteks hilang; retensi baik tapi interaksi lemah → payoff/echo. Jangan menyimpulkan dari satu video; ubah satu variabel besar per video; catat di README cerita. YouTube tidak memberi ambang resmi — bandingkan dengan video kita sendiri.
 
 **Prinsip inti:** hook membuat orang berhenti, cerita membuat mereka bertahan, payoff membuat tontonan berharga, identitas seri membuat mereka kembali.
+
+## M. FORMULA ARSIP v6.0 (17 Nov 2026, berlaku #009+; single source of truth untuk script)
+Menggantikan bagian bentrok pada §F (anggaran kata/durasi, F2, F5, F6). #001–#008 tetap pada aturan saat produksinya (log). Dasar: blueprint 2 Deep Research + pelajaran #001–#008. Yang bertanda ⚠ = hipotesis dari blueprint, belum teruji di data kanal ini; catat hasilnya di `6-pelajaran.md`.
+### M1. Dua mode durasi tanpa padding (tempo VO 2,50–2,66 kata/dtk; sisakan ±3,0 dtk untuk jeda dramatis + SFX)
+| Mode | Durasi | Kata | Untuk |
+|---|---|---|---|
+| **Ringkas** ⚠ | 35–42 dtk | 85–105 | 1 eksperimen tunggal atau 1 paradoks perilaku tajam |
+| **Investigasi** | 48–55 dtk | 115–135 | kasus 2–3 babak / eskalasi bertahap. Batas atas **135 kata** wajib: take mentah Saos Cocol tidak boleh melewati 55 dtk pada `atempo ≤ 1,10` (pelajaran #005: 143 kata → 56,35 dtk setelah atempo 1,10; guardrail user mengizinkan > 55 dtk, tetapi anggaran 115–135 menghindarinya) |
+Catatan jujur: Galloway 2023 menemukan 50–60 dtk unggul, dan #004 (53,6 dtk) mengungguli yang lain; Mode Ringkas belum punya data kita sendiri, jadi **maksimal 1 episode Ringkas per batch sampai ada hasilnya.** Angka kata lama 120–145 (§F3) diganti 115–135 untuk #009+.
+### M2. Anatomi konflik non-kriminal (lembar kerja F2, wajib sebelum draf)
+1. **Antagonis tak kasatmata:** arsitektur pilihan, *variable reward loop*, angka jangkar, tekanan konformitas, aturan yang mengubah perilaku. 2. **Taruhan nyata (stakes):** uang, waktu, fokus, keselamatan penonton. 3. **Tiga babak The Prestige:** *The Pledge* (benda biasa) → *The Turn* (mekanisme tersembunyi, ≥ 1 titik balik) → *The Prestige* (perubahan cara pandang, bukan nasihat).
+### M3. Dramaturgi & bahasa lisan Indonesia (menambah §F5)
+- **ABT (And–But–Therefore):** hapus transisi daftar ("selain itu", "berikutnya", "tidak hanya itu", "dan kemudian"). Sambung antar-segmen dengan pertentangan (**TETAPI / ANEHNYA / MASALAHNYA**) atau akibat (**AKIBATNYA / KARENA ITU**). Catatan: larangan "tapi" hanya untuk **judul dan frame 0** (Kuda Troya); di VO tengah "tetapi/anehnya/masalahnya" justru wajib.
+- **Siklus utang naratif (Question-to-Report):** jangan melunasi satu pertanyaan tuntas sebelum membuka pertanyaan turunan; **micro-rehook tiap 12–15 dtk** (naik level bukti) + **jeda hening 0,5–0,8 dtk** tepat sebelum pengungkapan utama (menggantikan micro-rehook ~16–18 dan ~36–39 dtk di §F3 bila durasi < 48 dtk).
+- **Visual Evidence Then Context & Zero-Citation Lisan:** bukti grafik/dokumen tampil sebelum teori/peneliti disebut. VO **tidak membacakan daftar pustaka** ("Menurut studi meta-analisis tahun X oleh Prof. Y…"); jurnal/tahun ditempel di layar kolase. **Pengecualian yang tetap wajib (keamanan hukum, scorecard #16):** atribusi pendek untuk klaim sensitif tentang merek/lembaga ("kata KPPU", "menurut BPOM", "kata Xiaomi") **tetap diucapkan satu kali** di kalimat sesudah hook; yang dilarang hanya sitasi akademik panjang.
+- **Ladder of Abstraction:** mulai dari benda fisik konkret → naik sekejap ke nama bias di Segmen 2B → turun lagi ke benda nyata di akhir. **Branch to the Right:** Subjek + kata kerja aktif di awal kalimat. **2-3-1 / burstiness:** selang-seling kalimat 2–5 kata dengan 8–12 kata. Hapus nominalisasi berat (*pe-an, ke-an, per-an, -sasi*) dan pasif birokratis (*di-/ter-*), kecuali sengaja menempatkan penonton sebagai sasaran (*Passive-Aggressive Tool*).
+- **Angka & Anti-Exit Words:** maks **1–2 kontras angka** di VO per episode. **Dilarang** memulai kalimat penutup dengan "Jadi…", "Kesimpulannya…", "Pada akhirnya…", "Nah itulah…". (Catatan riwayat: penutup #005, #006, #008 memakai "Jadi…"; itu log, bukan contoh.)
+### M4. Format skrip AV 2 kolom (final yang diserahkan ke produksi)
+Tabel dua kolom per baris-ketukan. **Kiri = Visual kolase** (arsip/dokumen/gerak, kode benda, stempel, label). **Kanan = Audio**: VO word-for-word + notasi studio (`/` jeda ≈ 0,25 dtk · `//` hening ≈ 0,6 dtk · `KAPITAL` = penekanan · `[perlambat: teks]` · `(intonasi)`) + SFX. `kit/tools/line_starts.py` memakai VO bersih (tanpa notasi); notasi dibuang saat menyalin ke `script_vo.txt`, dipertahankan di `vo_prompt_elevenlabs.md` bila model suara menerimanya (Saos Cocol/eleven_v4: pakai tag emosi §F5, bukan notasi `/`).
+### M5. Lima arketipe penutup (6 detik terakhir; zero-CTA; ekor audio ≤ 0,15 dtk)
+1. **Reframing Sistemik / Conceptual Loop (default):** mengembalikan objek frame 0 dengan makna baru → replay organik tanpa memotong tata bahasa (= Circular Reframe Loop). 2. **Cermin Personal / Silent Mirror:** pertanyaan refleksi tanpa menghakimi (#004). 3. **Dilema Abu-Abu:** persimpangan etis dua sisi → debat komentar. 4. **Lingkar Naratif Mulus / Seamless Loop:** khusus Mode Ringkas bila menyambung mulus ke 0:00. 5. **Pemicu Dunia Nyata / X-Ray Detail:** mengaitkan mekanisme dengan benda/situasi yang pasti ditemui penonton hari itu.
+**Status uji:** Circular Reframe Loop dipakai #005–#008 (data #005: 64,6% stayed, di bawah ambang 65%; APV belum dicatat) → belum terbukti; pertahankan sebagai default sampai ada ≥ 3 episode berdata, jangan mengubah dari satu video.
+### M6. Scorecard v6.0 (16 cek §F6 + 6 cek tambahan; semua lulus sebelum dikirim)
+| # | Cek v6.0 | Lulus bila |
+|---|---|---|
+| 17 | Filter replikasi | tiap studi punya baris "Status replikasi" dan tidak ada di Daftar Hitam |
+| 18 | Aturan Kuda Troya | judul + frame 0 + H1 tanpa kata terlarang (kecuali slot uji), subjek benda/harga/aturan konkret |
+| 19 | ABT | tiap transisi segmen memakai TETAPI/ANEHNYA/MASALAHNYA atau AKIBATNYA/KARENA ITU; tanpa transisi daftar |
+| 20 | Zero-Citation lisan | tanpa sitasi akademik panjang di VO; atribusi pendek untuk klaim sensitif tetap ada |
+| 21 | Anti-Exit Words | kalimat penutup tidak diawali "Jadi/Kesimpulannya/Pada akhirnya/Nah itulah"; ≤ 2 kontras angka |
+| 22 | AV 2 kolom | tiap ketukan VO punya visual tertulis; hasil `line_starts.py` ±2–2,5 dtk/shot |
+Anggaran kata/durasi (cek #12) memakai tabel M1. Jawab juga: mesin cerita (1/2/3), mode durasi, arketipe hook K1–K5, arketipe penutup 1–5.

@@ -20,3 +20,8 @@ stories/*/kolase/board/
 stories/*/kolase/lib
 stories/*/kolase/audio
 audit_gemini_*.txt
+
+# lokal / multi-agen
+.env
+.venv/
+stories/*/upload_pack/

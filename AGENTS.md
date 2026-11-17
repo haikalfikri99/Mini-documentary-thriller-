@@ -1,7 +1,47 @@
-# Instruksi untuk agen AI mana pun (Claude Code, Codex, Cursor, dll.)
-Repo ini produksi video YouTube Shorts "ARSIP KASUS" (Mini Thriller IDN). **Baca berurutan:**
-1. `CLAUDE.md` (aturan kerja; berlaku untuk semua agen, bukan hanya Claude).
-2. `.claude/skills/arsip-kasus/SKILL.md` (workflow lengkap, tabel "Titik ingat") lalu `references/7-selera-dan-cara-kerja.md` (selera user, **wajib sebelum mengirim apa pun**) dan `references/8-hook-dan-judul.md` (sebelum shortlist/script).
-3. Jalankan `kit/tools/setup_env.sh` sekali (Linux/macOS/WSL/Codespaces; Windows native tidak didukung).
-Gerbang kualitas sebelum render: audio QA (margin VO, Whisper) lalu visual QA (`kit/tools/check_visual.mjs`: dead frame > 2,5 dtk, teks di bawah caption, objek terpotong tepi). Spesifikasi v5.0 (Formula, judul, hook, audio tail) ada di `.claude/skills/arsip-kasus/references/` (`1-cerita…` §F, `8-hook…` §G, `3-audio.md` §J, `2-visual…` §H).
-Catatan portabilitas: fitur khusus Claude (konektor ElevenLabs/Drive, halaman Artifact berkomentar, subagen) tidak ada di agen lain. Gantinya: VO dibuat user di elevenlabs.io dari `stories/<slug>/audio/vo_prompt_elevenlabs.md`; storyboard: `python3 kit/tools/storyboard_page/make_page.py stories/<slug>/kolase <outdir>` menghasilkan `storyboard_NNN.html` yang bisa dibuka langsung di browser; upload Drive/YouTube oleh user. Bahasa kerja: Indonesia.
+# AGENTS.md — konstitusi repo ARSIP KASUS (Mini Thriller IDN) · Formula ARSIP v6.0 (17 Nov 2026)
+**Berlaku untuk agen/model apa pun** (Claude Code & Claude Desktop lokal, OpenAI Codex, Cursor, Gemini CLI/Antigravity, Windsurf, Cline, GitHub Copilot). Adaptor `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, `.github/copilot-instructions.md` hanya menunjuk ke sini; **semua aturan editorial ada di file ini + `.claude/skills/arsip-kasus/` + `research/niche/`**, tidak ada yang hanya hidup di satu adaptor. Bahasa kerja: **Indonesia**, lugas, kritis, beri rekomendasi (bukan setuju otomatis). Repo = produksi video YouTube Shorts "ARSIP KASUS", gaya **ARSIP Kolase** (`kit/styles/arsip-kolase/STYLE.md`, mesin `kit/collage/`).
+
+## 1. Urutan baca wajib (sebelum bertindak; model apa pun, tanpa pengecualian)
+1. File ini. 2. `.claude/skills/arsip-kasus/SKILL.md` (workflow 10 langkah + "Titik ingat"). 3. `references/7-selera-dan-cara-kerja.md` (selera & cara kerja user, **wajib sebelum mengirim apa pun**; tambah baris tiap koreksi baru). 4. Sesuai tugas: topik/riset → `research/niche/KEPUTUSAN_RISET.md` (v6.0 di atas) + `research/niche/topik/RUMUS_PEMILIHAN.md` + `references/8-hook-dan-judul.md`; script → `references/1-cerita-dan-script.md` §M + §F; visual → `references/2-visual-dan-animasi.md` (§H–§K) + `kit/collage/template/flow_prompt_template.md`; audio → `references/3-audio.md`; upload → `references/5-upload-dan-thumbnail.md`; rubrik → `references/4-standar-kualitas-10.md`; data/pelajaran → `references/6-pelajaran.md`.
+5. Lingkungan: `python3 kit/tools/doctor.py` (tidak mengubah apa pun; mencetak perintah perbaikan). Lalu `bash kit/tools/setup_env.sh` bila ada yang kurang. **Aturan resolusi bentrok:** bagian bertanda v6.0 menang atas aturan lama untuk #009+; aturan lama dipertahankan sebagai log #001–#008. Jangan menghapus riwayat.
+
+## 2. Formula ARSIP v6.0 — ringkasan (rincian di file rujukan)
+- **Identitas:** Mini Thriller IDN, label layar ARSIP KASUS; investigasi forensik rekayasa perilaku & bias kognitif di balik benda, harga, aturan, antarmuka sehari-hari. Bukan kuliah, bukan tips.
+- **3 Mesin:** Behavioral Backfires ~35% · Hidden Choice Design ~40% · Human Anomalies ~25%. Jembatan audiens: #009–#010 = Mesin 1/2 berangkat dari produk/harga/belanja; Mesin 3 mulai #011–#012. Dilarang: mistis/klenik/kasus pidana berjalan.
+- **Aturan Kuda Troya:** judul + frame 0 (0–4 dtk) **tanpa** "psikologi/bias/kenapa/padahal/tapi/ternyata/?" (kecuali 1 slot uji per batch, kuota judul 3:1). Jual benda/merek/harga/aturan konkret Indonesia; mekanisme dibedah di Segmen 2B. Penguncian 3-titik: judul ↔ frame 0 ↔ H1 (≤ 4,0 dtk, ≤ 14 kata).
+- **Filter Anti-Krisis Replikasi:** Daftar Hitam (Power Posing, Ego Depletion standar, Priming mentah, Pen-in-Mouth, Bem, Stanford Prison tanpa kritik, Marshmallow kausal) = No-Go; tiap studi punya baris "Status replikasi" yang **diverifikasi ke sumber primer**.
+- **Dua mode:** Ringkas 35–42 dtk/85–105 kata (hipotesis, maks 1 per batch) · Investigasi 48–55 dtk/115–135 kata. Tempo 2,50–2,66 kata/dtk, `atempo ≤ 1,10`.
+- **Script:** skrip AV 2 kolom; ABT (TETAPI/ANEHNYA/MASALAHNYA/AKIBATNYA); micro-rehook tiap 12–15 dtk; zero-citation lisan (atribusi pendek "kata KPPU/BPOM" untuk klaim sensitif tetap wajib); penutup tanpa "Jadi/Kesimpulannya/Pada akhirnya/Nah itulah"; zero-CTA; ekor audio ≤ 0,15 dtk; scorecard 22 cek.
+- **Visual:** barang bukti fisik di frame 0 (bukan kartun otak); biru-hijau arsip = sistem, merah stempel = ancaman/vonis, kuning = angka/kutipan; guardrail #004–#008 (≤ 5–6 layer, `y ≤ 1180`, kutipan Bahasa Indonesia, hero ≥ 486 px, stempel ≤ 0,25 dtk, tanpa kotak putih polos).
+- **Metrik:** stayed-to-watch target ≥ 75% (min 65%), APV 95–105%; evaluasi ≥ 48 jam; jangan mengubah formula dari satu video.
+- **Monetisasi** (ambang ⚠ dari blueprint, verifikasi dulu): 500 sub + 3 jt engaged views → 1.000 sub + 10 jt sebelum 1 Feb 2027 → long-form klaster 3–4 episode → Inggris + produk. Zero-CTA di VO.
+- **Tetap dari aturan lama:** kebenaran (klaim penting ≥ 2 sumber; yang diperdebatkan "kata X, dibantah"); tanpa logo/foto bermerek asli (kemasan generik); **tanpa video AI, tanpa stock footage**; gambar arsip asli dulu (Openverse → Wikimedia, satu permintaan/detik, hormati 429), gambar AI boleh bila perlu; lisensi di `SOURCES.jsonl`; deskripsi "tidak disponsori"; label konten sintetis = Ya. YouTube memblokir pengambilan otomatis dari server: jangan ditembus.
+
+## 3. Protokol Transisi Hibrida
+- **Batch #009–#012 (Mode Hibrida): agen TIDAK meriset topik sendiri.** Riset topik, filter replikasi, fact sheet 2 lapis, dan **skrip AV 2 kolom final** dikerjakan user + Gemini (NotebookLM) lalu diserahkan sebagai paket skrip siap produksi. Setelah paket diterima: periksa singkat terhadap scorecard v6.0 + fakta kunci (jangan menerima mentah; laporkan masalah, jangan diam-diam mengubah isi), lalu **Tahap Produksi Teknis**: `kit/tools/new_episode.sh` → `audio/vo_prompt_elevenlabs.md` → (VO dibuat user / konektor / `tts_elevenlabs.py` atas izin) → `line_starts.py` → prompt blok Google Flow → bake/storyboard → audio → `make_kolase.sh` → `UPLOAD.md` + thumbnail + `pack_upload.py`.
+- **Batch #013+ (Otomasi):** alur penuh kembali ke agen dengan filter v6.0 (riset → gerbang → fact sheet → skrip). ⚠ Rincian otomasi #013+ belum diberikan user (prompt v6.0 terpotong): tanyakan sebelum memulai.
+
+## 4. Gerbang kualitas (tidak boleh dilewati)
+1. Scorecard script v6.0 lulus (`1-cerita…` §F6 + §M6) sebelum VO. 2. **QA audio** (margin VO ≥ 10 dB, tidak ada kata < 8 dB, Whisper mix ≥ Whisper VO). 3. **QA visual** (`node kit/tools/check_visual.mjs`: dead frame > 2,5 dtk, teks di bawah caption, objek terpotong tepi). `kit/tools/make_kolase.sh` menjalankan keduanya lalu render; jangan `SKIP_VISUAL_QA` tanpa penilaian manual. 4. Cek manual frame 0 (≥ 45% lebar, stempel ≤ 0,25 dtk) dan keyframe tiap shot (`kit/tools/keyframes_2d.mjs`). 5. Agen tidak bisa mendengar: laporkan hasil alat apa adanya.
+
+## 5. Matriks pengganti fitur (tanpa konektor cloud)
+| Kebutuhan | Dengan Claude + konektor | Fallback lokal / agen lain |
+|---|---|---|
+| VO ElevenLabs | konektor ElevenLabs (tanya dulu: memakai kredit) | user generate di elevenlabs.io dari `stories/<slug>/audio/vo_prompt_elevenlabs.md`; atau `python3 kit/audio/tts_elevenlabs.py <teks> <mp3> --yes` (kunci di `.env`, atas izin) |
+| Review storyboard | halaman Artifact berkomentar | `python3 kit/tools/storyboard_page/make_page.py stories/<slug>/kolase stories/<slug>/kolase/board` → `storyboard_NNN.html` (buka langsung di browser; hanya Google Fonts yang butuh internet). User menulis revisi per nomor shot di chat atau isi `note` di `kolase/storyboard.json` |
+| Gambar AI | user membuat di Google Flow (blok prompt dari `flow_prompt_template.md`) | sama (1 variasi per gambar, filter-safe) |
+| Upload | user mengunggah dari Drive | `python3 kit/tools/pack_upload.py <slug>` → `stories/<slug>/upload_pack/` (mp4, thumbnail, frame cadangan, `UPLOAD_<no>_<slug>.txt` mentah UTF-8; **jangan** dikonversi ke Google Doc) |
+| Thumbnail | `kit/tools/make_cover.py` | sama (+ `kolase/cover.json`) |
+| Subagen paralel | lihat §6 | kerjakan berurutan |
+Google Drive: folder `Mini Thriller IDN/NNN Judul` per episode; agen via konektor hanya bisa mengunggah file < 10 MB; video final diunggah user.
+
+## 6. Routing tugas
+- **Agen dengan subagen paralel** (mis. Claude Code): ekstraksi/unduh/daftar/cek file → model ringan; riset terstruktur, analisis data, laporan → model menengah; **skrip final, `film.js`, review kualitas, keputusan editorial → model penalaran tertinggi, effort tinggi**. Jangan memberi tugas sulit ke model kecil; jangan memakai model besar untuk tugas mudah.
+- **Agen tunggal** (Claude Desktop lokal, Cursor, Codex, Gemini CLI, Windsurf, Cline): jalankan tahap berurutan; **selesaikan checklist gerbang tiap tahap sebelum lanjut**; di tahap skrip final dan `film.js` gunakan model/effort terkuat yang tersedia dan ingatkan user bila sesi memakai model lemah.
+- Ingatkan user di "Titik ingat" (`SKILL.md`): catatan lanjut di `stories/<slug>/README.md` sebelum kompaksi/sesi baru.
+
+## 7. Aturan kerja & privasi
+- Commit/push ke branch kerja; **tanpa PR kecuali diminta**; `main` hanya atas izin user. Jangan mengubah file VO yang sudah disetujui. Generate ElevenLabs/Apify memakai uang user: tanya dulu, jangan mengulang otomatis.
+- Data pribadi user (nama, email, proyek) tidak dikirim ke layanan luar tanpa izin eksplisit; kunci API hanya di `.env` lokal (git-ignored), tidak pernah di repo atau chat.
+- User bekerja dari laptop ringan dengan antarmuka GUI: jangan membebani user dengan terminal/CLI; perintah di dokumen ini dijalankan agen. Bila user harus menjalankan sesuatu, beri langkah GUI lebih dulu.
+- Lingkungan target: macOS, Linux, WSL2 penuh; Windows native hanya sebagian (skrip `.sh` butuh Git Bash/WSL2; `doctor.py` melaporkan).

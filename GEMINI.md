@@ -1,0 +1,2 @@
+# GEMINI.md — adaptor tipis (Gemini CLI / Google Antigravity)
+Baca **`AGENTS.md`** (konstitusi tunggal repo ini, Formula ARSIP v6.0), lalu `.claude/skills/arsip-kasus/SKILL.md` dan `.claude/skills/arsip-kasus/references/7-selera-dan-cara-kerja.md`, **sebelum bertindak**. Jangan menyimpulkan aturan hanya dari file ini: semua detail editorial, gerbang QA, protokol hibrida #009–#012, dan matriks pengganti fitur (tanpa konektor Claude) ada di `AGENTS.md` dan folder `references/`. Bahasa kerja: Indonesia. Jalankan `python3 kit/tools/doctor.py` untuk memeriksa lingkungan lokal.

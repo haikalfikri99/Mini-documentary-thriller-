@@ -33,7 +33,7 @@ Latar: shortlist #004 pertama hanya dari bank ide → bohlam (fakta kuat, tidak 
 ## v5.0 (14 Nov 2026): mesin ide tak terbatas, 5 lensa seed, rubrik 20 poin
 Menyambung ke rumus di atas (lima sumbu + gerbang), bukan menggantikannya. Rumus views/celah tetap dipakai; bagian ini menambah **sumber ide yang tidak habis** dan **satu pemeriksaan validasi sebelum fact sheet**.
 
-### Infinite 4-Pillar Topic Engine (rotasi produksi)
+### Infinite 4-Pillar Topic Engine (rotasi produksi) — [DIGANTIKAN v6.0 untuk #009+: lihat "3 Mesin Psikologi Perilaku" di bagian v6.0 bawah; tabel ini tinggal log]
 | Pilar | Porsi | Isi |
 |---|---|---|
 | 1 Merek, harga & bisnis sehari-hari | 50% | sengketa usaha (putusan KPPU), trik harga, shrinkflation, aturan ritel, kemasan, perang dagang produk warung/minimarket |
@@ -54,3 +54,24 @@ Alur: `python3 kit/tools/gali_topik.py autocomplete seeds.txt out_ac.json`, `pyt
 ### Rubrik validasi topik 20 poin (sebelum fact sheet)
 Empat kriteria, 1–5 tiap kriteria: **Kedekatan sehari-hari** · **Kontras intuisi / twist** · **Ketersediaan bukti visual kolase** · **Keamanan hukum & monetisasi**. **Lolos bila total ≥ 16/20 dan tidak ada nilai ≤ 2.** Ditulis di bagian "Validasi topik" README episode (`new_episode.sh`).
 **Hubungan dengan gerbang lama (keduanya berlaku, tidak saling menggantikan):** Kedekatan sehari-hari ≈ sumbu Lokal (gerbang ≥ 4 tetap); Kontras intuisi ≈ Cerita (≥ 3); Bukti visual ≈ Bahan; Keamanan hukum adalah kriteria baru. Sumbu **Celah** (video Indonesia ≥ 100 rb views sesudut; gerbang ≥ 3) dan **Permintaan** tidak ada di rubrik 20 poin dan tetap dihitung dari `riset_topik.py`.
+
+## v6.0 (17 Nov 2026, berlaku #009+): 3 Mesin, filter replikasi, stress-test
+Menyambung (bukan menghapus) lima sumbu + rubrik 20 poin di atas. Bila bentrok, bagian ini menang untuk #009+. Komposisi dan alasan: `research/niche/KEPUTUSAN_RISET.md` v6.0-B.
+
+### 3 Mesin Psikologi Perilaku (pengganti 4-Pillar Engine)
+**Mesin 1 Behavioral Backfires ~35%** · **Mesin 2 Hidden Choice Design ~40%** · **Mesin 3 Human Anomalies ~25%**. Tiap kandidat ditulis dengan label mesin. **Aturan Jembatan Audiens:** #009–#010 = Mesin 1/2 yang berangkat dari produk, harga, atau kebiasaan belanja sehari-hari; Mesin 3 mulai #011–#012. Pintu masuk (judul/frame 0/H1) tetap benda/harga/aturan konkret, bukan nama bias (`8-hook…` §H).
+
+### Filter Anti-Krisis Replikasi (gerbang Go/No-Go mutlak, sebelum fact sheet)
+Tiap topik yang bersandar pada studi psikologi wajib punya baris "Status replikasi" di README (replikasi besar / meta-analisis / kritik utama + sumber). Tanpa baris itu = No-Go.
+- **Daftar Hitam (tolak mutlak):** *Power Posing* (gagal replikasi, Ranehill 2015) · *Ego Depletion* versi cadangan-tenaga standar (Hagger 2016) · *Social/Behavioral Priming* mentah (mis. kata penuaan memperlambat jalan) · *Pen-in-Mouth Facial Feedback* · prekognisi Daryl Bem · narasi lugas *Stanford Prison Experiment* (boleh hanya bila kritik intervensi peneliti jadi inti ceritanya) · klaim kausal sederhana *Marshmallow Test* (Watts 2018).
+- **5 kategori taksonomi kokoh (prioritas produksi):** (1) Arsitektur harga, risiko & ekonomi persepsi (*Prospect Theory/Loss Aversion*, *Framing*, *Anchoring*) · (2) Kalibrasi dopamin & jebakan antarmuka digital (*Reward Prediction Error*, *Default Effect* dengan nuansa framing) · (3) Otonomi, pembangkangan & resistensi persuasi (*Psychological Reactance*: tidak memakai kata pengendali ke penonton) · (4) Ilusi pengetahuan & miskonsepsi kognitif (*Information-Gap*, *Cognitive Dissonance*; pendekatan *Legitbait*: bongkar miskonsepsi dulu) · (5) Forensik sains: eksperimen populer yang runtuh (*Open Science*, *Many Labs 2*).
+- Catatan jujur: daftar hitam dan taksonomi ini dari blueprint; Claude **mengecek status replikasi tiap studi terpilih ke sumber primer** (PubMed/Consensus) sebelum fact sheet, bukan memercayai daftar ini mentah.
+
+### Topic Stress-Test (4 uji; semua lulus sebelum fact sheet)
+1. **Celah informasi 33–67% + berguna** tanpa menyerang ego penonton (celah terlalu kecil = tak penasaran; terlalu besar = tak terasa bisa ditutup).
+2. **Retention Anchor:** ada perubahan cara pandang (bukan rangkuman/nasihat).
+3. **Vox Handle Visual Test:** menyentuh ≥ 2 dari 3 pilar (geografi · angka · waktu) + ada artefak fisik yang bisa dijadikan frame 0.
+4. **Satu ide tunggal + titik balik:** bisa diringkas satu kalimat tanpa kata "dan"; ada ≥ 1 *The Turn*. Tolak topik 1-babak yang terjawab tuntas di detik ke-15.
+
+### Aturan baru `riset_topik.py` (Feed Curiosity, bukan Search Intent)
+Shorts didistribusikan lewat *feed*, bukan pencarian: #004 Aqua `n_saran` kecil tetapi 79,18% stayed. Maka: **`n_saran` kecil tidak boleh menggugurkan** mekanisme perilaku yang tajam (sumbu Permintaan hanya penanda, bukan gerbang). Pakai alat untuk **kejenuhan sesudut (`n_1m`)**: prioritas lolos = `n_1m == 0` atau pesaing sesudut dangkal/tanpa dokumen. Gerbang Lokal ≥ 4, Cerita ≥ 3, Celah ≥ 3 dan verifikasi ≥ 2 sumber tetap berlaku.

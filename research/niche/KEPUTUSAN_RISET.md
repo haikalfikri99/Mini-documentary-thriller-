@@ -1,11 +1,46 @@
 # Keputusan dari riset (13 Nov 2026) — pilar, selingan, visual, produksi
+
+# ▶ STANDAR BAKU v6.0 (17 Nov 2026, berlaku mulai Batch #009+) — baca ini dulu
+**Single source of truth untuk komposisi konten, target metrik, dan peta jalan monetisasi.** Bagian bernomor 1–6 di bawah garis "LOG SEJARAH" tetap dipertahankan sebagai riwayat keputusan #001–#008; bila bertentangan dengan blok v6.0 ini, **v6.0 menang untuk #009+**. Sumber v6.0: blueprint 2 Deep Research (user + Gemini/NotebookLM) + pelajaran #001–#008. Klaim dari blueprint yang **belum dicek Claude ke sumber primer** ditandai ⚠ (verifikasi ke YouTube Help / dokumen resmi sebelum dijadikan dasar keputusan uang).
+
+## v6.0-A. Identitas kanal (tidak berubah)
+Nama **Mini Thriller IDN**, label layar **ARSIP KASUS**, tagline "Real Stories. Unexpected Truths." Jangan diganti ke "Arsip Perilaku". Posisi: **investigasi forensik terhadap rekayasa perilaku & bias kognitif di balik benda, harga, aturan, dan antarmuka sehari-hari**; bukan kuliah teori, bukan kanal tips/nasihat. Gaya visual tetap ARSIP Kolase.
+
+## v6.0-B. Sistem 3 Mesin Psikologi Perilaku (menggantikan komposisi lama ±70% benda/merek + ±30% selingan)
+| Mesin | Porsi | Isi | Contoh arah |
+|---|---|---|---|
+| **1 Behavioral Backfires** | ~35% | kegagalan produk, kebijakan publik, atau keputusan massal karena salah membaca cara kerja otak manusia | 3-in-1 dihapus → macet; aturan yang memperburuk perilaku (#006) |
+| **2 Hidden Choice Design** | ~40% | arsitektur pilihan tersembunyi pada label harga, tata ruang, menu, antarmuka aplikasi (*dark patterns*) yang diam-diam mengarahkan keputusan | harga jangkar, bundling, iklan di HP (#007) |
+| **3 Human Anomalies** | ~25% | eksperimen ilmiah teruji atau fenomena sosial nyata (misteri rasional) yang membongkar sisi irasional manusia. **Dilarang:** mistis/klenik, kasus pidana yang masih berjalan | studi lapangan yang lolos replikasi |
+**Catatan yang tidak boleh hilang (data kita, tidak dicabut):** mesin = *isi/mekanisme*, **bukan pintu masuk**. Pintu masuk judul, frame 0, dan kalimat H1 tetap benda/merek/harga/aturan konkret Indonesia (psikologi sebagai pintu masuk = 2,8% breakout vs 17,9%; `8-hook…` §H Aturan Kuda Troya). Konten dari batch #004–#008 (kasus merek/putusan/regulasi) tetap masuk Mesin 1/2 selama bingkainya mekanisme perilaku.
+**Aturan Jembatan Audiens:** #009–#010 wajib berangkat dari produk, harga, atau kebiasaan belanja sehari-hari (Mesin 1/2); Mesin 3 baru masuk di #011–#012, supaya subscriber dari #004–#008 tidak kaget.
+
+## v6.0-C. Arsitektur algoritma & target metrik 2 gerbang
+- Shorts *pull-based* + *seed audience testing* per video; evaluasi awal **minimal 48 jam**; tidak ada hukuman permanen antar-video. Satu video jelek tidak menghukum kanal; jangan mengubah formula dari satu video (`7-selera…` #51).
+- **Gerbang 1 Daya Henti:** *stayed to watch* (Viewed vs Swiped Away) **target ≥ 75%, batas minimal ≥ 65%**, ditentukan di 1–2 dtk pertama.
+- **Gerbang 2 Daya Tahan:** APV **target 95–105%** pada durasi terkalibrasi (bukan 60+ dtk yang kendur setelah klimaks seperti #001).
+- Replay/loop mendongkrak APV dan distribusi feed ⚠ **tetapi tidak dihitung sebagai `engaged views` untuk syarat YPP** (klaim blueprint; cek Help YouTube sebelum jadi dasar target penayangan).
+- Kebijakan konten: gaya kolase *faceless* aman dari *Inauthentic Content* (kebijakan 15 Jul 2025) dan aturan label konten sintetis (27 Mei 2026) ⚠ **selama** tiap episode memakai skrip riset orisinal, variasi visual per ketukan cerita, dan estetika ilustrasi gravir/potongan kertas (bukan fotorealistis). Label "konten sintetis: Ya" tetap dicentang (gambar AI + suara AI).
+- Data pembanding (angka dari user, Studio): #001 70,56% stayed / 72,77% APV; #002 43,71% / 67,16%; #003 46,13% / 52,76%; #004 **79,18% / 104,12%**; #005 64,6% (15 hari). Rincian + catatan perbedaan dengan angka lama: `6-pelajaran.md`.
+
+## v6.0-D. Peta jalan monetisasi (sprint pra-1 Feb 2027) ⚠ angka ambang dari blueprint
+| Tahap | Waktu | Target | Aksi |
+|---|---|---|---|
+| 1 | 45–60 hari | **500 subscriber + 3 juta engaged views Shorts / 90 hari** → buka tier awal ⚠ termasuk YouTube Shopping Affiliate | sematkan maks. 3 tag produk relevan (buku ekonomi perilaku, jurnal keputusan, permainan strategi) di Shopee/Lazada/Blibli/Zalora; **tanpa mengiklankan di VO (zero-CTA)** |
+| 2 | sebelum 31 Jan 2027 | **1.000 subscriber + 10 juta engaged views Shorts / 90 hari** (ambang YPP saat ini) | kejar sebelum ambang YPP berlipat jadi **20 juta/90 hari per 1 Feb 2027** (log lama mencatat ini resmi, Help 12843009). Blueprint juga menyebut "8.000 jam tayang" ⚠ belum diverifikasi; partner aktif menjaga 10 juta/90 hari untuk bagi hasil Shorts |
+| 3 | Q1–Q2 2027 | transisi **long-form 8–15 menit** | produksi Shorts dalam **klaster tematik 3–4 episode** yang bisa digabung jadi dokumenter; RPM long-form ⚠ 7×–30× RPM Shorts Indonesia (~US$0,14/1k, angka blueprint). Setelah long-form jalan, Shorts dipangkas ke 1–5/bulan dan ditautkan lewat *Related Video* |
+| 4 | Q3 2027+ | pasar Tier-1 + produk sendiri | takarir Inggris `.srt` bersih (AS/Australia); kursus/asesmen/permainan meja penguji bias |
+Catatan jujur: target 1 video/hari (log lama) tetap berlaku sampai tahap 2; arah tahap 3 mengubah ekonomi produksi (klaster 3–4 episode per topik) dan harus diputuskan ulang bersama user saat tahap 2 tercapai.
+
+---
+# LOG SEJARAH (13–14 Nov 2026) — dipertahankan, bagian yang digantikan v6.0 ditandai
 Menggabungkan: `RISET_NICHE_V2.md` (pilar), `RISET_SELINGAN.md` (30% wilayah), `RISET_VISUAL_THUMBNAIL.md` (1.886 thumbnail, 42 channel), dan pengukuran 11 rekaman layar (bagian 3). Status: **usulan, menunggu persetujuan pemilik channel** sebelum dikunci ke skill.
 
-## 1. Pilar (±70%)
+## 1. Pilar (±70%) — [digantikan v6.0-B untuk #009+; prinsip "pintu masuk konkret" tetap berlaku]
 **"Alasan ASLI di balik benda, tempat, harga, dan merek yang kamu kenal — terutama yang ada di Indonesia."** Psikologi/ekonomi/sejarah/kartel = isi jawaban, bukan pintu masuk.
 Bukti: judul psikologi/manipulasi 2,8% breakout vs 17,9% baseline (5.540 Shorts, 31 channel); mitos/kontradiksi 21,7%; top vs bottom di 4 channel 2 bahasa; komentar (penasaran, anggapan dibalik, musuh, kebanggaan lokal; "melindungi diri" hampir nol).
 
-## 2. Selingan (±30%)
+## 2. Selingan (±30%) — [digantikan v6.0-B: W4/W6 kini masuk Mesin 1/3; larangan misteri/klenik/kasus pidana berjalan tetap]
 | Porsi | Wilayah | Bukti | Bentuk |
 |---|---|---|---|
 | ±20% | **W4 Keputusan fatal** (proyek/perusahaan/desain gagal) | breakout 22,1% (n=358), di atas baseline di 16/23 channel | "Kenapa [proyek/merek/tempat] bangkrut/mangkrak/ditutup" — permintaan pencarian ID kuat |
