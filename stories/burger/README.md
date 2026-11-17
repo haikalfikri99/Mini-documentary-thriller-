@@ -58,3 +58,6 @@ Whisper medium mendengar "sepertiga **tahun**" untuk "paun" pertama (±6 dtk men
 
 ## Gambar Flow diterima (17 Nov 2026)
 Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 diterima kecuali `burger_dua` (beda tebal patty kurang terbaca → ulang). Resolusi 2400 px. Prompt perbaikan: `research/batch_009_012/flow_ulang_lokal.txt`. VO + script_vo diunggah ke folder Drive episode.
+
+## Perbaikan + hand-tint (17 Nov 2026)
+5 gambar perbaikan diterima (burger_dua patty kiri jelas lebih tebal; kasir_kantong; timbangan; kalender_sobek; kasir_kartu). Langkah upscale #010–#012 tidak dijalankan sesi lokal (resolusi tetap ±1024 px). Usulan user: warnai burger → `kit/collage/handtint.py` + zona `kolase/tint/*.json`, hasil `ai/burger_tebal.tint.png`, `ai/burger_dua.tint.png`; perbandingan `kolase/tint/perbandingan_tint.jpg`. Menunggu keputusan user (pakai/tidak).

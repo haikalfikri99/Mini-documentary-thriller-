@@ -153,13 +153,24 @@ class Baker:
             k = maxdim / max(im.size); im = im.resize((int(im.size[0] * k), int(im.size[1] * k)), Image.LANCZOS)
         return im
 
-    def cut(self, name, file, width, crop=None, thresh=205, close=0.012, tint=None, tint_k=0.55, margin=4, seed=0, rect=False, keep=0.04, ink_gain=1.0, plate=None, tint_poly=None, **meta):
-        """width = world width of the cut-out. tint = hand colour inside the cut (np colour). plate = re-ink colour for the lines (e.g. RED).
+    def cut(self, name, file, width, crop=None, thresh=205, close=0.012, tint=None, tint_k=0.55, margin=4, seed=0, rect=False, keep=0.04, ink_gain=1.0, plate=None, tint_poly=None, tint_map=None, **meta):
+        """tint_map = RGBA png from kit/collage/handtint.py (same pixel grid as the source; path in raw/ or absolute):
+        multi-colour hand tinting that follows the engraving's own outlines (batch #009+).
+        width = world width of the cut-out. tint = hand colour inside the cut (np colour). plate = re-ink colour for the lines (e.g. RED).
         tint_poly = [[x, y], ...] in 0..1 of the (cropped) source: hand colour only inside that polygon (e.g. one object in a print)."""
         B = self.B
         im = self.load(file, crop, maxdim=int(width * B * 2.2))
         g = np.asarray(im.convert('L'), float)
         h, w = g.shape
+        tmap = None
+        if tint_map is not None:
+            tim = Image.open(tint_map if os.path.isabs(tint_map) else os.path.join(self.raw, tint_map)).convert('RGBA')
+            if crop:
+                W0, H0 = tim.size
+                c = [v * (W0 if i % 2 == 0 else H0) if v <= 1 else v for i, v in enumerate(crop)]
+                tim = tim.crop(tuple(int(v) for v in c))
+            tmap = np.asarray(tim.resize((w, h), Image.LANCZOS), float)
+            tmap[..., 3] /= 255.0
         if tint_poly is not None:
             tm = poly_mask(h, w, [(x * w, y * h) for x, y in tint_poly])
             tm = ndi.gaussian_filter((tm > 0.5).astype(float), 1.5)
@@ -180,7 +191,7 @@ class Baker:
         ys, xs = np.nonzero(mask > 0.5)
         scale = width * B / (xs.max() - xs.min() + 1)
         rgba = cl.cutout(g, mask, scale, tint=None if tint_poly is None else tint_poly[0], tint_mask=None if tint_poly is None else tint_poly[1],
-                         margin=margin * B, seed=seed, paper=CARD, ink_gain=ink_gain)
+                         margin=margin * B, seed=seed, paper=CARD, ink_gain=ink_gain, tint_rgba=tmap)
         col, a = rgba[..., :3], rgba[..., 3]
         if tint is not None or plate is not None:
             inkamt = np.clip(1 - (col.mean(2) - INK.mean()) / (CARD.mean() - INK.mean()), 0, 1)

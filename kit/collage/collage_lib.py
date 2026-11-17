@@ -133,7 +133,7 @@ def ink_from_gray(g, mask, paper_q=88, black_q=3):
     return ink ** 0.9
 
 
-def cutout(gray, mask, scale, tint=None, margin=4, seed=0, paper=PAPER_HI, tint_mask=None, ink_gain=1.0):
+def cutout(gray, mask, scale, tint=None, margin=4, seed=0, paper=PAPER_HI, tint_mask=None, ink_gain=1.0, tint_rgba=None):
     """gray, mask: float arrays at source resolution (mask 0..1). Returns a small RGBA (float) image:
     engraved ink lines + (optional) hand tinting + cut-paper white margin (slightly rough)."""
     ys, xs = np.nonzero(mask > 0.5)
@@ -142,6 +142,7 @@ def cutout(gray, mask, scale, tint=None, margin=4, seed=0, paper=PAPER_HI, tint_
     x0, x1 = max(0, xs.min() - pad), min(mask.shape[1], xs.max() + pad)
     g, m = gray[y0:y1, x0:x1], mask[y0:y1, x0:x1]
     tm = None if tint_mask is None else tint_mask[y0:y1, x0:x1]
+    tr = None if tint_rgba is None else tint_rgba[y0:y1, x0:x1]
     ink = ink_from_gray(g, m) * ink_gain
     tw, th = max(2, int((x1 - x0) * scale)), max(2, int((y1 - y0) * scale))
     rs = lambda a: np.asarray(Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8)).resize((tw, th), Image.LANCZOS), float) / 255
@@ -160,6 +161,10 @@ def cutout(gray, mask, scale, tint=None, margin=4, seed=0, paper=PAPER_HI, tint_
         tmask = m if tm is None else tm * m
         tcol = np.asarray(tint, float)
         base = base * (1 - 0.85 * tmask[..., None]) + tcol * 0.85 * tmask[..., None]
+    if tr is not None:   # multi-colour hand tint (kit/collage/handtint.py), resized to the cut-out
+        trs = np.dstack([rs(tr[..., c] / 255.0) for c in range(3)]) * 255.0
+        ta = rs(tr[..., 3]) * m
+        base = base * (1 - 0.85 * ta[..., None]) + trs * 0.85 * ta[..., None]
     ink_m = ink * m  # ink only inside the cut line
     col = base * (1 - ink_m[..., None]) + INK * ink_m[..., None]
     return np.dstack([col, alpha])

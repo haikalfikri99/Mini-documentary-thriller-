@@ -72,3 +72,9 @@ Rincian + rekap kasus gagal: `kit/collage/template/flow_prompt_template.md` § "
 2. **Kode warna kolase editorial:** **biru/hijau arsip `#2F4F4A`** = sistem, institusi, desain antarmuka · **merah stempel `#B3261E`** = ancaman, jebakan, kerugian, vonis · **kuning stabilo** (palet AMBER `#D58E2A`, pita transparan di atas cetakan) = sorotan angka/kutipan dokumen bukti. Palet lain tetap mengikuti `STYLE.md`.
 3. **Guardrail #004–#008 tetap:** ≤ 2–3 elemen fokus per shot (≤ 5–6 layer total) · grafik/label `y ≤ 1180`, masuk dari samping · 100% kutipan layar Bahasa Indonesia · frame 0 hero ≥ 486 px lebar + stempel ≤ 0,25 dtk · caption berdiri sendiri untuk penonton tanpa suara · tanpa kotak putih polos pada aset kode (`bk.doc(..., shape=...)`) · Flow: 1 variasi, tokoh = pria dewasa/tangan, tanpa OK-sign (§I).
 4. **Paket thumbnail** mengikuti §D `5-upload-dan-thumbnail.md` (`make_cover.py`); judul/hook thumbnail tunduk pada Aturan Kuda Troya (tanpa kata terlarang kecuali slot uji).
+
+## §L. Pewarnaan tangan (hand-tint) objek hero (17 Nov 2026, batch #009+)
+- Dasar tetap tinta di kertas krem (identitas ARSIP Kolase; warna utama = kode makna §K). Pengecualian: **objek hero yang rasanya/warnanya bagian dari cerita** (makanan #009 burger) boleh diwarnai tangan gaya cetakan berwarna abad 19.
+- Alat: `kit/collage/handtint.py ai/<label>.jpg tint/<label>.json` → `ai/<label>.tint.png`; `bk.cut(..., tint_map='ai_<label>.tint.png')` (salin png ke raw/ bersama jpg). Zona = poligon kasar 0..1; warna mengikuti garis gravir sendiri (wilayah tertutup), wilayah yang mayoritas di luar zona tetap polos.
+- Palet redup (cat air): roti #D8A35A · selada #8DAA5B · tomat #C9583F · keju #E9C24E · daging #7B4A2C. Jangan pakai merah stempel `#B3261E` / biru arsip untuk tint.
+- Gambar AI tetap diminta hitam-putih di Flow (konsisten, tanpa warna acak); warna ditambahkan di kode bila perlu.
