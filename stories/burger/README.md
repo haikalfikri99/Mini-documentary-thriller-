@@ -44,3 +44,5 @@ Tidak diketahui (tidak boleh diucapkan): ukuran sampel, metode tes rasa, besaran
 ## Catatan lanjut
 - Menunggu user: pilih (a) generate VO persis versi terkunci, (b) versi dengan 5 koreksi (rekomendasiku, terutama #1 yang menyatakan hal yang berlawanan dengan sumber), atau (c) koreksi sebagian.
 - Setelah itu: `creative_generate_speech` (Saos Cocol, eleven_v4, 1 take) → `vo_tighten.py` (atempo ≤ 1,10) → `align_vo.py` (ejaan dari script) → `line_starts.py` → prompt Google Flow Batch A/B → bake/storyboard → audio → `make_kolase.sh` → UPLOAD + thumbnail + `pack_upload.py`.
+- **Keputusan user 17 Nov 2026:** opsi B **terbatas**: hanya "lebih murah" yang diperbaiki (H1, "Harganya lebih miring", judul); 4 temuan lain tidak disentuh. Skrip dikirim di chat (durasi + skrip, tanda bagian/formula), tanpa tabel AV. VO digenerate setelah user ketik "lanjut" (Opus + effort high). #009 = gold standard rasa tulisan #010–#012 (`7-selera` #78–#79).
+
