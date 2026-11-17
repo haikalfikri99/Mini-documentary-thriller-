@@ -1,1 +1,12 @@
-{}
+{
+ "tangan_b": {"file": "ai_tangan_b.jpg", "width": 760, "tint_map": "ai_tangan_b.tint.png"},
+ "tangan_b0": {"file": "ai_tangan_b0.jpg", "width": 760},
+ "tangan_a": {"file": "ai_tangan_a.jpg", "width": 760},
+ "kasir_b": {"file": "ai_kasir_b.jpg", "width": 880, "tint_map": "ai_kasir_b.tint.png"},
+ "stempel_hand": {"file": "ai_stempel_hand.jpg", "width": 560},
+ "kedai_kopi": {"file": "ai_kedai_kopi.jpg", "width": 700},
+ "cuci_motor": {"file": "ai_cuci_motor.jpg", "width": 700},
+ "cuci_mobil": {"file": "ai_cuci_mobil.jpg", "width": 860},
+ "pelari_start": {"file": "ai_pelari_start.jpg", "width": 640},
+ "pelari_tengah": {"file": "ai_pelari_tengah.jpg", "width": 700}
+}

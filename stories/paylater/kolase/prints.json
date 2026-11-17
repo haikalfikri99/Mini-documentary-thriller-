@@ -1,1 +1,15 @@
-{}
+{
+ "jempol_checkout": {"file": "ai_jempol_checkout.png", "width": 700, "tint_map": "ai_jempol_checkout.tint.png"},
+ "jempol_bank": {"file": "ai_jempol_bank.png", "width": 600, "tint_map": "ai_jempol_bank.tint.png"},
+ "jempol_riwayat": {"file": "ai_jempol_riwayat.png", "width": 600, "tint_map": "ai_jempol_riwayat.tint.png"},
+ "paket_tumpuk": {"file": "ai_paket_tumpuk.jpg", "width": 640},
+ "kal_juni": {"file": "ai_kal_juni.png", "width": 560},
+ "kal_hariini": {"file": "ai_kal_hariini.png", "width": 420},
+ "kal_tempo": {"file": "ai_kal_tempo.png", "width": 420},
+ "kal_26": {"file": "ai_kal_26.png", "width": 400},
+ "peneliti_data": {"file": "ai_peneliti_data.jpg", "width": 760},
+ "keranjang_isi": {"file": "ai_keranjang_isi.jpg", "width": 520},
+ "keranjang_luber": {"file": "ai_keranjang_luber.jpg", "width": 620},
+ "dompet_longgar": {"file": "ai_dompet_longgar.jpg", "width": 760},
+ "pembeli_ragu": {"file": "ai_pembeli_ragu.jpg", "width": 620}
+}
