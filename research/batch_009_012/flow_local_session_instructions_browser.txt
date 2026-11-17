@@ -1,0 +1,77 @@
+TUGAS: buat gambar Google Flow untuk 4 episode YouTube Shorts (ARSIP KASUS #009-#012), lewat BROWSER BAWAAN aplikasi Claude desktop, lalu unggah hasilnya ke Google Drive. Kerjakan berurutan, laporkan singkat setelah tiap episode.
+
+ATURAN UMUM
+- Jangan pernah mengetik kata sandi / kode verifikasi. Login Google dikerjakan user sendiri di panel browser.
+- 1 label = 1 kali generate, 1 hasil (output per prompt = 1). Jangan minta variasi tambahan.
+- Hemat kredit: bila hasil cacat, regenerate label itu SEKALI. Masih cacat -> catat, lanjut. Lebih dari itu harus izin user.
+- Prompt diblokir filter kebijakan -> JANGAN ulang di proyek yang sama. Buat proyek baru, coba sekali. Masih diblokir -> catat, lanjut.
+- Jangan ubah isi prompt kecuali untuk menghindari blokir (lapor ke user apa yang diubah).
+
+LANGKAH
+0. Pastikan kamu punya alat browser bawaan (nama alat diawali mcp__Claude_Browser__ atau mcp__remote-devices__Claude_Browser__; kalau di daftar alat tertunda, muat semuanya sekaligus lewat ToolSearch dengan awalan namanya). Kalau tidak ada sama sekali: BERHENTI dan bilang ke user "sesi ini tidak punya browser bawaan".
+1. Buka https://labs.google/fx/tools/flow di browser bawaan. Minta user login Google di panel browser (Ctrl+Shift+B kalau panel tersembunyi). Tunggu user bilang sudah login.
+2. Untuk tiap episode buat proyek baru, nama "ARSIP <no> <slug>" (contoh "ARSIP 009 burger").
+3. Setelan pembuatan GAMBAR (bukan video): model Nano Banana Pro (kalau tidak ada: Nano Banana 2), output per prompt = 1, rasio sesuai label: 3:4 = Portrait, 4:3 = Landscape 4:3, 1:1 = Square. Kalau 4:3 tidak tersedia, pakai 16:9 dan catat.
+4. Teks prompt tiap label = baris STYLE di bawah + spasi + "Subject: " + deskripsi label (persis). Bila label memuat nama tokoh (SHOPPER_US / BUYER_ID / RUNNER), tambahkan juga definisi tokohnya sebelum "Subject:".
+5. Setelah tiap hasil keluar, periksa (screenshot boleh): latar putih polos; TIDAK ada huruf/angka/logo; tangan lima jari wajar; subjek sesuai deskripsi; hero FRAME 0 memenuhi +-85% lebar gambar.
+6. BATCH B (hanya #010 dan #012): setelah Batch A episode itu selesai, buat PROYEK BARU, pasang gambar ingredient yang disebut sebagai gambar referensi/ingredient, lalu kirim prompt Batch B.
+7. Unduh tiap hasil resolusi tertinggi, beri nama persis <label>.jpg (atau .png sesuai format unduhan). Cari file unduhan di folder Downloads Windows (%USERPROFILE%\Downloads); kalau tidak ketemu, tanya user di mana browser menyimpannya.
+8. Unggah ke folder Drive episode (ID di bawah) dengan konektor Google Drive (create_file, parentId = ID folder, file < 10 MB, disableConversionToGoogleType = true). Kalau konektor Drive tidak ada: kumpulkan file di %USERPROFILE%\Downloads\ARSIP_flow\<no>\ lalu minta user menyeret file ke link folder Drive.
+9. Laporan akhir per episode: tabel label -> OK / regenerate / gagal (alasan) + link folder Drive. Lalu user mengetik di sesi cloud: "gambar #<no> sudah di Drive".
+
+STYLE (sama untuk semua gambar):
+vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real.
+
+==================== #009 burger — Burger Lebih Besar dan Lebih Enak Ini Gagal Gara-Gara Angka
+Folder Drive: Mini Thriller IDN/009 Burger Sepertiga Pound  (ID 1qkjvKs6hZa_DLL7WcUKwQqWVLy8BRT1M)  https://drive.google.com/drive/folders/1qkjvKs6hZa_DLL7WcUKwQqWVLy8BRT1M
+BATCH A (satu proyek):
+- burger_tebal | Landscape 4:3 | FRAME 0 HERO. A generic thick hamburger seen from the side at eye level: a tall sesame-seed bun, a very thick beef patty, lettuce, tomato and cheese, slightly tilted; the burger fills about 85% of the image width.
+- burger_dua | Landscape 4:3 | Two generic hamburgers side by side on a plain counter, each half-wrapped in plain paper: the left one has a noticeably thicker patty than the right one; otherwise identical buns; no text on the wrappers.
+- pencicip | Portrait 3:4 | A man about 30 with short hair and a plain t-shirt, waist-up, a cloth blindfold over his eyes, taking a bite of a hamburger held in both hands, pleased expression (a blind taste test).
+- kasir_sepi | Square 1:1 | An empty 1980s fast-food restaurant counter seen from the customer side: a cash register, a stack of paper trays and a menu board above that is completely blank; nobody in line.
+- peneliti_80an | Portrait 3:4 | A man about 45, short side-parted hair, thick-framed 1980s glasses, wide-lapel suit and wide tie, waist-up, holding a pen over a blank notepad as if interviewing someone, attentive face.
+- pembeli_bingung | Portrait 3:4 | A man about 35 with short curly hair, a mustache and a 1980s windbreaker jacket, waist-up, scratching his head with one hand and holding a small blank card in the other, puzzled face.
+- tangan_pensil | Square 1:1 | Close-up of a right hand holding a pencil just above a blank sheet of paper, as if about to write a calculation; the paper is completely empty.
+- rak_label | Landscape 4:3 | A supermarket shelf section with rows of plain boxes and jars without labels, each row with a small blank price tag strip on the shelf edge; slight perspective.
+
+==================== #010 kantong — Kantong Plastik Ini Mendadak Ditolak Gara-Gara Rp200
+Folder Drive: Mini Thriller IDN/010 Kantong Plastik Rp200  (ID 1PtBWmpfQ5ECt69Y4zpjDuJumYIxjPsOV)  https://drive.google.com/drive/folders/1PtBWmpfQ5ECt69Y4zpjDuJumYIxjPsOV
+Tokoh: SHOPPER_US = American man about 40, short beard, plain flannel shirt, plain baseball cap with no logo
+BATCH A (satu proyek):
+- kantong_hero | Portrait 3:4 | FRAME 0 HERO. A thin, slightly crumpled plastic shopping bag with two loop handles, standing upright and empty, front view, completely plain; the bag fills about 85% of the image width.
+- kasir_kantong | Square 1:1 | A small Indonesian minimarket checkout counter: a cash register, a roll of thin plastic shopping bags hanging on a hook, a few snacks on the counter; no signs, no text.
+- koin_permen | Square 1:1 | Two small plain coins with no inscriptions lying next to three wrapped hard candies with twisted wrapper ends, on a counter top, close-up.
+- tolak_kantong | Landscape 4:3 | Two hands only: a hand from the left offering a folded thin plastic shopping bag, and a hand from the right raised palm-forward in a polite 'no thanks' gesture.
+- toko_as | Square 1:1 | A generic American supermarket checkout lane with a conveyor belt, a bagging area and a rack of plastic grocery bags; no signs, no text.
+- tas_kain | Portrait 3:4 | A hand holding up a sturdy reusable cloth tote bag by its handles, the bag plain with no print.
+- pembeli_peluk | Portrait 3:4 | SHOPPER_US, waist-up, walking out of a store carrying groceries in both arms without any bag: a loaf of bread, a plain cereal box and a few apples about to slip, slightly comic strained face.
+- koin_jatuh | Square 1:1 | An open hand, palm up, with one plain coin with no inscription falling away from the fingers into empty space, close-up.
+BATCH B (PROYEK BARU, ingredient: pembeli_peluk):
+- pembeli_kantong | Portrait 3:4 | The SAME SHOPPER_US as in the reference image (same face, same beard, same flannel shirt and cap), full body, walking calmly with several full plastic grocery bags hanging from each hand, relaxed face. COMPLETELY CHANGE HIS POSE AND BODY ANGLE (do NOT copy the old posture or hand gesture from the reference).
+
+==================== #011 paylater — Belanja Jadi Lebih Banyak Gara-Gara Tombol Paylater
+Folder Drive: Mini Thriller IDN/011 Paylater  (ID 1rKbftMKNtSy_hjH7wLI7Pbo6cBjHiC6o)  https://drive.google.com/drive/folders/1rKbftMKNtSy_hjH7wLI7Pbo6cBjHiC6o
+Tokoh: BUYER_ID = Indonesian man about 30, warm brown skin, short neat hair, plain collared shirt
+BATCH A (satu proyek):
+- jempol_hp | Portrait 3:4 | FRAME 0 HERO. Close-up of a right hand holding a generic modern smartphone upright, the thumb hovering just above the lower part of the screen as if about to press a button; the screen is completely blank white, no logo; phone and hand fill about 85% of the image width.
+- paket_tumpuk | Square 1:1 | A small pile of online-shopping delivery parcels: plain cardboard boxes and plastic mailer pouches stacked unevenly, sealed with tape, no labels or text.
+- kalender_sobek | Portrait 3:4 | A wall tear-off day calendar hanging on a nail, the top page half torn off, all pages completely blank with no numbers.
+- peneliti_data | Landscape 4:3 | A man about 45 with rolled-up shirt sleeves and reading glasses, waist-up, sitting at a desk covered with blank printouts, running a finger down a long blank printout as if checking numbers, a laptop beside him with a blank screen.
+- keranjang_isi | Square 1:1 | A plastic supermarket hand basket, half full with a few plain grocery items: a box, a bottle and some fruit; no labels or text.
+- keranjang_luber | Square 1:1 | The same kind of plastic supermarket hand basket, now overflowing: piled high with plain boxes, bottles, fruit and snacks spilling over the rim; no labels or text.
+- dompet_longgar | Landscape 4:3 | An open leather wallet lying at an angle, a thick stack of plain banknotes with no numbers or portraits sticking loosely out of it.
+- pembeli_ragu | Portrait 3:4 | BUYER_ID, waist-up, holding a smartphone with a blank screen in one hand, the other hand rubbing his chin, hesitant thoughtful face, looking at the phone.
+
+==================== #012 kartumember — Cara Halus Kartu Member Bikin Kamu Balik Lagi
+Folder Drive: Mini Thriller IDN/012 Kartu Member  (ID 1Cjp1V1YpcV_6HTbEr1MTGJZ0_Da4lRAo)  https://drive.google.com/drive/folders/1Cjp1V1YpcV_6HTbEr1MTGJZ0_Da4lRAo
+Tokoh: RUNNER = Indonesian man about 30, warm brown skin, short hair, plain sleeveless running singlet with a blank race bib, running shorts
+BATCH A (satu proyek):
+- kartu_tangan | Landscape 4:3 | FRAME 0 HERO. Close-up of a hand holding a blank rectangular paper loyalty card flat and facing the viewer, the card completely empty with no boxes, no marks and no text; card and hand fill about 85% of the image width.
+- kedai_kopi | Square 1:1 | A small Indonesian coffee shop counter: a glass of iced coffee and a hot coffee cup, a simple espresso machine behind, a small stack of blank paper cards near the register; no signs, no text.
+- cuci_motor | Landscape 4:3 | A scooter-style motorcycle covered in soap foam at a simple roadside wash spot, a water hose lying beside it with water spraying; no person, no text.
+- cuci_mobil | Landscape 4:3 | A generic sedan inside an automatic car wash with large spinning brushes and soap foam, seen from a front three-quarter angle; no signs, no text.
+- stempel_tangan | Square 1:1 | Close-up of a hand pressing a small rubber stamp down onto a blank paper card on a counter, an ink pad beside it.
+- pelari_start | Landscape 4:3 | RUNNER, full body, crouched at a starting line on a running track in a set position, hands on the ground behind the line, looking ahead, not yet started; the track ahead is empty.
+- kasir_kartu | Square 1:1 | Close-up across a shop counter: a hand holding out a small blank paper loyalty card toward the viewer, as if a cashier is handing it over.
+BATCH B (PROYEK BARU, ingredient: pelari_start):
+- pelari_tengah | Landscape 4:3 | The SAME RUNNER as in the reference image (same face, same singlet and race bib), full body, running mid-stride well down the track, side view, one foot off the ground, determined face. COMPLETELY CHANGE HIS POSE AND BODY ANGLE (do NOT copy the old posture or hand gesture from the reference).

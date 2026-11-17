@@ -56,6 +56,55 @@ LANGKAH
     return "\n".join(L)
 
 
+STYLE_AGENT = ("Vintage 19th-century steel engraving illustration, black ink cross-hatching, no color; one isolated subject on a plain "
+               "pure-white background, no shadow, no frame, white margin; absolutely no text, letters, numbers, logos or watermark; "
+               "generic faces, natural hands with five fingers.")
+AR_CODE = {"3:4": "34", "4:3": "43", "1:1": "11"}
+
+
+def local_block_mcp():
+    L = ["""TUGAS: buat 31 gambar Google Flow untuk ARSIP KASUS #009-#012 memakai MCP flow-mcp, tool flow_agent_images (Agent mode Flow, banyak gambar sekaligus), lalu unggah ke Google Drive. Kerjakan berurutan; lapor singkat tiap episode selesai.
+
+ATURAN
+- JANGAN pakai flow_generate satu per satu. Hanya flow_agent_images, persis seperti daftar PANGGILAN di bawah (1 panggilan = 1 episode x 1 rasio).
+- JANGAN membuka/melihat gambar hasil (hemat token). Pemeriksaan visual dilakukan sesi cloud setelah file ada di Drive.
+- JANGAN regenerate apa pun tanpa izin user. Panggilan gagal/diblokir -> catat, lanjut ke panggilan berikutnya.
+- Jangan ubah teks scene.
+
+LANGKAH
+0. CEK MCP: cari tool flow_status dan flow_agent_images (biasanya mcp__flow__...; kalau tertunda, muat lewat ToolSearch "flow_agent_images"). Tidak ada -> BERHENTI, lapor "flow-mcp belum terpasang di sesi ini". Ada -> panggil flow_status (detailed=false). Kalau belum login / jendela Chrome Flow tidak terbuka: minta user menjalankan login flow-mcp (npm run login di folder flow-mcp), login Google di jendela Chrome khusus itu, biarkan jendela terbuka dan layar jangan tidur. Tunggu user bilang siap.
+1. Jalankan semua PANGGILAN A di bawah, berurutan dari atas (11 panggilan), lalu 2 PANGGILAN B. Tunggu tiap panggilan selesai (pakai flow_wait bila tool mengembalikan job id) sebelum lanjut.
+2. Hasil ada di folder output flow-mcp (default %USERPROFILE%\\flow-mcp-out\\<project>\\, nama scene-NN.*; kalau datang sebagai ZIP, ekstrak). Ganti nama ke <label>.<ext asli> sesuai URUTAN scene di panggilan itu (scene-01 = label pertama, dst.). Bila hasil tool menyebut pemetaan file->scene, pakai pemetaan itu. Bila jumlah file tidak sama dengan jumlah scene atau urutan tidak bisa dipastikan: jangan menebak; unggah dengan nama asli ke subfolder Drive "_belum_dinamai" dan catat dari panggilan mana.
+3. BATCH B (#010, #012): jalankan SETELAH Batch A episode itu selesai dan diganti nama. references = path absolut file ingredient yang disebut.
+4. UNGGAH ke folder Drive episode (ID di bawah) pakai konektor Google Drive: create_file dengan title=<label>.<ext>, parentId=<ID folder>, contentMimeType image/png atau image/jpeg, disableConversionToGoogleType=true, base64Content berupa referensi file sha256:<hash 64 hex huruf kecil>:<path absolut pakai />. Hash dari PowerShell: (Get-FileHash -Algorithm SHA256 <path>).Hash.ToLower(). File harus < 10 MB. Kalau konektor Drive tidak ada/menolak: kumpulkan file di %USERPROFILE%\\Downloads\\ARSIP_flow\\<no>\\ lalu minta user menyeret ke link folder Drive.
+5. LAPORAN per episode: tabel label -> file asli -> status (OK / hilang / gagal + alasan) + link folder Drive. Lalu user mengetik di sesi cloud: "gambar #<no> sudah di Drive".
+"""]
+    for e, src in zip(data, gen.EP):
+        L.append(f"==================== #{e['no']} {e['slug']} — Drive: Mini Thriller IDN/{e['drive']} (ID {e['drive_id']}) https://drive.google.com/drive/folders/{e['drive_id']}")
+        groups = {}
+        for lab, ar, p in src["A"]:
+            groups.setdefault(ar, []).append((lab, p))
+        for ar, items in groups.items():
+            proj = f"ARSIP_{e['no']}_{AR_CODE[ar]}"
+            scenes = []
+            for lab, p in items:
+                ch = "".join(f" {k} = {v}." for k, v in src["chars"].items() if k in p)
+                p2 = p.replace("FRAME 0 HERO. ", "")
+                scenes.append(f"{p2}{ch} {STYLE_AGENT}")
+            L.append(f"PANGGILAN A ({e['no']} · {ar}): flow_agent_images project=\"{proj}\" aspect_ratio=\"{ar}\" download_quality=\"upscaled\"")
+            L.append("  urutan label: " + ", ".join(l for l, _ in items))
+            L.append("  scenes:")
+            L += [f"  {i}. {s}" for i, s in enumerate(scenes, 1)]
+        for lab, ar, ch, p in src["B"]:
+            ing = next(l for l, _, pp in src["A"] if ch in pp)
+            proj = f"ARSIP_{e['no']}_B"
+            L.append(f"PANGGILAN B ({e['no']} · {ar}, setelah Batch A): flow_agent_images project=\"{proj}\" aspect_ratio=\"{ar}\" download_quality=\"upscaled\" references=[{{image: <path absolut {ing}.*>, name: \"{ch}\"}}] scene_references=[[\"{ch}\"]]")
+            L.append(f"  urutan label: {lab}")
+            L.append(f"  scenes:\n  1. {p} {ANTI} {src['chars'][ch]}. {STYLE_AGENT}")
+        L.append("")
+    return "\n".join(L)
+
+
 def esc(s):
     return html.escape(s, quote=True)
 
@@ -103,7 +152,8 @@ def episode_html(e):
 
 tabs = "".join(f'<a href="#ep{e["no"]}" class="tab">#{e["no"]} {esc(e["slug"])}</a>' for e in data)
 body = "".join(episode_html(e) for e in data)
-local = copy_block(local_block(), "Instruksi untuk sesi lokal (Local → This computer)", big=True)
+local = copy_block(local_block_mcp(), "Instruksi sesi lokal: flow-mcp Agent (hemat token)", big=True)
+local_browser = copy_block(local_block(), "Instruksi sesi lokal: browser bawaan (cadangan)", big=True)
 total = sum(len(e["singlesA"]) + len(e["B"]) for e in data)
 
 page = f'''<title>Prompt Flow ARSIP 009–012</title>
@@ -187,9 +237,10 @@ pre {{ margin:0; font:12.5px/1.5 var(--f-mono); background:var(--pre); border:1p
 <div class="settings"><span class="chip">Nano Banana Pro <b>·</b> cadangan Nano Banana 2</span><span class="chip">output per prompt: <b>1</b></span><span class="chip">rasio per label</span><span class="chip">diblokir → <b>proyek baru</b></span></div>
 </header>
 <section class="panel">
-<h2>Jalur 1: sesi lokal yang generate sendiri</h2>
-<ol class="steps"><li>Di Claude desktop, buka sesi <b>Local → This computer</b> (folder repo di D:).</li><li>Salin blok di bawah, tempel ke sesi lokal itu, kirim.</li><li>Saat panel browser muncul (Ctrl+Shift+B), login Google sendiri, lalu bilang "sudah login".</li><li>Selesai satu episode, ketik di sesi cloud: <code>gambar #009 sudah di Drive</code>.</li></ol>
+<h2>Jalur 1: sesi lokal + flow-mcp (Agent mode)</h2>
+<ol class="steps"><li>Di Claude desktop, buka sesi <b>Local → This computer</b> yang punya MCP flow-mcp.</li><li>Salin blok di bawah, tempel, kirim. Sesi itu mengecek MCP dulu, lalu menjalankan 13 panggilan <code>flow_agent_images</code> (per episode per rasio), mengganti nama file, dan mengunggah ke Drive.</li><li>Kalau diminta login: jalankan login flow-mcp, login Google di jendela Chrome khususnya, biarkan terbuka dan layar menyala.</li><li>Selesai satu episode, ketik di sesi cloud: <code>gambar #009 sudah di Drive</code>.</li></ol>
 {local}
+<details><summary>Cadangan: lewat browser bawaan (lebih boros token)</summary>{local_browser}</details>
 <p class="note">Jalur 2 (manual): pakai tombol Salin per gambar di bawah, tempel di Flow, unduh, seret ke link folder Drive episode.</p>
 </section>
 <nav class="tabs" aria-label="Episode">{tabs}</nav>
@@ -213,5 +264,6 @@ document.querySelectorAll('input[data-key]').forEach(cb => {{
 '''
 out = HERE / "flow_prompts_page.html"
 out.write_text(page, encoding="utf-8")
-(HERE / "flow_local_session_instructions.txt").write_text(local_block(), encoding="utf-8")
+(HERE / "flow_local_session_instructions.txt").write_text(local_block_mcp(), encoding="utf-8")
+(HERE / "flow_local_session_instructions_browser.txt").write_text(local_block(), encoding="utf-8")
 print(out, len(page))
