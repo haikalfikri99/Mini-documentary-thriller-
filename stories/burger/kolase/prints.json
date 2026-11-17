@@ -1,1 +1,10 @@
-{}
+{
+ "burger_tebal": {"file": "ai_burger_tebal.jpg", "width": 900, "tint_map": "ai_burger_tebal.tint.png"},
+ "burger_dua": {"file": "ai_burger_dua.jpg", "width": 920, "tint_map": "ai_burger_dua.tint.png"},
+ "pencicip": {"file": "ai_pencicip.jpg", "width": 560},
+ "kasir_sepi": {"file": "ai_kasir_sepi.jpg", "width": 860},
+ "peneliti_80an": {"file": "ai_peneliti_80an.jpg", "width": 560},
+ "pembeli_bingung": {"file": "ai_pembeli_bingung.jpg", "width": 560},
+ "tangan_pensil": {"file": "ai_tangan_pensil.jpg", "width": 820},
+ "rak_label": {"file": "ai_rak_label.jpg", "width": 940}
+}

@@ -1,0 +1,183 @@
+{
+ "no": 9,
+ "slug": "burger",
+ "version": "v1",
+ "title": "Burger lebih besar dan lebih enak ini <em>gagal gara-gara angka</em>",
+ "sub": "Storyboard 22 shot. Tiap keyframe adalah render kode asli dari mesin kolase, diambil di 85% durasi shot, jadi cap atau teks yang masih bergerak bisa terlihat belum lengkap. Timing mengikuti VO final 43,1 dtk (jeda pengungkapan 0,61 dtk sebelum \"Bukan karena mereka bodoh\").",
+ "rules": [
+  "Warna tangan (cat air) hanya pada burger: identitas kolase tetap tinta di kertas; merah = cap/kerugian, biru arsip = sistem (centang, CEK ULANG), kuning stabilo = sorotan pecahan.",
+  "Tanpa logo. A&W dan McDonald's hanya muncul di strip ketik; burger kiri yang lebih tebal = A&W 1/3 pound.",
+  "Tidak ada angka yang tidak ada di sumber: label harga tanpa nominal, grafik penjualan tanpa nilai, \"lebih dari separuh\" = batang melewati garis separuh.",
+  "Atribusi tanpa diucapkan: strip kecil \"menurut memoar pemilik A&W (2007)\" di lembar wawancara, strip sumber di shot terakhir.",
+  "Semua teks layar Bahasa Indonesia; label/grafik di atas y 1180, pita caption bersih. Visual QA otomatis: 0 peringatan.",
+  "Shot terakhir kembali ke komposisi frame 0 (burger tebal di tengah) untuk loop."
+ ],
+ "shots": [
+  {
+   "beat": "Hook (H1)",
+   "vo": "Burger ini lebih tebal,",
+   "aksi": "Detik 0: burger tebal berwarna (hand-tint) sudah di tengah meja dan bergerak; cap merah GAK LAKU menghantam di 0,20 dtk.",
+   "kamera": "Push-in 1,02→1,08, getar di hantaman cap",
+   "teks": "GAK LAKU",
+   "gambar": "AI burger_tebal + peta warna tangan (§L)"
+  },
+  {
+   "vo": "harganya sama—tapi",
+   "aksi": "Burger naik dan mengecil; dua label HARGA yang identik meluncur dari kiri-kanan; tanda = menghantam di kata \"sama\".",
+   "kamera": "Push-in pelan",
+   "teks": "HARGA · HARGA · =",
+   "gambar": "kode: tag_harga (tanpa angka, harga asli tidak diketahui)"
+  },
+  {
+   "vo": "justru nggak laku.",
+   "aksi": "Cap GAK LAKU dihantamkan lagi, kali ini di atas burger, tepat di kata \"nggak\".",
+   "kamera": "Push-in 1,00→1,08 + getar",
+   "teks": "GAK LAKU",
+   "gambar": "AI burger_tebal + kode"
+  },
+  {
+   "beat": "Setup 1980-an",
+   "vo": "Tahun delapan puluhan,",
+   "aksi": "Map ARSIP KASUS #009 menutup layar ≤ 1 dtk (cap DIBUKA), lalu huruf tebusan 1980-AN ditempel satu per satu.",
+   "kamera": "Statis 1,06→1,10",
+   "teks": "ARSIP KASUS #009 · BURGER · 1980-AN · 1980-AN",
+   "gambar": "seri (map) + AI burger_tebal kecil",
+   "alt": {
+    "t": "first",
+    "caption": "Awal shot: map ARSIP masuk"
+   }
+  },
+  {
+   "vo": "A&W merilis burger sepertiga pound",
+   "aksi": "Dua burger meluncur masuk; burger kiri (dagingnya lebih tebal) diberi strip ketik 1/3 POUND · A&W + panah tinta.",
+   "kamera": "Geser ke kiri, push-in",
+   "teks": "1/3 POUND · A&W",
+   "gambar": "AI burger_dua (diwarnai tangan)"
+  },
+  {
+   "vo": "untuk menantang seperempat pound McDonald's.",
+   "aksi": "Kamera menyeberang ke burger kanan yang lebih tipis: strip 1/4 POUND · McDONALD'S + panah.",
+   "kamera": "Geser kiri→kanan, zoom keluar sedikit",
+   "teks": "1/4 POUND · McDONALD'S",
+   "gambar": "AI burger_dua"
+  },
+  {
+   "vo": "Harganya dipatok sama.",
+   "aksi": "Label HARGA kembar meluncur ke bawah tiap burger; tanda = di kata \"sama\".",
+   "kamera": "Push-in pelan + getar kecil",
+   "teks": "HARGA · HARGA · =",
+   "gambar": "AI burger_dua + kode"
+  },
+  {
+   "beat": "Uji rasa",
+   "vo": "Dalam tes rasa tertutup,",
+   "aksi": "Pria bermata tertutup kain menggigit burger naik dari bawah; slip \"tes rasa tertutup\".",
+   "kamera": "Push-in pelan",
+   "teks": "tes rasa tertutup",
+   "gambar": "AI pencicip"
+  },
+  {
+   "vo": "mayoritas orang juga memilih burger ini lebih enak.",
+   "aksi": "Pencicip bergeser ke kiri; kartu UJI RASA masuk dari kanan; centang biru arsip di 1/3 POUND (kata \"memilih\"); burger tebal kecil ditempel di kata \"enak\".",
+   "kamera": "Push-in pelan",
+   "teks": "UJI RASA · 1/3 POUND ✓ · 1/4 POUND",
+   "gambar": "AI pencicip + kode kartu_rasa"
+  },
+  {
+   "beat": "Gagal di pasar",
+   "vo": "Anehnya, begitu dijual,",
+   "aksi": "Kasir restoran 80-an yang kosong meluncur masuk; tanda tanya tebusan; slip \"mulai dijual\".",
+   "kamera": "Push-in 1,00→1,07",
+   "teks": "? · mulai dijual",
+   "gambar": "AI kasir_sepi"
+  },
+  {
+   "vo": "angkanya malah ambruk.",
+   "aksi": "Grafik PENJUALAN masuk dari kiri; garis merah naik sedikit lalu menukik tajam di kata \"ambruk\" (tanpa angka: besaran penurunan tidak diketahui).",
+   "kamera": "Push-in + getar di \"ambruk\"",
+   "teks": "PENJUALAN",
+   "gambar": "kode: grafik + garis tinta merah"
+  },
+  {
+   "beat": "Riset",
+   "vo": "Perusahaan pun menyewa peneliti",
+   "aksi": "Peneliti berjas 80-an dengan buku catatan meluncur dari kiri; slip \"peneliti pasar\".",
+   "kamera": "Push-in pelan",
+   "teks": "peneliti pasar",
+   "gambar": "AI peneliti_80an"
+  },
+  {
+   "vo": "untuk mewawancarai pembeli.",
+   "aksi": "Pembeli berjaket (menggaruk kepala) masuk dari kanan, berhadapan dengan peneliti; slip \"pembeli\". Kepala keduanya dibuat sama besar.",
+   "kamera": "Push-in pelan",
+   "teks": "peneliti pasar · pembeli",
+   "gambar": "AI peneliti_80an + pembeli_bingung"
+  },
+  {
+   "vo": "Jawabannya bikin geleng kepala.",
+   "aksi": "LEMBAR WAWANCARA naik dari bawah: \"Mana yang lebih besar? 1/3 pound / 1/4 pound\"; centang jatuh di 1/4 pound pada kata \"geleng\"; strip atribusi kecil.",
+   "kamera": "Zoom ke lembar 1,00→1,12",
+   "teks": "LEMBAR WAWANCARA · Mana yang lebih besar? · menurut memoar pemilik A&W (2007)",
+   "gambar": "kode: lembar_wawancara"
+  },
+  {
+   "beat": "Temuan",
+   "vo": "Lebih dari separuh orang",
+   "aksi": "Batang merah melewati garis SEPARUH (tanpa persen pasti: sumber tidak sepakat); pembeli kecil di bawahnya.",
+   "kamera": "Push-in + getar di \"separuh\"",
+   "teks": "SEPARUH",
+   "gambar": "kode: bar_separuh + AI pembeli_bingung"
+  },
+  {
+   "vo": "mengira sepertiga lebih kecil dari seperempat. [hening 0,6 dtk]",
+   "aksi": "Pembeli besar di tengah; tanda tanya tebusan; slip stabilo \"1/3 < 1/4 ?\" di kata \"kecil\". Saat hening 27,28–27,88 semua potongan sudah diam dan kamera berhenti (layar membeku).",
+   "kamera": "Push-in lalu diam total di jeda",
+   "teks": "? · 1/3 < 1/4 ?",
+   "gambar": "AI pembeli_bingung + kode"
+  },
+  {
+   "beat": "Titik balik",
+   "vo": "Bukan karena mereka bodoh.",
+   "aksi": "Slip BODOH? ditempel di kata \"bodoh\", langsung dicoret silang merah.",
+   "kamera": "Zoom dekat 1,08→1,12",
+   "teks": "BODOH? (dicoret)",
+   "gambar": "AI pembeli_bingung + kode"
+  },
+  {
+   "vo": "Otak kita memang malas menghitung pecahan.",
+   "aksi": "Tangan memegang pensil di atas kertas; hitungan yang dilewati otak diketik: 1/3 = 0,33 · 1/4 = 0,25; slip stabilo \"pecahan\".",
+   "kamera": "Push-in pelan",
+   "teks": "1/3 = 0,33 · 1/4 = 0,25 · pecahan",
+   "gambar": "AI tangan_pensil + kode"
+  },
+  {
+   "vo": "Begitu melihat angka tiga melawan empat,",
+   "aksi": "Slip 1/3 < 1/4 ? naik ke atas; angka besar 3 di kata \"tiga\", \"vs\", angka 4 di kata \"empat\".",
+   "kamera": "Push-in pelan",
+   "teks": "1/3 < 1/4 ? · 3 vs 4",
+   "gambar": "kode"
+  },
+  {
+   "vo": "otak langsung menganggap tiga pasti lebih sedikit.",
+   "aksi": "Angka 3 dilingkari merah di kata \"tiga\"; di kata \"sedikit\" tanda < stabilo menghantam di antara 3 dan 4, angka 3 mengecil.",
+   "kamera": "Push-in + getar",
+   "teks": "3 < 4",
+   "gambar": "kode"
+  },
+  {
+   "beat": "Payoff + loop",
+   "vo": "Lain kali, kalo kamu bandingin ukuran atau promo pecahan di label harga,",
+   "aksi": "Rak supermarket naik; label promo BONUS 1/3 (kata \"promo\") dan HEMAT 1/4 (kata \"pecahan\") ditempel di tepi rak; di kata \"label\" BONUS 1/3 berganti kertas stabilo kuning.",
+   "kamera": "Push-in 1,00→1,08",
+   "teks": "BONUS 1/3 · HEMAT 1/4",
+   "gambar": "AI rak_label + kode"
+  },
+  {
+   "vo": "cek ulang angkanya—otakmu bisa terkecoh sebelum sempat ngitung.",
+   "aksi": "Kembali ke komposisi frame 0 (burger tebal berwarna di tengah) supaya loop mulus; cap biru arsip CEK ULANG di kata \"cek\"; strip sumber kecil di atas.",
+   "kamera": "Push-in pelan + getar di cap",
+   "teks": "CEK ULANG · sumber: Culinary Lore · blog A&W (2021) · Wikipedia · memoar A. Alfred Taubman (2007)",
+   "gambar": "AI burger_tebal + kode"
+  }
+ ]
+}

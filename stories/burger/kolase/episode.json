@@ -1,15 +1,15 @@
 {
  "slug": "burger",
  "no": 9,
- "title": "",
+ "title": "Burger Lebih Besar dan Lebih Enak Ini Gagal Gara-Gara Angka",
  "case_line": "BURGER \u00b7 1980-AN",
  "vo": "audio/vo_burger.mp3",
  "words": "audio/vo_words.json",
- "dur": 0,
+ "dur": 43.5,
  "report": [
   [
    0,
-   0
+   43.5
   ]
  ]
 }

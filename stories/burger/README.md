@@ -61,3 +61,10 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 diterima kecuali `burger_
 
 ## Perbaikan + hand-tint (17 Nov 2026)
 5 gambar perbaikan diterima (burger_dua patty kiri jelas lebih tebal; kasir_kantong; timbangan; kalender_sobek; kasir_kartu). Langkah upscale #010–#012 tidak dijalankan sesi lokal (resolusi tetap ±1024 px). Usulan user: warnai burger → `kit/collage/handtint.py` + zona `kolase/tint/*.json`, hasil `ai/burger_tebal.tint.png`, `ai/burger_dua.tint.png`; perbandingan `kolase/tint/perbandingan_tint.jpg`. Menunggu keputusan user (pakai/tidak).
+
+## Fase 4 — bake + storyboard v1 (17 Nov 2026)
+- `kolase/bake.py`: `ai_to_raw()` menyalin `ai/*.jpg` + `ai/*.tint.png`; dokumen kode tag_harga (tanpa nominal), kartu_rasa, grafik (tanpa nilai), lembar_wawancara, bar_separuh; cap GAK LAKU / CEK ULANG; strip 1/3 POUND · A&W, 1/4 POUND · McDONALD'S, 1/3 < 1/4 ?, BODOH?, 1/3 = 0,33, 1/4 = 0,25, BONUS 1/3 (+ versi stabilo), HEMAT 1/4; atribusi `s_src1` + `s_src` (2 baris). `prints.json`: 8 gambar AI, burger_tebal/burger_dua dengan `tint_map`.
+- `kolase/film.js`: 22 shot, akhir 43,5 dtk; jeda 27,28–27,88 = layar membeku; shot 22 kembali ke komposisi frame 0. `check_visual.mjs`: 0 peringatan.
+- Storyboard v1 (Artifact berkomentar): https://claude.ai/artifact/KsFP7dm8RQLVXekRMUpuhj · sumber `kolase/storyboard.json`, halaman dibangun `make_page.py` ke scratchpad.
+- Catatan jujur: beda tebal daging di burger_dua masih halus di layar HP; rak_label lebih lebar dari layar (latar, sengaja).
+- Lanjut setelah user setuju: skor + foley + mix → `make_kolase.sh` → UPLOAD.md → cover → `pack_upload.py`.
