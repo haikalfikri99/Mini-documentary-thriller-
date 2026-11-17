@@ -41,7 +41,7 @@ def tag(name, lines, paper, inks, seed, w=300, h=180, sizes=(64, 40)):
         X = lambda v: P + v * k
         d.ellipse([X(22), X(h / 2 - 14), X(50), X(h / 2 + 14)], fill=C(INK * 1.2))
         d.line([X(36), X(h / 2), X(-10), X(h / 2 - 50)], fill=C(INK), width=max(2, int(3 * k)))
-        y = 18 if len(lines) > 1 else h / 2 - sizes[0] * 0.62
+        y = (h - sizes[0] * 1.25 - sizes[1] * 1.15) / 2 if len(lines) > 1 else h / 2 - sizes[0] * 0.62
         for i, (t, ik) in enumerate(zip(lines, inks)):
             f = font(F_SLAB if i == 0 else F_CPB, sizes[min(i, 1)] * k)
             tw = f.getlength(t); d.text((X(60 + (w - 60) / 2) - tw / 2, X(y)), t, font=f, fill=C(ik))
@@ -73,8 +73,9 @@ def coin(name, big, small, D, seed):
     bk.doc(name, D, D, SILVER, draw, seed=seed, rough=0.15, shape=shape)
 
 
-def receipt():
-    """a generic minimarket receipt (illustrative prices, 2016): the KANTONG PLASTIK 200 line is the evidence"""
+def receipt(name='struk', hl=None):
+    """a generic minimarket receipt (illustrative prices, 2016): the KANTONG PLASTIK 200 line is the evidence.
+    hl = 'kantong' | 'total': an amber highlighter band baked UNDER that row's type (a band drawn on top would hide the text)"""
     W_, H_ = 380, 700
     rows = [('ROTI TAWAR', '12.000'), ('SUSU UHT', '5.500'), ('MI INSTAN', '2.500'), ('SABUN MANDI', '4.000'), ('KANTONG PLASTIK', '200')]
     def shape(dm, k, P):
@@ -90,6 +91,8 @@ def receipt():
         dash = lambda y: [d.line([X(x), X(y), X(x + 9), X(y)], fill=C(INK), width=max(1, int(2 * k))) for x in range(24, W_ - 24, 16)]
         dash(124)
         y = 146
+        if hl == 'kantong': d.polygon([(X(14), X(y + 4 * 46 - 6)), (X(W_ - 12), X(y + 4 * 46 - 9)), (X(W_ - 14), X(y + 4 * 46 + 34)), (X(16), X(y + 4 * 46 + 36))], fill=C(AMBER * 0.9 + CARD * 0.1))
+        if hl == 'total': d.polygon([(X(14), X(y + 5 * 46 + 18)), (X(W_ - 12), X(y + 5 * 46 + 15)), (X(W_ - 14), X(y + 5 * 46 + 60)), (X(16), X(y + 5 * 46 + 62))], fill=C(AMBER * 0.9 + CARD * 0.1))
         for a, b in rows:
             d.text((X(26), X(y)), a, font=f, fill=C(INK)); d.text((X(W_ - 26) - f.getlength(b), X(y)), b, font=f, fill=C(INK)); y += 46
         dash(y + 6); y += 26
@@ -98,7 +101,7 @@ def receipt():
             d.text((X(26), X(y)), a, font=ff, fill=C(INK)); d.text((X(W_ - 26) - ff.getlength(b), X(y)), b, font=ff, fill=C(INK)); y += 48
         dash(y + 10)
         t = 'TERIMA KASIH'; d.text((X(W_ / 2) - fr.getlength(t) / 2, X(y + 30)), t, font=fr, fill=C(INK))
-    m = bk.doc('struk', W_, H_, NEWS * 1.02, draw, seed=1001, rough=0.25, shape=shape)
+    m = bk.doc(name, W_, H_, NEWS * 1.02, draw, seed=1001, rough=0.25, shape=shape)
     # world offsets (from the receipt centre) of the rows film.js highlights
     m['row_kantong'] = 146 + 4 * 46 + 15 - H_ / 2
     m['row_total'] = 146 + 5 * 46 + 26 + 18 - H_ / 2
@@ -305,7 +308,7 @@ def slips():
          ('s_minimarket', 'kasir minimarket', F_CPB, 40, CARD, INK), ('s_kembalian', 'kembalian Rp200 = permen', F_CPB, 38, AMBER, INK),
          ('s_3bulan', '3 BULAN', F_SLAB, 70, AMBER, INK), ('s_30', 'TURUN S.D. 30%', F_SLAB, 56, AMBER, INK),
          ('s_rugibesar', 'RUGI BESAR?', F_SLAB, 72, CARD, INK), ('s_as', 'AMERIKA SERIKAT', F_CPB, 46, CARD, INK),
-         ('s_md', 'Montgomery County, Maryland · 2012', F_CP, 30, NEWS, INK), ('s_daerah', 'DAERAH INI', F_CPB, 44, CARD, RED),
+         ('s_md', 'Montgomery County, Maryland · 2012', F_CPB, 23, NEWS, INK), ('s_daerah', 'DAERAH INI', F_CPB, 44, CARD, RED),
          ('s_tokolain', 'TOKO LAIN', F_CPB, 44, CARD, INK), ('s_bawatas', 'bawa tas sendiri', F_FELLI, 46, CARD, INK),
          ('s_berhenti', 'berhenti pakai kantong', F_CPB, 36, CARD, RED), ('s_biasa', 'tetap pakai kantong', F_CPB, 36, CARD, INK),
          ('s_sama', 'SAMA-SAMA 5 SEN', F_SLAB, 52, AMBER, INK), ('s_untung', 'untung kecil', F_FELLI, 54, AMBER, INK),
@@ -329,7 +332,7 @@ if __name__ == '__main__':
                                     tag('tag_bayar5', ['BAYAR', '5 SEN'], CARD, [RED, INK], 1702, w=300, h=180, sizes=(54, 44)),
                                     tag('tag_bonus5', ['BONUS', '5 SEN'], TAGP, [INK, INK], 1703, w=300, h=180, sizes=(54, 44)),
                                     coin('koin200', '200', 'RUPIAH', 170, 1711), coin('koin5', '5¢', 'SEN', 150, 1712),
-                                    receipt(), peta(), calendar(), chart(), journal(), people())),
+                                    receipt(), receipt('struk_hl', 'kantong'), receipt('struk_tot', 'total'), peta(), calendar(), chart(), journal(), people())),
                   ('balance', balance), ('stamps', stamps), ('slips', slips), ('prints', lambda: bake_prints(bk, HERE))]:
         if want(g): fn(); print('baked', g)
     bk.done()

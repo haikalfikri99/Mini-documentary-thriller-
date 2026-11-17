@@ -1,15 +1,15 @@
 {
  "slug": "kantong",
  "no": 10,
- "title": "",
- "case_line": "KANTONG",
+ "title": "Kantong Plastik Ini Mendadak Ditolak Gara-Gara Rp200",
+ "case_line": "KANTONG · 2016",
  "vo": "audio/vo_kantong.mp3",
  "words": "audio/vo_words.json",
- "dur": 0,
+ "dur": 55.22,
  "report": [
   [
    0,
-   0
+   55.22
   ]
  ]
 }

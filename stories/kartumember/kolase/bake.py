@@ -303,19 +303,27 @@ def timeline():
     bk.doc('garis_waktu', 900, 440, CARD, draw, seed=641, rough=0.4)
 
 
-def track():
-    """running track: start line, 10 box marks, finish = the voucher (drawn under the runners)"""
+def track(name, n, seed):
+    """running track for an n-box card: START line, one mark per box (numbered), the finish (= the free wash) after the last box.
+    Marks are 90 world units apart on every track, so 8 boxes to go look the same length on both cards."""
+    Wd = 150 + n * 90 + 120
     def draw(img, d, k, P):
         X = lambda v: P + v * k
         w = max(3, int(5 * k))
-        for y in (40, 150): d.line([X(0), X(y), X(1100), X(y)], fill=C(INK), width=w)
-        for x in range(0, 1100, 30): d.line([X(x), X(95), X(x + 15), X(95)], fill=C(INK * 3), width=max(2, int(3 * k)))
-        d.rectangle([X(60), X(36), X(76), X(154)], fill=C(INK))
-        d.text((X(20), X(160)), 'START', font=font(F_CPB, 30 * k), fill=C(INK))
-        for i in range(10):
-            x = 160 + i * 90; d.line([X(x), X(130), X(x), X(170)], fill=C(INK), width=w)
-            d.text((X(x + 6), X(160)), str(i + 1), font=font(F_CPB, 26 * k), fill=C(INK * 2))
-    bk.doc('lintasan', 1100, 200, CARD, draw, seed=651, rough=0.3)
+        for y in (40, 150): d.line([X(0), X(y), X(Wd), X(y)], fill=C(INK), width=w)
+        for x in range(0, Wd, 30): d.line([X(x), X(95), X(x + 15), X(95)], fill=C(INK * 3), width=max(2, int(3 * k)))
+        d.rectangle([X(52), X(36), X(66), X(154)], fill=C(INK))
+        d.text((X(14), X(160)), 'START', font=font(F_CPB, 28 * k), fill=C(INK))
+        for i in range(n):
+            x = 150 + i * 90; d.line([X(x), X(128), X(x), X(172)], fill=C(INK), width=w)
+            d.text((X(x + 6), X(158)), str(i + 1), font=font(F_CPB, 28 * k), fill=C(INK * 2))
+        fx = 150 + n * 90
+        for dx in (0, 12): d.line([X(fx + dx), X(30), X(fx + dx), X(160)], fill=C(RED), width=w)
+        d.text((X(fx - 40), X(0)), 'GRATIS', font=font(F_SLAB, 28 * k), fill=C(RED))
+    bk.doc(name, Wd, 200, CARD, draw, seed=seed, rough=0.3)
+    bk.M[name]['marks'] = [round(150 + i * 90 - Wd / 2, 1) for i in range(n)]
+    bk.M[name]['finish'] = round(150 + n * 90 - Wd / 2 + 6, 1)
+    bk.M[name]['lane'] = -5
 
 
 def stamps():
@@ -324,7 +332,7 @@ def stamps():
                                            ('st_nanggung', 'NANGGUNG', 110, RED, 85), ('st_terasa', 'CUMA TERASA', 104, RED, 86),
                                            ('st_cepat', 'LEBIH CEPAT', 92, GREEN * 0.85, 87)]:
         bk.stamp(name, text, size, color, seed=seed, legible=True)
-    bk.mark('m_brace', 'circle', 200, AMBER * 0.85, seed=96, width=0.06)
+    bk.mirror('sil_man')
 
 
 def slips():
@@ -339,16 +347,15 @@ def slips():
          ('s_19', '19%', F_SLAB, 64, CARD, INK), ('s_34', '34%', F_SLAB, 64, AMBER, INK), ('s_2x', 'HAMPIR 2×', F_SLAB, 56, AMBER, INK),
          ('s_4dari20', '4 dari 20', F_CPB, 46, CARD, INK), ('s_7dari20', '7 dari 20', F_CPB, 46, AMBER, INK),
          ('s_penuh', 'PENUH', F_SLAB, 46, CARD, INK), ('s_penuh_b', 'PENUH', F_SLAB, 46, AMBER, INK),
-         ('s_hadiah', 'HADIAH LEBIH BESAR', F_SLAB, 50, CARD, INK),
-         ('s_belum', 'BELUM MULAI', F_SLAB, 52, CARD, INK), ('s_jalan', 'SUDAH JALAN', F_SLAB, 52, AMBER, INK),
-         ('s_berhenti', 'BERHENTI', F_SLAB, 52, CARD, INK), ('s_kasir', 'kasir', F_CPB, 44, CARD, INK),
+         ('s_hadiah', 'HADIAH LEBIH BESAR', F_SLAB, 38, CARD, INK),
+         ('s_belum', 'BELUM MULAI', F_SLAB, 42, CARD, INK), ('s_jalan', 'SUDAH JALAN', F_SLAB, 42, AMBER, INK),
+         ('s_berhenti', 'BERHENTI', F_SLAB, 44, CARD, INK), ('s_kasir', 'kasir', F_CPB, 44, CARD, INK),
          ('s_src', 'studi: Nunes & Drèze, 2006', F_CP, 26, NEWS, INK)]
     for i, (n, tx, f, s, pa, ik) in enumerate(T):
         bk.strip(n, tx, f, s * 1.3, pa, ik, 410 + i, mono=f.startswith('Courier'))
     for n, tx, f, s, pa, ik, sd in [('n8', '8', F_SLAB, 300, AMBER, INK, 471), ('n8b', '8', F_SLAB, 300, AMBER, INK, 472),
                                     ('n_eq', '=', F_SLAB, 200, CARD, INK, 473), ('n_sama', 'SAMA', F_SLAB, 70, CARD, INK, 474)]:
         bk.strip(n, tx, f, s, pa, ik, sd, padx=26, pady=4)
-    bk.ransom('rq', 'GRATIS 1x', 110, 3)
 
 
 if __name__ == '__main__':
@@ -361,7 +368,7 @@ if __name__ == '__main__':
                                      flat_card('kartu_kopi', 10, header='KARTU KOPI', rule='10 cap = 1 kopi GRATIS', seed=704, stamps=6, stamp_col=INK * 1.4),
                                      flat_card('kartu_motor', 8, header='CUCI MOTOR', rule='8 cap = 1x cuci GRATIS', seed=705, stamps=5),
                                      caps_and_highlights())),
-                  ('docs', lambda: (voucher(), visit_log(), crowds(), chart(), timeline(), track())),
+                  ('docs', lambda: (voucher(), visit_log(), crowds(), chart(), timeline(), track('lintasan_a', 8, 651), track('lintasan_b', 10, 652))),
                   ('stamps', stamps), ('slips', slips), ('prints', lambda: (bake_prints(bk, HERE), geometry()))]:
         if want(g): fn(); print('baked', g)
     bk.done()

@@ -2,14 +2,14 @@
  "slug": "kartumember",
  "no": 12,
  "title": "Cara Halus Kartu Member Bikin Kamu Balik Lagi",
- "case_line": "KARTU MEMBER \u00b7 CUCI MOBIL",
+ "case_line": "KARTU MEMBER \u00b7 2006",
  "vo": "audio/vo_kartumember.mp3",
  "words": "audio/vo_words.json",
- "dur": 0,
+ "dur": 50.4,
  "report": [
   [
    0,
-   0
+   50.4
   ]
  ]
 }
