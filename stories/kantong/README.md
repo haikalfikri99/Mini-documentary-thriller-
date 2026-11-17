@@ -64,3 +64,6 @@ Penutup (default: Reframing Sistemik / Circular Reframe Loop; ekor audio ≤ 0,1
 
 ## VO (17 Nov 2026)
 `audio/raw_take1.mp3` (konektor ElevenLabs, Saos Cocol, eleven_v4, 1 take, 1.070 kredit) → `vo_tighten.py --min-dur 0 --max-dur 999 --hold <idx>:<dtk>` → `audio/vo_kantong.mp3`: akhir kata 54,9 dtk, 2,66 kata/dtk, atempo 1,035, jeda pengungkapan 0,58 dtk (diukur). `vo_words.json` = align_vo pada file final.
+
+## Prompt Flow (17 Nov 2026)
+`kolase/flow_prompts.md` (dibuat generator batch `research/batch_009_012/flow_prompts_gen.py`; halaman salin https://claude.ai/artifact/FhZiaveDueextaSFX3VAab). Hasil → folder Drive episode → `kolase/ai/<label>.jpg`.

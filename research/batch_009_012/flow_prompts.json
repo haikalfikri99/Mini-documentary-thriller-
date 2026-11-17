@@ -1,0 +1,448 @@
+[
+ {
+  "no": "009",
+  "slug": "burger",
+  "judul": "Burger Lebih Besar dan Lebih Enak Ini Gagal Gara-Gara Angka",
+  "drive": "009 Burger Sepertiga Pound",
+  "drive_id": "1qkjvKs6hZa_DLL7WcUKwQqWVLy8BRT1M",
+  "logic": [
+   [
+    "H1: Burger ini lebih tebal, harganya sama—tapi justru nggak laku.",
+    "burger_tebal + dua label harga identik + cap GAK LAKU",
+    "AI + kode"
+   ],
+   [
+    "Tahun 80-an A&W merilis burger sepertiga pound… seperempat pound McDonald's",
+    "burger_dua + strip 1/3 POUND · A&W | 1/4 POUND · McDONALD'S",
+    "AI + kode"
+   ],
+   [
+    "Harganya dipatok sama.",
+    "dua label harga identik meluncur dari samping",
+    "kode"
+   ],
+   [
+    "Dalam tes rasa tertutup, mayoritas… lebih enak",
+    "pencicip (mata ditutup kain) + centang",
+    "AI + kode"
+   ],
+   [
+    "Begitu dijual, angkanya malah ambruk",
+    "kasir_sepi + grafik merah menukik",
+    "AI + kode"
+   ],
+   [
+    "Perusahaan menyewa peneliti untuk mewawancarai pembeli",
+    "peneliti_80an",
+    "AI"
+   ],
+   [
+    "Lebih dari separuh orang mengira sepertiga lebih kecil dari seperempat",
+    "pembeli_bingung + slip 1/3 < 1/4 ? (stabilo)",
+    "AI + kode"
+   ],
+   [
+    "[hening] Bukan karena mereka bodoh. Otak kita malas menghitung pecahan",
+    "tangan_pensil di atas kertas kosong",
+    "AI"
+   ],
+   [
+    "…angka tiga melawan empat… tiga pasti lebih sedikit",
+    "angka 3 vs 4 besar, sorotan merah",
+    "kode"
+   ],
+   [
+    "Lain kali, kalo kamu bandingin… label harga",
+    "rak_label + sorotan kuning pada pecahan",
+    "AI + kode"
+   ]
+  ],
+  "batchA": "Create 8 separate images, each as its own generation (not one combined image), 1 variation each.\nAll images must share exactly the same style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real.\n\n1. \"burger_tebal\" — aspect 4:3. FRAME 0 HERO. A generic thick hamburger seen from the side at eye level: a tall sesame-seed bun, a very thick beef patty, lettuce, tomato and cheese, slightly tilted; the burger fills about 85% of the image width.\n2. \"burger_dua\" — aspect 4:3. Two generic hamburgers side by side on a plain counter, each half-wrapped in plain paper: the left one has a noticeably thicker patty than the right one; otherwise identical buns; no text on the wrappers.\n3. \"pencicip\" — aspect 3:4. A man about 30 with short hair and a plain t-shirt, waist-up, a cloth blindfold over his eyes, taking a bite of a hamburger held in both hands, pleased expression (a blind taste test).\n4. \"kasir_sepi\" — aspect 1:1. An empty 1980s fast-food restaurant counter seen from the customer side: a cash register, a stack of paper trays and a menu board above that is completely blank; nobody in line.\n5. \"peneliti_80an\" — aspect 3:4. A man about 45, short side-parted hair, thick-framed 1980s glasses, wide-lapel suit and wide tie, waist-up, holding a pen over a blank notepad as if interviewing someone, attentive face.\n6. \"pembeli_bingung\" — aspect 3:4. A man about 35 with short curly hair, a mustache and a 1980s windbreaker jacket, waist-up, scratching his head with one hand and holding a small blank card in the other, puzzled face.\n7. \"tangan_pensil\" — aspect 1:1. Close-up of a right hand holding a pencil just above a blank sheet of paper, as if about to write a calculation; the paper is completely empty.\n8. \"rak_label\" — aspect 4:3. A supermarket shelf section with rows of plain boxes and jars without labels, each row with a small blank price tag strip on the shelf edge; slight perspective.\nName each result with its label above.",
+  "singlesA": [
+   {
+    "label": "burger_tebal",
+    "aspect": "4:3",
+    "prompt": "\"burger_tebal\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: FRAME 0 HERO. A generic thick hamburger seen from the side at eye level: a tall sesame-seed bun, a very thick beef patty, lettuce, tomato and cheese, slightly tilted; the burger fills about 85% of the image width."
+   },
+   {
+    "label": "burger_dua",
+    "aspect": "4:3",
+    "prompt": "\"burger_dua\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: Two generic hamburgers side by side on a plain counter, each half-wrapped in plain paper: the left one has a noticeably thicker patty than the right one; otherwise identical buns; no text on the wrappers."
+   },
+   {
+    "label": "pencicip",
+    "aspect": "3:4",
+    "prompt": "\"pencicip\" — aspect 3:4. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A man about 30 with short hair and a plain t-shirt, waist-up, a cloth blindfold over his eyes, taking a bite of a hamburger held in both hands, pleased expression (a blind taste test)."
+   },
+   {
+    "label": "kasir_sepi",
+    "aspect": "1:1",
+    "prompt": "\"kasir_sepi\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: An empty 1980s fast-food restaurant counter seen from the customer side: a cash register, a stack of paper trays and a menu board above that is completely blank; nobody in line."
+   },
+   {
+    "label": "peneliti_80an",
+    "aspect": "3:4",
+    "prompt": "\"peneliti_80an\" — aspect 3:4. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A man about 45, short side-parted hair, thick-framed 1980s glasses, wide-lapel suit and wide tie, waist-up, holding a pen over a blank notepad as if interviewing someone, attentive face."
+   },
+   {
+    "label": "pembeli_bingung",
+    "aspect": "3:4",
+    "prompt": "\"pembeli_bingung\" — aspect 3:4. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A man about 35 with short curly hair, a mustache and a 1980s windbreaker jacket, waist-up, scratching his head with one hand and holding a small blank card in the other, puzzled face."
+   },
+   {
+    "label": "tangan_pensil",
+    "aspect": "1:1",
+    "prompt": "\"tangan_pensil\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: Close-up of a right hand holding a pencil just above a blank sheet of paper, as if about to write a calculation; the paper is completely empty."
+   },
+   {
+    "label": "rak_label",
+    "aspect": "4:3",
+    "prompt": "\"rak_label\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A supermarket shelf section with rows of plain boxes and jars without labels, each row with a small blank price tag strip on the shelf edge; slight perspective."
+   }
+  ],
+  "B": [],
+  "code": "cap GAK LAKU; dua label harga identik; strip 1/3 POUND · A&W dan 1/4 POUND · McDONALD'S (ketik, tanpa logo); centang tes rasa; grafik penjualan merah menukik; slip 1/3 < 1/4 ? (stabilo); angka 3 vs 4; sorotan kuning pecahan di label rak; strip sumber di akhir (Culinary Lore / A&W, 2021).",
+  "arsip": ""
+ },
+ {
+  "no": "010",
+  "slug": "kantong",
+  "judul": "Kantong Plastik Ini Mendadak Ditolak Gara-Gara Rp200",
+  "drive": "010 Kantong Plastik Rp200",
+  "drive_id": "1PtBWmpfQ5ECt69Y4zpjDuJumYIxjPsOV",
+  "logic": [
+   [
+    "H1: Kantong plastik ini cuma dua ratus perak—tapi banyak pembeli menolaknya.",
+    "kantong_hero + label Rp200 + cap DITOLAK",
+    "AI + kode"
+   ],
+   [
+    "Tahun 2016, di puluhan kota, kantong plastik minimarket nggak lagi gratis",
+    "kasir_kantong + kata GRATIS dicoret merah + strip 2016",
+    "AI + kode"
+   ],
+   [
+    "Harganya dua ratus rupiah—recehan yang biasanya diganti permen",
+    "koin_permen (nada lucu)",
+    "AI"
+   ],
+   [
+    "Sejak itu, cuma dalam tiga bulan… turun sampai 30%",
+    "grafik turun + strip SUMBER: KLHK, 2016",
+    "kode"
+   ],
+   [
+    "Anehnya, 200 perak bukan rugi besar. Lalu kenapa orang menolak?",
+    "tolak_kantong",
+    "AI"
+   ],
+   [
+    "Petunjuknya datang dari Amerika. Di satu daerah, tiap kantong dibayar 5 sen",
+    "toko_as + strip MARYLAND, AS · Homonoff 2018 + label BAYAR 5 SEN",
+    "AI + kode"
+   ],
+   [
+    "Di toko lain, yang bawa tas sendiri justru dapat bonus 5 sen",
+    "tas_kain + label BONUS 5 SEN",
+    "AI + kode"
+   ],
+   [
+    "Yang harus bayar, banyak yang berhenti pakai kantong",
+    "pembeli_peluk (belanjaan dipeluk, lucu)",
+    "AI"
+   ],
+   [
+    "Yang dapat bonus? Tetap pakai kantong seperti biasa",
+    "pembeli_kantong (Batch B, tokoh sama)",
+    "AI"
+   ],
+   [
+    "[hening] Nilainya sama-sama lima sen… bonus terasa untung kecil",
+    "timbangan arsip: koin bonus vs koin_jatuh",
+    "arsip + AI"
+   ],
+   [
+    "…bayar kantong terasa kehilangan barang yang tadinya gratis",
+    "koin_jatuh + cap RUGI",
+    "AI + kode"
+   ],
+   [
+    "Lain kali, kalo yang biasanya gratis tiba-tiba berbayar…",
+    "kembali ke kantong_hero (loop)",
+    "AI"
+   ]
+  ],
+  "batchA": "Create 8 separate images, each as its own generation (not one combined image), 1 variation each.\nAll images must share exactly the same style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real.\nRecurring characters, always drawn exactly like this:\n- SHOPPER_US: American man about 40, short beard, plain flannel shirt, plain baseball cap with no logo\n\n1. \"kantong_hero\" — aspect 3:4. FRAME 0 HERO. A thin, slightly crumpled plastic shopping bag with two loop handles, standing upright and empty, front view, completely plain; the bag fills about 85% of the image width.\n2. \"kasir_kantong\" — aspect 1:1. A small Indonesian minimarket checkout counter: a cash register, a roll of thin plastic shopping bags hanging on a hook, a few snacks on the counter; no signs, no text.\n3. \"koin_permen\" — aspect 1:1. Two small plain coins with no inscriptions lying next to three wrapped hard candies with twisted wrapper ends, on a counter top, close-up.\n4. \"tolak_kantong\" — aspect 4:3. Two hands only: a hand from the left offering a folded thin plastic shopping bag, and a hand from the right raised palm-forward in a polite 'no thanks' gesture.\n5. \"toko_as\" — aspect 1:1. A generic American supermarket checkout lane with a conveyor belt, a bagging area and a rack of plastic grocery bags; no signs, no text.\n6. \"tas_kain\" — aspect 3:4. A hand holding up a sturdy reusable cloth tote bag by its handles, the bag plain with no print.\n7. \"pembeli_peluk\" — aspect 3:4. SHOPPER_US, waist-up, walking out of a store carrying groceries in both arms without any bag: a loaf of bread, a plain cereal box and a few apples about to slip, slightly comic strained face.\n8. \"koin_jatuh\" — aspect 1:1. An open hand, palm up, with one plain coin with no inscription falling away from the fingers into empty space, close-up.\nName each result with its label above.",
+  "singlesA": [
+   {
+    "label": "kantong_hero",
+    "aspect": "3:4",
+    "prompt": "\"kantong_hero\" — aspect 3:4. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: FRAME 0 HERO. A thin, slightly crumpled plastic shopping bag with two loop handles, standing upright and empty, front view, completely plain; the bag fills about 85% of the image width."
+   },
+   {
+    "label": "kasir_kantong",
+    "aspect": "1:1",
+    "prompt": "\"kasir_kantong\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A small Indonesian minimarket checkout counter: a cash register, a roll of thin plastic shopping bags hanging on a hook, a few snacks on the counter; no signs, no text."
+   },
+   {
+    "label": "koin_permen",
+    "aspect": "1:1",
+    "prompt": "\"koin_permen\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: Two small plain coins with no inscriptions lying next to three wrapped hard candies with twisted wrapper ends, on a counter top, close-up."
+   },
+   {
+    "label": "tolak_kantong",
+    "aspect": "4:3",
+    "prompt": "\"tolak_kantong\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: Two hands only: a hand from the left offering a folded thin plastic shopping bag, and a hand from the right raised palm-forward in a polite 'no thanks' gesture."
+   },
+   {
+    "label": "toko_as",
+    "aspect": "1:1",
+    "prompt": "\"toko_as\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A generic American supermarket checkout lane with a conveyor belt, a bagging area and a rack of plastic grocery bags; no signs, no text."
+   },
+   {
+    "label": "tas_kain",
+    "aspect": "3:4",
+    "prompt": "\"tas_kain\" — aspect 3:4. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A hand holding up a sturdy reusable cloth tote bag by its handles, the bag plain with no print."
+   },
+   {
+    "label": "pembeli_peluk",
+    "aspect": "3:4",
+    "prompt": "\"pembeli_peluk\" — aspect 3:4. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. SHOPPER_US = American man about 40, short beard, plain flannel shirt, plain baseball cap with no logo. Subject: SHOPPER_US, waist-up, walking out of a store carrying groceries in both arms without any bag: a loaf of bread, a plain cereal box and a few apples about to slip, slightly comic strained face."
+   },
+   {
+    "label": "koin_jatuh",
+    "aspect": "1:1",
+    "prompt": "\"koin_jatuh\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: An open hand, palm up, with one plain coin with no inscription falling away from the fingers into empty space, close-up."
+   }
+  ],
+  "B": [
+   {
+    "label": "pembeli_kantong",
+    "aspect": "3:4",
+    "ingredient": "pembeli_peluk",
+    "block": "Create 1 image, 1 variation.\nStyle: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real.\nRecurring characters, always drawn exactly like this:\n- SHOPPER_US: American man about 40, short beard, plain flannel shirt, plain baseball cap with no logo\n\n1. \"pembeli_kantong\" — aspect 3:4. The SAME SHOPPER_US as in the reference image (same face, same beard, same flannel shirt and cap), full body, walking calmly with several full plastic grocery bags hanging from each hand, relaxed face. COMPLETELY CHANGE HIS POSE AND BODY ANGLE (do NOT copy the old posture or hand gesture from the reference).\nName the result with its label above.",
+    "prompt": "\"pembeli_kantong\" — aspect 3:4. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. SHOPPER_US = American man about 40, short beard, plain flannel shirt, plain baseball cap with no logo. Subject: The SAME SHOPPER_US as in the reference image (same face, same beard, same flannel shirt and cap), full body, walking calmly with several full plastic grocery bags hanging from each hand, relaxed face. COMPLETELY CHANGE HIS POSE AND BODY ANGLE (do NOT copy the old posture or hand gesture from the reference)."
+   }
+  ],
+  "code": "label Rp200; cap DITOLAK; kata GRATIS dicoret; strip Uji coba kantong berbayar 2016; grafik turun sampai 30% + SUMBER: KLHK, 2016; strip MARYLAND, AS · Homonoff 2018; label BAYAR 5 SEN / BONUS 5 SEN; cap RUGI.",
+  "arsip": "timbangan dua piring (pakai ulang dari #008 bila ada, atau Openverse → Wikimedia)."
+ },
+ {
+  "no": "011",
+  "slug": "paylater",
+  "judul": "Belanja Jadi Lebih Banyak Gara-Gara Tombol Paylater",
+  "drive": "011 Paylater",
+  "drive_id": "1rKbftMKNtSy_hjH7wLI7Pbo6cBjHiC6o",
+  "logic": [
+   [
+    "H1: Tombol ini nggak memotong harga—tapi orang malah belanja lebih banyak.",
+    "jempol_hp + tombol PAYLATER di layar (kode) + cap HARGA SAMA",
+    "AI + kode"
+   ],
+   [
+    "Namanya paylater. Sampai pertengahan tahun ini… 32 juta rekening",
+    "angka 32,8 JUTA REKENING + strip SUMBER: OJK, data Juni 2026",
+    "kode"
+   ],
+   [
+    "Belanja sekarang, bayarnya belakangan.",
+    "paket_tumpuk",
+    "AI"
+   ],
+   [
+    "Kedengarannya cuma soal kapan bayar.",
+    "kalender_sobek (tanggal dari kode)",
+    "AI + kode"
+   ],
+   [
+    "Tapi di Amerika, peneliti membedah data sebuah peritel besar",
+    "peneliti_data + strip Maesen & Ang, J. Marketing",
+    "AI + kode"
+   ],
+   [
+    "Barangnya sama. Harganya sama.",
+    "keranjang_isi + dua label harga sama",
+    "AI + kode"
+   ],
+   [
+    "Anehnya, isi belanjaan mereka naik lebih banyak sepuluh persen",
+    "keranjang_luber + label +10%",
+    "AI + kode"
+   ],
+   [
+    "Kebiasaan itu bertahan sampai setengah tahun",
+    "kalender_sobek berganti 26 minggu",
+    "AI + kode"
+   ],
+   [
+    "[hening] Bukan karena boros. Paylater bikin dompet terasa lebih longgar",
+    "dompet_longgar",
+    "AI"
+   ],
+   [
+    "Uang yang belum keluar hari ini, rasanya belum kepake",
+    "dompet_longgar + label BELUM KELUAR",
+    "AI + kode"
+   ],
+   [
+    "Coba ingat belanjaan terakhir… masih jadi beli?",
+    "pembeli_ragu + layar HP struk (kode)",
+    "AI + kode"
+   ]
+  ],
+  "batchA": "Create 8 separate images, each as its own generation (not one combined image), 1 variation each.\nAll images must share exactly the same style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real.\nRecurring characters, always drawn exactly like this:\n- BUYER_ID: Indonesian man about 30, warm brown skin, short neat hair, plain collared shirt\n\n1. \"jempol_hp\" — aspect 3:4. FRAME 0 HERO. Close-up of a right hand holding a generic modern smartphone upright, the thumb hovering just above the lower part of the screen as if about to press a button; the screen is completely blank white, no logo; phone and hand fill about 85% of the image width.\n2. \"paket_tumpuk\" — aspect 1:1. A small pile of online-shopping delivery parcels: plain cardboard boxes and plastic mailer pouches stacked unevenly, sealed with tape, no labels or text.\n3. \"kalender_sobek\" — aspect 3:4. A wall tear-off day calendar hanging on a nail, the top page half torn off, all pages completely blank with no numbers.\n4. \"peneliti_data\" — aspect 4:3. A man about 45 with rolled-up shirt sleeves and reading glasses, waist-up, sitting at a desk covered with blank printouts, running a finger down a long blank printout as if checking numbers, a laptop beside him with a blank screen.\n5. \"keranjang_isi\" — aspect 1:1. A plastic supermarket hand basket, half full with a few plain grocery items: a box, a bottle and some fruit; no labels or text.\n6. \"keranjang_luber\" — aspect 1:1. The same kind of plastic supermarket hand basket, now overflowing: piled high with plain boxes, bottles, fruit and snacks spilling over the rim; no labels or text.\n7. \"dompet_longgar\" — aspect 4:3. An open leather wallet lying at an angle, a thick stack of plain banknotes with no numbers or portraits sticking loosely out of it.\n8. \"pembeli_ragu\" — aspect 3:4. BUYER_ID, waist-up, holding a smartphone with a blank screen in one hand, the other hand rubbing his chin, hesitant thoughtful face, looking at the phone.\nName each result with its label above.",
+  "singlesA": [
+   {
+    "label": "jempol_hp",
+    "aspect": "3:4",
+    "prompt": "\"jempol_hp\" — aspect 3:4. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: FRAME 0 HERO. Close-up of a right hand holding a generic modern smartphone upright, the thumb hovering just above the lower part of the screen as if about to press a button; the screen is completely blank white, no logo; phone and hand fill about 85% of the image width."
+   },
+   {
+    "label": "paket_tumpuk",
+    "aspect": "1:1",
+    "prompt": "\"paket_tumpuk\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A small pile of online-shopping delivery parcels: plain cardboard boxes and plastic mailer pouches stacked unevenly, sealed with tape, no labels or text."
+   },
+   {
+    "label": "kalender_sobek",
+    "aspect": "3:4",
+    "prompt": "\"kalender_sobek\" — aspect 3:4. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A wall tear-off day calendar hanging on a nail, the top page half torn off, all pages completely blank with no numbers."
+   },
+   {
+    "label": "peneliti_data",
+    "aspect": "4:3",
+    "prompt": "\"peneliti_data\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A man about 45 with rolled-up shirt sleeves and reading glasses, waist-up, sitting at a desk covered with blank printouts, running a finger down a long blank printout as if checking numbers, a laptop beside him with a blank screen."
+   },
+   {
+    "label": "keranjang_isi",
+    "aspect": "1:1",
+    "prompt": "\"keranjang_isi\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A plastic supermarket hand basket, half full with a few plain grocery items: a box, a bottle and some fruit; no labels or text."
+   },
+   {
+    "label": "keranjang_luber",
+    "aspect": "1:1",
+    "prompt": "\"keranjang_luber\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: The same kind of plastic supermarket hand basket, now overflowing: piled high with plain boxes, bottles, fruit and snacks spilling over the rim; no labels or text."
+   },
+   {
+    "label": "dompet_longgar",
+    "aspect": "4:3",
+    "prompt": "\"dompet_longgar\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: An open leather wallet lying at an angle, a thick stack of plain banknotes with no numbers or portraits sticking loosely out of it."
+   },
+   {
+    "label": "pembeli_ragu",
+    "aspect": "3:4",
+    "prompt": "\"pembeli_ragu\" — aspect 3:4. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. BUYER_ID = Indonesian man about 30, warm brown skin, short neat hair, plain collared shirt. Subject: BUYER_ID, waist-up, holding a smartphone with a blank screen in one hand, the other hand rubbing his chin, hesitant thoughtful face, looking at the phone."
+   }
+  ],
+  "B": [],
+  "code": "tombol PAYLATER di layar HP; cap HARGA SAMA; angka 32,8 JUTA REKENING + SUMBER: OJK, data Juni 2026; strip Maesen & Ang, Journal of Marketing; label +10%; 26 MINGGU; label BELUM KELUAR; struk di layar HP.",
+  "arsip": ""
+ },
+ {
+  "no": "012",
+  "slug": "kartumember",
+  "judul": "Cara Halus Kartu Member Bikin Kamu Balik Lagi",
+  "drive": "012 Kartu Member",
+  "drive_id": "1Cjp1V1YpcV_6HTbEr1MTGJZ0_Da4lRAo",
+  "logic": [
+   [
+    "H1: Dua kartu member ini sama-sama butuh delapan cap—tapi hasilnya beda jauh.",
+    "kartu_tangan + 2 kartu (8 kotak kosong | 10 kotak, 2 dicap) digambar kode",
+    "AI + kode"
+   ],
+   [
+    "Kartu begini pasti kamu kenal di kedai kopi atau cuci motor",
+    "kedai_kopi → cuci_motor",
+    "AI"
+   ],
+   [
+    "Dua peneliti mencobanya di sebuah tempat cuci mobil",
+    "cuci_mobil + strip Nunes & Drèze, JCR 2006",
+    "AI + kode"
+   ],
+   [
+    "…kartu delapan kotak… / …kartu sepuluh kotak, dua sudah dicap",
+    "stempel_tangan + 2 kartu (kode)",
+    "AI + kode"
+   ],
+   [
+    "Jarak ke hadiahnya sama persis: delapan kali cuci lagi",
+    "dua kartu sejajar, sisa 8 kotak disorot",
+    "kode"
+   ],
+   [
+    "…hampir dua kali lebih banyak yang dapat cuci gratis",
+    "batang 34% vs 19% (dari samping, y ≤ 1180)",
+    "kode"
+   ],
+   [
+    "Dan kartunya penuh lebih cepat",
+    "garis waktu pendek vs panjang",
+    "kode"
+   ],
+   [
+    "[hening] Kartu kosong terasa seperti pekerjaan yang belum dimulai",
+    "pelari_start",
+    "AI"
+   ],
+   [
+    "Kartu bercap terasa sudah berjalan… nanggung kalo berhenti",
+    "pelari_tengah (Batch B, tokoh sama)",
+    "AI"
+   ],
+   [
+    "Lain kali, kalo kasir ngasih kartu yang sudah ada dua capnya…",
+    "kasir_kartu + 2 cap (kode) + slip CUMA TERASA LEBIH DEKAT",
+    "AI + kode"
+   ]
+  ],
+  "batchA": "Create 7 separate images, each as its own generation (not one combined image), 1 variation each.\nAll images must share exactly the same style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real.\nRecurring characters, always drawn exactly like this:\n- RUNNER: Indonesian man about 30, warm brown skin, short hair, plain sleeveless running singlet with a blank race bib, running shorts\n\n1. \"kartu_tangan\" — aspect 4:3. FRAME 0 HERO. Close-up of a hand holding a blank rectangular paper loyalty card flat and facing the viewer, the card completely empty with no boxes, no marks and no text; card and hand fill about 85% of the image width.\n2. \"kedai_kopi\" — aspect 1:1. A small Indonesian coffee shop counter: a glass of iced coffee and a hot coffee cup, a simple espresso machine behind, a small stack of blank paper cards near the register; no signs, no text.\n3. \"cuci_motor\" — aspect 4:3. A scooter-style motorcycle covered in soap foam at a simple roadside wash spot, a water hose lying beside it with water spraying; no person, no text.\n4. \"cuci_mobil\" — aspect 4:3. A generic sedan inside an automatic car wash with large spinning brushes and soap foam, seen from a front three-quarter angle; no signs, no text.\n5. \"stempel_tangan\" — aspect 1:1. Close-up of a hand pressing a small rubber stamp down onto a blank paper card on a counter, an ink pad beside it.\n6. \"pelari_start\" — aspect 4:3. RUNNER, full body, crouched at a starting line on a running track in a set position, hands on the ground behind the line, looking ahead, not yet started; the track ahead is empty.\n7. \"kasir_kartu\" — aspect 1:1. Close-up across a shop counter: a hand holding out a small blank paper loyalty card toward the viewer, as if a cashier is handing it over.\nName each result with its label above.",
+  "singlesA": [
+   {
+    "label": "kartu_tangan",
+    "aspect": "4:3",
+    "prompt": "\"kartu_tangan\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: FRAME 0 HERO. Close-up of a hand holding a blank rectangular paper loyalty card flat and facing the viewer, the card completely empty with no boxes, no marks and no text; card and hand fill about 85% of the image width."
+   },
+   {
+    "label": "kedai_kopi",
+    "aspect": "1:1",
+    "prompt": "\"kedai_kopi\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A small Indonesian coffee shop counter: a glass of iced coffee and a hot coffee cup, a simple espresso machine behind, a small stack of blank paper cards near the register; no signs, no text."
+   },
+   {
+    "label": "cuci_motor",
+    "aspect": "4:3",
+    "prompt": "\"cuci_motor\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A scooter-style motorcycle covered in soap foam at a simple roadside wash spot, a water hose lying beside it with water spraying; no person, no text."
+   },
+   {
+    "label": "cuci_mobil",
+    "aspect": "4:3",
+    "prompt": "\"cuci_mobil\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: A generic sedan inside an automatic car wash with large spinning brushes and soap foam, seen from a front three-quarter angle; no signs, no text."
+   },
+   {
+    "label": "stempel_tangan",
+    "aspect": "1:1",
+    "prompt": "\"stempel_tangan\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: Close-up of a hand pressing a small rubber stamp down onto a blank paper card on a counter, an ink pad beside it."
+   },
+   {
+    "label": "pelari_start",
+    "aspect": "4:3",
+    "prompt": "\"pelari_start\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. RUNNER = Indonesian man about 30, warm brown skin, short hair, plain sleeveless running singlet with a blank race bib, running shorts. Subject: RUNNER, full body, crouched at a starting line on a running track in a set position, hands on the ground behind the line, looking ahead, not yet started; the track ahead is empty."
+   },
+   {
+    "label": "kasir_kartu",
+    "aspect": "1:1",
+    "prompt": "\"kasir_kartu\" — aspect 1:1. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. Subject: Close-up across a shop counter: a hand holding out a small blank paper loyalty card toward the viewer, as if a cashier is handing it over."
+   }
+  ],
+  "B": [
+   {
+    "label": "pelari_tengah",
+    "aspect": "4:3",
+    "ingredient": "pelari_start",
+    "block": "Create 1 image, 1 variation.\nStyle: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real.\nRecurring characters, always drawn exactly like this:\n- RUNNER: Indonesian man about 30, warm brown skin, short hair, plain sleeveless running singlet with a blank race bib, running shorts\n\n1. \"pelari_tengah\" — aspect 4:3. The SAME RUNNER as in the reference image (same face, same singlet and race bib), full body, running mid-stride well down the track, side view, one foot off the ground, determined face. COMPLETELY CHANGE HIS POSE AND BODY ANGLE (do NOT copy the old posture or hand gesture from the reference).\nName the result with its label above.",
+    "prompt": "\"pelari_tengah\" — aspect 4:3. Style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real. RUNNER = Indonesian man about 30, warm brown skin, short hair, plain sleeveless running singlet with a blank race bib, running shorts. Subject: The SAME RUNNER as in the reference image (same face, same singlet and race bib), full body, running mid-stride well down the track, side view, one foot off the ground, determined face. COMPLETELY CHANGE HIS POSE AND BODY ANGLE (do NOT copy the old posture or hand gesture from the reference)."
+   }
+  ],
+  "code": "dua kartu member (8 kotak kosong; 10 kotak dengan 2 cap GRATIS) ditempel di kartu_tangan/stempel_tangan; strip Nunes & Drèze, Journal of Consumer Research 2006; sorotan sisa 8 kotak; batang 34% vs 19% (hanya visual); garis waktu; slip penutup HADIAHNYA NGGAK MAKIN DEKAT — CUMA TERASA LEBIH DEKAT.",
+  "arsip": ""
+ }
+]

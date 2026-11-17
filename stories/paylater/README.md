@@ -65,3 +65,6 @@ Penutup (default: Reframing Sistemik / Circular Reframe Loop; ekor audio ≤ 0,1
 ## VO (17 Nov 2026)
 `audio/raw_take1.mp3` (konektor ElevenLabs, Saos Cocol, eleven_v4, 1 take, 863 kredit) → `vo_tighten.py --min-dur 0 --max-dur 999 --hold <idx>:<dtk>` → `audio/vo_paylater.mp3`: akhir kata 43,5 dtk, 2,64 kata/dtk, atempo 1,100, jeda pengungkapan 0,56 dtk (diukur). `vo_words.json` = align_vo pada file final.
 ⚠ Whisper small/medium/large-v3 mendengar "dompet **rasa**" (bukan "terasa") di ±34 dtk final: kemungkinan "t" melebur. Menunggu dengar user; generate ulang hanya bila janggal.
+
+## Prompt Flow (17 Nov 2026)
+`kolase/flow_prompts.md` (dibuat generator batch `research/batch_009_012/flow_prompts_gen.py`; halaman salin https://claude.ai/artifact/FhZiaveDueextaSFX3VAab). Hasil → folder Drive episode → `kolase/ai/<label>.jpg`.
