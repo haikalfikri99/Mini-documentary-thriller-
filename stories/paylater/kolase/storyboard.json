@@ -1,0 +1,176 @@
+{
+ "no": 11,
+ "slug": "paylater",
+ "version": "v1",
+ "title": "Belanja jadi lebih banyak gara-gara <em>tombol paylater</em>",
+ "sub": "Storyboard 21 shot. Tiap keyframe adalah render kode asli dari mesin kolase, diambil di 85% durasi shot, jadi cap atau teks yang masih bergerak bisa terlihat belum lengkap. Timing mengikuti VO final 43,75 dtk (jeda pengungkapan 0,56 dtk sebelum \"Bukan karena mereka boros\").",
+ "rules": [
+  "Frame tidak sepi: tiap shot 1 subjek utama + 2–4 bukti pendukung (benda, label, angka, tokoh/kerumunan, dokumen), total ±4–6 lapis termasuk latar.",
+  "Layar HP adalah cetakan kode di area layar gambar AI (jempol tetap di atas): tombol PAYLATER amber, header aplikasi biru arsip (sistem). Tanpa nama penyedia paylater, tanpa logo.",
+  "Angka fakta persis dari fact sheet: 32,8 juta rekening (OJK, data Juni 2026, paylater bank), +10% dan 26 minggu (Maesen & Ang). Harga Rp250.000 / $25 dan isi struk/riwayat = ilustrasi, sengaja sama di kedua sisi (\"harga sama\").",
+  "Kode warna: merah = cap/kerugian/tagihan, biru arsip = sistem/bank/BELUM KELUAR/BERTAHAN, amber = sorotan (tombol, +10%, garis paylater masuk). Tanpa hand-tint pada gambar AI selain layar HP.",
+  "Kuantitas orang = kerumunan siluet (18 pemegang rekening; 3+3 pembeli sebelum/sesudah; 5 pembeli dengan keranjang).",
+  "Tanpa strip sumber di layar; satu atribusi sangat kecil \"data OJK, Juni 2026\" di shot 6. Semua teks Bahasa Indonesia; label/grafik di atas y 1180, pita caption bersih. Visual QA otomatis: 0 peringatan.",
+  "Shot terakhir kembali ke komposisi frame 0 (HP checkout di tengah, label harga kiri bawah, cap di posisi yang sama) untuk loop."
+ ],
+ "shots": [
+  {
+   "beat": "Hook (H1)",
+   "vo": "Tombol ini nggak memotong harga—tapi",
+   "aksi": "Detik 0: tangan memegang HP sudah di tengah meja dan bergerak; layar cetak KERANJANG (Sepatu lari, TOTAL Rp250.000, tombol BAYAR SEKARANG + tombol PAYLATER amber, jempol tepat di atasnya). Cap merah HARGA SAMA menghantam di 0,20 dtk. Label harga Rp250.000 di kiri bawah: garis potong putus-putus merah ditarik lalu dicoret (harga tidak dipotong).",
+   "kamera": "Push-in 1,02→1,07, getar di hantaman cap",
+   "teks": "HARGA SAMA · Rp250.000",
+   "gambar": "AI jempol_hp + layar checkout cetak kode (tint amber/biru arsip) + kode: tag_rp"
+  },
+  {
+   "vo": "orang malah belanja lebih banyak.",
+   "aksi": "HP mundur ke kiri dan mengecil; struk panjang 8 barang meluncur dari kanan; dua tumpukan paket jatuh; total struk dilingkari merah; panah merah naik.",
+   "kamera": "Push-in, getar di \"banyak\"",
+   "teks": "STRUK BELANJA · TOTAL 1.251.000 (ilustrasi)",
+   "gambar": "AI paket_tumpuk ×2 + kode: struk, panah"
+  },
+  {
+   "beat": "Pledge",
+   "vo": "Namanya paylater.",
+   "aksi": "Map ARSIP KASUS #011 · PAYLATER menutup layar < 1 dtk (cap DIBUKA) di atas HP; tombol PAYLATER dilingkari amber; huruf tebusan PAYLATER ditempel satu per satu.",
+   "kamera": "Push-in 1,04→1,09",
+   "teks": "ARSIP KASUS #011 · PAYLATER",
+   "gambar": "seri (map) + AI jempol_hp (checkout)",
+   "alt": {
+    "t": "first",
+    "caption": "Awal shot: map ARSIP masuk"
+   }
+  },
+  {
+   "vo": "Sampai pertengahan tahun ini,",
+   "aksi": "Kalender sobek tercetak JUNI 2026 turun di tengah; lembar JAN, FEB, MAR, APR, MEI yang sudah disobek berserakan dari tepi; JUNI dilingkari merah.",
+   "kamera": "Push-in 1,00→1,06",
+   "teks": "JUNI 2026 · JAN–MEI",
+   "gambar": "AI kalender_sobek + halaman cetak kode"
+  },
+  {
+   "vo": "paylater bank saja sudah dipakai",
+   "aksi": "HP dengan layar aplikasi BANK (ubin Transfer, Tagihan, Top up, PAYLATER amber) masuk dari kanan; kartu debit generik (biru arsip) dari kiri; label biru PAYLATER BANK; ubin PAYLATER dilingkari amber.",
+   "kamera": "Push-in pelan",
+   "teks": "PAYLATER BANK",
+   "gambar": "AI jempol_hp + layar bank cetak kode + kode: kartu_bank"
+  },
+  {
+   "vo": "lebih dari tiga puluh dua juta rekening.",
+   "aksi": "Kerumunan 18 siluet pemegang rekening (tiga baris, sebagian biru arsip) jatuh baris demi baris; kartu angka 32,8 JUTA menghantam di \"tiga\"; strip REKENING + atribusi kecil \"data OJK, Juni 2026\".",
+   "kamera": "Push-in + getar di angka",
+   "teks": "32,8 JUTA · REKENING · data OJK, Juni 2026",
+   "gambar": "seri: siluet (diwarnai) + kode: kartu_angka"
+  },
+  {
+   "vo": "Belanja sekarang, bayarnya belakangan.",
+   "aksi": "Kiri: kalender HARI INI 1 + paket + strip BELANJA SEKARANG. Rute putus-putus ke kanan: kalender JATUH TEMPO 30 + kertas TAGIHAN Paylater Rp250.000 + strip amber BAYAR NANTI.",
+   "kamera": "Statis 1,00→1,04",
+   "teks": "BELANJA SEKARANG · BAYAR NANTI · TAGIHAN Rp250.000",
+   "gambar": "AI kalender_sobek ×2, paket_tumpuk + kode: tagihan"
+  },
+  {
+   "vo": "Kedengarannya cuma soal kapan bayar.",
+   "aksi": "Dua kalender (1 dan 30) di atas; di bawah masing-masing label harga Rp250.000 yang sama, tanda = di tengah; panah merah melengkung dari tanggal 1 ke 30 di kata \"kapan\".",
+   "kamera": "Zoom keluar 1,06→1,00",
+   "teks": "Rp250.000 = Rp250.000",
+   "gambar": "AI kalender_sobek + kode"
+  },
+  {
+   "beat": "Turn (micro-rehook 1)",
+   "vo": "Tapi di Amerika,",
+   "aksi": "Meja baru: amplop pos udara DATA TRANSAKSI peritel besar, strip AMERIKA SERIKAT, peneliti berkacamata di mejanya (laptop, cetakan) meluncur masuk.",
+   "kamera": "Push-in pelan",
+   "teks": "AMERIKA SERIKAT · DATA TRANSAKSI",
+   "gambar": "AI peneliti_data + kode: amplop"
+  },
+  {
+   "vo": "peneliti membedah data sebuah peritel besar,",
+   "aksi": "Peneliti mundur ke kiri bawah; lembar DATA PEMBELI (tanggal, isi, total $) jatuh di atas, satu kolom dilingkari merah; keranjang belanja kecil + strip PERITEL BESAR.",
+   "kamera": "Push-in pelan",
+   "teks": "DATA PEMBELI · PERITEL BESAR",
+   "gambar": "AI peneliti_data, keranjang_isi + kode: lembar_data"
+  },
+  {
+   "vo": "sebelum dan sesudah pembelinya bisa pakai paylater.",
+   "aksi": "Garis waktu SEBELUM | SESUDAH dengan garis amber \"paylater tersedia\"; tiga siluet pembeli yang sama di kedua sisi, masing-masing dengan keranjang; di sisi SESUDAH HP dengan tombol PAYLATER ditempel di kata \"paylater\".",
+   "kamera": "Push-in pelan",
+   "teks": "SEBELUM · SESUDAH · paylater tersedia",
+   "gambar": "seri: siluet + AI keranjang_isi ×2, jempol_hp + kode: garis_waktu"
+  },
+  {
+   "vo": "Barangnya sama. Harganya sama.",
+   "aksi": "Dua keranjang identik (SEBELUM / SESUDAH) + tanda =; lalu dua label harga $25 yang sama + tanda = kedua; cap biru SAMA.",
+   "kamera": "Push-in 1,00→1,06",
+   "teks": "SEBELUM · SESUDAH · $25 · $25 · SAMA",
+   "gambar": "AI keranjang_isi ×2 + kode: tag_usd (harga ilustrasi, sengaja sama)"
+  },
+  {
+   "beat": "Twist",
+   "vo": "Anehnya, isi belanjaan mereka naik lebih banyak sepuluh persen.",
+   "aksi": "Dua batang gravir: SEBELUM (krem) lalu SESUDAH (amber, lebih panjang) meluncur dari kiri; keranjang lama mengecil dan memudar abu-abu, keranjang luber jatuh besar di kanan (getar); label amber +10% di kata \"sepuluh\".",
+   "kamera": "Push-in + getar di \"naik\"",
+   "teks": "SEBELUM · SESUDAH · +10%",
+   "gambar": "AI keranjang_isi, keranjang_luber + kode: bar_100, bar_110"
+  },
+  {
+   "beat": "Micro-rehook 2",
+   "vo": "Dan ini bukan euforia sesaat.",
+   "aksi": "Grafik BELANJA × MINGGU (0, 13, 26) dengan garis amber hari paylater masuk; garis hitam sebelum; lonjakan putus-putus abu-abu berlabel \"lonjakan sesaat\" digambar lalu dicoret merah; garis merah naik dan tetap tinggi.",
+   "kamera": "Geser pelan ke kiri, push-in",
+   "teks": "lonjakan sesaat (dicoret) · MINGGU 0/13/26",
+   "gambar": "kode: grafik + garis vektor"
+  },
+  {
+   "vo": "Kebiasaan itu bertahan sampai setengah tahun. [hening 0,56 dtk]",
+   "aksi": "Garis merah terus datar-tinggi sampai minggu 26 (kepala panah); keranjang luber kecil di ujung garis; kalender MINGGU KE-26 di pojok; cap biru BERTAHAN. Layar membeku di jeda pengungkapan.",
+   "kamera": "Geser ke kanan 1,05→1,08 lalu diam",
+   "teks": "BERTAHAN · MINGGU KE-26",
+   "gambar": "kode: grafik + AI kalender_sobek, keranjang_luber"
+  },
+  {
+   "beat": "Prestige",
+   "vo": "Bukan karena mereka boros.",
+   "aksi": "Lima siluet pembeli berjajar, masing-masing dengan keranjang penuh; strip BOROS? ditempel lalu dicoret merah.",
+   "kamera": "Push-in 1,06→1,10",
+   "teks": "BOROS? (dicoret)",
+   "gambar": "seri: siluet + AI keranjang_luber ×5"
+  },
+  {
+   "vo": "Paylater bikin dompet terasa lebih longgar.",
+   "aksi": "HP kecil dengan tombol PAYLATER di kiri atas, panah tinta ke dompet besar yang terbuka dengan uang menyembul; dompet bergoyang longgar; strip amber TERASA LONGGAR.",
+   "kamera": "Push-in 1,00→1,06",
+   "teks": "TERASA LONGGAR",
+   "gambar": "AI dompet_longgar, jempol_hp"
+  },
+  {
+   "vo": "Uang yang belum keluar hari ini,",
+   "aksi": "Dompet tetap penuh; panah putus-putus \"keluar\" dari dompet dicoret merah; kalender kecil HARI INI 1; strip biru BELUM KELUAR.",
+   "kamera": "Push-in pelan",
+   "teks": "BELUM KELUAR",
+   "gambar": "AI dompet_longgar, kalender_sobek"
+  },
+  {
+   "vo": "rasanya belum benar-benar kepake.",
+   "aksi": "Catatan UANG KELUAR hari ini: Rp0 (dilingkari amber, \"aman...\"); di belakangnya kertas TAGIHAN Rp250.000 jatuh tempo 30 hari tetap menunggu (cap merah MENUNGGU); dompet kecil di pojok.",
+   "kamera": "Push-in pelan",
+   "teks": "UANG KELUAR hari ini: Rp0 · TAGIHAN · MENUNGGU",
+   "gambar": "kode: catatan, tagihan + AI dompet_longgar"
+  },
+  {
+   "beat": "Penutup (Cermin Personal)",
+   "vo": "Coba ingat belanjaan terakhir yang kamu bayar pakai paylater.",
+   "aksi": "Pembeli (pria Indonesia) memegang dagu, ragu; tanda ? di sampingnya; HP dengan layar RIWAYAT penuh baris Paylater (Rp250.000, Rp89.000, Rp340.000…) masuk dari kanan, baris teratas disorot amber; paket kecil di bawah.",
+   "kamera": "Push-in 1,00→1,06",
+   "teks": "RIWAYAT · Paylater ×6 (ilustrasi) · ?",
+   "gambar": "AI pembeli_ragu, jempol_hp + layar riwayat cetak kode, paket_tumpuk"
+  },
+  {
+   "vo": "Kalo harus bayar hari itu juga, masih jadi beli?",
+   "aksi": "Kembali ke komposisi frame 0 (loop): HP checkout yang sama di tengah, label Rp250.000 di kiri bawah; tombol BAYAR SEKARANG disorot amber di \"hari\"; cap merah BAYAR HARI INI mendarat di tempat HARGA SAMA mendarat.",
+   "kamera": "Push-in 1,00→1,07 + getar di \"juga\"",
+   "teks": "BAYAR HARI INI · Rp250.000",
+   "gambar": "AI jempol_hp (checkout) + kode"
+  }
+ ]
+}

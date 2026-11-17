@@ -1,15 +1,15 @@
 {
  "slug": "paylater",
  "no": 11,
- "title": "",
+ "title": "Belanja Jadi Lebih Banyak Gara-Gara Tombol Paylater",
  "case_line": "PAYLATER",
  "vo": "audio/vo_paylater.mp3",
  "words": "audio/vo_words.json",
- "dur": 0,
+ "dur": 43.75,
  "report": [
   [
    0,
-   0
+   43.75
   ]
  ]
 }
