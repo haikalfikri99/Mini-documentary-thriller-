@@ -91,14 +91,14 @@ LANGKAH
                 ch = "".join(f" {k} = {v}." for k, v in src["chars"].items() if k in p)
                 p2 = p.replace("FRAME 0 HERO. ", "")
                 scenes.append(f"{p2}{ch} {STYLE_AGENT}")
-            L.append(f"PANGGILAN A ({e['no']} · {ar}): flow_agent_images project=\"{proj}\" aspect_ratio=\"{ar}\" download_quality=\"upscaled\"")
+            L.append(f"PANGGILAN A ({e['no']} · {ar}): flow_agent_images project=\"{proj}\" aspect_ratio=\"{ar}\"")
             L.append("  urutan label: " + ", ".join(l for l, _ in items))
             L.append("  scenes:")
             L += [f"  {i}. {s}" for i, s in enumerate(scenes, 1)]
         for lab, ar, ch, p in src["B"]:
             ing = next(l for l, _, pp in src["A"] if ch in pp)
             proj = f"ARSIP_{e['no']}_B"
-            L.append(f"PANGGILAN B ({e['no']} · {ar}, setelah Batch A): flow_agent_images project=\"{proj}\" aspect_ratio=\"{ar}\" download_quality=\"upscaled\" references=[{{image: <path absolut {ing}.*>, name: \"{ch}\"}}] scene_references=[[\"{ch}\"]]")
+            L.append(f"PANGGILAN B ({e['no']} · {ar}, setelah Batch A): flow_agent_images project=\"{proj}\" aspect_ratio=\"{ar}\" references=[{{image: <path absolut {ing}.*>, name: \"{ch}\"}}] scene_references=[[\"{ch}\"]]")
             L.append(f"  urutan label: {lab}")
             L.append(f"  scenes:\n  1. {p} {ANTI} {src['chars'][ch]}. {STYLE_AGENT}")
         L.append("")
