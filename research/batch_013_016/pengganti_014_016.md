@@ -1,0 +1,12 @@
+# Kandidat pengganti #014 dan #016 (18 Nov 2026) — status: MENUNGGU PILIHAN USER (belum ada folder episode/skrip)
+Metode: `riset_topik.py` (saturasi, `riset_pengganti_hasil.json`) + 5 subagen Sonnet (syarat mutlak: antagonis sistemik + artefak/UI, lolos replikasi, fakta 2 lapis, Kuda Troya). Tiap fakta di laporan subagen ber-URL + status keterbacaan. Slot: #014 dan #016 = **Mode Ringkas** (I-R-I-R). Tetangga: #013 (K3/Pemicu) dan #015 (K4/Cermin) tetap.
+
+| Kandidat | Mesin | Saturasi YouTube (video ≥100 rb / ≥1 jt) | Primer terbaca? | Lokal terbaca? | Skor subagen | Skor sesi utama | Status |
+|---|---|---|---|---|---|---|---|
+| Password wajib simbol + ganti berkala | 1 | 2 / 0 (hasil = "cara ganti password", bukan sudut kebijakan) | **NIST SP 800-63B-4 (31 Jul 2025) TERBACA penuh**; makalah Zhang/Komanduri/Shay hanya abstrak | **Perban BSSN 4/2021 Ps.27(1)c + SE Diskominfo DIY 2025 TERBACA penuh** (mirror pemda) | 15 | **17** (Visual 4, Hukum 4: hanya mengutip dokumen) | **Rekomendasi #1** |
+| Zonasi/SPMB, numpang Kartu Keluarga | 1 | 1 / 0 (hanya penjelasan SPMB; modus KK ≤ 6 rb views) | regulasi Permendikdasmen 3/2025 **parsial (agregator)**; sains = kerangka umum, tidak menguji kasus | **Rilis Ombudsman DIY 2023 & 2026 TERBACA penuh** | 15 | 15 (< 16) | **Rekomendasi #2, bersyarat** |
+| Kuota hangus (pasca-putusan MK & SE 4/2026) | 2 | 0 / 0 (video lama usang) | Grubb & Osborne 2015 abstrak; putusan/SE **hanya via media** (mkri.id 403) | siaran pers Komdigi 24 Jul 2026 TERBACA; putusan & SE sekunder | 15 | 15 (< 16) | **Cadangan** |
+| Hitung mundur flash sale / stok tinggal sedikit | 2 | 0 / 0 | **Mathur dkk. 2019 TERBACA penuh** (157 dari 393 timer menipu) | tidak ada aturan yang melarang; Permendag 19/2026 teks tak terbaca | 15 | 15 | Tidak dipilih (butuh rekaman buatan sendiri; risiko merek) |
+| Ganjil-genap → mobil kedua | 1 | 0 / 0 | Davis 2008 JPE TERBACA penuh | **tidak ada bukti Jakarta**; Dishub: volume turun | 15 | 15 | **Gugur** (±70% mirip #006; klaim lokal tak terdukung) |
+
+Catatan: semua subagen menilai 15/20; ambang rubrik 16. Skor sesi utama hanya menyesuaikan dengan alasan tercatat (password: bukti visual 4 = kotak password UI + kutipan dokumen buatan sendiri; hukum 4 = hanya dokumen). Zonasi dan kuota dapat naik ke 16 bila dokumen primer dibaca penuh (Permendikdasmen 3/2025 PDF resmi JDIH; Putusan MK 273/PUU-XXIII/2025 + SE Menkomdigi 4/2026 dari situs resmi; situs MK/Bisnis memblokir sesi ini).
