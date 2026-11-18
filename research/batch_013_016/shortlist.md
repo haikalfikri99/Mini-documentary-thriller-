@@ -1,0 +1,28 @@
+# Shortlist batch #013–#016 (18 Nov 2026) — status: MENUNGGU PILIHAN USER
+Metode: `riset_topik.py` (saturasi YouTube ID, `riset_topik_hasil.json`) + 4 subagen Sonnet (verifikasi sumber primer/lokal, tiap fakta ber-URL). Aturan v6.1: selang-seling Ringkas/Investigasi, ≥ 2 dari 4 segar 2020–2026, hook & penutup tidak berulang berurutan, maks 1 H1 "—tapi".
+Catatan jujur: tidak ada satu pun yang "bersih". Syarat gold standard (`AGENTS.md` §3) belum terpenuhi (#009–#012 baru tayang 19–22 Nov); lanjut atas instruksi user.
+
+## Lolos / bersyarat
+| Kandidat | Mesin | Mode | Segar | Bukti inti (status) | Kelemahan |
+|---|---|---|---|---|---|
+| Biaya layanan di checkout (drip pricing) | 2 | Investigasi | 2026 | Blake, Moshary, Sweeney, Tadelis, *Marketing Science* 40(4) 2021 (NBER w25186, dibaca penuh): StubHub, acak 50:50, biaya baru muncul di checkout → belanja ±21% lebih banyak (biaya ±15%). YLKI 13 Okt 2026 + Perpres 27/2026 (batas platform fee 8%) | Bukti = AS 2015; angka biaya layanan Indonesia tak ada sumber resmi; Perpres belum dibaca primer; angka versi jurnal beda mungkin |
+| Harga 99.900 (left-digit) | 2 | Ringkas | 2023–24 | Strulov-Shlain, *Review of Economic Studies* 90(5) 2023 (~3.500 produk, 25 jaringan AS; +1 sen dari ujung-99 dibaca seperti >20 sen; peritel meremehkan, rugi 1–4% laba). Meta-analisis Troll dkk. 2024 (69 studi): efek beli kecil g=0,13, heterogen | Saturasi tinggi (6 video ≥100 rb, 1 ≥1 jt); tak ada data Indonesia (foto struk/rak harus buat sendiri); hanya sudut "efek lebih lemah dari mitos / peritel meremehkan" yang layak |
+| Label Terlaris / Best Seller | 2 | Investigasi | 2025 + klasik | Cai, Chen, Fang, *AER* 99(3) 2009 (13 cabang Beijing; plakat 5 menu terlaris → +13–20%; plakat menu contoh tanpa peringkat → tak berefek). Bairathi dkk., *Marketing Science* 2025 (badge platform) | Kriteria label GoFood/GrabFood/ShopeeFood tak terverifikasi; Tokopedia hanya cuplikan; jangan tuduh label berbayar |
+| Tarif ojol naik saat hujan | 1 | Ringkas | 2026 (konteks) | Kahneman-Knetsch-Thaler 1986 (angka 82% sekunder), Cohen dkk. NBER w22627 (afiliasi Uber) | Tak ada dokumen resmi tarif hujan Indonesia; rawan klaim; mirip topik #013 (fee platform) |
+
+## Gugur (jangan diangkat ulang tanpa bukti baru)
+- Gratis ongkir minimal belanja: tak ada bukti kausal "belanja tak perlu"; Lewis dkk. = *Marketing Science* 25(1) 2006 (bukan J. Marketing), justru merugikan pengecer; aturan "3 hari/bulan" salah baca (potongan tarif kurir, Permen Komdigi 8/2025).
+- Kamera ETLE (kangaroo): tak ada data perilaku Indonesia; Høye 2014 menyebut tidak ada efek buruk; kontras intuisi lemah.
+- Donasi kasir minimarket: risiko hukum; putusan akhir sengketa KIP tak terverifikasi.
+- Shrinkflation: jenuh (8 video ≥100 rb, 3 ≥1 jt); data Indonesia hanya pengakuan Gapmmi 2022 + skripsi.
+
+## Koreksi dari subagen (jangan ucapkan versi lama)
+Strulov-Shlain = Review of Economic Studies (bukan Management Science), data ±3.500 produk (bukan 3,5 juta). Lewis dkk. = Marketing Science. Cai dkk. = Beijing (bukan "China" umum).
+
+## Usulan urutan tayang (v6.1, I-R-I-R)
+| # | Topik | Mode | Hook | Penutup |
+|---|---|---|---|---|
+| 013 | Biaya layanan | Investigasi | K3 Bukti Visual (struk checkout dua harga) | 5 Pemicu Dunia Nyata |
+| 014 | Harga 99.900 | Ringkas | K5 Titik Balik Hasil Ekstrem | 4 Lingkar Naratif Mulus |
+| 015 | Best Seller | Investigasi | K4 Celah Ujung Lidah | 3 Dilema Abu-Abu |
+| 016 | (ojol hujan atau pengganti) | Ringkas | K1/K2 | 1 Reframing Sistemik |
