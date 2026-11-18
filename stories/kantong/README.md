@@ -79,3 +79,6 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 9/9 ada; `kasir_kantong` diul
 
 
 **Penanda v6.1 (log batch #009–#012, ditambahkan 18 Nov 2026 untuk `kit/tools/lint_episode.py`):** [HOOK: Ketidaknyamanan Kontra-Intuitif] [ENDING: Pemicu Dunia Nyata] [SEGAR: 2016 (uji coba KLHK; studi Homonoff 2018)]
+
+## Upload (18 Nov 2026)
+`UPLOAD.md` siap salin (judul 52 karakter, deskripsi, 21 tag/436 karakter, thumbnail, komentar pin, pengaturan, catatan hukum). Thumbnail: `renders/thumbnail_kantong_1080x1920.jpg` dari `kolase/cover.json` (t 0,9). Deskripsi menyebut uji coba dihentikan Aprindo 1 Okt 2016; fact sheet tidak memuat konteks 2026, jadi hanya ada kalimat "video ini tentang uji coba 2016, cek aturan daerah terbaru". Belum diisi (sesi utama setelah render): baris File, QA, `cover_frame_<t>s.jpg`, `pack_upload.py`, unggah Drive. Jadwal usul: Jumat 20 Nov 2026, 18.00 WIB.

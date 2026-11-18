@@ -72,3 +72,6 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 diterima kecuali `burger_
 
 
 **Penanda v6.1 (log batch #009–#012, ditambahkan 18 Nov 2026 untuk `kit/tools/lint_episode.py`):** [HOOK: Titik Balik Hasil Ekstrem] [ENDING: Reframing Sistemik] [SEGAR: klasik (1980-an)]
+
+## Upload (18 Nov 2026)
+`UPLOAD.md` siap salin (judul, deskripsi + sumber + kredit, 21 tag, thumbnail, komentar pin, pengaturan, catatan hukum). Thumbnail: `renders/thumbnail_burger_1080x1920.jpg` dari `kolase/cover.json` (t 0,9; tanpa prop). Header **File** dan **QA** masih kosong: isi setelah render final; lalu jalankan `make_cover.py` ulang untuk `cover_frame_0.9s.jpg` dan `pack_upload.py`. Catatan: deskripsi memakai versi beratribusi untuk klaim lemah (temuan #2–#5), jadi sedikit lebih hati-hati daripada VO terkunci.
