@@ -35,3 +35,13 @@ Strulov-Shlain = Review of Economic Studies (bukan Management Science), data ±3
 | 015 | `terlaris` | Label Terlaris/Best Seller di menu & aplikasi | 2 · Investigasi | K4 Celah Ujung Lidah → Cermin Personal | 2025 (batas) | 16/20 | **bersyarat**: plakat Top-5 ≠ badge per item; "information cascade" tidak dipakai; kriteria label platform tak terverifikasi |
 | 016 | `tombolplasebo` | Tombol tutup pintu lift & penyeberangan (placebo button) | 2 · Ringkas | K1 Bom di Bawah Meja → Pemicu Dunia Nyata | klasik | **15/20 ✗** | **lemah**: Langer 1975 bukan studi tombol; "kabel diputus" hanya sebagian benar; lapis lokal Indonesia kosong; risiko keselamatan; Garis Merah (c) |
 `python3 kit/tools/lint_episode.py --batch biayalayanan bystander terlaris tombolplasebo` → batch ok (rotasi hook/penutup, selang-seling mode, kesegaran ≥ 2 **hanya bila #014 dan #015 diakui "segar 2025"**, tanpa "—tapi"); error tersisa = kerangka `UPLOAD.md` (tahap upload).
+
+## KEPUTUSAN USER 18 Nov 2026 (putaran 2): menggantikan tabel keputusan di atas
+| # | Slug | Topik | Mesin · Mode | Hook → Penutup | Segar | Rubrik | Status |
+|---|---|---|---|---|---|---|---|
+| 013 | `biayalayanan` | Biaya layanan di halaman bayar (drip pricing) | 2 · Investigasi | K3 → Pemicu Dunia Nyata | 2026 | 16/20 | DISETUJUI |
+| 014 | `ongkir` | Voucher ongkir Rp0 dan barang yang dikembalikan | 1 · Ringkas | K5 → Reframing Sistemik | 2026 | 16/20 | **pengganti dipilih sesi utama** dari 4 kandidat; menunggu tinjauan user |
+| 015 | `terlaris` | Label Terlaris / Best Seller | 2 · Investigasi | K4 → Cermin Personal | 2025 | 16/20 | DISETUJUI (tag SEGAR 2025 diterima) |
+| 016 | `zonasi` | Zonasi/SPMB dan numpang Kartu Keluarga | 1 · Ringkas | K3 → Dilema Abu-Abu | 2026 | 15/20 | DISETUJUI sebagai **pengecualian resmi**; batas fakta = Ombudsman DIY 2023 & 2026 |
+Ditolak user: #014 Password NIST (Aturan #86), bystander effect, tombol plasebo (fact sheet diarsipkan di `research/niche/topik/ditolak/`).
+Aturan permanen baru: `7-selera…` #86–#88 (objek harian, bebas syarat larangan hukum Mesin 2/3, wajib bedah mekanisme perilaku).

@@ -1,3 +1,5 @@
+> **DITOLAK user 18 Nov 2026** (fact sheet diarsipkan, bukan dihapus; `7-selera` #56c). Alasan: rubrik 15/20; lapis lokal kosong; bukti ilmiah tombol plasebo tidak ada; Garis Merah (c).
+
 # ARSIP KASUS #016: Tombol tutup pintu lift & tombol penyeberangan (placebo button)
 **Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI — **LULUS HANYA SEBAGIAN; butuh keputusan user** (lihat "Keputusan tertunda") · **Model skrip:** Opus + effort high
 [HOOK: Bom di Bawah Meja] [ENDING: Pemicu Dunia Nyata] [SEGAR: klasik] [MODE: Ringkas] [ARTEFAK: panel tombol lift dengan tombol tutup pintu (generik, tanpa logo)] [LOOP: lampu kecil di tombol yang menyala tetapi pintu tak bergerak lebih cepat → makna @33] [LABEL: DATA INDONESIA + STUDI AS]

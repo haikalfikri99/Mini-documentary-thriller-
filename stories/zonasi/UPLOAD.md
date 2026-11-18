@@ -1,4 +1,4 @@
-# Upload — ARSIP KASUS #016 tombolplasebo
+# Upload — ARSIP KASUS #016 zonasi
 **File:** TODO · **QA:** TODO · **Jadwal (usul):** TODO
 
 ## 1. Judul (≤ 55 karakter; Kuda Troya: tanpa psikologi/bias/kenapa/tapi/padahal/ternyata/?)
@@ -24,7 +24,7 @@ TODO
 ```
 
 ## 4. Thumbnail
-- TODO (`python3 kit/tools/make_cover.py stories/tombolplasebo/kolase`) + frame cadangan
+- TODO (`python3 kit/tools/make_cover.py stories/zonasi/kolase`) + frame cadangan
 
 ## 5. Komentar pin (satu pertanyaan pengalaman pribadi penonton, memakai "kamu")
 ```

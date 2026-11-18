@@ -1,5 +1,5 @@
 # ARSIP KASUS #013: Biaya layanan yang baru muncul di halaman bayar akhir (drip pricing)
-**Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), skrip belum ditulis · **Model skrip:** Opus + effort high · Fact sheet: 4 subagen Sonnet + sesi utama
+**Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), **DISETUJUI LANJUT user 18 Nov 2026**, skrip belum ditulis · **Model skrip:** Opus + effort high · Fact sheet: 4 subagen Sonnet + sesi utama
 [HOOK: Bukti Visual Mendahului Konteks] [ENDING: Pemicu Dunia Nyata] [SEGAR: 2026] [MODE: Investigasi] [ARTEFAK: struk checkout dengan dua total harga (generik, tanpa logo)] [LOOP: baris kecil "biaya layanan" di sudut struk Frame 0 → ternyata komponen yang baru dihitung di akhir @46] [LABEL: DATA INDONESIA + EKSPERIMEN AS]
 
 ## Klasifikasi (v6.1)
@@ -9,6 +9,7 @@
 | Mode durasi | Investigasi (48–55 dtk, 115–135 kata) |
 | Arketipe hook / penutup | K3 Bukti Visual Mendahului Konteks / 5 Pemicu Dunia Nyata |
 | Pola judul | Pola 1 (benda + harga konkret; tanpa psikologi/bias/kenapa/tapi/padahal/ternyata/?) |
+| Aturan #86–#88 | #86 lulus (halaman bayar) · #87 lulus (belum ada aturan harga total di checkout; bukti = eksperimen StubHub terukur) · #88 lulus (mekanisme: urutan tampilan biaya mengubah apa yang dihitung pembeli) |
 | **Status replikasi** | Eksperimen lapangan acak (StubHub 2015, 2 eksperimen konsisten 2012+2015). **Replikasi independen persis: tidak ditemukan.** Bukan Daftar Hitam. Efek dari platform tiket AS; belum diuji di Indonesia |
 
 ## Kompas & Channel-Fit Gate
@@ -60,6 +61,7 @@ Asumsi awal: "yang penting harga akhirnya" → Jangkar lokal: biaya layanan di h
 | P3 | Eksperimen kedua StubHub 2012 (acak tingkat acara): hasil "broadly consistent" | DIBACA PENUH | (P1) |
 | P4 | Versi jurnal: abstrak Marketing Science 40(4), doi:10.1287/mksc.2020.1261 (kuantitas dan kualitas turun saat biaya di depan; kualitas ≥ 28%); angka 21/15/14,1 tidak ada di abstrak | ABSTRAK DIBACA | econpapers.repec.org/RePEc:inm:ormksc:v:40:y:2021:i:4:p:619-636 |
 | P5 | Pendukung: Santana, Dallas & Morwitz 2020 *Marketing Science* 39(1):188–210 (enam studi, biaya opsional dicicil); Brown, Hossain & Morgan 2010 *QJE* 125(2) (eBay) | ABSTRAK / CUPLIKAN; ukuran efek tidak terverifikasi | econpapers.repec.org (…v:39:y:2020:i:1:p:188-210; …v:125:y:2010:i:2:p:859-876) |
+**Mekanisme perilaku (#88):** kelompok yang melihat total sejak awal membeli lebih sedikit dan memilih tiket lebih murah (kuantitas dan kualitas turun), sedangkan kelompok yang baru melihat biaya di akhir punya peluang transaksi +14,1% dan membelanjakan hampir seperlima lebih banyak (Blake dkk.; versi kerja NBER DIBACA PENUH). Tafsiran: biaya yang muncul belakangan tidak ikut dihitung saat membandingkan.
 **Tidak diketahui (tidak boleh diucapkan):** besaran biaya layanan aplikasi mana pun; apakah aplikasi Indonesia melakukan drip pricing; apakah batas 8% berlaku untuk antar makanan atau menaikkan biaya konsumen; tanggal tanda tangan Perpres; isi/terbit-tidaknya permen Komdigi; angka persis versi jurnal.
 **Yang TIDAK BOLEH DIUCAPKAN:** menyamakan **komisi platform ke pengemudi (batas 8%)** dengan **biaya layanan yang dibayar konsumen** (dua hal berbeda; kekhawatiran YLKI = pengalihan beban); "Perpres melarang biaya tersembunyi / mewajibkan harga total di checkout"; "YLKI menyebut hidden fees"; "21% lebih banyak" tanpa konteks "StubHub 2015, tiket, AS"; nama aplikasi mana pun sebagai pelaku.
 **Frame 0 / gambar:** tidak ada arsip berlisensi yang dicek; struk checkout generik buatan sendiri (angka ilustrasi, tanpa logo); `[LABEL]` memisahkan DATA INDONESIA (Perpres/YLKI) dari EKSPERIMEN AS (StubHub).

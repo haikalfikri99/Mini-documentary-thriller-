@@ -1,3 +1,5 @@
+> **DITOLAK user 18 Nov 2026** (fact sheet diarsipkan, bukan dihapus; `7-selera` #56c). Alasan: terlalu teknis/jauh dari objek harian (Aturan #86); rubrik 15/20; jangkar Indonesia lemah.
+
 # ARSIP KASUS #014: Kerumunan yang berdiri menonton kecelakaan (bystander effect)
 **Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI **dengan 2 temuan yang menahan skrip** (lihat "Keputusan tertunda") · **Model skrip:** Opus + effort high
 [HOOK: Titik Balik Hasil Ekstrem] [ENDING: Dilema Abu-Abu] [SEGAR: 2025] [MODE: Ringkas] [ARTEFAK: grafik tiga batang 75% / 38% / 10% di atas selembar kertas ruang tunggu (buatan sendiri)] [LOOP: satu kursi kosong di gambar ruang tunggu Frame 0 → kursi orang yang bangun melapor @34] [LABEL: DATA INDONESIA + EKSPERIMEN AS]

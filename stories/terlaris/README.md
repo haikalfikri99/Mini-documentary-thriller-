@@ -1,5 +1,5 @@
 # ARSIP KASUS #015: Label Terlaris / Best Seller di menu dan aplikasi makanan
-**Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), skrip belum ditulis · **Model skrip:** Opus + effort high
+**Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), **DISETUJUI LANJUT user 18 Nov 2026 (tag [SEGAR: 2025] diterima)**, skrip belum ditulis · **Model skrip:** Opus + effort high
 [HOOK: Celah Ujung Lidah] [ENDING: Cermin Personal] [SEGAR: 2025] [MODE: Investigasi] [ARTEFAK: dua menu identik berdampingan, satu bertanda TERLARIS (generik, tanpa logo)] [LOOP: satu angka kecil di bawah tanda TERLARIS → dihitung dari pesanan minggu lalu @45] [LABEL: DATA INDONESIA + EKSPERIMEN BEIJING]
 
 ## Klasifikasi (v6.1)
@@ -9,6 +9,7 @@
 | Mode durasi | Investigasi (48–55 dtk, 115–135 kata) |
 | Arketipe hook / penutup | K4 Celah Ujung Lidah / 2 Cermin Personal |
 | Pola judul | Pola 1 |
+| Aturan #86–#88 | #86 lulus (menu/aplikasi makanan) · #87 lulus (tidak ada aturan yang melarang label; bukti = eksperimen Beijing terukur) · #88 lulus (mekanisme: orang memakai pilihan orang lain sebagai informasi kualitas) |
 | **Status replikasi** | Cai, Chen & Fang 2009: eksperimen lapangan acak di satu rantai restoran Beijing (2006), satu sampel. **Replikasi langsung "terlaris" di e-commerce: tidak ditemukan.** Bukti tidak langsung campuran: Bairathi dkk. 2025 (badge platform, positif), Ghiassaleh dkk. 2020 (tanda best seller bisa menambah keraguan pada konsumen berfokus-pencegahan). Bukan Daftar Hitam |
 
 ## Kompas & Channel-Fit Gate
@@ -61,6 +62,7 @@ Asumsi awal (Terlaris = pasti enak) → Jangkar lokal (label Terlaris di aplikas
 | P4 | Peneliti sendiri: desain "tidak bisa sepenuhnya membedakan conformity dari observational learning" → **istilah "information cascade" (brief) tidak dipakai**; pakai "mengikuti informasi pilihan orang lain" | CUPLIKAN | (P3) |
 | P5 | Bairathi, Zhang & Lambrecht, *Marketing Science* 44(1):84–101 (2025): badge endorsement menaikkan pencarian/pembelian layanan berbadge dan tidak berbadge (spillover); ±1,2% layanan berbadge; angka "40,6%" **tidak terverifikasi** | ABSTRAK DIBACA | lbsresearch.london.edu/id/eprint/3728 |
 | P6 | Ghiassaleh, Kocher & Czellar, *Int. J. Research in Marketing* 37(4):805–820 (2020): tanda "best seller" bisa menaikkan ketidakpastian pilihan pada konsumen berfokus-pencegahan | CUPLIKAN | econpapers.repec.org/RePEc:eee:ijrema:v:37:y:2020:i:4:p:805-820 |
+**Mekanisme perilaku (#88):** informasi "menu ini dipesan banyak orang" dipakai pemesan sebagai petunjuk kualitas (observational learning); plakat contoh tanpa peringkat penjualan tidak berefek (Cai dkk.; ABSTRAK DIBACA). Peneliti sendiri: desain tidak bisa sepenuhnya memisahkan conformity dari observational learning (CUPLIKAN).
 **Yang TIDAK BOLEH DIUCAPKAN:** label Terlaris di aplikasi Indonesia berbayar/palsu/dimanipulasi; "terbukti di Indonesia"/"13–20% di aplikasi pesan-antar" (satu rantai restoran Beijing 2006, plakat, bukan aplikasi); "efek hanya pada pelanggan jarang" (abstrak: bukti "modest"); nama restoran dan angka 21%→26% (hanya liputan Duke); "40,6%", "sudah tereplikasi"; kriteria Shopee/GoFood/GrabFood; "information cascade".
 **Tidak diketahui:** ambang/periode label platform; kriteria Shopee/GoFood; ukuran sampel & daftar Top-5 Cai dkk.; isi Salganik dkk. 2006 dan Bikhchandani dkk. 1992 (tidak dibuka).
 **Visual/arsip:** plakat meja, dua menu identik (buatan sendiri); ketersediaan menu vintage berlisensi tidak dicek. Strip `DATA INDONESIA` hanya untuk fakta lokal yang terverifikasi (hampir tidak ada) → sebagian besar bukti berstempel `EKSPERIMEN BEIJING`.

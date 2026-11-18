@@ -1,4 +1,4 @@
-# Upload — ARSIP KASUS #014 bystander
+# Upload — ARSIP KASUS #014 ongkir
 **File:** TODO · **QA:** TODO · **Jadwal (usul):** TODO
 
 ## 1. Judul (≤ 55 karakter; Kuda Troya: tanpa psikologi/bias/kenapa/tapi/padahal/ternyata/?)
@@ -24,7 +24,7 @@ TODO
 ```
 
 ## 4. Thumbnail
-- TODO (`python3 kit/tools/make_cover.py stories/bystander/kolase`) + frame cadangan
+- TODO (`python3 kit/tools/make_cover.py stories/ongkir/kolase`) + frame cadangan
 
 ## 5. Komentar pin (satu pertanyaan pengalaman pribadi penonton, memakai "kamu")
 ```

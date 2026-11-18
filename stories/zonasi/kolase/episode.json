@@ -1,9 +1,9 @@
 {
- "slug": "tombolplasebo",
+ "slug": "zonasi",
  "no": 16,
  "title": "",
- "case_line": "tombolplasebo",
- "vo": "audio/vo_tombolplasebo.mp3",
+ "case_line": "zonasi",
+ "vo": "audio/vo_zonasi.mp3",
  "words": "audio/vo_words.json",
  "dur": 0,
  "report": [
