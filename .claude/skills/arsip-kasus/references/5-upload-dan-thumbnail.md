@@ -64,3 +64,10 @@ Tiap episode menghasilkan **`stories/<slug>/upload_pack/`** (`python3 kit/tools/
 3. `cover_frame_<t>s.jpg` — frame cadangan bila upload thumbnail Shorts belum tersedia (non-YPP).
 4. `UPLOAD_<no>_<slug>.txt` — salinan **mentah UTF-8** dari `UPLOAD.md` (judul, deskripsi + sumber + kredit, komentar pin, pengaturan). **Jangan dikonversi ke Google Doc**: emoji 4-byte (📁 👇) rusak. Di Drive unggah sebagai .txt tanpa konversi.
 `UPLOAD.md` wajib memuat: judul (Pola sesuai kuota 3:1) · deskripsi + sumber + kredit gambar · 3 hashtag · thumbnail + frame cadangan · **komentar pin** (catatan yang meluruskan salah baca + **satu** pertanyaan debat) · pengaturan (bukan untuk anak-anak, Pendidikan, Indonesia, konten sintetis **Ya**) · jadwal · catatan hukum. Komentar pin dikirim user dari akun channel setelah tayang (⋮ → Sematkan).
+
+## F. Standar `UPLOAD_<no>_<slug>.txt` (v6.1, 18 Nov 2026, keputusan user; wajib #013+, dicek `lint_episode.py`, dirakit `pack_upload.py`)
+`kit/tools/new_episode.sh` membuat kerangka `stories/<slug>/UPLOAD.md`; `pack_upload.py` menyalinnya mentah ke `upload_pack/UPLOAD_<no>_<slug>.txt` dan mencetak peringatan linter. Isi wajib:
+1. **Judul Kuda Troya:** ≤ 55 karakter, tanpa kata `psikologi`, `bias`, `kenapa`, `tapi`, `padahal`, `ternyata` dan tanpa `?` (kecuali satu slot uji batch bertanda `[SLOT-UJI]`); pintu masuk = benda/harga/aturan konkret.
+2. **Deskripsi:** paragraf pembuka **2–3 kalimat** kaya kata kunci alami (benda + situasi yang dicari penonton di pencarian Shorts 2026), tanpa menjual bias/psikologi, tanpa klaim yang tidak ada di fact sheet; lalu daftar **Sumber:** (primer + lokal), kredit gambar, dan "tidak disponsori".
+3. **Pinned Comment:** 1 draf berupa **pertanyaan pengalaman pribadi penonton** (memakai "kamu"; berakhir "?"), untuk memicu diskusi dan memperpanjang durasi tonton latar; bukan debat benar-salah, bukan CTA subscribe. Catatan penjelas klaim boleh didahulukan satu kalimat.
+4. Tag, thumbnail (+ frame cadangan), pengaturan (konten sintetis **Ya**), jadwal, dan catatan hukum seperti §"Paket upload wajib".

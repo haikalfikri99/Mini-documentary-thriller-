@@ -1,0 +1,15 @@
+{
+ "slug": "biayalayanan",
+ "no": 13,
+ "title": "",
+ "case_line": "biayalayanan",
+ "vo": "audio/vo_biayalayanan.mp3",
+ "words": "audio/vo_words.json",
+ "dur": 0,
+ "report": [
+  [
+   0,
+   0
+  ]
+ ]
+}

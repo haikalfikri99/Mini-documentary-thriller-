@@ -3,6 +3,8 @@
 # ▶ STANDAR BAKU v6.0 (17 Nov 2026, berlaku mulai Batch #009+) — baca ini dulu
 **Single source of truth untuk komposisi konten, target metrik, dan peta jalan monetisasi.** Bagian bernomor 1–6 di bawah garis "LOG SEJARAH" tetap dipertahankan sebagai riwayat keputusan #001–#008; bila bertentangan dengan blok v6.0 ini, **v6.0 menang untuk #009+**. Sumber v6.0: blueprint 2 Deep Research (user + Gemini/NotebookLM) + pelajaran #001–#008. Klaim dari blueprint yang **belum dicek Claude ke sumber primer** ditandai ⚠ (verifikasi ke YouTube Help / dokumen resmi sebelum dijadikan dasar keputusan uang).
 
+> **v6.1 (18 Nov 2026):** Kompas Identitas Kanal + Channel-Fit Gate ditambahkan di `AGENTS.md` §2A dan `topik/RUMUS_PEMILIHAN.md` §v6.1; aturan lama di bagian "LOG SEJARAH" tetap log #001–#008.
+
 ## v6.0-A. Identitas kanal (tidak berubah)
 Nama **Mini Thriller IDN**, label layar **ARSIP KASUS**, tagline "Real Stories. Unexpected Truths." Jangan diganti ke "Arsip Perilaku". Posisi: **investigasi forensik terhadap rekayasa perilaku & bias kognitif di balik benda, harga, aturan, dan antarmuka sehari-hari**; bukan kuliah teori, bukan kanal tips/nasihat. Gaya visual tetap ARSIP Kolase.
 

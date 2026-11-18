@@ -72,7 +72,7 @@ Rasa musik dan karakter SFX tetap dinilai user.
 - Pengaturan ElevenLabs yang diberikan ke user: suara Saos Cocol, `eleven_v4`, 2 take, MP3, stability Natural bila ada (saran, belum teruji); tag kurung siku di titik perubahan emosi; user menaruh `raw_take1/2.mp3` di Drive atau mengunggah ke chat.
 
 ## J. Tight Audio Tail ≤ 0,15 dtk (v5.0, untuk auto-replay)
-Hening setelah suku kata terakhir dipangkas ≤ 0,15 dtk tanpa fade-out panjang, supaya replay langsung menyambar frame 0 (Circular Reframe Loop, `1-cerita…` §F3). Ambang "terdengar" = tingkat jangka pendek (jendela 10 ms) di atas −45 dBFS setelah VO dinormalkan ke −17 dBFS RMS.
+Hening setelah suku kata terakhir dipangkas ≤ 0,15 dtk tanpa fade-out panjang, supaya replay langsung menyambar frame 0 (Circular Reframe Loop, `1-cerita…` §F3) **[SUPERSEDED by v6.1: Conceptual Loop `1-cerita…` §M8; ekor ≤ 0,15 dtk tetap berlaku]**. Ambang "terdengar" = tingkat jangka pendek (jendela 10 ms) di atas −45 dBFS setelah VO dinormalkan ke −17 dBFS RMS.
 - `kit/audio/vo_tail.py` (`voiced_end`, `trim_tail`: potong ke bunyi terakhir + 0,15 dtk dengan fade cosinus 12 ms agar tidak berdetak).
 - `kit/audio/vo_chain.py` memangkas `vo_level.wav` dan mencetak "tail: source … → vo_level.wav … (last audible sound …, tail … ≤ 0.15 s)"; memberi peringatan bila `episode.json` dur lebih dari ±0,5 dtk sesudah bunyi terakhir.
 - `kit/tools/line_starts.py` kini menetapkan `dur` = min(durasi file, bunyi terakhir + 0,15 dtk), jadi film berakhir tepat sesudah VO. Episode lama (#004: dur 53,64 dtk, bunyi terakhir 53,42) tidak diubah.

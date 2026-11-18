@@ -4,6 +4,8 @@ Collects: newest renders/ARSIP_<no>_<slug>_v<N>.mp4, thumbnail_<slug>_1080x1920.
 and UPLOAD_<no>_<slug>.txt = raw UTF-8 copy of UPLOAD.md (do NOT convert to a Google Doc: 4-byte emoji break). Files are hard-linked when
 the disk allows it (no extra space), copied otherwise. upload_pack/ is git-ignored."""
 import os, re, sys, glob, shutil, json
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import lint_episode
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
@@ -32,6 +34,8 @@ def pack(slug):
     if os.path.exists(up): items.append((up, 'UPLOAD_%03d_%s.txt' % (no if no is not None else 0, slug)))
     else: missing.append('UPLOAD.md')
     for src, name in items: put(src, os.path.join(out, name)); n += 1
+    for lvl, msg in lint_episode.lint_upload(lint_episode.load(slug), 'E' if (no or 0) >= lint_episode.STRICT_FROM else 'W'):   # 5-upload… §F standard
+        print('   %s UPLOAD.md: %s' % ('✗' if lvl == 'E' else '⚠', msg))
     print('✓ %s → %s (%d file)' % (slug, os.path.relpath(out, ROOT), n) + ('' if not missing else '  PERINGATAN: kurang ' + '; '.join(missing)))
     return 0
 

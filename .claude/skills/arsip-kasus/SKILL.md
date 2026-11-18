@@ -1,6 +1,6 @@
 ---
 name: arsip-kasus
-description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller IDN ("Real Stories. Unexpected Truths."; pilar "alasan asli di balik benda, tempat, harga, merek yang kamu kenal"; seri ARSIP KASUS; bahasa Indonesia; gaya visual ARSIP Kolase = kolase cetakan arsip di meja kertas, digerakkan dengan kode). Pakai untuk memilih cerita, menulis script dengan Formula ARSIP v6.0 (3 Mesin Psikologi Perilaku, Aturan Kuda Troya, skrip AV 2 kolom), fact-check, VO ElevenLabs, alignment kata, storyboard, sumber gambar arsip, animasi kolase, skor + foley, QA audio, render, cover, metadata upload, dan revisi film.
+description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller IDN ("Real Stories. Unexpected Truths."; pilar "alasan asli di balik benda, tempat, harga, merek yang kamu kenal"; seri ARSIP KASUS; bahasa Indonesia; gaya visual ARSIP Kolase = kolase cetakan arsip di meja kertas, digerakkan dengan kode). Pakai untuk memilih cerita, menulis script dengan Formula ARSIP v6.1 (3 Mesin Psikologi Perilaku, Aturan Kuda Troya, skrip AV 2 kolom), fact-check, VO ElevenLabs, alignment kata, storyboard, sumber gambar arsip, animasi kolase, skor + foley, QA audio, render, cover, metadata upload, dan revisi film.
 ---
 
 # Mini Thriller IDN — workflow produksi (gaya ARSIP Kolase sejak #003 · **Formula ARSIP v6.0 sejak #009**)
@@ -9,6 +9,10 @@ description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller
 
 ## Protokol batch #009–#012 (17 Nov 2026): Claude mengambil alih penuh
 Protokol Hibrida (riset topik + skrip oleh user dan Gemini) **dibatalkan**. Claude mengerjakan seluruh rantai: riset topik v6.0 (3 Mesin, filter replikasi, Topic Stress-Test), fact sheet 2 lapis, skrip AV 2 kolom, VO (konektor ElevenLabs, Saos Cocol, 1 take, atas instruksi user), prompt Google Flow, kolase, render, paket upload. **#009** = judul + skrip terkunci user (`stories/burger/`): tidak diubah tanpa persetujuan, **tetapi koreksi fakta dilaporkan sebelum VO**. **#010–#012:** draf di `research/batch_009_012/usulan_010_012.md`; user menyetujui sebelum VO/gambar. Wajib: jangkar benda/harga/antarmuka Indonesia di detik 0–15; maks 1 Mode Ringkas; kuota judul 3:1. Scorecard manual + **`kit/tools/lint_episode.py`** (v6.1 anti-monoton, 18 Nov 2026: penanda `[HOOK]`/`[ENDING]`/`[SEGAR]`, rotasi arketipe, pola H1 "—tapi", pembuka penutup terlarang, selang-seling mode, kesegaran topik; tes `kit/tools/test_lint_episode.py`); `cli.py` tidak ada. #013+: lanjut dengan alur ini; naskah terbaik batch ini boleh disimpan di `research/gold_standard/` bila user setuju.
+
+## Kompas Identitas Kanal (v6.1, 18 Nov 2026; sumber lengkap `AGENTS.md` §2A)
+**Mini Thriller IDN (`ARSIP KASUS`) = Investigasi Forensik Perilaku & Rekayasa Tersembunyi**: membongkar mekanisme tak kasatmata di balik benda, harga, aturan, antarmuka digital, dan anomali manusia, terutama yang dekat dengan keseharian di Indonesia.
+**Garis Merah:** BUKAN kuliah psikologi/definisi buku teks · BUKAN self-improvement/tips/nasihat moral · BUKAN bantahan mitos yang datar. **Channel-Fit Gate** (wajib per topik): (1) artefak fisik di Frame 0 (≥ 486 px, stempel merah ≤ 0,25 dtk; tanpa ilustrasi otak/kartun berpikir) + detail kecil untuk Conceptual Loop; (2) antagonis tak kasatmata + taruhan nyata; (3) pembalikan babak (The Turn); (4) penutup Curtain-Pull Reveal tanpa menggurui. Mesin 3 berjangkar pada kejadian nyata Indonesia di 0–4 dtk. Dramaturgi v6.1: `1-cerita…` §M7–§M8; visual `2-visual…` §M–§N; upload `5-upload…` §F; linter `kit/tools/lint_episode.py`.
 
 ## Aturan tetap (keputusan user)
 - **Kebenaran:** dramatisasi penyajian, jangan mengarang bukti; klaim penting ≥ 2 sumber; klaim yang diperdebatkan disebut "mengaku … dibantah".
@@ -57,7 +61,7 @@ Protokol Hibrida (riset topik + skrip oleh user dan Gemini) **dibatalkan**. Clau
 Catatan lanjut ditulis **sebelum** mengingatkan, supaya tidak ada yang hilang saat compact.
 
 ## Mode Batch YPP (4 episode sekaligus; rincian `7-selera…` #53–55)
-Fase 1 riset + 4 fact sheet paralel (Sonnet) → `/compact` → fase 2 4 script + 4 prompt ElevenLabs (Opus + high) → user membuat VO → `/compact` → fase 3 4 prompt blok Google Flow → user membuat gambar → `/compact` → fase 4 bake, storyboard, audio, render per episode. **Kuota judul 3 : 1** per batch (3 episode Pola 1, 1 episode menguji Pola 3/4/5; `8-hook…` §G). **Keputusan #005:** Circular Reframe Loop jadi standar bila stayed-to-watch ≥ 65% dan APV ≥ 85% (usia sama dengan #004); bila turun, kembali ke penutup pertanyaan (#54). MP4 final boleh di-cross-post ke TikTok/Reels sebagai laboratorium drop-off, bukan sumber uang (#55).
+Fase 1 riset + 4 fact sheet paralel (Sonnet) → `/compact` → fase 2 4 script + 4 prompt ElevenLabs (Opus + high) → user membuat VO → `/compact` → fase 3 4 prompt blok Google Flow → user membuat gambar → `/compact` → fase 4 bake, storyboard, audio, render per episode. **Kuota judul 3 : 1** per batch (3 episode Pola 1, 1 episode menguji Pola 3/4/5; `8-hook…` §G). **Keputusan #005:** Circular Reframe Loop jadi standar bila stayed-to-watch ≥ 65% dan APV ≥ 85% (usia sama dengan #004); bila turun, kembali ke penutup pertanyaan (#54). **[SUPERSEDED by v6.1: penutup dirotasi 5 arketipe tanpa default.]** MP4 final boleh di-cross-post ke TikTok/Reels sebagai laboratorium drop-off, bukan sumber uang (#55).
 
 ## Struktur
 ```

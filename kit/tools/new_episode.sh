@@ -19,7 +19,26 @@ if [ ! -f "$S/README.md" ]; then   # (the old one-liner printed the template to 
   NO3=$(printf '%03d' "$NO")
   cat > "$S/README.md" <<'README_TPL'
 # ARSIP KASUS #__NO3__: __SLUG__
-**Formula ARSIP v6.0** · **Status:** validasi topik · **Mode produksi:** Hibrida (#009–#012: topik + fact sheet + skrip AV dari user/Gemini) atau Otomatis (#013+) · **Model:** Sonnet untuk riset/fact sheet, model penalaran tertinggi + effort high untuk skrip final dan `film.js`
+**Formula ARSIP v6.1** · **Status:** validasi topik · **Mode produksi:** Otomatis (#013+; Claude penuh, `AGENTS.md` §3) · **Model:** Sonnet untuk riset/fact sheet, model penalaran tertinggi + effort high untuk skrip final dan `film.js`
+
+**Penanda wajib (dibaca `python3 kit/tools/lint_episode.py --batch …`; isi semuanya sebelum VO):**
+[HOOK: ] [ENDING: ] [SEGAR: <tahun>|klasik] [MODE: Ringkas|Investigasi] [ARTEFAK: <benda fisik Frame 0>] [LOOP: <detail Frame 0> → <makna yang terungkap> @<detik>] [LABEL: DATA INDONESIA + EKSPERIMEN <negara> | satu asal] (+ [SLOT-UJI] bila ini slot uji judul 3:1)
+
+## Kompas & Channel-Fit Gate (v6.1; `AGENTS.md` §2A; semua ✓ sebelum fact sheet)
+- [ ] Bukan kuliah psikologi · bukan self-improvement/nasihat · bukan bantahan mitos datar (Garis Merah)
+- [ ] Artefak fisik Frame 0 (≥ 486 px, stempel merah ≤ 0,25 dtk; bukan otak/kartun berpikir): 
+- [ ] Antagonis tak kasatmata + taruhan nyata: 
+- [ ] The Turn (pembalikan babak): 
+- [ ] Penutup Curtain-Pull Reveal (tanpa menggurui; salah satu dari 5 arketipe): 
+- [ ] Mesin 3: jangkar kejadian nyata Indonesia di 0–4 dtk (bila Mesin 3): 
+
+## Tangga bukti (micro-rehook tiap 12–15 dtk; `1-cerita…` §M8.2)
+| Detik | Tingkat | Isi |
+|---|---|---|
+| ±0–12 | Asumsi Awal | |
+| ±12–27 | Jangkar Lokal | |
+| ±27–40 | Eksperimen Kontrol | |
+| ±40–55 | Pembalikan Otak (+ Conceptual Loop terungkap) | |
 
 ## Klasifikasi (v6.0)
 | Kolom | Isi |
@@ -76,12 +95,55 @@ Tempo VO 2,50–2,66 kata/dtk, atempo ≤ 1,10. Notasi: `/` jeda ≈ 0,25 dtk ·
 |---|---|---|
 | 1 | | |
 VO bersih (tanpa notasi) → `audio/script_vo.txt`; bertag → `audio/vo_prompt_elevenlabs.md`.
-Penutup (default: Reframing Sistemik / Circular Reframe Loop; ekor audio ≤ 0,15 dtk):
+Penutup (rotasi 5 arketipe v6.1, bukan default; Curtain-Pull Reveal; ekor audio ≤ 0,15 dtk):
 
 ## Scorecard v6.0 (16 cek §F6 + cek 17–22 `1-cerita…` §M6 + gerbang H1–H7/R1–R6)
 
 ## Catatan lanjut
 README_TPL
   sed -i.bak "s/__NO3__/$NO3/; s/__SLUG__/$SLUG/" "$S/README.md" && rm -f "$S/README.md.bak"
+fi
+if [ ! -f "$S/UPLOAD.md" ]; then   # kerangka paket upload v6.1 (5-upload… §F); lint_episode.py + pack_upload.py memeriksanya
+  cat > "$S/UPLOAD.md" <<'UPLOAD_TPL'
+# Upload — ARSIP KASUS #__NO3__ __SLUG__
+**File:** TODO · **QA:** TODO · **Jadwal (usul):** TODO
+
+## 1. Judul (≤ 55 karakter; Kuda Troya: tanpa psikologi/bias/kenapa/tapi/padahal/ternyata/?)
+```
+TODO judul
+```
+
+## 2. Deskripsi (2–3 kalimat pembuka kaya kata kunci alami; lalu Sumber + kredit)
+```
+TODO kalimat 1. TODO kalimat 2.
+
+Sumber:
+• TODO
+
+Video ini tidak disponsori merek mana pun.
+
+#shorts #TODO #TODO
+```
+
+## 3. Tag
+```
+TODO
+```
+
+## 4. Thumbnail
+- TODO (`python3 kit/tools/make_cover.py stories/__SLUG__/kolase`) + frame cadangan
+
+## 5. Komentar pin (satu pertanyaan pengalaman pribadi penonton, memakai "kamu")
+```
+TODO pertanyaan pengalaman?
+```
+
+## 6. Pengaturan saat upload
+Bukan untuk anak-anak · Kategori Pendidikan · Indonesia · konten sintetis: Ya
+
+## 7. Catatan hukum
+TODO
+UPLOAD_TPL
+  sed -i.bak "s/__NO3__/$(printf %03d "$NO")/; s/__SLUG__/$SLUG/g" "$S/UPLOAD.md" && rm -f "$S/UPLOAD.md.bak"
 fi
 echo "→ $K   langkah berikut: VO + vo_words.json, lalu python3 kit/tools/line_starts.py stories/$SLUG"

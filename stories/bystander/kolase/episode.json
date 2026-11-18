@@ -1,0 +1,15 @@
+{
+ "slug": "bystander",
+ "no": 14,
+ "title": "",
+ "case_line": "bystander",
+ "vo": "audio/vo_bystander.mp3",
+ "words": "audio/vo_words.json",
+ "dur": 0,
+ "report": [
+  [
+   0,
+   0
+  ]
+ ]
+}

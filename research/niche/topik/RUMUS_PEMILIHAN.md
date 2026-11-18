@@ -75,3 +75,13 @@ Tiap topik yang bersandar pada studi psikologi wajib punya baris "Status replika
 
 ### Aturan baru `riset_topik.py` (Feed Curiosity, bukan Search Intent)
 Shorts didistribusikan lewat *feed*, bukan pencarian: #004 Aqua `n_saran` kecil tetapi 79,18% stayed. Maka: **`n_saran` kecil tidak boleh menggugurkan** mekanisme perilaku yang tajam (sumbu Permintaan hanya penanda, bukan gerbang). Pakai alat untuk **kejenuhan sesudut (`n_1m`)**: prioritas lolos = `n_1m == 0` atau pesaing sesudut dangkal/tanpa dokumen. Gerbang Lokal ≥ 4, Cerita ≥ 3, Celah ≥ 3 dan verifikasi ≥ 2 sumber tetap berlaku.
+
+## v6.1 (18 Nov 2026, berlaku #013+): Kompas Identitas Kanal + Channel-Fit Gate
+**Kompas:** Mini Thriller IDN (`ARSIP KASUS`) = **Investigasi Forensik Perilaku & Rekayasa Tersembunyi**: mekanisme tak kasatmata di balik benda, harga, aturan, antarmuka digital, dan anomali manusia, terutama yang dekat dengan keseharian di Indonesia. **Garis Merah (kandidat yang melanggar gugur):** (a) kuliah psikologi/definisi buku teks; (b) self-improvement/tips/nasihat moral ("cara agar fokus…"; pelajaran #002); (c) bantahan mitos yang datar/anti-klimaks (pelajaran #003).
+**Channel-Fit Gate (4 syarat, semuanya wajib sebelum fact sheet; menyusul rubrik 20 poin dan gerbang lama, tidak menggantikannya):**
+1. **Artefak fisik konkret di Frame 0** (struk, tombol, label, dokumen, kartu): dapat diwujudkan ≥ 486 px + stempel merah ≤ 0,25 dtk; bukan otak/kartun berpikir; ada satu detail kecil yang bisa diungkap di akhir (Conceptual Loop).
+2. **Antagonis tak kasatmata + taruhan nyata** (uang, waktu, keselamatan penonton).
+3. **Pembalikan babak (The Turn)** dengan peningkatan bukti tiap 12–15 dtk.
+4. **Penutup Curtain-Pull Reveal** tanpa menggurui (diwujudkan lewat salah satu dari 5 arketipe).
+**Mesin 3 (Human Anomalies)** tambahan: wajib berjangkar pada kejadian nyata di Indonesia di 0–4 dtk sebelum eksperimen laboratorium; tanpa kasus pidana berjalan dan tanpa korban yang bisa dikenali.
+**Kesegaran:** ≥ 2 dari 4 topik batch bertanda `[SEGAR: 2020–2026]` (`1-cerita…` §M7.4).
