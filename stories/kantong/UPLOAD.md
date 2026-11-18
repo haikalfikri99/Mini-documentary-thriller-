@@ -1,6 +1,6 @@
 # Upload — ARSIP KASUS #010 Kantong Plastik Rp200
-**File:** (diisi sesi utama setelah render)
-**QA:** (diisi sesi utama)
+**File:** `renders/ARSIP_010_kantong_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 55,2 dtk · -14,6 LUFS · 37,2 MB
+**QA:** margin VO terburuk 18,6 dB, kata < 8 dB: none · Whisper mix 123/146 vs VO 120/146 · visual QA ok (0 peringatan) (18 Nov 2026)
 **Jadwal (usul):** Jumat 20 Nov 2026, 18.00 WIB (Hari 2: #009 Kamis 19 Nov → #010 Jumat 20 Nov → #012 Sabtu 21 Nov → #011 Minggu 22 Nov)
 
 ## 1. Judul (52 karakter)
