@@ -2,4 +2,4 @@
 # (timpani on every on-screen stamp, moved after the spoken word; hit + near-silence in the reveal pause; warm major closer, walk returns for the loop).
 import sys; sys.path.insert(0, '../../../kit/audio')
 from score_auto import auto_score
-auto_score(key=3, payoff_word='lain')
+auto_score(key=3, payoff_word='lain', bsn_avoid_words=True)

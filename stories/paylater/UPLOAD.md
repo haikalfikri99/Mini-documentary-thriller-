@@ -1,6 +1,6 @@
 # Upload — ARSIP KASUS #011 Paylater
-**File:** (diisi sesi utama setelah render)
-**QA:** (diisi sesi utama)
+**File:** `renders/ARSIP_011_paylater_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 43,8 dtk · -14,4 LUFS · 31,3 MB
+**QA:** margin VO terburuk 18,5 dB, kata < 8 dB: none · Whisper mix 103/115 vs VO 101/115 · visual QA ok (0 peringatan) (18 Nov 2026)
 **Jadwal (keputusan user, 1 video/hari; usul 18.00 WIB):** Minggu 22 Nov 2026, 18.00 WIB (Hari 4; urutan: #009 Kamis 19 → #010 Jumat 20 → #012 Sabtu 21 → #011 Minggu 22)
 
 ## Judul (51 karakter)

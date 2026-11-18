@@ -13,7 +13,7 @@ from score_lib import *
 PIZZ, BSN, TUBA, CLAR, GLOCK, XYL, TIMP, WOOD, TREM = 0, 1, 2, 3, 4, 5, 6, 7, 8
 
 
-def auto_score(key=0, payoff_word='lain', pause=None, walk_vel=(58, 46), clock=True, name='score_full'):
+def auto_score(key=0, payoff_word='lain', pause=None, walk_vel=(58, 46), clock=True, bsn_avoid_words=False, name='score_full'):
     EP = json.load(open('episode.json')); END = float(EP['dur'])
     W = [(float(a), float(b), w) for a, b, w in json.load(open(EP['words']))]
     EV = json.load(open('events.json')) if os.path.exists('events.json') else []
@@ -49,7 +49,9 @@ def auto_score(key=0, payoff_word='lain', pause=None, walk_vel=(58, 46), clock=T
         while t < body_end - .3:
             note(WOOD, 76, t, .08, 40 if int(t * 2) % 2 else 52); t += .5
     t = 4.0
-    while t < body_end - 1: note(BSN, [k(F3), k(A2), k(D3), k(A2)][int(t / 4) % 4], t, .45, 60); t += 4.0
+    while t < body_end - 1:                                      # bsn_avoid_words: the note moves to the end of a word it would cover (#012: "cuci" 12.2 s)
+        tb = (inside(t) or inside(t + .3) or t) + (0.03 if bsn_avoid_words and (inside(t) or inside(t + .3)) else 0) if bsn_avoid_words else t
+        note(BSN, [k(F3), k(A2), k(D3), k(A2)][int(t / 4) % 4], tb, .3 if bsn_avoid_words else .45, 60); t += 4.0
     # stamps → timpani (moved after the word), at least 1.2 s apart
     last = -9
     for e in sorted((e for e in EV if e.get('type') == 'stamp'), key=lambda e: e['t']):

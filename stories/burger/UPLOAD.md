@@ -1,6 +1,6 @@
 # Upload — ARSIP KASUS #009 Burger (A&W 1/3 pound vs McDonald's 1/4 pound)
-**File:** (diisi sesi utama setelah render)
-**QA:** (diisi sesi utama)
+**File:** `renders/ARSIP_009_burger_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 43,5 dtk · -14,6 LUFS · 38,5 MB
+**QA:** margin VO terburuk 19,8 dB, kata < 8 dB: none · Whisper mix 83/107 vs VO 84/107 · visual QA ok (2 peringatan) (18 Nov 2026)
 **Jadwal (usul):** Hari 1 dari 4: Kamis 19 Nov 2026, 18.00 WIB (1 video/hari; urutan batch: #009 Kamis 19 Nov, #010 Jumat 20 Nov, #012 Sabtu 21 Nov, #011 Minggu 22 Nov; jam 12.00 atau 18.00 WIB, usul 18.00)
 
 ## Judul (59 karakter)
