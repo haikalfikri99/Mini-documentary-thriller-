@@ -84,3 +84,6 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 ada; `kasir_kartu` diulan
 
 ## Upload (18 Nov 2026)
 `UPLOAD.md` siap salin (judul 45 karakter, deskripsi, 20 tag, komentar pin, pengaturan, catatan hukum). Thumbnail: `renders/thumbnail_kartumember_1080x1920.jpg` dari `kolase/cover.json` (t 0,6; slip "SAMA-SAMA 8 CAP LAGI / HASILNYA BEDA JAUH"). Jadwal usul: Sabtu 21 Nov 2026 18.00 WIB (Hari 3). Slot uji Pola 4: catat hasil 48 jam. Sesi utama mengisi `File:` dan `QA:` setelah render, membuat `cover_frame_0.6s.jpg`, lalu `pack_upload`.
+
+## Render final v1 (18 Nov 2026)
+`renders/ARSIP_012_kartumember_v1.mp4` lolos QA audio + visual (header `UPLOAD.md`). Drive folder episode: `UPLOAD_012_kartumember.txt`, thumbnail, frame cadangan. MP4 > 10 MB dikirim lewat chat, user menaruhnya di Drive. **Jadwal (keputusan user):** Hari 3 = Sabtu 21 Nov 2026, 18.00 WIB (atau 12.00), urutan batch #009 → #010 → #012 → #011.

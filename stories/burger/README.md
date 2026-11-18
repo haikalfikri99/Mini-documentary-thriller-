@@ -75,3 +75,6 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 diterima kecuali `burger_
 
 ## Upload (18 Nov 2026)
 `UPLOAD.md` siap salin (judul, deskripsi + sumber + kredit, 21 tag, thumbnail, komentar pin, pengaturan, catatan hukum). Thumbnail: `renders/thumbnail_burger_1080x1920.jpg` dari `kolase/cover.json` (t 0,9; tanpa prop). Header **File** dan **QA** masih kosong: isi setelah render final; lalu jalankan `make_cover.py` ulang untuk `cover_frame_0.9s.jpg` dan `pack_upload.py`. Catatan: deskripsi memakai versi beratribusi untuk klaim lemah (temuan #2–#5), jadi sedikit lebih hati-hati daripada VO terkunci.
+
+## Render final v1 (18 Nov 2026)
+`renders/ARSIP_009_burger_v1.mp4` lolos QA audio + visual (header `UPLOAD.md`). Drive folder episode: `UPLOAD_009_burger.txt`, thumbnail, frame cadangan. MP4 > 10 MB dikirim lewat chat, user menaruhnya di Drive. **Jadwal (keputusan user):** Hari 1 = Kamis 19 Nov 2026, 18.00 WIB (atau 12.00), urutan batch #009 → #010 → #012 → #011.

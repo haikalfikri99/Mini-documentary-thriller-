@@ -1,6 +1,6 @@
 # Upload — ARSIP KASUS #012 Kartu Member
-**File:** (diisi sesi utama setelah render)
-**QA:** (diisi sesi utama)
+**File:** `renders/ARSIP_012_kartumember_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 50,4 dtk · -14,8 LUFS · 32,7 MB
+**QA:** margin VO terburuk 19,4 dB, kata < 8 dB: none · Whisper mix 115/133 vs VO 114/133 · visual QA ok (0 peringatan) (18 Nov 2026)
 **Jadwal (usul):** Hari 3 · Sabtu 21 Nov 2026, 18.00 WIB (urutan batch: #009 Kam 19 Nov → #010 Jum 20 Nov → #012 Sab 21 Nov → #011 Min 22 Nov; 1 video/hari, 12.00 atau 18.00 WIB)
 **Slot uji:** Pola 4 (judul "Cara Halus … Bikin Kamu …"); catat CTR/retensi 48 jam ke `references/6-pelajaran.md`.
 

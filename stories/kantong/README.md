@@ -82,3 +82,6 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 9/9 ada; `kasir_kantong` diul
 
 ## Upload (18 Nov 2026)
 `UPLOAD.md` siap salin (judul 52 karakter, deskripsi, 21 tag/436 karakter, thumbnail, komentar pin, pengaturan, catatan hukum). Thumbnail: `renders/thumbnail_kantong_1080x1920.jpg` dari `kolase/cover.json` (t 0,9). Deskripsi menyebut uji coba dihentikan Aprindo 1 Okt 2016; fact sheet tidak memuat konteks 2026, jadi hanya ada kalimat "video ini tentang uji coba 2016, cek aturan daerah terbaru". Belum diisi (sesi utama setelah render): baris File, QA, `cover_frame_<t>s.jpg`, `pack_upload.py`, unggah Drive. Jadwal usul: Jumat 20 Nov 2026, 18.00 WIB.
+
+## Render final v1 (18 Nov 2026)
+`renders/ARSIP_010_kantong_v1.mp4` lolos QA audio + visual (header `UPLOAD.md`). Drive folder episode: `UPLOAD_010_kantong.txt`, thumbnail, frame cadangan. MP4 > 10 MB dikirim lewat chat, user menaruhnya di Drive. **Jadwal (keputusan user):** Hari 2 = Jumat 20 Nov 2026, 18.00 WIB (atau 12.00), urutan batch #009 → #010 → #012 → #011.

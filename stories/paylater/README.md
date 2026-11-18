@@ -84,3 +84,6 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 ada; `kalender_sobek` diu
 
 ## Upload (18 Nov 2026)
 `UPLOAD.md` (judul 51 karakter, deskripsi, 21 tag, thumbnail, komentar pin, pengaturan, catatan hukum) dan `kolase/cover.json` siap; thumbnail `renders/thumbnail_paylater_1080x1920.jpg` (frame 0,6 dtk, hook "SESUDAH ADA PAYLATER / KERANJANG +10%"). Header `**File:**` dan `**QA:**` diisi sesi utama setelah render. `cover_frame_<t>s.jpg` dan `upload_pack/` menunggu render mp4. Jadwal: Minggu 22 Nov 2026, 18.00 WIB (Hari 4). Tidak diunggah ke Drive, tidak di-commit.
+
+## Render final v1 (18 Nov 2026)
+`renders/ARSIP_011_paylater_v1.mp4` lolos QA audio + visual (header `UPLOAD.md`). Drive folder episode: `UPLOAD_011_paylater.txt`, thumbnail, frame cadangan. MP4 > 10 MB dikirim lewat chat, user menaruhnya di Drive. **Jadwal (keputusan user):** Hari 4 = Minggu 22 Nov 2026, 18.00 WIB (atau 12.00), urutan batch #009 → #010 → #012 → #011.
