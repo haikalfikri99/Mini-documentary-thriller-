@@ -1,1 +1,52 @@
-{}
+{
+ "kursi_sekolah": {
+  "file": "ai_kursi_sekolah.jpg",
+  "width": 360
+ },
+ "anak_seragam": {
+  "file": "ai_anak_seragam.jpg",
+  "width": 330
+ },
+ "gedung_sekolah": {
+  "file": "ai_gedung_sekolah.jpg",
+  "width": 640
+ },
+ "kardus_pindahan": {
+  "file": "ai_kardus_pindahan.jpg",
+  "width": 560
+ },
+ "tangan_berebut": {
+  "file": "ai_tangan_berebut.jpg",
+  "width": 900
+ },
+ "tugu_jogja": {
+  "file": "ai_tugu_jogja.jpg",
+  "width": 460
+ },
+ "petugas_berkas": {
+  "file": "ai_petugas_berkas.jpg",
+  "width": 460
+ },
+ "petugas_loket": {
+  "file": "ai_petugas_loket.jpg",
+  "width": 700
+ },
+ "tangan_tulis": {
+  "file": "ai_tangan_tulis.jpg",
+  "width": 520,
+  "crop": [
+   0,
+   0,
+   1,
+   0.69
+  ]
+ },
+ "nenek_cucu": {
+  "file": "ai_nenek_cucu.jpg",
+  "width": 420
+ },
+ "rumah_kunci": {
+  "file": "ai_rumah_kunci.jpg",
+  "width": 480
+ }
+}

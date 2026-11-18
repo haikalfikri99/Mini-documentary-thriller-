@@ -1,1 +1,52 @@
-{}
+{
+ "menu_hero": {
+  "file": "ai_buku_menu_isi.jpg",
+  "width": 1000
+ },
+ "bingung": {
+  "file": "ai_pengunjung_bingung_c.jpg",
+  "width": 620
+ },
+ "restoran": {
+  "file": "ai_restoran_beijing.jpg",
+  "width": 1020,
+  "crop": [
+   0.02,
+   0.21,
+   0.98,
+   0.98
+  ]
+ },
+ "plakat_meja": {
+  "file": "ai_plakat_meja.jpg",
+  "width": 600,
+  "crop": [
+   0.04,
+   0.2,
+   0.96,
+   0.82
+  ]
+ },
+ "pelayan": {
+  "file": "ai_pelayan_catat.jpg",
+  "width": 560
+ },
+ "tamu": {
+  "file": "ai_tamu_puas.jpg",
+  "width": 620
+ },
+ "tangan": {
+  "file": "ai_tangan_menunjuk.jpg",
+  "width": 820,
+  "crop": [
+   0.27,
+   0.2,
+   0.8,
+   0.76
+  ]
+ },
+ "tunjuk": {
+  "file": "ai_pengunjung_tunjuk_c.jpg",
+  "width": 640
+ }
+}

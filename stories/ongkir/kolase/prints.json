@@ -1,1 +1,14 @@
-{}
+{
+ "rem_tangan": {"file": "ai_rem_tangan.jpg", "width": 560},
+ "kurir_motor": {"file": "ai_kurir_motor.jpg", "width": 560},
+ "paket_tumpuk": {"file": "ai_paket_tumpuk.jpg", "width": 470},
+ "gudang": {"file": "ai_gudang.jpg", "width": 820},
+ "kerumunan": {"file": "ai_kerumunan_pelanggan.jpg", "width": 820},
+ "kerumunan_l": {"file": "ai_kerumunan_pelanggan.jpg", "width": 470, "crop": [0, 0, 0.5, 1]},
+ "kerumunan_r": {"file": "ai_kerumunan_pelanggan.jpg", "width": 470, "crop": [0.5, 0, 1, 1]},
+ "baju_gantung": {"file": "ai_baju_gantung.jpg", "width": 330},
+ "kosmetik": {"file": "ai_kosmetik.jpg", "width": 300},
+ "barang_aman": {"file": "ai_barang_aman.jpg", "width": 300},
+ "paket_retur": {"file": "ai_paket_retur.jpg", "width": 660},
+ "kamar_pas": {"file": "ai_kamar_pas.jpg", "width": 560}
+}

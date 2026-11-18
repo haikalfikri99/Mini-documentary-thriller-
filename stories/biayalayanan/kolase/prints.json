@@ -1,1 +1,93 @@
-{}
+{
+ "hp": {
+  "file": "ai_hp_checkout.jpg",
+  "width": 700
+ },
+ "keranjang": {
+  "file": "ai_tangan_keranjang.jpg",
+  "width": 640
+ },
+ "kaget": {
+  "file": "ai_pembeli_kaget.jpg",
+  "width": 520
+ },
+ "senyum": {
+  "file": "ai_pembeli_senyum.jpg",
+  "width": 520
+ },
+ "jubir": {
+  "file": "ai_juru_bicara.jpg",
+  "width": 560
+ },
+ "kaca": {
+  "file": "ai_kaca_pembesar.jpg",
+  "width": 520
+ },
+ "peneliti": {
+  "file": "ai_peneliti_laptop.jpg",
+  "width": 640
+ },
+ "kerumunan": {
+  "file": "ai_kerumunan_hp.jpg",
+  "width": 980
+ },
+ "krm_kiri": {
+  "file": "ai_kerumunan_hp.jpg",
+  "width": 470,
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ]
+ },
+ "krm_kanan": {
+  "file": "ai_kerumunan_hp.jpg",
+  "width": 470,
+  "crop": [
+   0.5,
+   0,
+   1,
+   1
+  ]
+ },
+ "stadion": {
+  "file": "ai_stadion_kursi.jpg",
+  "width": 980
+ },
+ "stadion_hl": {
+  "file": "ai_stadion_kursi.jpg",
+  "width": 980,
+  "tint": "#D58E2A",
+  "tint_poly": [
+   [
+    0.06,
+    0.74
+   ],
+   [
+    0.28,
+    0.56
+   ],
+   [
+    0.47,
+    0.54
+   ],
+   [
+    0.44,
+    0.64
+   ],
+   [
+    0.22,
+    0.8
+   ],
+   [
+    0.07,
+    0.8
+   ]
+  ]
+ },
+ "gembok": {
+  "file": "ai_gembok.jpg",
+  "width": 300
+ }
+}
