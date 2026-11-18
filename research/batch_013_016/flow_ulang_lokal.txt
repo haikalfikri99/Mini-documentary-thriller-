@@ -1,0 +1,21 @@
+TUGAS: ulang 2 gambar Google Flow untuk ARSIP KASUS #013 dan #016 memakai MCP flow-mcp (tool flow_agent_images), lalu unggah ke Google Drive. User sudah mengizinkan regenerate kedua gambar ini.
+
+ATURAN
+- Hanya flow_agent_images, 1 panggilan per gambar persis seperti di bawah. Jangan ubah teks scene.
+- JANGAN membuka/melihat gambar hasil (hemat token). Pemeriksaan visual dilakukan sesi cloud.
+- Proyek Flow: pakai proyek "ARSIP 013-016" yang sudah ada (buat baru bila tidak ada).
+- Diblokir filter -> coba sekali lagi di proyek baru; masih gagal -> catat dan lapor.
+- Unggah ke folder Drive di bawah dengan nama PERSIS <label>.<ext asli> (create_file, disableConversionToGoogleType=true, base64Content = referensi sha256:<hash>:<path absolut pakai />, file < 10 MB). Jangan hapus/menimpa file lama di Drive.
+- Lapor: label -> file -> status + link folder.
+
+PANGGILAN 1 (#013 · 3:4): flow_agent_images project="ARSIP_013_ulang" aspect_ratio="3:4"
+  label: hp_checkout_v2  -> Drive folder 013 (ID 1gAfRuaS9jBX3XpW5_x4Kzq5taI_g7xP8)
+  scenes:
+  1. Close-up of ONE right hand holding a generic modern smartphone upright and facing the viewer, seen slightly from the side: the thumb wraps the left edge of the phone, the other four fingers curl behind the phone and only their fingertips show at the right edge; exactly five fingers in total, no extra thumb, nothing covering the screen; the screen is completely blank white, no logo; phone and hand fill about 85% of the image width. Vintage 19th-century steel engraving illustration, black ink cross-hatching, no color; one isolated subject on a plain pure-white background, no shadow, no frame, white margin; absolutely no text, letters, numbers, logos or watermark; generic faces, natural hands with five fingers.
+
+PANGGILAN 2 (#016 · 4:3): flow_agent_images project="ARSIP_016_ulang" aspect_ratio="4:3"
+  label: petugas_berkas_v2  -> Drive folder 016 (ID 1EugIrWCFmyqqdV2KHTyAOwD9-C3p5AM6)
+  scenes:
+  1. An office clerk in a long-sleeved batik shirt seen from behind and slightly over his right shoulder, his face NOT visible (only the back of his head with short grey hair), sitting at a desk piled with tied bundles of document folders, holding a magnifying glass over a blank form in his hands; no logos, no text. Vintage 19th-century steel engraving illustration, black ink cross-hatching, no color; one isolated subject on a plain pure-white background, no shadow, no frame, white margin; absolutely no text, letters, numbers, logos or watermark; generic faces, natural hands with five fingers.
+
+Selesai -> user mengetik di sesi cloud: "gambar ulang #013 #016 sudah di Drive".
