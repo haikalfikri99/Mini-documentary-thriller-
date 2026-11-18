@@ -120,6 +120,6 @@ for i in range(len(blocks)):
 gf = os.path.join(out, 'storyboard_%s_grid.jpg' % no); G.save(gf, quality=92)
 pdf = os.path.join(out, 'storyboard_%s.pdf' % no)
 allp = [G] + imgs
-allp[0].save(pdf, save_all=True, append_images=allp[1:], resolution=150, quality=87)
+allp[0].save(pdf, save_all=True, append_images=allp[1:], resolution=150, quality=83)
 for dd in ('_kf', '_alt'): shutil.rmtree(os.path.join(out, dd), ignore_errors=True)
 print('%s · %d halaman + grid · %s (%.1f MB)' % (out, len(pages), os.path.basename(pdf), os.path.getsize(pdf) / 1e6))

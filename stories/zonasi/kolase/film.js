@@ -54,7 +54,7 @@ const SHOTS = [
     stage(u, d, { z0: 1.0, z1: 1.03, cy: 960, shake: [[0.12, 10]] }); bg(SET.hook);
     putK('kk', [[0, 540, 525, -2, 1.2, 1, null, 0, 1.0], [0.1, 540, 535, -2, 0, 1, 'in', 1.0, 0.96]], u, 1);
     putK('anak_seragam', [[0, 195, 995, 0, 0.8, 1, null, 0, 0.8], [0.12, 205, 1005, 0, 0, 1, 'in', 0.6, 0.8]], u, 2);
-    stampAt('st_domisili', u, 0.12, 425, 555, -8, 0.5);   // on the blurred name bars: every readable word stays clear
+    stampAt('st_domisili', u, 0.12, 425, 600, -8, 0.5);   // on the blurred name bars: every readable word stays clear
     putK('s_baris', slap(0.25, 540, 182, -2), u, 3, { s: 0.7 });
     putK('kursi_sekolah', slap(0.22, 810, 1000, 3), u, 4, { s: 0.86 });
     putK('s_kursi', slap(at(0, 'kursi'), 560, 1128, -2), u, 5, { s: 0.64 });
