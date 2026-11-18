@@ -1,0 +1,7 @@
+Struk ini mencetak dua total untuk belanjaan yang sama.
+Total pertama muncul saat kamu memilih barang. Total kedua baru muncul di halaman bayar. Wajar kalo kamu mikir: yang penting angka terakhirnya.
+Tahun ini, lembaga konsumen memperingatkan biaya aplikasi yang dibebankan ke pembeli. Masalahnya, besar biaya cuma separuh cerita.
+Di Amerika, sebuah situs tiket membagi jutaan pembelinya secara acak. Separuh melihat harga plus biaya sejak awal. Separuh lagi baru melihat biayanya di halaman bayar.
+Anehnya, kelompok kedua belanja sekitar seperlima lebih banyak. Tiket pilihan mereka pun lebih mahal.
+Harga pertama yang kamu lihat jadi patokan. Biaya yang datang belakangan nggak ikut masuk hitungan itu.
+Nama baris kecil di struk tadi: biaya layanan. Baris itu juga ada di halaman bayar yang kamu buka hari ini. Pengaruhnya ada pada kapan dia muncul.
