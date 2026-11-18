@@ -5,11 +5,11 @@
  "case_line": "terlaris",
  "vo": "audio/vo_terlaris.mp3",
  "words": "audio/vo_words.json",
- "dur": 0,
+ "dur": 49.86,
  "report": [
   [
    0,
-   0
+   49.86
   ]
  ]
 }

@@ -5,11 +5,11 @@
  "case_line": "biayalayanan",
  "vo": "audio/vo_biayalayanan.mp3",
  "words": "audio/vo_words.json",
- "dur": 0,
+ "dur": 48.28,
  "report": [
   [
    0,
-   0
+   48.28
   ]
  ]
 }

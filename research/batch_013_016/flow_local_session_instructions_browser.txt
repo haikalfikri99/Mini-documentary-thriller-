@@ -1,0 +1,84 @@
+TUGAS: buat gambar Google Flow untuk 4 episode YouTube Shorts (ARSIP KASUS #013-#016), lewat BROWSER BAWAAN aplikasi Claude desktop, lalu unggah hasilnya ke Google Drive. Kerjakan berurutan, laporkan singkat setelah tiap episode.
+
+ATURAN UMUM
+- Jangan pernah mengetik kata sandi / kode verifikasi. Login Google dikerjakan user sendiri di panel browser.
+- 1 label = 1 kali generate, 1 hasil (output per prompt = 1). Jangan minta variasi tambahan.
+- Hemat kredit: bila hasil cacat, regenerate label itu SEKALI. Masih cacat -> catat, lanjut. Lebih dari itu harus izin user.
+- Prompt diblokir filter kebijakan -> JANGAN ulang di proyek yang sama. Buat proyek baru, coba sekali. Masih diblokir -> catat, lanjut.
+- Jangan ubah isi prompt kecuali untuk menghindari blokir (lapor ke user apa yang diubah).
+
+LANGKAH
+0. Pastikan kamu punya alat browser bawaan (nama alat diawali mcp__Claude_Browser__ atau mcp__remote-devices__Claude_Browser__; kalau di daftar alat tertunda, muat semuanya sekaligus lewat ToolSearch dengan awalan namanya). Kalau tidak ada sama sekali: BERHENTI dan bilang ke user "sesi ini tidak punya browser bawaan".
+1. Buka https://labs.google/fx/tools/flow di browser bawaan. Minta user login Google di panel browser (Ctrl+Shift+B kalau panel tersembunyi). Tunggu user bilang sudah login.
+2. Untuk tiap episode buat proyek baru, nama "ARSIP <no> <slug>" (contoh "ARSIP 013 biayalayanan").
+3. Setelan pembuatan GAMBAR (bukan video): model Nano Banana Pro (kalau tidak ada: Nano Banana 2), output per prompt = 1, rasio sesuai label: 3:4 = Portrait, 4:3 = Landscape 4:3, 1:1 = Square. Kalau 4:3 tidak tersedia, pakai 16:9 dan catat.
+4. Teks prompt tiap label = baris STYLE di bawah + spasi + "Subject: " + deskripsi label (persis). Bila label memuat nama tokoh (SHOPPER_US / BUYER_ID / RUNNER), tambahkan juga definisi tokohnya sebelum "Subject:".
+5. Setelah tiap hasil keluar, periksa (screenshot boleh): latar putih polos; TIDAK ada huruf/angka/logo; tangan lima jari wajar; subjek sesuai deskripsi; hero FRAME 0 memenuhi +-85% lebar gambar.
+6. BATCH B (hanya #013 dan #015): setelah Batch A episode itu selesai, buat PROYEK BARU, pasang gambar ingredient yang disebut sebagai gambar referensi/ingredient, lalu kirim prompt Batch B.
+7. Unduh tiap hasil resolusi tertinggi, beri nama persis <label>.jpg (atau .png sesuai format unduhan). Cari file unduhan di folder Downloads Windows (%USERPROFILE%\Downloads); kalau tidak ketemu, tanya user di mana browser menyimpannya.
+8. Unggah ke folder Drive episode (ID di bawah) dengan konektor Google Drive (create_file, parentId = ID folder, file < 10 MB, disableConversionToGoogleType = true). Kalau konektor Drive tidak ada: kumpulkan file di %USERPROFILE%\Downloads\ARSIP_flow\<no>\ lalu minta user menyeret file ke link folder Drive.
+9. Laporan akhir per episode: tabel label -> OK / regenerate / gagal (alasan) + link folder Drive. Lalu user mengetik di sesi cloud: "gambar #<no> sudah di Drive".
+
+STYLE (sama untuk semua gambar):
+vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out (no floor line, no cast shadow, no border or frame, white margin all around; a place or scene is drawn as a vignette whose edges fade into the white background), no text, no letters, no numbers, no logos, no brand names, no emblems, no watermark, no color. People: generic faces (not real or famous people), anatomically correct hands with five fingers, a grip that looks physically real.
+
+==================== #013 biayalayanan — Harga Awal Rp50 Ribu, Pas Checkout Jadi Rp58 Ribu
+Folder Drive: Mini Thriller IDN/013 Biaya Layanan Checkout  (ID 1gAfRuaS9jBX3XpW5_x4Kzq5taI_g7xP8)  https://drive.google.com/drive/folders/1gAfRuaS9jBX3XpW5_x4Kzq5taI_g7xP8
+Tokoh: BUYER_ID = Indonesian man about 30, warm brown skin, short neat hair, plain collared shirt
+BATCH A (satu proyek):
+- hp_checkout | Portrait 3:4 | FRAME 0 HERO. Close-up of a right hand holding a generic modern smartphone upright and facing the viewer, the thumb resting at the bottom edge of the screen; the screen is completely blank white, no logo; phone and hand fill about 85% of the image width.
+- tangan_keranjang | Square 1:1 | Close-up of a hand dropping a small plain cardboard product box into a plastic shopping basket that already holds two plain boxes; no labels or text.
+- pembeli_kaget | Portrait 3:4 | BUYER_ID, waist-up, holding a smartphone with a blank screen close to his face, eyebrows raised and mouth slightly open in surprise, looking at the screen.
+- juru_bicara | Portrait 3:4 | An Indonesian man about 50, short grey hair, glasses, wearing a long-sleeved batik shirt, waist-up, speaking at a press conference behind a small table with three plain microphones, one hand raised in an open-palm explaining gesture; no logos, no banners, no text.
+- kaca_pembesar | Square 1:1 | A classic round magnifying glass with a wooden handle, lying at a slight angle, the lens empty and clear.
+- peneliti_laptop | Landscape 4:3 | An American man about 40 with short hair and a short beard, rolled-up shirt sleeves, waist-up, sitting at a desk and studying a laptop with a blank screen, a coffee mug and blank printouts beside him.
+- kerumunan_hp | Landscape 4:3 | A wide crowd of many small figures of adult men seen from slightly above, each one looking down at a smartphone in his hand, filling the whole width like a sea of people; generic faces.
+- stadion_kursi | Landscape 4:3 | Rows of empty stadium seats in a concert arena seen from the side, the front rows close to an empty stage at the left, the rows rising toward the back at the right; no people, no text.
+- gembok | Square 1:1 | A heavy old-fashioned closed padlock with its shackle locked, front view, with a small key lying beside it.
+BATCH B (PROYEK BARU, ingredient: pembeli_kaget):
+- pembeli_senyum | Portrait 3:4 | The SAME BUYER_ID man as in the reference image (same face, same shirt), waist-up, smiling with relief and giving a thumbs-up with one hand while holding a smartphone with a blank screen in the other. COMPLETELY CHANGE HIS POSE AND BODY ANGLE (do NOT copy the old posture or hand gesture from the reference).
+
+==================== #014 ongkir — Voucher Ongkir Rp0 Bikin Paket Retur Ikut Naik
+Folder Drive: Mini Thriller IDN/014 Voucher Ongkir Rp0  (ID 1xi5GzgfphRm-N3DneBwzcYuDRz0xlhLM)  https://drive.google.com/drive/folders/1xi5GzgfphRm-N3DneBwzcYuDRz0xlhLM
+Tokoh: COURIER_ID = Indonesian man about 35, warm brown skin, short hair, plain jacket and a plain open-face helmet with no logo
+BATCH A (satu proyek):
+- hp_keranjang | Portrait 3:4 | FRAME 0 HERO. Close-up of a hand holding a generic modern smartphone upright and facing the viewer, the index finger about to tap the lower half of the screen; the screen is completely blank white, no logo; phone and hand fill about 85% of the image width.
+- rem_tangan | Square 1:1 | Close-up of a car handbrake lever between two front seats, a hand gripping it and releasing it downward.
+- kurir_motor | Landscape 4:3 | COURIER_ID riding a scooter-style motorcycle with a plain cardboard parcel box strapped on the back seat, side view, on a simple street; no logos, no text.
+- paket_tumpuk | Square 1:1 | A small pile of online-shopping delivery parcels: plain cardboard boxes and plastic mailer pouches stacked unevenly, sealed with tape, no labels or text.
+- gudang | Landscape 4:3 | A large warehouse interior with tall shelving racks full of plain cardboard boxes and a long conveyor belt carrying parcels in the foreground; no people, no signs, no text.
+- kerumunan_pelanggan | Landscape 4:3 | A wide crowd of many small figures of adult men in plain everyday clothes, seen from the front at a slight distance, standing shoulder to shoulder and filling the whole width; generic faces.
+- baju_gantung | Portrait 3:4 | A plain button-up shirt and a simple dress hanging on two wooden hangers from a clothes rail, fabric gently draped; no labels.
+- kosmetik | Square 1:1 | A small group of cosmetics standing together: a lipstick, a round compact powder case, a small bottle and a jar of cream, all completely plain with no labels.
+- barang_aman | Square 1:1 | A plain plastic storage box with a lid and a small round hand mirror leaning against it; no labels.
+- paket_retur | Square 1:1 | Close-up of two hands folding a plain shirt back into an open cardboard parcel box, a roll of packing tape beside it.
+- kamar_pas | Portrait 3:4 | A clothing store fitting room seen from the front: a curtain pulled open on its rail, a stool and a few shirts on hangers on a wall hook inside; nobody inside, no text.
+
+==================== #015 terlaris — Satu Tanda Best Seller Ini Mengubah Isi Pesananmu
+Folder Drive: Mini Thriller IDN/015 Best Seller Menu  (ID 1ddg57rIg8WJaoFldAVv8ICyeNxBVgE5G)  https://drive.google.com/drive/folders/1ddg57rIg8WJaoFldAVv8ICyeNxBVgE5G
+Tokoh: DINER_ID = Indonesian man about 28, warm brown skin, short wavy hair, plain round-neck t-shirt
+BATCH A (satu proyek):
+- buku_menu | Landscape 4:3 | FRAME 0 HERO. An open restaurant menu book lying flat and facing the viewer, two facing pages each with neat empty rows for dishes and small empty frames for food pictures, a ribbon bookmark; all pages completely blank with no text; the menu fills about 85% of the image width.
+- pengunjung_bingung | Portrait 3:4 | DINER_ID sitting at a small cafe table, waist-up, holding an open menu with both hands, frowning slightly and undecided, a glass of iced tea on the table.
+- restoran_beijing | Landscape 4:3 | A traditional Chinese restaurant dining room: round tables with lazy susans and chopsticks, paper lanterns hanging from the ceiling, a few diners eating in the background; no signs, no text.
+- plakat_meja | Square 1:1 | A small blank tent card standing on a round restaurant table next to a teapot and a pair of chopsticks; the card is completely empty with no text.
+- pelayan_catat | Portrait 3:4 | A Chinese restaurant waiter, a man about 40 in a plain white shirt and dark vest, waist-up, writing an order on a small blank notepad with a pen.
+- tamu_puas | Portrait 3:4 | A Chinese man about 45 in a plain shirt sitting at a round restaurant table, waist-up, holding chopsticks over a bowl of noodles and giving a thumbs-up with the other hand, satisfied smile.
+- tangan_menunjuk | Landscape 4:3 | Many hands from different sides reaching in and pointing at the same single plate of food in the middle of a table; generic hands with five fingers.
+BATCH B (PROYEK BARU, ingredient: pengunjung_bingung):
+- pengunjung_tunjuk | Portrait 3:4 | The SAME DINER_ID man as in the reference image (same face, same t-shirt), waist-up, at a cafe table, his index finger resting on one item of an open menu, pausing with a thoughtful half-smile as if second-guessing his choice. COMPLETELY CHANGE HIS POSE AND BODY ANGLE (do NOT copy the old posture or hand gesture from the reference).
+
+==================== #016 zonasi — Satu Baris Kosong di Kartu Keluarga Ini Jadi Rebutan
+Folder Drive: Mini Thriller IDN/016 Kartu Keluarga Zonasi  (ID 1EugIrWCFmyqqdV2KHTyAOwD9-C3p5AM6)  https://drive.google.com/drive/folders/1EugIrWCFmyqqdV2KHTyAOwD9-C3p5AM6
+BATCH A (satu proyek):
+- kursi_sekolah | Square 1:1 | A small wooden school desk with a matching wooden chair, a child's backpack hanging on the back of the chair, a pencil case on the desk; empty, nobody sitting.
+- anak_seragam | Portrait 3:4 | A young schoolboy about 8 years old seen from behind, full body, wearing a short-sleeved school uniform shirt, shorts, white socks and black shoes, a backpack on his back, walking toward a simple school gate; his face is not visible.
+- gedung_sekolah | Landscape 4:3 | A simple Indonesian public elementary school building: a single-storey row of classrooms with a tiled roof and wooden windows, a flagpole in a small yard in front, a low fence and an open gate; no people, no signs, no text.
+- kardus_pindahan | Square 1:1 | A stack of plain cardboard moving boxes taped shut, a rolled-up mattress tied with rope and a standing fan beside them; no labels or text.
+- tangan_berebut | Landscape 4:3 | Several adult hands reaching in from different sides and grabbing at the same single blank sheet of paper in the middle, tugging it; generic hands with five fingers.
+- tugu_jogja | Portrait 3:4 | The Tugu monument of Yogyakarta, Indonesia: a white obelisk-like monument on a stepped base with a pointed top, standing at a crossroads; no people, no text.
+- petugas_berkas | Landscape 4:3 | An Indonesian man about 50 in a long-sleeved batik shirt, waist-up, sitting at a desk piled with document folders, examining a blank form through a magnifying glass, serious face; no logos, no text.
+- petugas_loket | Landscape 4:3 | A registration counter seen from the applicant's side: an Indonesian man about 40 in a plain uniform shirt behind the counter, looking at a computer monitor with a blank screen while holding a blank paper form; no signs, no text.
+- tangan_tulis | Square 1:1 | Close-up of a right hand writing with a ballpoint pen on a blank paper form with empty table rows; the form has no text.
+- nenek_cucu | Portrait 3:4 | An elderly Indonesian grandmother in a simple long-sleeved kebaya-style blouse and batik sarong, seen from behind, walking hand in hand with a young schoolboy about 8 in a school uniform with a backpack, both seen from behind on a quiet village road; faces not visible.
+- rumah_kunci | Landscape 4:3 | A small empty Indonesian house with a closed front door and closed windows, a single door key hanging from the door lock; nobody around, no text.

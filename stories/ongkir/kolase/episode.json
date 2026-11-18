@@ -5,11 +5,11 @@
  "case_line": "ongkir",
  "vo": "audio/vo_ongkir.mp3",
  "words": "audio/vo_words.json",
- "dur": 0,
+ "dur": 36.18,
  "report": [
   [
    0,
-   0
+   36.18
   ]
  ]
 }

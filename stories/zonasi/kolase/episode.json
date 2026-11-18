@@ -5,11 +5,11 @@
  "case_line": "zonasi",
  "vo": "audio/vo_zonasi.mp3",
  "words": "audio/vo_words.json",
- "dur": 0,
+ "dur": 39.39,
  "report": [
   [
    0,
-   0
+   39.39
   ]
  ]
 }
