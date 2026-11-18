@@ -3,7 +3,7 @@
 
 ## 1. Judul (≤ 55 karakter; Kuda Troya: tanpa psikologi/bias/kenapa/tapi/padahal/ternyata/?)
 ```
-Harga Awal Rp50 Ribu, Pas Checkout Jadi Rp62 Ribu
+Harga Awal Rp50 Ribu, Pas Checkout Jadi Rp58 Ribu
 ```
 
 ## 2. Deskripsi (2–3 kalimat pembuka kaya kata kunci alami; lalu Sumber + kredit)

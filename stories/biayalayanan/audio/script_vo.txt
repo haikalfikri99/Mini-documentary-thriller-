@@ -1,7 +1,7 @@
-Layar checkout aplikasi ini sengaja ngasih dua harga buat barang yang sama.
+Layar checkout aplikasi ini ngasih dua harga buat barang yang sama.
 Pas masukin ke keranjang, harganya kelihatan murah. Eh, pas mau bayar, muncul baris kecil bernama biaya layanan yang naikin total belanja. Tahun ini, lembaga konsumen sampai ngingetin soal celah biaya aplikasi yang dibebanin ke pembeli.
-Jebakannya bukan cuma di potongan receh itu.
+Masalahnya, efeknya bukan cuma di biaya tambahan itu.
 Peneliti di Amerika menguji jutaan pembeli tiket online. Separuh dikasih lihat harga plus biaya sejak awal. Separuh lagi baru dikasih lihat biayanya pas mau bayar.
 Hasilnya jomplang. Kelompok kedua justru belanja seperlima lebih banyak dan beli tiket lebih mahal.
 Pas lihat harga murah di awal, otak kita udah terlanjur ngerasa cocok—biaya di akhir cuma dianggap selisih kecil.
-Dua total di layar checkout tadi dipasang sengaja buat ngunci pilihanmu sebelum harga aslinya keluar.
+Dua total di layar checkout tadi bekerja persis begitu—ngunci pilihanmu sebelum harga aslinya keluar.

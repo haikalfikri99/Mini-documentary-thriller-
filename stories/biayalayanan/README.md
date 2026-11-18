@@ -1,6 +1,6 @@
 # ARSIP KASUS #013: Biaya layanan yang baru muncul di halaman bayar akhir (drip pricing)
 **Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), **DISETUJUI LANJUT user 18 Nov 2026**, **NASKAH FINAL TERKUNCI USER 18 Nov 2026** (menggantikan skrip v1 Claude; tidak boleh diubah) · **Model skrip:** Opus + effort high · Fact sheet: 4 subagen Sonnet + sesi utama
-[HOOK: Bukti Visual Mendahului Konteks] [ENDING: Pemicu Dunia Nyata] [SEGAR: 2026] [MODE: Investigasi] [ARTEFAK: layar checkout aplikasi generik dengan dua harga untuk barang yang sama (angka ILUSTRASI Rp50 ribu → Rp62 ribu, tanpa logo)] [LOOP: dua total di layar checkout Frame 0 → dipasang untuk mengunci pilihan sebelum harga asli keluar @48] [LABEL: DATA INDONESIA + EKSPERIMEN AS]
+[HOOK: Bukti Visual Mendahului Konteks] [ENDING: Pemicu Dunia Nyata] [SEGAR: 2026] [MODE: Investigasi] [ARTEFAK: layar checkout aplikasi generik dengan dua harga untuk barang yang sama (angka ILUSTRASI Rp50 ribu → Rp58 ribu ≈ selisih rata-rata ±15% di studi, tanpa logo)] [LOOP: dua total di layar checkout Frame 0 → dipasang untuk mengunci pilihan sebelum harga asli keluar @48] [LABEL: DATA INDONESIA + EKSPERIMEN AS]
 
 ## Klasifikasi (v6.1)
 | Kolom | Isi |
@@ -14,7 +14,7 @@
 
 ## Kompas & Channel-Fit Gate
 - [x] Bukan kuliah / bukan nasihat / bukan bantahan mitos datar (cerita: eksperimen acak + keluhan konsumen 2026)
-- [x] Artefak Frame 0: struk checkout generik dengan dua total (harga di awal vs total akhir); detail loop = baris "biaya layanan" kecil
+- [x] Artefak Frame 0: layar checkout generik dengan dua harga (Rp50 ribu di keranjang vs Rp58 ribu di halaman bayar, ILUSTRASI); detail loop = baris "biaya layanan" kecil
 - [x] Antagonis tak kasatmata: urutan tampilan biaya (kapan angka muncul) · taruhan: uang penonton (±seperlima lebih banyak belanja)
 - [x] The Turn: yang melihat total sejak awal membeli lebih sedikit dan lebih murah; yang melihat belakangan belanja lebih banyak
 - [x] Penutup Pemicu Dunia Nyata (benda yang pasti ditemui hari itu: halaman bayar) tanpa nasihat
@@ -70,28 +70,27 @@ Asumsi awal: "yang penting harga akhirnya" → Jangkar lokal: biaya layanan di h
 Atribusi pendek sekali di klaim sensitif (YLKI/Perpres); tahun 2026 di layar; "tidak disponsori"; tanpa logo; frasa "desain tampilan harga" (bukan "jebakan"/"menyembunyikan").
 
 ## Judul & penguncian 3-titik (0,0–4,0 dtk) — Aturan Kuda Troya (tanpa psikologi/bias/kenapa/padahal/tapi/ternyata/? di judul dan frame 0, kecuali slot uji)
-**Judul (final, TERKUNCI user):** `Harga Awal Rp50 Ribu, Pas Checkout Jadi Rp62 Ribu` · 49 karakter (≤ 55)
-Frame 0 (hero ≥ 45% lebar ≈ ≥ 486 px di y 150–1150 + hantaman stempel/label ≤ 0,25 dtk; barang bukti fisik): Layar checkout ponsel generik (tanpa logo) ≥ 486 px di y 150–1150: harga di keranjang **Rp50.000** di atas, total bayar **Rp62.000** di bawah, dilingkari merah; strip kecil **ILUSTRASI**; stempel merah "DUA HARGA" ≤ 0,25 dtk; teks layar ≤ 5 kata: **SATU BARANG, DUA HARGA**. Detail loop: baris kecil "biaya layanan" di antara dua angka, tidak disorot.
-Kalimat H1 (TERKUNCI): "Layar checkout aplikasi ini sengaja ngasih dua harga buat barang yang sama." (12 kata, ±4,9 dtk estimasi; cek ulang ≤ 4,0 dtk di `vo_words.json`)
+**Judul (final, TERKUNCI user):** `Harga Awal Rp50 Ribu, Pas Checkout Jadi Rp58 Ribu` · 49 karakter (≤ 55)
+Frame 0 (hero ≥ 45% lebar ≈ ≥ 486 px di y 150–1150 + hantaman stempel/label ≤ 0,25 dtk; barang bukti fisik): Layar checkout ponsel generik (tanpa logo) ≥ 486 px di y 150–1150: harga di keranjang **Rp50.000** di atas, total bayar **Rp58.000** di bawah, dilingkari merah; strip kecil **ILUSTRASI**; stempel merah "DUA HARGA" ≤ 0,25 dtk; teks layar ≤ 5 kata: **SATU BARANG, DUA HARGA**. Detail loop: baris kecil "biaya layanan" di antara dua angka, tidak disorot.
+Kalimat H1 (TERKUNCI): "Layar checkout aplikasi ini ngasih dua harga buat barang yang sama." (11 kata, ±4,5 dtk estimasi; cek ulang ≤ 4,0 dtk di `vo_words.json`)
 
 ## Skrip AV 2 kolom (NASKAH FINAL TERKUNCI user, 18 Nov 2026; `1-cerita…` §M4)
 Kolom audio memuat VO persis seperti `audio/script_vo.txt` (127 kata); notasi studio tidak disisipkan ke dalam kalimat agar teks terkunci tidak berubah: arahan (intonasi, `//` hening) dan SFX ditulis terpisah sebelum "VO:". Waktu = estimasi 2,58 kata/dtk; dikunci ulang dari `vo_words.json` setelah VO.
 | # | Waktu (estimasi) | Visual kolase (arsip / dokumen / gerak) | Audio: VO word-for-word (TERKUNCI) + arahan + SFX |
 |---|---|---|---|
-| 1 | 0,0–4,9 | FRAME 0 (lihat atas). Lingkaran merah menggambar diri di dua total. | (yakin) · SFX: ketuk layar + hantaman stempel tepat 0,00 · VO: Layar checkout aplikasi ini sengaja ngasih dua harga buat barang yang sama. |
-| 2 | 4,9–13,5 | Jari memasukkan barang ke keranjang (Rp50.000) → geser ke halaman bayar; baris "biaya layanan" muncul, total naik ke Rp62.000 (ILUSTRASI). | SFX: klik "tambah ke keranjang", lalu angka berputar · VO: Pas masukin ke keranjang, harganya kelihatan murah. / Eh, pas mau bayar, muncul baris kecil bernama biaya layanan yang naikin total belanja. |
-| 3 | 13,5–19,2 | Kliping YLKI (judul dibuat ulang, tanpa logo media) + strip `DATA INDONESIA · YLKI, 13 Okt 2026`. | SFX: kertas disobek · VO: Tahun ini, lembaga konsumen sampai ngingetin soal celah biaya aplikasi yang dibebanin ke pembeli. |
-| 4 | 19,2–22,2 | Micro-rehook: baris "biaya layanan" diperkecil, di belakangnya pintu terbuka ke peta AS. | (merendah) · SFX: bass pendek · VO: Jebakannya bukan cuma di potongan receh itu. |
+| 1 | 0,0–4,5 | FRAME 0 (lihat atas). Lingkaran merah menggambar diri di dua total. | (yakin) · SFX: ketuk layar + hantaman stempel tepat 0,00 · VO: Layar checkout aplikasi ini ngasih dua harga buat barang yang sama. |
+| 2 | 4,5–13,2 | Jari memasukkan barang ke keranjang (Rp50.000) → geser ke halaman bayar; baris "biaya layanan" muncul, total naik ke Rp58.000 (ILUSTRASI; ±15% = rata-rata biaya di studi). | SFX: klik "tambah ke keranjang", lalu angka berputar · VO: Pas masukin ke keranjang, harganya kelihatan murah. / Eh, pas mau bayar, muncul baris kecil bernama biaya layanan yang naikin total belanja. |
+| 3 | 13,2–18,8 | Kliping YLKI (judul dibuat ulang, tanpa logo media) + strip `DATA INDONESIA · YLKI, 13 Okt 2026`. | SFX: kertas disobek · VO: Tahun ini, lembaga konsumen sampai ngingetin soal celah biaya aplikasi yang dibebanin ke pembeli. |
+| 4 | 18,8–22,2 | Micro-rehook: baris "biaya layanan" diperkecil, di belakangnya pintu terbuka ke peta AS. | (merendah di "Masalahnya") · SFX: bass pendek · VO: Masalahnya, efeknya bukan cuma di biaya tambahan itu. |
 | 5 | 22,2–32,6 | Stempel `EKSPERIMEN AS · situs tiket · 2015` (sumber kecil: Blake dkk., Marketing Science 2021). Layar terbelah 50:50: kiri harga+biaya sejak awal, kanan biaya baru muncul di halaman bayar. | SFX: kartu dibelah · VO: Peneliti di Amerika menguji jutaan pembeli tiket online. / Separuh dikasih lihat harga plus biaya sejak awal. / Separuh lagi baru dikasih lihat biayanya pas mau bayar. |
 | 6 | 32,6–38,5 | Hening 0,6 dtk. Grafik dua batang: kanan naik "≈ +⅕ belanja"; ikon tiket kursi depan bergeser ke kanan. | `//` sebelum "Hasilnya jomplang." · SFX: satu denting piano rendah · VO: Hasilnya jomplang. / Kelompok kedua justru belanja seperlima lebih banyak dan beli tiket lebih mahal. |
 | 7 | 38,5–46,2 | Harga murah awal dicap "COCOK"; biaya akhir mengecil jadi "selisih kecil" yang tergelincir dari timbangan. | SFX: timbangan berdenting · VO: Pas lihat harga murah di awal, otak kita udah terlanjur ngerasa cocok—biaya di akhir cuma dianggap selisih kecil. |
-| 8 | 46,2–52,2 | CURTAIN-PULL: kembali ke layar checkout Frame 0; gembok merah mengunci tombol pilihan sebelum angka Rp62.000 menyala penuh. | (pelan, tegas) · SFX: gembok terkunci; ekor ≤ 0,15 dtk · VO: Dua total di layar checkout tadi dipasang sengaja buat ngunci pilihanmu sebelum harga aslinya keluar. |
+| 8 | 46,2–52,2 | CURTAIN-PULL: kembali ke layar checkout Frame 0; gembok merah mengunci tombol pilihan sebelum angka Rp58.000 menyala penuh. | (pelan, tegas) · SFX: gembok terkunci; ekor ≤ 0,15 dtk · VO: Dua total di layar checkout tadi bekerja persis begitu—ngunci pilihanmu sebelum harga aslinya keluar. |
 
 VO bersih → `audio/script_vo.txt`; bertag ElevenLabs → `audio/vo_prompt_elevenlabs.md`.
 Penutup: 5 Pemicu Dunia Nyata (layar checkout yang ditemui penonton) dengan Curtain-pull atas dua total Frame 0 @48. Ekor audio ≤ 0,15 dtk.
 
 ## Catatan lanjut
-- **18 Nov 2026: naskah final TERKUNCI user** menggantikan skrip v1 (commit c17b583). Scorecard v1 dihapus karena tidak lagi mewakili teks; catatan risiko fakta untuk teks terkunci disampaikan ke user di chat (tidak mengubah teks, `7-selera` #63).
+- **18 Nov 2026: naskah FINAL v2 TERKUNCI user** (koreksi user atas catatan risiko fakta: kata "sengaja/Jebakannya/melonjak" dihapus, Rp58 ribu ≈ ±15% studi, engsel ABT #013, #015 → buku menu + best seller + "ngaku lebih puas", #016 "ikut nentuin kursi"). Menggantikan skrip v1 (c17b583) dan naskah terkunci v1 (a2ff1b5).
 - Konteks Perpres 27/2026 (batas 8%) sengaja tidak diucapkan agar komisi pengemudi tidak tertukar dengan biaya layanan konsumen (`7-selera` #85b); jangkar lokal cukup peringatan YLKI.
 - Langkah berikut setelah user setuju: VO manual (2 take) → `vo_words.json` → cek H1 ≤ 4,0 dtk → storyboard/kolase → UPLOAD.md.
-- **Linter 18 Nov 2026: 1 error terbuka** — "perekat ABT tidak ada" (naskah terkunci tidak memuat tetapi/anehnya/masalahnya/akibatnya/karena itu). Tidak ditutup dengan mengubah kata (naskah terkunci) maupun melonggarkan linter; **menunggu keputusan user** (sisipkan satu engsel, atau catat pengecualian resmi #013).
