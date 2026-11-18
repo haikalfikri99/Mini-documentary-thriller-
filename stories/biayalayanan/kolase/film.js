@@ -4,7 +4,7 @@
 // measured on the cut-out, so screenOn() pastes it exactly on the glass). Rupiah = ILUSTRASI (Rp50.000 → Rp58.000).
 // Data origin: DATA INDONESIA (green) on the YLKI shots 11.32–16.70; EKSPERIMEN AS (paper) from "Amerika" 20.78 to 36.48.
 // Conceptual loop: the small grey "Biaya layanan" row sits un-marked on the Frame-0 screen; it is highlighted at "tadi" (43.64).
-// Layouts (§M): panggung, close-up makro (S03, S07, S16 S18b…), kartu penuh (S05, S07b), split-screen (S11–S13), grafik (S14–S15).
+// Layouts (§M): panggung, close-up makro (S03, S08, S19, S21), kartu penuh (S05, S07), split-screen (S11–S13), grafik (S14–S15).
 import { W, H, SP, PAL, setCtx, getCtx, loadAll, put, putK, has, slap, slide, drop, stampAt, createFilm, seg, EASE, stepT, M, EV,
   arrow, route, bow, cam, applyCam, shake, hash } from './lib/engine.js';
 import { makeShotKit } from './lib/shotkit.js';

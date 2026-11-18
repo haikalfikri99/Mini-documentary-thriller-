@@ -1,10 +1,13 @@
-{"file": "ai/hp_checkout.jpg", "what": "FRAME 0 hero: tangan memegang HP layar kosong (v2, dibuat ulang user)", "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN", "url": "", "page": ""}
-{"file": "ai/tangan_keranjang.jpg", "what": "tangan + keranjang belanja", "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN", "url": "", "page": ""}
-{"file": "ai/pembeli_kaget.jpg", "what": "BUYER_ID kaget", "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN", "url": "", "page": ""}
-{"file": "ai/pembeli_senyum.jpg", "what": "BUYER_ID senyum, jempol", "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN", "url": "", "page": ""}
-{"file": "ai/juru_bicara.jpg", "what": "juru bicara lembaga konsumen (generik)", "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN", "url": "", "page": ""}
-{"file": "ai/kaca_pembesar.jpg", "what": "kaca pembesar", "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN", "url": "", "page": ""}
-{"file": "ai/peneliti_laptop.jpg", "what": "peneliti di laptop", "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN", "url": "", "page": ""}
-{"file": "ai/kerumunan_hp.jpg", "what": "kerumunan pembeli dengan HP", "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN", "url": "", "page": ""}
-{"file": "ai/stadion_kursi.jpg", "what": "gedung pertunjukan, deretan kursi (huruf palsu di balkon dihapus di bake)", "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN", "url": "", "page": ""}
-{"file": "ai/gembok.jpg", "what": "gembok + kunci", "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN", "url": "", "page": ""}
+{"file": "raw/ai_hp_checkout.jpg", "key": "hp", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_tangan_keranjang.jpg", "key": "keranjang", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_pembeli_kaget.jpg", "key": "kaget", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_pembeli_senyum.jpg", "key": "senyum", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_juru_bicara.jpg", "key": "jubir", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_kaca_pembesar.jpg", "key": "kaca", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_peneliti_laptop.jpg", "key": "peneliti", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_kerumunan_hp.jpg", "key": "kerumunan", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_kerumunan_hp.jpg", "key": "krm_kiri", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_kerumunan_hp.jpg", "key": "krm_kanan", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_stadion_kursi.jpg", "key": "stadion", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_stadion_kursi.jpg", "key": "stadion_hl", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
+{"file": "raw/ai_gembok.jpg", "key": "gembok", "url": null, "page": null, "license": "AI-generated image (Google Flow), made by the channel owner; no logos", "credit": "Mini Thriller IDN"}
