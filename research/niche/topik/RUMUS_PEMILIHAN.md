@@ -85,3 +85,8 @@ Shorts didistribusikan lewat *feed*, bukan pencarian: #004 Aqua `n_saran` kecil 
 4. **Penutup Curtain-Pull Reveal** tanpa menggurui (diwujudkan lewat salah satu dari 5 arketipe).
 **Mesin 3 (Human Anomalies)** tambahan: wajib berjangkar pada kejadian nyata di Indonesia di 0–4 dtk sebelum eksperimen laboratorium; tanpa kasus pidana berjalan dan tanpa korban yang bisa dikenali.
 **Kesegaran:** ≥ 2 dari 4 topik batch bertanda `[SEGAR: 2020–2026]` (`1-cerita…` §M7.4).
+
+### Aturan permanen #86–#88 (user, 18 Nov 2026; menambah Channel-Fit Gate, berlaku #013+)
+- **#86 Tes Objek Harian & Grup WA Indonesia:** kandidat wajib berangkat dari **benda, dokumen keluarga, transaksi uang, makanan, lalu lintas, atau layar aplikasi** yang akrab di kehidupan harian masyarakat Indonesia (bisa dikirim ke grup WA keluarga tanpa penjelasan). **Tolak** standar teknis IT/korporasi kering (NIST, ISO, dll.) yang tidak menyentuh perilaku konsumen awam. Contoh gugur: aturan password NIST SP 800-63B-4 (#014 usulan, ditolak user 18 Nov 2026).
+- **#87 Bebas dari syarat larangan hukum untuk Mesin 2 & 3:** jangan menggugurkan topik desain pilihan (*dark patterns*) atau bias kognitif hanya karena belum ada UU Indonesia yang melarangnya; yang wajib ada = **bukti studi/audit terukur** yang terbaca. Fact sheet menulis jujur "belum ada aturan yang melarang". Ini tidak melonggarkan pagar fakta (tanpa tuduhan ke merek tanpa dokumen).
+- **#88 Wajib bedah mekanisme perilaku:** topik berbasis kebijakan/dokumen lokal wajib membedah reaksi perilaku manusia di baliknya, bukan sekadar membacakan isi pasal. Fact sheet memuat baris **"Mekanisme perilaku"** + sumbernya.
