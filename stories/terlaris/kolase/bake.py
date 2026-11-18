@@ -376,7 +376,7 @@ def people():
 
 
 def stamps():
-    for name, text, size, color, seed in [('st_timpang', 'BEDA JAUH', 116, RED, 81), ('st_jaminan', 'PASTI ENAK', 104, RED, 82),
+    for name, text, size, color, seed in [('st_timpang', 'BEDA JAUH', 116, RED, 81), ('st_jaminan', 'PASTI ENAK?', 104, RED, 82),
                                           ('st_dilewati', 'DILEWATI', 104, RED, 83), ('st_best', 'BEST SELLER', 80, RED, 84)]:
         bk.stamp(name, text, size, color, seed=seed, legible=True)
     bk.flat('p_left', MANILA, poly=[(-292, -720), (290, -705), (282, 712), (-288, 700)], seed=961, rough=4, mottle=0.05)

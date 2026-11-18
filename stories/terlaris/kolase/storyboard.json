@@ -126,9 +126,9 @@
   },
   {
    "vo": "jadi kita nebeng pilihan orang banyak sebagai jaminan enak.",
-   "aksi": "Banyak tangan menunjuk satu piring (AI, crop tengah: lengan sobek/bertambal di tepi dibuang); lencana BEST SELLER mendarat di piring pada kata \"pilihan\"; stempel PASTI ENAK di \"jaminan\" (bukan JAMINAN ENAK: tidak mengulang caption).",
+   "aksi": "Banyak tangan menunjuk satu piring (AI, crop tengah: lengan sobek/bertambal di tepi dibuang); lencana BEST SELLER mendarat di piring pada kata \"pilihan\"; stempel PASTI ENAK? (anggapan, bukan vonis) di \"jaminan\" (bukan JAMINAN ENAK: tidak mengulang caption).",
    "kamera": "Meja dasar (blok hijau + lingkaran amber). Getar di stempel.",
-   "teks": "BEST SELLER · PASTI ENAK",
+   "teks": "BEST SELLER · PASTI ENAK?",
    "gambar": "AI tangan_menunjuk (crop) · kode: lencana, stempel"
   },
   {
