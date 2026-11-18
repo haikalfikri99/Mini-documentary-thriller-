@@ -80,3 +80,7 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 ada; `kasir_kartu` diulan
 
 
 **Penanda v6.1 (log batch #009–#012, ditambahkan 18 Nov 2026 untuk `kit/tools/lint_episode.py`):** [HOOK: Celah Ujung Lidah] [ENDING: Reframing Sistemik] [SEGAR: klasik (studi 2006)]
+
+
+## Upload (18 Nov 2026)
+`UPLOAD.md` siap salin (judul 45 karakter, deskripsi, 20 tag, komentar pin, pengaturan, catatan hukum). Thumbnail: `renders/thumbnail_kartumember_1080x1920.jpg` dari `kolase/cover.json` (t 0,6; slip "SAMA-SAMA 8 CAP LAGI / HASILNYA BEDA JAUH"). Jadwal usul: Sabtu 21 Nov 2026 18.00 WIB (Hari 3). Slot uji Pola 4: catat hasil 48 jam. Sesi utama mengisi `File:` dan `QA:` setelah render, membuat `cover_frame_0.6s.jpg`, lalu `pack_upload`.
