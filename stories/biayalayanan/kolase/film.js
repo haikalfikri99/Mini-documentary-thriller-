@@ -87,8 +87,8 @@ const SHOTS = [
     const S = 2.05, kp = R(M).k_price, p0 = aim(S, kp, [540, 600]);
     stage(u, d, { z0: 1.0, z1: 1.06, cy: 900 }); bg(SET.macro);
     const ph = phoneK(slide(0, 0.18, p0[0], p0[1], 0, 0, 700, 0, 0.4), u, 30, S, 'scr_keranjang', []);
-    const q = ph.L(kp[0], kp[1] + 6);
-    if (u >= 0.1) { const pr = EASE.out(seg(stepT(u), 0.1, 0.4)); const c = getCtx(); c.save(); c.beginPath(); c.rect(q[0] - 340, q[1] - 80, 680 * pr, 160); c.clip(); put('hl_amber', q[0], q[1], ph.ro, 0, 1, 1.15); c.restore(); }
+    const q = ph.L(kp[0], kp[1]);
+    if (u >= 0.1) { const pr = EASE.out(seg(stepT(u), 0.1, 0.4)); const c = getCtx(); c.save(); c.beginPath(); c.rect(q[0] - 340, q[1] - 80, 680 * pr, 160); c.clip(); put('hl_price', q[0], q[1], ph.ro, 0, 1, S); c.restore(); }
     stampAt('m_tick_s', u, at(2, 'murah'), q[0] + 300, q[1] - 110, 0, 1.1);
     putK('tag_50', slap(0.3, 860, 1030, 8), u, 31, { s: 0.7 });
   },
@@ -238,8 +238,8 @@ const SHOTS = [
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 740 }); bg(SET.calm, u, true);
     const ph = phoneK(slide(0, 0.2, 430, 760, -3, -800, 0, 0, 0.5), u, 170, 0.98, 'scr_keranjang', []);
-    const q = ph.L(R(M).k_price[0], R(M).k_price[1] + 6);
-    if (u >= at(16, 'harga')) put('hl_amber', q[0], q[1], ph.ro, 0, 1, 0.55);
+    const q = ph.L(R(M).k_price[0], R(M).k_price[1]);
+    if (u >= at(16, 'harga')) put('hl_price', q[0], q[1], ph.ro, 0, 1, ph.S);
     putK('tag_50', slap(at(16, 'murah'), 840, 500, 10), u, 171, { s: 0.75 });
     putK('s_murah', slap(at(16, 'awal'), 830, 940, 3), u, 172, { s: 0.75 });
   },

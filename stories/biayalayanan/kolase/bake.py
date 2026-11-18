@@ -119,7 +119,7 @@ def screens():
         f = font(F_OSW, 11 * U * k); t = 'Rp50.000'; d.text((X(94 * U) - f.getlength(t), X(sh * 0.645)), t, font=f, fill=C(INK))
         rows['k_btn'] = button(d, X, 'CHECKOUT')
     bk.doc('scr_keranjang', sw, sh, WHITE, keranjang, seed=1801, rough=0.02, amp=0.02, shape=shape, ink=1, over=1)
-    rows['k_price'] = [42 * U + 28 * U - sw / 2, sh * 0.15 + sh * 0.075 + 9 * U - sh / 2]
+    rows['k_price'] = [42 * U + 28 * U - sw / 2, sh * 0.15 + sh * 0.075 + 15 * U - sh / 2]
 
     # checkout page base: the item Rp50.000 on top; the biaya row and the total value are separate ink (they appear live)
     def bayar(img, d, k, P):
@@ -133,7 +133,7 @@ def screens():
         d.text((X(6 * U), X(sh * 0.61)), 'Total bayar', font=font(F_OSW, 7.5 * U * k), fill=C(INK))
         rows['b_btn'] = button(d, X, 'BAYAR')
     bk.doc('scr_bayar', sw, sh, WHITE, bayar, seed=1802, rough=0.02, amp=0.02, shape=shape, ink=1, over=1)
-    rows['b_price'] = [42 * U + 28 * U - sw / 2, sh * 0.15 + sh * 0.075 + 9 * U - sh / 2]
+    rows['b_price'] = [42 * U + 28 * U - sw / 2, sh * 0.15 + sh * 0.075 + 15 * U - sh / 2]
     rows['b_biaya'] = [0, sh * 0.505 - sh / 2]
     rows['b_total'] = [94 * U - 30 * U - sw / 2, sh * 0.71 - sh / 2]
     # the small row (the loop detail) and the total values
@@ -177,6 +177,7 @@ def screens():
     rows['us_biaya'] = [0, sh * 0.52 + 4 * U - sh / 2]
     bk.M['_rows'] = {k: [round(v[0], 1), round(v[1], 1)] for k, v in rows.items()}
     marker('hl_amber', 300, 34, AMBER, 1901)
+    marker('hl_price', 190, 56, AMBER, 1903)
     marker('hl_amber_l', 520, 70, AMBER, 1902, 0.5)
 
 

@@ -1,0 +1,149 @@
+{
+ "no": 15,
+ "slug": "terlaris",
+ "version": "v1",
+ "title": "Satu tanda Best Seller ini <em>mengubah isi pesananmu</em>",
+ "sub": "Storyboard 18 shot. Tiap keyframe adalah render kode asli dari mesin kolase, diambil di 85% durasi shot. Timing mengikuti VO final 49,86 dtk (kalimat 10 dibagi dua di kata \"naik\"; jeda pengungkapan 0,6 dtk sebelum \"tamu\").",
+ "rules": [
+  "Frame 0: buku menu (AI) ±920 px + lencana merah BEST SELLER di 0,12 dtk + slip SATU TANDA KECIL; tanpa kata terlarang judul.",
+  "Conceptual Loop: cetakan samar banyak tangan di belakang lencana di Frame 0 (alpha 0,16, tidak disebut VO), diungkap jelas di shot 17 (44,6 dtk) dan shot 18.",
+  "Label asal data: EKSPERIMEN BEIJING · 2006 menempel pada setiap bukti Beijing (restoran, plakat, grafik, kuesioner, tamu) mulai kata \"Beijing\". DATA INDONESIA tidak dipakai: bagian awal (menu Indonesia) bukan data terverifikasi.",
+  "Angka hanya dari abstrak Cai, Chen & Fang (AER 2009): +13–20% vs ≈ 0; grafik hanya garis bantu 0/10/20. Kepuasan = pengakuan tamu (kuesioner \"diisi sendiri\"). Nama hidangan di plakat dan harga di menu = ilustrasi (daftar asli studi tidak diketahui).",
+  "Tata letak dirotasi: meja dasar (02, 04, 06, 10, 14, 16), kartu dokumen penuh (01, 15, 17), close-up makro (03, 05, 13), split-screen (07, 08, 18), grafik layar lebar (09, 11, 12); maks 2 shot berurutan bertata letak sama.",
+  "Tanpa strip sumber, tanpa logo/nama restoran, tanpa aksara Mandarin (restoran_beijing dipotong); huruf palsu di menu pengunjung diputihkan di bake. Semua teks layar Bahasa Indonesia; label di atas y 1180. Visual QA otomatis: 0 peringatan."
+ ],
+ "shots": [
+  {
+   "beat": "Hook (H1) · Frame 0",
+   "vo": "Satu tanda kecil di buku menu ini diam-diam ngarahin pesananmu.",
+   "aksi": "Detik 0: buku menu terbuka (AI, ±920 px, nama hidangan diketik kode) sudah di meja dan bergerak; lencana merah BEST SELLER menghantam baris \"Ayam Geprek\" di 0,12 dtk; slip SATU TANDA KECIL di kata \"tanda\"; garis putus merah melengkung ke lencana di \"ngarahin\". Detail loop ditanam: cetakan samar banyak tangan menunjuk di belakang lencana (alpha 0,16, tidak disebut VO).",
+   "kamera": "Kartu dokumen penuh (buku menu melebar). Push-in 1,02→1,07, getar di hantaman lencana. loop: bayangan tangan di belakang lencana (tanam 0–4 dtk)",
+   "teks": "SATU TANDA KECIL · BEST SELLER · nama hidangan di menu",
+   "gambar": "AI buku_menu (+teks kode) · AI tangan_menunjuk (samar) · kode: lencana, slip"
+  },
+  {
+   "vo": "Pas bingung milih makanan di restoran atau kafe,",
+   "aksi": "Pengunjung (DINER_ID) memegang menu dengan dahi berkerut; tanda \"?\" di kata \"bingung\"; buku menu kecil di sudut; lencana kecil menempel di kata \"kafe\".",
+   "kamera": "Meja dasar (blok amber + lingkaran hijau). Push-in pelan.",
+   "teks": "?",
+   "gambar": "AI pengunjung_bingung (huruf palsu di menu diputihkan, diganti garis baris polos) · AI buku_menu kecil · kode: ransom ?, lencana"
+  },
+  {
+   "vo": "mata kita otomatis ngelirik label Best Seller.",
+   "aksi": "Kartu menu terbaca memenuhi layar; ikon mata di atas; lirikan (garis putus zig-zag) melompati baris lalu berhenti di Ayam Geprek; lencana menempel di kata \"label\"; stabilo kuning di bawah baris itu.",
+   "kamera": "Close-up makro kartu menu. Zoom 1,0→1,1 ke baris lencana.",
+   "teks": "MENU · nama hidangan + harga ilustrasi · BEST SELLER",
+   "gambar": "kode: kartu_menu, mata, lencana, stabilo"
+  },
+  {
+   "vo": "Rasanya kayak jalan pintas aman buat nyari menu paling enak.",
+   "aksi": "Jalan panjang (baca satu per satu, garis ular di semua baris) dicoret merah; panah merah pendek langsung ke lencana = jalan pintas; centang hijau di \"aman\"; slip \"paling enak?\" di kata \"paling\".",
+   "kamera": "Meja dasar (amber kiri atas, hijau kanan bawah), statis + push ringan.",
+   "teks": "jalan pintas · paling enak?",
+   "gambar": "kode: kartu_menu, rute, panah, centang, coretan"
+  },
+  {
+   "vo": "Biar tahu seberapa kuat pengaruhnya,",
+   "aksi": "Alat ukur PENGARUH (LEMAH–KUAT, tanpa angka); jarum merah berayun dari LEMAH ke arah KUAT di kata \"kuat\" lalu bergoyang; lencana di bawah alat ukur; \"?\" di kata \"pengaruhnya\".",
+   "kamera": "Close-up makro alat ukur. Push-in ringan.",
+   "teks": "PENGARUH · LEMAH · KUAT · ?",
+   "gambar": "kode: dial, jarum, lencana, ransom ?"
+  },
+  {
+   "beat": "Eksperimen Beijing",
+   "vo": "peneliti menguji daftar best seller di jaringan restoran Beijing.",
+   "aksi": "Map ARSIP KASUS terbuka sebentar (pembuka seri); ruang makan restoran tradisional (AI, bagian atas dipotong: aksara palsu dibuang); LEMBAR UJI · 2006 (Kelompok A/B, yang diukur) ditepuk di \"menguji\"; label asal data EKSPERIMEN BEIJING · 2006 di kata \"Beijing\".",
+   "kamera": "Meja dasar (kertas koran + pita merah). Push-in 1,0→1,06.",
+   "teks": "EKSPERIMEN BEIJING · 2006 · LEMBAR UJI · 2006 · KELOMPOK A/B",
+   "gambar": "AI restoran_beijing (crop) · kode: lembar_uji, slip asal data, map seri"
+  },
+  {
+   "vo": "Sebagian pengunjung dikasih lima menu best seller lengkap sama peringkatnya.",
+   "aksi": "Panel kiri (manila): KELOMPOK A; meja bundar + teko (AI) dengan plakat meja kode 5 MENU TERLARIS bernomor 1–5; tiga siluet pengunjung; ransom 1–5 di \"peringkatnya\". Panel kanan masih kosong.",
+   "kamera": "Split-screen, kamera di panel kiri (zoom 1,12→1,16). Garis pemisah putus-putus.",
+   "teks": "EKSPERIMEN BEIJING · 2006 · KELOMPOK A · 5 MENU TERLARIS 1–5",
+   "gambar": "AI plakat_meja · kode: plakat_top5 (nama hidangan ilustrasi), siluet, ransom"
+  },
+  {
+   "vo": "Pengunjung lain cuma dikasih lima menu contoh tanpa peringkat.",
+   "aksi": "Kamera membuka ke dua panel; panel kanan (abu-hijau): KELOMPOK B; plakat 5 MENU CONTOH bertitik, tanpa nomor; coretan merah kecil di tempat nomor seharusnya ada; tiga siluet pengunjung.",
+   "kamera": "Split-screen penuh (zoom 1,14→1,0).",
+   "teks": "EKSPERIMEN BEIJING · 2006 · KELOMPOK B · 5 MENU CONTOH",
+   "gambar": "AI plakat_meja ×2 · kode: plakat_contoh, siluet, coretan"
+  },
+  {
+   "beat": "Hasil",
+   "vo": "Hasilnya timpang.",
+   "aksi": "Grafik KENAIKAN PESANAN masuk dari samping; batang daftar terlaris mulai naik, daftar contoh tetap rata; stempel TIMPANG di kata \"timpang\".",
+   "kamera": "Grafik layar lebar. Getar di stempel.",
+   "teks": "KENAIKAN PESANAN · 0% 10% 20% · TIMPANG · EKSPERIMEN BEIJING · 2006",
+   "gambar": "kode: grafik (garis bantu 0/10/20 saja), batang, stempel"
+  },
+  {
+   "vo": "Pesanan menu di daftar best seller",
+   "aksi": "Pelayan mencatat pesanan; nota pesanan (hidangan dari plakat terlaris) jatuh bertumpuk satu per satu di samping plakat 5 MENU TERLARIS.",
+   "kamera": "Meja dasar (pita merah + kertas koran). Push-in.",
+   "teks": "5 MENU TERLARIS · nota PESANAN · EKSPERIMEN BEIJING · 2006",
+   "gambar": "AI pelayan_catat · kode: nota ×4, plakat_top5"
+  },
+  {
+   "vo": "naik tiga belas sampai dua puluh persen,",
+   "aksi": "Batang daftar terlaris naik ke 13% (padat) di \"tiga\", lalu rentang arsir sampai 20% di \"dua\"; slip +13–20% di kata \"persen\" (angka dari abstrak AER 2009, bukan aplikasi Indonesia).",
+   "kamera": "Grafik layar lebar, kamera condong ke batang kiri.",
+   "teks": "+13–20% · EKSPERIMEN BEIJING · 2006",
+   "gambar": "kode: grafik, batang, slip, plakat kecil"
+  },
+  {
+   "vo": "sedangkan daftar contoh nyaris nggak ngaruh.",
+   "aksi": "Kamera geser ke batang daftar contoh: hanya garis tipis di 0; slip ≈ 0 di \"nyaris\"; tanda = di \"ngaruh\"; plakat 5 MENU CONTOH kecil di bawahnya.",
+   "kamera": "Grafik layar lebar, pan kiri→kanan.",
+   "teks": "≈ 0 · +13–20% · EKSPERIMEN BEIJING · 2006",
+   "gambar": "kode: grafik, batang, slip, plakat ×2"
+  },
+  {
+   "beat": "Pembalikan",
+   "vo": "Anehnya lagi,",
+   "aksi": "(jeda 0,6 dtk) Kuesioner tamu masuk: \"Seberapa puas makan di sini?\" kotak masih kosong; \"?\" di kata \"lagi\"; plakat terlaris kecil di sudut.",
+   "kamera": "Close-up makro kuesioner. Zoom 1,0→1,1.",
+   "teks": "KUESIONER TAMU · kurang puas / biasa saja / lebih puas · diisi sendiri oleh tamu · ?",
+   "gambar": "kode: kuesioner, ransom ?, plakat_top5"
+  },
+  {
+   "vo": "tamu yang pesan menu best seller juga ngaku lebih puas.",
+   "aksi": "Tamu puas (AI, jempol, mi) di kanan; kuesioner kecil di kiri, centang hijau di \"lebih puas\" pada kata \"puas\"; plakat 5 MENU TERLARIS (= dia kelompok A) di kata \"best\"; slip \"menurut pengakuan tamu\" di \"ngaku\" (kepuasan = pengakuan sendiri).",
+   "kamera": "Meja dasar (pita merah + kertas koran). Push-in.",
+   "teks": "menurut pengakuan tamu · lebih puas ✓ · EKSPERIMEN BEIJING · 2006",
+   "gambar": "AI tamu_puas · kode: kuesioner, centang, plakat_top5, slip"
+  },
+  {
+   "beat": "Mekanisme",
+   "vo": "Otak kita memang malas menilai rasa dari nol,",
+   "aksi": "LEMBAR NILAI RASA (gurih/manis/asin/pedas/aroma, skala 0–10) memenuhi layar, semua kotak kosong; stempel DILEWATI di kata \"malas\"; kotak 0 dilingkari merah di \"nol\"; lencana kecil (jalan pintasnya) di sudut. Tanpa gambar otak.",
+   "kamera": "Kartu dokumen penuh. Getar di stempel.",
+   "teks": "LEMBAR NILAI RASA · 0–10 · DILEWATI",
+   "gambar": "kode: nilai_rasa, stempel, lingkaran, lencana"
+  },
+  {
+   "vo": "jadi kita nebeng pilihan orang banyak sebagai jaminan enak.",
+   "aksi": "Banyak tangan menunjuk satu piring (AI, crop tengah: lengan sobek di tepi dibuang); lencana BEST SELLER mendarat di piring pada kata \"pilihan\"; stempel JAMINAN ENAK di \"jaminan\".",
+   "kamera": "Meja dasar (blok hijau + lingkaran amber). Getar di stempel.",
+   "teks": "BEST SELLER · JAMINAN ENAK",
+   "gambar": "AI tangan_menunjuk (crop) · kode: lencana, stempel"
+  },
+  {
+   "beat": "Penutup (Cermin Personal) · Curtain-pull",
+   "vo": "Menu best seller terakhir yang kamu pesan:",
+   "aksi": "Kembali ke halaman Frame 0 yang sama; kamera mendorong ke lencana dan cetakan banyak tangan di belakangnya muncul jelas (alpha 0,16→1, membesar): tanda itu = pilihan orang lain.",
+   "kamera": "Kartu dokumen penuh, push-in 1,0→1,32 ke lencana. loop: bayangan tangan Frame 0 diungkap @44,6–46,6 dtk",
+   "teks": "BEST SELLER",
+   "gambar": "AI buku_menu · AI tangan_menunjuk · kode: lencana"
+  },
+  {
+   "vo": "murni seleramu, atau ikutan pilihan orang lain?",
+   "aksi": "Kiri (manila): pengunjung yang sama menunjuk menunya sendiri, slip \"seleramu\"; kanan (abu-hijau): banyak tangan + lencana di piring masuk di \"atau\", slip \"pilihan orang lain\"; \"?\" di garis pemisah di kata \"lain\".",
+   "kamera": "Split-screen. Push ringan.",
+   "teks": "seleramu · pilihan orang lain · ?",
+   "gambar": "AI pengunjung_tunjuk (huruf palsu diputihkan) · AI tangan_menunjuk · kode: slip, lencana, ransom ?"
+  }
+ ]
+}
