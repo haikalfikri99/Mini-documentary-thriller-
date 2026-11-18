@@ -1,0 +1,144 @@
+{
+ "no": 16,
+ "slug": "zonasi",
+ "version": "v1",
+ "title": "Satu baris kosong di Kartu Keluarga ini <em>jadi rebutan</em>",
+ "sub": "Storyboard 17 shot (Mode Ringkas). Tiap keyframe = render kode asli mesin kolase di 85% durasi shot (cap/teks yang masih bergerak bisa belum lengkap). Timing mengikuti VO final 39,4 dtk; shot 11 dimulai di jeda pengungkapan 0,5 dtk sebelum \"Aturannya\".",
+ "rules": [
+  "\"Anak\" wajib tampil (permintaan user): Frame 0 memuat anak SD berseragam (tampak belakang) + meja-kursi sekolah dengan ransel anak + slip KURSI SEKOLAH ANAK; cucu berseragam muncul lagi di penutup.",
+  "Kartu Keluarga 100% fiktif buatan kode: nama dan nomor = garis buram, tanpa NIK, tanpa lambang resmi; alamat \"Jl. Melati No. 7\" dan nama \"Raka\" ilustrasi.",
+  "Fakta sesuai fact sheet: Ombudsman DIY 2023 = 11 anak di 2 KK (6 + 5), tiap KK 10 orang, ditampilkan sebagai TEMUAN (bukan putusan); 2026 = 3 laporan terbukti; aturan KK minimal 1 tahun tanpa nomor pasal; tanpa angka nasional.",
+  "Tata letak berotasi (§M): standar, grafik/peta layar lebar (02, 03, 13), close-up makro (05, 11), kartu dokumen penuh (09, 14), split-screen (15–17); tidak ada > 3 shot berurutan dengan tata letak sama.",
+  "Conceptual Loop: baris 5 kosong di Frame 0 (tidak disorot) → diisi \"Raka · CUCU\" di 31,4 dtk → dua KK identik, kamera mendorong ke baris 5 di 37,2–39,4 dtk.",
+  "Satu asal data (Indonesia), jadi tanpa label DATA INDONESIA/EKSPERIMEN; tanpa strip sumber di layar (sumber di deskripsi).",
+  "Kode warna: hijau arsip = sistem (lingkaran jarak, cap SESUAI, pemindai); merah = DOMISILI/TERBUKTI/JAUH; kuning = sorotan alamat dan baris anak. Semua teks layar Bahasa Indonesia, di atas y 1180. Visual QA otomatis: 0 serius, 0 peringatan."
+ ],
+ "shots": [
+  {
+   "beat": "Hook (H1) · Frame 0",
+   "vo": "Baris kosong di Kartu Keluarga ini bisa nentuin kursi sekolah.",
+   "aksi": "Detik 0: lembar Kartu Keluarga generik (kode, ±720 px, data fiktif: nama = garis buram, tanpa NIK/lambang) sudah di meja dan bergerak; kolom Alamat disorot kuning; baris anggota no. 5 KOSONG (detail loop, tidak ditunjuk). Cap merah DOMISILI menghantam 0,12 dtk; slip SATU BARIS KOSONG 0,25 dtk. Anak SD berseragam (tampak belakang) di gerbang sejak 0,00; meja + kursi sekolah dengan ransel anak ditepuk 0,22 dtk; slip KURSI SEKOLAH ANAK di kata \"kursi\" (2,2 dtk).",
+   "kamera": "Standar (blok hijau + lingkaran amber). Push-in 1,02→1,06, getar di hantaman cap. Loop: baris 5 kosong ditanam di sini.",
+   "teks": "SATU BARIS KOSONG · DOMISILI · KURSI SEKOLAH ANAK",
+   "gambar": "kode: KK, cap, slip · AI anak_seragam, kursi_sekolah"
+  },
+  {
+   "beat": "Aturan main",
+   "vo": "Di jalur domisili sekolah negeri,",
+   "aksi": "Map ARSIP KASUS #016 menyapu cepat (≤ 0,9 dtk) di atas peta jarak rumah ke sekolah; lingkaran jarak hijau (sistem) digambar mengelilingi sekolah; gedung SD negeri ditepuk di kata \"sekolah\"; slip jalur domisili / SEKOLAH NEGERI.",
+   "kamera": "Grafik layar lebar (peta 1.000 px). Push-in pelan.",
+   "teks": "jalur domisili · SEKOLAH NEGERI · PETA JARAK RUMAH KE SEKOLAH",
+   "gambar": "kode: peta, lingkaran · AI gedung_sekolah (dua huruf palsu kecil sudah dihapus)"
+  },
+  {
+   "vo": "alamat Kartu Keluarga ikut nentuin kursi.",
+   "aksi": "Gedung terangkat; KK kecil masuk dari kiri; panah dari kolom alamat ke satu rumah di dalam lingkaran, jarum merah jatuh di rumah itu; meja-kursi sekolah ditepuk di dekat sekolah di kata \"kursi\" + garis putus.",
+   "kamera": "Grafik layar lebar (peta), lanjutan shot 02.",
+   "teks": "—",
+   "gambar": "kode: peta, KK, jarum, panah · AI kursi_sekolah"
+  },
+  {
+   "vo": "Biar nggak pindah dadakan,",
+   "aksi": "Tumpukan kardus pindahan, kasur gulung, kipas; slip \"pindah dadakan\"; dicoret silang merah di \"dadakan\"; KK kecil di sudut.",
+   "kamera": "Standar (blok merah). Getar di coretan.",
+   "teks": "pindah dadakan",
+   "gambar": "AI kardus_pindahan · kode: KK, coretan"
+  },
+  {
+   "vo": "kartu ini wajib terbit minimal setahun sebelum pendaftaran.",
+   "aksi": "Close-up tanggal terbit KK (12-06-2025, fiktif) memenuhi layar, dilingkari di \"terbit\"; kartu garis waktu TERBIT KK (Jun 2025) → PENDAFTARAN (Jun 2026) masuk dari kanan; panah merah melintasi 12 bulan; cap MIN. 1 TAHUN.",
+   "kamera": "Close-up makro (KK 1,55×). Push-in 1,0→1,07.",
+   "teks": "12-06-2025 · TERBIT KK · PENDAFTARAN · MIN. 1 TAHUN",
+   "gambar": "kode: KK, garis waktu, cap"
+  },
+  {
+   "beat": "Masalahnya",
+   "vo": "Masalahnya,",
+   "aksi": "Delapan tangan dari segala arah merebut satu lembar kertas (bergetar tarik-menarik); KK kecil di sudut.",
+   "kamera": "Standar (blok merah + manila).",
+   "teks": "—",
+   "gambar": "AI tangan_berebut · kode: KK"
+  },
+  {
+   "vo": "syarat setahun itu bikin alamat di kertas jadi barang buruan.",
+   "aksi": "Slip \"syarat 1 tahun\"; baris \"Alamat : Jl. Melati No. 7\" ditempel di lembar yang diperebutkan di kata \"alamat\"; BARANG BURUAN di \"buruan\" + getar.",
+   "kamera": "Standar, push-in 1,04→1,12 ke lembar.",
+   "teks": "syarat 1 tahun · Alamat : Jl. Melati No. 7 · BARANG BURUAN",
+   "gambar": "AI tangan_berebut · kode: slip"
+  },
+  {
+   "beat": "Bukti lokal",
+   "vo": "Di Yogyakarta,",
+   "aksi": "Tugu Yogyakarta masuk dari kiri; slip YOGYAKARTA; tahun 2023 (huruf tempel); petugas pemeriksa berkas (tampak belakang, wajah tidak terlihat) masuk dari kanan.",
+   "kamera": "Standar (blok hijau).",
+   "teks": "YOGYAKARTA · 2023",
+   "gambar": "AI tugu_jogja, petugas_berkas (v2)"
+  },
+  {
+   "vo": "Ombudsman pernah nemuin sebelas anak numpang di dua Kartu Keluarga.",
+   "aksi": "Dua KK berisi 10 baris (data buram) berdampingan; slip OMBUDSMAN DIY; cap TEMUAN (bukan putusan) di \"nemuin\"; 11 ANAK di \"sebelas\"; di \"anak\" 6 baris (kiri) dan 5 baris (kanan) disorot kuning; slip 6 ANAK / 5 ANAK.",
+   "kamera": "Kartu dokumen penuh (dua KK ±1.000 px).",
+   "teks": "OMBUDSMAN DIY · TEMUAN · 11 ANAK · 6 ANAK · 5 ANAK",
+   "gambar": "kode: dua KK 10 baris, sorotan, cap"
+  },
+  {
+   "vo": "Tahun ini, tiga laporan serupa terbukti.",
+   "aksi": "2026 (huruf tempel) di \"Tahun\"; tiga map LAPORAN 01–03 ditepuk satu per satu di \"tiga\"; masing-masing dicap TERBUKTI di \"terbukti\"; slip 3 LAPORAN.",
+   "kamera": "Standar (latar map manila). Getar di cap.",
+   "teks": "2026 · LAPORAN 01/02/03 · TERBUKTI · 3 LAPORAN",
+   "gambar": "kode: map, cap"
+  },
+  {
+   "beat": "The Turn",
+   "vo": "Aturannya dibaca kaku.",
+   "aksi": "Shot mulai di jeda hening 0,5 dtk: close-up KK di bawah cahaya pemindai hijau yang turun dan berhenti di baris Alamat; baris anggota keluarga memudar (tidak dibaca) di \"dibaca\"; centang di \"kaku\"; slip \"yang dicek: kolom alamat\".",
+   "kamera": "Close-up makro (KK 1,36×), push-in 1,0→1,06.",
+   "teks": "yang dicek: kolom alamat",
+   "gambar": "kode: KK, cahaya pemindai, centang"
+  },
+  {
+   "vo": "Karena sistem cuma ngecek data tertulis,",
+   "aksi": "Petugas loket pendaftaran (kemeja seragam, monitor kosong) memegang formulir; KK diletakkan di meja pada \"data\" dan dicap hijau SESUAI (hijau = sistem) di \"tertulis\"; ikon rumah pudar + slip \"rumah asli: tidak dicek\".",
+   "kamera": "Standar (blok hijau sistem).",
+   "teks": "SESUAI · rumah asli: tidak dicek",
+   "gambar": "AI petugas_loket · kode: KK, cap, ikon rumah"
+  },
+  {
+   "vo": "dokumen keluarga pun diatur biar jarak ke sekolah kelihatan dekat.",
+   "aksi": "Peta lagi: rumah asli jauh di luar lingkaran, garis merah panjang ke sekolah + JAUH; di \"diatur\" jarum melompat ke rumah di dalam lingkaran, rumah asli memudar, JAUH dicoret; garis pendek ke sekolah di \"jarak\"; DEKAT di \"dekat\"; KK kecil di sudut kiri atas.",
+   "kamera": "Grafik layar lebar (peta). Getar kecil di \"dekat\".",
+   "teks": "JAUH · DEKAT",
+   "gambar": "kode: peta, ikon rumah, jarum, garis"
+  },
+  {
+   "beat": "Curtain-pull",
+   "vo": "Baris kosong tadi sekarang diisi nama baru.",
+   "aksi": "Kembali ke KK Frame 0 (sama persis); kamera mendorong ke baris 5; baris kosong dilingkari merah; tangan (kiri, dicerminkan agar tidak menutup tulisan) menulis nama fiktif \"Raka\" di \"diisi\", lalu terangkat; hubungan CUCU muncul di \"baru\".",
+   "kamera": "Kartu dokumen penuh (KK 1,3×), push-in 1,0→1,16 ke baris 5. Loop: detail baris 5 Frame 0 terungkap.",
+   "teks": "Raka · CUCU (tulisan tangan di KK)",
+   "gambar": "kode: KK, tulisan · AI tangan_tulis (kertas di bawah tangan dihapus, dicerminkan)"
+  },
+  {
+   "vo": "Bisa cucu yang tinggal sama neneknya,",
+   "aksi": "Layar terbelah: kiri hijau = nenek berkebaya-batik menggandeng cucu berseragam SD (tampak belakang); slip \"tinggal bersama nenek\"; kanan manila masih kosong dengan \"?\"; garis merah tipis di tengah.",
+   "kamera": "Split-screen kiri-kanan (panel sobek).",
+   "teks": "tinggal bersama nenek · ?",
+   "gambar": "AI nenek_cucu · kode: panel, garis"
+  },
+  {
+   "vo": "bisa juga alamat pinjaman.",
+   "aksi": "Panel kanan: rumah kosong dengan kunci di pintu masuk di \"alamat\"; slip \"kunci pinjaman\" di \"pinjaman\". Panel kiri tetap.",
+   "kamera": "Split-screen (lanjutan).",
+   "teks": "kunci pinjaman",
+   "gambar": "AI rumah_kunci"
+  },
+  {
+   "beat": "Penutup (Dilema Abu-Abu)",
+   "vo": "Di atas kertas, keduanya kelihatan sama.",
+   "aksi": "Kedua gambar naik dan mengecil; slip \"di atas kertas\"; dua KK IDENTIK (baris 5 = Raka · CUCU) jatuh di bawah masing-masing panel, dipisah garis merah tipis; tanda \"=\" di \"keduanya\"; baris 5 di kedua KK dilingkari di \"sama\"; kamera mendorong ke baris itu (kembali ke detail Frame 0 untuk replay).",
+   "kamera": "Split-screen → push-in 1,0→1,14 ke baris 5. Loop: baris 5 (Frame 0) ditutup di sini.",
+   "teks": "di atas kertas · =",
+   "gambar": "kode: 2 KK, tulisan, tanda, lingkaran · AI nenek_cucu, rumah_kunci"
+  }
+ ]
+}

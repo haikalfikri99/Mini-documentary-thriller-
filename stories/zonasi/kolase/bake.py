@@ -102,7 +102,7 @@ def kk(name, filled=False):
 
 def handwriting():
     """ink-only hand-written entries for the empty row (revealed letter by letter with typed() in film.js)"""
-    for name, text, fnt, size in [('nm_baru', 'Raka', F_FELLI, 34), ('nm_cucu', 'CUCU', F_CPB, 20)]:
+    for name, text, fnt, size in [('nm_baru', 'Raka', F_FELLI, 42), ('nm_cucu', 'CUCU', F_CPB, 20)]:
         B = bk.B; f = font(fnt, size * B)
         w = int(f.getlength(text) + 8 * B); asc, desc = f.getmetrics(); h = asc + desc + int(6 * B)
         img = Image.new('L', (w, h), 0); ImageDraw.Draw(img).text((4 * B, 3 * B), text, font=f, fill=255)

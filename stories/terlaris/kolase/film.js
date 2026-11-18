@@ -32,7 +32,7 @@ const D2R = Math.PI / 180;
 const size = n => [SP[n].img.width / SP[n].k, SP[n].img.height / SP[n].k];
 
 // ---------- the hero page: menu + ghost hands (loop) + BEST SELLER rosette; returns the rosette position
-const MH = { x: 540, y: 650, s: 0.95 };
+const MH = { x: 540, y: 730, s: 0.95 };
 function heroPage(u, enter = false, ghostA = 0.16, ghostS = 0.42, badgeT = 0.12, id = 1) {
   const g = M._menu.geprek, bx = MH.x + g[0] * MH.s + 52, by = MH.y + g[1] * MH.s - 6;
   if (enter) putK('menu_hero', [[0, MH.x, MH.y + 8, -2.5, 1.2, 1, null, 0, MH.s * 1.01], [0.1, MH.x, MH.y, -1.5, 0, 1, 'in', 1.0, MH.s]], u, id);
@@ -77,7 +77,7 @@ const SHOTS = [
   (u, T, d) => {
     stage(u, d, { z0: 1.02, z1: 1.07, cy: 890, shake: [[0.12, 12]] }); bg(SET.hook);
     const [bx, by] = heroPage(u, true);
-    putK('s_kecil', slap(at(0, 'tanda'), 700, 1040, -3), u, 5, { s: 0.82 });
+    putK('s_kecil', slap(at(0, 'tanda'), 640, 300, -3), u, 5, { s: 0.82 });
     route(u, at(0, 'ngarahin') - 0.1, at(0, 'ngarahin') + 0.4, bow([960, 1030], [bx + 70, by + 90], 0.25), { seed: 6, col: PAL.red, w: 6 });
   },
   // 02 · Pas bingung milih makanan di restoran atau kafe,   the undecided diner (menu pseudo-text cleaned in bake); "?"; the book + a small rosette wait

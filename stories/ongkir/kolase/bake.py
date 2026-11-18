@@ -152,8 +152,10 @@ def chart():
         fz = font(F_SLAB, 40 * k); fs = font(F_CPB, 28 * k)
         d.text((X(46), X(94)), 'BARANG BERISIKO', font=fz, fill=C(RED))
         d.text((X(46), X(144)), 'susah dinilai tanpa dicoba', font=fs, fill=C(INK))
-        d.text((X(W_ * 0.6 + 22), X(94)), 'BARANG AMAN', font=fz, fill=C(GREEN))
-        d.text((X(W_ * 0.6 + 22), X(144)), 'mudah ditebak', font=fs, fill=C(INK))
+        xr = W_ * 0.6 + 22; fz2 = fz
+        while xr + fz2.getlength('BARANG AMAN') / k > W_ - 24: fz2 = font(F_SLAB, fz2.size / k * 0.95 * k)   # ≥ 20 px right margin
+        d.text((X(xr), X(94)), 'BARANG AMAN', font=fz2, fill=C(GREEN))
+        d.text((X(xr), X(144)), 'mudah ditebak', font=fs, fill=C(INK))
     bk.doc('grafik', W_, H_, CARD, draw, seed=1903, rough=0.4)
 
 

@@ -48,15 +48,16 @@ const schoolRing = (u, t0, t1) => route(u, t0, t1, ring(school(), 215, 200), { s
 
 const SHOTS = [
   // 01 · Baris kosong di Kartu Keluarga ini bisa nentuin kursi sekolah.   KK on the table at 0.00 (alamat highlighted, row 5 empty);
-  //      DOMISILI at 0.12; SATU BARIS KOSONG at 0.25; the schoolboy (from behind) at the gate; school desk + KURSI SEKOLAH ANAK on "kursi sekolah"
+  //      DOMISILI at 0.12; SATU BARIS KOSONG at 0.25; the schoolboy (from behind) at the gate from 0.00; school desk with a child's
+  //      backpack at 0.22; KURSI SEKOLAH ANAK on "kursi"
   (u, T, d) => {
     stage(u, d, { z0: 1.02, z1: 1.06, cy: 960, shake: [[0.12, 10]] }); bg(SET.hook);
     putK('kk', [[0, 540, 455, -2, 1.2, 1, null, 0, 0.98], [0.1, 540, 465, -2, 0, 1, 'in', 1.0, 0.92]], u, 1);
     putK('anak_seragam', [[0, 205, 920, 0, 0.8, 1, null, 0, 0.84], [0.12, 215, 930, 0, 0, 1, 'in', 0.6, 0.84]], u, 2);
     stampAt('st_domisili', u, 0.12, 790, 590, -8, 0.5);
     putK('s_baris', slap(0.25, 540, 200, -2), u, 3, { s: 0.72 });
-    putK('kursi_sekolah', slap(at(0, 'kursi'), 800, 930, 3), u, 4, { s: 0.92 });
-    putK('s_kursi', slap(at(0, 'sekolah'), 560, 1128, -2), u, 5, { s: 0.64 });
+    putK('kursi_sekolah', slap(0.22, 800, 930, 3), u, 4, { s: 0.92 });
+    putK('s_kursi', slap(at(0, 'kursi'), 560, 1128, -2), u, 5, { s: 0.64 });
   },
   // 02 · Di jalur domisili sekolah negeri,   ARSIP file opens over the distance map; the ring around the school; the school building
   (u, T, d) => {
@@ -134,7 +135,7 @@ const SHOTS = [
     putK(u >= ta + 0.15 ? 'kk10b_hl' : 'kk10b', slide(0.06, 0.26, 800, 745, 2, 800, 0, 0, -0.5), u, 91, { s: 1.0 });
     putK('s_ombud', slap(0.05, 300, 215, -2), u, 92, { s: 0.8 });
     stampAt('st_temuan', u, at(8, 'nemuin'), 800, 220, -6, 0.62);
-    ransomRow('r11', u, at(8, 'sebelas'), 540, 350, 0.05, 0.5);
+    ransomRow('r11', u, at(8, 'sebelas'), 540, 345, 0.05, 0.62);
     putK('s_6', slap(ta + 0.1, 285, 1100, -3), u, 93, { s: 0.78 });
     putK('s_5', slap(ta + 0.28, 800, 1105, 3), u, 94, { s: 0.78 });
   },
@@ -237,7 +238,7 @@ const SHOTS = [
     putK('s_kertas', slap(0.05, 540, 668, -2), u, 170, { s: 0.8 });
     const L = [[275, 860, -2, tk], [805, 860, 2, tk + 0.12]];
     for (const [x, y, r, t0] of L) if (u >= t0 - 0.2) { const p = EASE.out(seg(stepT(u), t0 - 0.2, t0)); kkFilled(x, y - 500 * (1 - p), 0.46, r); }
-    stampAt('m_eq', u, te, 540, 865, 0, 0.7);
+    stampAt('m_eq', u, te, 540, 865, 0, 0.95);
     for (const [x, y, r] of L) { const [rx, ry] = pt('kk', 'row5', x, y, 0.46, r); stampAt('m_circle', u, ts, rx + 60, ry, 0, 0.42); }
   },
 ];

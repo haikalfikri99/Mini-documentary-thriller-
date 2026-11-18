@@ -157,10 +157,11 @@ const SHOTS = [
   // 12 · kayak baju dan kosmetik—   camera into the risky side; the shirt grows on "baju", the cosmetics on "kosmetik"
   (u, T, d) => {
     const tb = at(11, 'baju'), tk = at(11, 'kosmetik');
-    stage(u, d, { z0: 1.05, z1: 1.12, cx: 480, cx1: 440, cy: 860, cy1: 830 }); bg(SET.chart);
+    stage(u, d, { z0: 1.03, z1: 1.08, cx: 540, cy: 860, cy1: 840 }); bg(SET.chart);
     put('grafik', 540, 650, -1); put('lbl_eu', 300, 200, -2, 0, 1, 0.8);
+    put('barang_aman', 860, 820, -1, 0, 1, 0.82, 0.45); put('m_eq_r', 860, 590, 0, 0, 1, 0.75);
     const gb = EASE.back(seg(stepT(u), tb, tb + 0.25)), gk = EASE.back(seg(stepT(u), tk, tk + 0.25));
-    put('baju_gantung', 210, 740 - 30 * gb, -2, 0.6 * gb, 1, 0.82 + 0.28 * gb);
+    put('baju_gantung', 210 + 40 * gb, 740 - 30 * gb, -2, 0.6 * gb, 1, 0.82 + 0.28 * gb);
     put('kosmetik', 450, 870 - 20 * gk, 2, 0.6 * gk, 1, 0.78 + 0.22 * gk);
     put('st_naik', 330, 560, -6, 0, 1, 0.62);
     putK('s_baju', slap(tb + 0.1, 230, 985, -3), u, 120, { s: 0.75 });
