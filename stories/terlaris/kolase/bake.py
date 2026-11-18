@@ -54,31 +54,31 @@ def reg(file, width, pts, crop=None):
 
 
 # ---------- source edits (same grid as the AI print) ----------
-MENU_G = {   # line groups of the blank menu (fractions of the image): x0, y0, x1, y1, rows
-    'g1': (0.118, 0.285, 0.335, 0.47, ['Nasi Goreng', 'Ayam Geprek', 'Mie Ayam', 'Soto Ayam']),
-    'g2': (0.262, 0.525, 0.452, 0.645, ['Sate Ayam', 'Gado-gado', 'Nasi Uduk']),
-    'g3': (0.118, 0.655, 0.322, 0.765, ['Bakmi Goreng', 'Tahu Telur', 'Ayam Bakar']),
-    'g4': (0.556, 0.285, 0.738, 0.47, ['Es Teh Manis', 'Es Jeruk', 'Kopi Susu', 'Jus Alpukat']),
-    'g5': (0.662, 0.525, 0.862, 0.645, ['Teh Tarik', 'Wedang Jahe', 'Es Campur']),
+MENU_G = {   # the one typed line group of the blank menu (fractions of the image); the other groups stay the AI's ruled lines
+    'g1': (0.118, 0.285, 0.36, 0.47, ['Nasi Goreng', 'Ayam Geprek', 'Mie Ayam']),
 }
 
 
 def menu_source():
-    """buku_menu with typed dish rows (2× the AI pixels so the type stays sharp) → raw/ai_buku_menu_isi.jpg; row centres in 0..1"""
+    """buku_menu with three big typed dish rows (≥ 38 px on screen at the hero scale) + MAKANAN / MINUMAN on the banners
+    (2× the AI pixels so the type stays sharp) → raw/ai_buku_menu_isi.jpg; row ends in 0..1"""
     im = Image.open(os.path.join(bk.raw, 'ai_buku_menu.jpg')).convert('RGB'); im = im.resize((im.width * 2, im.height * 2), Image.LANCZOS)
     W_, H_ = im.size; d = ImageDraw.Draw(im); rows = {}
-    f = font(F_CPB, 44); fh = font(F_SLAB, 58)
+    fh = font(F_SLAB, 84)
     for key, (x0, y0, x1, y1, names) in MENU_G.items():
         d.rectangle([x0 * W_ - 6, y0 * H_, x1 * W_ + 6, y1 * H_], fill=WHITE)
+        sz = 100
+        while max(font(F_OSW, sz).getlength(t) for t in names) > (x1 - x0) * W_ - 20: sz -= 2
+        f = font(F_OSW, sz)
         n = len(names); step = (y1 - y0) * H_ / n
         for i, t in enumerate(names):
             yy = y0 * H_ + step * (i + 0.5)
-            d.text((x0 * W_ + 6, yy - 26), t, font=f, fill=(34, 28, 24))
-            tw = f.getlength(t)
-            for xx in range(int(x0 * W_ + 18 + tw), int(x1 * W_ - 8), 18): d.ellipse([xx, yy + 10, xx + 5, yy + 15], fill=(60, 52, 46))
+            d.text((x0 * W_ + 8, yy - sz * 0.72), t, font=f, fill=(34, 28, 24))
+            d.line([x0 * W_ + 8, yy + sz * 0.5, x1 * W_, yy + sz * 0.5], fill=(60, 52, 46), width=3)
             rows[t] = (x1, yy / H_)
+        print('menu rows font', sz)
     for t, cx in [('MAKANAN', 0.272), ('MINUMAN', 0.718)]:
-        tw = fh.getlength(t); d.text((cx * W_ - tw / 2, 0.152 * H_ - 34), t, font=fh, fill=(34, 28, 24))
+        tw = fh.getlength(t); d.text((cx * W_ - tw / 2, 0.152 * H_ - 50), t, font=fh, fill=(34, 28, 24))
     im.save(os.path.join(bk.raw, 'ai_buku_menu_isi.jpg'), quality=94)
     return rows
 
@@ -194,7 +194,7 @@ def menu_card():
         fh = font(F_SLAB, 64 * k); t = 'MENU'; d.text((X(W_ / 2) - fh.getlength(t) / 2, X(50)), t, font=fh, fill=C(INK))
         fs = font(F_FELLI, 34 * k); t = 'makanan'; d.text((X(W_ / 2) - fs.getlength(t) / 2, X(130)), t, font=fs, fill=C(INK))
         d.line([X(70), X(186), X(W_ - 70), X(186)], fill=C(INK), width=max(2, int(2 * k)))
-        f = font(F_CPB, 36 * k); y = 222
+        f = font(F_CPB, 40 * k); y = 222
         for a, b in MENU_ROWS:
             d.text((X(52), X(y)), a, font=f, fill=C(INK)); bw = f.getlength(b); d.text((X(W_ - 52) - bw, X(y)), b, font=f, fill=C(INK))
             x0 = 52 + f.getlength(a) / k + 14; x1 = W_ - 52 - bw / k - 14
@@ -256,22 +256,21 @@ def dial():
 
 
 def test_sheet():
-    """the Beijing field test as a clipboard sheet: two groups, what was measured (abstract of Cai, Chen & Fang 2009)"""
-    W_, H_ = 470, 600
+    """the Beijing field test as a clipboard sheet: big title + KELOMPOK A / B; the body is plain ruled lines (not meant to be read)"""
+    W_, H_ = 500, 600
     def draw(img, d, k, P):
         X = lambda v: P + v * k
-        d.rectangle([X(150), X(0), X(320), X(46)], fill=C(INK * 2.2), outline=C(INK))
-        f = font(F_CPB, 28 * k); fb = font(F_SLAB, 36 * k); fi = font(F_FELLI, 28 * k)
-        d.text((X(34), X(72)), 'LEMBAR UJI · 2006', font=fb, fill=C(INK))
-        d.line([X(30), X(124), X(W_ - 30), X(124)], fill=C(INK), width=max(2, int(3 * k)))
-        y = 150
-        for head, lines, col in [('KELOMPOK A', ['daftar 5 menu terlaris', '+ peringkat 1–5'], RED), ('KELOMPOK B', ['5 menu contoh', 'tanpa peringkat'], INK)]:
-            d.rectangle([X(34), X(y + 4), X(62), X(y + 32)], outline=C(INK), width=max(2, int(3 * k)))
-            d.text((X(76), X(y)), head, font=fb if False else f, fill=C(col))
-            for j, l in enumerate(lines): d.text((X(76), X(y + 42 + j * 36)), l, font=fi, fill=C(INK))
-            y += 150
-        d.text((X(34), X(y + 10)), 'diukur:', font=f, fill=C(INK))
-        d.text((X(34), X(y + 50)), 'pesanan & kepuasan tamu', font=fi, fill=C(INK))
+        d.rectangle([X(165), X(0), X(335), X(46)], fill=C(INK * 2.2), outline=C(INK))
+        fb = font(F_SLAB, 56 * k); f = font(F_CPB, 50 * k)
+        d.text((X(34), X(64)), 'LEMBAR UJI', font=fb, fill=C(INK))
+        d.text((X(34), X(130)), '2006', font=fb, fill=C(RED))
+        d.line([X(30), X(206), X(W_ - 30), X(206)], fill=C(INK), width=max(2, int(3 * k)))
+        y = 228
+        for head, col in [('KELOMPOK A', RED), ('KELOMPOK B', INK)]:
+            d.rectangle([X(34), X(y + 10), X(70), X(y + 46)], outline=C(INK), width=max(2, int(3 * k)))
+            d.text((X(86), X(y)), head, font=f, fill=C(col))
+            for j in range(2): d.line([X(86), X(y + 86 + j * 34), X(W_ - 40 - j * 60), X(y + 86 + j * 34)], fill=C(INK * 2.6), width=max(2, int(3 * k)))
+            y += 168
     bk.doc('lembar_uji', W_, H_, NEWS, draw, seed=1805, rough=0.5)
 
 
@@ -280,21 +279,21 @@ DISHES = ['Bebek Panggang', 'Ayam Kungpao', 'Tahu Pedas', 'Pangsit Kukus', 'Mi T
 
 def tent_cards():
     """the two table cards of the study design: 5 dishes ranked 1–5 (by sales) vs 5 sample dishes without ranks (names illustrative)"""
-    W_, H_ = 400, 330
+    W_, H_ = 480, 410
     for name, title, ranked, paper in [('plakat_top5', '5 MENU TERLARIS', True, CARD), ('plakat_contoh', '5 MENU CONTOH', False, CARD)]:
         def draw(img, d, k, P, title=title, ranked=ranked):
             X = lambda v: P + v * k
             d.rectangle([X(10), X(10), X(W_ - 10), X(H_ - 10)], outline=C(INK), width=max(2, int(3 * k)))
-            d.rectangle([X(10), X(10), X(W_ - 10), X(64)], fill=C(RED if ranked else GREEN))
-            fh = font(F_SLAB, 34 * k); d.text((X(W_ / 2) - fh.getlength(title) / 2, X(18)), title, font=fh, fill=C(CARD))
-            f = font(F_CPB, 30 * k); fn = font(F_SLAB, 34 * k)
+            d.rectangle([X(10), X(10), X(W_ - 10), X(78)], fill=C(RED if ranked else GREEN))
+            fh = font(F_SLAB, 42 * k); d.text((X(W_ / 2) - fh.getlength(title) / 2, X(20)), title, font=fh, fill=C(CARD))
+            f = font(F_CPB, 40 * k); fn = font(F_SLAB, 46 * k)
             for i, t in enumerate(DISHES):
-                y = 82 + i * 46
-                if ranked: d.text((X(30), X(y - 4)), str(i + 1), font=fn, fill=C(RED))
-                else: d.ellipse([X(34), X(y + 10), X(46), X(y + 22)], fill=C(INK))
+                y = 96 + i * 60
+                if ranked: d.text((X(26), X(y - 6)), str(i + 1), font=fn, fill=C(RED))
+                else: d.ellipse([X(32), X(y + 14), X(48), X(y + 30)], fill=C(INK))
                 d.text((X(76), X(y)), t, font=f, fill=C(INK))
         m = bk.doc(name, W_, H_, paper, draw, seed=1806 + int(ranked), rough=0.25)
-        m['rank_x'] = 40 - W_ / 2; m['rank_y'] = [round(82 + i * 46 + 16 - H_ / 2, 1) for i in range(5)]
+        m['rank_x'] = 40 - W_ / 2; m['rank_y'] = [round(96 + i * 60 + 22 - H_ / 2, 1) for i in range(5)]
 
 
 def chart():
@@ -319,20 +318,20 @@ def chart():
 
 def questionnaire():
     """guest questionnaire: satisfaction is what guests SAY (self-reported); the tick lands on 'lebih puas' in film.js"""
-    W_, H_ = 460, 470
+    W_, H_ = 540, 600
     def draw(img, d, k, P):
         X = lambda v: P + v * k
-        fb = font(F_SLAB, 36 * k); f = font(F_CPB, 32 * k); fi = font(F_FELLI, 30 * k)
-        d.text((X(30), X(28)), 'KUESIONER TAMU', font=fb, fill=C(INK))
-        d.line([X(28), X(82), X(W_ - 28), X(82)], fill=C(INK), width=max(2, int(3 * k)))
-        d.text((X(30), X(104)), 'Seberapa puas makan di sini?', font=fi, fill=C(INK))
+        fb = font(F_SLAB, 46 * k); f = font(F_CPB, 46 * k); fi = font(F_FELLI, 38 * k)
+        d.text((X(30), X(26)), 'KUESIONER TAMU', font=fb, fill=C(INK))
+        d.line([X(28), X(92), X(W_ - 28), X(92)], fill=C(INK), width=max(2, int(3 * k)))
+        d.text((X(30), X(112)), 'Seberapa puas makan', font=fi, fill=C(INK)); d.text((X(30), X(156)), 'di sini?', font=fi, fill=C(INK))
         for i, t in enumerate(['kurang puas', 'biasa saja', 'lebih puas']):
-            y = 180 + i * 80
-            d.rectangle([X(40), X(y), X(84), X(y + 44)], outline=C(INK), width=max(2, int(3 * k)))
-            d.text((X(108), X(y + 2)), t, font=f, fill=C(INK))
-        d.text((X(30), X(H_ - 52)), 'diisi sendiri oleh tamu', font=font(F_CP, 22 * k), fill=C(INK * 1.6))
+            y = 230 + i * 92
+            d.rectangle([X(40), X(y), X(92), X(y + 52)], outline=C(INK), width=max(2, int(3 * k)))
+            d.text((X(116), X(y)), t, font=f, fill=C(INK))
+        d.text((X(30), X(H_ - 76)), 'diisi sendiri oleh tamu', font=font(F_CPB, 34 * k), fill=C(INK * 1.4))
     m = bk.doc('kuesioner', W_, H_, NEWS, draw, seed=1809, rough=0.45)
-    m['box'] = [62 - W_ / 2, 180 + 2 * 80 + 22 - H_ / 2]
+    m['box'] = [66 - W_ / 2, 230 + 2 * 92 + 26 - H_ / 2]
 
 
 def score_sheet():
@@ -340,29 +339,28 @@ def score_sheet():
     W_, H_ = 820, 620
     def draw(img, d, k, P):
         X = lambda v: P + v * k
-        fb = font(F_SLAB, 44 * k); f = font(F_CPB, 32 * k); fs = font(F_CPB, 22 * k)
+        fb = font(F_SLAB, 48 * k); f = font(F_CPB, 36 * k); fs = font(F_CPB, 28 * k)
         d.text((X(40), X(30)), 'LEMBAR NILAI RASA', font=fb, fill=C(INK))
         d.line([X(36), X(96), X(W_ - 36), X(96)], fill=C(INK), width=max(2, int(3 * k)))
         for i, t in enumerate(['gurih', 'manis', 'asin', 'pedas', 'aroma']):
-            y = 130 + i * 92
+            y = 136 + i * 92
             d.text((X(40), X(y + 10)), t, font=f, fill=C(INK))
             for j in range(11):
                 x = 220 + j * 52
                 d.rectangle([X(x), X(y + 6), X(x + 40), X(y + 46)], outline=C(INK), width=max(1, int(2 * k)))
-                if i == 0: tt = str(j); d.text((X(x + 20) - fs.getlength(tt) / 2, X(y - 22)), tt, font=fs, fill=C(INK))
+                if i == 0: tt = str(j); d.text((X(x + 20) - fs.getlength(tt) / 2, X(y - 26)), tt, font=fs, fill=C(INK))
     m = bk.doc('nilai_rasa', W_, H_, CARD, draw, seed=1810, rough=0.4)
-    m['row0'] = [220 + 20 - W_ / 2, 130 + 26 - H_ / 2]
+    m['row0'] = [220 + 20 - W_ / 2, 136 + 26 - H_ / 2]
 
 
 def tickets():
-    """order tickets from a waiter's pad (no prices, generic dish names)"""
-    for i, (a, b) in enumerate([('Bebek Panggang', 'x2'), ('Ayam Kungpao', 'x1'), ('Bebek Panggang', 'x1'), ('Tahu Pedas', 'x3')]):
-        def draw(img, d, k, P, a=a, b=b, i=i):
+    """order tickets from a waiter's pad: fine print not meant to be read → plain ruled lines + a red tally mark"""
+    for i in range(4):
+        def draw(img, d, k, P, i=i):
             X = lambda v: P + v * k
-            f = font(F_CPB, 26 * k); fs = font(F_CP, 20 * k)
-            d.text((X(18), X(14)), 'PESANAN  meja %d' % (3 + i * 4), font=fs, fill=C(INK))
-            d.line([X(16), X(44), X(244), X(44)], fill=C(INK), width=1)
-            d.text((X(18), X(58)), a, font=f, fill=C(INK)); d.text((X(200), X(96)), b, font=f, fill=C(RED))
+            d.line([X(16), X(40), X(244), X(40)], fill=C(INK), width=max(2, int(2 * k)))
+            for j in range(3): d.line([X(18), X(64 + j * 24), X(200 - (j * 37 + i * 23) % 70), X(64 + j * 24)], fill=C(INK * 2.4), width=max(2, int(3 * k)))
+            d.line([X(214), X(70), X(240), X(112)], fill=C(RED), width=max(3, int(4 * k))); d.line([X(240), X(70), X(214), X(112)], fill=C(RED), width=max(3, int(4 * k)))
         bk.doc('nota%d' % i, 260, 140, NEWS * 1.03, draw, seed=1820 + i, rough=0.4)
 
 
@@ -378,7 +376,7 @@ def people():
 
 
 def stamps():
-    for name, text, size, color, seed in [('st_timpang', 'TIMPANG', 120, RED, 81), ('st_jaminan', 'JAMINAN ENAK', 96, RED, 82),
+    for name, text, size, color, seed in [('st_timpang', 'BEDA JAUH', 116, RED, 81), ('st_jaminan', 'PASTI ENAK', 104, RED, 82),
                                           ('st_dilewati', 'DILEWATI', 104, RED, 83), ('st_best', 'BEST SELLER', 80, RED, 84)]:
         bk.stamp(name, text, size, color, seed=seed, legible=True)
     bk.flat('p_left', MANILA, poly=[(-292, -720), (290, -705), (282, 712), (-288, 700)], seed=961, rough=4, mottle=0.05)
@@ -387,13 +385,13 @@ def stamps():
 
 
 def slips():
-    T = [('s_kecil', 'SATU TANDA KECIL', F_SLAB, 54, CARD, INK), ('s_pintas', 'jalan pintas', F_FELLI, 56, AMBER, INK),
+    T = [('s_kecil', 'SATU TANDA KECIL', F_SLAB, 54, CARD, INK), ('s_pintas', 'tanpa baca semua', F_FELLI, 50, AMBER, INK),
          ('s_satusatu', 'baca satu-satu', F_CPB, 36, CARD, INK), ('s_beijing', 'EKSPERIMEN BEIJING · 2006', F_CPB, 36, NEWS, INK),
          ('s_jaringan', 'jaringan restoran', F_FELLI, 44, CARD, INK), ('s_kelA', 'KELOMPOK A', F_CPB, 40, AMBER, INK),
          ('s_kelB', 'KELOMPOK B', F_CPB, 40, CARD, INK), ('s_range', '+13–20%', F_SLAB, 70, AMBER, INK),
          ('s_nol', '≈ 0', F_SLAB, 70, CARD, INK), ('s_ngaku', 'menurut pengakuan tamu', F_FELLI, 40, CARD, INK),
-         ('s_seleramu', 'seleramu', F_FELLI, 54, CARD, INK), ('s_oranglain', 'pilihan orang lain', F_FELLI, 48, AMBER, INK),
-         ('s_pesanan', 'pesanan masuk', F_CPB, 38, CARD, INK), ('s_paling', 'paling enak?', F_FELLI, 50, CARD, INK),
+         ('s_seleramu', 'pilihan sendiri', F_FELLI, 50, CARD, INK), ('s_oranglain', 'ikut orang banyak', F_FELLI, 48, AMBER, INK),
+         ('s_pesanan', 'pesanan masuk', F_CPB, 38, CARD, INK), ('s_paling', 'pasti enak?', F_FELLI, 50, CARD, INK),
          ('s_dari0', 'mulai dari nol', F_FELLI, 48, CARD, INK)]
     for i, (n, tx, f, s, pa, ik) in enumerate(T):
         bk.strip(n, tx, f, s * 1.3, pa, ik, 410 + i, mono=f.startswith('Courier'))
@@ -415,8 +413,7 @@ if __name__ == '__main__':
     # registration of the hero menu (badge row, the plate under the hand shadow)
     P = json.load(open(os.path.join(HERE, 'prints.json')))
     hp = P['menu_hero']
-    bk.M['_menu'] = reg(hp['file'], hp['width'], {'geprek': (rows['Ayam Geprek'][0], rows['Ayam Geprek'][1]), 'nasgor': (rows['Nasi Goreng'][0], rows['Nasi Goreng'][1]),
-                                                   'sate': (rows['Sate Ayam'][0], rows['Sate Ayam'][1]), 'tehmanis': (rows['Es Teh Manis'][0], rows['Es Teh Manis'][1])}, hp.get('crop'))
+    bk.M['_menu'] = reg(hp['file'], hp['width'], {'geprek': (rows['Ayam Geprek'][0], rows['Ayam Geprek'][1])}, hp.get('crop'))
     pt = P['tunjuk']
     bk.M['_tunjuk'] = reg(pt['file'], pt['width'], {'jari': (0.627, 0.728), 'menu': (0.66, 0.75)}, pt.get('crop'))
     pg = P['tangan']; c = pg['crop']

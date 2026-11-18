@@ -114,7 +114,7 @@ for i in range(len(blocks)):
     G.paste(Image.open(os.path.join(kf, 'kf_%02d.png' % (i + 1))).convert('RGB').resize((TWg, THg), Image.LANCZOS), (x, y))
     d.rectangle([x - 1, y - 1, x + TWg, y + THg], outline=INK, width=2)
     d.text((x, y + THg + 8), 'S%02d' % (i + 1), font=fLab, fill=RED)
-    d.text((x + 66, y + THg + 12), '%s–%s' % (fmt(S[i]), fmt(S[i + 1])), font=fSm, fill=INK)
+    d.text((x + fLab.getlength('S00') + 12, y + THg + 12), ('%.2f–%.2f dtk' % (S[i], S[i + 1])).replace('.', ','), font=fSm, fill=INK)
     vo = fit_lines(J['shots'][i]['vo'], fSm, TWg)[:2]
     for k, l in enumerate(vo): d.text((x, y + THg + 50 + k * 32), l, font=fSm, fill=MUTE)
 gf = os.path.join(out, 'storyboard_%s_grid.jpg' % no); G.save(gf, quality=92)

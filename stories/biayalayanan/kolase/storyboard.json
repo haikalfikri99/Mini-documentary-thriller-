@@ -6,12 +6,13 @@
  "sub": "Storyboard 21 shot. Tiap keyframe = render kode asli mesin kolase pada 85% durasi shot. Timing mengikuti VO final 48,28 dtk; empat kalimat panjang dipecah di batas kata (13,58 · 27,48 · 34,70 · 39,48 · 44,98).",
  "rules": [
   "Tiap frame: 1 subjek + 2–4 pendukung (#82); tanpa strip sumber di layar. Atribusi hanya kecil di kliping (— YLKI) karena kutipannya bagian dari dokumen.",
-  "Angka rupiah = ILUSTRASI (Rp50.000 + biaya layanan Rp8.000 = Rp58.000 ≈ rata-rata biaya ±15% di studi); layar tiket AS tanpa angka/mata uang; grafik hanya \"+ seperlima\".",
+  "Uji keterbacaan (18 Nov 2026): semua teks bermakna ≥ 30 px di layar setelah zoom; HP kecil memakai layar ringkas (harga besar + tombol, garis polos, tanpa huruf kecil palsu); tanpa slip yang mengulang kata caption.",
+  "Angka rupiah = ILUSTRASI (Rp50.000 + biaya layanan Rp8.000 = Rp58.000 ≈ rata-rata biaya ±15% di studi); layar tiket AS memakai dolar ILUSTRASI ($100 + $15 = $115, biaya ≈ 15% seperti di studi); grafik hanya \"+ seperlima\".",
   "Label asal: DATA INDONESIA · 2026 (hijau arsip) di S06–S07; EKSPERIMEN AS · 2015 (kertas netral) dari kata \"Amerika\" (20,78 dtk) sampai S16; hilang di S17.",
   "Conceptual Loop: baris kecil abu-abu \"Biaya layanan Rp8.000\" ada di Frame 0 tanpa sorotan; disorot stabilo di kata \"tadi\" (43,64 dtk).",
   "Tata letak berotasi: panggung, close-up makro (S03, S08, S19, S21), kartu penuh (S05, S07), split-screen (S11–S13), grafik layar lebar (S14–S15); tidak ada > 3 shot berurutan dengan tata letak sama.",
   "Tanpa logo/nama aplikasi; layar checkout generik buatan kode; komisi pengemudi 8% (Perpres) tidak ditampilkan agar tidak tertukar dengan biaya layanan konsumen.",
-  "Visual QA otomatis: 0 serius, 8 peringatan (gambar besar menimpa pita caption, diizinkan)."
+  "Visual QA otomatis: 0 serius, 10 peringatan (gambar besar menimpa pita caption, diizinkan)."
  ],
  "shots": [
   {
@@ -24,21 +25,21 @@
   },
   {
    "vo": "Pas masukin ke keranjang,",
-   "aksi": "Tangan menjatuhkan kotak ke keranjang; label Rp50.000 ditepuk di kata \"keranjang\"; HP kecil kiri menampilkan layar Keranjang.",
+   "aksi": "Tangan menjatuhkan kotak ke keranjang; label Rp50.000 ditepuk di kata \"keranjang\"; HP kiri menampilkan layar Keranjang ringkas (harga besar + tombol CHECKOUT).",
    "kamera": "Panggung (blok amber + hijau), push-in pelan",
    "teks": "Rp50.000 · ILUSTRASI",
    "gambar": "AI tangan_keranjang, hp_checkout + layar Keranjang (kode)"
   },
   {
    "vo": "harganya kelihatan murah.",
-   "aksi": "Layar Keranjang memenuhi frame; stabilo kuning menyapu Rp50.000; centang hijau di kata \"murah\"; label Rp50.000.",
+   "aksi": "Layar Keranjang memenuhi frame; stabilo kuning menyapu Rp50.000; centang hijau tebal di kata \"murah\"; label Rp50.000.",
    "kamera": "Close-up makro (layar HP), push-in",
    "teks": "Rp50.000",
    "gambar": "AI hp_checkout + layar kode"
   },
   {
    "vo": "Eh, pas mau bayar,",
-   "aksi": "Pembeli kaget memandang HP-nya; \"!\" di kata \"Eh\"; HP kanan menampilkan halaman Checkout (total belum terisi); slip \"halaman bayar\".",
+   "aksi": "Pembeli kaget memandang HP-nya; \"!\" di kata \"Eh\"; HP kanan menampilkan halaman Checkout ringkas (Rp50.000 + tombol BAYAR); slip \"halaman bayar\".",
    "kamera": "Panggung, push-in + getar kecil",
    "teks": "! · halaman bayar",
    "gambar": "AI pembeli_kaget, hp_checkout + layar kode"
@@ -53,14 +54,14 @@
   {
    "beat": "Jangkar lokal",
    "vo": "Tahun ini, lembaga konsumen sampai ngingetin",
-   "aksi": "Juru bicara lembaga konsumen dipotong dari bahu ke bawah (wajah tidak tampak): batik, tangan terbuka, tiga mikrofon, podium; label DATA INDONESIA · 2026; huruf tebusan 2026; slip \"lembaga konsumen\".",
+   "aksi": "Juru bicara lembaga konsumen dipotong dari bahu ke bawah (wajah tidak tampak): batik, tangan terbuka, tiga mikrofon, podium; label DATA INDONESIA · 2026; huruf tebusan 2026; slip \"YLKI · 13 OKT\" (tanggal peringatan).",
    "kamera": "Panggung (blok hijau arsip), push-in · label asal: DATA INDONESIA",
-   "teks": "DATA INDONESIA · 2026 · 2026 · lembaga konsumen",
+   "teks": "DATA INDONESIA · 2026 · 2026 · YLKI · 13 OKT",
    "gambar": "AI juru_bicara (crop tanpa wajah)"
   },
   {
    "vo": "soal celah biaya aplikasi yang dibebanin ke pembeli.",
-   "aksi": "Kliping dibuat ulang (tanpa nama/logo media): judul \"Lembaga konsumen ingatkan soal biaya aplikasi\" + kutipan YLKI persis \"…aplikator mencari celah, dan konsumen kembali menjadi pihak yang menanggung bebannya.\"; stabilo di \"mencari celah\" (kata \"celah\") lalu \"menanggung bebannya\" (kata \"dibebanin\"); label +Rp8.000.",
+   "aksi": "Kliping dibuat ulang (tanpa nama/logo media): judul \"Lembaga konsumen ingatkan soal biaya aplikasi\" + kutipan YLKI persis \"…aplikator mencari celah, dan konsumen kembali menjadi pihak yang menanggung bebannya.\"; stabilo di \"mencari celah\" (kata \"celah\") lalu \"menanggung bebannya\" (kata \"dibebanin\"); label +Rp8.000. Label DATA INDONESIA ditempel di atas garis isi kliping.",
    "kamera": "Kartu dokumen penuh, kamera turun menyusuri kliping",
    "teks": "KLIPING · 13 OKT 2026 · kutipan · — YLKI · DATA INDONESIA",
    "gambar": "kode (kliping)"
@@ -75,10 +76,10 @@
   },
   {
    "vo": "efeknya bukan cuma di biaya tambahan itu.",
-   "aksi": "Label +Rp8.000 mengecil ke pojok; keranjang penuh masuk besar; garis putus-putus merah dari label ke keranjang; \"?\" di atas keranjang; HP kecil kiri bawah.",
+   "aksi": "Label +Rp8.000 mengecil ke pojok; keranjang penuh masuk besar; garis putus-putus merah dari label ke keranjang; \"?\" di atas keranjang (1 subjek + 3 pendukung).",
    "kamera": "Panggung, push-in",
    "teks": "+Rp8.000 · ?",
-   "gambar": "AI tangan_keranjang, hp_checkout"
+   "gambar": "AI tangan_keranjang"
   },
   {
    "beat": "Eksperimen kontrol",
@@ -90,23 +91,23 @@
   },
   {
    "vo": "Separuh dikasih lihat harga plus biaya sejak awal.",
-   "aksi": "Kiri (hijau): separuh kerumunan + HP layar tiket \"Harga / + Biaya / Total\" (batang, tanpa angka); 50% (di atas kerumunan, di luar pita caption); slip \"biaya sejak awal\". Kanan masih pudar.",
+   "aksi": "Kiri (hijau): separuh kerumunan + HP besar, layar tiket sejak awal: Harga $100 · Biaya $15 · Total $115 (ILUSTRASI, biaya ≈ 15% seperti di studi); slip \"KELOMPOK 1 · 50%\". Kanan masih pudar.",
    "kamera": "Split-screen kiri-kanan, garis pemisah putus-putus",
-   "teks": "50% · biaya sejak awal · EKSPERIMEN AS",
+   "teks": "Harga $100 · Biaya $15 · Total $115 · KELOMPOK 1 · 50% · ILUSTRASI · EKSPERIMEN AS",
    "gambar": "AI kerumunan_hp (dipotong 2), hp_checkout + layar kode"
   },
   {
    "vo": "Separuh lagi",
-   "aksi": "Kanan (amber): separuh kerumunan lain + HP layar tiket \"Harga / Total\" tanpa baris biaya; 50% (di atas kerumunan, di luar pita caption).",
+   "aksi": "Kanan (amber): separuh kerumunan lain + HP besar: Harga $100 · Biaya — · Total $100; slip \"KELOMPOK 2 · 50%\".",
    "kamera": "Split-screen",
-   "teks": "50%",
+   "teks": "Harga $100 · Biaya — · Total $100 · KELOMPOK 2 · 50%",
    "gambar": "AI kerumunan_hp, hp_checkout + layar kode"
   },
   {
    "vo": "baru dikasih lihat biayanya pas mau bayar.",
-   "aksi": "Kamera ke panel kanan; baris \"+ Biaya\" baru muncul di kata \"bayar\" dan dilingkari merah; slip \"biaya pas mau bayar\"; jeda pengungkapan ±0,9 dtk.",
+   "aksi": "Kamera ke panel kanan; di kata \"bayar\" \"—\" berganti $15 (dilingkari merah) dan total jadi $115; slip \"$100 jadi $115\"; jeda pengungkapan ±0,9 dtk.",
    "kamera": "Split-screen, kamera geser ke kanan",
-   "teks": "biaya pas mau bayar",
+   "teks": "$15 · $115 · $100 jadi $115",
    "gambar": "AI kerumunan_hp, hp_checkout + layar kode"
   },
   {
@@ -126,31 +127,31 @@
   },
   {
    "vo": "dan beli tiket lebih mahal.",
-   "aksi": "Gedung pertunjukan; baris kursi depan dekat panggung diwarnai amber di kata \"tiket\"; tiket KURSI DEPAN; slip \"tiket lebih mahal\".",
+   "aksi": "Gedung pertunjukan; baris kursi depan dekat panggung diwarnai amber di kata \"tiket\"; tiket KURSI DEPAN; slip \"dekat panggung\".",
    "kamera": "Panggung (pita merah), kamera geser ke kursi depan",
-   "teks": "KURSI DEPAN · tiket lebih mahal · EKSPERIMEN AS",
+   "teks": "KURSI DEPAN · dekat panggung · EKSPERIMEN AS",
    "gambar": "AI stadion_kursi (huruf palsu di balkon dihapus)"
   },
   {
    "beat": "Mekanisme",
    "vo": "Pas lihat harga murah di awal,",
-   "aksi": "Kembali ke layar Keranjang (label AS hilang); stabilo di Rp50.000; label Rp50.000; slip \"harga awal\".",
+   "aksi": "Kembali ke layar Keranjang (HP lebih besar; label AS hilang); stabilo di Rp50.000; label Rp50.000; slip \"masuk keranjang\".",
    "kamera": "Panggung (blok hijau + amber)",
-   "teks": "Rp50.000 · harga awal",
+   "teks": "Rp50.000 · masuk keranjang",
    "gambar": "AI hp_checkout + layar kode"
   },
   {
    "vo": "otak kita udah terlanjur ngerasa",
-   "aksi": "Pembeli tersenyum, jempol naik; label Rp50.000 diberi centang hijau di \"terlanjur\"; HP kecil kanan bawah.",
+   "aksi": "Pembeli tersenyum, jempol naik; label Rp50.000 diberi centang hijau tebal di \"terlanjur\".",
    "kamera": "Panggung",
    "teks": "Rp50.000 · ✓",
-   "gambar": "AI pembeli_senyum (tokoh sama), hp_checkout"
+   "gambar": "AI pembeli_senyum (tokoh sama)"
   },
   {
    "vo": "cocok—biaya di akhir cuma dianggap selisih kecil.",
-   "aksi": "Label Rp50.000 besar + cap hijau COCOK; label +Rp8.000 mendarat di \"akhir\" lalu menciut jadi remah di \"dianggap\"; slip \"selisih kecil\".",
+   "aksi": "Label Rp50.000 besar + cap hijau COCOK; HP kecil dengan layar Keranjang ringkas; label +Rp8.000 mendarat di \"akhir\" lalu menciut dan menjauh di \"dianggap\" (tetap terbaca).",
    "kamera": "Close-up makro (label harga)",
-   "teks": "Rp50.000 · COCOK · +Rp8.000 · selisih kecil",
+   "teks": "Rp50.000 · COCOK · +Rp8.000",
    "gambar": "kode (label), hp_checkout kecil"
   },
   {
@@ -163,9 +164,9 @@
   },
   {
    "vo": "ngunci pilihanmu sebelum harga aslinya keluar.",
-   "aksi": "Close-up bawah layar: gembok jatuh ke tombol BAYAR di \"ngunci\"; cap TERKUNCI; di \"aslinya\" total Rp58.000 berubah merah + dilingkari; slip \"harga asli\". Ekor ≤ 0,15 dtk.",
+   "aksi": "Close-up bawah layar: gembok jatuh ke tombol BAYAR di \"ngunci\"; cap TERKUNCI; di \"aslinya\" total Rp58.000 berubah merah + dilingkari. Ekor ≤ 0,15 dtk.",
    "kamera": "Close-up makro (layar HP)",
-   "teks": "TERKUNCI · harga asli",
+   "teks": "TERKUNCI · Rp58.000 merah",
    "gambar": "AI gembok, hp_checkout + layar kode"
   }
  ]

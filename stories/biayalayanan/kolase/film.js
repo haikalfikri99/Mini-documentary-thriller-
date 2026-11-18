@@ -71,7 +71,7 @@ const SHOTS = [
     stampAt('m_circle', u, at(0, 'dua'), tp[0], tp[1], 2, 0.8);
     stampAt('st_duaharga', u, 0.2, 300, 1150, -9, 0.55);
     putK('s_hook', slap(0.45, 540, 200, -2), u, 2, { s: 0.62 });
-    putK('s_ilustrasi', slap(0.6, 930, 330, 6), u, 3, { s: 0.85 });
+    putK('s_ilustrasi', slap(0.6, 930, 330, 6), u, 3, { s: 1.0 });
   },
   // 02 · Pas masukin ke keranjang,   the hand drops a box into the basket; Rp50.000 tag on the box; the cart screen on a small phone
   (u, T, d) => {
@@ -79,8 +79,8 @@ const SHOTS = [
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 760 }); bg(SET.shop, u, true);
     putK('keranjang', slide(0, 0.2, 620, 700, 0, 900, 0, 0, -0.4), u, 20, { s: 1.0 });
     putK('tag_50', slap(tk, 830, 470, 10), u, 21, { s: 0.75 });
-    phoneK(slide(0.05, 0.25, 230, 540, -6, -700, 0, 0, 0.5), u, 22, 0.5, 'scr_keranjang', []);
-    putK('s_ilustrasi', slap(0.4, 220, 1030, -4), u, 23, { s: 0.8 });
+    phoneK(slide(0.05, 0.25, 250, 500, -6, -700, 0, 0, 0.5), u, 22, 0.6, 'scr_k_mini', []);
+    putK('s_ilustrasi', slap(0.4, 220, 1040, -4), u, 23, { s: 1.0 });
   },
   // 03 · harganya kelihatan murah.   CLOSE-UP MAKRO: the cart screen fills the frame; amber marker on Rp50.000; green tick on "murah"
   (u, T, d) => {
@@ -89,7 +89,7 @@ const SHOTS = [
     const ph = phoneK(slide(0, 0.18, p0[0], p0[1], 0, 0, 700, 0, 0.4), u, 30, S, 'scr_keranjang', []);
     const q = ph.L(kp[0], kp[1]);
     if (u >= 0.1) { const pr = EASE.out(seg(stepT(u), 0.1, 0.4)); const c = getCtx(); c.save(); c.beginPath(); c.rect(q[0] - 340, q[1] - 80, 680 * pr, 160); c.clip(); put('hl_price', q[0], q[1], ph.ro, 0, 1, S); c.restore(); }
-    stampAt('m_tick_s', u, at(2, 'murah'), q[0] + 300, q[1] - 110, 0, 1.1);
+    stampAt('m_tick_b', u, at(2, 'murah'), q[0] + 290, q[1] - 150, 0, 0.75);
     putK('tag_50', slap(0.3, 860, 1030, 8), u, 31, { s: 0.7 });
   },
   // 04 · Eh, pas mau bayar,   the buyer reacts; "!" on "Eh"; the checkout page (no total yet) on a phone; "halaman bayar"
@@ -97,7 +97,7 @@ const SHOTS = [
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 760, shake: [[0.05, 8]] }); bg(SET.hook, u, true);
     putK('kaget', slide(0, 0.18, 360, 690, 0, -800, 0, 0, 0.5), u, 40, { s: 1.08 });
     ransomRow('rx', u, 0.05, 640, 300, 0.1, 0.8);
-    phoneK(slide(0.08, 0.28, 820, 560, 5, 800, 0, 0, -0.5), u, 41, 0.6, 'scr_bayar', [['sx_t50', R(M).b_total[0], R(M).b_total[1], 0.0]]);
+    phoneK(slide(0.08, 0.28, 830, 560, 5, 800, 0, 0, -0.5), u, 41, 0.66, 'scr_b_mini', []);
     putK('s_halbayar', slap(at(3, 'bayar'), 800, 1000, -3), u, 42, { s: 0.8 });
   },
   // 05 · muncul baris kecil bernama biaya layanan yang naikin total belanja.   KARTU PENUH (layar HP): the biaya row pops in, amber on
@@ -111,16 +111,16 @@ const SHOTS = [
     const qb = ph.L(0, R(M).b_biaya[1] + 3), qt = ph.L(R(M).b_total[0], R(M).b_total[1]);
     if (u >= tb) put('hl_amber', qb[0], qb[1], ph.ro, 0, 1, 1.42);
     arrow(u, tn - 0.05, tn + 0.3, bow([qb[0] + 230, qb[1] + 10], [qt[0] + 150, qt[1] - 20], -0.4), { seed: 51, head: true, w: 7 });
-    putK('tag_8', slap(at(4, 'layanan'), 900, 520, 8), u, 52, { s: 0.6 });
+    putK('tag_8', slap(at(4, 'layanan'), 900, 520, 8), u, 52, { s: 0.62 });
     stampAt('st_naik', u, at(4, 'total') + 0.05, 230, 1080, -8, 0.6);
   },
   // 06 · Tahun ini, lembaga konsumen sampai ngingetin   the consumer body's spokesman at a press table; DATA INDONESIA · 2026; 2026
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 860 }); bg(SET.id, u, true);
     putK('jubir', slide(0, 0.2, 570, 690, 0, 900, 0, 0, -0.4), u, 60, { s: 1.1 });
-    putK('lbl_id', slap(0.05, 330, 1050, -2), u, 61, { s: 0.62 });
+    putK('lbl_id', slap(0.05, 330, 1050, -2), u, 61, { s: 0.78 });
     ransomRow('ry26', u, at(5, 'Tahun'), 230, 250, 0.08, 0.7);
-    putK('s_lembaga', slap(at(5, 'lembaga'), 760, 300, 3), u, 62, { s: 0.75 });
+    putK('s_ylki', slap(at(5, 'lembaga'), 790, 300, 3), u, 62, { s: 0.75 });
   },
   // 07 · soal celah biaya aplikasi yang dibebanin ke pembeli.   KARTU PENUH: the press clipping, camera runs down to the quote;
   // amber on "mencari celah" and on "menanggung bebannya"; DATA INDONESIA stays; the +Rp8.000 tag in the corner
@@ -130,8 +130,8 @@ const SHOTS = [
     putK('kliping', slide(0, 0.2, KX, KY, -1, 0, 900, 0, 0.5), u, 70, { s: KS });
     if (u >= at(6, 'celah')) put('hl_amber_l', KX + (kq.q_celah[0] + 20) * KS, KY + kq.q_celah[1] * KS, -1, 0, 1, 1.0);
     if (u >= at(6, 'dibebanin')) put('hl_amber_l', KX + (kq.q_beban[0] - 30) * KS, KY + kq.q_beban[1] * KS, -1, 0, 1, 0.95);
-    put('lbl_id', 740, 205, 2, 0, 1, 0.55);
-    putK('tag_8', slap(at(6, 'pembeli'), 900, 960, -6), u, 71, { s: 0.5 });
+    put('lbl_id', 720, 610, 3, 0, 1, 0.72);
+    putK('tag_8', slap(at(6, 'pembeli'), 890, 960, -6), u, 71, { s: 0.62 });
   },
   // 08 · Masalahnya,   CLOSE-UP MAKRO: the magnifier slides over the small biaya row (magnified inside the lens); "?"
   (u, T, d) => {
@@ -156,7 +156,6 @@ const SHOTS = [
     putK('keranjang', slide(at(8, 'efeknya') - 0.15, at(8, 'efeknya') + 0.1, 640, 760, 2, 800, 0, 0, -0.4), u, 90, { s: 1.0 });
     route(u, 0.4, 0.9, bow([380, 470], [560, 600], 0.3), { seed: 91, col: PAL.red });
     ransomRow('rq', u, at(8, 'bukan'), 870, 330, 0.1, 0.8);
-    phoneK(slide(0.0, 0.2, 200, 980, -8, -700, 0, 0, 0.4), u, 92, 0.42, 'scr_bayar', ovB());
   },
   // 10 · Peneliti di Amerika menguji jutaan pembeli tiket online.   the researcher at his laptop; EKSPERIMEN AS · 2015 lands on
   // "Amerika" (origin label switches here); the crowd of phone buyers; a TIKET ONLINE stub
@@ -164,42 +163,46 @@ const SHOTS = [
     const ta = at(9, 'Amerika'), tj = at(9, 'jutaan');
     stage(u, d, { z0: 1.0, z1: 1.04, cy: 760 }); bg(SET.us, u, true);
     putK('peneliti', slide(0, 0.2, 360, 450, -2, -800, 0, 0, 0.5), u, 100, { s: 0.78 });
-    putK('lbl_as', slap(ta, 790, 215, 3), u, 101, { s: 0.6 });
+    putK('lbl_as', slap(ta, 780, 215, 3), u, 101, { s: 0.75 });
     putK('kerumunan', slide(tj - 0.2, tj, 540, 880, 0, 0, 700, 0, 0.3), u, 102, { s: 0.86 });
-    putK('tiket', slap(at(9, 'tiket'), 840, 470, 8), u, 103, { s: 0.75 });
+    putK('tiket', slap(at(9, 'tiket'), 840, 470, 8), u, 103, { s: 0.9 });
   },
-  // 11 · Separuh dikasih lihat harga plus biaya sejak awal.   SPLIT-SCREEN: left half (green) = crowd half + phone showing price AND
-  // fee from the start; 50%; the right half waits, dim
+  // 11 · Separuh dikasih lihat harga plus biaya sejak awal.   SPLIT-SCREEN: left half (green) = crowd half + a large phone whose
+  // ticket screen shows Harga $100 / Biaya $15 / Total $115 from the start (ILUSTRASI); KELOMPOK 1 · 50%; the right half waits, dim
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.03, cy: 900 }); bg(SET.split, u, true);
-    route(u, 0, 0.3, [[540, 170], [536, 640], [544, 1180]], { seed: 111, col: PAL.ink, w: 4 });
-    putK('krm_kiri', slide(0, 0.2, 270, 880, 0, -600, 0, 0, 0.4), u, 110, { s: 0.98 });
-    phoneK(slide(0.1, 0.3, 300, 470, -4, -600, 0, 0, 0.4), u, 111, 0.55, 'scr_depan', []);
-    put('krm_kanan', 810, 880, 0, 0, 1, 0.98, 0.25);
-    ransomRow('r50', u, at(10, 'Separuh'), 270, 1040, 0.08, 0.55);
-    putK('s_awal', slap(at(10, 'sejak'), 270, 750, -3), u, 112, { s: 0.7 });
-    put('lbl_as', 800, 215, 3, 0, 1, 0.55);
+    route(u, 0, 0.3, [[540, 240], [536, 700], [544, 1180]], { seed: 111, col: PAL.ink, w: 4 });
+    putK('krm_kiri', slide(0, 0.2, 270, 1080, 0, -600, 0, 0, 0.4), u, 110, { s: 0.75 });
+    phoneK(slide(0.1, 0.3, 270, 620, -3, -600, 0, 0, 0.4), u, 111, 0.72, 'scr_depan', []);
+    put('krm_kanan', 810, 1080, 0, 0, 1, 0.75, 0.25);
+    putK('s_half1', slap(at(10, 'Separuh'), 270, 1060, -2), u, 112, { s: 0.7 });
+    putK('s_ilus_us', slap(at(10, 'harga'), 170, 270, -6), u, 113, { s: 0.9 });
+    put('lbl_as', 780, 215, 3, 0, 1, 0.72);
   },
-  // 12 · Separuh lagi   the right half (amber) comes in: crowd half + phone with the price only; 50%
+  // 12 · Separuh lagi   the right half (amber) comes in: crowd half + phone: Harga $100, Biaya —, Total $100; KELOMPOK 2 · 50%
   (u, T, d) => {
     stage(u, d, { z0: 1.03, z1: 1.04, cy: 900 }); bg(SET.split);
-    put('krm_kiri', 270, 880, 0, 0, 1, 0.98); phone(300, 470, -4, 0.55, 'scr_depan', []);
-    put('s_awal', 270, 750, -3, 0, 1, 0.7); ransomRow('r50', u, -9, 270, 1040, 0.08, 0.55);
-    route(u, -1, 0, [[540, 170], [536, 640], [544, 1180]], { seed: 111, col: PAL.ink, w: 4 });
-    putK('krm_kanan', slide(0, 0.18, 810, 880, 0, 600, 0, 0, -0.4), u, 120, { s: 0.98 });
-    phoneK(slide(0.08, 0.26, 800, 470, 4, 600, 0, 0, -0.4), u, 121, 0.55, 'scr_akhir', []);
-    ransomRow('r50b', u, at(11, 'lagi'), 810, 1040, 0.08, 0.55);
+    put('krm_kiri', 270, 1080, 0, 0, 1, 0.75); phone(270, 620, -3, 0.72, 'scr_depan', []);
+    put('s_half1', 270, 1060, -2, 0, 1, 0.7); put('s_ilus_us', 170, 270, -6, 0, 1, 0.9);
+    route(u, -1, 0, [[540, 240], [536, 700], [544, 1180]], { seed: 111, col: PAL.ink, w: 4 });
+    putK('krm_kanan', slide(0, 0.18, 810, 1080, 0, 600, 0, 0, -0.4), u, 120, { s: 0.75 });
+    phoneK(slide(0.08, 0.26, 810, 620, 3, 600, 0, 0, -0.4), u, 121, 0.72, 'scr_akhir', [['sx_us_dash', R(M).us_biaya[0], R(M).us_biaya[1]], ['sx_us_100', R(M).us_total[0], R(M).us_total[1]]]);
+    putK('s_half2', slap(at(11, 'lagi'), 810, 1060, 2), u, 122, { s: 0.7 });
+    put('lbl_as', 780, 215, 3, 0, 1, 0.72);
   },
-  // 13 · baru dikasih lihat biayanya pas mau bayar.   right phone: the fee row pops in only on "bayar"; "biaya pas mau bayar"; reveal pause
+  // 13 · baru dikasih lihat biayanya pas mau bayar.   right phone: on "bayar" the fee $15 replaces "—" and the total becomes $115
+  // (circled); "$100 → $115"; reveal pause
   (u, T, d) => {
-    const tb = at(12, 'bayar');
+    const tb = at(12, 'bayar'), on = u >= tb;
     stage(u, d, { z0: 1.04, z1: 1.07, cx: 540, cx1: 620, cy: 900, cy1: 860 }); bg(SET.split);
-    put('krm_kiri', 270, 880, 0, 0, 1, 0.98, 0.6); phone(300, 470, -4, 0.55, 'scr_depan', [], 0.7);
-    route(u, -1, 0, [[540, 170], [536, 640], [544, 1180]], { seed: 111, col: PAL.ink, w: 4 });
-    put('krm_kanan', 810, 880, 0, 0, 1, 0.98); ransomRow('r50b', u, -9, 810, 1040, 0.08, 0.55);
-    const ph = phone(800, 470, 4, 0.55, 'scr_akhir', [['sx_biaya_us', 0, R(M).us_biaya[1], u >= tb ? 1 : 0]]);
-    if (u >= tb) { const q = ph.L(0, R(M).us_biaya[1]); stampAt('m_circle', u, tb + 0.05, q[0], q[1], 0, 0.62); }
-    putK('s_akhir', slap(at(12, 'biayanya'), 790, 760, 3), u, 130, { s: 0.68 });
+    put('krm_kiri', 270, 1080, 0, 0, 1, 0.75, 0.6); phone(270, 620, -3, 0.72, 'scr_depan', [], 0.7); put('s_half1', 270, 1060, -2, 0, 1, 0.7, 0.7);
+    route(u, -1, 0, [[540, 240], [536, 700], [544, 1180]], { seed: 111, col: PAL.ink, w: 4 });
+    put('krm_kanan', 810, 1080, 0, 0, 1, 0.75); put('s_half2', 810, 1060, 2, 0, 1, 0.7);
+    const rb = R(M).us_biaya, rt = R(M).us_total;
+    const ph = phone(810, 620, 3, 0.72, 'scr_akhir', [[on ? 'sx_us_15' : 'sx_us_dash', rb[0], rb[1]], [on ? 'sx_us_115' : 'sx_us_100', rt[0], rt[1]]]);
+    if (on) { const q = ph.L(rb[0], rb[1]); stampAt('m_circle', u, tb + 0.02, q[0], q[1], 0, 0.42); }
+    putK('s_usd', slap(tb + 0.25, 800, 960, -3), u, 130, { s: 0.7 });
+    put('lbl_as', 780, 215, 3, 0, 1, 0.72);
   },
   // 14 · Hasilnya jomplang.   GRAFIK LAYAR LEBAR: the two bars grow (fee up front vs fee at the end); JOMPLANG
   (u, T, d) => {
@@ -209,7 +212,7 @@ const SHOTS = [
     growBar('bar_depan', GX + g.xL, base, EASE.out(seg(stepT(u), 0.15, 0.55)));
     growBar('bar_akhir', GX + g.xR, base, EASE.out(seg(stepT(u), 0.3, 0.85)));
     stampAt('st_jomplang', u, at(13, 'jomplang'), 560, 420, -6, 0.62);
-    put('lbl_as', 840, 215, 3, 0, 1, 0.55);
+    put('lbl_as', 800, 215, 3, 0, 1, 0.72);
   },
   // 15 · Kelompok kedua justru belanja seperlima lebih banyak   chart: dashed level of the left bar carried across; the extra fifth
   // bracketed on the right bar; + SEPERLIMA; KELOMPOK 1 / 2 under the bars
@@ -218,12 +221,12 @@ const SHOTS = [
     const ts = at(14, 'seperlima');
     stage(u, d, { z0: 1.04, z1: 1.08, cx: 560, cx1: 640, cy: 680 }); bg(SET.chart);
     put('grafik', GX, GY, 0); growBar('bar_depan', GX + g.xL, base, 1); growBar('bar_akhir', GX + g.xR, base, 1);
-    putK('s_kel1', slap(0.05, GX + g.xL, base - hL - 40, -2), u, 150, { s: 0.6 });
-    putK('s_kel2', slap(at(14, 'kedua'), GX + g.xR, base - hR - 40, 2), u, 151, { s: 0.6 });
+    putK('s_kel1', slap(0.05, GX + g.xL, base - hL - 40, -2), u, 150, { s: 0.75 });
+    putK('s_kel2', slap(at(14, 'kedua'), GX + g.xR, base - hR - 40, 2), u, 151, { s: 0.75 });
     route(u, ts - 0.5, ts - 0.1, [[GX + g.xL + 120, base - hL + 10], [GX + g.xR + 150, base - hL + 10]], { seed: 152, col: PAL.ink, w: 4 });
     arrow(u, ts - 0.1, ts + 0.2, [[GX + g.xR + 160, base - hL + 6], [GX + g.xR + 160, base - hR + 14]], { seed: 153, head: true, w: 8 });
     putK('s_seperlima', slap(ts, GX + g.xR - 10, base - hR - 120, -3), u, 154, { s: 0.7 });
-    put('lbl_as', 840, 215, 3, 0, 1, 0.55);
+    put('lbl_as', 800, 215, 3, 0, 1, 0.72);
   },
   // 16 · dan beli tiket lebih mahal.   the hall: the front rows (near the stage) wash amber on "tiket"; a KURSI DEPAN stub; "lebih mahal"
   (u, T, d) => {
@@ -231,36 +234,34 @@ const SHOTS = [
     stage(u, d, { z0: 1.0, z1: 1.07, cx: 540, cx1: 460, cy: 860 }); bg(SET.hall, u, true);
     putK(u >= tt ? 'stadion_hl' : 'stadion', slide(0, 0.18, 540, 640, 0, 900, 0, 0, -0.3), u, 160, { s: 1.0 });
     putK('tiket_depan', slap(tt + 0.1, 250, 960, -6), u, 161, { s: 0.75 });
-    putK('s_mahal', slap(at(15, 'mahal'), 800, 1010, 3), u, 162, { s: 0.7 });
-    put('lbl_as', 800, 215, 3, 0, 1, 0.55);
+    putK('s_panggung', slap(at(15, 'mahal'), 780, 1010, 3), u, 162, { s: 0.7 });
+    put('lbl_as', 680, 215, 3, 0, 1, 0.72);
   },
   // 17 · Pas lihat harga murah di awal,   back to the cart: phone with Rp50.000 marked; tag; "harga awal" (the US label is gone)
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 740 }); bg(SET.calm, u, true);
-    const ph = phoneK(slide(0, 0.2, 430, 760, -3, -800, 0, 0, 0.5), u, 170, 0.98, 'scr_keranjang', []);
+    const ph = phoneK(slide(0, 0.2, 420, 780, -3, -800, 0, 0, 0.5), u, 170, 1.15, 'scr_keranjang', []);
     const q = ph.L(R(M).k_price[0], R(M).k_price[1]);
     if (u >= at(16, 'harga')) put('hl_price', q[0], q[1], ph.ro, 0, 1, ph.S);
     putK('tag_50', slap(at(16, 'murah'), 840, 500, 10), u, 171, { s: 0.75 });
-    putK('s_murah', slap(at(16, 'awal'), 830, 940, 3), u, 172, { s: 0.75 });
+    putK('s_keranjang', slap(at(16, 'awal'), 840, 960, 3), u, 172, { s: 0.65 });
   },
   // 18 · otak kita udah terlanjur ngerasa   the buyer smiles, thumbs up; the Rp50.000 tag gets a green tick
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 740 }); bg(SET.calm);
     putK('senyum', slide(0, 0.18, 400, 700, 0, -800, 0, 0, 0.5), u, 180, { s: 1.12 });
     put('tag_50', 840, 500, 10, 0, 1, 0.75);
-    stampAt('m_tick_s', u, at(17, 'terlanjur'), 900, 650, 0, 1.0);
-    phone(860, 980, 6, 0.4, 'scr_keranjang', []);
+    stampAt('m_tick_b', u, at(17, 'terlanjur'), 900, 670, 0, 0.6);
   },
   // 19 · cocok—biaya di akhir cuma dianggap selisih kecil.   CLOSE-UP MAKRO on the tags: big Rp50.000 + COCOK; the +Rp8.000 tag
   // lands then shrinks to a crumb on "dianggap"; "selisih kecil"
   (u, T, d) => {
     const ta = at(18, 'akhir'), tg = at(18, 'dianggap'), k = EASE.io(seg(stepT(u), tg, tg + 0.5));
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 860 }); bg(SET.calm, u, true);
-    phone(220, 470, -8, 0.5, 'scr_keranjang', []);
+    phone(250, 450, -8, 0.6, 'scr_k_mini', []);
     putK('tag_50', slide(0, 0.18, 590, 520, -4, 0, -800, 0, 0.4), u, 190, { s: 1.8 });
     stampAt('st_cocok', u, 0.12, 600, 760, -6, 0.8);
-    if (u >= ta - 0.17) { if (u < tg) putK('tag_8', slap(ta, 780, 990, 8), u, 191, { s: 0.9 }); else put('tag_8', lerp(780, 900, k), lerp(990, 1000, k), 8 + 14 * k, 0, 1, lerp(0.9, 0.32, k)); }
-    putK('s_selisih', slap(at(18, 'selisih'), 400, 990, -3), u, 192, { s: 0.72 });
+    if (u >= ta - 0.17) { if (u < tg) putK('tag_8', slap(ta, 780, 990, 8), u, 191, { s: 0.9 }); else put('tag_8', lerp(780, 880, k), lerp(990, 1010, k), 8 + 14 * k, 0, 1, lerp(0.9, 0.6, k)); }
   },
   // 20 · Dua total di layar checkout tadi bekerja persis   LOOP: the Frame-0 phone again; both totals circled on "Dua"/"total";
   // on "tadi" the small grey biaya row (unmarked at 0 s) is marked amber
@@ -284,7 +285,6 @@ const SHOTS = [
     putK('gembok', drop(tl - 0.22, tl, qb[0] + 170, qb[1] - 60, 6, 700, 1.0), u, 210, { s: 0.7 });
     stampAt('st_terkunci', u, at(20, 'pilihanmu'), 440, 1075, -6, 0.6);
     stampAt('m_circle', u, ta, qt[0], qt[1], -3, 1.0);
-    putK('s_asli', slap(ta + 0.1, qt[0] + 60, qt[1] - 120, -4), u, 211, { s: 0.7 });
   },
 ];
 

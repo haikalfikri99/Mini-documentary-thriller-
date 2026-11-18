@@ -77,108 +77,119 @@ def marker(name, w, h, color, seed, alpha=0.55):
 
 # ---------------- the checkout screens (pasted on the blank phone screen) ----------------
 def screens():
+    """legibility pass (18 Nov 2026): every row ≥ 8.5 % of the screen width (≈ 30 px on screen at phone scale ≥ 1.15);
+    small phones get MINI screens (one big price + button, ruled lines instead of fine print); the US ticket screens carry
+    illustrative dollar values (fee ≈ 15 % of the ticket, as in the study) instead of bars"""
     sw, sh = bk.M['hp']['screen'][2:4]
     sw, sh = sw - 6, sh - 6                      # stay inside the bezel
     rr = sw * 0.09
     shape = lambda dm, k, P: dm.rounded_rectangle([P, P, P + sw * k, P + sh * k], radius=rr * k, fill=255)
     U = sw / 100                                 # screen unit: 1 % of the width
+    B = bk.B
     rows = {}
+    F = lambda sz: font(F_OSW, sz * U * B)
+    right = lambda d, X, t, f, y, col=INK: d.text((X(94 * U) - f.getlength(t), X(y)), t, font=f, fill=C(col))
 
-    def frame(d, X, title):
-        d.rounded_rectangle([X(0), X(0), X(sw), X(sh)], radius=rr * bk.B, fill=C(WHITE))
-        d.rectangle([X(0), X(sh * 0.05), X(sw), X(sh * 0.115)], fill=C(CARD * 0.96))
-        f = font(F_OSW, 7.5 * U * bk.B); d.text((X(6 * U), X(sh * 0.056)), '<  ' + title, font=f, fill=C(INK))
-        d.line([X(0), X(sh * 0.115), X(sw), X(sh * 0.115)], fill=C(GREY), width=2)
+    def frame(d, X, title, size=9):
+        d.rounded_rectangle([X(0), X(0), X(sw), X(sh)], radius=rr * B, fill=C(WHITE))
+        d.rectangle([X(0), X(sh * 0.045), X(sw), X(sh * 0.125)], fill=C(CARD * 0.96))
+        d.text((X(6 * U), X(sh * 0.05)), '<  ' + title, font=F(size), fill=C(INK))
+        d.line([X(0), X(sh * 0.125), X(sw), X(sh * 0.125)], fill=C(GREY), width=2)
 
-    def product(d, X, y0, label):
-        d.rounded_rectangle([X(6 * U), X(y0), X(94 * U), X(y0 + sh * 0.20)], radius=3 * U * bk.B, outline=C(GREY), width=2)
-        bx, by, bs = 11 * U, y0 + sh * 0.035, 24 * U        # a plain cardboard box icon
+    def button(d, X, text, size=10, y=None):
+        y = sh * 0.83 if y is None else y
+        d.rounded_rectangle([X(8 * U), X(y), X(92 * U), X(y + sh * 0.095)], radius=4 * U * B, fill=C(GREEN))
+        f = F(size); d.text((X(50 * U) - f.getlength(text) / 2, X(y + sh * 0.012)), text, font=f, fill=C(CARD))
+        return [0, y + sh * 0.0475 - sh / 2]
+
+    def boxicon(d, X, bx, by, bs):
         d.polygon([(X(bx), X(by + bs * 0.3)), (X(bx + bs * 0.5), X(by)), (X(bx + bs), X(by + bs * 0.3)), (X(bx + bs), X(by + bs)),
                    (X(bx + bs * 0.5), X(by + bs * 1.25)), (X(bx), X(by + bs))], fill=C(MANILA), outline=C(INK))
         d.line([X(bx), X(by + bs * 0.3), X(bx + bs * 0.5), X(by + bs * 0.58), X(bx + bs), X(by + bs * 0.3)], fill=C(INK), width=2)
         d.line([X(bx + bs * 0.5), X(by + bs * 0.58), X(bx + bs * 0.5), X(by + bs * 1.25)], fill=C(INK), width=2)
-        fs = font(F_OSW, 6 * U * bk.B); d.text((X(42 * U), X(y0 + sh * 0.03)), label, font=fs, fill=C(GREY))
 
-    def button(d, X, text, col=GREEN):
-        y = sh * 0.84
-        d.rounded_rectangle([X(8 * U), X(y), X(92 * U), X(y + sh * 0.085)], radius=4 * U * bk.B, fill=C(col))
-        f = font(F_OSW, 8 * U * bk.B); tw = f.getlength(text)
-        d.text((X(50 * U) - tw / 2, X(y + sh * 0.012)), text, font=f, fill=C(CARD))
-        return [0, y + sh * 0.0425 - sh / 2]
+    def ruled(d, X, y0, n, gap):
+        r = np.random.default_rng(int(y0))
+        for j in range(n): d.line([X(6 * U), X(y0 + j * gap), X(6 * U + r.uniform(40, 80) * U), X(y0 + j * gap)], fill=C(GREY * 1.15), width=max(2, int(2.2 * U * B)))
 
-    big = lambda: font(F_OSW, 15 * U * bk.B)
-    lab = lambda: font(F_OSW, 6.2 * U * bk.B)
+    PY = sh * 0.16                               # price block top
+    def price_block(d, X, label):
+        d.rounded_rectangle([X(5 * U), X(PY), X(95 * U), X(PY + sh * 0.20)], radius=3 * U * B, outline=C(GREY), width=2)
+        boxicon(d, X, 10 * U, PY + sh * 0.045, 20 * U)
+        d.text((X(36 * U), X(PY + sh * 0.02)), label, font=F(8.5), fill=C(GREY))
+        right(d, X, 'Rp50.000', F(17), PY + sh * 0.075)
+    price_y = PY + sh * 0.075 + 17 * U * 0.72 - sh / 2      # glyph centre of the big price
+    price_x = 94 * U - F(17).getlength('Rp50.000') / B / 2 - sw / 2
 
-    # cart: one item Rp50.000, total Rp50.000, CHECKOUT
     def keranjang(img, d, k, P):
         X = lambda v: P + v * k
-        frame(d, X, 'Keranjang'); product(d, X, sh * 0.15, '1 barang')
-        d.text((X(42 * U), X(sh * 0.15 + sh * 0.075)), 'Rp50.000', font=big(), fill=C(INK))
+        frame(d, X, 'Keranjang'); price_block(d, X, '1 barang')
         d.line([X(6 * U), X(sh * 0.62), X(94 * U), X(sh * 0.62)], fill=C(GREY), width=2)
-        d.text((X(6 * U), X(sh * 0.655)), 'Total', font=lab(), fill=C(GREY))
-        f = font(F_OSW, 11 * U * k); t = 'Rp50.000'; d.text((X(94 * U) - f.getlength(t), X(sh * 0.645)), t, font=f, fill=C(INK))
+        d.text((X(6 * U), X(sh * 0.655)), 'Total', font=F(8.5), fill=C(INK)); right(d, X, 'Rp50.000', F(12), sh * 0.645)
         rows['k_btn'] = button(d, X, 'CHECKOUT')
     bk.doc('scr_keranjang', sw, sh, WHITE, keranjang, seed=1801, rough=0.02, amp=0.02, shape=shape, ink=1, over=1)
-    rows['k_price'] = [42 * U + 28 * U - sw / 2, sh * 0.15 + sh * 0.075 + 15 * U - sh / 2]
 
-    # checkout page base: the item Rp50.000 on top; the biaya row and the total value are separate ink (they appear live)
     def bayar(img, d, k, P):
         X = lambda v: P + v * k
-        frame(d, X, 'Checkout'); product(d, X, sh * 0.15, 'Harga barang')
-        d.text((X(42 * U), X(sh * 0.15 + sh * 0.075)), 'Rp50.000', font=big(), fill=C(INK))
+        frame(d, X, 'Checkout'); price_block(d, X, 'Harga barang')
         d.line([X(6 * U), X(sh * 0.40), X(94 * U), X(sh * 0.40)], fill=C(GREY), width=2)
-        d.text((X(6 * U), X(sh * 0.43)), 'Subtotal', font=lab(), fill=C(GREY))
-        t = 'Rp50.000'; d.text((X(94 * U) - lab().getlength(t), X(sh * 0.43)), t, font=lab(), fill=C(GREY))
         d.line([X(6 * U), X(sh * 0.58), X(94 * U), X(sh * 0.58)], fill=C(INK), width=3)
-        d.text((X(6 * U), X(sh * 0.61)), 'Total bayar', font=font(F_OSW, 7.5 * U * k), fill=C(INK))
+        d.text((X(6 * U), X(sh * 0.61)), 'Total bayar', font=F(9), fill=C(INK))
         rows['b_btn'] = button(d, X, 'BAYAR')
     bk.doc('scr_bayar', sw, sh, WHITE, bayar, seed=1802, rough=0.02, amp=0.02, shape=shape, ink=1, over=1)
-    rows['b_price'] = [42 * U + 28 * U - sw / 2, sh * 0.15 + sh * 0.075 + 15 * U - sh / 2]
-    rows['b_biaya'] = [0, sh * 0.505 - sh / 2]
-    rows['b_total'] = [94 * U - 30 * U - sw / 2, sh * 0.71 - sh / 2]
-    # the small row (the loop detail) and the total values
-    f = font(F_OSW, 6.2 * U * bk.B)
-    def brow(img, d, k, P):
-        d.text((P, P), 'Biaya layanan', font=f, fill=C(GREY)); t = 'Rp8.000'; d.text((P + 88 * U * k - f.getlength(t), P), t, font=f, fill=C(GREY))
-    W0 = 88 * U; H0 = 8 * U
-    def inkdoc(name, draw, col=INK):
-        img = Image.new('L', (int(W0 * bk.B) + 20, int(H0 * bk.B) + 20), 0); dd = ImageDraw.Draw(img)
-        dd.text((10, 6), 'Biaya layanan', font=f, fill=255); t = 'Rp8.000'; dd.text((10 + W0 * bk.B - f.getlength(t), 6), t, font=f, fill=255)
-        return bk.save(name, col[None, None, :], np.asarray(img, float) / 255 * 0.95, ink=1)
-    inkdoc('sx_biaya', None, GREY * 0.8)
-    for v in ['50.000', '52.000', '55.000', '58.000']:
-        inktext('sx_t' + v[:2], 'Rp' + v, F_OSW, 16 * U, INK)
-    inktext('sx_t58r', 'Rp58.000', F_OSW, 16 * U, RED)
+    rows['k_price'] = rows['b_price'] = [round(price_x, 1), round(price_y, 1)]
 
-    # US ticket screens: no currency figures, bars stand for amounts
-    def us(title, rows_):
+    # the small grey row (loop detail; still ≥ 8.5 % width) and the total values: separate ink, they appear live
+    fr = F(8.5)
+    img = Image.new('L', (int(88 * U * B) + 20, int(13 * U * B) + 20), 0); dd = ImageDraw.Draw(img)
+    dd.text((10, 6), 'Biaya layanan', font=fr, fill=255); t = 'Rp8.000'; dd.text((10 + 88 * U * B - fr.getlength(t), 6), t, font=fr, fill=255)
+    bk.save('sx_biaya', (GREY * 0.8)[None, None, :], np.asarray(img, float) / 255 * 0.95, ink=1)
+    rows['b_biaya'] = [0, round(sh * 0.49 - sh / 2, 1)]
+    for v in ['50.000', '52.000', '55.000', '58.000']:
+        inktext('sx_t' + v[:2], 'Rp' + v, F_OSW, 17 * U, INK)
+    inktext('sx_t58r', 'Rp58.000', F_OSW, 17 * U, RED)
+    tw = F(17).getlength('Rp58.000') / B
+    rows['b_total'] = [round(94 * U - tw / 2 - sw / 2, 1), round(sh * 0.715 - sh / 2, 1)]
+
+    # MINI screens for phones drawn small (scale 0.55–0.7): title, one big price, ruled lines, button
+    def mini(title, price, btn):
         def draw(img, d, k, P):
             X = lambda v: P + v * k
-            frame(d, X, title)
-            d.rounded_rectangle([X(6 * U), X(sh * 0.15), X(94 * U), X(sh * 0.33)], radius=3 * U * k, outline=C(GREY), width=2)
-            d.rectangle([X(12 * U), X(sh * 0.18), X(34 * U), X(sh * 0.30)], fill=C(MANILA), outline=C(INK), width=2)   # ticket icon
-            for yy in np.linspace(sh * 0.19, sh * 0.29, 5): d.ellipse([X(32 * U), X(yy), X(36 * U), X(yy + 2 * U)], fill=C(WHITE))
-            d.text((X(42 * U), X(sh * 0.19)), 'Tiket konser', font=font(F_OSW, 7 * U * k), fill=C(INK))
-            y = sh * 0.42
-            for lab_, ln, col in rows_:
-                d.text((X(6 * U), X(y)), lab_, font=font(F_OSW, 7 * U * k), fill=C(INK if col is None else col))
-                if ln: d.rectangle([X(94 * U - ln * U), X(y + 2 * U), X(94 * U), X(y + 7 * U)], fill=C(INK if col is None else col))
-                y += sh * 0.10
-            button(d, X, 'BELI')
+            frame(d, X, title, size=13)
+            boxicon(d, X, 8 * U, sh * 0.19, 26 * U)
+            f = F(24); d.text((X(50 * U) - f.getlength(price) / 2, X(sh * 0.37)), price, font=f, fill=C(INK))
+            ruled(d, X, sh * 0.56, 3, sh * 0.055)
+            button(d, X, btn, size=15, y=sh * 0.80)
         return draw
-    bk.doc('scr_depan', sw, sh, WHITE, us('Tiket', [('Harga', 34, None), ('+ Biaya', 10, AMBER * 0.85), ('Total', 44, None)]),
+    bk.doc('scr_k_mini', sw, sh, WHITE, mini('Keranjang', 'Rp50.000', 'CHECKOUT'), seed=1805, rough=0.02, amp=0.02, shape=shape, ink=1, over=1)
+    bk.doc('scr_b_mini', sw, sh, WHITE, mini('Checkout', 'Rp50.000', 'BAYAR'), seed=1806, rough=0.02, amp=0.02, shape=shape, ink=1, over=1)
+
+    # US ticket screens (phone scale ≈ 0.72): rows 13 % of width; $ values = ILUSTRASI (fee ≈ 15 %)
+    RY = [sh * 0.30, sh * 0.42, sh * 0.56]
+    def us(vals):
+        def draw(img, d, k, P):
+            X = lambda v: P + v * k
+            frame(d, X, 'Tiket konser', size=12)
+            for (lab_, v, col), y in zip(vals, RY):
+                d.text((X(6 * U), X(y)), lab_, font=F(13), fill=C(col))
+                if v: right(d, X, v, F(13), y, col)
+            d.line([X(6 * U), X(RY[2] - sh * 0.015), X(94 * U), X(RY[2] - sh * 0.015)], fill=C(INK), width=3)
+            button(d, X, 'BELI', size=14)
+        return draw
+    bk.doc('scr_depan', sw, sh, WHITE, us([('Harga', '$100', INK), ('Biaya', '$15', RED * 0.9), ('Total', '$115', INK)]),
            seed=1803, rough=0.02, amp=0.02, shape=shape, ink=1, over=1)
-    bk.doc('scr_akhir', sw, sh, WHITE, us('Tiket', [('Harga', 34, None), ('', 0, None), ('Total', 34, None)]),
+    bk.doc('scr_akhir', sw, sh, WHITE, us([('Harga', '$100', INK), ('Biaya', '', RED * 0.9), ('Total', '', INK)]),
            seed=1804, rough=0.02, amp=0.02, shape=shape, ink=1, over=1)
-    fb = font(F_OSW, 7 * U * bk.B)
-    img = Image.new('L', (int(88 * U * bk.B) + 20, int(9 * U * bk.B) + 20), 0); dd = ImageDraw.Draw(img)
-    dd.text((10, 6), '+ Biaya', font=fb, fill=255); dd.rectangle([10 + 78 * U * bk.B, 6 + 2 * U * bk.B, 10 + 88 * U * bk.B, 6 + 7 * U * bk.B], fill=255)
-    bk.save('sx_biaya_us', (AMBER * 0.8)[None, None, :], np.asarray(img, float) / 255 * 0.95, ink=1)
-    rows['us_biaya'] = [0, sh * 0.52 + 4 * U - sh / 2]
+    f13 = F(13)
+    for n, t, col in [('sx_us_dash', '—', GREY), ('sx_us_15', '$15', RED * 0.9), ('sx_us_100', '$100', INK), ('sx_us_115', '$115', INK)]:
+        inktext(n, t, F_OSW, 13 * U, col)
+    for n, y, t in [('us_biaya', RY[1], '$15'), ('us_total', RY[2], '$115')]:
+        rows[n] = [round(94 * U - f13.getlength(t) / B / 2 - sw / 2, 1), round(y + 13 * U * 0.62 - sh / 2, 1)]
     bk.M['_rows'] = {k: [round(v[0], 1), round(v[1], 1)] for k, v in rows.items()}
-    marker('hl_amber', 300, 34, AMBER, 1901)
-    marker('hl_price', 190, 56, AMBER, 1903)
+    marker('hl_amber', 300, 40, AMBER, 1901)
     marker('hl_amber_l', 520, 70, AMBER, 1902, 0.5)
+    marker('hl_price', 200, 66, AMBER, 1903)
+    bk.mark('m_tick_b', 'tick', 200, GREEN * 0.9, seed=1904, width=0.17)
 
 
 # ---------------- tags, clipping, tickets, chart ----------------
@@ -202,7 +213,7 @@ def clipping():
     W_, H_ = 700, 800
     def draw(img, d, k, P):
         X = lambda v: P + v * k
-        f = font(F_CPB, 24 * k); d.text((X(34), X(26)), 'KLIPING · 13 OKT 2026', font=f, fill=C(INK))
+        f = font(F_CPB, 30 * k); d.text((X(34), X(22)), 'KLIPING · 13 OKT 2026', font=f, fill=C(INK))
         d.line([X(30), X(66), X(670), X(66)], fill=C(INK), width=max(2, int(4 * k))); d.line([X(30), X(74), X(670), X(74)], fill=C(INK), width=1)
         fh = font(F_SLAB, 50 * k)
         for i, t in enumerate(['Lembaga konsumen', 'ingatkan soal', 'biaya aplikasi']): d.text((X(34), X(96 + i * 62)), t, font=fh, fill=C(INK))
@@ -214,7 +225,7 @@ def clipping():
         fq = font(F_FELLI, 38 * k)
         for i, t in enumerate(['“…aplikator mencari celah,', 'dan konsumen kembali', 'menjadi pihak yang', 'menanggung bebannya.”']):
             d.text((X(52), X(y0 + 22 + i * 52)), t, font=fq, fill=C(INK))
-        fs = font(F_CPB, 24 * k); d.text((X(52), X(y0 + 240)), '— YLKI', font=fs, fill=C(INK))
+        fs = font(F_CPB, 32 * k); d.text((X(52), X(y0 + 236)), '— YLKI', font=fs, fill=C(INK))
     m = bk.doc('kliping', W_, H_, NEWS, draw, seed=2001, rough=0.6)
     m['q_celah'] = [52 + 230 - W_ / 2, 450 + 22 + 26 - H_ / 2]      # "mencari celah" line
     m['q_beban'] = [52 + 250 - W_ / 2, 450 + 22 + 3 * 52 + 24 - H_ / 2]
@@ -231,9 +242,8 @@ def tickets():
         def draw(img, d, k, P, top=top, mid=mid, W_=W_, H_=H_):
             X = lambda v: P + v * k
             for yy in range(10, H_, 16): d.line([X(262), X(yy), X(262), X(yy + 8)], fill=C(INK), width=max(1, int(2 * k)))
-            f1 = font(F_CPB, 32 * k); f2 = font(F_SLAB, 46 * k if len(mid) < 7 else 36 * k)
+            f1 = font(F_CPB, 38 * k); f2 = font(F_SLAB, 46 * k if len(mid) < 7 else 36 * k)
             d.text((X(30), X(30)), top, font=f1, fill=C(INK)); d.text((X(30), X(78)), mid, font=f2, fill=C(INK))
-            fn = font(F_CPB, 22 * k); d.text((X(278), X(70)), 'No.', font=fn, fill=C(INK))
         bk.doc(name, W_, H_, paper, draw, seed=2100 + len(name), rough=0.3, shape=shape)
 
 
@@ -262,15 +272,15 @@ def stamps():
 
 
 def slips():
-    T = [('s_hook', 'SATU BARANG, DUA HARGA', F_SLAB, 50, CARD, INK), ('s_ilustrasi', 'ILUSTRASI', F_CPB, 26, NEWS, INK),
+    T = [('s_hook', 'SATU BARANG, DUA HARGA', F_SLAB, 50, CARD, INK), ('s_ilustrasi', 'ILUSTRASI', F_CPB, 30, NEWS, INK),
          ('lbl_id', 'DATA INDONESIA · 2026', F_CPB, 34, GREEN, CARD), ('lbl_as', 'EKSPERIMEN AS · 2015', F_CPB, 34, NEWS, INK),
          ('s_halbayar', 'halaman bayar', F_CPB, 40, CARD, INK), ('s_keranjang', 'masuk keranjang', F_CPB, 40, AMBER, INK),
-         ('s_lembaga', 'lembaga konsumen', F_FELLI, 50, CARD, INK), ('s_pembeli', 'dibebankan ke pembeli', F_CPB, 36, AMBER, INK),
+         ('s_ylki', 'YLKI · 13 OKT', F_SLAB, 44, CARD, INK), ('s_pembeli', 'dibebankan ke pembeli', F_CPB, 36, AMBER, INK),
          ('s_jutaan', 'jutaan pembeli tiket', F_CPB, 38, CARD, INK), ('s_awal', 'biaya sejak awal', F_CPB, 36, CARD, INK),
          ('s_akhir', 'biaya pas mau bayar', F_CPB, 36, AMBER, INK), ('s_seperlima', '+ SEPERLIMA', F_SLAB, 52, AMBER, INK),
-         ('s_mahal', 'tiket lebih mahal', F_FELLI, 50, AMBER, INK), ('s_selisih', 'selisih kecil', F_FELLI, 54, CARD, INK),
+         ('s_panggung', 'dekat panggung', F_FELLI, 50, AMBER, INK), ('s_usd', '$100 jadi $115', F_SLAB, 44, AMBER, INK), ('s_ilus_us', 'ILUSTRASI', F_CPB, 30, NEWS, INK), ('s_selisih', 'selisih kecil', F_FELLI, 54, CARD, INK),
          ('s_murah', 'harga awal', F_CPB, 40, CARD, INK), ('s_efek', 'efeknya?', F_FELLI, 56, CARD, INK),
-         ('s_kel1', 'KELOMPOK 1', F_CPB, 34, CARD, INK), ('s_kel2', 'KELOMPOK 2', F_CPB, 34, AMBER, INK),
+         ('s_kel1', 'KELOMPOK 1', F_CPB, 34, CARD, INK), ('s_half1', 'KELOMPOK 1 · 50%', F_CPB, 34, CARD, INK), ('s_half2', 'KELOMPOK 2 · 50%', F_CPB, 34, AMBER, INK), ('s_kel2', 'KELOMPOK 2', F_CPB, 34, AMBER, INK),
          ('s_asli', 'harga asli', F_FELLI, 52, CARD, RED)]
     for i, (n, tx, f, s, pa, ik) in enumerate(T):
         bk.strip(n, tx, f, s * 1.3, pa, ik, 410 + i, mono=f.startswith('Courier'))

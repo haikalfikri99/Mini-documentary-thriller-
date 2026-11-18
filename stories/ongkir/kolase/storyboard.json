@@ -10,13 +10,14 @@
   "Angka hanya dari makalah Shehu, Papies & Neslin 2020: 760.395 pelanggan, 380.551 vs 379.844, Agustus–Oktober 2014. Hasil barang berisiko vs aman kualitatif (naik vs nyaris sama), tanpa angka karangan. Harga keranjang = ilustrasi.",
   "Tata letak berotasi: meja klasik, close-up makro (3, 13, 15, 17), kartu dokumen penuh (7), split-screen (8–9), grafik layar lebar (10–12); tidak ada > 3 shot berurutan dengan tata letak sama.",
   "Frame 0: HP + keranjang ≥ 700 px, stiker ONGKIR Rp0 0,00 dtk, cap REM LEPAS 0,20 dtk. Loop: ikon keranjang = tirai kamar pas mini (tidak disebut), terungkap di shot 17 (@34,3 dtk).",
-  "Tanpa logo/merek marketplace atau kurir; semua teks layar Bahasa Indonesia; label di atas y 1180, pita caption bersih. Visual QA otomatis: 0 serius, 0 peringatan."
+  "Tanpa logo/merek marketplace atau kurir; semua teks layar Bahasa Indonesia; label di atas y 1180, pita caption bersih. Visual QA otomatis: 0 serius, 0 peringatan.",
+  "Pass keterbacaan: semua teks bermakna ≥ 30 px di layar setelah zoom; tidak ada slip yang mengulang kata caption (slip UNTUNG BERSIH S03, toko online besar, kode gratis ongkir, tanpa dicoba, baju/kosmetik, REM ALAMI, mikir ulang, ambil risiko dihapus/diganti); tanpa kata terpotong di tepi frame."
  ],
  "shots": [
   {
    "beat": "Hook (H1)",
    "vo": "Voucher ongkir nol rupiah ini",
-   "aksi": "Detik 0: HP + keranjang generik (Kemeja Rp89.000, Bedak Rp45.000, Ongkir Rp15.000 dicoret → Rp0) sudah di meja dan bergerak; stiker merah ONGKIR Rp0 ditepuk 0,00; rem tangan kecil di sudut; cap REM LEPAS 0,20 dtk.",
+   "aksi": "Detik 0: HP + keranjang generik (ikon kemeja Rp89.000, ikon bedak Rp45.000, Ongkir Rp15.000 dicoret → Rp0) sudah di meja dan bergerak; stiker merah ONGKIR Rp0 ditepuk 0,00; rem tangan kecil di sudut + tumpukan paket kecil di bawah; cap REM LEPAS 0,20 dtk.",
    "kamera": "Meja klasik (blok merah atas). Push-in 1,02→1,06, getar di tiap hantaman. loop: ikon keranjang di kepala layar = tirai kamar pas mini (tidak disorot).",
    "teks": "ONGKIR Rp0 · REM LEPAS",
    "gambar": "AI hp_keranjang (layar keranjang dicetak kode), rem_tangan + kode (stiker, cap)"
@@ -31,10 +32,10 @@
   {
    "beat": "Asumsi awal",
    "vo": "Pas checkout, potongan ongkir kerasa kayak untung bersih.",
-   "aksi": "Baris Ongkir di layar: Rp15.000 dicoret → Rp0 dilingkari merah di \"potongan\"; label HEMAT Rp15.000 di \"ongkir\"; slip UNTUNG BERSIH di \"untung\"; strip DATA INDONESIA.",
+   "aksi": "Baris Ongkir di layar (huruf besar): Rp15.000 dicoret → Rp0 dilingkari merah di \"potongan\"; label HEMAT Rp15.000 di \"ongkir\"; kurir bermotor kecil masuk + centang di \"untung\"; strip DATA INDONESIA.",
    "kamera": "Close-up makro (zoom 1,6→1,85 ke baris ongkir).",
-   "teks": "DATA INDONESIA · HEMAT Rp15.000 · UNTUNG BERSIH",
-   "gambar": "AI hp_keranjang + kode (harga ilustrasi)"
+   "teks": "DATA INDONESIA · Rp15.000 (dicoret) → Rp0 · HEMAT Rp15.000",
+   "gambar": "AI hp_keranjang (layar dicetak kode), kurir_motor"
   },
   {
    "vo": "Paling cuma bikin orang lebih sering belanja.",
@@ -54,21 +55,21 @@
   {
    "beat": "Eksperimen kontrol",
    "vo": "Toko online besar di Eropa pernah",
-   "aksi": "Gudang toko online besar meluncur masuk; slip \"toko online besar\"; label EKSPERIMEN EROPA · 2014 ditepuk tepat di \"Eropa\" (label asal data berganti); huruf tebusan 2014.",
+   "aksi": "Gudang toko online besar meluncur masuk; label EKSPERIMEN EROPA · 2014 ditepuk tepat di \"Eropa\" (label asal data berganti); huruf tebusan 2014.",
    "kamera": "Meja klasik (kertas koran + pita merah). Push-in.",
    "teks": "EKSPERIMEN EROPA · 2014 · 2014",
    "gambar": "AI gudang, paket_tumpuk"
   },
   {
    "vo": "nguji kode gratis ongkir ke tujuh ratus enam puluh ribu pelanggannya.",
-   "aksi": "Kartu laporan UJI ACAK · TOKO ONLINE BESAR (Eropa · Agustus–Oktober 2014) mengisi layar; kerumunan pelanggan di jendela kartu; slip \"kode gratis ongkir\"; kamera turun ke 760.395 PELANGGAN DIUJI di \"tujuh\", digaris bawah merah di \"ribu\".",
+   "aksi": "Kartu laporan UJI ACAK · TOKO ONLINE BESAR (Eropa · Agustus–Oktober 2014) mengisi layar; kerumunan pelanggan di jendela kartu; kamera turun ke 760.395 PELANGGAN DIUJI di \"tujuh\", digaris bawah merah di \"ribu\".",
    "kamera": "Kartu dokumen penuh, kamera menyusuri kartu ke bawah.",
    "teks": "EKSPERIMEN EROPA · 2014 · 760.395 PELANGGAN DIUJI",
    "gambar": "AI kerumunan_pelanggan + kartu kode (angka dari makalah)"
   },
   {
    "vo": "Separuh dapat gratis ongkir,",
-   "aksi": "Kerumunan dirobek dua; panel kiri amber = separuh GRATIS ONGKIR · 380.551 orang (+ slip kode gratis ongkir); panel kanan hijau masih pudar; garis sobek putus-putus di tengah.",
+   "aksi": "Kerumunan dirobek dua; panel kiri amber = separuh GRATIS ONGKIR · 380.551 orang; panel kanan hijau masih pudar; garis sobek putus-putus di tengah.",
    "kamera": "Split-screen kiri-kanan.",
    "teks": "EKSPERIMEN EROPA · 2014 · GRATIS ONGKIR 380.551 orang",
    "gambar": "AI kerumunan_pelanggan (dua potongan)"
@@ -90,16 +91,16 @@
   },
   {
    "vo": "yang naik cuma barang berisiko salah pilih tanpa dicoba,",
-   "aksi": "Panah merah NAIK tumbuh di sisi barang berisiko di \"naik\" + cap NAIK; sisi barang aman diberi tanda \"=\" + slip \"nyaris sama\" (makalah: tidak berbeda); slip merah \"tanpa dicoba\".",
+   "aksi": "Panah merah naik tumbuh di sisi barang berisiko di \"naik\" + cap NAIK; sisi barang aman diberi tanda \"=\" besar + slip \"nyaris sama\" (makalah: tidak berbeda).",
    "kamera": "Grafik layar lebar, geser pelan ke kiri.",
-   "teks": "NAIK · nyaris sama · tanpa dicoba",
+   "teks": "NAIK · = · nyaris sama",
    "gambar": "sama + kode (kualitatif, tanpa angka karangan)"
   },
   {
    "vo": "kayak baju dan kosmetik—",
-   "aksi": "Kamera masuk ke sisi berisiko; baju membesar di \"baju\", kosmetik membesar di \"kosmetik\"; slip baju / kosmetik.",
-   "kamera": "Grafik layar lebar, push-in ke kiri (zoom 1,05→1,12).",
-   "teks": "NAIK · baju · kosmetik",
+   "aksi": "Barang aman meredup; baju membesar di \"baju\", kosmetik membesar di \"kosmetik\" (tanpa slip yang mengulang caption).",
+   "kamera": "Grafik layar lebar, push-in pelan di tengah (1,03→1,08) agar kedua kolom utuh.",
+   "teks": "NAIK · =",
    "gambar": "AI baju_gantung, kosmetik"
   },
   {
@@ -112,31 +113,31 @@
   {
    "beat": "Tafsiran",
    "vo": "Ongkir itu sebenarnya rem alami",
-   "aksi": "Rem tangan kembali, kali ini ditarik (tuas naik) di \"rem\"; label ONGKIR Rp15.000 tergantung di tuas (tali putus-putus); cap hijau REM; slip REM ALAMI di \"alami\".",
+   "aksi": "Rem tangan kembali, kali ini ditarik (tuas naik) di \"rem\"; label ONGKIR Rp15.000 tergantung di tuas (tali putus-putus); HP keranjang kecil di kiri bawah; cap hijau besar REM di \"alami\".",
    "kamera": "Meja klasik (blok hijau). Push-in.",
-   "teks": "ONGKIR Rp15.000 · REM · REM ALAMI",
-   "gambar": "AI rem_tangan + kode"
+   "teks": "ONGKIR Rp15.000 · REM",
+   "gambar": "AI rem_tangan, hp_keranjang + kode"
   },
   {
    "vo": "biar otak mikir ulang sebelum ambil risiko.",
-   "aksi": "Jari tertahan di atas tombol CHECKOUT; slip ketik \"mikir ulang...\" muncul huruf per huruf; label ongkir menempel di HP; slip merah \"ambil risiko\"; rem tangan kecil di sudut.",
+   "aksi": "Jari tertahan di atas tombol CHECKOUT; panah merah dari label ongkir ke tombol di \"mikir\"; huruf tebusan \"?\" di samping layar; rem tangan kecil di sudut.",
    "kamera": "Close-up makro ke tombol, kamera ditahan (jeda berpikir).",
-   "teks": "mikir ulang... · ambil risiko · ONGKIR Rp15.000",
+   "teks": "ONGKIR Rp15.000 · ?",
    "gambar": "AI hp_keranjang, rem_tangan"
   },
   {
    "beat": "Curtain-pull",
    "vo": "Begitu dihapus jadi nol rupiah,",
-   "aksi": "Kembali ke komposisi Frame 0: label ONGKIR Rp15.000 dicoret di \"dihapus\", stiker ONGKIR Rp0 ditepuk menimpanya di \"nol\"; rem tangan dilepas lagi di \"rupiah\".",
+   "aksi": "Kembali ke komposisi Frame 0: label ONGKIR Rp15.000 dicoret di \"dihapus\", stiker ONGKIR Rp0 ditepuk menimpanya di \"nol\"; rem tangan dilepas lagi di \"rupiah\"; kardus retur kecil di bawah.",
    "kamera": "Meja klasik (blok merah, gema Frame 0), getar di \"nol\".",
    "teks": "ONGKIR Rp15.000 (dicoret) · ONGKIR Rp0",
    "gambar": "AI hp_keranjang, rem_tangan + kode"
   },
   {
    "vo": "keranjang belanja berubah jadi ruang coba gratis.",
-   "aksi": "Kamera menukik ke ikon tirai mini di kepala layar keranjang (detail Frame 0, dilingkari); di \"berubah\" keranjang jadi kamar pas besar dengan tirai terbuka; stiker Rp0 menempel di tirai; paket keluar (dikirim) dan kembali (dikembalikan) lewat garis putus-putus; cap RUANG COBA GRATIS.",
+   "aksi": "Kamera menukik ke ikon tirai mini di kepala layar keranjang (detail Frame 0, dilingkari); di \"berubah\" keranjang jadi kamar pas besar dengan tirai terbuka; stiker Rp0 menempel di tirai; paket keluar (dikirim) dan kembali (dikembalikan) lewat garis putus-putus; cap KAMAR PAS (tidak mengulang caption).",
    "kamera": "Close-up makro (zoom 2,6 ke ikon) → meja klasik kamar pas. loop: tirai mini Frame 0 terungkap @34,3 dtk.",
-   "teks": "ONGKIR Rp0 · dikirim · dikembalikan · RUANG COBA GRATIS",
+   "teks": "ONGKIR Rp0 · dikirim · dikembalikan · KAMAR PAS",
    "gambar": "AI hp_keranjang, kamar_pas, paket_tumpuk, paket_retur",
    "alt": {
     "t": 34.2,

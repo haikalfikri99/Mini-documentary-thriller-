@@ -48,16 +48,16 @@ def phone():
     img = Image.new('L', src.size, 255); d = ImageDraw.Draw(img)
     X = lambda v: v * SC
     x0, x1 = 312, 592
-    fb, fr, fs, fh = font(F_CPB, 30 * SC), font(F_CP, 24 * SC), font(F_CPB, 22 * SC), font(F_SLAB, 30 * SC)
+    fb, fr, fh = font(F_CPB, 36 * SC), font(F_CP, 36 * SC), font(F_SLAB, 34 * SC)   # ≥ 33 px world at zoom 1 (legibility pass)
     # header: title + the cart icon, which is a tiny fitting-room curtain (loop detail)
-    d.text((X(x0 + 4), X(132)), 'KERANJANG', font=fh, fill=40)
+    d.text((X(x0 + 2), X(128)), 'KERANJANG', font=fb, fill=40)
     cx, cy = 566, 150
     d.line([X(cx - 18), X(cy - 16), X(cx + 18), X(cy - 16)], fill=40, width=3 * SC)
     for k in range(5):
         xx = cx - 15 + k * 6
         d.line([X(xx), X(cy - 14), X(xx + (2 if k % 2 else -2)), X(cy + 16)], fill=40, width=2 * SC)
     d.line([X(x0), X(184), X(x1), X(184)], fill=60, width=2 * SC)
-    # two items: a shirt and a compact (line icons), illustrative prices
+    # two items: a shirt and a compact (line icons) + illustrative price in large type (no tiny names)
     def shirt(x, y):
         pts = [(x + 10, y + 6), (x + 26, y), (x + 34, y + 8), (x + 42, y), (x + 58, y + 6), (x + 66, y + 24), (x + 54, y + 30),
                (x + 54, y + 70), (x + 14, y + 70), (x + 14, y + 30), (x + 2, y + 24)]
@@ -65,22 +65,21 @@ def phone():
     def compact(x, y):
         d.ellipse([X(x + 4), X(y + 8), X(x + 62), X(y + 66)], outline=40, width=3 * SC)
         d.ellipse([X(x + 16), X(y + 20), X(x + 50), X(y + 54)], outline=90, width=2 * SC)
-    for i, (ic, a, p) in enumerate([(shirt, 'Kemeja', 'Rp89.000'), (compact, 'Bedak', 'Rp45.000')]):
-        y = 200 + i * 104
-        d.rectangle([X(x0), X(y), X(x0 + 80), X(y + 84)], outline=120, width=2 * SC)
-        ic(x0 + 7, y + 7)
-        d.text((X(x0 + 96), X(y + 8)), a, font=fb, fill=40); d.text((X(x0 + 96), X(y + 46)), p, font=fr, fill=40)
-    d.line([X(x0), X(410), X(x1), X(410)], fill=60, width=2 * SC)
-    # ongkir row: Rp15.000 struck, Rp0
-    fo = font(F_CP, 20 * SC)
-    d.text((X(x0 + 4), X(428)), 'Ongkir', font=fr, fill=40)
-    t = 'Rp15.000'; tw = fo.getlength(t) / SC
-    d.text((X(x0 + 96), X(432)), t, font=fo, fill=90)
-    d.line([X(x0 + 92), X(445), X(x0 + 100 + tw), X(443)], fill=30, width=3 * SC)
-    d.text((X(x0 + 206), X(424)), 'Rp0', font=fb, fill=30)
+    for i, (ic, p) in enumerate([(shirt, 'Rp89.000'), (compact, 'Rp45.000')]):
+        y = 198 + i * 96
+        d.rectangle([X(x0), X(y), X(x0 + 76), X(y + 80)], outline=120, width=2 * SC)
+        ic(x0 + 5, y + 5)
+        d.text((X(x0 + 88), X(y + 18)), p, font=fb, fill=40)
+    d.line([X(x0), X(386), X(x1), X(386)], fill=60, width=2 * SC)
+    # ongkir row (two lines): "Ongkir" / Rp15.000 struck + Rp0, all large
+    d.text((X(x0 + 2), X(396)), 'Ongkir', font=fb, fill=40)
+    t = 'Rp15.000'; tw = fr.getlength(t) / SC
+    d.text((X(x0 + 2), X(444)), t, font=fr, fill=70)
+    d.line([X(x0), X(466), X(x0 + 6 + tw), X(463)], fill=25, width=4 * SC)
+    d.text((X(x0 + 192), X(440)), 'Rp0', font=font(F_CPB, 40 * SC), fill=25)
     # checkout button under the fingertip (the finger is drawn over it by the mask)
     d.rounded_rectangle([X(x0 + 6), X(600), X(x1 - 6), X(676)], radius=X(12), fill=45)
-    t = 'CHECKOUT'; d.text((X((x0 + x1) / 2) - fh.getlength(t) / 2, X(618)), t, font=fh, fill=235)
+    t = 'CHECKOUT'; d.text((X((x0 + x1) / 2) - fh.getlength(t) / 2, X(616)), t, font=fh, fill=235)
     ui = np.asarray(img, float)
     out = np.where(scr, np.minimum(g, ui), g)
     Image.fromarray(out.astype(np.uint8)).save(os.path.join(bk.raw, 'ai_hp_cart.png'))
@@ -93,7 +92,7 @@ def phone():
     ccx, ccy = (bx0 + bx1) / 2, (by0 + by1) / 2
     W_ = lambda x, y: [round((x * SC - ccx) * k, 1), round((y * SC - ccy) * k, 1)]
     m['feat'] = dict(screen=W_(452, 430), header=W_(452, 150), curtain=W_(cx, cy), items=W_(452, 300), ongkir=W_(450, 440),
-                     rp0=W_(x0 + 233, 442), button=W_(452, 638), finger=W_(498, 560))
+                     rp0=W_(x0 + 228, 464), button=W_(452, 638), finger=W_(498, 560))
 
 
 # ---------------- tags, sticker, cards ----------------
@@ -149,7 +148,7 @@ def chart():
         d.line([X(30), X(74), X(W_ - 30), X(74)], fill=C(INK), width=max(2, int(3 * k)))
         d.line([X(W_ * 0.6), X(96), X(W_ * 0.6), X(690)], fill=C(INK * 2.4), width=max(2, int(2 * k)))
         for x in range(40, W_ - 30, 24): d.line([X(x), X(690), X(x + 12), X(690)], fill=C(INK), width=max(2, int(3 * k)))
-        fz = font(F_SLAB, 40 * k); fs = font(F_CPB, 28 * k)
+        fz = font(F_SLAB, 40 * k); fs = font(F_CPB, 32 * k)
         d.text((X(46), X(94)), 'BARANG BERISIKO', font=fz, fill=C(RED))
         d.text((X(46), X(144)), 'susah dinilai tanpa dicoba', font=fs, fill=C(INK))
         xr = W_ * 0.6 + 22; fz2 = fz
@@ -162,7 +161,7 @@ def chart():
 def stamps():
     for name, text, size, color, seed in [('st_remlepas', 'REM LEPAS', 104, RED, 81), ('st_beda', 'BEDA', 140, RED, 82),
                                           ('st_retur', 'RETUR', 130, RED, 83), ('st_naik', 'NAIK', 96, RED, 84),
-                                          ('st_coba', 'RUANG COBA GRATIS', 74, RED, 85), ('st_rem', 'REM', 120, GREEN * 0.85, 86)]:
+                                          ('st_coba', 'KAMAR PAS', 100, RED, 85), ('st_rem', 'REM', 120, GREEN * 0.85, 86)]:
         bk.stamp(name, text, size, color, seed=seed, legible=True)
     bk.mark('m_eq_r', 'eq', 120, GREEN * 0.9, seed=96)
 

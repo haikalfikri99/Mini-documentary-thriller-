@@ -52,57 +52,88 @@ def bars(d, X, x0, y, w, k, seed, col=INK * 2.4, h=12):
 
 
 # ---------------- the hero Kartu Keluarga (frame 0) ----------------
-KW, KH = 760, 520
-ROW0, ROWH = 268, 44                       # table: first data row y, row height (world units in the doc)
+# Legibility (user, 18 Nov 2026): every readable word is >= 30 px on screen at the smallest scale it is shown (frame 0: s 0.96).
+KW, KH = 760, 630
+TOP, ROW0, ROWH = 306, 354, 50            # table top, first data row y, row height (world units in the doc)
+CN, CR = 74, 440                          # column lines: No | Nama Lengkap | Hubungan
 
 
-def kk(name, filled=False):
+def kk(name):
     def draw(img, d, k, P):
         X = lambda v: P + v * k
-        d.rectangle([X(0), X(0), X(KW), X(16)], fill=C(GREEN * 1.05))
-        fh = font(F_SLAB, 40 * k); t = 'KARTU KELUARGA'; d.text((X(KW / 2) - fh.getlength(t) / 2, X(30)), t, font=fh, fill=C(INK))
-        f = font(F_CPB, 20 * k); fr = font(F_CP, 20 * k)
-        d.text((X(250), X(82)), 'No.', font=f, fill=C(INK)); bars(d, X, 295, 86, 220, k, 3)
-        # fields (left) and the issue date (right)
-        if True:
-            d.polygon([(X(22), X(153)), (X(470), X(150)), (X(472), X(184)), (X(24), X(186))], fill=C(HL))   # alamat highlight UNDER the type
-        rows = [('Kepala Keluarga', None), ('Alamat', 'Jl. Melati No. 7'), ('RT/RW', '003 / 005')]
-        y = 124
-        for a, b in rows:
-            d.text((X(30), X(y)), a, font=f, fill=C(INK)); d.text((X(218), X(y)), ':', font=f, fill=C(INK))
-            if b: d.text((X(236), X(y)), b, font=f, fill=C(INK))
-            else: bars(d, X, 236, y + 4, 200, k, int(y))
-            y += 33
-        d.text((X(500), X(122)), 'Dikeluarkan', font=f, fill=C(INK)); d.text((X(500), X(150)), 'tanggal:', font=fr, fill=C(INK))
-        d.text((X(500), X(180)), '12-06-2025', font=font(F_CPB, 26 * k), fill=C(INK))
-        # member table
-        x0, x1, cn, cr = 24, KW - 24, 70, 500
-        d.rectangle([X(x0), X(226), X(x1), X(ROW0 + 5 * ROWH)], outline=C(INK), width=max(2, int(2.5 * k)))
-        d.rectangle([X(x0), X(226), X(x1), X(ROW0)], fill=C(GREEN * 1.05))
-        fc = font(F_CPB, 18 * k)
-        for t, x in [('No', x0 + 10), ('Nama Lengkap', cn + 14), ('Hubungan Keluarga', cr + 14)]: d.text((X(x), X(236)), t, font=fc, fill=C(CARD))
-        for xx in (cn, cr): d.line([X(xx), X(226), X(xx), X(ROW0 + 5 * ROWH)], fill=C(INK), width=max(1, int(2 * k)))
+        d.rectangle([X(0), X(0), X(KW), X(14)], fill=C(GREEN * 1.05))
+        fh = font(F_SLAB, 46 * k); t = 'KARTU KELUARGA'; d.text((X(KW / 2) - fh.getlength(t) / 2, X(22)), t, font=fh, fill=C(INK))
+        f = font(F_CPB, 31 * k)
+        d.text((X(230), X(80)), 'No.', font=f, fill=C(INK)); bars(d, X, 300, 90, 230, k, 3, h=14)
+        d.polygon([(X(16), X(166)), (X(660), X(163)), (X(662), X(207)), (X(18), X(209))], fill=C(HL))   # alamat highlight UNDER the type
+        y = 128
+        for a_, b_ in [('Kepala Keluarga', None), ('Alamat', 'Jl. Melati No. 7'), ('RT/RW', '003/005'), ('Tgl. terbit', '12-06-2025')]:
+            d.text((X(26), X(y)), a_, font=f, fill=C(INK)); d.text((X(314), X(y)), ':', font=f, fill=C(INK))
+            if b_: d.text((X(340), X(y)), b_, font=f, fill=C(INK))
+            else: bars(d, X, 340, y + 10, 260, k, int(y), h=14)
+            y += 42
+        x0, x1 = 18, KW - 18
+        d.rectangle([X(x0), X(TOP), X(x1), X(ROW0 + 5 * ROWH)], outline=C(INK), width=max(2, int(2.5 * k)))
+        d.rectangle([X(x0), X(TOP), X(x1), X(ROW0)], fill=C(GREEN * 1.05))
+        fc = font(F_CPB, 30 * k)
+        for t, x in [('No', x0 + 8), ('Nama Lengkap', CN + 12), ('Hubungan', CR + 12)]: d.text((X(x), X(TOP + 8)), t, font=fc, fill=C(CARD))
+        for xx in (CN, CR): d.line([X(xx), X(TOP), X(xx), X(ROW0 + 5 * ROWH)], fill=C(INK), width=max(1, int(2 * k)))
         rel = ['KEPALA KELUARGA', 'ISTRI', 'ANAK', 'ANAK', '']
         for i in range(5):
             yy = ROW0 + i * ROWH
             if i: d.line([X(x0), X(yy), X(x1), X(yy)], fill=C(INK * 1.6), width=max(1, int(1.5 * k)))
-            d.text((X(x0 + 16), X(yy + 11)), str(i + 1), font=f, fill=C(INK))
+            d.text((X(x0 + 18), X(yy + 9)), str(i + 1), font=f, fill=C(INK))
             if rel[i]:
-                bars(d, X, cn + 14, yy + 16, 330, k, 40 + i)
-                d.text((X(cr + 14), X(yy + 12)), rel[i], font=fc, fill=C(INK))
+                bars(d, X, CN + 14, yy + 18, 330, k, 40 + i, h=14)
+                d.text((X(CR + 10), X(yy + 10)), rel[i], font=fc, fill=C(INK))
         d.rectangle([X(4), X(4), X(KW - 4), X(KH - 4)], outline=C(INK * 2.2), width=max(1, int(2 * k)))
     m = bk.doc(name, KW, KH, KKP, draw, seed=1601, rough=0.35)
-    # world offsets from the doc centre (film.js): the empty row 5 (name cell, relation cell), alamat line, issue date
-    m['row5'] = [70 + 14 - KW / 2, ROW0 + 4 * ROWH + ROWH / 2 - KH / 2]
-    m['row5_rel'] = [500 + 14 - KW / 2, ROW0 + 4 * ROWH + ROWH / 2 - KH / 2]
-    m['row5_c'] = [0, ROW0 + 4 * ROWH + ROWH / 2 - KH / 2]
-    m['alamat'] = [246 - KW / 2, 168 - KH / 2]
-    m['tanggal'] = [580 - KW / 2, 165 - KH / 2]
+    # world offsets from the doc centre (film.js): the empty row 5 (name cell start, relation cell start), alamat line, issue date
+    yr5 = ROW0 + 4 * ROWH + ROWH / 2 - KH / 2
+    m['row5'] = [CN + 14 - KW / 2, yr5]; m['row5_rel'] = [CR + 10 - KW / 2, yr5]
+    m['alamat'] = [340 - KW / 2, 186 - KH / 2]
+    m['tanggal'] = [433 - KW / 2, 270 - KH / 2]
+
+
+def kk_icon():
+    """small KK for corners/props: only the big title + an amber alamat bar (readable at s >= 0.5)"""
+    W_, H_ = 420, 300
+    def draw(img, d, k, P):
+        X = lambda v: P + v * k
+        d.rectangle([X(0), X(0), X(W_), X(14)], fill=C(GREEN * 1.05))
+        fh = font(F_SLAB, 62 * k)
+        for t, y in [('KARTU', 22), ('KELUARGA', 92)]: d.text((X(W_ / 2) - fh.getlength(t) / 2, X(y)), t, font=fh, fill=C(INK))
+        d.polygon([(X(24), X(184)), (X(W_ - 24), X(181)), (X(W_ - 22), X(210)), (X(26), X(212))], fill=C(HL))
+        bars(d, X, 40, 190, 330, k, 7, h=14)
+        for j in range(2): bars(d, X, 40, 236 + j * 28, 330, k, 9 + j, h=12)
+        d.rectangle([X(4), X(4), X(W_ - 4), X(H_ - 4)], outline=C(INK * 2.2), width=max(1, int(2 * k)))
+    m = bk.doc('kk_ikon', W_, H_, KKP, draw, seed=1611, rough=0.35)
+    m['alamat'] = [0, 197 - H_ / 2]
+
+
+def kk_frag():
+    """the closing piece: a torn strip of the KK with title, alamat and the filled row 5 (two identical copies in film.js)"""
+    W_, H_ = 560, 270
+    def draw(img, d, k, P):
+        X = lambda v: P + v * k
+        d.rectangle([X(0), X(0), X(W_), X(12)], fill=C(GREEN * 1.05))
+        fh = font(F_SLAB, 38 * k); t = 'KARTU KELUARGA'; d.text((X(W_ / 2) - fh.getlength(t) / 2, X(20)), t, font=fh, fill=C(INK))
+        d.polygon([(X(14), X(80)), (X(W_ - 14), X(77)), (X(W_ - 12), X(126)), (X(16), X(128))], fill=C(HL))
+        f = font(F_CPB, 36 * k)
+        d.text((X(22), X(86)), 'Alamat', font=f, fill=C(INK)); d.text((X(178), X(84)), 'Jl. Melati No. 7', font=font(F_CPB, 36 * k), fill=C(INK))
+        y0, y1 = 150, 240
+        d.rectangle([X(14), X(y0), X(W_ - 14), X(y1)], outline=C(INK), width=max(2, int(2.5 * k)))
+        for xx in (74, 350): d.line([X(xx), X(y0), X(xx), X(y1)], fill=C(INK), width=max(1, int(2 * k)))
+        d.text((X(32), X(y0 + 22)), '5', font=f, fill=C(INK))
+        d.text((X(92), X(y0 + 12)), 'Raka', font=font(F_FELLI, 58 * k), fill=C(INK * 0.9 + GREEN * 0.1))
+        d.text((X(368), X(y0 + 24)), 'CUCU', font=font(F_CPB, 38 * k), fill=C(INK * 0.9 + GREEN * 0.1))
+    m = bk.doc('kk_frag', W_, H_, KKP, draw, seed=1621, rough=0.6, amp=0.35)
+    m['nama'] = [150 - W_ / 2, 195 - H_ / 2]
 
 
 def handwriting():
     """ink-only hand-written entries for the empty row (revealed letter by letter with typed() in film.js)"""
-    for name, text, fnt, size in [('nm_baru', 'Raka', F_FELLI, 42), ('nm_cucu', 'CUCU', F_CPB, 20)]:
+    for name, text, fnt, size in [('nm_baru', 'Raka', F_FELLI, 52), ('nm_cucu', 'CUCU', F_CPB, 32)]:
         B = bk.B; f = font(fnt, size * B)
         w = int(f.getlength(text) + 8 * B); asc, desc = f.getmetrics(); h = asc + desc + int(6 * B)
         img = Image.new('L', (w, h), 0); ImageDraw.Draw(img).text((4 * B, 3 * B), text, font=f, fill=255)
@@ -119,7 +150,7 @@ def kk10(name, hl_from=None):
     def draw(img, d, k, P):
         X = lambda v: P + v * k
         d.rectangle([X(0), X(0), X(W_), X(12)], fill=C(GREEN * 1.05))
-        fh = font(F_SLAB, 30 * k); t = 'KARTU KELUARGA'; d.text((X(W_ / 2) - fh.getlength(t) / 2, X(22)), t, font=fh, fill=C(INK))
+        fh = font(F_SLAB, 36 * k); t = 'KARTU KELUARGA'; d.text((X(W_ / 2) - fh.getlength(t) / 2, X(18)), t, font=fh, fill=C(INK))
         bars(d, X, 120, 70, 230, k, sum(map(ord, name)))
         x0, x1 = 18, W_ - 18
         if hl_from is not None:
@@ -173,8 +204,8 @@ def peta():
         d.polygon([(X(sx - 56), X(sy - 14)), (X(sx), X(sy - 42)), (X(sx + 56), X(sy - 14))], fill=C(INK * 1.3))
         d.line([X(sx + 62), X(sy + 24), X(sx + 62), X(sy - 50)], fill=C(INK), width=max(1, int(2 * k)))
         d.polygon([(X(sx + 62), X(sy - 50)), (X(sx + 86), X(sy - 44)), (X(sx + 62), X(sy - 38))], fill=C(RED))
-        fs = font(F_CPB, 22 * k); t = 'SEKOLAH'; d.text((X(sx) - fs.getlength(t) / 2, X(sy + 30)), t, font=fs, fill=C(INK))
-        f = font(F_CPB, 24 * k); d.text((X(30), X(14)), 'PETA JARAK RUMAH KE SEKOLAH', font=f, fill=C(INK))
+        fs = font(F_CPB, 28 * k); t = 'SEKOLAH'; d.text((X(sx) - fs.getlength(t) / 2, X(sy + 30)), t, font=fs, fill=C(INK))
+        f = font(F_CPB, 30 * k); d.text((X(30), X(12)), 'PETA JARAK RUMAH KE SEKOLAH', font=f, fill=C(INK))
         d.rectangle([X(4), X(4), X(MW - 4), X(MH - 4)], outline=C(INK), width=max(2, int(3 * k)))
     m = bk.doc('peta', MW, MH, CARD, draw, seed=1801, rough=0.4)
     m['school'] = [SCHOOL[0] - MW / 2, SCHOOL[1] - MH / 2]
@@ -201,19 +232,20 @@ def peta():
 
 
 def timeline():
-    """issue date → registration: 12 month ticks, '1 TAHUN' bracket; the red arrow is drawn live"""
-    W_, H_ = 760, 250
+    """issue date → registration: 12 month ticks; the red arrow is drawn live (labels >= 30 px at s 0.95)"""
+    W_, H_ = 760, 260
+    A_, B_ = 130, 630
     def draw(img, d, k, P):
         X = lambda v: P + v * k
         w = max(3, int(4 * k)); y = 140
-        d.line([X(70), X(y), X(690), X(y)], fill=C(INK), width=w)
+        d.line([X(A_), X(y), X(B_), X(y)], fill=C(INK), width=w)
         for i in range(13):
-            x = 70 + i * (620 / 12); d.line([X(x), X(y - (18 if i % 12 == 0 else 9)), X(x), X(y + (18 if i % 12 == 0 else 9))], fill=C(INK), width=max(1, int(2 * k)))
-        f = font(F_CPB, 24 * k); fb = font(F_SLAB, 30 * k)
-        for t, x, tt in [('TERBIT KK', 70, 'Jun 2025'), ('PENDAFTARAN', 690, 'Jun 2026')]:
-            d.text((X(x) - f.getlength(t) / 2, X(40)), t, font=f, fill=C(INK)); d.text((X(x) - fb.getlength(tt) / 2, X(176)), tt, font=fb, fill=C(INK))
+            x = A_ + i * ((B_ - A_) / 12); d.line([X(x), X(y - (18 if i % 12 == 0 else 9)), X(x), X(y + (18 if i % 12 == 0 else 9))], fill=C(INK), width=max(1, int(2 * k)))
+        f = font(F_CPB, 34 * k); fb = font(F_SLAB, 38 * k)
+        for t, x, tt in [('TERBIT KK', A_, 'Jun 2025'), ('PENDAFTARAN', B_, 'Jun 2026')]:
+            d.text((X(x) - f.getlength(t) / 2, X(34)), t, font=f, fill=C(INK)); d.text((X(x) - fb.getlength(tt) / 2, X(172)), tt, font=fb, fill=C(INK))
     m = bk.doc('garis', W_, H_, CARD, draw, seed=1901, rough=0.4)
-    m['a'] = [70 - W_ / 2, 140 - H_ / 2]; m['b'] = [690 - W_ / 2, 140 - H_ / 2]
+    m['a'] = [A_ - W_ / 2, 140 - H_ / 2]; m['b'] = [B_ - W_ / 2, 140 - H_ / 2]
 
 
 def folders():
@@ -224,8 +256,8 @@ def folders():
             dm.polygon([(X(0), X(40)), (X(20), X(40)), (X(40), X(0)), (X(150), X(0)), (X(170), X(40)), (X(300), X(40)), (X(300), X(250)), (X(0), X(250))], fill=255)
         def draw(img, d, k, P, i=i):
             X = lambda v: P + v * k
-            f = font(F_CPB, 26 * k); d.text((X(26), X(62)), 'LAPORAN', font=f, fill=C(INK))
-            d.text((X(232), X(62)), '0%d' % (i + 1), font=f, fill=C(INK))
+            f = font(F_CPB, 34 * k); d.text((X(26), X(58)), 'LAPORAN', font=f, fill=C(INK))
+            d.text((X(222), X(58)), '0%d' % (i + 1), font=f, fill=C(INK))
             for j in range(4): bars(d, X, 26, 112 + j * 30, 240 - 40 * (j % 2), k, 500 + i * 10 + j, col=INK * 2.8, h=9)
         bk.doc('lap%d' % (i + 1), 300, 250, MANILA * (1 - 0.03 * i), draw, seed=1950 + i, shape=shape, rough=0.35)
 
@@ -240,22 +272,23 @@ def stamps():
     for name, text, size, color, seed, sub in [
             ('st_domisili', 'DOMISILI', 104, RED, 81, None), ('st_1tahun', 'MIN. 1 TAHUN', 84, RED, 82, None),
             ('st_terbukti', 'TERBUKTI', 70, RED, 83, None), ('st_sesuai', 'SESUAI', 80, GREEN * 0.9, 84, None),
-            ('st_temuan', 'TEMUAN', 74, RED, 85, None)]:
+            ('st_temuan', 'TEMUAN', 74, RED, 85, None), ('st_direbut', 'DIREBUT', 96, RED, 86, None)]:
         bk.stamp(name, text, size, color, seed=seed, sub=sub, legible=True)
+    bk.mark('m_eq_b', 'eq', 160, INK, seed=96, width=0.2)
 
 
 def slips():
     T = [('s_baris', 'SATU BARIS KOSONG', F_SLAB, 50, AMBER, INK), ('s_kursi', 'KURSI SEKOLAH ANAK', F_SLAB, 50, CARD, INK),
-         ('s_domisili', 'jalur domisili', F_FELLI, 52, AMBER, INK), ('s_negeri', 'SEKOLAH NEGERI', F_CPB, 44, CARD, INK),
-         ('s_dadakan', 'pindah dadakan', F_FELLI, 54, CARD, RED), ('s_syarat', 'syarat 1 tahun', F_CPB, 42, AMBER, INK),
-         ('s_buruan', 'BARANG BURUAN', F_SLAB, 54, CARD, RED), ('s_alamat', 'Alamat : Jl. Melati No. 7', F_CPB, 34, KKP, INK),
-         ('s_jogja', 'YOGYAKARTA', F_SLAB, 60, CARD, INK), ('s_ombud', 'OMBUDSMAN DIY', F_CPB, 44, CARD, INK),
+         ('s_zona', 'zona dekat sekolah', F_FELLI, 52, AMBER, INK), ('s_sdn', 'SD NEGERI', F_CPB, 44, CARD, INK),
+         ('s_kemarin', 'baru pindah kemarin', F_FELLI, 54, CARD, RED),
+         ('s_alamat', 'Alamat : Jl. Melati No. 7', F_CPB, 34, KKP, INK),
+         ('s_jogja', 'KOTA YOGYAKARTA', F_SLAB, 56, CARD, INK), ('s_ombud', 'OMBUDSMAN DIY', F_CPB, 44, CARD, INK),
          ('s_6', '6 ANAK', F_SLAB, 52, AMBER, INK), ('s_5', '5 ANAK', F_SLAB, 52, AMBER, INK),
-         ('s_10', 'satu KK = 10 orang', F_CPB, 34, CARD, INK), ('s_laporan', '3 LAPORAN', F_SLAB, 58, AMBER, INK),
+         ('s_laporan', '3 LAPORAN · SMA', F_SLAB, 58, AMBER, INK),
          ('s_kolom', 'yang dicek: kolom alamat', F_CPB, 36, CARD, INK), ('s_rumah', 'rumah asli: tidak dicek', F_CPB, 34, CARD, RED),
-         ('s_jauh', 'JAUH', F_SLAB, 52, CARD, RED), ('s_dekat', 'DEKAT', F_SLAB, 52, AMBER, INK),
-         ('s_nenek', 'tinggal bersama nenek', F_FELLI, 44, CARD, INK), ('s_kunci', 'kunci pinjaman', F_FELLI, 48, CARD, INK),
-         ('s_kertas', 'di atas kertas', F_FELLI, 50, AMBER, INK), ('s_tahun', 'tahun ini', F_FELLI, 48, CARD, INK)]
+         ('s_asli', 'JARAK ASLI', F_SLAB, 52, CARD, RED), ('s_dikk', 'JARAK DI KK', F_SLAB, 52, AMBER, INK),
+         ('s_nenek', 'diasuh nenek', F_FELLI, 52, CARD, INK), ('s_kunci', 'rumah kosong', F_FELLI, 52, CARD, INK),
+         ]
     for i, (n, tx, f, s, pa, ik) in enumerate(T):
         bk.strip(n, tx, f, s * 1.3 if s < 50 else s * 1.15, pa, ik, 410 + i, mono=f.startswith('Courier'))
     bk.ransom('ry23', '2023', 110, 3)
@@ -270,7 +303,7 @@ if __name__ == '__main__':
     if ONLY and os.path.exists(prev):
         bk.M = json.load(open(prev)); bk.M.pop('_', None)
     for g, fn in [('signature', lambda: bake_signature(bk, '#%03d' % EP['no'], EP.get('case_line', EP['slug'].upper()))),
-                  ('docs', lambda: (kk('kk'), handwriting(), kk10('kk10a'), kk10('kk10a_hl', 4), kk10('kk10b'), kk10('kk10b_hl', 5),
+                  ('docs', lambda: (kk('kk'), kk_icon(), kk_frag(), handwriting(), kk10('kk10a'), kk10('kk10a_hl', 4), kk10('kk10b'), kk10('kk10b_hl', 5),
                                     peta(), timeline(), folders(), panels())),
                   ('stamps', stamps), ('slips', slips), ('prints', lambda: (bake_prints(bk, HERE), bk.mirror('tangan_tulis')))]:
         if want(g): fn(); print('baked', g)

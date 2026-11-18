@@ -51,10 +51,11 @@ function diners(u, t0, x0, y, n, gap, s, seed = 1, a = 1, fromX = -700) {
   }
 }
 // tent card standing on the AI table: AI table+teapot, the readable code card over its blank card
+const cardAt = (x, y, s) => [x + M._plakat.card[0] * s + 50, y + M._plakat.card[1] * s - 70 * s, s * 0.95];
 function tentCard(u, card, x, y, s, t0, id, fromX = -700) {
   const c = M._plakat.card;
   putK('plakat_meja', slide(t0, t0 + 0.22, x, y, 0, fromX, 0, 0, 0.4), u, id, { s });
-  putK(card, slide(t0 + 0.06, t0 + 0.3, x + c[0] * s + 10, y + c[1] * s - 62 * s, -2, fromX, 0, 0, 0.4), u, id + 1, { s: s * 0.72 });
+  const p = cardAt(x, y, s); putK(card, slide(t0 + 0.06, t0 + 0.3, p[0], p[1], -2, fromX, 0, 0, 0.4), u, id + 1, { s: p[2] });
 }
 // bars of the chart (drawn live in world units under the camera): A solid up to a, hatched range a→a2; B sliver b
 function bars(G, s, a, a2, b, t = 1) {
@@ -77,16 +78,15 @@ const SHOTS = [
   (u, T, d) => {
     stage(u, d, { z0: 1.02, z1: 1.07, cy: 890, shake: [[0.12, 12]] }); bg(SET.hook);
     const [bx, by] = heroPage(u, true);
-    putK('s_kecil', slap(at(0, 'tanda'), 640, 300, -3), u, 5, { s: 0.82 });
     route(u, at(0, 'ngarahin') - 0.1, at(0, 'ngarahin') + 0.4, bow([960, 1030], [bx + 70, by + 90], 0.25), { seed: 6, col: PAL.red, w: 6 });
   },
   // 02 · Pas bingung milih makanan di restoran atau kafe,   the undecided diner (menu pseudo-text cleaned in bake); "?"; the book + a small rosette wait
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 890 }); bg(SET.cafe, u, true);
-    putK('menu_hero', slide(0, 0.2, 250, 1010, -8, -700, 0, 0, 0.5), u, 20, { s: 0.36 });
     putK('bingung', slide(0, 0.2, 600, 650, 0, 800, 0, 0, -0.4), u, 21, { s: 0.95 });
     ransomRow('rq', u, at(1, 'bingung'), 230, 340, 0.1, 0.8);
-    putK('lencana', slap(at(1, 'kafe'), 175, 945, -8), u, 22, { s: 0.3 });
+    putK('lencana', slap(at(1, 'kafe'), 170, 900, -8), u, 22, { s: 0.7 });
+    putK('mata', slap(at(1, 'milih'), 880, 330, 8), u, 23, { s: 0.7 });
   },
   // 03 · mata kita otomatis ngelirik label Best Seller.   CLOSE-UP: the readable menu card fills the frame; the eye's glance zig-zags
   //      over the rows and stops on Ayam Geprek; the rosette lands on "label"; amber highlighter under that row
@@ -98,19 +98,19 @@ const SHOTS = [
     putK('mata', slap(0.12, 820, 230, 6), u, 31, { s: 1.0 });
     const zz = [[760, 280], [250, KY + R[0] * KS], [700, KY + R[3] * KS], [260, KY + R[5] * KS], [640, KY + R[2] * KS], [800, ry - 10]];
     route(u, tg - 0.5, tg + 0.3, zz, { seed: 32, col: PAL.ink, w: 5 });
-    putK('lencana', slap(tl, 880, ry - 20, 10), u, 33, { s: 0.55 });
+    putK('lencana', slap(tl, 900, ry - 30, 10), u, 33, { s: 0.7 });
   },
   // 04 · Rasanya kayak jalan pintas aman buat nyari menu paling enak.   the long way (reading row by row) is crossed; the short red
   //      arrow straight to the rosette = jalan pintas; tick on "aman"; "paling enak?" next to it
   (u, T, d) => {
-    const KX = 380, KY = 660, KS = 0.8, R = SP.kartu_menu.m.rows, ry = KY + R[1] * KS, tj = at(3, 'jalan');
+    const KX = 360, KY = 660, KS = 0.85, R = SP.kartu_menu.m.rows, ry = KY + R[1] * KS, tj = at(3, 'jalan');
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 890 }); bg(SET.warm, u, true);
     putK('kartu_menu', slide(0, 0.2, KX, KY, -2, -800, 0, 0, 0.5), u, 40, { s: KS });
-    put('lencana', KX + 230, ry - 10, 10, 0, 1, 0.45);
+    put('lencana', KX + 330, ry - 10, 10, 0, 1, 0.7);
     const snake = []; R.forEach((r, i) => { const y = KY + r * KS; snake.push(i % 2 ? [KX + 190, y] : [KX - 190, y], i % 2 ? [KX - 190, y + 10] : [KX + 190, y + 10]); });
     route(u, 0.1, tj - 0.15, [[160, 250], ...snake], { seed: 41, col: PAL.ink, w: 4 });
     stampAt('m_cross_s', u, tj - 0.1, KX, KY + R[6] * KS, 0, 0.9);
-    arrow(u, tj, tj + 0.35, bow([160, 250], [KX + 190, ry - 40], -0.2), { seed: 42, head: true, w: 9 });
+    arrow(u, tj, tj + 0.35, bow([160, 250], [KX + 270, ry - 60], -0.2), { seed: 42, head: true, w: 9 });
     putK('s_pintas', slap(tj + 0.3, 760, 300, -4), u, 43, { s: 0.9 });
     stampAt('m_tick_s', u, at(3, 'aman'), 930, 420, 0, 0.8);
     putK('s_paling', slap(at(3, 'paling'), 800, 1000, 3), u, 44, { s: 0.9 });
@@ -123,7 +123,7 @@ const SHOTS = [
     putK('dial', slide(0, 0.18, DX, DY, 0, 900, 0, 0, -0.4), u, 50, { s: DS });
     const sw = EASE.out(seg(stepT(u), tk - 0.2, tk + 0.5)), wob = Math.sin(stepT(u) * 9) * 6 * seg(u, tk, d);
     if (u >= 0.12) putA('jarum', px, py, 0.04, 0.5, 190 + 105 * sw + wob, 0, DS * 0.95);
-    putK('lencana', slap(0.25, 540, 930, -4), u, 51, { s: 0.62 });
+    putK('lencana', slap(0.25, 540, 930, -4), u, 51, { s: 0.75 });
     ransomRow('rq', u, at(4, 'pengaruhnya'), 880, 980, 0.1, 0.7);
   },
   // 06 · peneliti menguji daftar best seller di jaringan restoran Beijing.   the ARSIP file opens; a Beijing restaurant (AI, cropped:
@@ -131,9 +131,9 @@ const SHOTS = [
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.06, cy: 890 }); bg(SET.beijing, u, true);
     putK('restoran', slide(0, 0.2, 540, 610, -1, 900, 0, 0, -0.4), u, 60, { s: 0.98 });
-    putK('lembar_uji', slap(at(5, 'menguji'), 300, 900, -5), u, 61, { s: 0.6 });
+    putK('lembar_uji', slap(at(5, 'menguji'), 260, 880, -5), u, 61, { s: 0.68 });
     putK('s_beijing', slap(at(5, 'Beijing'), 720, 1010, 2), u, 62, { s: 0.85 });
-    putK('lencana', slap(at(5, 'daftar') + 0.1, 880, 300, 10), u, 63, { s: 0.34 });
+    putK('lencana', slap(at(5, 'daftar') + 0.1, 890, 300, 10), u, 63, { s: 0.68 });
     fileOverlay(u, 0.04, 0.95);
   },
   // 07 · Sebagian pengunjung dikasih lima menu best seller lengkap sama peringkatnya.   SPLIT-SCREEN, camera on the left (amber/manila)
@@ -141,11 +141,11 @@ const SHOTS = [
   (u, T, d) => {
     const tp = at(6, 'peringkatnya');
     stage(u, d, { z0: 1.12, z1: 1.16, cx: 330, cx1: 320, cy: 890 }); bg(SET.split, u, true);
-    putK('s_beijing', slap(0.05, 540, 205, -1), u, 70, { s: 0.62 });
-    putK('s_kelA', slap(at(6, 'Sebagian'), 270, 320, -3), u, 71, { s: 0.85 });
+    putK('s_beijing', slap(0.05, 540, 205, -1), u, 70, { s: 0.7 });
+    putK('s_kelA', slap(at(6, 'Sebagian'), 250, 300, -3), u, 71, { s: 0.85 });
     tentCard(u, 'plakat_top5', 270, 700, 0.88, 0.1, 72);
     diners(u, at(6, 'pengunjung') - 0.1, 120, 930, 3, 100, 0.95, 1);
-    ransomRow('r15', u, tp, 400, 470, 0.08, 0.6);
+    ransomRow('r15', u, tp, 430, 385, 0.08, 0.55);
     route(u, 0.1, 0.5, [[540, 240], [536, 700], [542, 1150]], { seed: 73, col: PAL.ink, w: 4 });
   },
   // 08 · Pengunjung lain cuma dikasih lima menu contoh tanpa peringkat.   the camera opens to both panels; right (grey-green): KELOMPOK B,
@@ -153,73 +153,69 @@ const SHOTS = [
   (u, T, d) => {
     const c = M._plakat.card, tc = at(7, 'tanpa');
     const ck = cam([[0, 330, 890, 1.14], [0.5, 540, 890, 1.0, 'io'], [d, 545, 890, 1.02]], u); applyCam(ck); bg(SET.split);
-    put('s_beijing', 540, 205, -1, 0, 1, 0.62); put('s_kelA', 270, 320, -3, 0, 1, 0.85);
-    put('plakat_meja', 270, 700, 0, 0, 1, 0.88); put('plakat_top5', 270 + c[0] * 0.88 + 10, 700 + c[1] * 0.88 - 62 * 0.88, -2, 0, 1, 0.88 * 0.72);
+    put('s_beijing', 540, 205, -1, 0, 1, 0.7); put('s_kelA', 250, 300, -3, 0, 1, 0.85);
+    put('plakat_meja', 270, 700, 0, 0, 1, 0.88); { const p = cardAt(270, 700, 0.88); put('plakat_top5', p[0], p[1], -2, 0, 1, p[2]); }
     diners(u, -9, 120, 930, 3, 100, 0.95, 1);
     route(u, -1, 0, [[540, 240], [536, 700], [542, 1150]], { seed: 73, col: PAL.ink, w: 4 });
-    putK('s_kelB', slap(at(7, 'Pengunjung'), 810, 320, 3), u, 80, { s: 0.85 });
+    putK('s_kelB', slap(at(7, 'Pengunjung'), 820, 300, 3), u, 80, { s: 0.85 });
     tentCard(u, 'plakat_contoh', 810, 700, 0.88, at(7, 'lain'), 81, 700);
     diners(u, at(7, 'dikasih'), 660, 930, 3, 100, 0.95, 4, 1, 700);
-    stampAt('m_cross_s', u, tc + 0.1, 810 + c[0] * 0.88 + 10 + SP.plakat_contoh.m.rank_x * 0.63, 600, 0, 0.7);
+    { const p = cardAt(810, 700, 0.88); stampAt('m_cross_s', u, tc + 0.1, p[0] + SP.plakat_contoh.m.rank_x * p[2], p[1] + SP.plakat_contoh.m.rank_y[0] * p[2], 0, 0.55); }
   },
   // 09 · Hasilnya timpang.   WIDE CHART: increase in orders; bar A starts to rise, bar B stays flat; TIMPANG stamped across
   (u, T, d) => {
-    const G = [540, 640], GS = 1.1, tt = at(8, 'timpang');
+    const G = [540, 640], GS = 1.05, tt = at(8, 'timpang');
     stage(u, d, { z0: 1.0, z1: 1.04, cy: 890, shake: [[tt, 12]] }); bg(SET.chart, u, true);
     putK('grafik', slide(0, 0.2, G[0], G[1], -1, -900, 0, 0, 0.5), u, 90, { s: GS });
     if (u > 0.25) { const e = EASE.out(seg(stepT(u), 0.25, d)); bars(G, GS, 8 * e, 8 * e, 0.4 * e); }
-    putK('s_beijing', slap(0.15, 760, 255, 2), u, 91, { s: 0.6 });
+    putK('s_beijing', slap(0.15, 760, 255, 2), u, 91, { s: 0.7 });
     stampAt('st_timpang', u, tt, 540, 560, -8, 0.8);
   },
   // 10 · Pesanan menu di daftar best seller   the waiter writes orders; tickets for the ranked dishes pile up next to the 5 TERLARIS card
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 890 }); bg(SET.beijing, u, true);
     putK('pelayan', slide(0, 0.18, 330, 650, 0, -800, 0, 0, 0.5), u, 100, { s: 0.95 });
-    putK('plakat_top5', slap(0.15, 820, 330, 5), u, 101, { s: 0.68 });
-    [[0.3, 800, 640, -6], [0.55, 830, 730, 4], [0.8, 790, 820, -3], [1.05, 840, 905, 7]].forEach(([t, x, y, r], i) =>
+    putK('plakat_top5', slap(0.15, 830, 330, 5), u, 101, { s: 0.8 });
+    [[0.3, 800, 660, -6], [0.55, 830, 750, 4], [0.8, 790, 840, -3], [1.05, 840, 925, 7]].forEach(([t, x, y, r], i) =>
       putK('nota' + i, drop(t - 0.18, t, x, y, r, 500, 0.7), u, 102 + i, { s: 0.9 }));
-    putK('s_beijing', slap(0.1, 300, 1070, -1), u, 107, { s: 0.6 });
+    putK('s_beijing', slap(0.1, 300, 1070, -1), u, 107, { s: 0.7 });
   },
   // 11 · naik tiga belas sampai dua puluh persen,   WIDE CHART: bar A climbs to 13% (solid) and a hatched range to 20%; +13–20%
   (u, T, d) => {
-    const G = [540, 640], GS = 1.1, t13 = at(10, 'tiga'), t20 = at(10, 'dua'), tp = at(10, 'persen');
-    stage(u, d, { z0: 1.02, z1: 1.08, cx: 470, cy: 890, shake: [[tp, 8]] }); bg(SET.chart);
+    const G = [540, 640], GS = 1.05, t13 = at(10, 'tiga'), t20 = at(10, 'dua'), tp = at(10, 'persen');
+    stage(u, d, { z0: 1.0, z1: 1.03, cy: 890, shake: [[tp, 8]] }); bg(SET.chart);
     put('grafik', G[0], G[1], -1, 0, 1, GS);
     const a = 8 + 5 * EASE.out(seg(stepT(u), 0.05, t13 + 0.3)), a2 = a + 7 * EASE.out(seg(stepT(u), t20 - 0.1, t20 + 0.35));
     bars(G, GS, a, a2, 0.4);
-    putK('s_beijing', slap(-1, 760, 255, 2), u, 110, { s: 0.6 });
+    putK('s_beijing', slap(-1, 760, 255, 2), u, 110, { s: 0.7 });
     putK('s_range', slap(tp, 640, 450, -4), u, 111, { s: 0.85 });
-    putK('plakat_top5', slap(0.2, 230, 1030, -4), u, 112, { s: 0.42 });
   },
   // 12 · sedangkan daftar contoh nyaris nggak ngaruh.   camera to bar B: a sliver at ≈ 0; the 5 CONTOH card under it
   (u, T, d) => {
-    const G = [540, 640], GS = 1.1, tn = at(11, 'nyaris');
-    stage(u, d, { z0: 1.06, z1: 1.08, cx: 470, cx1: 640, cy: 890 }); bg(SET.chart);
+    const G = [540, 640], GS = 1.05, tn = at(11, 'nyaris');
+    stage(u, d, { z0: 1.03, z1: 1.04, cx: 530, cx1: 550, cy: 890 }); bg(SET.chart);
     put('grafik', G[0], G[1], -1, 0, 1, GS); bars(G, GS, 13, 20, 0.4);
-    put('s_beijing', 760, 255, 2, 0, 1, 0.6); put('s_range', 640, 450, -4, 0, 1, 0.85); put('plakat_top5', 230, 1030, -4, 0, 1, 0.42);
-    putK('plakat_contoh', slap(0.25, 820, 1030, 4), u, 120, { s: 0.42 });
+    put('s_beijing', 760, 255, 2, 0, 1, 0.7); put('s_range', 640, 450, -4, 0, 1, 0.85);
     putK('s_nol', slap(tn, 790, 690, 3), u, 121, { s: 0.85 });
     stampAt('m_eq', u, at(11, 'ngaruh'), 920, 820, 0, 0.6);
   },
   // 13 · Anehnya lagi,   (pause) CLOSE-UP: the guest questionnaire slides in; boxes still empty; "?"
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.1, cy: 880 }); bg(SET.macro, u, true);
-    putK('kuesioner', slide(0, 0.2, 520, 640, -2, 0, 900, 0, 0.5), u, 130, { s: 1.3 });
-    putK('s_beijing', slap(0.2, 700, 230, 2), u, 131, { s: 0.6 });
+    putK('kuesioner', slide(0, 0.2, 520, 640, -2, 0, 900, 0, 0.5), u, 130, { s: 1.15 });
+    putK('s_beijing', slap(0.2, 700, 230, 2), u, 131, { s: 0.7 });
     ransomRow('rq', u, at(12, 'lagi'), 900, 1010, 0.1, 0.75);
-    putK('plakat_top5', slap(0.4, 210, 1010, -6), u, 132, { s: 0.4 });
   },
   // 14 · tamu yang pesan menu best seller juga ngaku lebih puas.   the satisfied guest (AI); his table card = 5 TERLARIS; the
   //      questionnaire gets a tick on "lebih puas" on "puas"; slip: menurut pengakuan tamu (self-reported)
   (u, T, d) => {
-    const Q = [230, 440], QS = 0.62, bx = SP.kuesioner.m.box;
+    const Q = [262, 480], QS = 0.76, bx = SP.kuesioner.m.box;
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 890 }); bg(SET.beijing, u, true);
-    putK('tamu', slide(0, 0.2, 680, 650, 0, 800, 0, 0, -0.4), u, 140, { s: 0.95 });
+    putK('tamu', slide(0, 0.2, 705, 650, 0, 800, 0, 0, -0.4), u, 140, { s: 0.95 });
     putK('kuesioner', slide(0.05, 0.25, Q[0], Q[1], -4, -700, 0, 0, 0.5), u, 141, { s: QS });
     stampAt('m_tick_s', u, at(13, 'puas'), Q[0] + bx[0] * QS + 4, Q[1] + bx[1] * QS - 6, 0, 0.55);
-    putK('plakat_top5', slap(at(13, 'best'), 220, 860, -5), u, 142, { s: 0.5 });
-    putK('s_ngaku', slap(at(13, 'ngaku'), 400, 1050, -2), u, 143, { s: 0.85 });
-    put('s_beijing', 760, 205, 2, 0, 1, 0.6);
+    putK('s_ngaku', slap(at(13, 'ngaku'), 420, 1060, -2), u, 143, { s: 0.85 });
+    put('s_beijing', 760, 205, 2, 0, 1, 0.7);
   },
   // 15 · Otak kita memang malas menilai rasa dari nol,   FULL DOCUMENT: the taste score sheet, every box empty; DILEWATI stamped on
   //      "malas"; the 0 box circled on "nol"; the rosette (the shortcut) in the corner
@@ -227,7 +223,7 @@ const SHOTS = [
     const SX = 540, SY = 640, SS = 1.15, r0 = SP.nilai_rasa.m.row0, tm = at(14, 'malas');
     stage(u, d, { z0: 1.0, z1: 1.06, cy: 890, shake: [[tm, 10]] }); bg(SET.doc, u, true);
     putK('nilai_rasa', slide(0, 0.2, SX, SY, -1, -900, 0, 0, 0.5), u, 150, { s: SS });
-    putK('lencana', slap(at(14, 'menilai'), 930, 250, 12), u, 151, { s: 0.42 });
+    putK('lencana', slap(at(14, 'menilai'), 925, 250, 12), u, 151, { s: 0.7 });
     stampAt('st_dilewati', u, tm, 560, 700, -10, 0.85);
     stampAt('m_circle', u, at(14, 'nol'), SX + r0[0] * SS, SY + r0[1] * SS, 0, 0.26);
   },
@@ -237,7 +233,7 @@ const SHOTS = [
     const TX = 540, TY = 600, TS = 1.12, tp = M._tangan.plate, tj = at(15, 'jaminan');
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 890, shake: [[tj, 12]] }); bg(SET.hook, u, true);
     putK('tangan', slide(0, 0.2, TX, TY, 0, 0, -900, 0, 0.5), u, 160, { s: TS });
-    putK('lencana', slap(at(15, 'pilihan'), TX + tp[0] * TS, TY + tp[1] * TS - 20, 6), u, 161, { s: 0.5 });
+    putK('lencana', slap(at(15, 'pilihan'), TX + tp[0] * TS, TY + tp[1] * TS - 20, 6), u, 161, { s: 0.72 });
     stampAt('st_jaminan', u, tj, 540, 1010, -6, 0.85);
   },
   // 17 · Menu best seller terakhir yang kamu pesan:   LOOP: back to the frame-0 page; the camera pushes into the rosette and the faint
@@ -258,7 +254,7 @@ const SHOTS = [
     putK('tunjuk', slide(0, 0.2, 280, 640, 0, -700, 0, 0, 0.5), u, 180, { s: 0.8 });
     putK('s_seleramu', slap(at(17, 'seleramu'), 270, 270, -3), u, 181, { s: 0.85 });
     putK('tangan', slide(at(17, 'atau') - 0.2, at(17, 'atau'), 800, 640, 0, 700, 0, 0, -0.4), u, 182, { s: 0.63 });
-    putK('lencana', slap(at(17, 'atau') + 0.15, 800 + tp[0] * 0.63, 640 + tp[1] * 0.63 - 12, 6), u, 183, { s: 0.36 });
+    putK('lencana', slap(at(17, 'atau') + 0.15, 800 + tp[0] * 0.63, 640 + tp[1] * 0.63 - 12, 6), u, 183, { s: 0.68 });
     putK('s_oranglain', slap(at(17, 'pilihan'), 812, 1000, 3), u, 184, { s: 0.8 });
     route(u, 0.1, 0.5, [[540, 240], [536, 700], [542, 1150]], { seed: 185, col: PAL.ink, w: 4 });
     ransomRow('rq', u, at(17, 'lain'), 540, 1040, 0.1, 0.6);
