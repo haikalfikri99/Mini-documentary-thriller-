@@ -5,7 +5,7 @@ Every shot = the real keyframe (render of film.js at 85% of the shot) with ALL l
 duration, beat, VO line, action, camera/layout, on-screen text, image sources, revision note. Nothing is drawn on the frame.
   python3 kit/tools/storyboard_sheet.py stories/<slug>/kolase [outdir]          (default outdir: <kolase>/board/sheet)
 input : <kolase>/storyboard.json (same schema as storyboard_page/make_page.py) + START in film.js
-output: storyboard_<no>_hNN.png (pages, 1500 px wide, 3–4 shots each), storyboard_<no>_grid.jpg (overview, label under
+output: storyboard_<no>_SNN.png (one page per shot, 2000 px wide, frame 810×1440 = 75% of real size so in-frame text is readable), storyboard_<no>_grid.jpg (overview, label under
         each thumbnail), storyboard_<no>.pdf (all pages + grid; < 10 MB, fits Google Drive and Gemini uploads)."""
 import sys, os, re, json, subprocess, glob, shutil, textwrap
 from PIL import Image, ImageDraw, ImageFont
@@ -29,13 +29,13 @@ if alts:
 
 FD = '/usr/share/fonts/truetype/dejavu/'
 F = lambda n, s: ImageFont.truetype(FD + n, s)
-fH, fID, fTC, fLab, fTx, fVO, fSm = F('DejaVuSans-Bold.ttf', 40), F('DejaVuSans-Bold.ttf', 46), F('DejaVuSansMono-Bold.ttf', 26), \
-    F('DejaVuSans-Bold.ttf', 22), F('DejaVuSans.ttf', 24), F('DejaVuSerif-Italic.ttf', 27) if os.path.exists(FD + 'DejaVuSerif-Italic.ttf') else F('DejaVuSerif.ttf', 27), F('DejaVuSans.ttf', 20)
+fH, fID, fTC, fLab, fTx, fVO, fSm = F('DejaVuSans-Bold.ttf', 52), F('DejaVuSans-Bold.ttf', 64), F('DejaVuSansMono-Bold.ttf', 36), \
+    F('DejaVuSans-Bold.ttf', 30), F('DejaVuSans.ttf', 34), F('DejaVuSerif-Italic.ttf', 38) if os.path.exists(FD + 'DejaVuSerif-Italic.ttf') else F('DejaVuSerif.ttf', 38), F('DejaVuSans.ttf', 28)
 BG, CARD, INK, MUTE, RED, LINE = (238, 233, 222), (255, 253, 248), (28, 24, 20), (110, 100, 88), (179, 38, 30), (200, 190, 172)
 fmt = lambda t: ('%d:%05.2f' % (t // 60, t % 60)).replace('.', ',')
 no = '%03d' % J['no']; V = J.get('version', 'v1')
-PW, M_, FW, FH = 1500, 36, 360, 640           # page width, margin, frame size on the sheet (9:16)
-TX = M_ + FW + 40; TW = PW - TX - M_          # text column
+PW, M_, FW, FH = 2000, 48, 810, 1440          # page width, margin, frame size on the sheet (9:16, 75% of the real 1080x1920)
+TX = M_ + FW + 56; TW = PW - TX - M_          # text column
 wrap = lambda s, f, w: sum((textwrap.wrap(p, width=max(10, int(w / (f.getlength('n') * 1.0)))) or [''] for p in str(s).split('\n')), [])
 
 
@@ -62,71 +62,64 @@ def block(i):
     lines = []
     for lab, tx, f, col in rows:
         lines.append(('lab', lab)); lines += [('tx', l, f, col) for l in fit_lines(tx, f, TW - 20)]; lines.append(('gap',))
-    th = 80 + sum(30 if l[0] == 'lab' else (12 if l[0] == 'gap' else 34) for l in lines)
+    th = 110 + sum(42 if l[0] == 'lab' else (18 if l[0] == 'gap' else 48) for l in lines)
     extra = altf.get(i)
-    h = max(FH + 70 + (FH // 2 + 60 if extra else 0), th) + 30
+    h = max(FH + 150, th + (FH // 2 + 80 if extra else 0)) + 30
     im = Image.new('RGB', (PW, h), CARD); d = ImageDraw.Draw(im)
     fr = Image.open(os.path.join(kf, 'kf_%02d.png' % (i + 1))).convert('RGB').resize((FW, FH), Image.LANCZOS)
     d.text((M_, 14), 'S' + n, font=fID, fill=RED)
     tc = '%s – %s  (%s dtk)' % (fmt(S[i]), fmt(S[i + 1]), ('%.2f' % (S[i + 1] - S[i])).replace('.', ','))
-    d.text((M_ + 110, 26), tc, font=fTC, fill=INK)
-    if s.get('beat'): d.text((M_ + 130 + fTC.getlength(tc), 28), ('BEAT: ' + s['beat']).upper(), font=fLab, fill=RED)
-    im.paste(fr, (M_, 70)); d.rectangle([M_ - 2, 68, M_ + FW + 1, 70 + FH + 1], outline=INK, width=2)
-    y = 70 + FH + 8
+    d.text((M_ + 150, 34), tc, font=fTC, fill=INK)
+    if s.get('beat'): d.text((M_ + 180 + fTC.getlength(tc), 38), ('BEAT: ' + s['beat']).upper(), font=fLab, fill=RED)
+    im.paste(fr, (M_, 100)); d.rectangle([M_ - 3, 97, M_ + FW + 2, 100 + FH + 2], outline=INK, width=3)
+    y = 100 + FH + 10
     d.text((M_, y), 'keyframe @ %s (85%% shot)' % fmt(S[i] + 0.85 * (S[i + 1] - S[i])), font=fSm, fill=MUTE)
-    if extra:
-        f2, cap, t = extra; y += 34
-        a = Image.open(f2).convert('RGB').resize((FW // 2, FH // 2), Image.LANCZOS); im.paste(a, (M_, y))
-        d.rectangle([M_ - 2, y - 2, M_ + FW // 2 + 1, y + FH // 2 + 1], outline=INK, width=2)
-        for k, l in enumerate(fit_lines('frame tambahan @ %s: %s' % (fmt(t), cap), fSm, FW // 2 - 12)):
-            d.text((M_ + FW // 2 + 12, y + k * 24), l, font=fSm, fill=MUTE)
-    y = 70
+    y = 100
     for l in lines:
-        if l[0] == 'lab': d.text((TX, y + 4), l[1], font=fLab, fill=MUTE); y += 30
-        elif l[0] == 'gap': y += 12
-        else: d.text((TX + 10, y), l[1], font=l[2], fill=l[3]); y += 34
+        if l[0] == 'lab': d.text((TX, y + 6), l[1], font=fLab, fill=MUTE); y += 42
+        elif l[0] == 'gap': y += 18
+        else: d.text((TX + 12, y), l[1], font=l[2], fill=l[3]); y += 48
+    if extra:
+        f2, cap, t = extra; y += 20
+        a = Image.open(f2).convert('RGB').resize((FW // 2, FH // 2), Image.LANCZOS); im.paste(a, (TX, y))
+        d.rectangle([TX - 3, y - 3, TX + FW // 2 + 2, y + FH // 2 + 2], outline=INK, width=3)
+        for k, l in enumerate(fit_lines('frame tambahan @ %s: %s' % (fmt(t), cap), fSm, TW - FW // 2 - 30)):
+            d.text((TX + FW // 2 + 24, y + k * 36), l, font=fSm, fill=MUTE)
     d.line([0, h - 1, PW, h - 1], fill=LINE, width=2)
     return im
 
 
 def header(page, total):
-    im = Image.new('RGB', (PW, 120), BG); d = ImageDraw.Draw(im)
+    im = Image.new('RGB', (PW, 150), BG); d = ImageDraw.Draw(im)
     title = re.sub('<[^>]+>', '', J['title'])
     d.text((M_, 18), 'ARSIP KASUS #%s · STORYBOARD %s' % (no, V), font=fH, fill=INK)
-    d.text((M_, 72), '%s  ·  %d shot · VO %.2f dtk  ·  hal %d/%d' % (title, len(J['shots']), S[-1], page, total), font=fTx, fill=MUTE)
+    d.text((M_, 92), '%s  ·  %d shot · VO %.2f dtk  ·  hal %d/%d' % (title, len(J['shots']), S[-1], page, total), font=fTx, fill=MUTE)
     return im
 
 
 blocks = [block(i) for i in range(len(J['shots']))]
-PAGE_H = 2420
-pages, cur, ch = [], [], 120
-for b in blocks:
-    if cur and ch + b.height > PAGE_H: pages.append(cur); cur, ch = [], 120
-    cur.append(b); ch += b.height
-if cur: pages.append(cur)
-imgs = []
-for p, bl in enumerate(pages, 1):
-    H_ = 120 + sum(b.height for b in bl)
-    im = Image.new('RGB', (PW, H_), BG); im.paste(header(p, len(pages) + 1), (0, 0)); y = 120
-    for b in bl: im.paste(b, (0, y)); y += b.height
-    f = os.path.join(out, 'storyboard_%s_h%02d.png' % (no, p)); im.save(f, optimize=True); imgs.append(im)
+imgs = []                                      # one shot per page: frame at 75% of the real size, labels beside it
+for p, b in enumerate(blocks, 1):
+    im = Image.new('RGB', (PW, 150 + b.height), BG); im.paste(header(p, len(blocks) + 1), (0, 0)); im.paste(b, (0, 150))
+    im.save(os.path.join(out, 'storyboard_%s_S%02d.png' % (no, p)), optimize=True); imgs.append(im)
+pages = imgs
 
 # overview grid: thumbnails with their label UNDER the frame
-C, TWg, THg = 6, 220, 391
+C, TWg, THg = 6, 300, 533
 R = (len(blocks) + C - 1) // C
-G = Image.new('RGB', (M_ * 2 + C * TWg + (C - 1) * 18, 120 + R * (THg + 96) + 20), BG); d = ImageDraw.Draw(G)
+G = Image.new('RGB', (M_ * 2 + C * TWg + (C - 1) * 24, 160 + R * (THg + 130) + 20), BG); d = ImageDraw.Draw(G)
 G.paste(header(len(pages) + 1, len(pages) + 1), (0, 0))
 for i in range(len(blocks)):
-    x = M_ + (i % C) * (TWg + 18); y = 130 + (i // C) * (THg + 96)
+    x = M_ + (i % C) * (TWg + 24); y = 165 + (i // C) * (THg + 130)
     G.paste(Image.open(os.path.join(kf, 'kf_%02d.png' % (i + 1))).convert('RGB').resize((TWg, THg), Image.LANCZOS), (x, y))
     d.rectangle([x - 1, y - 1, x + TWg, y + THg], outline=INK, width=2)
-    d.text((x, y + THg + 6), 'S%02d' % (i + 1), font=fLab, fill=RED)
-    d.text((x + 52, y + THg + 8), '%s–%s' % (fmt(S[i]), fmt(S[i + 1])), font=fSm, fill=INK)
+    d.text((x, y + THg + 8), 'S%02d' % (i + 1), font=fLab, fill=RED)
+    d.text((x + 66, y + THg + 12), '%s–%s' % (fmt(S[i]), fmt(S[i + 1])), font=fSm, fill=INK)
     vo = fit_lines(J['shots'][i]['vo'], fSm, TWg)[:2]
-    for k, l in enumerate(vo): d.text((x, y + THg + 34 + k * 24), l, font=fSm, fill=MUTE)
-gf = os.path.join(out, 'storyboard_%s_grid.jpg' % no); G.save(gf, quality=88)
+    for k, l in enumerate(vo): d.text((x, y + THg + 50 + k * 32), l, font=fSm, fill=MUTE)
+gf = os.path.join(out, 'storyboard_%s_grid.jpg' % no); G.save(gf, quality=92)
 pdf = os.path.join(out, 'storyboard_%s.pdf' % no)
 allp = [G] + imgs
-allp[0].save(pdf, save_all=True, append_images=allp[1:], resolution=110, quality=82)
+allp[0].save(pdf, save_all=True, append_images=allp[1:], resolution=150, quality=87)
 for dd in ('_kf', '_alt'): shutil.rmtree(os.path.join(out, dd), ignore_errors=True)
 print('%s · %d halaman + grid · %s (%.1f MB)' % (out, len(pages), os.path.basename(pdf), os.path.getsize(pdf) / 1e6))
