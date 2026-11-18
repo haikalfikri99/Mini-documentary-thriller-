@@ -117,10 +117,10 @@ const SHOTS = [
   // 06 · Tahun ini, lembaga konsumen sampai ngingetin   the consumer body's spokesman at a press table; DATA INDONESIA · 2026; 2026
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 860 }); bg(SET.id, u, true);
-    putK('jubir', slide(0, 0.2, 560, 610, 0, 900, 0, 0, -0.4), u, 60, { s: 1.0 });
-    putK('lbl_id', slap(0.05, 330, 1060, -2), u, 61, { s: 0.62 });
+    putK('jubir', slide(0, 0.2, 570, 690, 0, 900, 0, 0, -0.4), u, 60, { s: 1.1 });
+    putK('lbl_id', slap(0.05, 330, 1050, -2), u, 61, { s: 0.62 });
     ransomRow('ry26', u, at(5, 'Tahun'), 230, 250, 0.08, 0.7);
-    putK('s_lembaga', slap(at(5, 'lembaga'), 800, 1080, 3), u, 62, { s: 0.7 });
+    putK('s_lembaga', slap(at(5, 'lembaga'), 760, 300, 3), u, 62, { s: 0.75 });
   },
   // 07 · soal celah biaya aplikasi yang dibebanin ke pembeli.   KARTU PENUH: the press clipping, camera runs down to the quote;
   // amber on "mencari celah" and on "menanggung bebannya"; DATA INDONESIA stays; the +Rp8.000 tag in the corner
@@ -171,32 +171,32 @@ const SHOTS = [
   // 11 · Separuh dikasih lihat harga plus biaya sejak awal.   SPLIT-SCREEN: left half (green) = crowd half + phone showing price AND
   // fee from the start; 50%; the right half waits, dim
   (u, T, d) => {
-    stage(u, d, { z0: 1.0, z1: 1.03, cy: 760 }); bg(SET.split, u, true);
+    stage(u, d, { z0: 1.0, z1: 1.03, cy: 900 }); bg(SET.split, u, true);
     route(u, 0, 0.3, [[540, 170], [536, 640], [544, 1180]], { seed: 111, col: PAL.ink, w: 4 });
     putK('krm_kiri', slide(0, 0.2, 270, 880, 0, -600, 0, 0, 0.4), u, 110, { s: 0.98 });
     phoneK(slide(0.1, 0.3, 300, 470, -4, -600, 0, 0, 0.4), u, 111, 0.55, 'scr_depan', []);
     put('krm_kanan', 810, 880, 0, 0, 1, 0.98, 0.25);
-    ransomRow('r50', u, at(10, 'Separuh'), 270, 1080, 0.08, 0.55);
+    ransomRow('r50', u, at(10, 'Separuh'), 270, 1040, 0.08, 0.55);
     putK('s_awal', slap(at(10, 'sejak'), 270, 750, -3), u, 112, { s: 0.7 });
     put('lbl_as', 800, 215, 3, 0, 1, 0.55);
   },
   // 12 · Separuh lagi   the right half (amber) comes in: crowd half + phone with the price only; 50%
   (u, T, d) => {
-    stage(u, d, { z0: 1.03, z1: 1.04, cy: 760 }); bg(SET.split);
+    stage(u, d, { z0: 1.03, z1: 1.04, cy: 900 }); bg(SET.split);
     put('krm_kiri', 270, 880, 0, 0, 1, 0.98); phone(300, 470, -4, 0.55, 'scr_depan', []);
-    put('s_awal', 270, 750, -3, 0, 1, 0.7); ransomRow('r50', u, -9, 270, 1080, 0.08, 0.55);
+    put('s_awal', 270, 750, -3, 0, 1, 0.7); ransomRow('r50', u, -9, 270, 1040, 0.08, 0.55);
     route(u, -1, 0, [[540, 170], [536, 640], [544, 1180]], { seed: 111, col: PAL.ink, w: 4 });
     putK('krm_kanan', slide(0, 0.18, 810, 880, 0, 600, 0, 0, -0.4), u, 120, { s: 0.98 });
     phoneK(slide(0.08, 0.26, 800, 470, 4, 600, 0, 0, -0.4), u, 121, 0.55, 'scr_akhir', []);
-    ransomRow('r50b', u, at(11, 'lagi'), 810, 1080, 0.08, 0.55);
+    ransomRow('r50b', u, at(11, 'lagi'), 810, 1040, 0.08, 0.55);
   },
   // 13 · baru dikasih lihat biayanya pas mau bayar.   right phone: the fee row pops in only on "bayar"; "biaya pas mau bayar"; reveal pause
   (u, T, d) => {
     const tb = at(12, 'bayar');
-    stage(u, d, { z0: 1.04, z1: 1.07, cx: 540, cx1: 620, cy: 760, cy1: 720 }); bg(SET.split);
+    stage(u, d, { z0: 1.04, z1: 1.07, cx: 540, cx1: 620, cy: 900, cy1: 860 }); bg(SET.split);
     put('krm_kiri', 270, 880, 0, 0, 1, 0.98, 0.6); phone(300, 470, -4, 0.55, 'scr_depan', [], 0.7);
     route(u, -1, 0, [[540, 170], [536, 640], [544, 1180]], { seed: 111, col: PAL.ink, w: 4 });
-    put('krm_kanan', 810, 880, 0, 0, 1, 0.98); ransomRow('r50b', u, -9, 810, 1080, 0.08, 0.55);
+    put('krm_kanan', 810, 880, 0, 0, 1, 0.98); ransomRow('r50b', u, -9, 810, 1040, 0.08, 0.55);
     const ph = phone(800, 470, 4, 0.55, 'scr_akhir', [['sx_biaya_us', 0, R(M).us_biaya[1], u >= tb ? 1 : 0]]);
     if (u >= tb) { const q = ph.L(0, R(M).us_biaya[1]); stampAt('m_circle', u, tb + 0.05, q[0], q[1], 0, 0.62); }
     putK('s_akhir', slap(at(12, 'biayanya'), 790, 760, 3), u, 130, { s: 0.68 });

@@ -17,7 +17,13 @@
  },
  "jubir": {
   "file": "ai_juru_bicara.jpg",
-  "width": 560
+  "width": 680,
+  "crop": [
+   0.08,
+   0.34,
+   0.95,
+   0.93
+  ]
  },
  "kaca": {
   "file": "ai_kaca_pembesar.jpg",

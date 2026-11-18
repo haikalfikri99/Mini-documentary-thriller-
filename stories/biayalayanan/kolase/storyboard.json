@@ -11,7 +11,7 @@
   "Conceptual Loop: baris kecil abu-abu \"Biaya layanan Rp8.000\" ada di Frame 0 tanpa sorotan; disorot stabilo di kata \"tadi\" (43,64 dtk).",
   "Tata letak berotasi: panggung, close-up makro (S03, S08, S19, S21), kartu penuh (S05, S07), split-screen (S11–S13), grafik layar lebar (S14–S15); tidak ada > 3 shot berurutan dengan tata letak sama.",
   "Tanpa logo/nama aplikasi; layar checkout generik buatan kode; komisi pengemudi 8% (Perpres) tidak ditampilkan agar tidak tertukar dengan biaya layanan konsumen.",
-  "Visual QA otomatis: 0 serius, 10 peringatan (gambar besar menimpa pita caption, diizinkan)."
+  "Visual QA otomatis: 0 serius, 8 peringatan (gambar besar menimpa pita caption, diizinkan)."
  ],
  "shots": [
   {
@@ -53,10 +53,10 @@
   {
    "beat": "Jangkar lokal",
    "vo": "Tahun ini, lembaga konsumen sampai ngingetin",
-   "aksi": "Juru bicara lembaga konsumen (generik, batik) di meja pers; label DATA INDONESIA · 2026; huruf tebusan 2026; slip \"lembaga konsumen\".",
+   "aksi": "Juru bicara lembaga konsumen dipotong dari bahu ke bawah (wajah tidak tampak): batik, tangan terbuka, tiga mikrofon, podium; label DATA INDONESIA · 2026; huruf tebusan 2026; slip \"lembaga konsumen\".",
    "kamera": "Panggung (blok hijau arsip), push-in · label asal: DATA INDONESIA",
    "teks": "DATA INDONESIA · 2026 · 2026 · lembaga konsumen",
-   "gambar": "AI juru_bicara"
+   "gambar": "AI juru_bicara (crop tanpa wajah)"
   },
   {
    "vo": "soal celah biaya aplikasi yang dibebanin ke pembeli.",
@@ -90,14 +90,14 @@
   },
   {
    "vo": "Separuh dikasih lihat harga plus biaya sejak awal.",
-   "aksi": "Kiri (hijau): separuh kerumunan + HP layar tiket \"Harga / + Biaya / Total\" (batang, tanpa angka); 50%; slip \"biaya sejak awal\". Kanan masih pudar.",
+   "aksi": "Kiri (hijau): separuh kerumunan + HP layar tiket \"Harga / + Biaya / Total\" (batang, tanpa angka); 50% (di atas kerumunan, di luar pita caption); slip \"biaya sejak awal\". Kanan masih pudar.",
    "kamera": "Split-screen kiri-kanan, garis pemisah putus-putus",
    "teks": "50% · biaya sejak awal · EKSPERIMEN AS",
    "gambar": "AI kerumunan_hp (dipotong 2), hp_checkout + layar kode"
   },
   {
    "vo": "Separuh lagi",
-   "aksi": "Kanan (amber): separuh kerumunan lain + HP layar tiket \"Harga / Total\" tanpa baris biaya; 50%.",
+   "aksi": "Kanan (amber): separuh kerumunan lain + HP layar tiket \"Harga / Total\" tanpa baris biaya; 50% (di atas kerumunan, di luar pita caption).",
    "kamera": "Split-screen",
    "teks": "50%",
    "gambar": "AI kerumunan_hp, hp_checkout + layar kode"
