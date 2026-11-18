@@ -69,3 +69,6 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 diterima kecuali `burger_
 - Catatan jujur: beda tebal daging di burger_dua masih halus di layar HP; rak_label lebih lebar dari layar (latar, sengaja).
 - Lanjut setelah user setuju: skor + foley + mix → `make_kolase.sh` → UPLOAD.md → cover → `pack_upload.py`.
 - **Storyboard v2 (17 Nov 2026, 8 komentar user):** dua burger sejak frame 0 (`ai/burger_tipis.*` = burger_tebal dengan daging dipadatkan, `tint/make_tipis.py`, ikut berwarna); label harga ilustrasi Rp25.000 kembar; shot 3 burger tebal luntur hitam-putih + mengecil + cap GAK LAKU, burger tipis membesar; burger_dua tidak dipakai lagi; grafik + peneliti + kasir diberi detail; "lebih dari separuh" = 10 tokoh (6 merah); strip sumber dihapus dari layar; shot akhir: pasangan burger + 1/3 > 1/4 ✓ + CEK ULANG. QA 0 peringatan.
+
+
+**Penanda v6.1 (log batch #009–#012, ditambahkan 18 Nov 2026 untuk `kit/tools/lint_episode.py`):** [HOOK: Titik Balik Hasil Ekstrem] [ENDING: Reframing Sistemik] [SEGAR: klasik (1980-an)]

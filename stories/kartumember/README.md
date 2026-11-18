@@ -77,3 +77,6 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 ada; `kasir_kartu` diulan
 - **QA:** `check_visual.mjs` 0 serius, 0 peringatan. 3 putaran revisi keyframe (stempel keluar frame, cap merah di pita merah, cap hijau di lingkaran hijau, label map menimpa #012, BEDA JAUH/SAMA PERSIS menutup judul kartu, grafik & lintasan terpotong tepi).
 - **Kelemahan jujur:** (1) peneliti = siluet bertopi seri (`sil_man`), terbaca "pengamat/detektif", bukan wajah peneliti; (2) piktogram pelanggan & kartu buatan kode tetap "grafis", detail gravir hanya dari 8 gambar AI; (3) kotak & teks aturan kartu di tangan kecil (kotak ±60–75 px, aturan "10 cap = 1x GRATIS" ±25 px) — terbaca sebagai pola, tidak sebagai teks; (4) "± 9 bulan" dan 34%/19% dari sumber sekunder (sama status dengan fact sheet); (5) shot 12–13 dan 23 sama-sama memakai kartu + stabilo (dibedakan: tumpuk dua kartu vs satu kartu dengan cap GRATIS dicoret); (6) beberapa frame masih menyisakan ruang kosong di y ±1000–1180 di atas caption.
 - **Berikutnya:** review user di halaman Artifact → revisi v2 → `score_full.py` + `fullmix.py` → `make_kolase.sh`.
+
+
+**Penanda v6.1 (log batch #009–#012, ditambahkan 18 Nov 2026 untuk `kit/tools/lint_episode.py`):** [HOOK: Celah Ujung Lidah] [ENDING: Reframing Sistemik] [SEGAR: klasik (studi 2006)]

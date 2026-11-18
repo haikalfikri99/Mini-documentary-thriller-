@@ -81,3 +81,11 @@ Aturan tetap berlaku: tanpa "padahal/tapi/ternyata" (−5,2 poin untuk "padahal/
 | K4 | **Celah Ujung Lidah** (Micro Knowledge Gap) | dua kondisi nyaris identik, hasil kontras (Loewenstein / Zeigarnik) | tampilkan dua benda mirip + dua hasil berbeda |
 | K5 | **Titik Balik Hasil Ekstrem** (Result-First Turning Point) | mulai dari hasil paling mustahil, tarik mundur cari sebab | cocok Mode Investigasi; hasil berangka di kalimat 1 |
 Pemetaan ke rumus lama: K1/K5 ≈ H-A, K2 ≈ H-B, K3 ≈ H-E (visual), K4 ≈ H-D (tanpa tanda tanya di judul/frame 0). Tulis kode arketipe di README episode ("Penguncian 3-titik") agar hasilnya bisa dibandingkan antar batch.
+
+## I. v6.1 Anti-monoton hook (18 Nov 2026, keputusan user; wajib #013+, dicek `kit/tools/lint_episode.py`)
+**Kenapa:** batch #009–#012 memakai pola H1 yang sama di keempat episode ("Burger ini lebih tebal, harganya sama—tapi…", "Kantong plastik ini cuma dua ratus perak—tapi…", "Tombol ini nggak memotong harga—tapi…", "Dua kartu member ini sama-sama…—tapi…"). Penonton seri yang menonton berurutan mengenali cetakannya; hook berhenti mengejutkan.
+1. **Rotasi 5 arketipe hook (nama tetap, sama dengan K1–K5 `§H`):** 1. Bom di Bawah Meja · 2. Ketidaknyamanan Kontra-Intuitif · 3. Bukti Visual Mendahului Konteks · 4. Celah Ujung Lidah · 5. Titik Balik Hasil Ekstrem.
+2. **Penanda wajib di `stories/<slug>/README.md`:** `[HOOK: <nama arketipe>]` (contoh `[HOOK: Celah Ujung Lidah]`), bersama `[ENDING: …]` (`1-cerita…` §M7) dan `[SEGAR: <tahun> | klasik]`.
+3. **Dilarang** memakai arketipe hook yang sama pada **2 episode berurutan** (urutan = urutan tayang).
+4. **Dilarang mengulang pola kalimat pertama `"[X]—tapi [Y]"`** (engsel kontras "—tapi"/", tapi" di H1) antar-episode dalam satu batch: maksimal 1 episode per batch memakai engsel ini. Variasikan bentuk H1: angka hasil di depan (K5), artefak tanpa penjelasan (K3: "Struk ini mencetak dua harga untuk satu barang."), dua kondisi kembar tanpa kata sambung (K4: "Dua kartu. Delapan cap. Hasilnya beda jauh."), ancaman yang belum disadari (K1), atau intuisi yang langsung dibantah (K2).
+5. Cek sebelum script dikirim: `python3 kit/tools/lint_episode.py --batch <slug1> <slug2> <slug3> <slug4>` (urutan tayang). Error = perbaiki dulu; untuk #001–#012 hanya peringatan (log).

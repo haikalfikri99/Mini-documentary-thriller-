@@ -57,6 +57,17 @@ function crowd(u, t0, x0, y, n, gap, s, crossed = [], tX = 99, seed = 1, a = 1, 
     if (crossed.includes(i)) { stampAt('m_cross_s', u, tX + k * 0.1, bx, by - 6, 0, 0.42 * sc / s); k++; }
   }
 }
+// rows of ten for the Homonoff comparison (review v2): `lit` shoppers keep a bag (dark); the others fade to a pale ghost without a bag at tDim
+function crowdLit(u, t0, x0, y, nLit, tDim, seed = 1, a = 1, fromX = 800, n = 10, gap = 48, s = 0.75) {
+  const lit = new Set(Array.from({ length: nLit }, (_, k) => Math.floor((k + 0.5) * n / nLit)));
+  const f = tDim < 0 ? 1 : seg(u, tDim, tDim + 0.25);
+  for (let i = 0; i < n; i++) {
+    const sc = s * (0.92 + 0.12 * hash(i + 1, seed)), x = x0 + i * gap, yy = y + (1 - sc / s) * 60, te = t0 + i * 0.025;
+    const on = lit.has(i), al = on ? a : a * (1 - 0.78 * f);
+    putK((i + seed) % 3 === 1 ? 'sil_org2' : 'sil_org', slide(te, te + 0.22, x, yy, 0, fromX, 0, 0, 0.3), u, 700 + i * 3 + seed, { s: sc, a: al });
+    if (on || f < 1) putK('ic_kantong', slide(te, te + 0.22, x + 26 * sc, yy + 52 * sc, 4, fromX, 0, 0, 0.3), u, 701 + i * 3 + seed, { s: sc * 0.95, a: on ? a : a * (1 - f) });
+  }
+}
 const coinOn = (n, p, u, t0, id, s = 0.62, dx = 0) => putK(n, drop(t0 - 0.2, t0, p[0] + dx, p[1] - size(n)[1] * s / 2 + 8, 0, 300, 0.8), u, id, { s });
 
 const SHOTS = [
@@ -187,25 +198,25 @@ const SHOTS = [
     putK('tag_bonus5', slap(tb, 820, 960, 4), u, 133, { s: 0.85 });
     putK('koin5', drop(at(12, 'lima') - 0.2, at(12, 'lima'), 960, 800, 0, 500, 0.8), u, 134, { s: 0.6 });
   },
-  // 14 · Yang harus bayar, banyak yang berhenti pakai kantong.   left: the shopper hugging his groceries (no bag); his row: 2 of 5 stop
+  // 14 · Yang harus bayar, banyak yang berhenti pakai kantong.   left: the shopper hugging his groceries (no bag); his row of ten: only 3 keep a bag
   (u, T, d) => {
     const tb = at(13, 'berhenti');
     stage(u, d, { z0: 1.0, z1: 1.05, cx: 500, cx1: 470, cy: 720 }); bg(SET.split, u, true);
     putK('pembeli_kantong', slide(0, 0.22, 790, 577, 0, 700, 0, 0, -0.4), u, 141, { s: 0.75, a: 0.42 });
     putK('pembeli_peluk', slide(0, 0.2, 290, 438, 0, -700, 0, 0, 0.5), u, 140, { s: 0.5 });
     putK('tag_bayar5', slap(at(13, 'bayar'), 300, 770, -4), u, 142, { s: 0.75 });
-    crowd(u, 0.1, 100, 990, 5, 92, 1.0, [1, 3], tb, 2, 1, -700);
+    crowdLit(u, 0.1, 64, 990, 3, tb, 2, 1, -700);              // pay 5 cents: only 3 of 10 still take a bag
     putK('s_berhenti', slap(tb + 0.2, 300, 680, -3), u, 143, { s: 0.85 });
   },
-  // 15 · Yang dapat bonus? Tetap pakai kantong seperti biasa.   right: the same shopper walking with full bags; his row: all keep their bags
+  // 15 · Yang dapat bonus? Tetap pakai kantong seperti biasa.   right: the same shopper walking with full bags; his row of ten: 8 keep their bags
   (u, T, d) => {
     const tb = at(14, 'bonus'), tt = at(14, 'tetap');
     stage(u, d, { z0: 1.0, z1: 1.04, cx: 550, cx1: 575, cy: 720 }); bg(SET.split);
     put('pembeli_peluk', 290, 438, 0, 0, 1, 0.5, 0.45); put('tag_bayar5', 300, 770, -4, 0, 1, 0.75, 0.45);
-    crowd(u, -9, 100, 990, 5, 92, 1.0, [1, 3], -1, 2, 0.45);
+    crowdLit(u, -9, 64, 990, 3, -1, 2, 0.45);
     put('pembeli_kantong', 790, 577, 0, 0, 1, 0.75);
-    putK('tag_bonus5', slap(tb, 900, 330, 6), u, 150, { s: 0.7 });
-    crowd(u, 0.1, 620, 990, 5, 92, 1.0, [], 99, 3, 1, 700);
+    putK('tag_bonus5', slap(tb, 975, 225, 6), u, 150, { s: 0.55 });   // top corner, clear of his face (review v1)
+    crowdLit(u, 0.1, 586, 990, 8, -1, 3, 1, 700);             // bonus 5 cents: 8 of 10 keep taking bags
     stampAt('m_tick_s', u, tt, 1000, 860, 0, 0.8);
   },
   // 16 · Nilainya sama-sama lima sen.   (pause) the balance drops in level; a 5-cent coin on each pan; BAYAR | BONUS; SAMA-SAMA 5 SEN
@@ -258,6 +269,7 @@ const SHOTS = [
     arrow(u, tr + 0.05, tr + 0.35, [[p.L[0] - 150, p.L[1] - 160], [p.L[0] - 150, p.L[1] + 20]], { seed: 206, head: true, w: 9 });
     arrow(u, tu + 0.05, tu + 0.35, [[p.R[0] + 140, p.R[1] + 40], [p.R[0] + 140, p.R[1] - 120]], { seed: 207, head: true, w: 6, col: PAL.ink });
     putK('lbl_untung', slap(tu, p.R[0], p.R[1] - 140, 5), u, 205, { s: 0.62 });
+    putK('otak', slide(0.05, 0.27, 265, 285, -6, -700, 0, 0, 0.5), u, 208, { s: 0.92 });   // "Otak kita": a public-domain brain engraving (review v1)
   },
   // 21 · Lain kali, kalo yang biasanya gratis tiba-tiba berbayar,   back home: receipt + bag; GRATIS (green) gets crossed; Rp200 tag lands
   (u, T, d) => {
@@ -278,6 +290,7 @@ const SHOTS = [
     put('tag_rp200', p.L[0] + 40, p.L[1] - 30, 10, 0, 1, 0.45);
     coinOn('koin200', p.R, u, 0.05, 220, 0.55);
     putK('s_berat', slap(at(21, 'rasa'), 540, 205, -2), u, 221, { s: 0.9 });
+    putK('otak', slap(0.25, 880, 330, 8), u, 222, { s: 0.55 });   // the brain that does the weighing
   },
   // 23 · yang kamu hitung bukan uangnya, tapi rasa ruginya.   loop to frame 0: the bag + Rp200 tag; the coin crossed; RASA RUGI stamped
   (u, T, d) => {

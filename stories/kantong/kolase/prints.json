@@ -1,11 +1,43 @@
 {
- "kantong_hero": {"file": "ai_kantong_hero.jpg", "width": 600},
- "kasir_kantong": {"file": "ai_kasir_kantong.jpg", "width": 720},
- "koin_permen": {"file": "ai_koin_permen.jpg", "width": 820, "tint_map": "ai_koin_permen.tint.png"},
- "tolak_kantong": {"file": "ai_tolak_kantong.jpg", "width": 900},
- "toko_as": {"file": "ai_toko_as.jpg", "width": 820},
- "tas_kain": {"file": "ai_tas_kain.jpg", "width": 400},
- "pembeli_peluk": {"file": "ai_pembeli_peluk.jpg", "width": 520},
- "pembeli_kantong": {"file": "ai_pembeli_kantong.jpg", "width": 520},
- "koin_jatuh": {"file": "ai_koin_jatuh.jpg", "width": 760}
+ "kantong_hero": {
+  "file": "ai_kantong_hero.jpg",
+  "width": 600
+ },
+ "kasir_kantong": {
+  "file": "ai_kasir_kantong.jpg",
+  "width": 720
+ },
+ "koin_permen": {
+  "file": "ai_koin_permen.jpg",
+  "width": 820,
+  "tint_map": "ai_koin_permen.tint.png"
+ },
+ "tolak_kantong": {
+  "file": "ai_tolak_kantong.jpg",
+  "width": 900
+ },
+ "toko_as": {
+  "file": "ai_toko_as.jpg",
+  "width": 820
+ },
+ "tas_kain": {
+  "file": "ai_tas_kain.jpg",
+  "width": 400
+ },
+ "pembeli_peluk": {
+  "file": "ai_pembeli_peluk.jpg",
+  "width": 520
+ },
+ "pembeli_kantong": {
+  "file": "ai_pembeli_kantong.jpg",
+  "width": 520
+ },
+ "koin_jatuh": {
+  "file": "ai_koin_jatuh.jpg",
+  "width": 760
+ },
+ "otak": {
+  "file": "arsip_otak_gravir.jpg",
+  "width": 380
+ }
 }

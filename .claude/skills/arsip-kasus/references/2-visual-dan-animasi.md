@@ -78,3 +78,13 @@ Rincian + rekap kasus gagal: `kit/collage/template/flow_prompt_template.md` § "
 - Alat: `kit/collage/handtint.py ai/<label>.jpg tint/<label>.json` → `ai/<label>.tint.png`; `bk.cut(..., tint_map='ai_<label>.tint.png')` (salin png ke raw/ bersama jpg). Zona = poligon kasar 0..1; warna mengikuti garis gravir sendiri (wilayah tertutup), wilayah yang mayoritas di luar zona tetap polos.
 - Palet redup (cat air): roti #D8A35A · selada #8DAA5B · tomat #C9583F · keju #E9C24E · daging #7B4A2C. Jangan pakai merah stempel `#B3261E` / biru arsip untuk tint.
 - Gambar AI tetap diminta hitam-putih di Flow (konsisten, tanpa warna acak); warna ditambahkan di kode bila perlu.
+
+## §M. v6.1 Anti-monoton visual (18 Nov 2026, keputusan user; wajib #013+)
+1. **Rotasi tata letak panggung.** Pola dasar batch #009–#012 hampir selalu sama: blok warna di atas + dua lingkaran (amber/hijau) di sudut + subjek di tengah. Mulai #013, tiap episode wajib menyelingi pola itu dengan **minimal 3 dari 4 tata letak lain**, dan tidak boleh lebih dari **3 shot berurutan** dengan tata letak yang sama:
+   - **Kartu dokumen penuh** (lembar/struk/surat mengisi ±80% lebar, kamera menyusuri barisnya; latar warna hampir tak terlihat),
+   - **Grafik layar lebar** (satu grafik/tabel melebar penuh dengan anotasi, tanpa lingkaran sudut),
+   - **Split-screen** (dua panel berwarna kontras kiri-kanan atau atas-bawah untuk perbandingan, garis pemisah sobek),
+   - **Close-up makro** (satu detail benda memenuhi frame: angka di label, kotak di kartu, tombol).
+   Catat tata letak per shot di kolom "Kamera" `storyboard.json` (contoh "split-screen", "kartu penuh").
+2. **Label sumber pembeda negara.** Bila satu episode menggabungkan bukti lokal dan studi luar negeri, setiap bukti diberi strip kecil pembeda asal yang konsisten, misal **`DATA INDONESIA`** (biru arsip) vs **`EKSPERIMEN AS`** / **`STUDI INGGRIS`** (kertas netral), supaya penonton tidak mengira angka luar negeri adalah data Indonesia. Strip ini bukan strip sumber (nama penerbit tetap di deskripsi, `7-selera…` #82); cukup asal data + tahun bila perlu.
+3. Kepadatan tetap mengikuti `7-selera…` #82 (1 subjek + 2–4 elemen pendukung, frame tidak sepi) dan guardrail §J–§K.

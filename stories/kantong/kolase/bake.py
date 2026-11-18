@@ -29,6 +29,8 @@ def ai_to_raw():
     os.makedirs(bk.raw, exist_ok=True)
     for f in glob.glob(os.path.join(HERE, 'ai', '*.jpg')) + glob.glob(os.path.join(HERE, 'ai', '*.tint.png')):
         shutil.copy(f, os.path.join(bk.raw, 'ai_' + os.path.basename(f)))
+    for f in glob.glob(os.path.join(HERE, 'arsip', '*.jpg')):   # public-domain archive prints kept in the repo (cleaned crops)
+        shutil.copy(f, os.path.join(bk.raw, 'arsip_' + os.path.basename(f)))
 
 
 # ---------------- tags and coins ----------------

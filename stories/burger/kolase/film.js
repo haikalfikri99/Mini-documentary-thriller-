@@ -57,15 +57,15 @@ const SHOTS = [
     tags(u, 21, 930, 0.02);
     stampAt('m_eq', u, ts, 542, 935, 0, 0.9);
   },
-  // 03 · justru nggak laku.   the thick burger drains to black and white and shrinks under GAK LAKU; the thin one grows
+  // 03 · justru nggak laku.   the thick burger drains to black and white under GAK LAKU (same size, review v2); the thin one rises
   (u, T, d) => {
     const tn = at(2, 'nggak'), g = seg(u, tn - 0.35, tn + 0.15);
     stage(u, d, { z0: 1.0, z1: 1.07, cy: 800, shake: [[tn, 14]] }); bg(SET.hook);
     tags(u, 30, 930); put('m_eq', 542, 935, 0, 0, 1, 0.9);
-    const kT = [[0, PL[0], PL[1], -3, 0, 1, null, 0, PS], [tn - 0.35, PL[0], PL[1], -3, 0, 1, 'hold', 0, PS], [tn + 0.15, 290, 640, -6, 0, 1, 'io', 0, 0.42]];
+    const kT = [[0, PL[0], PL[1], -3, 0, 1, null, 0, PS], [tn - 0.35, PL[0], PL[1], -3, 0, 1, 'hold', 0, PS], [tn + 0.15, PL[0], PL[1] + 10, -5, 0, 1, 'io', 0, PS]];
     putK('burger_tebal', kT, u, 31, { a: 1 - g }); putK('burger_tebal_bw', kT, u, 31, { a: g });
-    putK('burger_tipis', [[0, PR[0], PR[1], 3, 0, 1, null, 0, PS], [tn - 0.35, PR[0], PR[1], 3, 0, 1, 'hold', 0, PS], [tn + 0.15, 750, 545, 2, 0, 1, 'back', -0.6, 0.62]], u, 32);
-    stampAt('st_gaklaku', u, tn + 0.05, 325, 660, -8, 0.62);
+    putK('burger_tipis', [[0, PR[0], PR[1], 3, 0, 1, null, 0, PS], [tn - 0.35, PR[0], PR[1], 3, 0, 1, 'hold', 0, PS], [tn + 0.15, PR[0], PR[1] - 40, 2, 0, 1, 'back', -0.6, PS * 1.04]], u, 32);
+    stampAt('st_gaklaku', u, tn + 0.05, PL[0] + 5, 640, -8, 0.62);
   },
   // 04 · Tahun delapan puluhan,   the ARSIP file opens; 1980-AN
   (u, T, d) => {
@@ -114,7 +114,7 @@ const SHOTS = [
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 820 }); bg(SET.test);
     putK('pencicip', [[0, 540, 590, 0, 0, 1, null, 0, 0.92], [0.25, 290, 640, -2, 0, 1, 'back', 0.6, 0.74]], u, 90);
     putK('kartu_rasa', slide(0.15, 0.4, 770, 560, 3, 700, 0, 0, -0.5), u, 91, { s: 0.82 });
-    stampAt('m_tick_s', u, tm, 625, 550, 0, 0.9);
+    stampAt('m_tick_s', u, tm, 630, 528, 0, 0.55);   // inside the 1/3 box (box centre ≈ 623, 536)
     put('burger_tipis', 830, 1005, 4, 0, 1, 0.25, 1 - 0.5 * seg(u, tm, tm + 0.3));
     putK('burger_tebal', [[0, 250, 1000, -4, 0, 1, null, 0, 0.25], [at(8, 'enak'), 250, 1000, -4, 0, 1, 'hold', 0, 0.25], [at(8, 'enak') + 0.25, 560, 975, 6, 0, 1, 'back', 0.8, 0.34]], u, 92);
   },
@@ -161,7 +161,7 @@ const SHOTS = [
     putK('lembar_wawancara', slide(0, 0.22, 540, 640, -2, 0, 900, 0, 0.5), u, 140, { s: 1.0 });
     putK('burger_tebal', slap(0.3, 760, 595, 4), u, 141, { s: 0.15 });
     putK('burger_tipis', slap(0.4, 760, 705, -3), u, 142, { s: 0.15 });
-    stampAt('m_tick_s', u, tg, 305, 735, 0, 0.9);
+    stampAt('m_tick_s', u, tg, 290, 720, 0, 0.6);    // inside the 1/4 box (box centre ≈ 283, 729)
     putK('pembeli_bingung', slide(tg + 0.2, tg + 0.4, 880, 950, 5, 500, 0, 0, -0.5), u, 143, { s: 0.32 });
   },
   // 15 · Lebih dari separuh orang   ten people: more than half turn red with a question mark; the bar passes the half mark

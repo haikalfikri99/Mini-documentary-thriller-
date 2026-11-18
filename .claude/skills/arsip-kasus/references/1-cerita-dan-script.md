@@ -231,6 +231,14 @@ Tabel dua kolom per baris-ketukan. **Kiri = Visual kolase** (arsip/dokumen/gerak
 | 18 | Aturan Kuda Troya | judul + frame 0 + H1 tanpa kata terlarang (kecuali slot uji), subjek benda/harga/aturan konkret |
 | 19 | ABT | tiap transisi segmen memakai TETAPI/ANEHNYA/MASALAHNYA atau AKIBATNYA/KARENA ITU; tanpa transisi daftar |
 | 20 | Zero-Citation lisan | tanpa sitasi akademik panjang di VO; atribusi pendek untuk klaim sensitif tetap ada |
-| 21 | Anti-Exit Words | kalimat penutup tidak diawali "Jadi/Kesimpulannya/Pada akhirnya/Nah itulah"; ≤ 2 kontras angka |
+| 21 | Anti-Exit Words | kalimat penutup tidak diawali "Jadi/Kesimpulannya/Pada akhirnya/Nah itulah" (+ v6.1 #013+: "Lain kali/Kalau kamu/Kalo kamu/Ingat ya", §M7); ≤ 2 kontras angka |
 | 22 | AV 2 kolom | tiap ketukan VO punya visual tertulis; hasil `line_starts.py` ±2–2,5 dtk/shot |
 Anggaran kata/durasi (cek #12) memakai tabel M1. Jawab juga: mesin cerita (1/2/3), mode durasi, arketipe hook K1–K5, arketipe penutup 1–5.
+
+### M7. v6.1 Anti-monoton penutup, ritme, dan kesegaran topik (18 Nov 2026, keputusan user; wajib #013+, `kit/tools/lint_episode.py`)
+**Kenapa:** tiga dari empat penutup batch #009–#012 dibuka "Lain kali, kalo…" (nada nasihat yang sama), keempat episode ada di sekitar 43–55 dtk tanpa satu pun Mode Ringkas, dan tiga dari empat topik berasal dari studi/kasus klasik (1980-an, 2006, 2016).
+1. **Rotasi 5 arketipe penutup (§M5):** 1. Reframing Sistemik · 2. Cermin Personal · 3. Dilema Abu-Abu · 4. Lingkar Naratif Mulus (**khusus Mode Ringkas**) · 5. Pemicu Dunia Nyata. Wajib penanda `[ENDING: <nama arketipe>]` di README episode; **dilarang arketipe penutup yang sama pada 2 episode berurutan**.
+2. **Daftar hitam pembuka kalimat terakhir (diperluas):** "Jadi", "Kesimpulannya", "Pada akhirnya", "Nah itulah" (sejak v6.0, selalu error) **+ "Lain kali", "Kalau kamu", "Kalo kamu", "Ingat ya"** (nada nasihat, v6.1). Berlaku untuk kalimat terakhir dan paragraf penutup. Ganti nasihat dengan pernyataan yang memanggil ulang objek (Reframing), pertanyaan tanpa menghakimi (Cermin), dua sisi (Dilema), atau benda yang pasti ditemui hari itu diucapkan sebagai fakta (Pemicu Dunia Nyata: "Label pecahan di rak minimarket dekat rumahmu dicetak dengan logika yang sama.").
+3. **Ritme selang-seling (menggantikan "maks 1 Mode Ringkas per batch" untuk #013+):** tiap batch 4 episode wajib memuat **Mode Ringkas (35–42 dtk, 85–105 kata)** dan **Mode Investigasi (48–55 dtk, 115–135 kata)** **secara selang-seling** menurut urutan tayang (R-I-R-I atau I-R-I-R). Episode di luar kedua rentang = peringatan; pangkas atau tambah, jangan biarkan di 43–47 dtk.
+4. **Filter kesegaran topik (#013+):** minimal **2 dari 4 episode per batch** berasal dari fenomena digital, antarmuka, kebijakan, atau studi perilaku **2020–2026** (penanda `[SEGAR: <tahun>]`), bukan contoh klasik buku teks (`[SEGAR: klasik]`). Studi klasik tetap boleh sebagai bukti di Segmen 2B bila pintu masuknya fenomena segar.
+5. Scorecard M6 #21 (Anti-Exit Words) memakai daftar hitam yang diperluas di atas; jalankan `python3 kit/tools/lint_episode.py --batch …` sebelum VO dan laporkan hasilnya bersama script.
