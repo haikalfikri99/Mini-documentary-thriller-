@@ -1,7 +1,6 @@
-Dua plakat di meja restoran, sama-sama berisi lima menu. Cuma satu yang mengubah isi pesanan.
-Label Terlaris sering muncul saat kamu pesan makanan. Kesannya, itu menu paling enak.
-Di Beijing, peneliti menguji tanda semacam ini di sebuah rantai restoran. Plakat pertama memuat lima menu terlaris, berurutan. Plakat kedua memuat lima menu contoh, tanpa peringkat.
-Hasilnya timpang. Menu di plakat terlaris dipesan sekitar tiga belas sampai dua puluh persen lebih banyak. Plakat contoh nyaris nggak berefek.
-Anehnya, tamu yang memesan menu terlaris juga lebih puas.
-Plakat contoh cuma menyebut nama. Plakat terlaris membawa kabar: banyak orang sudah memilih menu ini. Kabar itu kamu pakai sebagai tanda enak.
-Angka satu sampai lima di plakat pertama dihitung dari pesanan tamu lain. Menu Terlaris terakhir yang kamu pesan: pilihanmu, atau pilihan mereka?
+Satu label kecil di layar menu ini diam-diam ngarahin pesananmu.
+Pas buka aplikasi pesan makanan, mata kita otomatis ngelirik tanda Terlaris. Rasanya kayak jalan pintas paling aman buat nyari menu paling enak.
+Biar tahu seberapa kuat pengaruhnya, peneliti menguji tanda ini di jaringan restoran di Beijing. Sebagian meja dikasih daftar lima menu terlaris lengkap sama peringkatnya. Meja lain cuma dikasih daftar lima menu contoh tanpa peringkat.
+Hasilnya timpang. Pesanan menu berlabel terlaris naik tiga belas sampai dua puluh persen, sedangkan daftar contoh nyaris nggak ngaruh.
+Anehnya lagi, tamu yang pesan menu terlaris juga ngaku rasanya lebih enak.
+Otak kita memang malas menilai rasa dari nol, jadi kita nebeng pilihan orang banyak sebagai jaminan enak. Menu terlaris terakhir yang kamu pesan: murni seleramu, atau ikutan pilihan orang lain?

@@ -1,13 +1,12 @@
 # VO ARSIP KASUS #013 biayalayanan — ElevenLabs (Saos Cocol R86jddkroI9bJwXFfjsr, eleven_v4; dibuat MANUAL oleh user di web, 2 take)
-Teks bersih (untuk alignment/QA Whisper dan caption): `script_vo.txt` — jangan diubah untuk perbaikan lafal; perbaikan lafal hanya di prompt.
-Tag hanya di titik perubahan nada; `[pause]` = hening ±0,5–0,6 dtk sebelum pengungkapan (dipertahankan di `vo_tighten.py`). Ekor akhir ≤ 0,15 dtk (`vo_chain.py`). Target durasi take mentah: Mode Investigasi 48–55 dtk (estimasi 52–54 dtk); bila lebih, `atempo` ≤ 1,10.
-Pelafalan: "Rp" tidak ada; "seperlima" diucap utuh; cek "ojol" tidak ada; tanpa ejaan fonetik di take 1.
+**Naskah TERKUNCI user (18 Nov 2026); tidak ada kata yang boleh diubah.** Teks bersih (alignment/QA Whisper, caption): `script_vo.txt`. Tag `[...]` hanya arahan nada ElevenLabs (tidak diucapkan); `[pause]` = hening ±0,5–0,6 dtk sebelum pengungkapan. Ekor akhir ≤ 0,15 dtk (`vo_chain.py`). Target take mentah: Investigasi 48–55 dtk (estimasi 51–54 dtk); bila lebih, rapatkan jeda dulu, lalu `atempo` ≤ 1,10.
+**Pelafalan:** "Rp0" selalu ditulis dan diucap **"nol rupiah"**; "KK" (bila muncul) diucap **"ka-ka"**, bukan "kak-kak" / "K K" Inggris. Naskah ini tidak memuat "Rp0" maupun "KK". "checkout" dan "online" lafal Inggris; "Eh," diucap ringan dan singkat; "seperlima" utuh.
 
 ## Prompt (salin apa adanya ke ElevenLabs)
-[curious] Struk ini mencetak dua total untuk belanjaan yang sama.
-[warmly] Total pertama muncul saat kamu memilih barang. Total kedua baru muncul di halaman bayar. Wajar kalo kamu mikir: yang penting angka terakhirnya.
-[serious] Tahun ini, lembaga konsumen memperingatkan biaya aplikasi yang dibebankan ke pembeli. [mysteriously] Masalahnya, besar biaya cuma separuh cerita.
-[curious] Di Amerika, sebuah situs tiket membagi jutaan pembelinya secara acak. Separuh melihat harga plus biaya sejak awal. Separuh lagi baru melihat biayanya di halaman bayar.
-[pause] [slowly] Anehnya, kelompok kedua belanja sekitar seperlima lebih banyak. Tiket pilihan mereka pun lebih mahal.
-[serious] Harga pertama yang kamu lihat jadi patokan. Biaya yang datang belakangan nggak ikut masuk hitungan itu.
-[warmly] Nama baris kecil di struk tadi: biaya layanan. Baris itu juga ada di halaman bayar yang kamu buka hari ini. Pengaruhnya ada pada kapan dia muncul.
+[curious] Layar checkout aplikasi ini sengaja ngasih dua harga buat barang yang sama.
+[warmly] Pas masukin ke keranjang, harganya kelihatan murah. Eh, pas mau bayar, muncul baris kecil bernama biaya layanan yang naikin total belanja. [serious] Tahun ini, lembaga konsumen sampai ngingetin soal celah biaya aplikasi yang dibebanin ke pembeli.
+[mysteriously] Jebakannya bukan cuma di potongan receh itu.
+[curious] Peneliti di Amerika menguji jutaan pembeli tiket online. Separuh dikasih lihat harga plus biaya sejak awal. Separuh lagi baru dikasih lihat biayanya pas mau bayar.
+[pause] [slowly] Hasilnya jomplang. Kelompok kedua justru belanja seperlima lebih banyak dan beli tiket lebih mahal.
+[serious] Pas lihat harga murah di awal, otak kita udah terlanjur ngerasa cocok—biaya di akhir cuma dianggap selisih kecil.
+[warmly] Dua total di layar checkout tadi dipasang sengaja buat ngunci pilihanmu sebelum harga aslinya keluar.

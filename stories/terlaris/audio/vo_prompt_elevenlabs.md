@@ -1,13 +1,11 @@
 # VO ARSIP KASUS #015 terlaris — ElevenLabs (Saos Cocol R86jddkroI9bJwXFfjsr, eleven_v4; dibuat MANUAL oleh user di web, 2 take)
-Teks bersih (untuk alignment/QA Whisper dan caption): `script_vo.txt` — jangan diubah untuk perbaikan lafal; perbaikan lafal hanya di prompt.
-Tag hanya di titik perubahan nada; `[pause]` = hening ±0,5–0,6 dtk sebelum pengungkapan (dipertahankan di `vo_tighten.py`). Ekor akhir ≤ 0,15 dtk (`vo_chain.py`). Target durasi take mentah: Mode Investigasi 48–55 dtk (estimasi 52–54 dtk); bila lebih, `atempo` ≤ 1,10.
-Pelafalan: "tiga belas sampai dua puluh persen" diucap penuh; "Terlaris" tanpa penekanan berlebihan; tanpa ejaan fonetik di take 1.
+**Naskah TERKUNCI user (18 Nov 2026); tidak ada kata yang boleh diubah.** Teks bersih (alignment/QA Whisper, caption): `script_vo.txt`. Tag `[...]` hanya arahan nada ElevenLabs (tidak diucapkan); `[pause]` = hening ±0,5–0,6 dtk sebelum pengungkapan. Ekor akhir ≤ 0,15 dtk (`vo_chain.py`). Target take mentah: Investigasi 48–55 dtk (estimasi 51–54 dtk); bila lebih, rapatkan jeda dulu, lalu `atempo` ≤ 1,10.
+**Pelafalan:** "Rp0" selalu ditulis dan diucap **"nol rupiah"**; "KK" (bila muncul) diucap **"ka-ka"**, bukan "kak-kak" / "K K" Inggris. "Terlaris" tanpa penekanan berlebihan; "tiga belas sampai dua puluh persen" diucap penuh; naskah tidak memuat "Rp0" maupun "KK".
 
 ## Prompt (salin apa adanya ke ElevenLabs)
-[curious] Dua plakat di meja restoran, sama-sama berisi lima menu. Cuma satu yang mengubah isi pesanan.
-[warmly] Label Terlaris sering muncul saat kamu pesan makanan. Kesannya, itu menu paling enak.
-[curious] Di Beijing, peneliti menguji tanda semacam ini di sebuah rantai restoran. Plakat pertama memuat lima menu terlaris, berurutan. Plakat kedua memuat lima menu contoh, tanpa peringkat.
-[mysteriously] Hasilnya timpang. Menu di plakat terlaris dipesan sekitar tiga belas sampai dua puluh persen lebih banyak. Plakat contoh nyaris nggak berefek.
-[pause] [slowly] Anehnya, tamu yang memesan menu terlaris juga lebih puas.
-[serious] Plakat contoh cuma menyebut nama. Plakat terlaris membawa kabar: banyak orang sudah memilih menu ini. Kabar itu kamu pakai sebagai tanda enak.
-[warmly] Angka satu sampai lima di plakat pertama dihitung dari pesanan tamu lain. Menu Terlaris terakhir yang kamu pesan: pilihanmu, atau pilihan mereka?
+[curious] Satu label kecil di layar menu ini diam-diam ngarahin pesananmu.
+[warmly] Pas buka aplikasi pesan makanan, mata kita otomatis ngelirik tanda Terlaris. Rasanya kayak jalan pintas paling aman buat nyari menu paling enak.
+[curious] Biar tahu seberapa kuat pengaruhnya, peneliti menguji tanda ini di jaringan restoran di Beijing. Sebagian meja dikasih daftar lima menu terlaris lengkap sama peringkatnya. Meja lain cuma dikasih daftar lima menu contoh tanpa peringkat.
+[mysteriously] Hasilnya timpang. Pesanan menu berlabel terlaris naik tiga belas sampai dua puluh persen, sedangkan daftar contoh nyaris nggak ngaruh.
+[pause] [slowly] Anehnya lagi, tamu yang pesan menu terlaris juga ngaku rasanya lebih enak.
+[serious] Otak kita memang malas menilai rasa dari nol, jadi kita nebeng pilihan orang banyak sebagai jaminan enak. [warmly] Menu terlaris terakhir yang kamu pesan: murni seleramu, atau ikutan pilihan orang lain?

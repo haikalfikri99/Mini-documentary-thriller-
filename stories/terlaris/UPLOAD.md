@@ -3,7 +3,7 @@
 
 ## 1. Judul (≤ 55 karakter; Kuda Troya: tanpa psikologi/bias/kenapa/tapi/padahal/ternyata/?)
 ```
-Dua Plakat Menu, Cuma Satu yang Bikin Pesanan Naik
+Satu Label Terlaris Ini Mengubah Isi Pesananmu
 ```
 
 ## 2. Deskripsi (2–3 kalimat pembuka kaya kata kunci alami; lalu Sumber + kredit)

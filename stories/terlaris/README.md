@@ -1,6 +1,6 @@
 # ARSIP KASUS #015: Label Terlaris / Best Seller di menu dan aplikasi makanan
-**Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), **DISETUJUI LANJUT user 18 Nov 2026 (tag [SEGAR: 2025] diterima)**, SKRIP v1 DITULIS 18 Nov 2026 (menunggu review user sebelum rekam VO) · **Model skrip:** Opus + effort high
-[HOOK: Celah Ujung Lidah] [ENDING: Cermin Personal] [SEGAR: 2025] [MODE: Investigasi] [ARTEFAK: dua plakat meja berdampingan, satu berjudul 5 TERLARIS dengan angka 1–5 (generik, tanpa logo)] [LOOP: angka kecil 1–5 di plakat TERLARIS → dihitung dari pesanan tamu lain @45] [LABEL: DATA INDONESIA + EKSPERIMEN BEIJING]
+**Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), **DISETUJUI LANJUT user 18 Nov 2026 (tag [SEGAR: 2025] diterima)**, **NASKAH FINAL TERKUNCI USER 18 Nov 2026** (menggantikan skrip v1 Claude; tidak boleh diubah) · **Model skrip:** Opus + effort high
+[HOOK: Bukti Visual Mendahului Konteks] [ENDING: Cermin Personal] [SEGAR: 2025] [MODE: Investigasi] [ARTEFAK: kartu menu aplikasi pesan makanan generik dengan lencana TERLARIS (tanpa logo)] [LOOP: lencana TERLARIS di kartu menu Frame 0 → pilihan orang banyak yang ditebeng sebagai jaminan enak @49] [LABEL: DATA INDONESIA + EKSPERIMEN BEIJING]
 
 ## Klasifikasi (v6.1)
 | Kolom | Isi |
@@ -37,7 +37,6 @@
 
 ## Tangga bukti (rencana)
 Asumsi awal (Terlaris = pasti enak) → Jangkar lokal (label Terlaris di aplikasi/marketplace; kriteria belum terverifikasi) → Eksperimen kontrol (Beijing: ranking vs contoh) → Pembalikan otak (kepuasan naik pada Top-5, tidak pada plakat contoh).
-**Final (skrip v1):** Asumsi awal 0–12 dtk (Terlaris = paling enak) → Jangkar lokal 6–12 dtk (label Terlaris di pesan-antar; strip `DATA INDONESIA` hanya ilustrasi label generik, kriteria platform tidak diucapkan) → Eksperimen kontrol 12–23 dtk (`EKSPERIMEN BEIJING · 2006`, plakat Top-5 vs contoh) → Pembalikan otak 23–36 dtk ("Hasilnya timpang" @23; hening `[pause]` + ANEHNYA @32: lebih puas) → mekanisme 36–45 → Curtain-pull @45–54.
 
 ## Uji POV penonton
 1. Siapa melawan siapa? Pemesan melawan sinyal popularitas yang tak terlihat.
@@ -72,55 +71,26 @@ Asumsi awal (Terlaris = pasti enak) → Jangkar lokal (label Terlaris di aplikas
 Atribusi pendek bila menyebut platform; tahun 2006 + "Beijing" di layar; "tidak disponsori"; tanpa logo.
 
 ## Judul & penguncian 3-titik (0,0–4,0 dtk) — Aturan Kuda Troya (tanpa psikologi/bias/kenapa/padahal/tapi/ternyata/? di judul dan frame 0, kecuali slot uji)
-**Judul (final usul):** `Dua Plakat Menu, Cuma Satu yang Bikin Pesanan Naik` · 50 karakter (≤ 55)
-Frame 0 (hero ≥ 45% lebar ≈ ≥ 486 px di y 150–1150 + hantaman stempel/label ≤ 0,25 dtk; barang bukti fisik, bukan kartun orang berpikir): Dua plakat meja akrilik generik berdampingan (gabungan ≥ 486 px, y 150–1150): kiri berjudul **5 TERLARIS** dengan angka kecil 1–5 di samping tiap menu; kanan berjudul **5 MENU KAMI** tanpa angka; stempel merah "TERLARIS" ≤ 0,25 dtk di plakat kiri; teks layar ≤ 5 kata: **DUA PLAKAT, LIMA MENU**. Detail loop: angka kecil 1–5, tidak disorot.
-Kalimat H1 (selesai ≤ 4,0 dtk, ≤ 14 kata, kata tunjuk visual bila merujuk objek di layar): "Dua plakat di meja restoran, sama-sama berisi lima menu." (9 kata, ±3,7 dtk; dua kondisi kembar tanpa kata sambung = K4; tanpa "tapi", tanpa "?")
+**Judul (final, TERKUNCI user):** `Satu Label Terlaris Ini Mengubah Isi Pesananmu` · 46 karakter (≤ 55)
+Frame 0 (hero ≥ 45% lebar ≈ ≥ 486 px di y 150–1150 + hantaman stempel/label ≤ 0,25 dtk; barang bukti fisik): Kartu menu aplikasi pesan makanan generik (tanpa logo/nama platform) ≥ 486 px di y 150–1150 dengan lencana merah **TERLARIS**; strip kecil **ILUSTRASI**; stempel merah "TERLARIS" ≤ 0,25 dtk; teks layar ≤ 5 kata: **SATU LABEL KECIL**. Detail loop: bayangan samar banyak tangan di belakang lencana, tidak disorot.
+Kalimat H1 (TERKUNCI): "Satu label kecil di layar menu ini diam-diam ngarahin pesananmu." (10 kata, ±4,1 dtk estimasi; cek ulang ≤ 4,0 dtk di `vo_words.json`)
 
-## Skrip AV 2 kolom (final v1, 18 Nov 2026; `1-cerita…` §M4)
-Tempo VO 2,50–2,66 kata/dtk, atempo ≤ 1,10. Notasi: `/` jeda ≈ 0,25 dtk · `//` hening ≈ 0,6 dtk · `KAPITAL` penekanan (satu per video) · `[perlambat: teks]` · `(intonasi)`. Waktu = estimasi 2,58 kata/dtk; dikunci ulang dari `vo_words.json` setelah VO.
-| # | Waktu (estimasi) | Visual kolase (arsip / dokumen / gerak) | Audio: VO word-for-word + notasi + SFX |
+## Skrip AV 2 kolom (NASKAH FINAL TERKUNCI user, 18 Nov 2026; `1-cerita…` §M4)
+Kolom audio memuat VO persis seperti `audio/script_vo.txt` (127 kata); notasi studio tidak disisipkan ke dalam kalimat agar teks terkunci tidak berubah: arahan (intonasi, `//` hening) dan SFX ditulis terpisah sebelum "VO:". Waktu = estimasi 2,58 kata/dtk; dikunci ulang dari `vo_words.json` setelah VO.
+| # | Waktu (estimasi) | Visual kolase (arsip / dokumen / gerak) | Audio: VO word-for-word (TERKUNCI) + arahan + SFX |
 |---|---|---|---|
-| 1 | 0,0–6,3 | FRAME 0 (lihat atas). Plakat kiri berpendar sedikit; nampan pesanan meluncur ke arahnya. | (yakin) Dua plakat di meja restoran, sama-sama berisi lima menu. / Cuma SATU yang mengubah isi pesanan. · SFX: plakat diletakkan di meja + stempel 0,00 |
-| 2 | 6,3–12,2 | Ponsel generik: kartu menu bertanda TERLARIS (tanpa logo aplikasi). Strip `ILUSTRASI · label pesan-antar`. | Label Terlaris sering muncul saat kamu pesan makanan. / Kesannya, itu menu paling enak. · SFX: notifikasi |
-| 3 | 12,2–23,1 | Stempel `EKSPERIMEN BEIJING · 2006` (sumber kecil: Cai, Chen & Fang, AER 2009). Peta Beijing + dua plakat: kiri lima menu bernomor 1–5, kanan lima menu contoh tanpa nomor. | Di Beijing, peneliti menguji tanda semacam ini di sebuah rantai restoran. / Plakat pertama memuat lima menu terlaris, berurutan. / Plakat kedua memuat lima menu contoh, tanpa peringkat. · SFX: kertas dicap |
-| 4 | 23,1–32,0 | Grafik dua batang: kiri naik "+13–20%", kanan datar "≈ 0". Strip sumber kecil tetap. | (merendah) Hasilnya timpang. / Menu di plakat terlaris dipesan sekitar tiga belas sampai dua puluh persen lebih banyak. / Plakat contoh nyaris nggak berefek. · SFX: batang naik berderit |
-| 5 | 32,0–35,7 | Hening 0,6 dtk. Kartu ulasan tamu: senyum di sisi plakat kiri. | // [perlambat: Anehnya, tamu yang memesan menu terlaris juga lebih puas.] · SFX: satu denting rendah |
-| 6 | 35,7–45,0 | Plakat kanan: hanya nama menu. Plakat kiri: bayangan kerumunan pemesan di belakang tiap nomor; bayangan itu berubah jadi tanda centang "ENAK". | Plakat contoh cuma menyebut nama. / Plakat terlaris membawa kabar: banyak orang sudah memilih menu ini. / Kabar itu kamu pakai sebagai tanda enak. · SFX: gumam ruang makan |
-| 7 | 45,0–54,0 | CURTAIN-PULL: kembali ke plakat Frame 0, zoom ke angka kecil 1–5 (stempel merah melingkarinya); angka berubah jadi tumpukan struk pesanan tamu lain; terakhir: tangan penonton (POV) menunjuk menu bertanda TERLARIS dan berhenti. | Angka satu sampai lima di plakat pertama dihitung dari pesanan tamu lain. / (pelan, tanpa menghakimi) Menu Terlaris terakhir yang kamu pesan: / pilihanmu, / atau pilihan mereka? · SFX: sendok diletakkan; ekor ≤ 0,15 dtk |
+| 1 | 0,0–4,1 | FRAME 0 (lihat atas). Jari pengguna tertarik ke lencana. | (yakin) · SFX: notifikasi + stempel 0,00 · VO: Satu label kecil di layar menu ini diam-diam ngarahin pesananmu. |
+| 2 | 4,1–13,2 | Daftar menu aplikasi generik; mata (ikon) melompat ke lencana TERLARIS; panah "jalan pintas" melengkung ke satu menu. | SFX: gulir layar · VO: Pas buka aplikasi pesan makanan, mata kita otomatis ngelirik tanda Terlaris. / Rasanya kayak jalan pintas paling aman buat nyari menu paling enak. |
+| 3 | 13,2–27,1 | Transisi ke meja restoran. Stempel `EKSPERIMEN BEIJING · 2006` (sumber kecil: Cai, Chen & Fang, AER 2009). Plakat kiri: lima menu terlaris bernomor 1–5; plakat kanan: lima menu contoh tanpa nomor. | SFX: plakat diletakkan di meja · VO: Biar tahu seberapa kuat pengaruhnya, peneliti menguji tanda ini di jaringan restoran di Beijing. / Sebagian meja dikasih daftar lima menu terlaris lengkap sama peringkatnya. / Meja lain cuma dikasih daftar lima menu contoh tanpa peringkat. |
+| 4 | 27,1–34,9 | Grafik dua batang: kiri naik "+13–20%", kanan datar "≈ 0". | (merendah) · SFX: batang naik berderit · VO: Hasilnya timpang. / Pesanan menu berlabel terlaris naik tiga belas sampai dua puluh persen, sedangkan daftar contoh nyaris nggak ngaruh. |
+| 5 | 34,9–39,8 | Hening 0,6 dtk. Kartu ulasan tamu: wajah puas di sisi plakat kiri. | `//` sebelum "Anehnya lagi" · SFX: satu denting rendah · VO: Anehnya lagi, tamu yang pesan menu terlaris juga ngaku rasanya lebih enak. |
+| 6 | 39,8–46,7 | Siluet tamu menyalin pilihan kerumunan; lencana TERLARIS berubah jadi stempel "JAMINAN". | SFX: gumam ruang makan · VO: Otak kita memang malas menilai rasa dari nol, jadi kita nebeng pilihan orang banyak sebagai jaminan enak. |
+| 7 | 46,7–52,0 | CURTAIN-PULL: kembali ke kartu menu Frame 0; bayangan banyak tangan di belakang lencana menjadi jelas; jari penonton (POV) berhenti di atas tombol pesan. | (pelan, tanpa menghakimi) · SFX: sendok diletakkan; ekor ≤ 0,15 dtk · VO: Menu terlaris terakhir yang kamu pesan: murni seleramu, atau ikutan pilihan orang lain? |
 
-VO bersih (tanpa notasi) → `audio/script_vo.txt` (128 kata); bertag ElevenLabs → `audio/vo_prompt_elevenlabs.md`.
-Penutup: 2 Cermin Personal: pertanyaan refleksi tanpa menghakimi; Curtain-pull pada angka 1–5 @45. Ekor audio ≤ 0,15 dtk.
-
-## Scorecard v6.0 (16 cek §F6 + cek 17–22 `1-cerita…` §M6 + gerbang H1–H7/R1–R6)
-| Cek | Hasil |
-|---|---|
-| 1 Konfirmasi judul | ✓ judul "Dua Plakat Menu…" = H1 |
-| 2 Celah | ✓ dua plakat mirip, hanya satu yang bekerja: yang mana dan kenapa? |
-| 3 Jawaban | ✓ @23–45 |
-| 4 Mekanisme | ✓ desain (peringkat) + psikologi (pilihan orang lain sebagai tanda kualitas) + uang/kepuasan |
-| 5 Tapi/maka | ✓ ANEHNYA (+ engsel "Hasilnya timpang") |
-| 6 Uji hapus | ✓ |
-| 7 Satu tokoh | ✓ plakat |
-| 8 Twist | ✓ @23–32 (±43–60%) |
-| 9 Akhir | ✓ Cermin Personal, zero-CTA |
-| 10 Faktual | ✓ abstrak AER: ranking Top-5 menaikkan permintaan, plakat contoh tidak signifikan, kepuasan naik pada Top-5; 13–20% (ABSTRAK DIBACA). Tidak diucapkan: tanggal, nama restoran, 3 kondisi, "minggu lalu", "information cascade", kriteria label platform |
-| 11 Bahasa | ✓ |
-| 12 Durasi | ✓ 128 kata; estimasi 52–54 dtk |
-| 13 Bisu / 15 POV | ✓ "mereka" merujuk "tamu lain" di kalimat sebelumnya |
-| 14 Visual | ✓ |
-| 16 Kemasan aman | ✓ tanpa platform; label generik ditandai ILUSTRASI; tahun di layar |
-| 17 Replikasi | ✓ satu sampel, replikasi langsung tidak ditemukan (dicatat) |
-| 18 Kuda Troya | ✓ |
-| 19 ABT | ✓ |
-| 20 Zero-Citation | ✓ "peneliti" tanpa nama/jurnal di VO |
-| 21 Anti-Exit | ✓ kalimat akhir "Menu Terlaris terakhir…"; 1 kontras angka (13–20%) |
-| 22 AV 2 kolom | ✓ 7 ketukan |
-| H1–H7 | H1 ±3,7 dtk · H2 "Dua plakat" · H3 tanpa jeda · H4 stempel · H5 4 kata · H6 plakat diletakkan 0,00 · H7 Beijing = tempat (boleh), tanpa tahun |
-| R1–R6 | R1 mana yang bekerja → hasil → kenapa → asal angka · R3 rehook @12, @23, @32 · R5 ±53 dtk |
-Linter: `python3 kit/tools/lint_episode.py --batch biayalayanan ongkir terlaris zonasi` → lihat Catatan lanjut.
+VO bersih → `audio/script_vo.txt`; bertag ElevenLabs → `audio/vo_prompt_elevenlabs.md`.
+Penutup: 2 Cermin Personal: pertanyaan refleksi; Curtain-pull atas lencana TERLARIS Frame 0 @49. Ekor audio ≤ 0,15 dtk.
 
 ## Catatan lanjut
-- Skrip v1 ditulis 18 Nov 2026 (sesi Opus); menunggu review user sebelum rekam ElevenLabs.
+- **18 Nov 2026: naskah final TERKUNCI user** menggantikan skrip v1 (commit c17b583). Scorecard v1 dihapus karena tidak lagi mewakili teks; catatan risiko fakta untuk teks terkunci disampaikan ke user di chat (tidak mengubah teks, `7-selera` #63).
 - **Penanda ARTEFAK/LOOP disesuaikan:** dua menu identik (ilustrasi) diganti dua plakat meja agar Frame 0 sesuai desain studi (plakat Top-5 vs plakat contoh); loop "dihitung dari pesanan minggu lalu" diganti "angka 1–5 dihitung dari pesanan tamu lain" karena "minggu lalu" hanya dari liputan media (CUPLIKAN).
 - Klaim kepuasan naik pada Top-5 bersumber abstrak (ABSTRAK DIBACA). Sebelum VO: bila PDF/versi jurnal bisa dibaca, cek ulang angka 13–20% dan klaim kepuasan.
-- Linter 18 Nov 2026 (`lint_episode.py --batch biayalayanan ongkir terlaris zonasi`): **0 error**, batch ok (hook/penutup/mode selang-seling, kesegaran, nol pola "—tapi"); 1 peringatan = `UPLOAD.md` masih kerangka (hanya judul yang diisi). Audit manual: nol pembuka terlarang di semua klausa, nol "tapi", nol kata Kuda Troya di VO, nol "bukan X tapi Y".

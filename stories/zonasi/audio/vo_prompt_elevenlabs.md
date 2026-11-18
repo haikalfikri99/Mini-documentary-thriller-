@@ -1,11 +1,10 @@
 # VO ARSIP KASUS #016 zonasi — ElevenLabs (Saos Cocol R86jddkroI9bJwXFfjsr, eleven_v4; dibuat MANUAL oleh user di web, 2 take)
-Teks bersih (untuk alignment/QA Whisper dan caption): `script_vo.txt` — jangan diubah untuk perbaikan lafal; perbaikan lafal hanya di prompt.
-Tag hanya di titik perubahan nada; `[pause]` = hening ±0,5–0,6 dtk sebelum pengungkapan (dipertahankan di `vo_tighten.py`). Ekor akhir ≤ 0,15 dtk (`vo_chain.py`). Target durasi take mentah: Mode Ringkas 35–42 dtk (estimasi 40–42 dtk); bila lebih, `atempo` ≤ 1,10.
-Pelafalan: "KK" diucap **"ka-ka"** (tulis "ka-ka" di prompt bila take 1 salah baca); "Ombudsman" lafal Indonesia; "sebelas" diucap penuh.
+**Naskah TERKUNCI user (18 Nov 2026); tidak ada kata yang boleh diubah.** Teks bersih (alignment/QA Whisper, caption): `script_vo.txt`. Tag `[...]` hanya arahan nada ElevenLabs (tidak diucapkan); `[pause]` = hening ±0,5–0,6 dtk sebelum pengungkapan. Ekor akhir ≤ 0,15 dtk (`vo_chain.py`). Target take mentah: Ringkas 35–42 dtk (estimasi 42–45 dtk: 105 kata = batas atas; lihat catatan); bila lebih, rapatkan jeda dulu, lalu `atempo` ≤ 1,10.
+**Pelafalan:** "Rp0" selalu ditulis dan diucap **"nol rupiah"**; "KK" (bila muncul) diucap **"ka-ka"**, bukan "kak-kak" / "K K" Inggris. Naskah menulis "Kartu Keluarga" lengkap (tanpa "KK"); panduan "ka-ka" berlaku bila singkatan muncul di take atau di teks layar yang dibacakan. "Ombudsman" lafal Indonesia; "sebelas" utuh.
 
 ## Prompt (salin apa adanya ke ElevenLabs)
-[serious] Baris kosong di Kartu Keluarga ini bisa menentukan sekolah anak.
-[warmly] Di jalur domisili sekolah negeri, alamat di KK ikut menentukan kursi. Tujuannya adil: yang tinggal dekat didahulukan. KK itu pun harus terbit minimal setahun sebelum pendaftaran.
-[mysteriously] Masalahnya, alamat di kertas jadi barang yang dicari. [serious] Di Yogyakarta, Ombudsman menemukan sebelas anak menumpang di dua KK. Tahun ini, tiga laporan serupa di sana terbukti.
-[pause] [slowly] Yang dinilai alamat di kertas. Karena itu, alamat di kertas yang diatur.
-[warmly] Baris kosong tadi kini terisi nama baru. Bisa jadi cucu yang memang diasuh neneknya. Bisa jadi alamat pinjaman. Di atas kertas, keduanya sama persis.
+[serious] Baris kosong di Kartu Keluarga ini bisa nentuin kursi sekolah anak.
+[warmly] Di jalur domisili sekolah negeri, alamat Kartu Keluarga jadi penentu. Biar nggak pindah dadakan, kartu ini wajib terbit minimal setahun sebelum pendaftaran.
+[mysteriously] Masalahnya, syarat setahun itu bikin alamat di kertas jadi barang buruan. [serious] Di Yogyakarta, Ombudsman pernah nemuin sebelas anak numpang di dua Kartu Keluarga. Tahun ini, tiga laporan serupa terbukti.
+[pause] [slowly] Aturannya dibaca kaku. Karena sistem cuma ngecek data tertulis, dokumen keluarga pun diatur biar jarak ke sekolah kelihatan dekat.
+[warmly] Baris yang tadinya kosong sekarang diisi nama baru. Bisa cucu yang tinggal sama neneknya, bisa juga alamat pinjaman. Di atas kertas, keduanya kelihatan sama.
