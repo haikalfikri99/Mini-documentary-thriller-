@@ -399,6 +399,23 @@ def slips():
     bk.ransom('r15', '1–5', 110, 3)
 
 
+def torn_copy(src, dst, seed):
+    """copy of a baked print with a torn paper edge (fibre fringe) instead of the straight crop edge"""
+    import collage_lib as cl
+    im = np.asarray(Image.open(os.path.join(bk.out, src + '.png')).convert('RGBA'), float)
+    rgb, a = im[..., :3], im[..., 3] / 255
+    P = int(30 * bk.B)
+    a = np.pad(a, P); inside = ndi.gaussian_filter((a > 0.5).astype(float), 1.0)
+    rgb = np.pad(rgb, ((P, P), (P, P), (0, 0)), mode='edge')
+    rgb = rgb * inside[..., None] + CARD[None, None, :] * 0.98 * (1 - inside[..., None])   # a cream paper border around the print
+    m = ndi.binary_dilation(a > 0.5, iterations=int(9 * bk.B))
+    body, fr = cl.torn(m, rough=7 * bk.B, seed=seed, amp=0.9)
+    alpha = np.maximum(body, fr * 0.92)
+    w_ = np.clip(fr * 0.92 - body, 0, 1) / np.maximum(alpha, 1e-6)
+    col = rgb * (1 - w_[..., None]) + CARD * 1.01 * w_[..., None]
+    bk.save(dst, col, alpha)
+
+
 if __name__ == '__main__':
     ai_to_raw()
     prev = os.path.join(bk.out, 'manifest.json')
@@ -410,6 +427,7 @@ if __name__ == '__main__':
                                     score_sheet(), tickets(), people())),
                   ('stamps', stamps), ('slips', slips), ('prints', lambda: bake_prints(bk, HERE))]:
         if want(g): fn(); print('baked', g)
+    if want('prints'): torn_copy('tangan', 'tangan_sobek', 1901)   # the hands print over the menu (S01 ghost, S17 reveal): torn paper edge
     # registration of the hero menu (badge row, the plate under the hand shadow)
     P = json.load(open(os.path.join(HERE, 'prints.json')))
     hp = P['menu_hero']

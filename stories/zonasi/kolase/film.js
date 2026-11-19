@@ -77,7 +77,7 @@ const SHOTS = [
     const KX = 240, KY = 1010, KS = 0.72, a = pt('kk_ikon', 'alamat', KX, KY, KS, -4), n = nearH();
     putK('kk_ikon', slide(0, 0.2, KX, KY, -4, -700, 0, 0, 0.5), u, 31, { s: KS });
     arrow(u, 0.25, 0.6, bow([a[0] + 110, a[1] - 20], [n[0] - 6, n[1] - 30], -0.25), { seed: 32, head: true, w: 6 });
-    putK('pin', drop(0.45, 0.62, n[0], n[1] - 52, 0, 160, 0.5), u, 33, { s: 1.1 });
+    putK('pin', drop(0.45, 0.62, n[0] - 6, n[1] - 24, 0, 160, 0.5), u, 33, { s: 0.9 });   // tip on the house icon, clear of the SEKOLAH label
     const sc = school();
     putK('kursi_sekolah', slap(at(2, 'kursi'), 860, 300, 4), u, 34, { s: 0.68 });
     route(u, at(2, 'kursi') + 0.05, at(2, 'kursi') + 0.4, bow([sc[0] + 40, sc[1] - 60], [800, 420], 0.2), { seed: 35, col: PAL.ink, w: 4 });
@@ -96,11 +96,11 @@ const SHOTS = [
     const KS = 1.28, KX = 540, KY = 560, tg = pt('kk', 'tanggal', KX, KY, KS);
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 960 }); bg(SET.macro, u, true);
     putK('kk', slide(0, 0.2, KX, KY, 0, 0, -800, 0, 0.4), u, 50, { s: KS });
-    stampAt('m_circle', u, at(4, 'terbit'), tg[0] + 20, tg[1] + 4, 0, 0.78);
+    stampAt('m_circle', u, at(4, 'terbit'), tg[0] + 20, tg[1] - 2, 0, 0.68);
     const GX = 540, GY = 1005, GS = 0.95, A = pt('garis', 'a', GX, GY, GS), B = pt('garis', 'b', GX, GY, GS);
     putK('garis', slide(at(4, 'minimal') - 0.25, at(4, 'minimal'), GX, GY, 0, 900, 0, 0, -0.4), u, 51, { s: GS });
     arrow(u, at(4, 'setahun'), at(4, 'pendaftaran'), bow([A[0], A[1] - 34], [B[0], B[1] - 34], -0.12), { seed: 52, head: true, w: 8 });
-    stampAt('st_1tahun', u, at(4, 'setahun') + 0.35, 390, 735, -6, 0.62);
+    stampAt('st_1tahun', u, at(4, 'setahun') + 0.35, 372, 740, -4, 0.5);   // inside the Nama Lengkap column (bars only)
   },
   // 06 · Masalahnya,   hands from every side grab one sheet (red field); the KK small in the corner
   (u, T, d) => {
@@ -183,8 +183,8 @@ const SHOTS = [
     put('ic_rumah', f[0], f[1] - 20, 0, 0, 1, 1.4, 1 - 0.7 * fade);
     route(u, 0.25, 0.7, [[sc[0] - 20, sc[1] + 40], [f[0] + 30, f[1] - 30]], { seed: 131, col: PAL.red, w: 6 });
     putK('s_asli', slap(0.5, 300, 830, -4), u, 132, { s: 0.72, a: 1 - 0.5 * fade });
-    const pe = EASE.io(seg(stepT(u), tdi, tdi + 0.45)), px = lerp(f[0], n[0], pe), py = lerp(f[1] - 46, n[1] - 30, pe) - 60 * Math.sin(Math.PI * pe);
-    if (u < tdi) putK('pin', drop(0.1, 0.3, f[0], f[1] - 46, 0, 160, 0.5), u, 133, { s: 1.1 }); else put('pin', px, py, 0, 1.5 * Math.sin(Math.PI * pe), 1, 1.1);
+    const pe = EASE.io(seg(stepT(u), tdi, tdi + 0.45)), px = lerp(f[0], n[0] - 6, pe), py = lerp(f[1] - 46, n[1] - 24, pe) - 60 * Math.sin(Math.PI * pe);
+    if (u < tdi) putK('pin', drop(0.1, 0.3, f[0], f[1] - 46, 0, 160, 0.5), u, 133, { s: 0.9 }); else put('pin', px, py, 0, 1.5 * Math.sin(Math.PI * pe), 1, 0.9);
     putK('kk_ikon', slap(0.2, 215, 255, -6), u, 134, { s: 0.58 });
     route(u, tj, tj + 0.4, [[n[0] + 10, n[1] - 30], [sc[0] - 30, sc[1] + 20]], { seed: 135, col: PAL.ink, w: 7 });
     putK('s_dikk', slap(tk - 0.3, 800, 1010, 4), u, 136, { s: 0.75 });
@@ -194,12 +194,12 @@ const SHOTS = [
   (u, T, d) => {
     const KS = 1.2, KX = 540, KY = 560, td = at(13, 'diisi'), tb = at(13, 'baru');
     const [nx, ny] = pt('kk', 'row5', KX, KY, KS), [cx, cy] = pt('kk', 'row5_rel', KX, KY, KS);
-    stage(u, d, { z0: 1.0, z1: 1.1, cy: 790, cy1: 900 }); bg(SET.macro, u, true);
+    stage(u, d, { z0: 1.0, z1: 1.06, cy: 790, cy1: 890 }); bg(SET.macro, u, true);
     putK('kk', slide(0, 0.18, KX, KY, 0, 0, -900, 0, 0.4), u, 140, { s: KS });
     const NW = SP.nm_baru.img.width / SP.nm_baru.k, CW = SP.nm_cucu.img.width / SP.nm_cucu.k;
     stampAt('m_circle', u, 0.2, nx + NW / 2 + 4, ny, 0, 0.7);
     typed('nm_baru', u, td, 9, nx + NW / 2 + 4, ny, 0);
-    typed('nm_cucu', u, tb, 10, cx + CW / 2, cy, 0);
+    typed('nm_cucu', u, tb - 0.15, 16, cx + CW / 2, cy, 0);   // complete well before the 85% keyframe
     // mirrored cut (a left hand): tip offset -159, +145 from the hand centre, so the hand never covers the new name; then it lifts away
     const w1 = seg(stepT(u), td, td + 4 / 9), tip = [nx + 8 + NW * w1, ny + 14], hx = tip[0] + 159, hy = tip[1] - 145;
     if (u < td) putK('tangan_tulis_m', slide(td - 0.3, td, hx, hy, 0, 600, 300, 0, -0.3), u, 141, { s: 1.0 });

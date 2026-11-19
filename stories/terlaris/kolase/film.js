@@ -39,7 +39,7 @@ function heroPage(u, enter = false, ghostA = 0.16, ghostS = 0.42, badgeT = 0.12,
   else put('menu_hero', MH.x, MH.y, -1.5, 0, 1, MH.s);
   // ghost of many hands, centred on the plate = under the rosette
   const tp = M._tangan.plate;
-  put('tangan', bx - tp[0] * ghostS, by + 40 - tp[1] * ghostS, 0, 0, 1, ghostS, ghostA);
+  put('tangan_sobek', bx - tp[0] * ghostS, by + 40 - tp[1] * ghostS, 0, 0, 1, ghostS, ghostA);
   if (badgeT < 0) put('lencana', bx, by, 8, 0, 1, 0.72); else putK('lencana', slap(badgeT, bx, by, 8, -20, -40), u, id + 1, { s: 0.72 });
   return [bx, by];
 }
@@ -197,7 +197,6 @@ const SHOTS = [
     put('grafik', G[0], G[1], -1, 0, 1, GS); bars(G, GS, 13, 20, 0.4);
     put('s_beijing', 760, 255, 2, 0, 1, 0.7); put('s_range', 640, 450, -4, 0, 1, 0.85);
     putK('s_nol', slap(tn, 790, 690, 3), u, 121, { s: 0.85 });
-    stampAt('m_eq', u, at(11, 'ngaruh'), 920, 820, 0, 0.6);
   },
   // 13 · Anehnya lagi,   (pause) CLOSE-UP: the guest questionnaire slides in; boxes still empty; "?"
   (u, T, d) => {
@@ -243,7 +242,7 @@ const SHOTS = [
     stage(u, d, { z0: 1.0, z1: 1.32, cx: 540, cx1: bx + 40, cy: 890, cy1: by + 230 }); bg(SET.hook, u, true);
     put('menu_hero', MH.x, MH.y, -1.5, 0, 1, MH.s);
     const tp = M._tangan.plate, gs = 0.42 + 0.18 * e;
-    put('tangan', bx - tp[0] * gs, by + 40 - tp[1] * gs, 0, 0, 1, gs, 0.16 + 0.84 * e);
+    put('tangan_sobek', bx - tp[0] * gs, by + 40 - tp[1] * gs, 0, 0, 1, gs, 0.16 + 0.84 * e);
     put('lencana', bx, by, 8, 0, 1, 0.72);
   },
   // 18 · murni seleramu, atau ikutan pilihan orang lain?   SPLIT-SCREEN: left the diner's own finger on his menu (seleramu), right the

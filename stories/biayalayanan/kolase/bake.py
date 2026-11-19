@@ -5,7 +5,7 @@ phone screen of ai/hp_checkout.jpg (measured on the baked cut-out, rotation and 
 screen exactly on the phone), the ink-only screen rows that appear live (biaya layanan, rolling total), price tags, the press
 clipping (YLKI quote verbatim, recreated without any media logo), ticket stubs, the two-bar chart frame (no invented numbers:
 only "+ seperlima"), data-origin labels DATA INDONESIA / EKSPERIMEN AS, stamps and slips. Rupiah figures are ILUSTRASI
-(Rp50.000 → Rp58.000 ≈ the study's ±15% fee); the US screens carry no currency figures. No logos, no app names."""
+(Rp50.000 + Rp10.000 = Rp60.000, ±20%, changed by the user 19 Nov 2026); US screens: illustrative $100 + $15 = $115. No logos, no app names."""
 import os, sys, json, shutil, glob, math
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
@@ -142,13 +142,13 @@ def screens():
     # the small grey row (loop detail; still ≥ 8.5 % width) and the total values: separate ink, they appear live
     fr = F(8.5)
     img = Image.new('L', (int(88 * U * B) + 20, int(13 * U * B) + 20), 0); dd = ImageDraw.Draw(img)
-    dd.text((10, 6), 'Biaya layanan', font=fr, fill=255); t = 'Rp8.000'; dd.text((10 + 88 * U * B - fr.getlength(t), 6), t, font=fr, fill=255)
+    dd.text((10, 6), 'Biaya layanan', font=fr, fill=255); t = 'Rp10.000'; dd.text((10 + 88 * U * B - fr.getlength(t), 6), t, font=fr, fill=255)
     bk.save('sx_biaya', (GREY * 0.8)[None, None, :], np.asarray(img, float) / 255 * 0.95, ink=1)
     rows['b_biaya'] = [0, round(sh * 0.49 - sh / 2, 1)]
-    for v in ['50.000', '52.000', '55.000', '58.000']:
+    for v in ['50.000', '53.000', '57.000', '60.000']:
         inktext('sx_t' + v[:2], 'Rp' + v, F_OSW, 17 * U, INK)
-    inktext('sx_t58r', 'Rp58.000', F_OSW, 17 * U, RED)
-    tw = F(17).getlength('Rp58.000') / B
+    inktext('sx_t60r', 'Rp60.000', F_OSW, 17 * U, RED)
+    tw = F(17).getlength('Rp60.000') / B
     rows['b_total'] = [round(94 * U - tw / 2 - sw / 2, 1), round(sh * 0.715 - sh / 2, 1)]
 
     # MINI screens for phones drawn small (scale 0.55–0.7): title, one big price, ruled lines, button
@@ -304,8 +304,8 @@ if __name__ == '__main__':
     for g, fn in [('signature', lambda: bake_signature(bk, '#%03d' % EP['no'], 'BIAYA LAYANAN · 2026')),
                   ('prints', prints_and_measure), ('screens', screens),
                   ('docs', lambda: (tag('tag_50', ['Rp50.000'], TAGP, [INK], 1701, w=330, h=140, sizes=(54, 36)),
-                                    tag('tag_8', ['+Rp8.000'], CARD, [RED], 1702, w=330, h=140, sizes=(54, 36)),
-                                    tag('tag_58', ['Rp58.000'], CARD, [RED], 1703, w=330, h=140, sizes=(54, 36)),
+                                    tag('tag_10', ['+Rp10.000'], CARD, [RED], 1702, w=380, h=140, sizes=(54, 36)),
+                                    tag('tag_60', ['Rp60.000'], CARD, [RED], 1703, w=330, h=140, sizes=(54, 36)),
                                     clipping(), tickets(), chart())),
                   ('stamps', stamps), ('slips', slips)]:
         if want(g): fn(); print('baked', g)

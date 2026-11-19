@@ -169,7 +169,7 @@ const SHOTS = [
     stage(u, d, { z0: 1.05, z1: 1.12, cy: 820, shake: [[tr, 12]] }); bg(SET.macro, u, true);
     putK('paket_retur', slide(0, 0.18, 540, 640, -2, 0, -900, 0, 0.5), u, 130, { s: 1.15 });
     stampAt('st_retur', u, tr, 520, 920, -8, 0.78);
-    arrow(u, tn - 0.15, tn + 0.15, [[900, 1000], [905, 780], [900, 560]], { seed: 131, head: true, w: 12 });
+    arrow(u, tn - 0.35, tn - 0.05, [[985, 1000], [990, 780], [985, 600]], { seed: 131, head: true, w: 16 });   // head shows from tn (keyframe)
     putK('lbl_eu', slap(0.05, 320, 260, -3), u, 132, { s: 0.85 });
     putK('s_balik', slap(0.25, 760, 300, 4), u, 133, { s: 0.8 });
   },
@@ -217,15 +217,15 @@ const SHOTS = [
       return;
     }
     stage(u - tb, d - tb, { z0: 1.0, z1: 1.05, cy: 860, shake: [[0, 10]] }); bg(SET.room, u - tb, true);
-    putK('kamar_pas', drop(tb - 0.01, tb + 0.12, 540, 620, 0, 600, 0.6), u, 170, { s: 1.12 });
-    putK('stk_rp0', slap(tc - 0.2, 560, 330, -6), u, 171, { s: 0.6 });
-    putK('paket_tumpuk', slide(tb + 0.1, tb + 0.3, 170, 900, -4, -600, 0, 0, 0.5), u, 172, { s: 0.38 });
-    putK('paket_retur', slide(tb + 0.15, tb + 0.35, 910, 900, 4, 600, 0, 0, -0.5), u, 173, { s: 0.38 });
-    route(u, tb + 0.3, tb + 0.7, bow([230, 820], [400, 640], -0.3), { seed: 174, col: PAL.ink, w: 5 });
-    route(u, tb + 0.6, tb + 1.0, bow([680, 640], [860, 820], -0.3), { seed: 175, col: PAL.red, w: 5 });
-    putK('s_dikirim', slap(tb + 0.35, 190, 970, -3), u, 176, { s: 0.9 });
-    putK('s_balik', slap(tb + 0.65, 880, 970, 3), u, 177, { s: 0.9 });
-    stampAt('st_coba', u, tg, 520, 1075, -4, 0.75);
+    putK('kamar_pas', drop(tb - 0.01, tb + 0.12, 540, 550, 0, 600, 0.6), u, 170, { s: 1.12 });
+    putK('stk_rp0', slap(tc - 0.2, 560, 260, -6), u, 171, { s: 0.6 });
+    putK('paket_tumpuk', slide(tb + 0.1, tb + 0.3, 170, 830, -4, -600, 0, 0, 0.5), u, 172, { s: 0.38 });
+    putK('paket_retur', slide(tb + 0.15, tb + 0.35, 910, 830, 4, 600, 0, 0, -0.5), u, 173, { s: 0.38 });
+    route(u, tb + 0.3, tb + 0.7, bow([230, 750], [400, 570], -0.3), { seed: 174, col: PAL.ink, w: 5 });
+    route(u, tb + 0.6, tb + 1.0, bow([680, 570], [860, 750], -0.3), { seed: 175, col: PAL.red, w: 5 });
+    putK('s_dikirim', slap(tb + 0.35, 190, 900, -3), u, 176, { s: 0.9 });
+    putK('s_balik', slap(tb + 0.65, 880, 900, 3), u, 177, { s: 0.9 });
+    stampAt('st_coba', u, tg, 520, 1005, -4, 0.75);
   },
 ];
 

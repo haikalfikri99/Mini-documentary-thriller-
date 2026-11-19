@@ -96,7 +96,7 @@
   },
   {
    "vo": "sedangkan daftar contoh nyaris nggak ngaruh.",
-   "aksi": "Batang daftar contoh hanya garis tipis di 0; slip ≈ 0 di \"nyaris\"; tanda = di \"ngaruh\".",
+   "aksi": "Batang daftar contoh hanya garis tipis di 0; slip ≈ 0 di \"nyaris\".",
    "kamera": "Grafik layar lebar, utuh di dalam frame (pan kecil 530→550, zoom 1,03).",
    "teks": "≈ 0 · +13–20% · EKSPERIMEN BEIJING · 2006",
    "gambar": "kode: grafik, batang, slip"
@@ -134,7 +134,7 @@
   {
    "beat": "Penutup (Cermin Personal) · Curtain-pull",
    "vo": "Menu best seller terakhir yang kamu pesan:",
-   "aksi": "Kembali ke halaman Frame 0 yang sama; kamera mendorong ke lencana dan cetakan banyak tangan di belakangnya muncul jelas (alpha 0,16→1, membesar): tanda itu = pilihan orang lain.",
+   "aksi": "Kembali ke halaman Frame 0 yang sama; kamera mendorong ke lencana dan cetakan banyak tangan di belakangnya (potongan kertas bertepi sobek) muncul jelas (alpha 0,16→1, membesar): tanda itu = pilihan orang lain.",
    "kamera": "Kartu dokumen penuh, push-in 1,0→1,32 ke lencana. loop: bayangan tangan Frame 0 diungkap @44,6–46,6 dtk",
    "teks": "BEST SELLER",
    "gambar": "AI buku_menu · AI tangan_menunjuk · kode: lencana"

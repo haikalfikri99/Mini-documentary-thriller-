@@ -47,7 +47,7 @@
   },
   {
    "vo": "kartu ini wajib terbit minimal setahun sebelum pendaftaran.",
-   "aksi": "Close-up seluruh KK (1,28×, tidak ada kata terpotong tepi): baris \"Tgl. terbit : 12-06-2025\" (fiktif) dilingkari di \"terbit\"; kartu garis waktu TERBIT KK (Jun 2025) → PENDAFTARAN (Jun 2026) masuk dari kanan; panah merah melintasi 12 bulan; cap MIN. 1 TAHUN di atas garis nama buram.",
+   "aksi": "Close-up seluruh KK (1,28×, tidak ada kata terpotong tepi): baris \"Tgl. terbit : 12-06-2025\" (fiktif) dilingkari di \"terbit\"; kartu garis waktu TERBIT KK (Jun 2025) → PENDAFTARAN (Jun 2026) masuk dari kanan; panah merah melintasi 12 bulan; cap MIN. 1 TAHUN di kolom Nama Lengkap (garis buram), tidak menutup ISTRI/ANAK.",
    "kamera": "Close-up makro (KK penuh selebar layar). Push-in 1,0→1,05.",
    "teks": "Tgl. terbit 12-06-2025 · TERBIT KK · PENDAFTARAN · Jun 2025 · Jun 2026 · MIN. 1 TAHUN",
    "gambar": "kode: KK, garis waktu, cap"
@@ -115,7 +115,7 @@
    "beat": "Curtain-pull",
    "vo": "Baris kosong tadi sekarang diisi nama baru.",
    "aksi": "Kembali ke KK Frame 0 (sama persis), besar (1,2×); kamera mendorong ke baris 5 tanpa memotong kolom mana pun; baris kosong dilingkari merah; tangan kiri (dicerminkan agar tidak menutup tulisan) menulis nama fiktif \"Raka\" (±55 px) di \"diisi\", lalu terangkat; hubungan CUCU muncul di \"baru\".",
-   "kamera": "Kartu dokumen penuh (KK 1,2×), push-in 1,0→1,1 ke baris 5. Loop: detail baris 5 Frame 0 terungkap.",
+   "kamera": "Kartu dokumen penuh (KK 1,2×), push-in 1,0→1,06 ke baris 5 (kolom Hubungan tetap utuh). Loop: detail baris 5 Frame 0 terungkap.",
    "teks": "Raka · CUCU (tulisan tangan di KK)",
    "gambar": "kode: KK, tulisan · AI tangan_tulis (kertas di bawah tangan dihapus, dicerminkan)"
   },
