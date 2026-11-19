@@ -1,38 +1,68 @@
-# Upload — ARSIP KASUS #013 biayalayanan
-**File:** TODO · **QA:** TODO · **Jadwal (usul):** TODO
+# Upload — ARSIP KASUS #013 Biaya Layanan di Halaman Bayar
+**File:** `renders/ARSIP_013_biayalayanan_v1.mp4` · (diisi setelah render)
+**QA:** (diisi setelah render)
+**Jadwal (usul):** TODO user
 
-## 1. Judul (≤ 55 karakter; Kuda Troya: tanpa psikologi/bias/kenapa/tapi/padahal/ternyata/?)
+## 1. Judul (49 karakter)
 ```
 Harga Awal Rp50 Ribu, Pas Checkout Jadi Rp60 Ribu
 ```
 
-## 2. Deskripsi (2–3 kalimat pembuka kaya kata kunci alami; lalu Sumber + kredit)
+## 2. Deskripsi
 ```
-TODO kalimat 1. TODO kalimat 2.
+Harga di keranjang tampak murah, lalu total di halaman bayar naik karena ada baris biaya layanan. Rp50 ribu menjadi Rp60 ribu di video ini adalah ilustrasi layar checkout aplikasi belanja atau pesan-antar, bukan harga aplikasi tertentu. Video ini membahas kapan biaya tambahan muncul di alur belanja online dan apa yang terjadi pada pembeli.
+
+Pada 13 Oktober 2026, YLKI (Yayasan Lembaga Konsumen Indonesia) memperingatkan agar batas biaya platform tidak dijadikan dalih membebankan biaya ke konsumen. Menurut Rio Priambodo, Sekretaris Eksekutif YLKI, "aplikator mencari celah, dan konsumen kembali menjadi pihak yang menanggung bebannya" (dikutip KabarBursa). Video ini tidak menyebut aplikasi mana pun dan tidak menyatakan bahwa aplikasi di Indonesia menampilkan harga dengan cara tertentu.
+
+Soal dampak urutan tampilan biaya, buktinya datang dari Amerika Serikat. Menurut Blake, Moshary, Sweeney, dan Tadelis, pada Agustus 2015 platform tiket StubHub membagi beberapa juta penggunanya secara acak selama 10 hari. Satu kelompok melihat harga beserta biaya sejak awal, kelompok lain baru melihat biaya di halaman bayar. Kelompok kedua membelanjakan hampir seperlima lebih banyak, dengan biaya rata-rata sekitar 15% dari harga tiket. Menurut para peneliti, kelompok yang melihat biaya sejak awal membeli lebih sedikit dan memilih tiket yang lebih murah. Hasil ini berasal dari eksperimen di platform tiket Amerika dan belum diuji di Indonesia. Tafsirannya, biaya yang muncul belakangan kurang ikut dihitung saat pembeli membandingkan harga.
+
+Kapan terakhir kamu kaget melihat total di halaman bayar lebih besar dari harga di keranjang? Ceritakan di komentar 👇
+
+📁 ARSIP KASUS #013 · Mini Thriller IDN: Real Stories. Unexpected Truths.
 
 Sumber:
-• TODO
+• KabarBursa, liputan peringatan YLKI 13 Oktober 2026 (kutipan Rio Priambodo, Sekretaris Eksekutif YLKI): kabarbursa.com/otomotif/ylki-peringatkan-aplikator-tak-bebankan-batas-biaya-platform-delapan-persen-ke-konsumen
+• Blake, T., Moshary, S., Sweeney, K., & Tadelis, S. (2018). "Price Salience and Product Choice." NBER Working Paper 25186. nber.org/system/files/working_papers/w25186/w25186.pdf
+• Blake dkk. (2021). Marketing Science 40(4):619–636. doi:10.1287/mksc.2020.1261
 
-Video ini tidak disponsori merek mana pun.
+Gambar:
+• Ilustrasi AI (Google Flow) dibuat oleh pemilik channel, tanpa logo: ponsel checkout, tangan dan keranjang, pembeli kaget, pembeli tersenyum, juru bicara, kaca pembesar, peneliti dan laptop, kerumunan pengguna ponsel, gedung teater bertingkat, gembok
+• Layar checkout, keranjang, dan tiket, kliping (dibuat ulang tanpa nama atau logo media; kutipan YLKI sesuai sumber), grafik, stempel, dan label: dibuat sendiri untuk video ini. Harga Rp50.000, biaya layanan Rp10.000, total Rp60.000, serta angka $100, $15, $115 di layar tiket hanyalah ilustrasi, bukan data. Satu-satunya angka hasil studi di grafik adalah "sekitar seperlima".
+• Gaya visual diadaptasi dari "Vintage Engraving Collage", Lemo-Opuscar oleh LemoLab
 
-#shorts #TODO #TODO
+Video ini tidak disponsori. Nama lembaga dan peneliti disebut sebagai fakta publik; tanpa logo asli.
+
+#shorts #biayalayanan #belanjaonline
 ```
 
-## 3. Tag
+## 3. Tag (kolom "Tag", satu baris; 20 tag)
 ```
-TODO
+biaya layanan aplikasi, biaya layanan checkout, harga di halaman bayar, harga naik saat checkout, total belanja naik, biaya tambahan belanja online, drip pricing, harga tersembunyi, belanja online, pesan antar makanan, YLKI, hak konsumen, perilaku konsumen, ekonomi perilaku, eksperimen StubHub, harga tiket, arsip kasus, mini thriller idn, fakta unik, checkout aplikasi
 ```
+(370 karakter, batas 450)
 
 ## 4. Thumbnail
-- TODO (`python3 kit/tools/make_cover.py stories/biayalayanan/kolase`) + frame cadangan
+- **Thumbnail kustom:** belum dibuat (menunggu render). Setelah render: `python3 kit/tools/make_cover.py stories/biayalayanan/kolase` → `stories/biayalayanan/renders/thumbnail_biayalayanan_1080x1920.jpg`. Isi: frame film tanpa caption (layar checkout Frame 0 dengan dua total) + 2 slip hook + tag "ARSIP KASUS #013" + baris sumber kecil; hook tidak mengulang judul dan tanpa kata terlarang Kuda Troya. Cara pasang: YouTube Studio desktop → Konten → ✏️ video → Thumbnail → Upload.
+- **Frame cadangan (bila tombol Upload belum muncul):** pilih frame detik **±1,0** (stempel DUA HARGA menghantam di 0,20 dtk dan lingkaran merah kedua muncul di kata "dua"); detik 0,5–1,6 aman. `cover_frame_<t>s.jpg` dibuat sesi utama setelah render.
 
-## 5. Komentar pin (satu pertanyaan pengalaman pribadi penonton, memakai "kamu")
+## 5. Komentar pin
 ```
-TODO pertanyaan pengalaman?
+Catatan: angka rupiah di video hanya ilustrasi, dan hasil "seperlima" berasal dari eksperimen tiket di Amerika, bukan dari aplikasi di Indonesia. Pertanyaannya: kapan terakhir kamu melihat total di halaman bayar lebih besar dari harga di keranjang, dan apa yang kamu lakukan setelahnya? 👇
 ```
 
 ## 6. Pengaturan saat upload
-Bukan untuk anak-anak · Kategori Pendidikan · Indonesia · konten sintetis: Ya
+- Playlist: "ARSIP KASUS" · Audiens: bukan untuk anak-anak · Batasan usia: tidak · Kategori: Pendidikan
+- Bahasa video: Indonesia · Bahasa judul & deskripsi: Indonesia · Sertifikasi subtitle: tidak ada
+- Konten sintetis/alterasi: **Ya** (gambar AI Google Flow + VO suara AI ElevenLabs)
+- Promosi berbayar: tidak · Izinkan embedding: ya · Publikasikan ke feed Langganan: ya
+- Remix Shorts: izinkan video + audio · Komentar: aktif, moderasi dasar
+- Lisensi: Lisensi YouTube Standar · Lokasi: kosong · Tampilkan jumlah suka: ya
+- Setelah 48 jam: catat hasil ke `references/6-pelajaran.md`.
 
 ## 7. Catatan hukum
-TODO
+- Tanpa nama aplikasi, tanpa logo; layar checkout generik buatan sendiri; tidak disponsori. Tidak ada tuduhan "menyembunyikan" atau "jebakan"; yang dipakai frasa urutan tampilan biaya.
+- Semua klaim diatribusikan ("menurut YLKI", "menurut Blake dkk."). Klaim YLKI hanya dari satu sumber yang terbaca penuh (KabarBursa); artikel itu tidak memuat kata "hidden fees", jadi YLKI tidak boleh dikatakan menyebutnya.
+- Tidak diucapkan dan tidak boleh dijanjikan di komentar: besaran biaya layanan aplikasi mana pun, apakah aplikasi Indonesia melakukan drip pricing, apakah batas 8% berlaku untuk antar makanan atau menaikkan biaya konsumen, tanggal penetapan Perpres 27/2026 (teks resmi belum terbaca; sumber beda tanggal), isi atau terbitnya permen Komdigi, angka persis versi jurnal.
+- Batas 8% di Perpres 27/2026 adalah komisi platform ke pengemudi, hal yang berbeda dari biaya layanan yang dibayar konsumen; karena itu tidak dimasukkan ke VO maupun deskripsi.
+- "Hampir seperlima" ditulis tanpa angka presisi karena versi kerja NBER memuat beberapa angka (19,52%; 21,52%; 21,80%) dan angka versi jurnal tidak diperiksa. Selalu dengan konteks "StubHub 2015, tiket, Amerika". Replikasi independen persis tidak ditemukan.
+- Peluang transaksi +14,1% dan klaim kualitas ≥ 28% selisih pendapatan tidak dimasukkan agar tidak salah tafsir.
