@@ -10,12 +10,12 @@
  "kaget": {
   "file": "ai_pembeli_kaget.jpg",
   "width": 520,
-  "close": 0.035
+  "close": 0.02
  },
  "senyum": {
   "file": "ai_pembeli_senyum.jpg",
   "width": 520,
-  "close": 0.035
+  "close": 0.02
  },
  "jubir": {
   "file": "ai_juru_bicara.jpg",

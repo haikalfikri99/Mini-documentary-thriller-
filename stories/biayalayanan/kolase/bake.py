@@ -34,6 +34,14 @@ def ai_to_raw():
     im = Image.open(p).convert('RGB'); box = (338, 380, 404, 408)
     patch = im.crop((box[0], box[1] - 30, box[2], box[1] - 2)).resize((box[2] - box[0], box[3] - box[1]))
     im.paste(patch.filter(ImageFilter.GaussianBlur(1.2)), box[:2]); im.save(p, quality=95)
+    # waist-up figures: the shirt runs off the bottom edge, so the cut mask leaked into the white shirt (holes at shoulders/elbows).
+    # A thin ink line along the bottom edge (between the outer body lines) closes the outline so fill_holes makes the body solid.
+    for n in ('pembeli_kaget', 'pembeli_senyum'):
+        p = os.path.join(bk.raw, 'ai_%s.jpg' % n)
+        im = Image.open(p).convert('RGB'); g = np.asarray(im.convert('L'))
+        cols = np.nonzero((g[-60:] < 150).any(0))[0]
+        if len(cols):
+            ImageDraw.Draw(im).rectangle([int(cols.min()), im.height - 5, int(cols.max()), im.height - 1], fill=(30, 25, 21)); im.save(p, quality=95)
 
 
 def region(name, seed_xy=None):
