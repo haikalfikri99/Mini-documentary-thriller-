@@ -1,6 +1,6 @@
 # Upload — ARSIP KASUS #014 Voucher Ongkir Rp0
-**File:** `renders/ARSIP_014_ongkir_v1.mp4` · (diisi setelah render)
-**QA:** (diisi setelah render)
+**File:** `renders/ARSIP_014_ongkir_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 36.2 dtk · -14.3 LUFS · 32.4 MB
+**QA:** margin VO terburuk 19,1 dB, kata < 8 dB: none · Whisper mix 78/96 vs VO 83/96 (gerbang make_kolase 81 tidak tercapai; uji tanpa musik + foley tetap 79/96 → selisih = artefak Whisper pada kata "ongkir", bukan suara tertutup; render manual dengan langkah yang sama, visual QA tetap aktif) · visual QA ok (0 peringatan) (19 Nov 2026)
 **Jadwal (usul):** TODO user
 
 ## 1. Judul (46 karakter)

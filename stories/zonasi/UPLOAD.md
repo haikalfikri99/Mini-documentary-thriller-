@@ -1,6 +1,6 @@
 # Upload — ARSIP KASUS #016 Kartu Keluarga dan Kursi Sekolah
-**File:** `renders/ARSIP_016_zonasi_v1.mp4` · (diisi setelah render)
-**QA:** (diisi setelah render)
+**File:** `renders/ARSIP_016_zonasi_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 39.4 dtk · -14.3 LUFS · 24.5 MB
+**QA:** margin VO terburuk 19,0 dB, kata < 8 dB: none · Whisper mix 94/104 vs VO 95/104 · visual QA ok (0 peringatan) (19 Nov 2026)
 **Jadwal (usul):** TODO user
 
 ## 1. Judul (52 karakter)

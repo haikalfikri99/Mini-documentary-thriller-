@@ -1,6 +1,6 @@
 # Upload — ARSIP KASUS #013 Biaya Layanan di Halaman Bayar
-**File:** `renders/ARSIP_013_biayalayanan_v1.mp4` · (diisi setelah render)
-**QA:** (diisi setelah render)
+**File:** `renders/ARSIP_013_biayalayanan_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 48.3 dtk · -14.5 LUFS · 36.5 MB
+**QA:** margin VO terburuk 19,6 dB, kata < 8 dB: none · Whisper mix 120/125 vs VO 120/125 · visual QA ok (9 peringatan: gambar besar masuk pita caption, diizinkan) (19 Nov 2026)
 **Jadwal (usul):** TODO user
 
 ## 1. Judul (49 karakter)

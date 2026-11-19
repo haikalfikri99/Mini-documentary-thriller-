@@ -1,6 +1,6 @@
 # Upload — ARSIP KASUS #015 Label Best Seller di Buku Menu
-**File:** `renders/ARSIP_015_terlaris_v1.mp4` · (diisi setelah render)
-**QA:** (diisi setelah render)
+**File:** `renders/ARSIP_015_terlaris_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 49.9 dtk · -14.5 LUFS · 32.6 MB
+**QA:** margin VO terburuk 19,2 dB, kata < 8 dB: none · Whisper mix 110/132 vs VO 108/132 · visual QA ok (0 peringatan) (19 Nov 2026)
 **Jadwal (usul):** TODO user
 
 ## 1. Judul (49 karakter)
