@@ -34,14 +34,29 @@ def ai_to_raw():
     im = Image.open(p).convert('RGB'); box = (338, 380, 404, 408)
     patch = im.crop((box[0], box[1] - 30, box[2], box[1] - 2)).resize((box[2] - box[0], box[3] - box[1]))
     im.paste(patch.filter(ImageFilter.GaussianBlur(1.2)), box[:2]); im.save(p, quality=95)
-    # waist-up figures: the shirt runs off the bottom edge, so the cut mask leaked into the white shirt (holes at shoulders/elbows).
-    # A thin ink line along the bottom edge (between the outer body lines) closes the outline so fill_holes makes the body solid.
-    for n in ('pembeli_kaget', 'pembeli_senyum'):
-        p = os.path.join(bk.raw, 'ai_%s.jpg' % n)
-        im = Image.open(p).convert('RGB'); g = np.asarray(im.convert('L'))
-        cols = np.nonzero((g[-60:] < 150).any(0))[0]
-        if len(cols):
-            ImageDraw.Draw(im).rectangle([int(cols.min()), im.height - 5, int(cols.max()), im.height - 1], fill=(30, 25, 21)); im.save(p, quality=95)
+
+
+def cut_solid(name, file, width, y0=0.33, seed=0):
+    """waist-up figure whose white shirt has open outlines (Baker.cut leaks into it): mask = the usual ink mask, plus every row
+    below y0 filled solid between its outermost ink pixels, so the body is opaque paper (user audit 19 Nov 2026)"""
+    import collage_lib as cl
+    B = bk.B
+    im = bk.load(file, None, maxdim=int(width * B * 2.2)); g = np.asarray(im.convert('L'), float); h, w = g.shape
+    it = max(1, int(0.012 * max(h, w)))
+    m = ndi.binary_closing(np.pad(g < 205, it + 2), iterations=it)[it + 2:-it - 2, it + 2:-it - 2]
+    m = ndi.binary_fill_holes(m)
+    for y in range(int(y0 * h), h):
+        xs = np.nonzero(m[y])[0]
+        if len(xs) > 1: m[y, xs.min():xs.max() + 1] = True
+    lab, n = ndi.label(m)
+    if n > 1:
+        sz = np.bincount(lab.ravel()); sz[0] = 0; m = np.isin(lab, np.nonzero(sz >= 0.04 * sz.max())[0])
+    m = ndi.binary_dilation(m, iterations=max(1, it // 3))
+    mask = (ndi.gaussian_filter(m.astype(float), max(1.0, it / 3)) > 0.5).astype(float)
+    xs = np.nonzero(mask > 0.5)[1]
+    scale = width * B / (xs.max() - xs.min() + 1)
+    rgba = cl.cutout(g, mask, scale, margin=4 * B, seed=seed, paper=CARD)
+    return bk.save(name, rgba[..., :3], rgba[..., 3])
 
 
 def region(name, seed_xy=None):
@@ -306,6 +321,7 @@ if __name__ == '__main__':
         bk.M = json.load(open(prev)); bk.M.pop('_', None)
     def prints_and_measure():
         bake_prints(bk, HERE)
+        cut_solid('kaget', 'ai_pembeli_kaget.jpg', 520, seed=41); cut_solid('senyum', 'ai_pembeli_senyum.jpg', 520, seed=42)
         bk.M['hp']['screen'] = region('hp')
         bk.M['kaca']['lens'] = region('kaca', (0.33, 0.30))
         print('screen', bk.M['hp']['screen'], 'lens', bk.M['kaca']['lens'])
