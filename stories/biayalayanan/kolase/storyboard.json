@@ -2,14 +2,14 @@
  "no": 13,
  "slug": "biayalayanan",
  "version": "v1",
- "title": "Harga awal Rp50 ribu, pas checkout <em>jadi Rp58 ribu</em>",
+ "title": "Harga awal Rp50 ribu, pas checkout <em>jadi Rp60 ribu</em>",
  "sub": "Storyboard 21 shot. Tiap keyframe = render kode asli mesin kolase pada 85% durasi shot. Timing mengikuti VO final 48,28 dtk; empat kalimat panjang dipecah di batas kata (13,58 · 27,48 · 34,70 · 39,48 · 44,98).",
  "rules": [
   "Tiap frame: 1 subjek + 2–4 pendukung (#82); tanpa strip sumber di layar. Atribusi hanya kecil di kliping (— YLKI) karena kutipannya bagian dari dokumen.",
   "Uji keterbacaan (18 Nov 2026): semua teks bermakna ≥ 30 px di layar setelah zoom; HP kecil memakai layar ringkas (harga besar + tombol, garis polos, tanpa huruf kecil palsu); tanpa slip yang mengulang kata caption.",
-  "Angka rupiah = ILUSTRASI (Rp50.000 + biaya layanan Rp8.000 = Rp58.000 ≈ rata-rata biaya ±15% di studi); layar tiket AS memakai dolar ILUSTRASI ($100 + $15 = $115, biaya ≈ 15% seperti di studi); grafik hanya \"+ seperlima\".",
+  "Angka rupiah = ILUSTRASI (Rp50.000 + biaya layanan Rp10.000 = Rp60.000 ILUSTRASI; ±20%, angka tidak diucapkan VO; diubah user 19 Nov 2026); layar tiket AS memakai dolar ILUSTRASI ($100 + $15 = $115, biaya ≈ 15% seperti di studi); grafik hanya \"+ seperlima\".",
   "Label asal: DATA INDONESIA · 2026 (hijau arsip) di S06–S07; EKSPERIMEN AS · 2015 (kertas netral) dari kata \"Amerika\" (20,78 dtk) sampai S16; hilang di S17.",
-  "Conceptual Loop: baris kecil abu-abu \"Biaya layanan Rp8.000\" ada di Frame 0 tanpa sorotan; disorot stabilo di kata \"tadi\" (43,64 dtk).",
+  "Conceptual Loop: baris kecil abu-abu \"Biaya layanan Rp10.000\" ada di Frame 0 tanpa sorotan; disorot stabilo di kata \"tadi\" (43,64 dtk).",
   "Tata letak berotasi: panggung, close-up makro (S03, S08, S19, S21), kartu penuh (S05, S07), split-screen (S11–S13), grafik layar lebar (S14–S15); tidak ada > 3 shot berurutan dengan tata letak sama.",
   "Tanpa logo/nama aplikasi; layar checkout generik buatan kode; komisi pengemudi 8% (Perpres) tidak ditampilkan agar tidak tertukar dengan biaya layanan konsumen.",
   "Visual QA otomatis: 0 serius, 10 peringatan (gambar besar menimpa pita caption, diizinkan)."
@@ -18,7 +18,7 @@
   {
    "beat": "Hook (H1)",
    "vo": "Layar checkout aplikasi ini ngasih dua harga buat barang yang sama.",
-   "aksi": "Detik 0: tangan memegang HP besar (≥ 600 px) sudah bergerak; layar checkout buatan kode: Harga barang Rp50.000 di atas, baris kecil abu-abu \"Biaya layanan Rp8.000\", Total bayar Rp58.000. Lingkaran merah di total 0,10 dtk, cap DUA HARGA 0,20 dtk, lingkaran kedua di Rp50.000 pada kata \"dua\".",
+   "aksi": "Detik 0: tangan memegang HP besar (≥ 600 px) sudah bergerak; layar checkout buatan kode: Harga barang Rp50.000 di atas, baris kecil abu-abu \"Biaya layanan Rp10.000\", Total bayar Rp60.000. Lingkaran merah di total 0,10 dtk, cap DUA HARGA 0,20 dtk, lingkaran kedua di Rp50.000 pada kata \"dua\".",
    "kamera": "Panggung hero · push-in 1,02→1,06, getar di hantaman cap · loop: baris \"Biaya layanan\" ditanam tanpa sorotan",
    "teks": "SATU BARANG, DUA HARGA · DUA HARGA · ILUSTRASI",
    "gambar": "AI hp_checkout (v2) + layar kode"
@@ -46,22 +46,22 @@
   },
   {
    "vo": "muncul baris kecil bernama biaya layanan yang naikin total belanja.",
-   "aksi": "Halaman Checkout besar: baris \"Biaya layanan Rp8.000\" muncul di kata \"baris\", stabilo di \"biaya\"; total berputar Rp50.000 → 52.000 → 55.000 → 58.000 di \"naikin\"; panah merah baris → total; label +Rp8.000; cap NAIK.",
+   "aksi": "Halaman Checkout besar: baris \"Biaya layanan Rp10.000\" muncul di kata \"baris\", stabilo di \"biaya\"; total berputar Rp50.000 → 53.000 → 57.000 → 60.000 di \"naikin\"; panah merah baris → total; label +Rp10.000; cap NAIK.",
    "kamera": "Kartu penuh (layar HP ±85% lebar)",
-   "teks": "+Rp8.000 · NAIK",
+   "teks": "+Rp10.000 · NAIK",
    "gambar": "AI hp_checkout + layar kode"
   },
   {
    "beat": "Jangkar lokal",
    "vo": "Tahun ini, lembaga konsumen sampai ngingetin",
-   "aksi": "Juru bicara lembaga konsumen dipotong dari bahu ke bawah (wajah tidak tampak): batik, tangan terbuka, tiga mikrofon, podium; label DATA INDONESIA · 2026; huruf tebusan 2026; slip \"YLKI · 13 OKT\" (tanggal peringatan).",
+   "aksi": "Juru bicara lembaga konsumen utuh (kepala + badan, tokoh generik): batik, tangan terbuka, tiga mikrofon, podium; label DATA INDONESIA · 2026; huruf tebusan 2026; slip \"YLKI · 13 OKT\" (tanggal peringatan).",
    "kamera": "Panggung (blok hijau arsip), push-in · label asal: DATA INDONESIA",
    "teks": "DATA INDONESIA · 2026 · 2026 · YLKI · 13 OKT",
-   "gambar": "AI juru_bicara (crop tanpa wajah)"
+   "gambar": "AI juru_bicara"
   },
   {
    "vo": "soal celah biaya aplikasi yang dibebanin ke pembeli.",
-   "aksi": "Kliping dibuat ulang (tanpa nama/logo media): judul \"Lembaga konsumen ingatkan soal biaya aplikasi\" + kutipan YLKI persis \"…aplikator mencari celah, dan konsumen kembali menjadi pihak yang menanggung bebannya.\"; stabilo di \"mencari celah\" (kata \"celah\") lalu \"menanggung bebannya\" (kata \"dibebanin\"); label +Rp8.000. Label DATA INDONESIA ditempel di atas garis isi kliping.",
+   "aksi": "Kliping dibuat ulang (tanpa nama/logo media): judul \"Lembaga konsumen ingatkan soal biaya aplikasi\" + kutipan YLKI persis \"…aplikator mencari celah, dan konsumen kembali menjadi pihak yang menanggung bebannya.\"; stabilo di \"mencari celah\" (kata \"celah\") lalu \"menanggung bebannya\" (kata \"dibebanin\"); label +Rp10.000. Label DATA INDONESIA ditempel di atas garis isi kliping.",
    "kamera": "Kartu dokumen penuh, kamera turun menyusuri kliping",
    "teks": "KLIPING · 13 OKT 2026 · kutipan · — YLKI · DATA INDONESIA",
    "gambar": "kode (kliping)"
@@ -76,9 +76,9 @@
   },
   {
    "vo": "efeknya bukan cuma di biaya tambahan itu.",
-   "aksi": "Label +Rp8.000 mengecil ke pojok; keranjang penuh masuk besar; garis putus-putus merah dari label ke keranjang; \"?\" di atas keranjang (1 subjek + 3 pendukung).",
+   "aksi": "Label +Rp10.000 mengecil ke pojok; keranjang penuh masuk besar; garis putus-putus merah dari label ke keranjang; \"?\" di atas keranjang (1 subjek + 3 pendukung).",
    "kamera": "Panggung, push-in",
-   "teks": "+Rp8.000 · ?",
+   "teks": "+Rp10.000 · ?",
    "gambar": "AI tangan_keranjang"
   },
   {
@@ -149,9 +149,9 @@
   },
   {
    "vo": "cocok—biaya di akhir cuma dianggap selisih kecil.",
-   "aksi": "Label Rp50.000 besar + cap hijau COCOK; HP kecil dengan layar Keranjang ringkas; label +Rp8.000 mendarat di \"akhir\" lalu menciut dan menjauh di \"dianggap\" (tetap terbaca).",
+   "aksi": "Label Rp50.000 besar + cap hijau COCOK; HP kecil dengan layar Keranjang ringkas; label +Rp10.000 mendarat di \"akhir\" lalu menciut dan menjauh di \"dianggap\" (tetap terbaca).",
    "kamera": "Close-up makro (label harga)",
-   "teks": "Rp50.000 · COCOK · +Rp8.000",
+   "teks": "Rp50.000 · COCOK · +Rp10.000",
    "gambar": "kode (label), hp_checkout kecil"
   },
   {
@@ -164,9 +164,9 @@
   },
   {
    "vo": "ngunci pilihanmu sebelum harga aslinya keluar.",
-   "aksi": "Close-up bawah layar: gembok jatuh ke tombol BAYAR di \"ngunci\"; cap TERKUNCI; di \"aslinya\" total Rp58.000 berubah merah + dilingkari. Ekor ≤ 0,15 dtk.",
+   "aksi": "Close-up bawah layar: gembok jatuh ke tombol BAYAR di \"ngunci\"; cap TERKUNCI; di \"aslinya\" total Rp60.000 berubah merah + dilingkari. Ekor ≤ 0,15 dtk.",
    "kamera": "Close-up makro (layar HP)",
-   "teks": "TERKUNCI · Rp58.000 merah",
+   "teks": "TERKUNCI · Rp60.000 merah",
    "gambar": "AI gembok, hp_checkout + layar kode"
   }
  ]
