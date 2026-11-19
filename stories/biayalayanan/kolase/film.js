@@ -194,12 +194,12 @@ const SHOTS = [
   // (circled); "$100 → $115"; reveal pause
   (u, T, d) => {
     const tb = at(12, 'bayar'), on = u >= tb;
-    stage(u, d, { z0: 1.04, z1: 1.07, cx: 540, cx1: 620, cy: 900, cy1: 860 }); bg(SET.split);
-    put('krm_kiri', 270, 1080, 0, 0, 1, 0.75, 0.6); phone(270, 620, -3, 0.72, 'scr_depan', [], 0.7); put('s_half1', 270, 1060, -2, 0, 1, 0.7, 0.7);
+    stage(u, d, { z0: 1.0, z1: 1.02, cx: 540, cy: 900, cy1: 880 }); bg(SET.split);   // no pan: the left hand stays in frame (review user 19 Nov)
+    put('krm_kiri', 270, 1080, 0, 0, 1, 0.75, 0.6); phone(300, 620, -3, 0.72, 'scr_depan', [], 0.7); put('s_half1', 270, 1060, -2, 0, 1, 0.7, 0.7);
     route(u, -1, 0, [[540, 240], [536, 700], [544, 1180]], { seed: 111, col: PAL.ink, w: 4 });
     put('krm_kanan', 810, 1080, 0, 0, 1, 0.75); put('s_half2', 810, 1060, 2, 0, 1, 0.7);
     const rb = R(M).us_biaya, rt = R(M).us_total;
-    const ph = phone(810, 620, 3, 0.72, 'scr_akhir', [[on ? 'sx_us_15' : 'sx_us_dash', rb[0], rb[1]], [on ? 'sx_us_115' : 'sx_us_100', rt[0], rt[1]]]);
+    const ph = phone(790, 620, 3, 0.72, 'scr_akhir', [[on ? 'sx_us_15' : 'sx_us_dash', rb[0], rb[1]], [on ? 'sx_us_115' : 'sx_us_100', rt[0], rt[1]]]);
     if (on) { const q = ph.L(rb[0], rb[1]); stampAt('m_circle', u, tb + 0.02, q[0], q[1], 0, 0.42); }
     putK('s_usd', slap(tb + 0.25, 800, 960, -3), u, 130, { s: 0.7 });
     put('lbl_as', 780, 215, 3, 0, 1, 0.72);
@@ -231,7 +231,7 @@ const SHOTS = [
   // 16 · dan beli tiket lebih mahal.   the hall: the front rows (near the stage) wash amber on "tiket"; a KURSI DEPAN stub; "lebih mahal"
   (u, T, d) => {
     const tt = at(15, 'tiket');
-    stage(u, d, { z0: 1.0, z1: 1.07, cx: 540, cx1: 460, cy: 860 }); bg(SET.hall, u, true);
+    stage(u, d, { z0: 0.98, z1: 1.02, cx: 540, cy: 860 }); bg(SET.hall, u, true);   // gentle centred push: the hall stays inside (review user 19 Nov)
     putK(u >= tt ? 'stadion_hl' : 'stadion', slide(0, 0.18, 540, 640, 0, 900, 0, 0, -0.3), u, 160, { s: 1.0 });
     putK('tiket_depan', slap(tt + 0.1, 250, 960, -6), u, 161, { s: 0.75 });
     putK('s_panggung', slap(at(15, 'mahal'), 780, 1010, 3), u, 162, { s: 0.7 });
@@ -249,9 +249,9 @@ const SHOTS = [
   // 18 · otak kita udah terlanjur ngerasa   the buyer smiles, thumbs up; the Rp50.000 tag gets a green tick
   (u, T, d) => {
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 740 }); bg(SET.calm);
-    putK('senyum', slide(0, 0.18, 400, 700, 0, -800, 0, 0, 0.5), u, 180, { s: 1.12 });
-    put('tag_50', 840, 500, 10, 0, 1, 0.75);
-    stampAt('m_tick_b', u, at(17, 'terlanjur'), 900, 670, 0, 0.6);
+    putK('senyum', slide(0, 0.18, 500, 700, 0, -800, 0, 0, 0.5), u, 180, { s: 1.12 });   // centred (review user 19 Nov)
+    put('tag_50', 820, 340, 10, 0, 1, 0.7);
+    stampAt('m_tick_b', u, at(17, 'terlanjur'), 880, 500, 0, 0.6);
   },
   // 19 · cocok—biaya di akhir cuma dianggap selisih kecil.   CLOSE-UP MAKRO on the tags: big Rp50.000 + COCOK; the +Rp10.000 tag
   // lands then shrinks to a crumb on "dianggap"; "selisih kecil"

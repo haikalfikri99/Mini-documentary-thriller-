@@ -87,6 +87,7 @@ const SHOTS = [
     stage(u, d, { z0: 1.0, z1: 1.05, cy: 960, shake: [[at(3, 'dadakan'), 10]] }); bg(SET.move, u, true);
     putK('kardus_pindahan', slide(0, 0.18, 580, 640, 0, 900, 0, 0, -0.4), u, 40, { s: 1.0 });
     putK('kk_ikon', slap(0.08, 200, 255, -10), u, 41, { s: 0.58 });
+    putK('anak_seragam', slide(0.05, 0.25, 200, 850, 0, -700, 0, 0, 0.4), u, 43, { s: 1.0 });   // the child who has to move (review user 19 Nov)
     putK('s_kemarin', slap(at(3, 'pindah'), 560, 1040, -3), u, 42, { s: 0.85 });
     stampAt('m_cross', u, at(3, 'dadakan') + 0.05, 580, 640, 0, 1.15);
   },
