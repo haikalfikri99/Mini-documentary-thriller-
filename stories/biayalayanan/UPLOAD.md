@@ -1,7 +1,7 @@
 # Upload — ARSIP KASUS #013 Biaya Layanan di Halaman Bayar
 **File:** `renders/ARSIP_013_biayalayanan_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 48.3 dtk · -14.5 LUFS · 36.5 MB
 **QA:** margin VO terburuk 19,6 dB, kata < 8 dB: none · Whisper mix 120/125 vs VO 120/125 · visual QA ok (9 peringatan: gambar besar masuk pita caption, diizinkan) (19 Nov 2026)
-**Jadwal (usul):** TODO user
+**Jadwal (usul):** Senin 23 Nov 2026, 18.00 WIB (lanjut setelah #009–#012 Kamis 19 – Minggu 22 Nov: #013 Senin 23 → #014 Selasa 24 → #015 Rabu 25 → #016 Kamis 26); ubah bila perlu
 
 ## 1. Judul (49 karakter)
 ```
@@ -42,8 +42,8 @@ biaya layanan aplikasi, biaya layanan checkout, harga di halaman bayar, harga na
 (370 karakter, batas 450)
 
 ## 4. Thumbnail
-- **Thumbnail kustom:** belum dibuat (menunggu render). Setelah render: `python3 kit/tools/make_cover.py stories/biayalayanan/kolase` → `stories/biayalayanan/renders/thumbnail_biayalayanan_1080x1920.jpg`. Isi: frame film tanpa caption (layar checkout Frame 0 dengan dua total) + 2 slip hook + tag "ARSIP KASUS #013" + baris sumber kecil; hook tidak mengulang judul dan tanpa kata terlarang Kuda Troya. Cara pasang: YouTube Studio desktop → Konten → ✏️ video → Thumbnail → Upload.
-- **Frame cadangan (bila tombol Upload belum muncul):** pilih frame detik **±1,0** (stempel DUA HARGA menghantam di 0,20 dtk dan lingkaran merah kedua muncul di kata "dua"); detik 0,5–1,6 aman. `cover_frame_<t>s.jpg` dibuat sesi utama setelah render.
+- **Thumbnail kustom:** `stories/biayalayanan/renders/thumbnail_biayalayanan_1080x1920.jpg` (dari `kolase/cover.json`, frame film detik 1,0 tanpa caption). Isi: layar checkout Rp50.000 → Rp60.000 + cap DUA HARGA; slip hook "BARANG SAMA / TOTALNYA BEDA", tag "ARSIP KASUS #013", sumber kecil "harga ilustrasi · studi AS 2015". Hook tidak mengulang judul, tanpa kata terlarang Kuda Troya. Cara pasang: YouTube Studio desktop → Konten → ✏️ video → Thumbnail → Upload.
+- **Frame cadangan (bila tombol Upload belum muncul):** `stories/biayalayanan/renders/cover_frame_1.0s.jpg` = frame detik **1,0** (cap sudah menghantam ≤ 0,25 dtk); detik 0,5–1,6 aman.
 
 ## 5. Komentar pin
 ```

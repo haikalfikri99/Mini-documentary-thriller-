@@ -1,7 +1,7 @@
 # Upload — ARSIP KASUS #015 Label Best Seller di Buku Menu
 **File:** `renders/ARSIP_015_terlaris_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 49.9 dtk · -14.5 LUFS · 32.6 MB
 **QA:** margin VO terburuk 19,2 dB, kata < 8 dB: none · Whisper mix 110/132 vs VO 108/132 · visual QA ok (0 peringatan) (19 Nov 2026)
-**Jadwal (usul):** TODO user
+**Jadwal (usul):** Rabu 25 Nov 2026, 18.00 WIB (lanjut setelah #009–#012 Kamis 19 – Minggu 22 Nov: #013 Senin 23 → #014 Selasa 24 → #015 Rabu 25 → #016 Kamis 26); ubah bila perlu
 
 ## 1. Judul (49 karakter)
 ```
@@ -41,8 +41,8 @@ label best seller, best seller di menu, menu terlaris, menu terlaris restoran, b
 (380 karakter, batas 450)
 
 ## 4. Thumbnail
-- **Thumbnail kustom:** belum dibuat (menunggu render). Setelah render: `python3 kit/tools/make_cover.py stories/terlaris/kolase` → `stories/terlaris/renders/thumbnail_terlaris_1080x1920.jpg`. Isi: frame film tanpa caption (buku menu dengan lencana BEST SELLER) + 2 slip hook + tag "ARSIP KASUS #015" + baris sumber kecil; hook tidak mengulang judul dan tanpa kata terlarang Kuda Troya. Cara pasang: YouTube Studio desktop → Konten → ✏️ video → Thumbnail → Upload.
-- **Frame cadangan (bila tombol Upload belum muncul):** pilih frame detik **±1,0** (lencana BEST SELLER sudah menghantam baris menu di 0,12 dtk); detik 0,5–1,6 aman. `cover_frame_<t>s.jpg` dibuat sesi utama setelah render.
+- **Thumbnail kustom:** `stories/terlaris/renders/thumbnail_terlaris_1080x1920.jpg` (dari `kolase/cover.json`, frame film detik 1,0 tanpa caption). Isi: buku menu terbuka dengan lencana BEST SELLER; slip hook "PESANAN IKUT / LABEL TERLARIS", tag "ARSIP KASUS #015", sumber kecil "eksperimen Beijing · 2006". Hook tidak mengulang judul, tanpa kata terlarang Kuda Troya. Cara pasang: YouTube Studio desktop → Konten → ✏️ video → Thumbnail → Upload.
+- **Frame cadangan (bila tombol Upload belum muncul):** `stories/terlaris/renders/cover_frame_1.0s.jpg` = frame detik **1,0** (cap sudah menghantam ≤ 0,25 dtk); detik 0,5–1,6 aman.
 
 ## 5. Komentar pin
 ```

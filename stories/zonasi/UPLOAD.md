@@ -1,7 +1,7 @@
 # Upload — ARSIP KASUS #016 Kartu Keluarga dan Kursi Sekolah
 **File:** `renders/ARSIP_016_zonasi_v1.mp4` · 1080×1920 · 30 fps · H.264 + AAC 48 kHz · 39.4 dtk · -14.3 LUFS · 24.5 MB
 **QA:** margin VO terburuk 19,0 dB, kata < 8 dB: none · Whisper mix 94/104 vs VO 95/104 · visual QA ok (0 peringatan) (19 Nov 2026)
-**Jadwal (usul):** TODO user
+**Jadwal (usul):** Kamis 26 Nov 2026, 18.00 WIB (lanjut setelah #009–#012 Kamis 19 – Minggu 22 Nov: #013 Senin 23 → #014 Selasa 24 → #015 Rabu 25 → #016 Kamis 26); ubah bila perlu
 
 ## 1. Judul (52 karakter)
 ```
@@ -44,8 +44,8 @@ Kartu Keluarga, numpang Kartu Keluarga, numpang KK, KK minimal satu tahun, SPMB,
 (360 karakter, batas 450)
 
 ## 4. Thumbnail
-- **Thumbnail kustom:** belum dibuat (menunggu render). Setelah render: `python3 kit/tools/make_cover.py stories/zonasi/kolase` → `stories/zonasi/renders/thumbnail_zonasi_1080x1920.jpg`. Isi: frame film tanpa caption (Kartu Keluarga fiktif dengan alamat disorot, anak berseragam, kursi sekolah) + 2 slip hook + tag "ARSIP KASUS #016" + baris sumber kecil; hook tidak mengulang judul dan tanpa kata terlarang Kuda Troya. Cara pasang: YouTube Studio desktop → Konten → ✏️ video → Thumbnail → Upload.
-- **Frame cadangan (bila tombol Upload belum muncul):** pilih frame detik **±1,0** (cap DOMISILI menghantam di 0,12 dtk, slip SATU BARIS KOSONG muncul di 0,25 dtk, meja-kursi sekolah di 0,22 dtk); detik 0,5–1,6 aman. `cover_frame_<t>s.jpg` dibuat sesi utama setelah render.
+- **Thumbnail kustom:** `stories/zonasi/renders/thumbnail_zonasi_1080x1920.jpg` (dari `kolase/cover.json`, frame film detik 1,0 tanpa caption). Isi: Kartu Keluarga fiktif (alamat disorot, cap DOMISILI) + anak berseragam + kursi sekolah; slip hook "11 ANAK / NUMPANG DI 2 KK", tag "ARSIP KASUS #016", sumber kecil "temuan Ombudsman DIY · 2023". Hook tidak mengulang judul, tanpa kata terlarang Kuda Troya. Cara pasang: YouTube Studio desktop → Konten → ✏️ video → Thumbnail → Upload.
+- **Frame cadangan (bila tombol Upload belum muncul):** `stories/zonasi/renders/cover_frame_1.0s.jpg` = frame detik **1,0** (cap sudah menghantam ≤ 0,25 dtk); detik 0,5–1,6 aman.
 
 ## 5. Komentar pin
 ```
