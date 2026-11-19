@@ -140,7 +140,7 @@ def handwriting():
         a = np.asarray(img, float) / 255 * 0.95
         a[0, 0] = 0.01; a[-1, -1] = 0.01                      # keep the full box (typed() clips by width)
         mm = bk.save(name, (INK * 0.9 + GREEN * 0.1)[None, None, :], a, ink=1)
-        mm['n'] = len(text); mm['tx'] = 4
+        mm['n'] = len(text); mm['tx'] = 4; mm['text'] = text     # typed() reads the text for the key-click events
 
 
 # ---------------- two 10-row KK of the DIY 2023 finding ----------------
