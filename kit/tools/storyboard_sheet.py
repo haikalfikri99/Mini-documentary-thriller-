@@ -11,7 +11,8 @@ import sys, os, re, json, subprocess, glob, shutil, textwrap
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-film = os.path.abspath(sys.argv[1]); out = os.path.abspath(sys.argv[2] if len(sys.argv) > 2 else os.path.join(film, 'board', 'sheet'))
+film = os.path.abspath([a for a in sys.argv[1:] if not a.startswith('--')][0]); ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
+out = os.path.abspath(ARGS[1] if len(ARGS) > 1 else os.path.join(film, 'board', 'sheet'))
 J = json.load(open(os.path.join(film, 'storyboard.json')))
 S = [float(x) for x in re.search(r'START\s*=\s*\[([^\]]*)\]', open(os.path.join(film, 'film.js')).read()).group(1).split(',') if x.strip()]
 assert len(S) == len(J['shots']) + 1, f"film.js START has {len(S) - 1} shots, storyboard.json has {len(J['shots'])}"
@@ -119,7 +120,8 @@ for i in range(len(blocks)):
     for k, l in enumerate(vo): d.text((x, y + THg + 50 + k * 32), l, font=fSm, fill=MUTE)
 gf = os.path.join(out, 'storyboard_%s_grid.jpg' % no); G.save(gf, quality=92)
 pdf = os.path.join(out, 'storyboard_%s.pdf' % no)
-allp = [G] + imgs
-allp[0].save(pdf, save_all=True, append_images=allp[1:], resolution=150, quality=83)
+if '--pdf' in sys.argv:                         # images only by default (user 19 Nov 2026: hemat token); PDF on request
+    allp = [G] + imgs
+    allp[0].save(pdf, save_all=True, append_images=allp[1:], resolution=150, quality=83)
 for dd in ('_kf', '_alt'): shutil.rmtree(os.path.join(out, dd), ignore_errors=True)
-print('%s · %d halaman + grid · %s (%.1f MB)' % (out, len(pages), os.path.basename(pdf), os.path.getsize(pdf) / 1e6))
+print('%s · %d halaman + grid%s' % (out, len(pages), (' · %s (%.1f MB)' % (os.path.basename(pdf), os.path.getsize(pdf) / 1e6)) if '--pdf' in sys.argv else ''))
