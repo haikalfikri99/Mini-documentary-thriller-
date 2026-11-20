@@ -1,6 +1,18 @@
 # Keputusan dari riset (13 Nov 2026) — pilar, selingan, visual, produksi
 
-# ▶ STANDAR BAKU v6.0 (17 Nov 2026, berlaku mulai Batch #009+) — baca ini dulu
+# ▶ STANDAR BAKU v7.0 (20 Nov 2026, berlaku mulai Batch #017+; skrip #013–#016 terkunci) — baca ini dulu
+**v7.0 menggantikan v6.0-B (3 Mesin Psikologi Perilaku) dan Kompas v6.1; bagian v6.0-A/C/D, Daftar Hitam replikasi, dan aturan #86–#88 tetap berlaku.** Ringkasan aturan lengkap = `AGENTS.md` §2 (SSOT).
+**Mengapa (evaluasi nyata #001–#016; angka dari user/Studio, yang belum tercatat rinci di `6-pelajaran.md` ditandai):** topik abstrak/mitos/tips ringan kalah (#002 43,71% stayed · #003 46,13% · #010 plastik Rp200 · #012 kartu cap) dari investigasi sistem/uang/harga/kebijakan konkret (#004 Aqua Rp13,8 M **79,18% stayed / 104,12% APV** · #005 Skutik 66,2% stayed · #006 · #009 Burger 1/3 Pound **80,90% stayed**). Catatan jujur: #005 di tabel lama = 64,6% (15 hari); 66,2% = pembaruan user, pakai yang terbaru; #006/#010/#012 belum punya angka di repo.
+**Arah baru:** kanal kembali ke DNA terkuat = **investigasi forensik terhadap sistem, uang, desain produk/harga, kebijakan/aturan, dan anomali perilaku nyata** untuk warga Indonesia 20–45; psikologi perilaku = pisau bedah, bukan syarat tiap episode. Nama **Mini Thriller IDN**, label **ARSIP KASUS**, estetika paper-cutout/vintage engraving tetap (bukan 3D sinematik gelap).
+| Mesin v7.0 | Porsi | Isi |
+|---|---|---|
+| **A Sistem, Bisnis, Uang & Kebijakan Bermasalah** (evergreen) | ~60% | **A1** skandal bisnis, kartel, celah aturan/regulasi (praktik dagang, persaingan usaha, temuan/denda resmi) · **A2** kegagalan produk & kebijakan bumerang (aturan/keputusan yang memicu akibat berlawanan) |
+| **B Desain Produk Harian, Jebakan Harga & Mekanisme Perilaku** | ~40% | **B3** jebakan harga & desain pilihan (drip pricing, shrinkflation, tata letak, antarmuka) · **B4** anomali perilaku & eksperimen teruji (lolos replikasi, selalu terikat benda/situasi Indonesia; mekanisme di segmen tengah) |
+**Garis Merah v7.0:** bukan self-help/tips/nasihat · bukan bantahan mitos datar/bacaan pasal tanpa konflik · bukan topik basi (harga .900, susu pojok minimarket, popcorn bioskop, mitos micin, plastik Rp200, kartu cap cuci mobil) atau studi gagal replikasi · bukan meta-YouTube.
+**Disiplin riset batch (pelajaran #013–#016):** riset per 1 batch: 6 kandidat → verifikasi ketat → kunci 4; fase riset ≠ fase skrip; Fact Sheet 2 Lapis; tanpa statistik nasional karangan; label asal data (`YLKI 2026` vs `EKSPERIMEN AS`); jangan membacakan nomor pasal; istilah sesuai mekanisme.
+**Monetisasi (⚠ ambang belum diverifikasi ke YouTube Help):** Shorts = akuisisi views/engaged views/subscriber → YouTube Shopping Affiliate (mulai ±500 subscriber, produk/buku relevan, zero-CTA di VO) + long-form 8–15 menit dari klaster 4–5 episode senada (RPM jauh di atas Shorts lokal). Tabel v6.0-D di bawah tetap sebagai peta ambang (3 jt/10 jt engaged views, 1 Feb 2027) yang harus dicek ulang.
+
+# ▶ STANDAR BAKU v6.0 (17 Nov 2026, berlaku mulai Batch #009+) — [komposisi 3 Mesin v6.0-B DIGANTIKAN v7.0; sisanya tetap]
 **Single source of truth untuk komposisi konten, target metrik, dan peta jalan monetisasi.** Bagian bernomor 1–6 di bawah garis "LOG SEJARAH" tetap dipertahankan sebagai riwayat keputusan #001–#008; bila bertentangan dengan blok v6.0 ini, **v6.0 menang untuk #009+**. Sumber v6.0: blueprint 2 Deep Research (user + Gemini/NotebookLM) + pelajaran #001–#008. Klaim dari blueprint yang **belum dicek Claude ke sumber primer** ditandai ⚠ (verifikasi ke YouTube Help / dokumen resmi sebelum dijadikan dasar keputusan uang).
 
 > **v6.1 (18 Nov 2026):** Kompas Identitas Kanal + Channel-Fit Gate ditambahkan di `AGENTS.md` §2A dan `topik/RUMUS_PEMILIHAN.md` §v6.1; aturan lama di bagian "LOG SEJARAH" tetap log #001–#008.
@@ -8,7 +20,7 @@
 ## v6.0-A. Identitas kanal (tidak berubah)
 Nama **Mini Thriller IDN**, label layar **ARSIP KASUS**, tagline "Real Stories. Unexpected Truths." Jangan diganti ke "Arsip Perilaku". Posisi: **investigasi forensik terhadap rekayasa perilaku & bias kognitif di balik benda, harga, aturan, dan antarmuka sehari-hari**; bukan kuliah teori, bukan kanal tips/nasihat. Gaya visual tetap ARSIP Kolase.
 
-## v6.0-B. Sistem 3 Mesin Psikologi Perilaku (menggantikan komposisi lama ±70% benda/merek + ±30% selingan)
+## v6.0-B. Sistem 3 Mesin Psikologi Perilaku [SUPERSEDED by v7.0: 2 Mesin A/B di atas; tabel ini = riwayat #009–#016]
 | Mesin | Porsi | Isi | Contoh arah |
 |---|---|---|---|
 | **1 Behavioral Backfires** | ~35% | kegagalan produk, kebijakan publik, atau keputusan massal karena salah membaca cara kerja otak manusia | 3-in-1 dihapus → macet; aturan yang memperburuk perilaku (#006) |

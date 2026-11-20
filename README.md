@@ -1,5 +1,5 @@
 # Mini Thriller IDN — seri "ARSIP KASUS"
-**Real Stories. Unexpected Truths.** Channel YouTube Shorts berbahasa Indonesia: investigasi forensik perilaku dan rekayasa tersembunyi di balik benda, harga, aturan, antarmuka digital, dan anomali manusia sehari-hari di Indonesia (Formula ARSIP v6.1; pilar ±70% merek/±30% selingan = riwayat #001–#008), dikemas sebagai berkas **ARSIP KASUS** (±60 detik, 9:16).
+**Real Stories. Unexpected Truths.** Channel YouTube Shorts berbahasa Indonesia: investigasi forensik terhadap sistem, uang, desain produk/harga, kebijakan, dan anomali perilaku nyata di balik hal sehari-hari di Indonesia (Formula ARSIP v7.0, 20 Nov 2026; v6.0/v6.1 dan pilar ±70% merek/±30% selingan = riwayat), dikemas sebagai berkas **ARSIP KASUS** (±60 detik, 9:16).
 Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.** Gaya visual **ARSIP Kolase**: cetakan arsip asli dipotong di meja kertas dan digerakkan dengan kode (tanpa video AI, tanpa stock footage).
 
 ## Mulai dari sini
@@ -13,7 +13,7 @@ Prinsip: **dramatisasi penyajian, jangan pernah mengarang bukti.** Gaya visual *
 
 ## Struktur repo
 ```
-.claude/skills/arsip-kasus/   skill produksi (SKILL.md + references/ 1 cerita & Formula v6.1 (v4.1/v5.0 = log), 2 visual, 3 audio, 4 standar, 5 upload, 6 pelajaran, 7 selera & cara kerja, 8 hook & judul)
+.claude/skills/arsip-kasus/   skill produksi (SKILL.md + references/ 1 cerita & Formula v7.0 (v6.x/v5.0/v4.1 = log), 2 visual, 3 audio, 4 standar, 5 upload, 6 pelajaran, 7 selera & cara kerja, 8 hook & judul)
 kit/styles/arsip-kolase/      aturan gaya ARSIP Kolase (STYLE.md, CHANGES.md)
 kit/collage/                  mesin kolase (engine.js, shotkit.js, parts.py, signature.py, engr_objects.py, fetch_raw.py, template/, fonts/)
 kit/audio/                    VO chain, skor MIDI, SFX + foley kertas, Mixer, QA audio

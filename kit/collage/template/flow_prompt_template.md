@@ -4,12 +4,12 @@ Flow membuat gambar dengan Nano Banana Pro / Nano Banana 2 / Imagen 4; rasio 16:
 Belum pasti agen Flow mau membuat banyak gambar dalam satu perintah → bilang jujur; bila hanya satu yang jadi, user mengirim ulang daftar per baris.
 
 ## Pengaturan (tabel untuk user)
-Model Nano Banana Pro (cadangan Nano Banana 2) · variasi 2–4 per gambar · resolusi setinggi tersedia · rasio per gambar tertulis di prompt.
+Model Nano Banana Pro (cadangan Nano Banana 2) · 1 variasi per gambar (§I `2-visual…`) · resolusi setinggi tersedia · rasio per gambar tertulis di prompt.
 
 ## Prompt (salin semua)
 ```
 Create N separate images, each as its own generation (not one combined image), 1 variation each.
-All N must share exactly the same style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white background, a single isolated subject with clean edges so it can be cut out, no text, no letters, no numbers, no logos, no brand names, no watermark, no color.
+All N must share exactly the same style: vintage 19th-century steel engraving illustration, black ink cross-hatching and fine line shading, plain pure-white #FFFFFF background (no drop shadow, no frame), a single isolated subject with clean edges so it can be cut out, no text, no letters, no numbers, no logos, no brand names, no watermark, no color.
 
 1. "<nama_file>" — aspect 3:4. <satu subjek, sudut pandang, ekspresi/aksi, detail yang dibutuhkan shot>.
 2. ...

@@ -1,6 +1,6 @@
 # ARSIP KASUS #015: Label Terlaris / Best Seller di menu dan aplikasi makanan
 **Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), **DISETUJUI LANJUT user 18 Nov 2026 (tag [SEGAR: 2025] diterima)**, **NASKAH FINAL TERKUNCI USER 18 Nov 2026** (menggantikan skrip v1 Claude; tidak boleh diubah) · **Model skrip:** Opus + effort high
-[HOOK: Bukti Visual Mendahului Konteks] [ENDING: Cermin Personal] [SEGAR: 2025] [MODE: Investigasi] [ARTEFAK: halaman buku menu restoran/kafe bergaya kolase vintage dengan lencana menyala BEST SELLER pada satu hidangan (generik, tanpa logo)] [LOOP: lencana BEST SELLER di buku menu Frame 0 → pilihan orang banyak yang ditebeng sebagai jaminan enak @50] [LABEL: DATA INDONESIA + EKSPERIMEN BEIJING]
+[HOOK: Bukti Visual Mendahului Konteks] [ENDING: Cermin Personal] [SEGAR: 2025] [MODE: Investigasi] [ARTEFAK: halaman buku menu restoran/kafe bergaya kolase vintage dengan lencana menyala BEST SELLER pada satu hidangan (generik, tanpa logo)] [LOOP: lencana BEST SELLER di buku menu Frame 0 → pilihan orang banyak yang ditebeng sebagai jaminan enak @50] [LABEL: DATA INDONESIA + EKSPERIMEN BEIJING] [MESIN: B3] [LATAR: benda]
 
 ## Klasifikasi (v6.1)
 | Kolom | Isi |

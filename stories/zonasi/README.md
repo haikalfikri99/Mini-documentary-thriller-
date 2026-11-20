@@ -1,6 +1,6 @@
 # ARSIP KASUS #016: Zonasi sekolah (SPMB) dan numpang Kartu Keluarga
 **Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), **NASKAH FINAL TERKUNCI USER 18 Nov 2026** (menggantikan skrip v1 Claude; tidak boleh diubah) · **Model skrip:** Opus + effort high · **Pengecualian resmi user 18 Nov 2026:** rubrik 15/20 diterima karena Kartu Keluarga sangat dekat dengan keluarga Indonesia; **batas fakta dikunci ketat ke rilis Ombudsman DIY 2023 & 2026, tanpa angka nasional**
-[HOOK: Bom di Bawah Meja] [ENDING: Dilema Abu-Abu] [SEGAR: 2026] [MODE: Ringkas] [ARTEFAK: lembar Kartu Keluarga generik (data fiktif/blur) dengan kolom alamat disorot dan jarum jarak di peta] [LOOP: satu baris anggota kosong di Frame 0 → satu nama baru muncul di baris itu @37] [LABEL: satu asal]
+[HOOK: Bom di Bawah Meja] [ENDING: Dilema Abu-Abu] [SEGAR: 2026] [MODE: Ringkas] [ARTEFAK: lembar Kartu Keluarga generik (data fiktif/blur) dengan kolom alamat disorot dan jarum jarak di peta] [LOOP: satu baris anggota kosong di Frame 0 → satu nama baru muncul di baris itu @37] [LABEL: satu asal] [MESIN: A2] [LATAR: dokumen]
 
 ## Klasifikasi (v6.1)
 | Kolom | Isi |

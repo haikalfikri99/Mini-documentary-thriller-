@@ -1,0 +1,98 @@
+[
+ {
+  "no": 9,
+  "slug": "burger",
+  "title": "Burger ini lebih tebal, harganya sama, tapi nggak laku. Gara-gara satu angka di namanya.",
+  "mode": null,
+  "mesin": null,
+  "hook": "Titik Balik Hasil Ekstrem",
+  "h1_tapi": true,
+  "ending": "Reframing Sistemik",
+  "latar": null,
+  "segar": "klasik (1980-an)"
+ },
+ {
+  "no": 10,
+  "slug": "kantong",
+  "title": "Kantong Plastik Ini Mendadak Ditolak Gara-Gara Rp200",
+  "mode": null,
+  "mesin": null,
+  "hook": "Ketidaknyamanan Kontra-Intuitif",
+  "h1_tapi": true,
+  "ending": "Pemicu Dunia Nyata",
+  "latar": null,
+  "segar": "2016 (uji coba KLHK; studi Homonoff 2018)"
+ },
+ {
+  "no": 11,
+  "slug": "paylater",
+  "title": "Belanja Jadi Lebih Banyak Gara-Gara Tombol Paylater",
+  "mode": "Investigasi",
+  "mesin": null,
+  "hook": "Ketidaknyamanan Kontra-Intuitif",
+  "h1_tapi": true,
+  "ending": "Cermin Personal",
+  "latar": null,
+  "segar": "2026 (data OJK Juni 2026)"
+ },
+ {
+  "no": 12,
+  "slug": "kartumember",
+  "title": "Cara Halus Kartu Member Bikin Kamu Balik Lagi",
+  "mode": "Investigasi",
+  "mesin": null,
+  "hook": "Celah Ujung Lidah",
+  "h1_tapi": true,
+  "ending": "Reframing Sistemik",
+  "latar": null,
+  "segar": "klasik (studi 2006)"
+ },
+ {
+  "no": 13,
+  "slug": "biayalayanan",
+  "title": "Harga Awal Rp50 Ribu, Pas Checkout Jadi Rp60 Ribu",
+  "mode": "Investigasi",
+  "mesin": "B3",
+  "hook": "Bukti Visual Mendahului Konteks",
+  "h1_tapi": false,
+  "ending": "Pemicu Dunia Nyata",
+  "latar": "layar",
+  "segar": "2026"
+ },
+ {
+  "no": 14,
+  "slug": "ongkir",
+  "title": "Voucher Ongkir Rp0 Bikin Paket Retur Ikut Naik",
+  "mode": "Ringkas",
+  "mesin": "A2",
+  "hook": "Bom di Bawah Meja",
+  "h1_tapi": false,
+  "ending": "Reframing Sistemik",
+  "latar": "layar",
+  "segar": "2026"
+ },
+ {
+  "no": 15,
+  "slug": "terlaris",
+  "title": "Satu Tanda Best Seller Ini Mengubah Isi Pesananmu",
+  "mode": "Investigasi",
+  "mesin": "B3",
+  "hook": "Bukti Visual Mendahului Konteks",
+  "h1_tapi": false,
+  "ending": "Cermin Personal",
+  "latar": "benda",
+  "segar": "2025"
+ },
+ {
+  "no": 16,
+  "slug": "zonasi",
+  "title": "Satu Baris Kosong di Kartu Keluarga Ini Jadi Rebutan",
+  "mode": "Ringkas",
+  "mesin": "A2",
+  "hook": "Bom di Bawah Meja",
+  "h1_tapi": false,
+  "ending": "Dilema Abu-Abu",
+  "latar": "dokumen",
+  "segar": "2026"
+ }
+]

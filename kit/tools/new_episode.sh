@@ -19,18 +19,19 @@ if [ ! -f "$S/README.md" ]; then   # (the old one-liner printed the template to 
   NO3=$(printf '%03d' "$NO")
   cat > "$S/README.md" <<'README_TPL'
 # ARSIP KASUS #__NO3__: __SLUG__
-**Formula ARSIP v6.1** · **Status:** validasi topik · **Mode produksi:** Otomatis (#013+; Claude penuh, `AGENTS.md` §3) · **Model:** Sonnet untuk riset/fact sheet, model penalaran tertinggi + effort high untuk skrip final dan `film.js`
+**Formula ARSIP v7.0** · **Status:** validasi topik · **Mode produksi:** Otomatis (Claude penuh; riset per batch: 6 kandidat → 4 terkunci, `AGENTS.md` §3) · **Model:** Sonnet untuk riset/fact sheet, model penalaran tertinggi + effort high untuk skrip final dan `film.js`
 
 **Penanda wajib (dibaca `python3 kit/tools/lint_episode.py --batch …`; isi semuanya sebelum VO):**
-[HOOK: ] [ENDING: ] [SEGAR: <tahun>|klasik] [MODE: Ringkas|Investigasi] [ARTEFAK: <benda fisik Frame 0>] [LOOP: <detail Frame 0> → <makna yang terungkap> @<detik>] [LABEL: DATA INDONESIA + EKSPERIMEN <negara> | satu asal] (+ [SLOT-UJI] bila ini slot uji judul 3:1)
+[HOOK: ] [ENDING: ] [MESIN: A1|A2|B3|B4] [LATAR: layar|dokumen|kemasan|benda|peta|grafik|tempat] [SEGAR: <tahun>|klasik] [MODE: Ringkas|Investigasi] [ARTEFAK: <benda fisik Frame 0>] [LOOP: <detail Frame 0> → <makna yang terungkap> @<detik>] [LABEL: DATA INDONESIA + EKSPERIMEN <negara> | satu asal] (+ [SLOT-UJI] bila ini slot uji judul 3:1)
 
-## Kompas & Channel-Fit Gate (v6.1; `AGENTS.md` §2A; semua ✓ sebelum fact sheet)
-- [ ] Bukan kuliah psikologi · bukan self-improvement/nasihat · bukan bantahan mitos datar (Garis Merah)
+## Kompas & Channel-Fit Gate (v7.0; `AGENTS.md` §2A; semua ✓ sebelum fact sheet)
+- [ ] Garis Merah v7.0: bukan self-help/tips/nasihat · bukan bantahan mitos datar atau bacaan pasal tanpa konflik · bukan topik basi/klise · bukan meta-YouTube · bukan studi Daftar Hitam
+- [ ] Topic Stress-Test v7.0: belum diperah kreator besar 2 tahun terakhir · dekat dompet/waktu/kesehatan usia 20–45 · 3 Pilar Konflik (antagonis sistemik + stakes + The Turn) · Vox Handle (artefak fisik untuk kolase)
 - [ ] Artefak fisik Frame 0 (≥ 486 px, stempel merah ≤ 0,25 dtk; bukan otak/kartun berpikir): 
 - [ ] Antagonis tak kasatmata + taruhan nyata: 
 - [ ] The Turn (pembalikan babak): 
 - [ ] Penutup Curtain-Pull Reveal (tanpa menggurui; salah satu dari 5 arketipe): 
-- [ ] Mesin 3: jangkar kejadian nyata Indonesia di 0–4 dtk (bila Mesin 3): 
+- [ ] Mesin B4 (anomali perilaku): jangkar kejadian nyata Indonesia di 0–4 dtk sebelum eksperimen: 
 
 ## Tangga bukti (micro-rehook tiap 12–15 dtk; `1-cerita…` §M8.2)
 | Detik | Tingkat | Isi |
@@ -40,12 +41,12 @@ if [ ! -f "$S/README.md" ]; then   # (the old one-liner printed the template to 
 | ±27–40 | Eksperimen Kontrol | |
 | ±40–55 | Pembalikan Otak (+ Conceptual Loop terungkap) | |
 
-## Klasifikasi (v6.0)
+## Klasifikasi (v7.0)
 | Kolom | Isi |
 |---|---|
-| Mesin cerita | 1 Behavioral Backfires / 2 Hidden Choice Design / 3 Human Anomalies |
+| Mesin cerita (v7.0: A ~60% · B ~40%) | A1 skandal/kartel/celah aturan · A2 backfire produk/kebijakan · B3 jebakan harga/desain pilihan · B4 anomali perilaku teruji |
 | Mode durasi | Ringkas (35–42 dtk, 85–105 kata) / Investigasi (48–55 dtk, 115–135 kata) |
-| Arketipe hook (K1–K5) / penutup (1–5) | |
+| Arketipe hook (K1–K5) / penutup (1–5) / latar visual utama | |
 | Pola judul (kuota 3:1) | Pola 1 / uji Pola 3-4-5 |
 | **Status replikasi studi** (Filter Anti-Krisis; wajib bila bersandar pada studi psikologi) | replikasi besar / meta-analisis / kritik utama + sumber; Daftar Hitam? |
 
@@ -95,15 +96,16 @@ Tempo VO 2,50–2,66 kata/dtk, atempo ≤ 1,10. Notasi: `/` jeda ≈ 0,25 dtk ·
 |---|---|---|
 | 1 | | |
 VO bersih (tanpa notasi) → `audio/script_vo.txt`; bertag → `audio/vo_prompt_elevenlabs.md`.
-Penutup (rotasi 5 arketipe v6.1, bukan default; Curtain-Pull Reveal; ekor audio ≤ 0,15 dtk):
+Bahasa lisan luwes (nggak/bikin/aja/udah), 8–13 kata per kalimat; "tapi/padahal" TIDAK di judul dan kalimat pembuka (0–4 dtk), boleh di body (ABT).
+Penutup (rotasi 5 arketipe, bukan default; Curtain-Pull Reveal; ekor audio ≤ 0,15 dtk):
 
-## Scorecard v6.0 (16 cek §F6 + cek 17–22 `1-cerita…` §M6 + gerbang H1–H7/R1–R6)
+## Scorecard v7.0 (16 cek §F6 + cek 17–22 `1-cerita…` §M6 + gerbang H1–H7/R1–R6)
 
 ## Catatan lanjut
 README_TPL
   sed -i.bak "s/__NO3__/$NO3/; s/__SLUG__/$SLUG/" "$S/README.md" && rm -f "$S/README.md.bak"
 fi
-if [ ! -f "$S/UPLOAD.md" ]; then   # kerangka paket upload v6.1 (5-upload… §F); lint_episode.py + pack_upload.py memeriksanya
+if [ ! -f "$S/UPLOAD.md" ]; then   # kerangka paket upload v7.0 (5-upload… §F); lint_episode.py + pack_upload.py memeriksanya
   cat > "$S/UPLOAD.md" <<'UPLOAD_TPL'
 # Upload — ARSIP KASUS #__NO3__ __SLUG__
 **File:** TODO · **QA:** TODO · **Jadwal (usul):** TODO

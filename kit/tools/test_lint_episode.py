@@ -1,4 +1,4 @@
-"""Tests for lint_episode.py (v6.1 anti-monotony rules).   python3 kit/tools/test_lint_episode.py"""
+"""Tests for lint_episode.py (v6.1 anti-monotony rules + Formula ARSIP v7.0).   python3 kit/tools/test_lint_episode.py"""
 import os, sys, json, tempfile, unittest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import lint_episode as L
@@ -8,13 +8,14 @@ FULL = object()                                   # sentinel: default value for 
 
 
 def make(root, slug, no, script, hook='Bom di Bawah Meja', ending='Reframing Sistemik', segar='2024', dur=None,
-         mode=FULL, artefak=FULL, loop=FULL, label=FULL, title=None, extra='', upload=None):
+         mode=FULL, artefak=FULL, loop=FULL, label=FULL, title=None, extra='', upload=None, mesin='A1', latar='layar'):
     d = os.path.join(root, 'stories', slug); os.makedirs(os.path.join(d, 'audio')); os.makedirs(os.path.join(d, 'kolase'))
     dflt = lambda v, x: x if v is FULL else v
     md = '# ep\n' + (f'[HOOK: {hook}] ' if hook else '') + (f'[ENDING: {ending}] ' if ending else '') + (f'[SEGAR: {segar}] ' if segar else '')
     for k, v, x in (('MODE', mode, 'Ringkas'), ('ARTEFAK', artefak, 'struk'), ('LOOP', loop, 'angka kecil → harga akhir @46'), ('LABEL', label, 'satu asal')):
         v = dflt(v, x)
         if v: md += f'[{k}: {v}] '
+    md += (f'[MESIN: {mesin}] ' if mesin else '') + (f'[LATAR: {latar}] ' if latar else '')
     if title: md += f'\n**Judul:** {title}\n'
     open(os.path.join(d, 'README.md'), 'w').write(md + extra)
     if upload: open(os.path.join(d, 'UPLOAD.md'), 'w').write(upload)
@@ -23,11 +24,14 @@ def make(root, slug, no, script, hook='Bom di Bawah Meja', ending='Reframing Sis
     return L.load(slug, root)
 
 
-W = lambda n: ' '.join(['Anehnya'] + ['kata'] * (n - 1))   # includes an ABT connector
+W = lambda n: ' '.join(w + ('.' if i % 10 == 9 and i < n - 1 else '') for i, w in enumerate(['Anehnya'] + ['kata'] * (n - 1)))   # ABT connector, a sentence break every 10 words
 
 
 class T(unittest.TestCase):
-    def setUp(self): self.tmp = tempfile.mkdtemp()
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(); self._log = L.LOG_PATH; L.LOG_PATH = os.path.join(self.tmp, 'no_log.json')   # isolate from the real stories/episode_log.json
+
+    def tearDown(self): L.LOG_PATH = self._log
 
     def test_markers_and_canonical_names(self):
         e = make(self.tmp, 'a', 13, 'Struk ini aneh. ' + W(90) + '.\nItu yang terjadi di kasir.', hook='5. Titik Balik Hasil Ekstrem (K5)', title='Struk Ini Mencetak Dua Harga')
@@ -69,7 +73,7 @@ class T(unittest.TestCase):
         self.assertTrue(any('kesegaran' in m for m in msgs))               # only 1 fresh of 4
 
     def test_batch_clean(self):
-        eps = [make(self.tmp, 'c%d' % i, 13 + i, s, hook=h, ending=en, segar=y, mode=m, title='Struk Ini Aneh') for i, (s, h, en, y, m) in enumerate([
+        eps = [make(self.tmp, 'c%d' % i, 13 + i, s, hook=h, ending=en, segar=y, mode=m, title='Struk Ini Aneh', mesin=['A1', 'B3', 'A2', 'B4'][i], latar=['layar', 'dokumen', 'layar', 'benda'][i]) for i, (s, h, en, y, m) in enumerate([
             ('Struk ini aneh. ' + W(92) + '.', 'Bukti Visual Mendahului Konteks', 'Reframing Sistemik', '2023', 'Ringkas'),
             ('Tombol abu-abu ini mahal. ' + W(120) + '.', 'Bom di Bawah Meja', 'Dilema Abu-Abu', '2021', 'Investigasi'),
             ('Dua kartu sama, hasil beda. ' + W(90) + '.', 'Celah Ujung Lidah', 'Lingkar Naratif Mulus', 'klasik', 'Ringkas'),
@@ -131,6 +135,48 @@ class T(unittest.TestCase):
         e = make(self.tmp, 'ph', 13, W(95) + '.', hook='<arketipe>', segar='<tahun>|klasik', artefak='<benda>')
         msgs = [m for _, m in L.lint_episode(e)]
         self.assertTrue(any('[HOOK' in m for m in msgs)); self.assertTrue(any('[SEGAR' in m for m in msgs)); self.assertTrue(any('[ARTEFAK' in m for m in msgs))
+
+    # ---------- Formula ARSIP v7.0 ----------
+    def test_v7_tapi_forbidden_in_first_sentence_allowed_in_body(self):
+        body = 'Anehnya, harga naik tapi barangnya sama. ' + W(88) + '.'
+        ok = make(self.tmp, 'v1', 17, 'Struk ini mencetak dua harga. ' + body, title='Struk Ini Mencetak Dua Harga')
+        self.assertEqual([m for l, m in L.lint_episode(ok) if l == 'E'], [])
+        bad = make(self.tmp, 'v2', 17, 'Harganya murah tapi total naik. ' + W(90) + '.', title='Struk Ini Mencetak Dua Harga')
+        self.assertTrue(any('kalimat pembuka' in m and l == 'E' for l, m in L.lint_episode(bad)))
+        old = make(self.tmp, 'v3', 16, 'Harganya murah tapi total naik. ' + W(90) + '.', title='Struk Ini Mencetak Dua Harga')   # locked #016: warning only
+        self.assertTrue(any('kalimat pembuka' in m and l == 'W' for l, m in L.lint_episode(old)))
+
+    def test_v7_markers_mesin_latar(self):
+        e = make(self.tmp, 'm1', 17, 'Struk ini aneh. ' + W(90) + '.', mesin=None, latar=None, title='Struk Ini Mencetak Dua Harga')
+        r = L.lint_episode(e)
+        self.assertTrue(any('[MESIN' in m and l == 'E' for l, m in r)); self.assertTrue(any('[LATAR' in m and l == 'E' for l, m in r))
+        e2 = make(self.tmp, 'm2', 16, 'Struk ini aneh. ' + W(90) + '.', mesin=None, latar=None, title='Struk Ini Mencetak Dua Harga')
+        self.assertTrue(all(l == 'W' for l, m in L.lint_episode(e2) if '[MESIN' in m or '[LATAR' in m))
+
+    def test_v7_stiff_citation_long_sentence_staccato(self):
+        long_s = ' '.join(['kata'] * 20) + '.'
+        script = 'Struk ini aneh. Menurut studi di kampus, harga naik. ' + long_s + ' Ya. Itu. Beda. Jauh. ' + W(80) + ' tersebut.'
+        r = L.lint_episode(make(self.tmp, 's1', 17, script, title='Struk Ini Mencetak Dua Harga'))
+        txt = ' | '.join(m for _, m in r)
+        self.assertIn('kutipan lisan kaku', txt); self.assertIn('20 kata', txt); self.assertIn('staccato', txt); self.assertIn('tersebut', txt)
+        self.assertTrue(all(l == 'W' for l, m in r if 'kata' in m and ('20 kata' in m or 'staccato' in m or 'tersebut' in m)))
+
+    def test_v7_batch_latar_and_mesin_share(self):
+        eps = [make(self.tmp, f'b{i}', 17 + i, 'Struk ini aneh. ' + W(90) + '.', hook=h, ending=en, mode=md, mesin=ms, latar='layar', title='Struk Ini Mencetak Dua Harga')
+               for i, (h, en, md, ms) in enumerate([('Bom di Bawah Meja', 'Reframing Sistemik', 'Ringkas', 'A1'), ('Celah Ujung Lidah', 'Cermin Personal', 'Investigasi', 'B3'),
+                                                     ('Titik Balik Hasil Ekstrem', 'Dilema Abu-Abu', 'Ringkas', 'B4'), ('Ketidaknyamanan Kontra-Intuitif', 'Pemicu Dunia Nyata', 'Investigasi', 'B3')])]
+        txt = ' | '.join(m for _, m in L.lint_batch(eps))
+        self.assertIn('latar visual sama 3 episode', txt); self.assertIn('porsi Mesin A 1 dari 4', txt)
+
+    def test_v7_episode_log_cross_batch(self):
+        old_path = L.LOG_PATH; L.LOG_PATH = os.path.join(self.tmp, 'log.json')
+        try:
+            json.dump([{'no': 16, 'slug': 'prev', 'hook': 'Bom di Bawah Meja', 'ending': 'Dilema Abu-Abu', 'mode': 'Ringkas', 'latar': 'layar'}], open(L.LOG_PATH, 'w'))
+            e = make(self.tmp, 'n1', 17, 'Struk ini aneh. ' + W(90) + '.', hook='Bom di Bawah Meja', ending='Dilema Abu-Abu', mode='Ringkas', title='Struk Ini Mencetak Dua Harga')
+            txt = ' | '.join(m for _, m in L.lint_vs_log([e]))
+            self.assertIn('arketipe hook sama', txt); self.assertIn('arketipe penutup sama', txt); self.assertIn('selang-seling', txt)
+            L.write_log([e]); self.assertEqual({x['slug'] for x in L.load_log()}, {'prev', 'n1'})
+        finally: L.LOG_PATH = old_path
 
 
 if __name__ == '__main__':

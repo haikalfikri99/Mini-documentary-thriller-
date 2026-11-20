@@ -71,3 +71,5 @@ Tiap episode menghasilkan **`stories/<slug>/upload_pack/`** (`python3 kit/tools/
 2. **Deskripsi:** paragraf pembuka **2–3 kalimat** kaya kata kunci alami (benda + situasi yang dicari penonton di pencarian Shorts 2026), tanpa menjual bias/psikologi, tanpa klaim yang tidak ada di fact sheet; lalu daftar **Sumber:** (primer + lokal), kredit gambar, dan "tidak disponsori".
 3. **Pinned Comment:** 1 draf berupa **pertanyaan pengalaman pribadi penonton** (memakai "kamu"; berakhir "?"), untuk memicu diskusi dan memperpanjang durasi tonton latar; bukan debat benar-salah, bukan CTA subscribe. Catatan penjelas klaim boleh didahulukan satu kalimat.
 4. Tag, thumbnail (+ frame cadangan), pengaturan (konten sintetis **Ya**), jadwal, dan catatan hukum seperti §"Paket upload wajib".
+
+**v7.0 (20 Nov 2026):** judul ≤ 55 karakter, ideal 38–48, tanpa psikologi/bias/kenapa/padahal/tapi/ternyata/? (kecuali slot uji); angka ilustrasi di judul/layar diberi catatan ILUSTRASI di deskripsi dan komentar pin.

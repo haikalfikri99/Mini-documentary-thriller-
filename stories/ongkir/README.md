@@ -1,6 +1,6 @@
 # ARSIP KASUS #014: Voucher ongkir Rp0 dan barang yang dikembalikan (gratis ongkir)
 **Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), **NASKAH FINAL TERKUNCI USER 18 Nov 2026** (menggantikan skrip v1 Claude; tidak boleh diubah) · **Model skrip:** Opus + effort high · Pengganti #014 (Password NIST ditolak user, Aturan #86) dipilih dari 4 kandidat (flash sale 15/20, kuota hangus 14/20, decoy gelas kopi NO-GO, gratis ongkir 16/20)
-[HOOK: Bom di Bawah Meja] [ENDING: Reframing Sistemik] [SEGAR: 2026] [MODE: Ringkas] [ARTEFAK: keranjang belanja dengan stiker ONGKIR Rp0 (generik, tanpa logo)] [LOOP: stiker ONGKIR Rp0 di keranjang Frame 0 → keranjang berubah jadi ruang coba gratis @37] [LABEL: DATA INDONESIA + EKSPERIMEN EROPA]
+[HOOK: Bom di Bawah Meja] [ENDING: Reframing Sistemik] [SEGAR: 2026] [MODE: Ringkas] [ARTEFAK: keranjang belanja dengan stiker ONGKIR Rp0 (generik, tanpa logo)] [LOOP: stiker ONGKIR Rp0 di keranjang Frame 0 → keranjang berubah jadi ruang coba gratis @37] [LABEL: DATA INDONESIA + EKSPERIMEN EROPA] [MESIN: A2] [LATAR: layar]
 
 ## Klasifikasi (v6.1)
 | Kolom | Isi |

@@ -1,27 +1,40 @@
-"""Lint ARSIP KASUS episodes against the anti-monotony rules v6.1 (18 Nov 2026; references/1-cerita… §M7, 8-hook… §I, 2-visual… §M).
+"""Lint ARSIP KASUS episodes against Formula ARSIP v7.0 (20 Nov 2026; supersedes the v6.1 H1 rule) + the v6.1 anti-monotony rules
+(references/1-cerita… §M7 + §M9, 8-hook… §I + §J, 2-visual… §M + §O).
     python3 kit/tools/lint_episode.py <slug> [<slug> ...]            per-episode checks
-    python3 kit/tools/lint_episode.py --batch <s1> <s2> <s3> <s4>    + batch checks, slugs in PUBLISHING order
+    python3 kit/tools/lint_episode.py --batch <s1> <s2> <s3> <s4>    + batch checks, slugs in PUBLISHING order (+ checks against stories/episode_log.json)
+    python3 kit/tools/lint_episode.py --log <s1> [<s2> ...]          write/refresh these episodes in stories/episode_log.json (history for --batch)
 Reads stories/<slug>/README.md (markers [HOOK: …] [ENDING: …] [SEGAR: <tahun>|klasik] [MODE: Ringkas|Investigasi] [ARTEFAK: …] [LOOP: detail → makna @detik]
 [LABEL: …] and optionally [SLOT-UJI]), audio/script_vo.txt, kolase/episode.json, UPLOAD.md (if present).
 Checks (v6.1 + 18 Nov 2026 additions): markers, word range of the 2 duration modes, Kuda Troya in title (<= 55 chars) and H1, ABT connectors / no list
 transitions, zero spoken citation, blacklist of closing-sentence openers (Jadi, Kesimpulannya, Pada akhirnya, Nah itulah, Intinya, Lain kali, Kalau kamu,
 Kalo kamu, Ingat ya), upload package (2-3 sentence description + Sumber, pinned-comment question).
-v6.1 rules are ERRORS for episodes #013+ and WARNINGS (history log) for #001–#012. Exit code 1 when any error. Standard library only."""
+v7.0 additions (ERRORS for #017+, warnings before; #013–#016 scripts are locked): 'tapi'/'padahal' forbidden in title AND first sentence (0–4 s) but allowed in the
+body (ABT; warning if > 3 uses); [MESIN: A1|A2|B3|B4] and [LATAR: …] markers; no 3 same LATAR in a row; Mesin A 2–3 of 4 per batch; stiff spoken citations
+('menurut studi/penelitian', 'berdasarkan penelitian'); sentence > 17 words, 3+ staccato sentences (≤ 4 words) in a row, stiff words (tersebut, sehingga,
+melakukan) = warnings. v6.1 rules are ERRORS for episodes #013+ and WARNINGS (history log) for #001–#012. Exit code 1 when any error. Standard library only."""
 import os, re, sys, json
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 STRICT_FROM = 13
+V7_FROM = 17                                   # Formula ARSIP v7.0 rules are errors from this episode (#013–#016 are locked scripts: warnings)
+LOG_PATH = os.path.join(ROOT, 'stories', 'episode_log.json')
+MESINS = ['A1', 'A2', 'B3', 'B4']             # A1 skandal/kartel/celah aturan · A2 backfire · B3 jebakan harga/desain · B4 anomali perilaku
+LATARS = ['layar', 'dokumen', 'kemasan', 'benda', 'peta', 'grafik', 'tempat']   # main visual background/artefact family (2-visual §O)
 HOOKS = ['Bom di Bawah Meja', 'Ketidaknyamanan Kontra-Intuitif', 'Bukti Visual Mendahului Konteks', 'Celah Ujung Lidah', 'Titik Balik Hasil Ekstrem']
 ENDINGS = ['Reframing Sistemik', 'Cermin Personal', 'Dilema Abu-Abu', 'Lingkar Naratif Mulus', 'Pemicu Dunia Nyata']
 EXIT_OPENERS = ['jadi', 'kesimpulannya', 'pada akhirnya', 'nah itulah', 'intinya', 'lain kali', 'kalau kamu', 'kalo kamu', 'ingat ya']
 OLD_EXIT = ('jadi', 'kesimpulannya', 'pada akhirnya', 'nah itulah')                # always errors (v6.0)
 TROJAN = ['psikologi', 'bias', 'kenapa', 'padahal', 'tapi', 'ternyata']          # forbidden in title (and frame 0) unless [SLOT-UJI]
-TROJAN_H1 = ['psikologi', 'bias', 'kenapa', 'padahal', 'ternyata']               # spoken H1: 'tapi' is governed by the batch "—tapi" rule (7-selera #80c)
+TROJAN_H1 = ['psikologi', 'bias', 'kenapa', 'padahal', 'ternyata']               # spoken H1 (first sentence, 0–4 s); v7.0 adds 'tapi' (TROJAN_H1_V7), replacing 7-selera #80c
+TROJAN_H1_V7 = ['tapi']
 TITLE_MAX = 55
 ABT = ['tetapi', 'anehnya', 'masalahnya', 'akibatnya', 'karena itu']
 LIST_TRANSITIONS = ['selain itu', 'berikutnya', 'tidak hanya itu', 'dan kemudian']
 CITATION = [r'\bet al\b', r'\bdoi\b', r'\bjurnal\b', r'\bjournal\b', r'\bmeta[- ]?analisis\b', r'\b(profesor|prof\.|guru besar)\b',
             r'\b(menurut|dalam|di) (sebuah |satu )?(studi|penelitian|makalah|riset)\b[^.]{0,80}\b(19|20)\d\d\b']
+STIFF_CITATION = [r'\b(menurut|berdasarkan) (sebuah |satu )?(studi|penelitian|riset)\b']   # v7.0: spoken sources go on the card, not in the VO
+STIFF_WORDS = ['tersebut', 'sehingga', 'melakukan']                                 # v7.0: stiff written-style words (use lisan: itu, jadi/bikin, ngelakuin)
+MAX_SENT_WORDS = 17
 MODES = {'Ringkas': ((85, 105), (35, 42)), 'Investigasi': ((115, 135), (48, 55))}
 norm = lambda s: re.sub(r'[^a-z0-9]+', ' ', s.lower()).strip()
 
@@ -99,6 +112,7 @@ def load(slug, root=ROOT):
                 ending=pick(marker(readme, 'ENDING'), ENDINGS), ending_raw=marker(readme, 'ENDING'),
                 fresh=(year is not None and year >= 2020), segar_raw=seg,
                 mode_decl=pick(marker(readme, 'MODE'), list(MODES)), mode_raw=marker(readme, 'MODE'),
+                mesin=pick(marker(readme, 'MESIN'), MESINS), mesin_raw=marker(readme, 'MESIN'), latar=pick(marker(readme, 'LATAR'), LATARS), latar_raw=marker(readme, 'LATAR'),
                 artefak=marker(readme, 'ARTEFAK'), loop=marker(readme, 'LOOP'), label=marker(readme, 'LABEL'),
                 slot_uji=bool(re.search(r'\[SLOT-UJI\]', readme, re.I)), title=find_title(readme, upload), upload=upload, script=script,
                 first=sents[0] if sents else '', last=sents[-1] if sents else '', last_para=paras[-1] if paras else '')
@@ -124,6 +138,7 @@ def lint_upload(e, lv):
 def lint_episode(e):
     out = []                                                     # (level, message); level 'E' error / 'W' warning
     lv = 'E' if e['no'] >= STRICT_FROM else 'W'
+    lv7 = 'E' if e['no'] >= V7_FROM else 'W'
     if not e['hook']: out.append((lv, '[HOOK: <arketipe>] tidak ada/tidak dikenal di README (pilihan: %s)' % ' · '.join(HOOKS)))
     if not e['ending']: out.append((lv, '[ENDING: <arketipe>] tidak ada/tidak dikenal di README (pilihan: %s)' % ' · '.join(ENDINGS)))
     if e['ending'] == 'Lingkar Naratif Mulus' and e['mode'] != 'Ringkas':
@@ -149,6 +164,9 @@ def lint_episode(e):
     if not e['label']: out.append((lv, '[LABEL: DATA INDONESIA + EKSPERIMEN … | satu asal] tidak ada di README'))
     elif '+' in e['label'] and not (has_word(e['label'], 'indonesia') and re.search(r'eksperimen|studi', e['label'], re.I)):
         out.append((lv, '[LABEL] campuran asal harus memuat DATA INDONESIA dan EKSPERIMEN/STUDI <negara>: %s' % e['label']))
+    # --- v7.0 markers
+    if not e['mesin']: out.append((lv7, '[MESIN: %s] tidak ada/tidak dikenal di README' % '|'.join(MESINS) + (': %s' % e['mesin_raw'] if e['mesin_raw'] else '')))
+    if not e['latar']: out.append((lv7, '[LATAR: %s] tidak ada/tidak dikenal di README (latar visual utama, rotasi batch)' % '|'.join(LATARS) + (': %s' % e['latar_raw'] if e['latar_raw'] else '')))
     # --- Kuda Troya: judul + H1
     if e['title']:
         if len(e['title']) > TITLE_MAX: out.append((lv, 'judul %d karakter (maks %d): %s' % (len(e['title']), TITLE_MAX, e['title'])))
@@ -159,6 +177,8 @@ def lint_episode(e):
     if e['first'] and not e['slot_uji']:
         bad = [w for w in TROJAN_H1 if has_word(e['first'], w)] + (['?'] if '?' in e['first'] else [])
         if bad: out.append((lv, 'Kuda Troya: H1 memuat %s: %s' % (', '.join(bad), e['first'][:80])))
+        bad7 = [w for w in TROJAN_H1_V7 if has_word(e['first'], w)]
+        if bad7: out.append((lv7, 'v7.0: kalimat pembuka (0–4 dtk) memuat %s (boleh di body/ABT, bukan di hook): %s' % (', '.join(bad7), e['first'][:80])))
     # --- ABT, daftar, sitasi
     if e['script']:
         low = e['script'].lower()
@@ -168,7 +188,53 @@ def lint_episode(e):
         for pat in CITATION:
             m = re.search(pat, low)
             if m: out.append((lv, 'sitasi akademik lisan kaku (Zero-Citation): "%s"' % m.group(0)[:60]))
+        for pat in STIFF_CITATION:
+            m = re.search(pat, low)
+            if m: out.append((lv7, 'v7.0: kutipan lisan kaku "%s" (sumber ditaruh di kartu visual, bukan dibaca)' % m.group(0)))
+        n_tp = len(re.findall(r'(?<![a-z0-9])(tapi|padahal)(?![a-z0-9])', low))
+        if n_tp > 3: out.append(('W', 'v7.0: "tapi/padahal" dipakai %d kali di body (maks wajar 3; variasikan perekat ABT)' % n_tp))
+        sents = sentences(e['script'])
+        for sn in sents:
+            wc = len(re.findall(r"[\w’'-]+", sn))
+            if wc > MAX_SENT_WORDS: out.append(('W', 'v7.0: kalimat %d kata (> %d; pecah agar satu tarikan napas): %s…' % (wc, MAX_SENT_WORDS, sn[:60])))
+        run = 0
+        for sn in sents + ['x x x x x x']:
+            if len(re.findall(r"[\w’'-]+", sn)) <= 4: run += 1
+            else:
+                if run >= 3: out.append(('W', 'v7.0: %d kalimat pendek (≤ 4 kata) beruntun; terasa staccato' % run))
+                run = 0
+        stiff = [w for w in STIFF_WORDS if has_word(low, w)]
+        if stiff: out.append(('W', 'v7.0: kata kaku ala tulisan baku: %s (pakai bahasa lisan)' % ', '.join(stiff)))
     out += lint_upload(e, lv)
+    return out
+
+
+def load_log():
+    try: return json.load(open(LOG_PATH, encoding='utf-8'))
+    except (OSError, ValueError): return []
+
+
+def write_log(eps):
+    log = {x['slug']: x for x in load_log()}
+    for e in eps:
+        log[e['slug']] = dict(no=e['no'], slug=e['slug'], title=e['title'], mode=e['mode'], mesin=e['mesin'], hook=e['hook'], h1_tapi=h1_pattern(e['first']),
+                              ending=e['ending'], latar=e['latar'], segar=e['segar_raw'])
+    json.dump(sorted(log.values(), key=lambda x: x['no']), open(LOG_PATH, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    open(LOG_PATH, 'a').write('\n')
+
+
+def lint_vs_log(eps):
+    """batch checks against episodes already published/logged before the first episode of this batch (stories/episode_log.json)"""
+    out = []; first = eps[0]; slugs = {e['slug'] for e in eps}
+    prev = [x for x in load_log() if x['slug'] not in slugs and 0 < x['no'] < first['no']]
+    if not prev: return out
+    p = max(prev, key=lambda x: x['no']); lv = 'E' if first['no'] >= V7_FROM else 'W'
+    if first['hook'] and p.get('hook') == first['hook']: out.append((lv, 'arketipe hook sama dengan episode sebelumnya di log: #%03d %s → %s (%s)' % (p['no'], p['slug'], first['slug'], first['hook'])))
+    if first['ending'] and p.get('ending') == first['ending']: out.append((lv, 'arketipe penutup sama dengan episode sebelumnya di log: #%03d %s → %s (%s)' % (p['no'], p['slug'], first['slug'], first['ending'])))
+    if first['mode'] and p.get('mode') == first['mode']: out.append((lv, 'mode durasi tidak selang-seling dengan #%03d %s (keduanya %s)' % (p['no'], p['slug'], first['mode'])))
+    seq = [x.get('latar') for x in sorted(prev, key=lambda x: x['no'])[-2:]] + [e['latar'] for e in eps]
+    for i in range(len(seq) - 2):
+        if seq[i] and seq[i] == seq[i + 1] == seq[i + 2]: out.append((lv, 'latar visual sama 3 episode berturut-turut (termasuk log): %s' % seq[i])); break
     return out
 
 
@@ -182,6 +248,14 @@ def lint_batch(eps):
     tapi = [e['slug'] for e in eps if h1_pattern(e['first'])]
     if len(tapi) > 1: out.append((lv, 'pola H1 "[X]—tapi [Y]" berulang di batch: %s' % ', '.join(tapi)))
     if sum(e['slot_uji'] for e in eps) > 1: out.append((lv, 'kuota judul 3:1: lebih dari 1 [SLOT-UJI] di batch'))
+    lv7 = 'E' if any(e['no'] >= V7_FROM for e in eps) else 'W'
+    seq = [e['latar'] for e in eps]
+    for i in range(len(seq) - 2):
+        if seq[i] and seq[i] == seq[i + 1] == seq[i + 2]: out.append((lv7, 'v7.0: latar visual sama 3 episode berturut-turut: %s (rotasi latar, 2-visual §O)' % seq[i])); break
+    if len(eps) >= 4 and all(e['mesin'] for e in eps):
+        a = sum(e['mesin'].startswith('A') for e in eps)
+        if not 2 <= a <= 3: out.append((lv7, 'v7.0: porsi Mesin A %d dari %d episode (target ~60%% = 2–3 dari 4)' % (a, len(eps))))
+    out += lint_vs_log(eps)
     modes = {e['mode'] for e in eps}
     if not {'Ringkas', 'Investigasi'} <= modes: out.append((lv, 'batch wajib memuat Mode Ringkas DAN Investigasi (ada: %s)' % (', '.join(sorted(m for m in modes if m)) or '-')))
     fresh = sum(e['fresh'] for e in eps)
@@ -193,6 +267,8 @@ def main(argv):
     batch = '--batch' in argv; slugs = [a for a in argv if not a.startswith('--')]
     if not slugs: print(__doc__); return 2
     eps = [load(s) for s in slugs]; errors = 0
+    if '--log' in argv:
+        write_log(eps); print('episode_log.json: %d episode dicatat/diperbarui' % len(eps)); return 0
     for e in eps:
         res = lint_episode(e); errors += sum(l == 'E' for l, _ in res)
         print('#%03d %-12s %s · %d kata · hook=%s · ending=%s · segar=%s' % (e['no'], e['slug'], e['mode'] or 'mode?', e['words'], e['hook'] or '-', e['ending'] or '-', e['segar_raw'] or '-'))

@@ -3,14 +3,15 @@ name: arsip-kasus
 description: Produksi end-to-end satu video YouTube Shorts channel Mini Thriller IDN ("Real Stories. Unexpected Truths."; pilar "alasan asli di balik benda, tempat, harga, merek yang kamu kenal"; seri ARSIP KASUS; bahasa Indonesia; gaya visual ARSIP Kolase = kolase cetakan arsip di meja kertas, digerakkan dengan kode). Pakai untuk memilih cerita, menulis script dengan Formula ARSIP v6.1 (3 Mesin Psikologi Perilaku, Aturan Kuda Troya, skrip AV 2 kolom), fact-check, VO ElevenLabs, alignment kata, storyboard, sumber gambar arsip, animasi kolase, skor + foley, QA audio, render, cover, metadata upload, dan revisi film.
 ---
 
-# Mini Thriller IDN — workflow produksi (gaya ARSIP Kolase sejak #003 · **Formula ARSIP v6.0 sejak #009**)
-> **Konstitusi lintas-agen: `AGENTS.md` di root repo (baca lebih dulu).** Aturan v6.0 menang atas aturan lama untuk #009+; aturan lama dipertahankan sebagai log #001–#008.
+# Mini Thriller IDN — workflow produksi (gaya ARSIP Kolase sejak #003 · **Formula ARSIP v7.0 sejak #017** (v6.0/v6.1 = riwayat #009–#016))
+> **Konstitusi lintas-agen: `AGENTS.md` di root repo (baca lebih dulu).** **Aturan v7.0 (`AGENTS.md` §2 = SSOT) menang atas v6.1/v6.0;** v6.x menang atas aturan lama untuk #009+; aturan lama dipertahankan sebagai log #001–#008.
 **Real Stories. Unexpected Truths.** Satu video = satu kasus nyata, dibuka sebagai **ARSIP KASUS**, 40–60 dtk, 9:16. **Contoh lengkap terbaru: `stories/micin/` (#003)**. Gaya, pipeline, dan komponen tetap tidak didesain ulang per episode; episode hanya mengisi cerita, gambar arsip, shot, dan cue. Perubahan gaya hanya lewat `references/6-pelajaran.md` (butuh bukti atau keputusan user).
 
 ## Protokol batch #009–#012 (17 Nov 2026): Claude mengambil alih penuh
 Protokol Hibrida (riset topik + skrip oleh user dan Gemini) **dibatalkan**. Claude mengerjakan seluruh rantai: riset topik v6.0 (3 Mesin, filter replikasi, Topic Stress-Test), fact sheet 2 lapis, skrip AV 2 kolom, VO (konektor ElevenLabs, Saos Cocol, 1 take, atas instruksi user), prompt Google Flow, kolase, render, paket upload. **#009** = judul + skrip terkunci user (`stories/burger/`): tidak diubah tanpa persetujuan, **tetapi koreksi fakta dilaporkan sebelum VO**. **#010–#012:** draf di `research/batch_009_012/usulan_010_012.md`; user menyetujui sebelum VO/gambar. Wajib: jangkar benda/harga/antarmuka Indonesia di detik 0–15; maks 1 Mode Ringkas; kuota judul 3:1. Scorecard manual + **`kit/tools/lint_episode.py`** (v6.1 anti-monoton, 18 Nov 2026: penanda `[HOOK]`/`[ENDING]`/`[SEGAR]`, rotasi arketipe, pola H1 "—tapi", pembuka penutup terlarang, selang-seling mode, kesegaran topik; tes `kit/tools/test_lint_episode.py`); `cli.py` tidak ada. #013+: lanjut dengan alur ini; naskah terbaik batch ini boleh disimpan di `research/gold_standard/` bila user setuju.
 
-## Kompas Identitas Kanal (v6.1, 18 Nov 2026; sumber lengkap `AGENTS.md` §2A)
+## Kompas Identitas Kanal (v7.0, 20 Nov 2026; sumber lengkap `AGENTS.md` §2 + §2A; versi v6.1 "psikologi perilaku" digantikan)
+**v7.0:** investigasi forensik terhadap sistem, uang, desain produk/harga, kebijakan, dan anomali perilaku nyata (2 Mesin A ~60% / B ~40%; riset per batch 6 → 4; "tapi/padahal" dilarang hanya di judul + pembuka; bahasa lisan 8–13 kata/kalimat; rotasi latar visual; `stories/episode_log.json` + `lint_episode.py --batch/--log`). Teks di bawah bertanda v6.1 = riwayat bila bentrok.
 **Mini Thriller IDN (`ARSIP KASUS`) = Investigasi Forensik Perilaku & Rekayasa Tersembunyi**: membongkar mekanisme tak kasatmata di balik benda, harga, aturan, antarmuka digital, dan anomali manusia, terutama yang dekat dengan keseharian di Indonesia.
 **Garis Merah:** BUKAN kuliah psikologi/definisi buku teks · BUKAN self-improvement/tips/nasihat moral · BUKAN bantahan mitos yang datar. **Channel-Fit Gate** (wajib per topik): (1) artefak fisik di Frame 0 (≥ 486 px, stempel merah ≤ 0,25 dtk; tanpa ilustrasi otak/kartun berpikir) + detail kecil untuk Conceptual Loop; (2) antagonis tak kasatmata + taruhan nyata; (3) pembalikan babak (The Turn); (4) penutup Curtain-Pull Reveal tanpa menggurui. Mesin 3 berjangkar pada kejadian nyata Indonesia di 0–4 dtk. Dramaturgi v6.1: `1-cerita…` §M7–§M8; visual `2-visual…` §M–§N; upload `5-upload…` §F; linter `kit/tools/lint_episode.py`.
 
@@ -38,7 +39,7 @@ Protokol Hibrida (riset topik + skrip oleh user dan Gemini) **dibatalkan**. Clau
 | 0 | Sesi/container baru: `kit/tools/setup_env.sh` (±40 dtk) | | |
 | 1a | **Shortlist 8–10 judul** berbasis riset segar (`python3 kit/tools/riset_topik.py`: permintaan + celah; uji hook + sudut Indonesia sebagai gerbang) ✋ | chat | `1-cerita…` §D, `8-hook…`, `7-selera` #14–16 |
 | 1b | Fact sheet (≥ 2 sumber/klaim; PubMed/Consensus untuk klaim sains) | `stories/<slug>/README.md` | `1-cerita…` §C, §J |
-| 2 | **Script Formula ARSIP v6.0** (skrip AV 2 kolom, mode Ringkas/Investigasi) + scorecard 22 cek (F6 + §M6) + gerbang F7, dikirim bersama ✋. Filter replikasi + Topic Stress-Test sebelum fact sheet. (#009–#012: paket ini datang dari user + Gemini) | README | `1-cerita…` §M, §F |
+| 2 | **Script Formula ARSIP v7.0 (§M9)** (skrip AV 2 kolom, mode Ringkas/Investigasi) + scorecard 22 cek (F6 + §M6) + gerbang F7, dikirim bersama ✋. Filter replikasi + Topic Stress-Test sebelum fact sheet. (#009–#012: paket ini datang dari user + Gemini) | README | `1-cerita…` §M, §F |
 | 3 | VO ElevenLabs (2 take, pilih dengan alat; **target tempo 2,6–2,7 kata/dtk**, rapatkan jeda ≤ 0,25 dtk lalu atempo ±1,2; kredit user → tanya dulu; `kit/tools/align_vo.py`) → `audio/vo_<slug>.mp3`; alignment Whisper → `audio/vo_words.json` (ejaan dari script) | | `3-audio` |
 | 4 | `kit/tools/new_episode.sh <slug> <no> "CASE LINE"` → `python3 kit/tools/line_starts.py stories/<slug>` (START per kalimat; gabung/potong manual sampai ±2–2,5 dtk/shot) | `kolase/` | — |
 | 5 | **Gambar:** daftar benda per shot → cari arsip (Openverse dulu, Wikimedia; lihat `2-visual…` §C) → `kolase/prints.json` + `SOURCES.jsonl` (lisensi & kredit); benda tanpa arsip → `kit/collage/engr_objects.py` atau gambar sendiri di `bake.py` | | `2-visual…` §C |
@@ -94,12 +95,12 @@ python3 kit/tools/pack_upload.py <slug>                           # upload_pack/
 
 ## Rujukan
 - **`references/7-selera-dan-cara-kerja.md` — selera & cara kerja user dari semua revisi; baca sebelum mengirim apa pun (cek D)**
-- `references/1-cerita-dan-script.md` — identitas, wilayah, aturan faktual, seleksi, **Formula ARSIP v6.1 (§M7–§M8; v5.0/v6.0 §F–§M6 = dasar)**, scorecard, analitik
+- `references/1-cerita-dan-script.md` — identitas, wilayah, aturan faktual, seleksi, **Formula ARSIP v7.0 (§M9; v6.1 §M7–§M8; v5.0/v6.0 §F–§M6 = dasar)**, scorecard, analitik
 - `references/2-visual-dan-animasi.md` — gaya ARSIP Kolase dalam praktik: frame & tempo, storyboard, sumber gambar, pelajaran review
 - `references/3-audio.md` — rantai VO, skor, foley otomatis, mix, QA tanpa telinga
 - `references/4-standar-kualitas-10.md` — rubrik 10 aspek
 - `references/5-upload-dan-thumbnail.md` — judul, deskripsi, kredit, cover
-- `references/8-hook-dan-judul.md` — rantai shortlist → judul → hook → cover → alur menahan penonton (bukti + batasnya); **§H v6.0: Aturan Kuda Troya + arketipe K1–K5**
+- `references/8-hook-dan-judul.md` — rantai shortlist → judul → hook → cover → alur menahan penonton (bukti + batasnya); **§H v6.0 + §J v7.0: Aturan Kuda Troya + arketipe K1–K5**
 - `research/niche/RISET_VO_TEMPO.md` (tempo VO tidak membedakan laku/gagal; target 2,6–2,7), `RISET_STRUKTUR_SCRIPT.md`, `topik/` (riset topik)
 - `references/6-pelajaran.md` — aturan dari review, data per episode, hipotesis
 - Skill pendukung (terpasang): `short-form-video-script`, `humanizer` (wajib di setiap script), `hook-and-headline-writing`, `youtube-shorts`, `fact-checking`. Skill animasi/sinema/sound-design generik dihapus 14 Nov 2026 (tidak dipakai pipeline kolase; ada di riwayat git `6fe8616`).

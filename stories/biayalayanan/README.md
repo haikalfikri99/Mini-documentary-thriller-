@@ -1,6 +1,6 @@
 # ARSIP KASUS #013: Biaya layanan yang baru muncul di halaman bayar akhir (drip pricing)
 **Formula ARSIP v6.1** · **Status:** FACT SHEET SELESAI (18 Nov 2026), **DISETUJUI LANJUT user 18 Nov 2026**, **NASKAH FINAL TERKUNCI USER 18 Nov 2026** (menggantikan skrip v1 Claude; tidak boleh diubah) · **Model skrip:** Opus + effort high · Fact sheet: 4 subagen Sonnet + sesi utama
-[HOOK: Bukti Visual Mendahului Konteks] [ENDING: Pemicu Dunia Nyata] [SEGAR: 2026] [MODE: Investigasi] [ARTEFAK: layar checkout aplikasi generik dengan dua harga untuk barang yang sama (angka ILUSTRASI Rp50 ribu → Rp60 ribu; ILUSTRASI; ±20%, angka tidak diucapkan VO; diubah user 19 Nov 2026, tanpa logo)] [LOOP: dua total di layar checkout Frame 0 → dipasang untuk mengunci pilihan sebelum harga asli keluar @48] [LABEL: DATA INDONESIA + EKSPERIMEN AS]
+[HOOK: Bukti Visual Mendahului Konteks] [ENDING: Pemicu Dunia Nyata] [SEGAR: 2026] [MODE: Investigasi] [ARTEFAK: layar checkout aplikasi generik dengan dua harga untuk barang yang sama (angka ILUSTRASI Rp50 ribu → Rp60 ribu; ILUSTRASI; ±20%, angka tidak diucapkan VO; diubah user 19 Nov 2026, tanpa logo)] [LOOP: dua total di layar checkout Frame 0 → dipasang untuk mengunci pilihan sebelum harga asli keluar @48] [LABEL: DATA INDONESIA + EKSPERIMEN AS] [MESIN: B3] [LATAR: layar]
 
 ## Klasifikasi (v6.1)
 | Kolom | Isi |
