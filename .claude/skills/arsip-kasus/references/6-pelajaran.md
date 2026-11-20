@@ -105,19 +105,25 @@ Catatan jujur: angka #001–#003 di tabel ini adalah pembaruan dari user dan seb
 - **#012 (biaya tambahan):** bukti ilmiah ada, tetapi sisi Indonesia tidak terverifikasi (Bisnis/Kontan 403); belum boleh direkam.
 
 ## Evolusi ke Formula ARSIP v7.0 (20 Nov 2026, keputusan user)
-- **Evaluasi #001–#016 (angka dari user/Studio):** abstrak/mitos/tips ringan kalah (#002 43,71%, #003 46,13% stayed; #010 plastik Rp200 dan #012 kartu cap tertinggal); investigasi sistem/uang/harga/kebijakan unggul (#004 79,18% stayed / 104,12% APV; #005 75,8% stayed [tabel lama 64,6%]; #006 71,96%; #009 80,90% stayed [angka user, tidak ada di ekspor 16 Nov]). #010/#012 belum ada di ekspor; isi saat ekspor berikutnya.
+- **Evaluasi #001–#016 (angka dari user/Studio):** abstrak/mitos/tips ringan kalah (#002 44,79%, #003 46,60% stayed; #010 plastik Rp200: stayed 70,32% tetapi APV 46,41%); investigasi sistem/uang/harga/kebijakan unggul (#004 78,48% / 102,05%; #005 72,97% / 92,78%; #006 72,05% / 96,35%; #009 80,90% / 91,49%; ekspor 19 Nov). #011 belum ada, #012 baru 2 penayangan.
 - **Keputusan:** v7.0 mengakhiri batasan "psikologi perilaku murni" (v6.0/v6.1); 2 Mesin A (sistem/bisnis/uang/kebijakan ~60%) + B (desain/harga/perilaku ~40%); riset per batch (6 → 4); "tapi/padahal" dilarang hanya di judul + pembuka, boleh di body; bahasa lisan luwes 8–13 kata/kalimat; rotasi latar visual; log `stories/episode_log.json` + linter lintas-batch. Sumber: `AGENTS.md` §2, `KEPUTUSAN_RISET.md` v7.0.
 - **Pelajaran produksi #013–#016:** riset borongan menurunkan kualitas slot akhir (#014 Password NIST ditolak user, diganti); gambar AI berwajah realistis di sebelah kutipan lembaga/pejabat berisiko dikira orang asli; nominal ilustrasi (Rp50.000 → Rp60.000) tidak diucapkan VO dan wajib berlabel ILUSTRASI; gerbang Whisper bisa gagal karena kata tertentu (ongkir) meski margin suara 19 dB.
 - **Hipotesis v7.0 (uji, jangan ubah dari satu video):** Mesin A ≥ B pada stayed-to-watch dan APV; klaster 4–5 episode senada layak dijadikan long-form.
 
-## Ekspor Studio 16 Nov 2026 (Tabel + Chart + Totals; dari user; data 7 video, 62.489 penayangan, 489,96 jam tonton, 44 subscriber)
-| # | Video | Tayang | Durasi | Stayed to watch | APV | Penayangan | Subscriber | Suka |
+## Ekspor Studio 19 Nov 2026 (11 video; menggantikan ekspor 16 Nov yang hanya memuat 7 video)
+Total: 131.409 penayangan, 68.535 penayangan tak dilewati, stayed 73,46%, APV 93,72%, rata-rata tonton 0:51, 74 subscriber. Usia data berbeda per baris (video terbaru baru hitungan jam).
+| # | Video | Tayang | Durasi | Stayed | APV | Penayangan | Sub | Suka |
 |---|---|---|---|---|---|---|---|---|
-| 004 | Aqua Didenda Rp13,8 Miliar | 14 Nov | 54 dtk | **79,54%** | **102,89%** | 23.423 | 13 | 248 |
-| 005 | Yamaha-Honda Didenda Rp47,5 M (skutik) | 15 Nov | 57 | 75,80% | 94,80% | 17.277 | 9 | 133 |
-| 006 | Macet Sudirman 2x Lipat (3-in-1) | 16 Nov | 55 | 71,96% | 97,71% | 16.605 | 6 | 129 |
-| 001 | Banjir Ini Bukan Air (molase) | 12 Nov | 61 | 70,68% | 72,80% | 1.546 | 2 | 43 |
-| 007 | Alasan Asli Iklan di HP Xiaomi | 16 Nov | 54 | 61,57% | 55,53% | 1.485 | n/a | 21 |
-| 003 | Micin Dituduh Bikin Bodoh | 13 Nov | 57 | 46,65% | 54,23% | 1.367 | 2 | 21 |
-| 002 | Pembuat Fitur Ini Menyesal | 12 Nov | 45 | 44,84% | 67,47% | 786 | 1 | 22 |
-Total: stayed 74,3%, APV 96,11%, rata-rata tonton 0:53. Catatan: #004–#006 (hukum/denda/kebijakan + angka uang di judul) menyumbang ±91% penayangan dan 28 dari 44 subscriber; #007 Xiaomi (APV 55,53%) dan #002/#003 tertinggal. Usia data berbeda (#006 dan #007 baru 1 hari pada ekspor). #008–#012 belum ada di ekspor. APV harian #004: 104,12% (14 Nov) → 102,18% → 102,75% (stabil >100%).
+| 005 | Yamaha-Honda Didenda Rp47,5 M (skutik) | 15 Nov | 57 | 72,97% | 92,78% | 52.660 | 25 | 371 |
+| 004 | Aqua Didenda Rp13,8 Miliar | 14 Nov | 54 | **78,48%** | **102,05%** | 25.982 | 15 | 276 |
+| 006 | Macet Sudirman 2x Lipat (3-in-1) | 16 Nov | 55 | 72,05% | 96,35% | 24.140 | 8 | 186 |
+| 009 | Burger Lebih Besar dan Lebih Enak Gagal | 18 Nov | 44 | **80,90%** | 91,49% | 13.298 | 2 | 144 |
+| 007 | Alasan Asli Iklan di HP Xiaomi | 16 Nov | 54 | 65,71% | 93,82% | 8.868 | 1 | 57 |
+| 001 | Banjir Ini Bukan Air (molase) | 12 Nov | 61 | 70,79% | 72,78% | 1.512 | 2 | 43 |
+| 010 | Kantong Plastik Ditolak Rp200 | 19 Nov | 56 | 70,32% | 46,41% | 1.369 | 2 | 11 |
+| 008 | Indomie Ditolak Taiwan 3 Kali | 17 Nov | 55 | 70,80% | 74,15% | 1.438 | 0 | 23 |
+| 003 | Micin Dituduh Bikin Bodoh | 13 Nov | 57 | 46,60% | 54,44% | 1.379 | 2 | 21 |
+| 002 | Pembuat Fitur Ini Menyesal | 12 Nov | 45 | 44,79% | 67,78% | 789 | 1 | 22 |
+| 012 | Cara Halus Kartu Member Bikin Kamu Balik Lagi | 19 Nov | 51 | (belum bisa dinilai: 2 penayangan) | | 2 | 0 | 0 |
+Pemetaan nomor: #008 = indomie, #006 = tigainsatu (3-in-1), #007 = hpiklan (Xiaomi); #011 (paylater) belum ada di ekspor.
+**Temuan (hati-hati, usia data tidak sama):** (1) #004/#005/#006 (denda/kebijakan + angka uang di judul) = 102.782 dari 131.409 penayangan (78%) dan 48 dari 74 subscriber; (2) #009 burger (desain angka/harga) punya stayed tertinggi (80,90%) tetapi APV 91,49% (lebih rendah dari #004); (3) **#010 plastik Rp200: stayed 70,32% bagus, APV 46,41%** (rata-rata tonton 0:25 dari 56 dtk) → hook menahan, tengah/akhir bocor, bukan hook yang lemah; (4) #008 Indomie APV 74,15%; (5) #002/#003 (abstrak/mitos) tertinggal di kedua metrik; (6) #012 belum terbaca, jangan dijadikan bukti. Penayangan tak dilewati harian puncak 20.087 (17 Nov); #004 melandai 6.659 → 624 per hari (18 Nov), #005 puncak 12.711 (17 Nov).
