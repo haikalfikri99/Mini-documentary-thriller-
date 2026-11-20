@@ -25,3 +25,4 @@ audit_gemini_*.txt
 .env
 .venv/
 stories/*/upload_pack/
+research/*/flow_prompts_page.html
