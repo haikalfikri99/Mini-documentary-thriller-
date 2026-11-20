@@ -80,7 +80,7 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 ada; `kalender_sobek` diu
 - Usulan gambar Flow (opsional, belum dipakai): `kasir_ritel_as` — pria kasir di supermarket besar bergaya gravir, untuk "peritel besar" di shot 10; `pembeli_keranjang` — pria dewasa membawa keranjang penuh, pose sedikit menyesal, pengganti siluet di shot 16.
 
 
-**Penanda v6.1 (log batch #009–#012, ditambahkan 18 Nov 2026 untuk `kit/tools/lint_episode.py`):** [HOOK: Ketidaknyamanan Kontra-Intuitif] [ENDING: Cermin Personal] [SEGAR: 2026 (data OJK Juni 2026)]
+**Penanda v6.1 (log batch #009–#012, ditambahkan 18 Nov 2026 untuk `kit/tools/lint_episode.py`):** [HOOK: Ketidaknyamanan Kontra-Intuitif] [ENDING: Cermin Personal] [SEGAR: 2026 (data OJK Juni 2026)] [MESIN: B3] [LATAR: layar]
 
 ## Upload (18 Nov 2026)
 `UPLOAD.md` (judul 51 karakter, deskripsi, 21 tag, thumbnail, komentar pin, pengaturan, catatan hukum) dan `kolase/cover.json` siap; thumbnail `renders/thumbnail_paylater_1080x1920.jpg` (frame 0,6 dtk, hook "SESUDAH ADA PAYLATER / KERANJANG +10%"). Header `**File:**` dan `**QA:**` diisi sesi utama setelah render. `cover_frame_<t>s.jpg` dan `upload_pack/` menunggu render mp4. Jadwal: Minggu 22 Nov 2026, 18.00 WIB (Hari 4). Tidak diunggah ke Drive, tidak di-commit.

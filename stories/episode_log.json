@@ -4,11 +4,11 @@
   "slug": "burger",
   "title": "Burger ini lebih tebal, harganya sama, tapi nggak laku. Gara-gara satu angka di namanya.",
   "mode": null,
-  "mesin": null,
+  "mesin": "A2",
   "hook": "Titik Balik Hasil Ekstrem",
   "h1_tapi": true,
   "ending": "Reframing Sistemik",
-  "latar": null,
+  "latar": "benda",
   "segar": "klasik (1980-an)"
  },
  {
@@ -16,11 +16,11 @@
   "slug": "kantong",
   "title": "Kantong Plastik Ini Mendadak Ditolak Gara-Gara Rp200",
   "mode": null,
-  "mesin": null,
+  "mesin": "A2",
   "hook": "Ketidaknyamanan Kontra-Intuitif",
   "h1_tapi": true,
   "ending": "Pemicu Dunia Nyata",
-  "latar": null,
+  "latar": "benda",
   "segar": "2016 (uji coba KLHK; studi Homonoff 2018)"
  },
  {
@@ -28,11 +28,11 @@
   "slug": "paylater",
   "title": "Belanja Jadi Lebih Banyak Gara-Gara Tombol Paylater",
   "mode": "Investigasi",
-  "mesin": null,
+  "mesin": "B3",
   "hook": "Ketidaknyamanan Kontra-Intuitif",
   "h1_tapi": true,
   "ending": "Cermin Personal",
-  "latar": null,
+  "latar": "layar",
   "segar": "2026 (data OJK Juni 2026)"
  },
  {
@@ -40,11 +40,11 @@
   "slug": "kartumember",
   "title": "Cara Halus Kartu Member Bikin Kamu Balik Lagi",
   "mode": "Investigasi",
-  "mesin": null,
+  "mesin": "B4",
   "hook": "Celah Ujung Lidah",
   "h1_tapi": true,
   "ending": "Reframing Sistemik",
-  "latar": null,
+  "latar": "dokumen",
   "segar": "klasik (studi 2006)"
  },
  {

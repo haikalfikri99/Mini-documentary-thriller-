@@ -79,7 +79,7 @@ Ditarik dari Drive `Bahan images` ke `kolase/ai/`. 8/8 ada; `kasir_kartu` diulan
 - **Berikutnya:** review user di halaman Artifact → revisi v2 → `score_full.py` + `fullmix.py` → `make_kolase.sh`.
 
 
-**Penanda v6.1 (log batch #009–#012, ditambahkan 18 Nov 2026 untuk `kit/tools/lint_episode.py`):** [HOOK: Celah Ujung Lidah] [ENDING: Reframing Sistemik] [SEGAR: klasik (studi 2006)]
+**Penanda v6.1 (log batch #009–#012, ditambahkan 18 Nov 2026 untuk `kit/tools/lint_episode.py`):** [HOOK: Celah Ujung Lidah] [ENDING: Reframing Sistemik] [SEGAR: klasik (studi 2006)] [MESIN: B4] [LATAR: dokumen]
 
 
 ## Upload (18 Nov 2026)

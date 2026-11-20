@@ -55,7 +55,7 @@ Alur: `python3 kit/tools/gali_topik.py autocomplete seeds.txt out_ac.json`, `pyt
 Empat kriteria, 1–5 tiap kriteria: **Kedekatan sehari-hari** · **Kontras intuisi / twist** · **Ketersediaan bukti visual kolase** · **Keamanan hukum & monetisasi**. **Lolos bila total ≥ 16/20 dan tidak ada nilai ≤ 2.** Ditulis di bagian "Validasi topik" README episode (`new_episode.sh`).
 **Hubungan dengan gerbang lama (keduanya berlaku, tidak saling menggantikan):** Kedekatan sehari-hari ≈ sumbu Lokal (gerbang ≥ 4 tetap); Kontras intuisi ≈ Cerita (≥ 3); Bukti visual ≈ Bahan; Keamanan hukum adalah kriteria baru. Sumbu **Celah** (video Indonesia ≥ 100 rb views sesudut; gerbang ≥ 3) dan **Permintaan** tidak ada di rubrik 20 poin dan tetap dihitung dari `riset_topik.py`.
 
-## v6.0 (17 Nov 2026, berlaku #009+): 3 Mesin, filter replikasi, stress-test
+## v6.0 (17 Nov 2026, berlaku #009+): 3 Mesin, filter replikasi, stress-test [3 Mesin + Jembatan Audiens + Stress-Test v6.0 SUPERSEDED by v7.0 (bagian v7.0 di bawah); filter replikasi tetap]
 Menyambung (bukan menghapus) lima sumbu + rubrik 20 poin di atas. Bila bentrok, bagian ini menang untuk #009+. Komposisi dan alasan: `research/niche/KEPUTUSAN_RISET.md` v6.0-B.
 
 ### 3 Mesin Psikologi Perilaku (pengganti 4-Pillar Engine)

@@ -29,7 +29,7 @@ Nama **Mini Thriller IDN**, label layar **ARSIP KASUS**, tagline "Real Stories. 
 | **2 Hidden Choice Design** | ~40% | arsitektur pilihan tersembunyi pada label harga, tata ruang, menu, antarmuka aplikasi (*dark patterns*) yang diam-diam mengarahkan keputusan | harga jangkar, bundling, iklan di HP (#007) |
 | **3 Human Anomalies** | ~25% | eksperimen ilmiah teruji atau fenomena sosial nyata (misteri rasional) yang membongkar sisi irasional manusia. **Dilarang:** mistis/klenik, kasus pidana yang masih berjalan | studi lapangan yang lolos replikasi |
 **Catatan yang tidak boleh hilang (data kita, tidak dicabut):** mesin = *isi/mekanisme*, **bukan pintu masuk**. Pintu masuk judul, frame 0, dan kalimat H1 tetap benda/merek/harga/aturan konkret Indonesia (psikologi sebagai pintu masuk = 2,8% breakout vs 17,9%; `8-hook…` §H Aturan Kuda Troya). Konten dari batch #004–#008 (kasus merek/putusan/regulasi) tetap masuk Mesin 1/2 selama bingkainya mekanisme perilaku.
-**Aturan Jembatan Audiens:** #009–#010 wajib berangkat dari produk, harga, atau kebiasaan belanja sehari-hari (Mesin 1/2); Mesin 3 baru masuk di #011–#012, supaya subscriber dari #004–#008 tidak kaget.
+**[SUPERSEDED by v7.0: selesai setelah #012; tidak berlaku #017+]** **Aturan Jembatan Audiens:** #009–#010 wajib berangkat dari produk, harga, atau kebiasaan belanja sehari-hari (Mesin 1/2); Mesin 3 baru masuk di #011–#012, supaya subscriber dari #004–#008 tidak kaget.
 
 ## v6.0-C. Arsitektur algoritma & target metrik 2 gerbang
 - Shorts *pull-based* + *seed audience testing* per video; evaluasi awal **minimal 48 jam**; tidak ada hukuman permanen antar-video. Satu video jelek tidak menghukum kanal; jangan mengubah formula dari satu video (`7-selera…` #51).
