@@ -1,0 +1,7 @@
+[
+{"id":"qris","judul":"QRIS biaya tambahan","demand":["qris biaya tambahan","bayar qris kena biaya","mdr qris"],"supply":["bayar qris dikenakan biaya tambahan melanggar","qris surcharge konsumen bi larang"]},
+{"id":"motorlistrik","judul":"Subsidi motor listrik","demand":["subsidi motor listrik","bantuan motor listrik 7 juta","motor listrik subsidi dihentikan"],"supply":["subsidi motor listrik gagal","subsidi motor listrik tidak tepat sasaran"]},
+{"id":"ketengan","judul":"Larangan rokok ketengan","demand":["larangan rokok ketengan","rokok batangan dilarang","pp 28 2024 rokok"],"supply":["larangan jual rokok ketengan pp 28","rokok batangan dilarang apa dampaknya"]},
+{"id":"ppn12","judul":"PPN 12 persen struk","demand":["ppn 12 persen","ppn 12 persen struk","ppn 12 persen belanja"],"supply":["ppn 12 persen struk minimarket kenapa","ppn 12 persen barang mewah bingung"]},
+{"id":"ukt","judul":"UKT kenaikan dibatalkan","demand":["ukt naik","ukt naik dibatalkan","uang kuliah tunggal"],"supply":["kenaikan ukt dibatalkan","ukt naik pinjol danacita"]}
+]

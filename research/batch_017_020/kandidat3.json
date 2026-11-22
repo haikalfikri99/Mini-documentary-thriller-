@@ -1,0 +1,12 @@
+[
+{"id":"kartelayam","judul":"Kartel ayam DOC KPPU","demand":["kartel ayam","harga ayam naik","harga telur naik"],"supply":["kartel ayam kppu denda 12 perusahaan","afkir dini ayam kppu"]},
+{"id":"kartelsapi","judul":"Kartel sapi impor KPPU","demand":["kartel daging sapi","harga daging sapi mahal","kartel sapi"],"supply":["kppu kartel sapi impor feedlot denda","kenapa harga daging sapi mahal"]},
+{"id":"kartelsms","judul":"Kartel tarif SMS operator","demand":["kartel sms","tarif sms operator","kppu operator seluler"],"supply":["kppu kartel tarif sms operator denda","kartel sms telkomsel xl indosat"]},
+{"id":"grabtpi","judul":"Grab TPI KPPU","demand":["grab kppu","grab denda kppu","ojol prioritas order"],"supply":["grab tpi kppu denda","kppu grab prioritas order"]},
+{"id":"kartelgoreng","judul":"Kartel minyak goreng KPPU","demand":["kartel minyak goreng","minyak goreng mahal kppu","kppu minyak goreng"],"supply":["kppu kartel minyak goreng denda produsen","kppu minyak goreng wilmar denda"]},
+{"id":"ekspor","judul":"Larangan ekspor CPO 2022","demand":["larangan ekspor cpo","minyak goreng langka 2022","kenapa minyak goreng langka"],"supply":["larangan ekspor cpo minyak goreng langka kenapa","minyak goreng langka antre 2022"]},
+{"id":"hargacoret","judul":"Harga coret diskon palsu","demand":["harga coret","diskon palsu","harga naik dulu baru diskon"],"supply":["diskon palsu harbolnas harga dinaikkan dulu","harga coret menipu"]},
+{"id":"seikhlasnya","judul":"Bayar seikhlasnya","demand":["bayar seikhlasnya","parkir seikhlasnya","pay what you want"],"supply":["bayar seikhlasnya psikologi","parkir seikhlasnya tukang parkir"]},
+{"id":"galonbpa","judul":"Galon BPA","demand":["galon bpa","galon polikarbonat","bpa galon bpom"],"supply":["bpom label bpa galon","galon guna ulang bpa berbahaya"]},
+{"id":"strukbpa","judul":"Struk kasir BPA","demand":["struk kasir bpa","kertas thermal bpa","struk belanja berbahaya"],"supply":["struk belanja bpa bahaya","kertas struk thermal bpa kasir"]}
+]
