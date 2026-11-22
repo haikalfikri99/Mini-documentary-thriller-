@@ -3,7 +3,7 @@
 
 ## 1. Judul (≤ 55 karakter; Kuda Troya: tanpa psikologi/bias/kenapa/tapi/padahal/ternyata/?)
 ```
-TODO judul
+Ojol Menang di MK, 156 Paket Kuota Belum Rollover
 ```
 
 ## 2. Deskripsi (2–3 kalimat pembuka kaya kata kunci alami; lalu Sumber + kredit)
