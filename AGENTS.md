@@ -49,6 +49,7 @@ Google Drive: folder `Mini Thriller IDN/NNN Judul` per episode; agen via konekto
 ## 6. Routing tugas
 - **Agen dengan subagen paralel** (mis. Claude Code): ekstraksi/unduh/daftar/cek file → model ringan; riset terstruktur, analisis data, laporan → model menengah; **skrip final, `film.js`, review kualitas, keputusan editorial → model penalaran tertinggi, effort tinggi**. Jangan memberi tugas sulit ke model kecil; jangan memakai model besar untuk tugas mudah.
 - **Agen tunggal** (Claude Desktop lokal, Cursor, Codex, Gemini CLI, Windsurf, Cline): jalankan tahap berurutan; **selesaikan checklist gerbang tiap tahap sebelum lanjut**; di tahap skrip final dan `film.js` gunakan model/effort terkuat yang tersedia dan ingatkan user bila sesi memakai model lemah.
+- **Delegasi otonom (keputusan user 22 Nov 2026):** user TIDAK mengganti model/effort sendiri. Claude memilih model DAN effort tiap subagen lewat parameter `model` + `effort` sesuai beban: mekanis (unduh, ekstraksi, cek file, format) = Haiku/low; riset terstruktur, fact sheet, analisis = Sonnet/medium; skrip final, `film.js`, review kualitas, keputusan editorial = Opus/high. Sesi utama tidak bisa mengganti modelnya sendiri: pekerjaan kreatif/sulit selalu didelegasikan ke subagen Opus; ingatkan user sekali saja bila sesi utama terlihat berjalan di effort rendah, lalu lanjut mendelegasikan (jangan meminta user mengubah setelan).
 - Ingatkan user di "Titik ingat" (`SKILL.md`): catatan lanjut di `stories/<slug>/README.md` sebelum kompaksi/sesi baru.
 
 ## 7. Aturan kerja & privasi

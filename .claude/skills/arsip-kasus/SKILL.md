@@ -57,7 +57,7 @@ Bila user menyerahkan paket **Fact Sheet 2 Lapis + Skrip AV 2 Kolom (Formula v7.
 | Titik | Ingatkan | Setelahnya user bilang |
 |---|---|---|
 | Awal episode baru | sesi baru (`/clear`) bila sesi lama sudah ada episode selesai; riset + fact sheet cukup Sonnet | "lanjut episode berikutnya" |
-| Script disetujui, sebelum VO/gambar | `/compact`; **ganti ke Opus + effort high** sebelum storyboard (kode film) | "lanjut storyboard" |
+| Script disetujui, sebelum VO/gambar | `/compact`; **Claude mendelegasikan kode film/storyboard ke subagen Opus + effort high** (user tidak perlu mengganti model; `AGENTS.md` §6) | "lanjut storyboard" |
 | Gambar AI + VO sudah masuk, sebelum membangun storyboard | `/compact` (zip + tangkapan layar membuat konteks berat) | "lanjut storyboard" |
 | Storyboard v2/v3 disetujui, sebelum audio + render | `/compact` | "lanjut render" / "cek komentar" |
 | Sebelum render (`make_kolase.sh`): audio QA lalu **visual QA** (`check_visual.mjs`: dead frame, teks di bawah caption, objek terpotong; ±70 dtk) | bila gagal: perbaiki shot yang disebut, jangan `SKIP_VISUAL_QA` tanpa menilai manual | "perbaiki lalu render" |
