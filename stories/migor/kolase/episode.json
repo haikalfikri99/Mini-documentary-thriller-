@@ -1,0 +1,15 @@
+{
+ "slug": "migor",
+ "no": 17,
+ "title": "",
+ "case_line": "MINYAK GORENG",
+ "vo": "audio/vo_migor.mp3",
+ "words": "audio/vo_words.json",
+ "dur": 0,
+ "report": [
+  [
+   0,
+   0
+  ]
+ ]
+}
