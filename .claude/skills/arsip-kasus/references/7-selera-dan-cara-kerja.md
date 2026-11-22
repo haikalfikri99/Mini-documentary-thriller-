@@ -131,3 +131,10 @@ Dibaca **sebelum** mengirim apa pun ke user (shortlist, script, storyboard, film
 92. **Bahasa lisan luwes & napas (20 Nov 2026):** nggak/bikin/aja/udah; 8–13 kata per kalimat, tanpa staccato 3+ beruntun, tanpa kata baku kaku; penanda `/` dan `//`. Dicek `lint_episode.py` (peringatan).
 93. **Rotasi latar visual, log episode, VO lewat konektor (20 Nov 2026):** `[LATAR]` tidak sama 3 episode berturut; `stories/episode_log.json` dipakai `--batch`; VO jalur utama = konektor ElevenLabs (1 take). Hemat token: storyboard dikirim sebagai gambar grid + PNG per shot (bukan PDF); raw take VO dihapus dari repo.
 94. **Pembeda monetisasi, bukan gerbang (keputusan user 20 Nov 2026):** kandidat topik yang punya produk fisik/buku relevan untuk keranjang YouTube Shopping Affiliate diprioritaskan bila skor lain setara; topik tanpa produk tidak digugurkan. Usul Gemini "gerbang ke-4 Kesiapan Monetisasi" ditolak sebagai gerbang karena akan menyingkirkan topik denda/kebijakan yang paling banyak ditonton.
+
+## E. Tambahan 22 Nov 2026 (riset batch #017–#020; detail: `9-playbook-riset-batch.md`)
+- Jelaskan topik dengan CERITA sekilas + alasan ditonton + arti kode Mesin; jangan hanya judul dan sumber.
+- Hanya topik yang kuat; bila ragu jangan jadi video; jangan bertanya berulang, putuskan sendiri dengan ilmu + riset.
+- Kesegaran bukan gerbang; relevansi 20–45 tahun = hidup/waktu/kesehatan, bukan dompet saja.
+- Keputusan berdasarkan riset eksternal 12 kanal + data 38 kanal, bukan hanya data kanal sendiri; jangan buat aturan dari n kecil.
+- Skrip final dengan Opus; skrip dari user terkunci (lapor fakta keliru saja). Tanya sebelum memakai kredit berbayar.

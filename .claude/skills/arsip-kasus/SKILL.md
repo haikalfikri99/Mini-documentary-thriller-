@@ -97,6 +97,7 @@ python3 kit/tools/pack_upload.py <slug>                           # upload_pack/
 ```
 
 ## Rujukan
+- **`references/9-playbook-riset-batch.md` — playbook riset batch (prinsip user, basis riset eksternal, alur, format presentasi topik, verifikasi, alat/jebakan, pelajaran); baca sebelum riset topik**
 - **`references/7-selera-dan-cara-kerja.md` — selera & cara kerja user dari semua revisi; baca sebelum mengirim apa pun (cek D)**
 - `references/1-cerita-dan-script.md` — identitas, wilayah, aturan faktual, seleksi, **Formula ARSIP v7.0 (§M9; v6.1 §M7–§M8; v5.0/v6.0 §F–§M6 = dasar)**, scorecard, analitik
 - `references/2-visual-dan-animasi.md` — gaya ARSIP Kolase dalam praktik: frame & tempo, storyboard, sumber gambar, pelajaran review
