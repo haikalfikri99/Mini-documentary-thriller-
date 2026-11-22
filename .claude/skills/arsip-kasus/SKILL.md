@@ -33,6 +33,9 @@ Protokol Hibrida (riset topik + skrip oleh user dan Gemini) **dibatalkan**. Clau
 ## Irama harian
 **H-2** shortlist/fact sheet/script ✋ · **H-1** VO + gambar arsip + storyboard ✋ · **H** animasi + render + film ✋ → tayang. User menerima satu paket review per hari.
 
+## Jalur Paket Gemini (v7.0, 22 Nov 2026; sumber: `AGENTS.md` §3)
+Bila user menyerahkan paket **Fact Sheet 2 Lapis + Skrip AV 2 Kolom (Formula v7.0)** dari Gemini: **lewati langkah 1a–1c (shortlist/riset topik)**; topik dan skrip sudah diputuskan user. Jalankan berurutan: **(1)** cek cepat fakta kunci; laporkan hanya yang keliru/tak terverifikasi + sumber, **tanpa mengubah gaya bahasa/kalimat skrip sepihak** (skrip terkunci; koreksi fakta hanya atas persetujuan user). **(2)** `kit/tools/new_episode.sh <slug>` → isi `README.md` (fact sheet + penanda MESIN/LATAR/HOOK/ENDING/SEGAR/MODE/ARTEFAK/LOOP/LABEL), `audio/script_vo.txt`, `audio/vo_prompt_elevenlabs.md`; `python3 kit/tools/lint_episode.py <slug>` (atau `--batch`) **0 error**; error yang menuntut ubah kata dilaporkan, bukan diubah. **(3)** produksi teknis: VO via konektor ElevenLabs (1 take) → prompt Google Flow (1 variasi) → kolase + render (`make_kolase.sh`) → `--log`. Garis Merah, label asal data, tanpa logo asli tetap berlaku.
+
 ## Alur kerja (✋ = tunggu persetujuan user)
 | # | Langkah | Hasil | Rujukan |
 |---|---|---|---|
