@@ -116,3 +116,22 @@ User menggugurkan QRIS (#018, taruhan kecil seperti #010) dan Minyakita (#020, b
 - **#017 status pembayaran (Bisnis 25 Des 2025, via ringkasan pencarian):** Rp13,255 T diserahkan 20 Okt 2025; Rp4,4 T ditunda (serah kebun); Kejagung Nov 2025 menyita aset Musim Mas & Permata Hijau (nilai > sisa tunggakan); 25 Des 2025: Wilmar & Musim Mas disebut lunas, Permata Hijau menunggak Rp752 M (⚠ tak sinkron dengan Okt 2025 soal Musim Mas; 2026 tak ditemukan). Kompensasi ke rumah tangga: tak ditemukan.
 - **#020 Tapera:** ✔ iuran 3% = 2,5% pekerja + 0,5% pemberi kerja (Hukumonline, dasar PP 25/2020 jo. PP 21/2024; teks pasal tak terbaca); Kemenkeu: wajib mulai 2027 (batal). Status 2026: revisi UU Tapera menunggu DPR (naskah akademik siap, draf diserahkan); BP Tapera ingin selesai akhir 2026, bila tidak **BP Tapera hanya berlaku sampai 29 Sep 2027** (batas 2 tahun putusan MK); pengembalian dana peserta lama tetap berjalan; BP Tapera tak bisa menghimpun dana baru; wacana digabung RUU Perumahan omnibus (Bisnis 30 Apr 2026). ⚠ angka dana peserta tak ditemukan.
 - **Float (cadangan B):** PBI 23/6/2021 tak bisa diunduh dari bi.go.id; tetap ⚠ (butuh Apify/paste).
+
+## Putaran 15 — KPR subsidi 40 th: penutupan ⚠ (22 Nov 2026)
+Keputusan user: #020 = KPR subsidi tenor 40 tahun (B3). Apify web-search timeout 2× (jangan diulang); pakai WebSearch biasa.
+
+**Terverifikasi (≥2 sumber hasil pencarian; teks penuh belum dibuka semua):**
+- Tenor SEBELUMNYA maksimal **30 tahun** (Kumparan; kutipan Kepmen: "tadinya hanya 30 tahun"), BUKAN 20. Fortune IDN menulis "20→40" (konflik). Contoh Rp166 jt/20 th ≈ Rp1,05 jt di Bisnis hanyalah contoh hitung.
+- Kepmen PKP **1722/KPTS/M/2026** (tapak; tenor ≤40 th, bunga 5%, harga jual Rp166–240 jt per wilayah); Kepmen PKP 1721/KPTS/M/2026 (rusun). Tanggal 6 vs 7 Agustus 2026 (konflik) → di skrip tulis "Agustus 2026".
+- 40 th = OPSI (pilihan 10/15/20/25/30/40 th), bukan wajib; implementasi bank per 5 Sep 2026 masih menunggu juknis; hanya pembeli rumah pertama (JournalArta).
+- Rusun: Medcom bilang tetap 30 th, Bisnis bilang 40 → jangan sebut rusun di skrip.
+- Batas penghasilan: ikut zonasi Permen PKP 5/2025; angka Rp6/8 jt lama → jangan dipakai.
+- Pengembang (Bisnis 30 Jun 2026): tenor 40 th "belum mendesak", minta harga subsidi naik.
+
+**Hitungan anuitas 5% (python, dicek):** per Rp166 jt: 30 th Rp891.124/bln total Rp320,8 jt (1,93×); 40 th Rp800.446/bln total Rp384,2 jt (2,31×); 20 th Rp1.095.527 total Rp262,9 jt.
+→ Turn RIIL vs batas lama 30 th: cicilan turun ±Rp91 rb (−10%), total bayar naik ±Rp63 jt (+20%).
+→ Klaim "turun 27% / +46%" HANYA valid vs 20 th (bukan batas lama) → jangan dipakai sebagai perbandingan "sebelum/sesudah".
+→ Angka Menteri Rp773 rb ≠ hitunganku Rp800 rb (selisih ±3%); jangan klaim salah, pakai "hitungan anuitas 5%".
+→ Sudut baru: baseline Menteri (Rp1,05 jt @20 th) vs opsi 30 th yang sudah ada (±Rp0,89 jt) — pembingkaian memilih pembanding yang membuat penurunan tampak besar.
+
+**Re-rating jujur:** Turn lebih lemah dari rencana awal (−10% cicilan vs +20% total, bukan −27%/+46%). Tetap lolos gerbang, tapi potensi ledakan turun; di bawah #017/#019.
