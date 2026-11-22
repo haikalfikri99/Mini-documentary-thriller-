@@ -1,0 +1,8 @@
+[
+{"id":"minyakita","judul":"Minyakita takaran","demand":["minyakita","minyakita takaran","minyak goreng minyakita"],"supply":["minyakita takaran kurang","minyakita 1 liter tidak sampai"]},
+{"id":"kuota","judul":"Kuota hangus","demand":["kuota hangus","kuota internet hangus","kuota hangus mk"],"supply":["kuota hangus putusan mk","kuota internet hangus kenapa"]},
+{"id":"gas3kg","judul":"Gas 3 kg pengecer","demand":["gas 3 kg","gas melon langka","lpg 3 kg pengecer"],"supply":["gas 3 kg pengecer dilarang","gas melon antre"]},
+{"id":"rokok","judul":"Cukai rokok","demand":["cukai rokok","rokok murah","pita cukai"],"supply":["cukai rokok naik rokok murah","downtrading rokok"]},
+{"id":"token","judul":"Token listrik","demand":["token listrik 100 ribu","token listrik pajak","ppj token listrik"],"supply":["token listrik 100 ribu dapat berapa kwh","pajak penerangan jalan token listrik"]},
+{"id":"bifast","judul":"Biaya transfer","demand":["biaya transfer antar bank","bi fast biaya","transfer atm bank lain"],"supply":["biaya transfer antar bank mahal","bi fast gratis"]}
+]
