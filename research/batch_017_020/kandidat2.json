@@ -1,0 +1,8 @@
+[
+{"id":"beras","judul":"Beras premium oplosan","demand":["beras oplosan","beras premium","beras premium tidak sesuai"],"supply":["beras premium oplosan 212 merek","beras oplosan kerugian"]},
+{"id":"ojol","judul":"Komisi ojol","demand":["potongan ojol","komisi ojol 20 persen","tarif ojol"],"supply":["potongan aplikasi ojol 20 persen","komisi ojol turun 10 persen"]},
+{"id":"tol","judul":"Tarif tol naik","demand":["tarif tol naik","tarif tol naik tiap 2 tahun","tol berlubang"],"supply":["tarif tol naik standar pelayanan minimal","kenapa tarif tol naik terus"]},
+{"id":"bpjs","judul":"BPJS KRIS","demand":["bpjs kris","kelas bpjs dihapus","iuran bpjs naik"],"supply":["kris bpjs kelas standar","iuran bpjs naik 2026"]},
+{"id":"paketfast","judul":"Paket hemat fast food","demand":["paket hemat kfc","paket hemat mcd","harga paket hemat"],"supply":["paket hemat ternyata lebih mahal","trik harga paket hemat"]},
+{"id":"tiket","judul":"Tiket pesawat","demand":["tiket pesawat mahal","harga tiket pesawat naik","kenapa tiket pesawat mahal"],"supply":["kenapa tiket pesawat indonesia mahal","kartel tiket pesawat"]}
+]
