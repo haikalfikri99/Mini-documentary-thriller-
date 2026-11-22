@@ -1,0 +1,11 @@
+# VO ARSIP KASUS #017 migor — ElevenLabs (Saos Cocol R86jddkroI9bJwXFfjsr, eleven_v4; jalur utama v7.0 = konektor ElevenLabs, 1 take; ulang hanya setelah user setuju)
+**Status: skrip final Claude (22 Nov 2026), MENUNGGU PERSETUJUAN USER sebelum kredit dipakai** (fakta dikoreksi dari draf user: Rp17,7 T = uang pengganti, denda Rp1 M per korporasi; tanpa klaim "izin dimainkan"). Teks bersih (alignment/QA Whisper, caption): `script_vo.txt` (124 kata). Tag `[...]` hanya arahan nada ElevenLabs (tidak diucapkan); `[pause]` = hening ±0,5–0,6 dtk (`//` di skrip AV). Ekor akhir ≤ 0,15 dtk (`vo_chain.py`). Target take mentah: Investigasi 48–55 dtk (estimasi 49–52 dtk); bila lebih, rapatkan jeda dulu, lalu `atempo` ≤ 1,10. H1 wajib selesai ≤ 4,0 dtk (cek `vo_words.json`; bila lewat, rapatkan atau atempo bagian H1).
+**Pelafalan:** semua angka ditulis sebagai kata dan dibaca utuh: "tujuh belas koma tujuh triliun", "delapan koma lima triliun", "satu miliar", "dua ribu dua puluh dua", "dua ribu dua puluh lima". "Wilmar" = wil-mar; "Musim Mas" lafal Indonesia; "Permata Hijau" utuh. "Mahkamah Agung" utuh (jangan "MA"). "doang" ringan, lisan. Tanpa istilah "onslag" (hanya stempel visual "PUTUSAN LEPAS").
+
+## Prompt (salin apa adanya ke ElevenLabs)
+[serious] Tiga raksasa sawit dihukum bayar tujuh belas koma tujuh triliun.
+[mysteriously] Awal dua ribu dua puluh dua, minyak goreng susah dicari di warung. Di periode itu, Wilmar, Musim Mas, dan Permata Hijau dapat persetujuan ekspor. [serious] Masalahnya, jatah wajib pasok dan harga dalam negeri belum mereka penuhi.
+[curious] Maret dua ribu dua puluh lima, hakim tingkat pertama memutus lepas. Perbuatannya dinilai terbukti, tapi dianggap bukan tindak pidana.
+[pause] [serious] Enam bulan kemudian, Mahkamah Agung membalik putusan itu. [mysteriously] Angka triliunan yang muncul gampang dikira denda. [pause] [slowly] Padahal dendanya cuma satu miliar per korporasi.
+[serious] Triliunan itu uang pengganti, isinya bukan kerugian negara doang. [curious] Di tagihan Wilmar, pos terbesarnya delapan koma lima triliun. [slowly] Namanya kerugian usaha dan rumah tangga.
+[warmly] Label harga di rak kosong tadi sekarang terisi, di berkas perkara, bukan di warung.
