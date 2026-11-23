@@ -1,6 +1,29 @@
-# Catatan lanjut setelah /compact (22 Nov 2026)
-**Status:** riset batch #017–#020 selesai & terkunci user (migor A1, bankkeliling B3, beras A1, kuota A2). Playbook: `.claude/skills/arsip-kasus/references/9-playbook-riset-batch.md`. Scaffold `stories/{migor,bankkeliling,beras,kuota}` + penanda v7.0 sudah di-commit; `lint_episode.py --batch migor bankkeliling beras kuota` = 0 error (sebelum skrip baru).
-**Sedang berjalan:** 4 subagen Opus menulis skrip final (arahan user: dramatisasi thriller investigatif, fakta akurat) → mengisi `audio/script_vo.txt`, `audio/vo_prompt_elevenlabs.md`, skrip AV 2 kolom + penanda di README tiap episode (tidak di-commit oleh agen).
-**Koreksi fakta yang sudah diputuskan:** #017 = "uang pengganti" (bukan "denda"; denda Rp1 M/korporasi = Turn); #019 pakai angka resmi (Polri 5 merek/3 produsen; Kementan klaim 212/268; produsen tak pernah uji lab), bukan "3 dari 10"; #020 jangan pakai Rp63 T; #018 wajib atribusi studi lokal Klaten/Lebak.
-**Langkah berikut:** (1) tunggu 4 notifikasi agen → baca hasil; (2) `python3 kit/tools/lint_episode.py --batch migor bankkeliling beras kuota` 0 error; (3) commit + push; (4) tampilkan judul + VO + alasan dramatisasi tiap episode ke user untuk persetujuan; (5) setelah disetujui: tanya sebelum kredit ElevenLabs (1 take per episode), lalu `--log`, Flow (1 variasi), kolase, render.
-**Aturan delegasi:** Claude memilih model+effort subagen (AGENTS.md §6); user tidak mengganti setelan.
+# Catatan lanjut (23 Nov 2026) — mulai sesi baru: `/clear`, `/model` Opus, `/effort high`
+**Aturan hemat (keputusan user):** tulis skrip SENDIRI di sesi utama Opus high, TANPA subagen kreatif (biaya mulai-dari-nol per agen ±160–280 rb token). Subagen hanya untuk pekerjaan mekanis luas (Haiku/Sonnet). Jalur baca minimal: `.claude/skills/arsip-kasus/RULEBOOK_V7.md` + README episode yang dikerjakan. Jangan audit/matriks baru. Potong keluaran alat.
+
+## Status
+- Batch #017–#020 terkunci user: migor A1 · bankkeliling B3 · beras A1 · kuota A2. Scaffold + fakta terverifikasi di `stories/<slug>/README.md` ("Fakta terverifikasi"). Skrip versi terbaru ada tetapi DITOLAK user ("jelek, bagusan yang sebelumnya"). Versi lama yang user sukai: `git show 049d0a6:stories/<slug>/audio/script_vo.txt` (beras jauh lebih bagus; #017 "sisanya oke").
+- Selesai & di-push: dasar riset asli di `research/deep_research/` + `MATRIKS_JEJAK.md`; `RULEBOOK_V7.md`; arsip riwayat; linter v7.0 (22 tes OK); perapian aturan v7.0 (kata tunjuk tidak wajib, kesegaran bukan gerbang, dll.).
+- Belum ada VO. Jangan pakai kredit ElevenLabs sebelum user menyetujui skrip.
+
+## Keluhan user per episode (pegangan utama)
+- **#017:** pakai hook "Tiga perusahaan raksasa sawit dihukum bayar tujuh belas koma tujuh triliun." Sisanya oke (versi "wajib mengganti", tanpa klarifikasi triliunan).
+- **#018:** paling tidak jelas: cerita tentang pinjaman/rentenir/bank/apa? Pembuka harus langsung menyebut **bank keliling** + pinjaman. Masih ada citation lisan ("diteliti di Klaten…") → pindah ke kartu layar.
+- **#019:** versi lama JAUH lebih bagus. Jangan rantai "kata Polri / Satgas nyebut / Kementan mengklaim". Ceritanya harus jelas dan menarik; jangan mikirin fakta sampai cerita hilang.
+- **#020:** apa jalan ceritanya? Harus relate, antagonis jelas dan bikin kesal, emosional, memancing komentar. **Berlaku untuk SEMUA skrip.**
+- "Struktur dramaturgi thriller sudah dikasih masa masih tidak bagus" → user minta aku RISET cara menulis skrip yang bagus dan jadi expert, bukan hanya menuruti input.
+
+## Putusan user
+- Sudut "kamu" + adegan hipotetis ("Bayangin kamu pedagang pasar…", "Hari ke-29, sisa kuotamu 20 GB…"); TANPA tokoh rekaan bernama; Didi Supandi (fakta, ojol, 30 GB ±Rp60–70 rb, terpakai 10 GB, 20 GB hangus, gugat MK bersama Wahyu Triana Sari) tetap pahlawan #020.
+- Korpus transkrip: yt-dlp gratis dulu (vidIQ 5 kredit/panggilan hanya bila gagal dan atas izin).
+- Kalibrasi: 3 varian #019 dulu (user memilih "suara" kanal), baru #018, #020, #017.
+
+## Temuan analisis (jangan diulang)
+Skrip pemenang kanal (#004 Aqua, #005 Skutik; `stories/aqua|skutik/audio/script_vo.txt`): hook merek+angka+sebab kecil; keyakinan penonton dibalik ("kamu kira…"); bukti konkret visual ("Buktinya? Lapangan golf", email "Star Outlet Degradation"); tanya-jawab pendek ("Lolos? Nggak."); pembalikan berlapis; antagonis membantah ("Dua-duanya membantah"); jargon diterjemahkan ("wasitnya persaingan bisnis"); penutup kembali ke dunia penonton. **Atribusi ("Kata KPPU") ADA di skrip pemenang → larangan atribusi total SALAH**; yang buruk = rantai atribusi birokratis tanpa detail konkret.
+Riset (Consensus): cerita > statistik bila emosi tinggi (Freling 2020, meta 61 studi); akhir negatif lebih kuat (Morris 2019); kemarahan moral mendorong berbagi (McLoughlin 2024 *Science*; Leach 2025); efek korban teridentifikasi lemah/gagal replikasi (Maier 2024) → andalkan sudut "kamu" + antagonis.
+
+## Langkah berikut (rencana disetujui: /root/.claude/plans/virtual-gathering-micali.md)
+2a. Satu skrip Bash `yt-dlp` ambil subtitle otomatis ±12 Shorts outlier (#004/#005/#009 sudah ada; ±9 dari `research/niche/data_shorts_per_channel.jsonl`: top views Ngomongin Uang, Sepulang Sekolah, RaymondChins, MagnatesMedia, Vox, Smart Nonsense). 2b. Cerna → `references/10-kitab-cerita.md` (≤ ±80 baris: teknik terbukti + bukti riset + sebelum/sesudah + **Gerbang Cerita**: Cerita Brief 5 baris [protagonis "kamu", antagonis yang bikin kesal, taruhan, Turn+detik, emosi target+pemicu komentar], Uji Penonton 4 pertanyaan, aturan atribusi yang benar); penunjuk di RULEBOOK/AGENTS §1/SKILL. 2c. Linter: WARN rantai atribusi; cek "ini" ERROR→WARN; sesuaikan tes. 3. Tulis 3 varian #019 (A korban "kamu" · B misteri-bukti ala #005 · C antagonis menyangkal), kirim, user memilih. 4. Tulis #018, #020, #017 dengan suara terpilih (+ Cerita Brief + Uji Penonton), lint batch, kirim semua VO. 5. Commit + push; tanya sekali: frekuensi unggah (riset 3–4/minggu vs repo 1/hari), ekspor views final #004–#007, syarat Shopping Affiliate/"8.000 jam", slot uji 3:1.
+
+## Fakta kunci tiap episode
+Lihat README episode + `research/batch_017_020/shortlist.md` (putaran 1–18). #017: MA 8432 K/PID.SUS/2025 (15 Sep 2025; PN Tipikor lepas 19 Mar 2025); uang pengganti Rp17,7 T (Wilmar Rp11,88 T/Musim Mas Rp4,89 T/Permata Hijau Rp0,94 T). #018: skema Rp200 rb→terima Rp180 rb→10 rb×24 hari (studi Klaten 2012, Lebak 2024), bunga >5× batas OJK 0,3%/hari. #019: Polri 24 Jul 2025 (5 merek/3 produsen; belum vonis), Kementan klaim 212/268, Kemendag ±Rp14 rb/5 kg, Helfi Assegaf = Kasatgas Pangan Polri (produsen tak pernah uji lab). #020: MK 273/PUU-XXIII/2025 (23 Jul 2026), SE Menkomdigi 4/2026 (28 Agu), 156 dari 290 paket belum rollover (Telkomsel 76/95, Indosat 71/94, XLSmart 9/101; per 28 Sep).
