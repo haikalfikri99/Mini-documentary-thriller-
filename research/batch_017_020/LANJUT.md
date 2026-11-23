@@ -40,3 +40,9 @@ Riset (Consensus): cerita > statistik bila emosi tinggi (Freling 2020, meta 61 s
 
 ## Fakta kunci tiap episode
 Lihat README episode + `research/batch_017_020/shortlist.md` (putaran 1–18). #017: MA 8432 K/PID.SUS/2025 (15 Sep 2025; PN Tipikor lepas 19 Mar 2025); uang pengganti Rp17,7 T (Wilmar Rp11,88 T/Musim Mas Rp4,89 T/Permata Hijau Rp0,94 T). #018: skema Rp200 rb→terima Rp180 rb→10 rb×24 hari (studi Klaten 2012, Lebak 2024), bunga >5× batas OJK 0,3%/hari. #019: Polri 24 Jul 2025 (5 merek/3 produsen; belum vonis), Kementan klaim 212/268, Kemendag ±Rp14 rb/5 kg, Helfi Assegaf = Kasatgas Pangan Polri (produsen tak pernah uji lab). #020: MK 273/PUU-XXIII/2025 (23 Jul 2026), SE Menkomdigi 4/2026 (28 Agu), 156 dari 290 paket belum rollover (Telkomsel 76/95, Indosat 71/94, XLSmart 9/101; per 28 Sep).
+
+## v5 (23 Nov 2026, koreksi user atas v4)
+- #017 OKE (dikunci user). #018/#019/#020 ditulis ulang v5: satu cerita + satu pertanyaan inti + jawaban di akhir; fakta yang tidak melayani pertanyaan dibuang (uji lab #019, rincian operator #020).
+- #018 pertanyaan: "pinjaman yang kelihatan murah kok lebih kejam dari pinjol?" (Klaten disebut langsung). #019: "tulisan premium itu bisa dipercaya nggak?" (merek tampil di karung, tidak diucapkan). #020: "MK bilang sisa kuota milikmu, terus kenapa masih hangus?"
+- Menunggu user. Setelah setuju: selaraskan tabel AV README (masih v4) → VO.
+- Pelajaran (masuk 10-kitab-cerita): tulis PERTANYAAN INTI dulu; tiap kalimat harus mendekatkan jawaban; kalimat yang tidak = buang, walau faktanya benar.

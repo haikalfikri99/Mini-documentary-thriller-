@@ -44,6 +44,7 @@
 4. *Turn + detik:* kalimat yang membalik makna hook.
 5. *Emosi target + pemicu komentar:* geram/was-was/takjub + kalimat yang akan diketik penonton.
 **Uji Penonton (jawab satu kalimat; gagal satu = tulis ulang):** (1) Ini cerita tentang apa, ≤ 12 kata tanpa istilah? (2) Siapa yang bikin kesal, dan dia ngapain? (3) Di detik berapa penonton kaget, karena apa? (4) Apa yang akan dikomentari / dikirim ke grup WA?
+**Pertanyaan inti (pelajaran v5, 23 Nov 2026):** tulis SATU pertanyaan yang penonton ingin dijawab (mis. "MK bilang kuota milikmu, kenapa masih hangus?"); tiap kalimat harus mendekatkan jawabannya; fakta benar yang tidak melayani pertanyaan itu DIBUANG, bukan dipindah ke tengah.
 **Urutan kerja:** Brief → tulis cerita lisan sekali jadi tanpa melihat linter → baca keras (napas) → pasang fakta + hedge → lint → Uji Penonton ulang.
 
 ## 6. Sebelum/sesudah (#019 beras)
