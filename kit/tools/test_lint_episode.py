@@ -182,7 +182,7 @@ class T(unittest.TestCase):
     def test_v7_batch_opening_ini_pattern(self):
         two = self._itu_batch('o2', ['Struk ini mencetak dua harga.', 'Tombol abu-abu ini mahal.', 'Dua kartu sama, hasil beda.', 'Toko rugi tiga miliar.'])
         r = [(l, m) for l, m in L.lint_batch(two) if '[benda] ini' in m]
-        self.assertEqual(len(r), 1); self.assertEqual(r[0][0], 'E'); self.assertIn('o20', r[0][1]); self.assertIn('o21', r[0][1]); self.assertIn('Ganti bentuk lain', r[0][1])
+        self.assertEqual(len(r), 1); self.assertEqual(r[0][0], 'W'); self.assertIn('o20', r[0][1]); self.assertIn('o21', r[0][1]); self.assertIn('Ganti bentuk lain', r[0][1])
         kayak = self._itu_batch('ok', ['Kayak gini rasanya bayar dua kali.', 'Tombol itu mahal.', 'Dua kartu sama, hasil beda.', 'Toko ini rugi tiga miliar.'])
         self.assertTrue(any('[benda] ini' in m for _, m in L.lint_batch(kayak)))
         one = self._itu_batch('o1', ['Struk ini mencetak dua harga.', 'Tombol abu-abu itu mahal.', 'Dua kartu sama, hasil beda.', 'Toko rugi tiga miliar.'])
@@ -192,6 +192,13 @@ class T(unittest.TestCase):
         early = self._itu_batch('oe', ['Struk ini mencetak dua harga.', 'Tombol abu-abu ini mahal.', 'Dua kartu sama, hasil beda.', 'Toko rugi tiga miliar.'])
         for e in early: e['no'] -= 6                                                # #011–#014: a warning before v7.0
         self.assertTrue(any(l == 'W' and '[benda] ini' in m for l, m in L.lint_batch(early)))
+
+    def test_attribution_chain(self):
+        chain = 'Polisi bawa karung ke lab. Kata Polri, beratnya kurang. Kementan mengklaim mutunya jelek. Hitungan Kemendag, kemahalan. ' + W(90) + '.'
+        r = L.lint_episode(make(self.tmp, 'at1', 17, chain, title='Struk Mencetak Dua Harga'))
+        self.assertTrue(any(l == 'W' and 'rantai atribusi' in m for l, m in r))
+        story = 'Yamaha didenda. Kata KPPU, mereka janjian. Yamaha bilang itu bukan bukti. Honda bilang nggak mungkin. ' + W(90) + '.'   # #005: antagonists talking back
+        self.assertFalse(any('rantai atribusi' in m for _, m in L.lint_episode(make(self.tmp, 'at2', 17, story, title='Struk Mencetak Dua Harga'))))
 
     def test_v7_sapu_nominalisasi_pasif(self):
         heavy = 'Persetujuan ekspor itu dipakai. Kerugian dihitung. Pengaturan diubah, pemakaian dibatasi, dibayar, dijual, dibuat, dicetak. ' + W(80) + '.'

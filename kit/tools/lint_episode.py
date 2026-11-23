@@ -9,7 +9,8 @@ blacklist of closing-sentence openers (Jadi, Kesimpulannya, Pada akhirnya, Nah i
 (2-3 sentence description + Sumber, pinned-comment question), batch: hook/ending/mode alternation, latar rotation (no 3 same in a row), Mesin A 2-3 of 4, 3:1 title slot.
 v7.0 (ERRORS for #017+, warnings before; #013–#016 scripts are locked): 'tapi'/'padahal' forbidden in title AND first sentence (0–4 s) but allowed in the body
 (valid ABT glue; warning if > 3 uses); [MESIN] and [LATAR] markers; stiff spoken citations ('menurut studi/penelitian'); BATCH: > 1 of 4 episodes whose first sentence
-has the form '[benda] ini / kayak gini …' (the word 'ini' or 'kayak gini/begini/gini' within the first 8 words) = error (8-hook §J: vary the opening form).
+has the form '[benda] ini / kayak gini …' (the word 'ini' or 'kayak gini/begini/gini' within the first 8 words) = warning (8-hook §J: vary the opening form; ERROR→WARN 23 Nov 2026, 10-kitab-cerita).
+Attribution chain: >= 3 different institutions with a spoken attribution verb in one script = warning (10-kitab-cerita §3).
 Warnings: sentence > 17 words, 3+ staccato sentences (≤ 4 words) in a row, stiff words (tersebut, sehingga, melakukan), 'sapu nominalisasi/pasif' (many
 pe-…-an / ke-…-an / per-…-an / -isasi words or di-/ter- passives in one script). Freshness ([SEGAR]) and the repeated 'X—tapi Y' H1 pattern are no longer checked.
 v6.1 rules are ERRORS for episodes #013+ and WARNINGS (history log) for #001–#012. Exit code 1 when any error. Standard library only."""
@@ -38,6 +39,12 @@ STIFF_WORDS = ['tersebut', 'sehingga', 'melakukan']                             
 MAX_SENT_WORDS = 17
 OPEN_ITU = re.compile(r'(?<![a-z0-9])(ini|kayak gini|kayak begini|begini|gini)(?![a-z0-9])')   # opener form '[benda] ini / kayak gini …' (8-hook §J: max 1 of 4 per batch)
 OPEN_ITU_WORDS = 8
+# attribution chain (WARN, 10-kitab-cerita §3): >= 3 different institutions each given a spoken attribution ("kata Polri", "Satgas nyebut", "Kementan mengklaim")
+ATTR_VERB = re.compile(r'(?<![a-z0-9])(kata|katanya|menurut|hitungan|nyebut|menyebut|mengklaim|klaim|bilang|mencatat|ngaku|mengaku)(?![a-z0-9])')
+ATTR_INST = {'polri': r'polri|polisi|satgas', 'kementan': r'kementan|kementerian pertanian|mentan', 'kemendag': r'kemendag|kementerian perdagangan|mendag',
+             'kppu': r'kppu', 'ojk': r'ojk', 'bpom': r'bpom', 'bps': r'bps', 'ylki': r'ylki', 'ombudsman': r'ombudsman', 'bapanas': r'bapanas',
+             'komdigi': r'komdigi|kominfo|menkomdigi', 'mk': r'mahkamah konstitusi|\bmk\b', 'ma': r'mahkamah agung', 'bi': r'bank indonesia'}
+ATTR_CHAIN_MAX = 3
 # 'sapu nominalisasi/pasif' (WARN): nominal pe-…-an/ke-…-an/per-…-an/-isasi words and di-/ter- passives; stoplists = common concrete nouns / non-passive words
 NOMINAL = re.compile(r'(?<![a-z0-9])(?:(?:pe(?:ng|ny|m|n)?|ke|per)[a-z]{3,}an|[a-z]{3,}isasi)(?![a-z0-9])')
 PASSIVE = re.compile(r'(?<![a-z0-9])(?:di|ter)[a-z]{4,}(?![a-z0-9])')
@@ -217,6 +224,12 @@ def lint_episode(e):
             else:
                 if run >= 3: out.append(('W', 'v7.0: %d kalimat pendek (≤ 4 kata) beruntun; terasa staccato' % run))
                 run = 0
+        attributed = set()
+        for sn in sents:
+            sl = sn.lower()
+            if ATTR_VERB.search(sl): attributed |= {k for k, p in ATTR_INST.items() if re.search(r'(?<![a-z0-9])(%s)(?![a-z0-9])' % p, sl)}
+        if len(attributed) >= ATTR_CHAIN_MAX:
+            out.append(('W', 'rantai atribusi: %d lembaga berbeda diberi atribusi lisan (%s); terdengar seperti notulen. Jadikan lembaga pelaku adegan, sisanya ke kartu layar (10-kitab-cerita §3)' % (len(attributed), ', '.join(sorted(attributed)))))
         stiff = [w for w in STIFF_WORDS if has_word(low, w)]
         if stiff: out.append(('W', 'v7.0: kata kaku ala tulisan baku: %s (pakai bahasa lisan)' % ', '.join(stiff)))
         nom, pas = sapu_nominalisasi(low)
@@ -272,7 +285,7 @@ def lint_batch(eps):
         if not 2 <= a <= 3: out.append((lv7, 'v7.0: porsi Mesin A %d dari %d episode (target ~60%% = 2–3 dari 4)' % (a, len(eps))))
     itu = [e for e in eps if e['first'] and opens_with_itu(e['first'])]
     if len(itu) > 1:
-        out.append((lv7, 'v7.0: %d dari %d episode dibuka dengan pola "[benda] ini / kayak gini …" (maks 1): %s. Ganti bentuk lain di 8-hook §K (hasil angka, kontras angka, tokoh+angka, peristiwa, artefak tanpa penjelasan, dua kondisi kembar, ancaman tak disadari, intuisi dibantah, sapaan "kamu", kalimat bersyarat); benda Frame 0 cukup ditunjuk lewat visual'
+        out.append(('W', 'v7.0: %d dari %d episode dibuka dengan pola "[benda] ini / kayak gini …" (maks 1): %s. Ganti bentuk lain di 8-hook §K (hasil angka, kontras angka, tokoh+angka, peristiwa, artefak tanpa penjelasan, dua kondisi kembar, ancaman tak disadari, intuisi dibantah, sapaan "kamu", kalimat bersyarat); benda Frame 0 cukup ditunjuk lewat visual'
                     % (len(itu), len(eps), '; '.join('#%03d %s ("%s")' % (e['no'], e['slug'], e['first'][:40]) for e in itu))))
     out += lint_vs_log(eps)
     modes = {e['mode'] for e in eps}
