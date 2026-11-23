@@ -3,7 +3,7 @@
 
 ## A. Prinsip yang sudah diputuskan user (jangan diperdebatkan ulang)
 1. **Hanya topik yang benar-benar kuat.** Bila ragu, jangan jadi video; jangan coba-coba atau setengah-setengah. Tetap jujur: tidak ada janji outlier; yang dijanjikan = lolos semua gerbang + fakta terverifikasi + upaya memaksimalkan peluang di luar gerbang (§F).
-2. **Kesegaran BUKAN gerbang.** Topik lama boleh asal sudutnya belum jenuh (anti-stale = per SUDUT, bukan per tanggal). Label `[SEGAR]` hanya penanda; batch wajib ≥ 2 dari 4 berlabel 2020–2026 (`lint`). Tujuan: tidak kehabisan topik. Pasokan topik = mekanisme (alasan asli di balik harga/produk/kontrak/kebijakan), bukan berita.
+2. **Kesegaran BUKAN gerbang.** Topik lama boleh asal sudutnya belum jenuh (anti-stale = per SUDUT, bukan per tanggal). Label `[SEGAR]` hanya catatan (keputusan user 23 Nov 2026: tidak dicek linter, tidak membatasi pilihan topik). Tujuan: tidak kehabisan topik. Pasokan topik = mekanisme (alasan asli di balik harga/produk/kontrak/kebijakan), bukan berita.
 3. **Relevan ke penonton 20–45 tahun: hidup, waktu, kesehatan, rumah, kerja, bukan dompet saja.**
 4. **Basis keputusan = riset eksternal (12 kanal pembanding) + data 38 kanal, BUKAN data kanal sendiri (11 video).** Jangan membuat aturan baru dari n kecil (kesalahan yang pernah terjadi: "Uji Pola Pemenang" dari n=3, ditarik).
 5. **Presentasikan topik dengan CERITA, bukan judul + sumber** (format §E). Pakai bahasa Indonesia biasa; jelaskan arti kode Mesin (A1, B3, dst.) tiap kali.

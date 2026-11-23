@@ -272,7 +272,7 @@ def lint_batch(eps):
         if not 2 <= a <= 3: out.append((lv7, 'v7.0: porsi Mesin A %d dari %d episode (target ~60%% = 2–3 dari 4)' % (a, len(eps))))
     itu = [e for e in eps if e['first'] and opens_with_itu(e['first'])]
     if len(itu) > 1:
-        out.append((lv7, 'v7.0: %d dari %d episode dibuka dengan pola "[benda] ini / kayak gini …" (maks 1): %s. Ganti bentuk lain di 8-hook §J (hasil angka, kontras angka, tokoh+angka, peristiwa, artefak tanpa penjelasan, dua kondisi kembar, ancaman tak disadari, intuisi dibantah, sapaan "kamu", kalimat bersyarat); benda Frame 0 cukup ditunjuk lewat visual'
+        out.append((lv7, 'v7.0: %d dari %d episode dibuka dengan pola "[benda] ini / kayak gini …" (maks 1): %s. Ganti bentuk lain di 8-hook §K (hasil angka, kontras angka, tokoh+angka, peristiwa, artefak tanpa penjelasan, dua kondisi kembar, ancaman tak disadari, intuisi dibantah, sapaan "kamu", kalimat bersyarat); benda Frame 0 cukup ditunjuk lewat visual'
                     % (len(itu), len(eps), '; '.join('#%03d %s ("%s")' % (e['no'], e['slug'], e['first'][:40]) for e in itu))))
     out += lint_vs_log(eps)
     modes = {e['mode'] for e in eps}
