@@ -28,7 +28,7 @@
 - **Frame 0 lewat visual:** karung PREMIUM berpita segel + stempel BARANG BUKTI + lembar uji kosong = "polisi" dan "balai uji" terlihat tanpa kata tunjuk.
 - **Akurasi:** Satgas Pangan Polri membawa sampel 5 merek ke balai uji (Metro + Kompas TV, 24 Jul 2025). Tanpa merek, vonis, atau angka di H1; merek baru disebut di kalimat 3–4 dengan atribusi Satgas Pangan Polri.
 - **Waktu:** 9 kata ≈ 3,5 dtk (cek ulang di `vo_words.json`).
-- **Label dipasang sesudah bentuk dipilih:** K2 Ketidaknyamanan Kontra-Intuitif, karena label premium yang dikira sudah teruji dibenturkan dengan kenyataan bahwa yang membawanya ke uji adalah polisi. Rotasi batch K5 → K1 → **K2** → K3 tetap sah. Bentuk batch sekarang: hasil angka → [benda] ini (#018) → peristiwa → [benda] ini (#020).
+- **Label dipasang sesudah bentuk dipilih:** K2 Ketidaknyamanan Kontra-Intuitif, karena label premium yang dikira sudah teruji dibenturkan dengan kenyataan bahwa yang membawanya ke uji adalah polisi. Rotasi batch K5 → K1 → **K2** → K3 tetap sah. Bentuk batch per 23 Nov 2026: hasil angka (#017) → kontras dua angka (#018) → **peristiwa (#019)** → tokoh + angka (#020); `lint_episode.py --batch` ok.
 
 ## Tiga alternatif terkuat yang ditolak
 1. **#9 Intuisi dibantah (23):** akurat, pas Frame 0, nadanya bantahan mitos tanpa kejadian/taruhan. Kurang thriller dibanding kejadian polisi.
