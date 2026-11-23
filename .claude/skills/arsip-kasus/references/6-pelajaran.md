@@ -14,6 +14,7 @@ Setiap episode menambah baris di sini. Formula, gaya, dan kit hanya berubah bila
 - **#004 Aqua:** 72,5% (11 jam) → 79,18% hari 1 → 78,48% / APV 102,05% (ekspor 19 Nov); hook angka+merek+sebab kecil, tokoh metafora, penutup pertanyaan.
 - **#005 Skutik:** Circular Reframe Loop uji pertama; stayed 64,6% (15 hari, versi 17 Nov) vs 72,97% / APV 92,78% (ekspor 19 Nov); satu video tidak cukup menilai penutup.
 **[DIARSIPKAN → arsip-riwayat/6-pelajaran_baris9-100.md]** (tabel "Data per episode" #001–#002 + log mentah di bawah).
+
 ## Aturan yang lahir dari review user
 ### Cerita & script
 - Taruhan harus dirasakan penonton; ironi intelektual saja dangkal (#002, Gruen ditolak).
@@ -23,6 +24,7 @@ Setiap episode menambah baris di sini. Formula, gaya, dan kit hanya berubah bila
 - Pakai framework yang terbukti, jangan berputar-putar menulis ulang: Formula ARSIP v5.0 + scorecard.
 
 ### Visual
+*(Butir tokoh/wajah/tangan/cahaya di bawah berasal dari engine animasi 2D/toon lama #001–#002, kini digantikan gaya ARSIP Kolase; prinsip logika gambar tetap hidup di `2-visual…` §E/§G.)*
 - Hitam/putih polos untuk kepala ditolak; sawo matang dipilih lewat studi warna.
 - Wajah/tangan yang "aneh" lebih buruk daripada sederhana: tangan harus seperti tangan memegang HP sungguhan.
 - Cahaya harus logis (arah jendela), latar dan latar depan harus kaya, ruang beda untuk orang beda, perangkat lengkap (monitor + keyboard + mouse).

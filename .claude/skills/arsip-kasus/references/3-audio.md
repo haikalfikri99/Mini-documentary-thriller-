@@ -70,6 +70,7 @@ Rasa musik dan karakter SFX tetap dinilai user.
 - Cek pengucapan: "KPPU" per huruf (ka-pe-pe-u), "tiga belas koma delapan miliar" (bukan "tiga belas delapan"), nama merek asing ("Le Minerale"), istilah Inggris di layar boleh asing. Kalimat pertama selesai ≤ 2,2 dtk, tanpa jeda di 3 dtk pertama, suara mulai di detik 0.
 - **Generate lewat konektor ElevenLabs (sejak 15 Nov 2026):** kredit ±1 per karakter prompt per versi; `generations_count` = n versi = n× kredit. Default hemat: **1 versi per episode**, cek Whisper (small; kata yang dicurigai dicek ulang dengan medium pada potongan audio), generate ulang hanya episode yang gagal, setelah melapor dan atas persetujuan user. Selalu `estimate_only` dulu bila belum tahu biayanya.
 - **[DIARSIPKAN → arsip-riwayat/3-audio_baris62-73.md]** log mentah #004 (angka proses jeda, kredit batch #005–#008) dan pengaturan lama "2 take, user menaruh raw_take1/2.mp3" **[SUPERSEDED by v7.0: 1 take]**.
+
 ## J. Tight Audio Tail ≤ 0,15 dtk (v5.0, untuk auto-replay)
 Hening setelah suku kata terakhir dipangkas ≤ 0,15 dtk tanpa fade-out panjang, supaya replay langsung menyambar frame 0 (Circular Reframe Loop, `1-cerita…` §F3) **[SUPERSEDED by v6.1: Conceptual Loop `1-cerita…` §M8; ekor ≤ 0,15 dtk tetap berlaku]**. Ambang "terdengar" = tingkat jangka pendek (jendela 10 ms) di atas −45 dBFS setelah VO dinormalkan ke −17 dBFS RMS.
 - `kit/audio/vo_tail.py` (`voiced_end`, `trim_tail`: potong ke bunyi terakhir + 0,15 dtk dengan fade cosinus 12 ms agar tidak berdetak).

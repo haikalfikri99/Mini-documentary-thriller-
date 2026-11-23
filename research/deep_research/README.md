@@ -1,5 +1,5 @@
 # research/deep_research — dokumen riset ASLI yang menjadi dasar aturan (diselamatkan 23 Nov 2026)
-Sebelumnya hanya ada di folder unggahan sesi (sementara). Jangan diedit; ini sumber. Aturan di `.claude/skills/arsip-kasus/` dan `AGENTS.md` bersumber dari sini. Matriks jejak (riset → aturan): `MATRIKS_JEJAK.md`.
+Sebelumnya hanya ada di folder unggahan sesi (sementara). Jangan diedit; ini sumber. Aturan di `.claude/skills/arsip-kasus/` dan `AGENTS.md` bersumber dari sini. Matriks jejak (riset → aturan): `MATRIKS_JEJAK.md` (akan dibuat sesi utama sebagai gabungan 4 matriks `_matriks_sop.md`, `_matriks_strategi.md`, `_matriks_spek.md`, `_matriks_v7.md`; sampai berkas itu ada, rujuk keempat matriks tersebut).
 | Berkas | Isi | Menjadi dasar | Catatan |
 |---|---|---|---|
 | `SOP_Naskah_Thriller_Psikologi_Pendek.md` | Deep Research 1: SOP naskah (anatomi thriller non-fiksi, Topic Stress-Test, micro-pacing, spoken-word craft, 5 arketipe hook + 5 penutup, format VO/AV, quality gate) | Formula v6.0/v6.1 (`1-cerita` §M, `8-hook`), arketipe K1–K5 dan penutup | Contoh naskah/hook di dalamnya melanggar aturan v7.0 (mis. "Jadi…" di penutup, "kenapa/tapi" di hook); dipakai sebagai METODE, bukan template kata (`7-selera` #77) |

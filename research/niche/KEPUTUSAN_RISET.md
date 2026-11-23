@@ -67,7 +67,7 @@ Menggabungkan: `RISET_NICHE_V2.md` (pilar), `RISET_SELINGAN.md` (30% wilayah), `
 **"Alasan ASLI di balik benda, tempat, harga, dan merek yang kamu kenal — terutama yang ada di Indonesia."** Psikologi/ekonomi/sejarah/kartel = isi jawaban, bukan pintu masuk.
 Bukti: judul psikologi/manipulasi 2,8% breakout vs 17,9% baseline (5.540 Shorts, 31 channel); mitos/kontradiksi 21,7%; top vs bottom di 4 channel 2 bahasa; komentar (penasaran, anggapan dibalik, musuh, kebanggaan lokal; "melindungi diri" hampir nol).
 
-## 2. Selingan (±30%) — [digantikan v6.0-B: W4/W6 kini masuk Mesin 1/3; larangan misteri/klenik/kasus pidana berjalan tetap]
+## 2. Selingan (±30%) — [digantikan v6.0-B: W4/W6 kini masuk Mesin 1/3 [SUPERSEDED by v7.0: Mesin A/B]; larangan misteri/klenik/kasus pidana berjalan tetap]
 | Porsi | Wilayah | Bukti | Bentuk |
 |---|---|---|---|
 | ±20% | **W4 Keputusan fatal** (proyek/perusahaan/desain gagal) | breakout 22,1% (n=358), di atas baseline di 16/23 channel | "Kenapa [proyek/merek/tempat] bangkrut/mangkrak/ditutup" — permintaan pencarian ID kuat |
