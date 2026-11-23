@@ -1,0 +1,112 @@
+Prompt v.60
+Baca terlebih dahulu file repo yang ada saat ini agar tidak ada data historis yang hilang:
+1. `CLAUDE.md`, `AGENTS.md`, dan `.claude/skills/arsip-kasus/SKILL.md`
+2. Semua file di `.claude/skills/arsip-kasus/references/` (`1-cerita-dan-script.md` s.d. `8-hook-dan-judul.md`)
+3. `research/niche/KEPUTUSAN_RISET.md` dan `research/niche/topik/RUMUS_PEMILIHAN.md`
+4. `kit/tools/new_episode.sh`, `kit/tools/links.sh`, `kit/tools/make_kolase.sh`, `kit/tools/check_visual.mjs`, dan `kit/collage/template/flow_prompt_template.md`
+
+Tugasmu sekarang ada 3 bagian besar:
+(I) Migrasi bersih seluruh aturan editorial, riset, dramaturgi, visual, dan monetisasi ke **Formula ARSIP v6.0** (menggabungkan 100% blueprint 2 Deep Research + seluruh pelajaran `#001–#008`, mengganti aturan lama yang bentrok tanpa menghapus log sejarah `#001–#008`).
+(II) Membuat repo ini **100% portabel sebagai folder lokal di Claude Desktop** (macOS/Linux/Windows/WSL) sekaligus **model-agnostic & agent-agnostic** (bisa dijalankan di OpenAI Codex, Cursor, Gemini CLI, Windsurf, Cline, atau model lain dengan kualitas output yang sama presisinya).
+(III) Mengunci **Protokol Transisi Hibrida (`#009–#012` vs `#013+`)** — JANGAN meriset topik `#009–#012` sendiri sekarang.
+
+======================================================================
+BAGIAN I: MIGRASI BERSIH KE FORMULA ARSIP v6.0 (SINGLE SOURCE OF TRUTH)
+======================================================================
+
+1. `research/niche/KEPUTUSAN_RISET.md` — Kunci menjadi **STANDAR BAKU v6.0 (mulai Batch #009+)**:
+   - **Identitas Kanal:** Pertahankan nama **Mini Thriller IDN** dan label layar **ARSIP KASUS** (jangan diganti ke "Arsip Perilaku"). Posisi: investigasi forensik terhadap rekayasa perilaku & bias kognitif di balik benda, harga, aturan, dan antarmuka sehari-hari—bukan kuliah teori dan bukan kanal tips/nasihat.
+   - **Sistem 3 Mesin Psikologi Perilaku (menggantikan komposisi lama 70% bisnis/hukum):**
+     a) **Mesin 1 — Behavioral Backfires (~35%):** Kegagalan produk, kebijakan publik, atau keputusan massal akibat salah membaca cara kerja otak manusia.
+     b) **Mesin 2 — Hidden Choice Design (~40%):** Arsitektur pilihan tersembunyi pada label harga, tata ruang, menu, atau antarmuka aplikasi (*dark patterns*) yang diam-diam mengarahkan keputusan.
+     c) **Mesin 3 — Human Anomalies (~25%):** Eksperimen ilmiah teruji atau fenomena sosial nyata (misteri rasional; dilarang mistis/klenik/kasus pidana berjalan) yang membongkar sisi irasional manusia.
+   - **Arsitektur Algoritma & Target Metrik 2 Gerbang (terbukti dari data #001 vs #004):**
+     - Algoritma Shorts bekerja *pull-based* & *Seed Audience Testing* per video (evaluasi awal minimal tunggu **48 jam**, tanpa hukuman permanen antar-video).
+     - **Gerbang 1 (Daya Henti):** *Stayed to watch* (`Viewed vs. Swiped Away`) wajib **≥ 75%** (minimal ≥ 65%), ditentukan di 1–2 detik pertama.
+     - **Gerbang 2 (Daya Tahan):** *APV* wajib **≥ 95%–105%** pada durasi terkalibrasi (bukan 60+ detik yang kendur setelah klimaks seperti `#001`).
+     - **Kebijakan Views vs Engaged Views & Inauthentic Content:** *Auto-replay/loop* mendongkrak APV dan distribusi *feed*, tetapi **tidak dihitung sebagai `Engaged views`** untuk syarat YPP. Gaya kolase arsip *faceless* aman dari kebijakan *Inauthentic Content* (15 Jul 2025) & aturan label sintetis (27 Mei 2026) selama setiap episode memakai skrip riset orisinal, variasi visual per ketukan cerita, dan estetika ilustrasi gravir/potongan kertas (bukan fotorealistis).
+   - **Peta Jalan Monetisasi (Sprint Pra-1 Feb 2027):**
+     - **Tahap 1 (45–60 hari):** Kejar **500 subscriber + 3 juta `engaged views` Shorts (90 hari)** untuk membuka **YouTube Shopping Affiliate** (Shopee, Lazada, Blibli, Zalora; sematkan maksimal 3 tag produk relevan seperti buku induk ekonomi perilaku / jurnal keputusan / permainan strategi).
+     - **Tahap 2 (Sebelum 31 Jan 2027):** Kejar **1.000 subscriber + 10 juta `engaged views` Shorts (90 hari)** sebelum ambang YPP penuh berlipat ganda menjadi **20 juta `engaged views` / 8.000 jam tayang** per **1 Februari 2027** (dan partner aktif wajib menjaga 10 juta/90 hari untuk bagi hasil Shorts Creator Pool).
+     - **Tahap 3 (Q1–Q2 2027 — Transisi Long-Form 8–15 Menit):** Produksi Shorts dalam **klaster tematik 3–4 episode** agar siap digabung/dikembangkan menjadi dokumenter *long-form* 8–15 menit (RPM 7×–30× lebih tinggi dari RPM Shorts Indonesia ~$0,14/1k). Setelah *long-form* jalan, pangkas frekuensi Shorts ke **1–5 Shorts/bulan** (titik optimal menjaga RPM *long-form*) dan tautkan lewat *Related Video*.
+     - **Tahap 4 (Q3 2027+):** Tambahkan takarir Inggris (`.srt`) bersih untuk menjangkau trafik Tier-1 (AS/Australia) + produk sendiri (kursus/asesmen/permainan meja penguji bias).
+
+2. `research/niche/topik/RUMUS_PEMILIHAN.md` — Perbarui penyaringan topik:
+   - Ganti tabel "Infinite 4-Pillar Topic Engine" lama dengan **3 Mesin Psikologi Perilaku** + **Aturan Jembatan Audiens (`#009–#010`)**: dua episode pertama wajib berangkat dari produk, harga, atau kebiasaan belanja sehari-hari (Mesin 1/2) agar subscriber dari `#004–#008` tidak kaget sebelum masuk Mesin 3 di `#011–#012`.
+   - Tambahkan **Filter Anti-Krisis Replikasi (Go/No-Go Gate Mutlak):**
+     - **Daftar Hitam (Tolak Mutlak):** *Power Posing* (gagal replikasi Ranehill 2015), *Ego Depletion* model cadangan tenaga standar (Hagger 2016), *Social/Behavioral Priming* mentah (kata penuaan memperlambat jalan), *Pen-in-Mouth Facial Feedback*, prekognisi Daryl Bem, narasi lugas *Stanford Prison Experiment* (tanpa kritik intervensi peneliti), dan klaim kausal sederhana *Marshmallow Test* (Watts 2018).
+     - **5 Kategori Taksonomi Kokoh (Prioritas Produksi):** (1) Arsitektur Harga, Risiko & Ekonomi Persepsi (*Prospect Theory / Loss Aversion*, *Framing Effect*, *Anchoring*); (2) Kalibrasi Dopamin & Jebakan Antarmuka Digital (*Reward Prediction Error*, *Default Effect* dengan nuansa framing); (3) Otonomi, Pembangkangan & Resistensi Persuasi (*Psychological Reactance* — larangan kata pengendali ke penonton); (4) Ilusi Pengetahuan & Miskonsepsi Kognitif (*Information-Gap Theory*, *Cognitive Dissonance*, pendekatan *Legitbait* / bongkar miskonsepsi dulu); (5) Forensik Sains: Eksperimen Populer yang Runtuh (*Open Science* / *Many Labs 2*).
+   - Tambahkan **Topic Stress-Test (4 Uji Kelayakan):** (1) Zona celah informasi optimal 33–67% + kegunaan praktis tanpa menyerang ego penonton; (2) *Retention Anchor* (mengubah cara pandang, bukan rangkuman/nasihat); (3) *Vox Handle Visual Test* (menyentuh ≥ 2 dari 3 pilar: geografi, angka, waktu + artefak fisik); (4) Uji satu ide tunggal (bisa diringkas 1 kalimat tanpa kata "dan") + minimal 1 titik balik (*The Turn*) — tolak topik 1-babak yang sudah terjawab tuntas di detik ke-15.
+   - Perbarui aturan `riset_topik.py`: Shorts bekerja lewat *Feed Curiosity*, bukan *Search Intent* (terbukti di `#004` Aqua: saran pencarian kecil tetapi 79,18% stayed-to-watch). Gunakan `riset_topik.py` untuk mengukur kejenuhan pesaing sesudut (`n_1m`), **bukan** untuk menggugurkan mekanisme psikologi tajam hanya karena `n_saran` kecil.
+
+3. `.claude/skills/arsip-kasus/references/8-hook-dan-judul.md` — Kunci aturan hook, judul, dan penguncian 3-titik:
+   - Pertahankan **Aturan Kuda Troya (*Trojan Horse Rule*)**: **DILARANG KERAS** memakai kata `"psikologi"`, `"bias"`, `"bias kognitif"`, `"kenapa"`, `"padahal"`, `"tapi"`, `"ternyata"`, atau tanda tanya di **Judul** maupun **Frame 0 (0–4 dtk)** (kecuali 1 slot uji di Kuota 3:1). Wajib menjual benda, merek, harga/angka (+6,4/+8,6 poin breakout), atau aturan konkret Indonesia di 0–4 detik; bedah mekanisme psikologinya di Segmen 2B.
+   - Pertahankan **Kuota Uji Judul 3:1** per batch 4 episode (3 Pola 1 + 1 uji Pola 3/4/5 diawali benda/harga familiar) dan **Penguncian 3-Titik (0,0–4,0 dtk)**.
+   - Integrasikan **5 Arketipe Hook (0–4 dtk)** berbasis psikologi kognitif:
+     1) *Bom di Bawah Meja (Hidden Threat / Stake First)* — asimetri informasi Hitchcock & ancaman sistem eksternal pada benda/tombol/harga yang dipakai penonton (tanpa kata pengendali "kamu harus/wajib" yang memicu *Psychological Reactance*).
+     2) *Ketidaknyamanan Kontra-Intuitif (Productive Discomfort)* — membenturkan intuisi populer dengan realitas eksperimen (*Reward Prediction Error* & teknik *Veritasium*).
+     3) *Bukti Visual Mendahului Konteks (Cold Artifact First)* — melempar grafik/dokumen/artefak janggal ke layar sambil menahan konteksnya (*Johnny Harris / LEMMiNO*).
+     4) *Celah Ujung Lidah (Micro Knowledge Gap)* — memperlihatkan dua kondisi nyaris identik namun hasilnya kontras (*Loewenstein / Zeigarnik*).
+     5) *Titik Balik Hasil Ekstrem (Result-First Turning Point)* — mulai langsung dari hasil uji coba paling mustahil lalu tarik mundur mencari penyebabnya.
+
+4. `.claude/skills/arsip-kasus/references/1-cerita-dan-script.md` — Migrasi ke **Formula ARSIP v6.0**:
+   - **2 Mode Durasi Tanpa Padding** (tempo VO **2,50–2,66 kata/dtk**, disisihkan ~3,0 dtk ruang jeda dramatis & SFX):
+     a) **Mode Ringkas (35–42 dtk | 85–105 kata):** Untuk 1 eksperimen tunggal atau 1 paradoks perilaku tajam.
+     b) **Mode Investigasi (48–55 dtk | 115–135 kata):** Untuk kasus 2–3 babak / eskalasi bertahap (batas atas 135 kata wajib dijaga agar take mentah Saos Cocol tidak melewati 55 dtk pada `atempo <= 1,10`).
+   - **Anatomi Konflik Non-Kriminal (Lembar Kerja F2):** Sebelum menulis draf, wajib rumuskan: (1) **Antagonis Tak Kasatmata** (arsitektur pilihan, *variable reward loop*, angka jangkar, tekanan konformitas); (2) **Taruhan Nyata / Stakes** (uang, waktu, fokus, keselamatan penonton); (3) **3 Babak The Prestige** (*The Pledge* → *The Turn* → *The Prestige*).
+   - **Teknik Dramaturgi & Bahasa Lisan Bahasa Indonesia (§F5):**
+     - **Perekat Kausalitas And–But–Therefore (ABT):** Sapu bersih transisi daftar ("selain itu", "berikutnya", "tidak hanya itu", "dan kemudian"); wajib sambung antar-segmen dengan pertentangan (**TETAPI / ANEHNYA / MASALAHNYA**) atau konsekuensi (**AKIBATNYA / KARENA ITU**).
+     - **Siklus Utang Naratif (*Question-to-Report Cycle*):** Jangan melunasi satu pertanyaan secara tuntas sebelum membuka pertanyaan turunan baru; pasang **Micro-Rehook setiap 12–15 detik** (pergeseran level bukti) + jeda hening **0,5–0,8 dtk** tepat sebelum pengungkapan utama.
+     - **Visual Evidence Then Context & Zero-Citation Lisan:** Tampilkan bukti grafik/dokumen sebelum menyebut teori/peneliti; dilarang membacakan daftar pustaka ("Menurut studi meta-analisis tahun X oleh Prof. Y...") — sematkan potongan jurnal/tahun di layar kolase, sementara VO fokus pada pelaku, aksi, dan dampak.
+     - **Ladder of Abstraction, Branch to the Right & 2-3-1 Stress:** Mulai dari benda fisik paling konkret → naik sekejap ke nama bias kognitif di Segmen 2B → turun kembali ke benda nyata di akhir; taruh **Subjek + Kata Kerja Aktif** di awal kalimat; selang-seling kalimat pendek 2–5 kata dengan kalimat mengalir 8–12 kata (*Burstiness*); sapu bersih nominalisasi berat (*pe-an, ke-an, per-an, -sasi*) dan pasif birokratis (*di-/ter-*) kecuali saat menonjolkan penonton sebagai target (*Passive-Aggressive Tool*).
+     - **Angka & Anti-Exit Words:** Maksimal **1–2 kontras angka** per episode di VO; **DILARANG KERAS** memulai kalimat penutup dengan `"Jadi..."`, `"Kesimpulannya..."`, `"Pada akhirnya..."`, atau `"Nah itulah..."`.
+   - **Format Resmi Skrip AV 2 Kolom & 5 Arketipe Penutup (6 Detik Terakhir, Zero-CTA + Tight Tail ≤ 0,15 dtk):**
+     - Kolom Kiri = **Visual Kolase (Arsip / Dokumen / Gerak)**; Kolom Kanan = **Audio VO Word-for-Word + Notasi Studio (`/` jeda ~0,25 dtk, `//` jeda hening ~0,6 dtk, `KAPITAL` penekanan, `[perlambat: teks]`, `(intonasi)`) + SFX**.
+     - **5 Arketipe Penutup:** (1) *Reframing Sistemik / Conceptual Loop* (default — mengembalikan objek Frame 0 dengan pemaknaan baru sehingga memicu replay organik tanpa memotong tata bahasa); (2) *Cermin Personal / Silent Mirror* (pertanyaan refleksi diri tanpa menghakimi seperti `#004`); (3) *Dilema Abu-Abu* (persimpangan etis dua sisi pemicu debat komentar); (4) *Lingkar Naratif Mulus / Seamless Loop* (khusus Mode Ringkas 35–42 dtk bila menyambung mulus ke detik 0:00); (5) *Pemicu Dunia Nyata / X-Ray Detail* (mengaitkan mekanisme dengan benda/situasi yang pasti ditemui penonton hari itu juga).
+   - **Scorecard v6.0:** Tambahkan cek lolos filter replikasi, Aturan Kuda Troya, ABT connective tissue, Zero-Citation lisan, Anti-Exit Words (tanpa `"Jadi..."`), dan keselarasan AV 2 kolom.
+
+5. `.claude/skills/arsip-kasus/references/2-visual-dan-animasi.md` — Tambahkan standar visual psikologi perilaku:
+   - **Semiotika Artefak (*Visual Evidence First*):** Dilarang menggunakan ilustrasi kartun "orang berpikir" atau gambar otak generik di Frame 0. Gunakan barang bukti fisik nyata (struk harga, tombol UI abu-abu, denah ruangan, grafik turun, timbangan miring) yang muncul bersamaan atau sepersekian detik sebelum narasi menyebut konsepnya.
+   - **Kode Warna Kolase Editorial:** Biru arsip (`#2F4F4A` / biru cetak) untuk sistem, institusi, atau desain antarmuka; Merah stempel (`#B3261E`) untuk ancaman, jebakan, kerugian, atau vonis; Kuning stabilo untuk sorotan angka/kutipan dokumen bukti.
+   - Pertahankan seluruh guardrail `#004–#008`: maksimal 2–3 elemen fokus per shot (≤ 5–6 total layer), grafik/label `y <= 1180` masuk dari samping, 100% kutipan layar Bahasa Indonesia, Frame 0 hero `>= 486 px` + stempel `<= 0,25 dtk`, *caption self-contained* untuk penonton *mute*, tanpa kotak putih polos pada aset kode (`bk.doc(..., shape=...)`).
+
+6. `SKILL.md`, `5-upload-dan-thumbnail.md`, `6-pelajaran.md`, `7-selera-dan-cara-kerja.md`, dan `kit/tools/new_episode.sh`:
+   - Seragamkan seluruh referensi versi ke **Formula ARSIP v6.0** di `SKILL.md` dan `new_episode.sh`.
+   - Di `5-upload-dan-thumbnail.md`: kunci paket upload wajib (`make_cover.py` + `cover.json` 1080×1920, frame cadangan, komentar pin meluruskan salah baca + 1 pertanyaan debat, dan file mentah `UPLOAD_<no>_<slug>.txt` tanpa konversi Google Doc agar emoji 4-byte tidak rusak).
+   - Di `6-pelajaran.md`: catat metrik aktual `#001–#005` (`#001`: 1.525 views, 70,56% stayed, 72,77% APV; `#002`: 759 views, 43,71% stayed, 67,16% APV; `#003`: 1.325 views, 46,13% stayed, 52,76% APV; `#004`: 7.346 views hari 1, 79,18% stayed, 104,12% APV; `#005`: 1.500 views 15j, 64,6% stayed) serta keputusan migrasi v6.0 dan protokol hibrida `#009–#012`.
+   - Di `7-selera-dan-cara-kerja.md`: tambahkan poin `#69–#75` merangkum keputusan v6.0 (Kuda Troya Psikologi Perilaku, Filter Anti-Krisis Replikasi, 2 Mode Durasi 35–42 dtk vs 48–55 dtk, ABT + Zero-Citation + Anti-Exit Words tanpa `"Jadi..."`, Visual Evidence First + Kode Warna, dan Protokol Hibrida `#009–#012` → Otomasi `#013+`) tanpa mengubah `#1–#68`.
+   - Perbarui kerangka `README.md` di `kit/tools/new_episode.sh` agar memuat kolom: Mesin Cerita (1/2/3), Mode Durasi (Ringkas/Investigasi), Status Replikasi Studi, Anatomi Konflik Non-Kriminal, Uji POV Penonton, Fact Sheet 2 Lapis, Penguncian 3-Titik, Skrip AV 2 Kolom, dan Scorecard v6.0.
+
+======================================================================
+BAGIAN II: PORTABILITAS FOLDER LOKAL (CLAUDE DESKTOP) & MULTI-AGEN/MODEL
+======================================================================
+
+Rancang ulang struktur instruksi dan helper lokal agar repo ini berjalan mulus saat dibuka sebagai **folder lokal di Claude Desktop** maupun saat berganti ke **AI coding agent / model lain** (OpenAI Codex, Cursor, Gemini CLI, Windsurf, Cline) tanpa penurunan kualitas:
+
+1. **Arsitektur Instruksi Universal (Single Source of Truth):**
+   - Jadikan `AGENTS.md` di root repo sebagai **konstitusi utama yang 100% model-agnostic** (memuat urutan baca wajib, ringkasan aturan v6.0, gerbang QA audio & visual, daftar file rujukan, dan matriks pengganti fitur).
+   - Buat file adaptor tipis yang sinkron dan mengarahkan agen langsung ke `AGENTS.md` + `.claude/skills/arsip-kasus/SKILL.md`:
+     - `CLAUDE.md` (untuk Claude Code & Claude Desktop lokal)
+     - `GEMINI.md` (untuk Gemini CLI / Google Antigravity)
+     - `.cursorrules` (untuk Cursor)
+     - `.github/copilot-instructions.md` (untuk GitHub Copilot / VS Code Agent)
+   - Pastikan tidak ada instruksi editorial yang tercecer hanya di satu adaptor; semua detail mendalam tetap berada di `.claude/skills/arsip-kasus/references/*.md` dan `research/niche/` sehingga model apa pun yang membaca `AGENTS.md` wajib membaca file referensi yang sama sebelum bertindak.
+
+2. **Abstraksi Alat & Fallback Lokal (Agar Tidak Bergantung Konektor Cloud):**
+   - **Review Storyboard Lokal-Pertama:** Pastikan `python3 kit/tools/storyboard_page/make_page.py stories/<slug>/kolase stories/<slug>/kolase/board` menghasilkan halaman HTML mandiri (`storyboard_NNN.html`) yang langsung bisa dibuka di browser lokal user tanpa internet/Artifact cloud. Jika user tidak memakai `ArtifactComments`, user cukup menuliskan revisi per nomor shot di chat atau mengisi field `note` di `kolase/storyboard.json`.
+   - **VO ElevenLabs Dual-Mode:** Pertahankan alur utama pembuatan paket `stories/<slug>/audio/vo_prompt_elevenlabs.md` (untuk MCP ElevenLabs jika tersedia & diizinkan user, atau generate manual di elevenlabs.io). Tambahkan juga skrip opsional ringan `kit/audio/tts_elevenlabs.py` (memakai `ELEVENLABS_API_KEY` dari `.env` lokal bila user mengisinya) agar agen lokal mana pun bisa langsung men-generate audio atas izin user.
+   - **Paket Upload Lokal (`upload_pack/`):** Pastikan setiap episode menyiapkan folder lokal siap unggah `stories/<slug>/upload_pack/` berisi: video final `ARSIP_<no>_<slug>_v<N>.mp4`, thumbnail `thumbnail_<slug>_1080x1920.jpg`, frame cadangan `cover_frame_<t>s.jpg`, dan file teks mentah UTF-8 `UPLOAD_<no>_<slug>.txt` (agar user mudah mengunggah ke YouTube Studio / Google Drive dari desktop tanpa merusak emoji).
+   - **Routing Tugas Tanpa Subagen:** Tambahkan panduan di `AGENTS.md`: jika agen mendukung subagen paralel (seperti Claude Code), bagi beban kerja sesuai kompleksitas (ekstraksi/file → model ringan; riset terstruktur → model menengah; skrip final & `film.js` → model penalaran tertinggi dengan *high effort*). Jika agen berjalan sebagai *single-agent* (Claude Desktop lokal, Cursor, Codex), jalankan tahapan tersebut secara berurutan dengan wajib menyelesaikan *checklist* gerbang kualitas di tiap tahap sebelum lanjut ke tahap berikutnya.
+
+3. **Pemeriksa Lingkungan Lokal Lintas-OS (`kit/tools/doctor.py` & `kit/tools/links.sh`):**
+   - Buat skrip `kit/tools/doctor.py` (hanya memakai standard library Python) yang mengecek kesiapan folder lokal di macOS, Linux, WSL, maupun Windows: memeriksa ketersediaan `python3`, `node`, `ffmpeg`, `fluidsynth`, soundfont `FluidR3_GM.sf2`, paket Python (`numpy`, `scipy`, `requests`, `yt-dlp`, `faster-whisper`/`whisper`), Playwright + Chromium, serta hak pembuatan symlink. Berikan perintah perbaikan yang jelas jika ada komponen lokal yang kurang.
+   - Perbarui `kit/tools/links.sh` agar aman dijalankan berulang kali dari folder lokal mana pun, dan tambahkan `.env.example` serta pastikan `.gitignore` bersih untuk kerja lokal (`raw/`, `parts/`, `*.wav`, `.env`, `.venv/`, `node_modules/`).
+
+======================================================================
+BAGIAN III: PROTOKOL TRANSISI HIBRIDA (#009–#012 vs #013+)
+======================================================================
+
+Catat aturan ini secara eksplisit di `CLAUDE.md`, `AGENTS.md`, `SKILL.md`, dan `6-pelajaran.md`:
+1. **Batch `#009–#012` (Mode Hibrida — JANGAN RISET TOPIK SENDIRI):**
+   - Riset topik, filter replikasi, fact sheet 2 lapis, dan penulisan **Skrip AV 2 Kolom final** untuk `#009–#012` dikerjakan terlebih dahulu oleh user bersama Gemini di NotebookLM, lalu diserahkan kepadamu sebagai paket skrip siap produksi.
+   - Begitu paket skrip `#009–#012` diberikan kepadamu, langsung lompat ke **Tahap Produksi Teknis**: jalankan `new_episode.sh` → buat `vo_prompt_eleven

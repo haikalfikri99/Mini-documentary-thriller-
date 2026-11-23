@@ -1,0 +1,231 @@
+Konteks Lengkap Evaluasi Kanal &
+Upgrade ke Formula ARSIP v7.0
+Kanal: Mini Thriller IDN (ARSIP KASUS) Repositori: haikalfikri99/mini-documentary-thriller-
+(main) Tujuan Dokumen: Menjadi rujukan konteks utuh bagi Claude Code mengenai latar
+belakang evaluasi dari awal, data empiris performa video #001–#016, alasan perubahan arah
+editorial ke Formula ARSIP v7.0, perbaikan alur kerja (workflow), serta status terkini Batch
+#017–#020.
+
+1. Kronologi Evaluasi dari Awal: Mengapa Kanal Ini
+Dievaluasi & Di-Upgrade?
+Perjalanan evaluasi kanal melewati empat fase utama berdasarkan data nyata YouTube Studio
+dan uji produksi:
+
+Fase 1: Eksperimen Awal (#001–#003) — Gagal di Hook & Terasa
+Seperti Kuliah/Tips
+  ●​ #001 Banjir Molase: 70,56% stayed to watch, 72,77% APV, 1.546 views. Lolos hook
+     karena taruhan tragedi nyata, tetapi rontok di 25 detik akhir karena penjelasan teknis
+     yang datar.
+  ●​ #002 Fitur Scroll: 44,79% stayed to watch, 67,78% APV, 786 views. Gagal total di hook
+     karena pembuka abstrak dan langsung terbaca penonton sebagai "video ceramah/tips
+     kurangin main HP".
+  ●​ #003 Micin 1968: 46,60% stayed to watch, 54,44% APV, 1.367 views. Gagal total karena
+     terasa seperti bantahan mitos/kuliah sains datar tanpa antagonis aktif maupun konflik.
+
+Fase 2: Terobosan Cetakan Investigasi Kasus (#004–#008) — Terbukti
+Menang di Algoritma
+Saat kanal memakai format investigasi kasus bisnis, harga, dan kebijakan nyata di
+Indonesia dengan objek harian + angka uang + pembalikan babak (plot twist):
+  ●​ #004 Aqua KPPU: 78,48% stayed to watch, 102,05% APV, 23.423 views, 12.948
+      engaged views. Rahasia kemenangannya: merek harian + denda Rp13,8 miliar + 4
+      pembalikan babak hingga detik ke-42 (putusan MA membatalkan PN) + penutup
+      Curtain-Pull Reveal yang menyentuh keseharian penonton ("isi warung nggak selalu
+      pilihan pemiliknya").
+  ●​ #005 Skutik Yamaha–Honda: 72,97% stayed to watch, 92,78% APV, 17.277 views.
+  ●​ #006 Penghapusan 3-in-1 Jakarta: 72,05% stayed to watch, 96,35% APV, 16.605
+      views.
+  ●​ (Catatan: #004–#006 menyumbang 78% dari seluruh penayangan kanal).
+  ●​ #007 HP Xiaomi: 65,71% stayed to watch, 93,82% APV, 1.485 views (tertahan karena
+      tanpa nominal uang di judul dan bagian tengah sempat melandai).
+  ●​ #008 Indomie Taiwan: 70,80% stayed to watch, 74,15% APV.
+
+Fase 3: Pembatasan Sempit ke "Psikologi Perilaku Murni" (v5.0 →
+v6.0 → v6.1 / #009–#016)
+Sempat muncul upaya mengarahkan kanal menjadi kanal Psikologi Perilaku & Bias Kognitif
+murni:
+  ●​ #009 Burger 1/3 Pound: Mencatat 80,90% stayed to watch dan 91,49% APV — kuat
+     secara ritme eskalasi 3 babak dan visual Frame 0.
+  ●​ Kelemahan yang muncul saat psikologi murni dipaksakan ke semua episode
+     (#010–#016):
+       1.​ #010 Kantong Plastik Rp200: Hook berhasil menahan (70,32% stayed), tetapi
+           APV anjlok drastis ke 46,41% karena taruhannya (stakes) terlalu kecil/receh
+           sehingga penonton kabur di tengah video.
+       2.​ #012 Kartu Member/Cap: Topik terasa seperti trivia ringan/klise pasar.
+       3.​ Monotonnya Latar Visual (#013–#015): Tiga episode (biayalayanan, ongkir,
+           terlaris) sama-sama berlatar layar aplikasi belanja/checkout sehingga visual terasa
+           berulang.
+       4.​ Kontradiksi Aturan Bahasa v6.1: v6.1 melarang total kata "tapi" dan "padahal" di
+           seluruh naskah, padahal struktur dramaturgi ABT (And–But–Therefore)
+           membutuhkan kata kontras alami di bagian body script. Di sisi lain, sebagian
+           kalimat menjadi terlalu kaku seperti terjemahan atau terlalu patah-patah (staccato
+           2–4 kata beruntun).
+       5.​ Riset Borongan Gagal: Meminta AI meriset 18–25 topik sekaligus dalam satu
+           putaran menurunkan kualitas verifikasi fakta di slot-slot akhir dan memunculkan ide
+           basi.
+
+Fase 4: Evaluasi Independen Menyeluruh & Penguncian Formula
+ARSIP v7.0
+User meminta evaluasi menyeluruh dari kacamata independen (non-yes-man) untuk
+menyatukan seluruh data empiris Studio (#001–#016) dan 3 laporan riset pasar/dramaturgi
+menjadi satu kompas yang kokoh: Formula ARSIP v7.0.
+
+2. Inti Perubahan & Aturan Baku Formula ARSIP v7.0
+A. Identitas & Kompas Baru Kanal
+  ●​ Nama & Estetika Tetap: Pertahankan nama Mini Thriller IDN, label layar ARSIP
+     KASUS, dan gaya visual 2D Paper-Cutout Collage / Vintage Engraving di atas latar
+     putih murni #FFFFFF (bukan 3D gelap/cinematik generik).
+  ●​ Pergeseran DNA Utama (Mengakhiri Batasan Psikologi Murni): Kanal ini bukan kanal
+     fakta psikologi murni dan bukan kanal berita/hukum kaku. DNA terkuat kanal ini adalah
+     Investigasi Forensik terhadap Sistem, Uang, Desain Produk/Harga,
+     Kebijakan/Aturan, dan Anomali Perilaku Nyata di balik hal sehari-hari yang berdampak
+     ke warga/konsumen Indonesia usia 20–45 tahun.
+B. Garis Merah 4 Butir (Dilarang Keras)
+  1.​ Bukan Self-Help / Tips / Motivasi: Dilarang memberi nasihat menggurui ("kamu
+      harus...", "lain kali, kalo...").
+  2.​ Bukan Mitos Datar / Pembacaan Pasal Kaku: Dilarang membuat video bantahan mitos
+      tanpa konflik atau membaca nomor pasal peraturan seperti laporan hukum tanpa
+      pembalikan alur (The Turn).
+  3.​ Bukan Topik Basi & Studi Gagal Replikasi: Dilarang mengangkat klise pasar (harga
+      .900, susu di pojok minimarket, popcorn bioskop, mitos micin, plastik Rp200, kartu cap
+      cuci mobil) maupun studi populer bermasalah (Power Posing, Ego Depletion, Social
+      Priming mentah, Stanford Prison tanpa kritik, Marshmallow Test kausal sederhana).
+  4.​ Bukan Topik Meta-YouTube: Dilarang membahas algoritma YouTube, RPM, atau tutorial
+      monetisasi di kanal utama.
+
+C. 2 Mesin Topik + 4 Jalur Bahan (A1, A2, B3, B4)
+Dalam setiap batch berisi 4 episode, wajib menjaga keseimbangan Mesin A (2–3 episode) +
+Mesin B (1–2 episode):
+  ●​ Mesin A (~60%) — Sistem, Bisnis, Uang & Kebijakan Bermasalah (Evergreen):
+       ○​ A1: Skandal bisnis, kartel, praktik curang, & celah aturan/regulasi yang merugikan
+           publik.
+       ○​ A2: Kegagalan produk & kebijakan bumerang (Policy/Product Backfire — aturan
+           yang memicu akibat berlawanan dari niat awalnya).
+  ●​ Mesin B (~40%) — Desain Produk Harian, Jebakan Harga & Mekanisme Perilaku:
+       ○​ B3: Jebakan harga di titik bayar (drip pricing), penyusutan isi (shrinkflation), model
+           bisnis & arsitektur pilihan.
+       ○​ B4: Anomali perilaku & eksperimen teruji (lolos replikasi, wajib diikat ke
+           benda/situasi nyata Indonesia; mekanisme psikologi dijadikan pisau bedah di
+           segmen tengah, bukan syarat wajib semua episode).
+
+D. 4 Uji Anti-Basi & Disiplin Riset
+  1.​ Anti-Basi 2 Tahun: Belum diperah kreator besar Indonesia dalam 2 tahun terakhir
+      dengan sudut yang sama (atau membawa data/putusan baru yang segar).
+  2.​ Kedekatan & Taruhan Nyata: Menyentuh dompet, waktu, kesehatan, atau keseharian
+      audiens Indonesia usia 20–45 tahun.
+  3.​ 3 Pilar Konflik Dramaturgi: Punya Antagonis Sistemik + Taruhan Nyata (Stakes) +
+      Pembalikan Babak (The Turn).
+  4.​ Vox Handle Visual Test: Punya artefak fisik konkret untuk dipotong menjadi kolase
+      (struk, kemasan, dokumen putusan, grafik, denah).
+  5.​ Disiplin Fakta: Wajib Fact Sheet 2 Lapis (Lapis 1: konteks/fakta lokal Indonesia + Lapis
+      2: sumber primer/putusan/studi teruji). Dilarang mengarang angka; pisahkan label
+      negara/lembaga sumber secara eksplisit pada kartu visual; dilarang membacakan nomor
+      pasal hukum secara kaku di VO.
+
+E. Judul, Bahasa Lisan Luwes, & Koreksi Aturan "tapi" / "padahal"
+  ●​ Judul: <= 55 karakter (ideal 38–48 karakter), menyebut benda, merek, angka uang, atau
+     kontradiksi konkret.
+  ●​ Aturan Kuda Troya (Khusus Judul & Kalimat Pembuka 0–4 Detik):
+       ○​ DILARANG KETAT pada Judul dan Kalimat Pembuka (0–4 dtk): "psikologi", "bias",
+           "kenapa", "padahal", "tapi", "ternyata", dan tanda tanya (?).
+  ●​ Koreksi "tapi" & "padahal" di Body Script (Setelah Detik ke-4):
+       ○​ DIIZINKAN secara wajar pada body script untuk membangun alur kontras
+           sebab-akibat ABT (And–But–Therefore), asalkan tidak diulang monoton di tiap
+           kalimat dan tetap menghindari kata sambung daftar datar ("selain itu", "berikutnya",
+           "tidak hanya itu").
+  ●​ Bahasa Indonesia Lisan Luwes & Kenyamanan Napas:
+       ○​ Gunakan bahasa lisan sehari-hari yang alami dan enak diucapkan (nggak, bikin,
+           aja, udah, nyampe, biar)—hindari bahasa baku kaku ala teks formal (tidak,
+           melakukan, sehingga, tersebut) maupun slang lebay yang dipaksakan.
+       ○​ Panjang kalimat nyaman untuk satu tarikan napas (~8–13 kata/kalimat); pecah
+           kalimat > 15–16 kata; hindari potongan staccato 3+ kalimat pendek (<= 4 kata)
+           beruntun.
+       ○​ Gunakan penanda jeda studio: / (jeda napas singkat ~0,25 dtk) dan // (jeda hening
+           dramatis ~0,5–0,6 dtk tepat sebelum The Turn).
+       ○​ 2 Mode Durasi Tanpa Padding: Mode Ringkas (35–42 dtk | 85–105 kata) & Mode
+           Investigasi (48–55 dtk | 115–135 kata).
+       ○​ Zero-Citation Lisan: Jangan membacakan sitasi jurnal/undang-undang di VO;
+           tampilkan label sumber pada visual.
+       ○​ Penutup (6 Detik Terakhir) + Anti-Exit Words: Rotasi 5 Arketipe Penutup +
+           Conceptual Loop (memanggil ulang objek Frame 0) + Tight Audio Tail <= 0,15 dtk.
+           Dilarang keras mengawali kalimat penutup dengan "Jadi...", "Kesimpulannya...",
+           "Pada akhirnya...", "Nah itulah...", atau "Lain kali, kalo...".
+
+F. Visual, Audio, & Arah Monetisasi
+  ●​ Rotasi Latar Visual ([LATAR]): Dalam 1 batch, tidak boleh ada 3 episode berturut-turut
+     memakai jenis latar yang sama (variasikan antara dokumen, benda, kemasan, grafik,
+     ruang, dll.).
+  ●​ Google Flow & Kolase: Wajib 1 variasi per gambar, latar #FFFFFF, kode warna kolase
+     (merah = jebakan/kerugian, biru = sistem/institusi, kuning stabilo = sorotan bukti), objek
+     Frame 0 >= 486 px + stempel merah <= 0,25 dtk, grafik di atas y = 1180.
+  ●​ Audio: Jalur utama generasi VO memakai konektor ElevenLabs
+     (vo_prompt_elevenlabs.md sebagai acuan ekspresi/jeda).
+  ●​ Monetisasi & Tie-Breaker: Shorts adalah mesin akuisisi menuju YouTube Shopping
+     Affiliate (500 subscriber) dan video long-form 8–15 menit (klaster tema senada).
+     Kesiapan produk afiliasi dijadikan pembeda (tie-breaker) saat skor kandidat setara,
+     bukan gerbang gugur (agar topik denda/kebijakan publik ber-views tinggi tidak gugur).
+
+3. Status Implementasi Repo & Sisa Audit Teknis yang
+Perlu Ditutup
+Pada commit v7.0 (bd75b38 / 5ad5a87), aturan v7.0 dan lint_episode.py (19 tes lulus,
+penegakan error mulai #017 agar #001–#016 tetap aman sebagai warning) sudah masuk ke
+main. Posisi research/gold_standard/ (#009) juga sudah ditandai hanya sebagai acuan
+ritme/visual, bukan acuan gaya bahasa v6.0.
+Dua catatan audit teknis yang masih perlu dirapikan Claude Code di repo:
+   1.​ Pembersihan Sisa Aturan Lama (grep): Karena beberapa file referensi (±250 KB)
+       belum dibaca sampai baris terakhir saat migrasi v7.0, jalankan pencarian kata kunci lama
+       (3 Mesin, maks 1 Ringkas, Jembatan Audiens, default) untuk memastikan tidak ada sisa
+       aturan lama tanpa label [SUPERSEDED by v7.0] yang bentrok, serta memastikan aturan
+       Micro-Rehook 12–15 dtk, Conceptual Loop, dan templat UPLOAD_<no>_<slug>.txt tetap
+       utuh.
+   2.​ Kelengkapan Metadata stories/episode_log.json: Lengkapi field mesin dan latar untuk
+       #009–#012 yang masih kosong agar pengecekan rotasi lintas-batch berjalan akurat.
+
+4. Pembaruan Alur Kerja (Workflow Hibrida Gemini →
+Claude Code)
+Mulai Batch #017–#020, pembagian peran dikunci sebagai berikut agar lebih cepat, presisi,
+dan hemat token:
+  1.​ Peran Gemini (di Notebook YT Mini Thriller IDN):
+        ○​ Menangani seluruh proses hulu ke tengah: riset topik, verifikasi Fact Sheet 2
+           Lapis, perancangan judul v7.0, dan penulisan Skrip AV 2 Kolom final (sudah
+           disesuaikan bahasa lisan luwes, ritme napas 8–13 kata, rotasi Hook/Penutup, dan
+           rotasi [LATAR]).
+  2.​ Peran Claude Code (di Repo Lokal):
+        ○​ Lewati pencarian ide topik dari nol apabila user menyerahkan paket Fact Sheet
+           2 Lapis + Skrip AV 2 Kolom dari Gemini.
+        ○​ Jalankan Gerbang Verifikasi Fakta Cepat pada Fact Sheet (laporkan hanya jika
+           ditemukan angka/fakta keliru; jangan mengubah gaya bahasa skrip secara
+           sepihak).
+        ○​ Buat folder episode (new_episode.sh), isi README.md, script_vo.txt, dan
+           vo_prompt_elevenlabs.md, lalu pastikan python3 kit/tools/lint_episode.py lulus 0
+           error.
+        ○​ Lanjutkan eksekusi teknis: generasi VO via konektor ElevenLabs → penyusunan
+           prompt Google Flow (1 variasi) → perakitan kolase, check_visual.mjs, audio QA,
+           dan render video final + UPLOAD_<no>_<slug>.txt.
+
+5. Status Kandidat Batch #017–#020 Saat Ini
+Berdasarkan riset awal Claude dan evaluasi lanjutan bersama user:
+  ●​ #017 Putusan MA 3 Korporasi Sawit Rp17,7 Triliun (Mesin A1 · Investigasi) —
+     LANJUT DENGAN PAGAR:
+       ○​ Fakta inti: Tipikor 19 Mar 2025 memutus lepas (onslag), lalu MA membalik putusan
+           pada 15 Sept 2025 (perkara 8432 K/Pid.Sus/2025) dengan total uang pengganti
+           Rp17,7 T (Wilmar Rp11,88 T, Musim Mas Rp4,89 T, Permata Hijau Rp0,94 T)
+           masuk kas negara.
+       ○​ Pagar wajib: Buka dengan objek botol minyak goreng & nominal Rp17,7 T (bukan
+         istilah hukum), jangan ucapkan selisih 2 rupiah antar-media secara kaku, dan
+         jangan mengklaim kompensasi rumah tangga "tidak ada".
+●​ #019 Beras "Premium" Langgar Batas Mutu Uji Lab (Mesin A1 · Investigasi) —
+   LANJUT DENGAN PAGAR:
+     ○​ Fakta inti: Pengujian mutu Kemendag menemukan 3 dari 10 merek beras kemasan
+         premium melanggar batas butir patah maksimal 15% (temuan 20–25%), dan
+         Satgas Pangan belum pernah menguji lab sejak berdiri (per Agustus 2025 status
+         masih tersangka).
+     ○​ Pagar wajib: Karena belum ada vonis pengadilan, dilarang menyebut nama
+         merek spesifik sebagai terpidana dan jangan memakai klaim Rp99,35 T yang
+         tanpa metode jelas.
+●​ Slot #018 & #020 (Dalam Penyusunan Final oleh Gemini):
+     ○​ Topik Minyakita digugurkan karena bertabrakan tema minyak goreng dengan #017
+         dan terlalu berat ke sembako.
+     ○​ Slot #018 dan #020 akan diisi topik Mesin B (B3 / B4) yang lolos 4 Uji Anti-Basi
+         dan memiliki taruhan (stakes) kuat, lalu diserahkan bersama #017 dan #019 dalam
+         format paket lengkap ke Claude Code untuk langsung dieksekusi ke produksi.
+
