@@ -1,5 +1,5 @@
 # ARSIP KASUS #020: kuota — Ojol Menang di MK, 156 Paket Kuota Belum Rollover
-**Formula ARSIP v7.0** · **Status:** SKRIP FINAL v2 (Claude, 22 Nov 2026; Turn diganti sesuai shortlist putaran 18), menunggu persetujuan user sebelum VO · **Mode produksi:** Otomatis (Claude penuh, `AGENTS.md` §3) · **Model:** Sonnet untuk riset/fact sheet, model penalaran tertinggi + effort high untuk skrip final dan `film.js`
+**Formula ARSIP v7.0** · **Status:** SKRIP FINAL v3 (Claude, 23 Nov 2026; hook ditulis ulang ke bentuk tokoh + angka, §K; Turn sesuai shortlist putaran 18), menunggu persetujuan user sebelum VO · **Mode produksi:** Otomatis (Claude penuh, `AGENTS.md` §3) · **Model:** Sonnet untuk riset/fact sheet, model penalaran tertinggi + effort high untuk skrip final dan `film.js`
 
 **Penanda wajib (dibaca `python3 kit/tools/lint_episode.py --batch …`):**
 [HOOK: Bukti Visual Mendahului Konteks] [ENDING: Pemicu Dunia Nyata] [MESIN: A2] [LATAR: layar] [SEGAR: 2026] [MODE: Ringkas] [ARTEFAK: layar HP generik sisa kuota 20 GB dengan hitung mundur masa aktif di angka nol] [LOOP: banner notifikasi kecil "masa aktif tinggal 2 hari" di pojok atas layar Frame 0 → notifikasi itu = bentuk perlindungan yang dilaporkan untuk banyak paket @35] [LABEL: satu asal]
