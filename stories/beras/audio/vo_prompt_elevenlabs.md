@@ -15,6 +15,6 @@ Karung premium terakhir yang kamu angkat ke kasir: / kamu bayar berasnya, atau T
 [serious] Polisi bawa lima merek beras premium ke balai uji.
 [warmly] Kita rela bayar lebih buat label premium, karena kedengarannya udah lolos standar.
 [curious] Satgas Pangan Polri nyebut mereknya satu per satu. Sania, Setra Ramos, Jelita, sampai Anak Kembar. [serious] Kata Polri, beratnya nggak sesuai, harganya lewat batas pemerintah. Sampai hari ini, kasusnya belum divonis.
-[pause] [mysteriously] Anehnya, Satgas juga nyebut ada produsen yang nggak pernah uji lab sejak berdiri. [slowly] Buat produsen kayak gitu, label premium lahir duluan, ujinya nunggu polisi datang.
+[pause] [mysteriously] Anehnya, Satgas juga nyebut ada produsen yang nggak pernah uji lab. [slowly] Buat produsen kayak gitu, label premium lahir duluan, ujinya nunggu polisi datang.
 [serious] Masalahnya, ceritanya nggak berhenti di lima merek. Kementan mengklaim udah nguji ratusan sampel dari sepuluh provinsi. Lebih dari delapan puluh lima persen beras premiumnya nggak sesuai mutu. Hitungan Kemendag, karung lima kilonya bisa kemahalan sekitar empat belas ribu.
 [warmly] Karung premium terakhir yang kamu angkat ke kasir: kamu bayar berasnya, atau tulisannya?

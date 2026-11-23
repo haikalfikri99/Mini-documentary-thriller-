@@ -18,7 +18,7 @@
 |---|---|---|
 | ±0–8 | Peristiwa + Asumsi Awal | polisi membawa lima merek beras premium ke balai uji → asumsi penonton: premium = udah lolos standar, makanya rela bayar lebih |
 | ±8–20 | Jangkar Lokal | Satgas Pangan Polri menyebut merek (Sania, Setra Ramos, Jelita, Anak Kembar): berat tak sesuai, harga di atas HET; belum divonis |
-| ±20–31 | Dokumen Kontrol (The Turn) | Satgas: ada produsen yang nggak pernah uji lab sejak berdiri → label premium lahir duluan, ujinya nunggu polisi datang (hook berganti makna) |
+| ±20–31 | Dokumen Kontrol (The Turn) | Satgas: ada produsen yang nggak pernah uji lab → label premium lahir duluan, ujinya nunggu polisi datang (hook berganti makna) |
 | ±31–51 | Pembalikan (+ Conceptual Loop terungkap) | bukan cuma 5 merek: klaim Kementan >85% premium tak sesuai mutu → hitungan Kemendag ±Rp14 rb per karung → tulisan PREMIUM Frame 0 jadi pertanyaan "berasnya, atau tulisannya?" |
 
 ## Klasifikasi (v7.0)
