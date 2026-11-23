@@ -6,7 +6,7 @@
 //   3. Caption band (y 1210–1536). Captions are drawn ON TOP of pieces, so big prints (buildings, rooms, people) may overlap the band;
 //      what breaks reading is a TEXT piece under a caption. SERIOUS: a text piece (parts s_*, st_*, tag_*, ry*, rq*, lbl_*, m_*) sits ≥ 30 px
 //      inside the real caption slip zone (y 1300–1440; the documented band 1210–1536 includes margins) for ≥ 0.5 s, or any non-backdrop piece is cut by the frame edge by ≥ 25% of its own size for ≥ 0.5 s.
-//      WARN: a print ≥ 150 px inside the band, or any piece cut ≥ 20 px by an edge. Backdrops (opaque box ≥ 900 px wide or ≥ 1000 px tall)
+//      WARN: a print ≥ 150 px inside the band, any piece cut ≥ 20 px by an edge, or any non-backdrop piece with its top edge above y = 100 for ≥ 0.5 s (top safe zone, S5 §2.1; never serious). Backdrops (opaque box ≥ 900 px wide or ≥ 1000 px tall)
 //      and the transient ARSIP folder overlay are exempt. Pieces are located from the real draw calls (opaque bounding box through the camera
 //      transform), so slides/drops that only pass through for < 0.5 s are not flagged.
 // Exit code 2 = SERIOUS (dead frame > 2.5 s, or a piece ≥ 60 px into the band / cut off by an edge for ≥ 0.5 s); 0 = pass (warnings printed).
@@ -78,6 +78,7 @@ for (let i = 0; i <= N; i++) {
     const text = TEXT.test(r.n), [z0, z1] = text ? [1300, 1440] : [1210, 1536], bandDepth = Math.max(0, Math.min(r.y1, z1) - Math.max(r.y0, z0));
     if (bandDepth >= (text ? 30 : 150)) { const key = `band:${r.n}`; seen.add(key); const cur = run[key] || (run[key] = { from: t, depth: 0, sev: text }); cur.depth = Math.max(cur.depth, bandDepth); cur.msg = x => `${r.n} masuk pita caption sedalam ${Math.round(x.depth)} px (${text ? 'teks di bawah caption' : 'gambar besar, hanya peringatan'})`; }
     const cut = Math.max(0, -r.x0, r.x1 - 1080, -r.y0), frac = cut / Math.max(1, Math.min(r.w, r.h));
+    if (r.y0 < 100 && cut < 20) { const key = `top:${r.n}`; seen.add(key); const cur = run[key] || (run[key] = { from: t, depth: 0, sev: false }); cur.depth = Math.max(cur.depth, 100 - r.y0); cur.msg = x => `${r.n} masuk zona aman tepi atas (y < 100) sedalam ${Math.round(x.depth)} px (hanya peringatan, S5 §2.1)`; }
     if (cut >= 20) { const key = `edge:${r.n}`; seen.add(key); const cur = run[key] || (run[key] = { from: t, depth: 0, sev: false }); cur.depth = Math.max(cur.depth, cut); cur.sev = cur.sev || frac >= 0.25; cur.msg = x => `${r.n} terpotong tepi frame ${Math.round(x.depth)} px`; }
   }
   for (const k of Object.keys(run)) if (!seen.has(k)) flush(k, t);

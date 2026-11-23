@@ -1,4 +1,4 @@
-"""Tests for lint_episode.py (v6.1 anti-monotony rules + Formula ARSIP v7.0).   python3 kit/tools/test_lint_episode.py"""
+"""Tests for lint_episode.py (anti-monotony rules + Formula ARSIP v7.0).   python3 kit/tools/test_lint_episode.py   (or: python3 -m unittest kit/tools/test_lint_episode.py)"""
 import os, sys, json, tempfile, unittest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import lint_episode as L
@@ -42,8 +42,9 @@ class T(unittest.TestCase):
         e13 = make(self.tmp, 'b', 13, W(120) + '.', hook=None, ending=None, segar=None, mode='Investigasi', artefak=None, loop=None, label=None)
         e09 = make(self.tmp, 'c', 9, W(120) + '.', hook=None, ending=None, segar=None, mode='Investigasi', artefak=None, loop=None, label=None)
         r13, r09 = L.lint_episode(e13), L.lint_episode(e09)
-        self.assertTrue(sum(l == 'E' for l, _ in r13) >= 6)
-        self.assertTrue(len(r09) >= 6 and all(l == 'W' for l, _ in r09))
+        self.assertTrue(sum(l == 'E' for l, _ in r13) >= 5)
+        self.assertTrue(len(r09) >= 5 and all(l == 'W' for l, _ in r09))
+        self.assertFalse(any('[SEGAR' in m for _, m in r13 + r09))          # v7.0: [SEGAR] optional, never an error
 
     def test_exit_openers(self):
         for opener in ['Lain kali', 'Kalo kamu', 'Kalau kamu', 'Ingat ya', 'Intinya', 'Jadi', 'Kesimpulannya', 'Pada akhirnya', 'Nah itulah']:
@@ -61,23 +62,22 @@ class T(unittest.TestCase):
         self.assertTrue(any('khusus Mode Ringkas' in m for _, m in L.lint_episode(e)))
 
     def test_batch_rules(self):
-        a = make(self.tmp, 'b1', 13, 'Harga ini sama—tapi nggak laku. ' + W(90) + '.', hook='Celah Ujung Lidah', ending='Cermin Personal', segar='2022', mode='Ringkas')
-        b = make(self.tmp, 'b2', 14, 'Tombol ini kecil, tapi mahal. ' + W(90) + '.', hook='Celah Ujung Lidah', ending='Cermin Personal', segar='klasik', mode='Ringkas')
-        c = make(self.tmp, 'b3', 15, 'Kartu ini kosong. ' + W(120) + '.', hook='Bom di Bawah Meja', ending='Dilema Abu-Abu', segar='1998', mode='Investigasi')
-        d = make(self.tmp, 'b4', 16, 'Kantong ini Rp200. ' + W(90) + '.', hook='Titik Balik Hasil Ekstrem', ending='Pemicu Dunia Nyata', segar='klasik', mode='Ringkas')
+        a = make(self.tmp, 'b1', 13, 'Harga sama, hasil beda. ' + W(90) + '.', hook='Celah Ujung Lidah', ending='Cermin Personal', segar='2022', mode='Ringkas')
+        b = make(self.tmp, 'b2', 14, 'Tombol kecil, harga besar. ' + W(90) + '.', hook='Celah Ujung Lidah', ending='Cermin Personal', segar='klasik', mode='Ringkas')
+        c = make(self.tmp, 'b3', 15, 'Kartu kosong. ' + W(120) + '.', hook='Bom di Bawah Meja', ending='Dilema Abu-Abu', segar='1998', mode='Investigasi')
+        d = make(self.tmp, 'b4', 16, 'Kantong Rp200. ' + W(90) + '.', hook='Titik Balik Hasil Ekstrem', ending='Pemicu Dunia Nyata', segar='klasik', mode='Ringkas')
         msgs = [m for _, m in L.lint_batch([a, b, c, d])]
         self.assertTrue(any('hook sama berurutan' in m for m in msgs))
         self.assertTrue(any('penutup sama berurutan' in m for m in msgs))
         self.assertTrue(any('tidak selang-seling' in m for m in msgs))     # b1, b2 both Ringkas
-        self.assertTrue(any('—tapi' in m for m in msgs))
-        self.assertTrue(any('kesegaran' in m for m in msgs))               # only 1 fresh of 4
+        self.assertFalse(any('—tapi' in m or 'kesegaran' in m for m in msgs))   # v7.0: no repeated-H1-pattern check, no freshness filter
 
     def test_batch_clean(self):
         eps = [make(self.tmp, 'c%d' % i, 13 + i, s, hook=h, ending=en, segar=y, mode=m, title='Struk Ini Aneh', mesin=['A1', 'B3', 'A2', 'B4'][i], latar=['layar', 'dokumen', 'layar', 'benda'][i]) for i, (s, h, en, y, m) in enumerate([
             ('Struk ini aneh. ' + W(92) + '.', 'Bukti Visual Mendahului Konteks', 'Reframing Sistemik', '2023', 'Ringkas'),
-            ('Tombol abu-abu ini mahal. ' + W(120) + '.', 'Bom di Bawah Meja', 'Dilema Abu-Abu', '2021', 'Investigasi'),
+            ('Tombol abu-abu itu mahal. ' + W(120) + '.', 'Bom di Bawah Meja', 'Dilema Abu-Abu', '2021', 'Investigasi'),
             ('Dua kartu sama, hasil beda. ' + W(90) + '.', 'Celah Ujung Lidah', 'Lingkar Naratif Mulus', 'klasik', 'Ringkas'),
-            ('Toko ini rugi 3 miliar. ' + W(118) + '.', 'Titik Balik Hasil Ekstrem', 'Pemicu Dunia Nyata', 'klasik', 'Investigasi')])]
+            ('Toko rugi 3 miliar. ' + W(118) + '.', 'Titik Balik Hasil Ekstrem', 'Pemicu Dunia Nyata', 'klasik', 'Investigasi')])]
         self.assertEqual(L.lint_batch(eps), [])
         self.assertEqual([L.lint_episode(e) for e in eps], [[], [], [], []])
 
@@ -134,7 +134,7 @@ class T(unittest.TestCase):
     def test_scaffold_placeholders_count_as_missing(self):
         e = make(self.tmp, 'ph', 13, W(95) + '.', hook='<arketipe>', segar='<tahun>|klasik', artefak='<benda>')
         msgs = [m for _, m in L.lint_episode(e)]
-        self.assertTrue(any('[HOOK' in m for m in msgs)); self.assertTrue(any('[SEGAR' in m for m in msgs)); self.assertTrue(any('[ARTEFAK' in m for m in msgs))
+        self.assertTrue(any('[HOOK' in m for m in msgs)); self.assertTrue(any('[ARTEFAK' in m for m in msgs))
 
     # ---------- Formula ARSIP v7.0 ----------
     def test_v7_tapi_forbidden_in_first_sentence_allowed_in_body(self):
@@ -145,6 +145,11 @@ class T(unittest.TestCase):
         self.assertTrue(any('kalimat pembuka' in m and l == 'E' for l, m in L.lint_episode(bad)))
         old = make(self.tmp, 'v3', 16, 'Harganya murah tapi total naik. ' + W(90) + '.', title='Struk Ini Mencetak Dua Harga')   # locked #016: warning only
         self.assertTrue(any('kalimat pembuka' in m and l == 'W' for l, m in L.lint_episode(old)))
+
+    def test_v7_tapi_padahal_count_as_abt_in_body(self):
+        s = 'Struk mencetak dua harga. ' + ' '.join(['kata'] * 9) + '. Padahal totalnya sama. ' + ' '.join(['kata'] * 70) + '.'
+        r = L.lint_episode(make(self.tmp, 'ab1', 17, s, title='Struk Mencetak Dua Harga'))
+        self.assertFalse(any('ABT' in m for _, m in r)); self.assertEqual([m for l, m in r if l == 'E'], [])
 
     def test_v7_markers_mesin_latar(self):
         e = make(self.tmp, 'm1', 17, 'Struk ini aneh. ' + W(90) + '.', mesin=None, latar=None, title='Struk Ini Mencetak Dua Harga')
@@ -167,6 +172,33 @@ class T(unittest.TestCase):
                                                      ('Titik Balik Hasil Ekstrem', 'Dilema Abu-Abu', 'Ringkas', 'B4'), ('Ketidaknyamanan Kontra-Intuitif', 'Pemicu Dunia Nyata', 'Investigasi', 'B3')])]
         txt = ' | '.join(m for _, m in L.lint_batch(eps))
         self.assertIn('latar visual sama 3 episode', txt); self.assertIn('porsi Mesin A 1 dari 4', txt)
+
+    def _itu_batch(self, tag, openers):
+        spec = [('Bom di Bawah Meja', 'Reframing Sistemik', 'Ringkas', 'A1', 'layar'), ('Celah Ujung Lidah', 'Cermin Personal', 'Investigasi', 'B3', 'dokumen'),
+                ('Titik Balik Hasil Ekstrem', 'Lingkar Naratif Mulus', 'Ringkas', 'A2', 'layar'), ('Ketidaknyamanan Kontra-Intuitif', 'Pemicu Dunia Nyata', 'Investigasi', 'B4', 'benda')]
+        return [make(self.tmp, '%s%d' % (tag, i), 17 + i, o + ' ' + W(90 if m == 'Ringkas' else 120) + '.', hook=h, ending=en, mode=m, mesin=ms, latar=la, title='Struk Mencetak Dua Harga')
+                for i, (o, (h, en, m, ms, la)) in enumerate(zip(openers, spec))]
+
+    def test_v7_batch_opening_ini_pattern(self):
+        two = self._itu_batch('o2', ['Struk ini mencetak dua harga.', 'Tombol abu-abu ini mahal.', 'Dua kartu sama, hasil beda.', 'Toko rugi tiga miliar.'])
+        r = [(l, m) for l, m in L.lint_batch(two) if '[benda] ini' in m]
+        self.assertEqual(len(r), 1); self.assertEqual(r[0][0], 'E'); self.assertIn('o20', r[0][1]); self.assertIn('o21', r[0][1]); self.assertIn('Ganti bentuk lain', r[0][1])
+        kayak = self._itu_batch('ok', ['Kayak gini rasanya bayar dua kali.', 'Tombol itu mahal.', 'Dua kartu sama, hasil beda.', 'Toko ini rugi tiga miliar.'])
+        self.assertTrue(any('[benda] ini' in m for _, m in L.lint_batch(kayak)))
+        one = self._itu_batch('o1', ['Struk ini mencetak dua harga.', 'Tombol abu-abu itu mahal.', 'Dua kartu sama, hasil beda.', 'Toko rugi tiga miliar.'])
+        self.assertFalse(any('[benda] ini' in m for _, m in L.lint_batch(one)))
+        zero = self._itu_batch('o0', ['Tujuh belas triliun, bukan denda.', 'Tombol abu-abu itu mahal.', 'Dua kartu sama, hasil beda.', 'Toko rugi tiga miliar.'])
+        self.assertEqual(L.lint_batch(zero), [])
+        early = self._itu_batch('oe', ['Struk ini mencetak dua harga.', 'Tombol abu-abu ini mahal.', 'Dua kartu sama, hasil beda.', 'Toko rugi tiga miliar.'])
+        for e in early: e['no'] -= 6                                                # #011–#014: a warning before v7.0
+        self.assertTrue(any(l == 'W' and '[benda] ini' in m for l, m in L.lint_batch(early)))
+
+    def test_v7_sapu_nominalisasi_pasif(self):
+        heavy = 'Persetujuan ekspor itu dipakai. Kerugian dihitung. Pengaturan diubah, pemakaian dibatasi, dibayar, dijual, dibuat, dicetak. ' + W(80) + '.'
+        r = L.lint_episode(make(self.tmp, 'sp1', 17, heavy, title='Struk Mencetak Dua Harga'))
+        self.assertTrue(any('sapu nominalisasi' in m and l == 'W' for l, m in r))
+        lisan = L.lint_episode(make(self.tmp, 'sp2', 17, 'Struk mencetak dua harga. Kasir bilang dibayar. ' + W(85) + '.', title='Struk Mencetak Dua Harga'))
+        self.assertFalse(any('sapu nominalisasi' in m for _, m in lisan))
 
     def test_v7_episode_log_cross_batch(self):
         old_path = L.LOG_PATH; L.LOG_PATH = os.path.join(self.tmp, 'log.json')

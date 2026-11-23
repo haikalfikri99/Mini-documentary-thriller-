@@ -22,7 +22,8 @@ if [ ! -f "$S/README.md" ]; then   # (the old one-liner printed the template to 
 **Formula ARSIP v7.0** · **Status:** validasi topik · **Mode produksi:** Otomatis (Claude penuh; riset per batch: 6 kandidat → 4 terkunci, `AGENTS.md` §3) · **Model:** Sonnet untuk riset/fact sheet, model penalaran tertinggi + effort high untuk skrip final dan `film.js`
 
 **Penanda wajib (dibaca `python3 kit/tools/lint_episode.py --batch …`; isi semuanya sebelum VO):**
-[HOOK: ] [ENDING: ] [MESIN: A1|A2|B3|B4] [LATAR: layar|dokumen|kemasan|benda|peta|grafik|tempat] [SEGAR: <tahun>|klasik] [MODE: Ringkas|Investigasi] [ARTEFAK: <benda fisik Frame 0>] [LOOP: <detail Frame 0> → <makna yang terungkap> @<detik>] [LABEL: DATA INDONESIA + EKSPERIMEN <negara> | satu asal] (+ [SLOT-UJI] bila ini slot uji judul 3:1)
+[HOOK: ] [ENDING: ] [MESIN: A1|A2|B3|B4] [LATAR: layar|dokumen|kemasan|benda|peta|grafik|tempat] [MODE: Ringkas|Investigasi] [ARTEFAK: <benda fisik Frame 0>] [LOOP: <detail Frame 0> → <makna yang terungkap> @<detik>] [LABEL: DATA INDONESIA + EKSPERIMEN <negara> | satu asal] (+ [SLOT-UJI] bila ini slot uji judul 3:1)
+Catatan saja (opsional, TIDAK dicek linter, bukan gerbang; v7.0): [SEGAR: <tahun fenomena/studi>|klasik]
 
 ## Kompas & Channel-Fit Gate (v7.0; `AGENTS.md` §2A; semua ✓ sebelum fact sheet)
 - [ ] Garis Merah v7.0: bukan self-help/tips/nasihat · bukan bantahan mitos datar atau bacaan pasal tanpa konflik · bukan topik basi/klise · bukan meta-YouTube · bukan studi Daftar Hitam
@@ -51,13 +52,13 @@ if [ ! -f "$S/README.md" ]; then   # (the old one-liner printed the template to 
 | **Status replikasi studi** (Filter Anti-Krisis; wajib bila bersandar pada studi psikologi) | replikasi besar / meta-analisis / kritik utama + sumber; Daftar Hitam? |
 
 ## Validasi topik (skor ≥ 16/20, tidak ada nilai ≤ 2)
-Rubrik: `research/niche/topik/RUMUS_PEMILIHAN.md` (4 kriteria × 5) + gerbang (Lokal ≥ 4, Celah ≥ 3, Cerita ≥ 3) + Topic Stress-Test v6.0 (celah 33–67% · Retention Anchor · Vox Handle · satu ide + The Turn).
+Rubrik: `research/niche/topik/RUMUS_PEMILIHAN.md` (4 kriteria × 5) + gerbang (Lokal ≥ 4, Celah ≥ 3, Cerita ≥ 3) + Topic Stress-Test v7.0 (4 uji: anti-stale per sudut · dekat hidup audiens 20–45 · 3 Pilar Konflik: antagonis sistemik + stakes + The Turn · Vox Handle: artefak fisik untuk kolase). Monetisasi = PEMBEDA antar-kandidat setara, bukan gerbang (tidak ada topik gugur karena monetisasi).
 | Kriteria | Skor (1–5) | Alasan |
 |---|---|---|
 | Kedekatan sehari-hari | | |
 | Kontras intuisi / twist | | |
 | Ketersediaan bukti visual kolase | | |
-| Keamanan hukum & monetisasi | | |
+| Keamanan hukum & monetisasi (menilai keamanan hukum; produk/buku untuk keranjang Affiliate = nilai tambah pembeda, bukan syarat) | | |
 | **Total** | /20 | |
 Hasil `riset_topik.py`: saran = , video = , ≥100k = , ≥1M = (saran kecil BUKAN alasan gugur: Feed Curiosity; ukur kejenuhan sesudut `n_1m`)
 
@@ -88,10 +89,10 @@ Atribusi pendek ("kata ...") di kalimat sesudah hook, tahun di layar, tanpa logo
 ## Judul & penguncian 3-titik (0,0–4,0 dtk) — Aturan Kuda Troya (tanpa psikologi/bias/kenapa/padahal/tapi/ternyata/? di judul dan frame 0, kecuali slot uji)
 Judul (≤ 55 karakter, ideal 38–48):
 Frame 0 (hero ≥ 45% lebar ≈ ≥ 486 px di y 150–1150 + hantaman stempel/label ≤ 0,25 dtk; barang bukti fisik, bukan kartun orang berpikir):
-Kalimat H1 (selesai ≤ 4,0 dtk, ≤ 14 kata, kata tunjuk visual bila merujuk objek di layar):
+Kalimat H1 (selesai ≤ 4,0 dtk, ≤ 14 kata; benda Frame 0 ditunjuk lewat visual; bentuk kalimat pembuka dipilih dari menu bentuk (8-hook §K), maks 1 dari 4 episode batch berpola "[benda] ini / kayak gini …"; "tapi/padahal" dilarang di judul dan kalimat ini):
 
 ## Skrip AV 2 kolom (final; `1-cerita…` §M4)
-Tempo VO 2,50–2,66 kata/dtk, atempo ≤ 1,10. Notasi: `/` jeda ≈ 0,25 dtk · `//` hening ≈ 0,6 dtk · `KAPITAL` penekanan · `[perlambat: teks]` · `(intonasi)`. Micro-rehook tiap 12–15 dtk; hening 0,5–0,8 dtk sebelum pengungkapan utama; transisi ABT; tanpa sitasi akademik panjang; penutup tanpa "Jadi/Kesimpulannya/Pada akhirnya/Nah itulah".
+Tempo VO 2,50–2,66 kata/dtk, atempo ≤ 1,10. Notasi: `/` jeda ≈ 0,25 dtk · `//` hening ≈ 0,6 dtk · `KAPITAL` penekanan · `[perlambat: teks]` · `(intonasi)` (tag emosi di `vo_prompt_elevenlabs.md` untuk model v4, bukan notasi `/`; lihat §M4). Micro-rehook tiap 12–15 dtk; hening 0,5–0,8 dtk sebelum pengungkapan utama; transisi ABT; tanpa sitasi akademik panjang; penutup tanpa "Jadi/Kesimpulannya/Pada akhirnya/Nah itulah".
 | # | Visual kolase (arsip / dokumen / gerak) | Audio: VO word-for-word + notasi + SFX |
 |---|---|---|
 | 1 | | |

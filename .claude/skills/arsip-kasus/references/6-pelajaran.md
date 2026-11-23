@@ -4,14 +4,16 @@ Setiap episode menambah baris di sini. Formula, gaya, dan kit hanya berubah bila
 ## Cara memakai
 1. Sebelum menulis script episode baru: baca bagian "Aturan yang lahir dari review" dan "Hipotesis yang sedang diuji".
 2. Setelah review user: tambahkan setiap keberatan sebagai aturan umum (bukan hanya perbaikan shot), lalu masukkan ke referensi terkait (1–5) atau ke kit.
-3. 7 hari setelah tayang: isi tabel data dari Studio (Viewed vs Swiped Away, APV, engaged views, like/komentar/share/sub); bandingkan dengan episode sebelumnya, bukan dengan angka umum.
+3. 7 hari setelah tayang: isi tabel data dari Studio (Viewed vs Swiped Away, APV, engaged views, like/komentar/share/sub); bandingkan dengan episode sebelumnya, bukan dengan angka umum. Catat juga **share rate kanal sendiri** (share ÷ views dari Studio): dokumen riset Strategi (zero-CTA WhatsApp, Berger–Milkman) menyarankan merancang pemicu share, sedangkan `ANALISIS_PASAR` (Dynamoi ⚠) menulis "share 95% lebih rendah, tidak bisa diandalkan"; putusan = ukur sendiri.
+4. Saat retensi per detik tersedia: audit setiap penurunan kurva ≥ 4% ke kalimat/shot penyebabnya (SOP/Strategi D5; aturan rinci di `1-cerita…` §L) dan tulis temuannya di kolom Catatan.
 
-## Data per episode
-| # | Judul | Wilayah | Durasi | Kata | Viewed vs swiped | APV | Engaged views (7 hari) | Catatan |
-|---|---|---|---|---|---|---|---|---|
-| 001 | Banjir Ini Bukan Air (Molase) | 1 | 61 dtk | 101 | — | — | — | engine toon lama |
-| 002 | Pembuat Fitur Ini Menyesal… Kamu Sedang Memakainya | 2 | 44,8 dtk | 102 | **37,2% stayed** (12 jam) | — (belum diproses) | 185 (12 jam) | hook lemah → formula v3.1 (F7) |
-
+## Ringkasan log #001–#005 (5 baris; tabel per-episode lama diarsipkan, metrik terkini di tabel "Data Studio" dan "Ekspor Studio 19 Nov" di bawah)
+- **#001 Molase** (engine toon lama): stayed tinggi (70,56%) tetapi APV 72,77%: 61 dtk, kendur setelah klimaks.
+- **#002 Fitur Scroll:** hook pengakuan/abstrak gagal (37,2% pada 12 jam, 43,71% setelah matang) → lahir gerbang F7 (`1-cerita…` §F7).
+- **#003 Micin:** ARSIP Kolase pertama; 47,0% (11 jam) → 46,13% (matang); tiga variabel berubah sekaligus, penyebab tak bisa diatribusikan.
+- **#004 Aqua:** 72,5% (11 jam) → 79,18% hari 1 → 78,48% / APV 102,05% (ekspor 19 Nov); hook angka+merek+sebab kecil, tokoh metafora, penutup pertanyaan.
+- **#005 Skutik:** Circular Reframe Loop uji pertama; stayed 64,6% (15 hari, versi 17 Nov) vs 72,97% / APV 92,78% (ekspor 19 Nov); satu video tidak cukup menilai penutup.
+**[DIARSIPKAN → arsip-riwayat/6-pelajaran_baris9-100.md]** (tabel "Data per episode" #001–#002 + log mentah di bawah).
 ## Aturan yang lahir dari review user
 ### Cerita & script
 - Taruhan harus dirasakan penonton; ironi intelektual saja dangkal (#002, Gruen ditolak).
@@ -45,21 +47,10 @@ Setiap episode menambah baris di sini. Formula, gaya, dan kit hanya berubah bila
 - Analisa referensi dengan mengukur (shot length, luma, LUFS, kata/menit), bukan kesan.
 
 ## Hipotesis yang sedang diuji (ubah satu per video)
-| Hipotesis | Diuji di | Cara ukur | Hasil |
-|---|---|---|---|
-| Hook pengakuan pembuat + "kamu" menaikkan viewed vs swiped | #002 | Viewed vs swiped vs #001 | menunggu data |
-| 45 dtk lebih baik dari 60 dtk untuk wilayah 2 | #002 | APV dan engaged views | menunggu data |
-| Loop (kalimat akhir → frame 0) menaikkan replay | #002 | views / engaged views | menunggu data |
-| Hook #002 (pengakuan, objek kabur, jeda 0,54 dtk) | #002 | stayed to watch | **gagal: 37,2%** |
-| Gerbang F7 (benda konkret kata 1–3, kontradiksi ≤ 2 dtk, tanpa jeda, frame 0 terang & bergerak) menaikkan stayed to watch ke ≥ 50% | #003 | stayed to watch vs #002 | menunggu |
+Hipotesis #002–#003 (hook pengakuan, 45 vs 60 dtk, loop, gerbang F7) sudah terjawab dan **[DIARSIPKAN → arsip-riwayat/6-pelajaran_baris9-100.md]**. Hipotesis aktif: bagian "Evolusi ke Formula ARSIP v7.0" di bawah (Mesin A ≥ B; klaster 4–5 episode) dan share rate kanal sendiri (lihat "Cara memakai" butir 3).
 
 ## #003 Micin (13 Nov 2026) — ARSIP Kolase pertama
-| Episode | Variabel yang diuji | Catat setelah 48 jam |
-|---|---|---|
-| 003 Micin Dituduh Bikin Bodoh… | pilar baru + gaya kolase + hero object di frame 0 + caption 84 px + tanpa CTA | stayed-to-watch, views, engaged views, subs |
-Catatan: tiga variabel berubah sekaligus (peluncuran gaya), jadi hasilnya belum bisa diatribusikan ke satu penyebab.
-
-**Data #003 (114 menit setelah tayang jam 18.00 WIB):** **47,0% stayed to watch** (vs #002 37,2% → +9,8 poin), 266 engaged views, ±434 views, 12 like (≈2,8%). Grafik engaged views naik dalam dua gelombang (datar ±30 menit lalu naik lagi) = distribusi tes kedua. Retensi belum diproses (≤ 2 hari). Masih di bawah ambang 60% → hook/frame 0 tetap prioritas perbaikan.
+Tiga variabel berubah sekaligus (pilar baru + gaya kolase + hero object frame 0 + caption 84 px + tanpa CTA); data awal 47,0% stayed (114 menit; +9,8 poin vs #002), 266 engaged views. **[DIARSIPKAN → arsip-riwayat/6-pelajaran_baris9-100.md]** (tabel variabel dan paragraf data mentah).
 
 **Pelajaran produksi #003**
 - Storyboard yang benar = frame di **85% shot** (komposisi lengkap); frame tengah menyesatkan karena benda yang disebut belakangan belum muncul.
@@ -71,8 +62,7 @@ Catatan: tiga variabel berubah sekaligus (peluncuran gaya), jadi hasilnya belum 
 - Waktu produksi #003 (setelah script/VO): mesin kolase + storyboard v1 ±2 jam (sekali saja), revisi storyboard ±20 menit, audio + render ±30 menit. Episode berikutnya memakai template: target storyboard ≤ 1 jam.
 
 ## #004 Aqua Didenda Rp13,8 Miliar Gara-Gara Warung (14 Nov 2026)
-Pilar baru kedua: benda/merek yang dikenal + kasus putusan KPPU. Bahan tidak punya arsip foto → gambar AI (Google Flow) untuk pertama kali, dibuat user dari prompt Claude. Film: 22 shot, 53,6 dtk, VO 2,66 kata/dtk, −14,2 LUFS. **Belum tayang; data 48 jam dicatat setelah tayang.**
-**Proses (urutan yang berhasil):** riset topik berbasis data (`riset_topik.py` + gerbang hook/sudut Indonesia) → script v1→v5 (jargon dibuang, janji pilar dibayar, jembatan eksplisit, POV penonton) → VO 2 take + atempo → riset tempo VO (Apify, 28 Shorts, tempo tidak membedakan) → daftar benda + prompt AI → storyboard v1 → v2 lewat halaman Artifact berkomentar → audio → render.
+Pilar kedua: benda/merek dikenal + putusan KPPU; gambar AI (Google Flow) pertama; 22 shot, 53,6 dtk, VO 2,66 kata/dtk, −14,2 LUFS. Urutan kerja yang berhasil: riset topik berbasis data → script v1→v5 → VO + atempo → daftar benda + prompt AI → storyboard (Artifact) → audio → render. **[DIARSIPKAN → arsip-riwayat/6-pelajaran_baris9-100.md]** (log proses lengkap).
 **Pelajaran:**
 - Metafora tokoh menang: perusahaan = pabrik + orang berjas, lembaga = wasit, distributor = truk (user menolak "hanya botol" tiga kali).
 - Cap harus terbaca di HP tetapi transparan (kartu krem ditolak).
@@ -81,10 +71,10 @@ Pilar baru kedua: benda/merek yang dikenal + kasus putusan KPPU. Bahan tidak pun
 - Gerbang Whisper mix ≥ VO gagal 1–2 kata walau musik/foley dibisukan → diagnosis dulu (`3-audio.md` §H); margin per kata tetap 20 dB.
 - Tool baru ke kit: `storyboard_page/make_page.py`, `Baker.stamp(legible=True)`, `Baker.mirror`, `cut(tint_poly)`, `align_vo.py`, `riset_topik.py`.
 - Waktu: script + riset topik + VO paling lama; storyboard 2 putaran revisi; audio + render ±15 menit.
-**Tambahan #004 (dari percakapan lengkap, supaya tidak hilang saat compact):** urutan koreksi user yang membentuk alur: (1) bohlam ditolak (tidak relate Indonesia) → riset topik wajib; (2) VidIQ habis → alat gratis; (3) fact sheet yang jujur tapi hambar ditolak → kemasan maksimal; (4) hook "kalah-menang-kalah" tidak jelas → angka + kata tunjuk; (5) KPPU/surel/menghukum/naik/menang harus jelas bagi penonton awam; (6) pilar harus terjawab; (7) pertanyaan penonton ditulis, jawaban bertahap; (8) tempo VO dari riset bukan dari video sendiri → 2,66; (9) gambar AI satu prompt blok; (10) review lewat Artifact; (11) tokoh metafora; (12) cap transparan; (13) proporsi diukur.
+**[DIARSIPKAN → arsip-riwayat/6-pelajaran_baris9-100.md]** "Tambahan #004": 13 koreksi user berurutan (bohlam → riset topik wajib; fakta hambar ditolak; hook angka + merek; jargon dijelaskan; tokoh metafora; cap transparan; proporsi diukur; review lewat Artifact) sudah menjadi aturan di `7-selera…` dan `2-visual…` §G.
 **Riset topik #004 (hasil yang dipakai ulang):** shortlist lama dari bank ide saja ditolak user; alat gratis `riset_topik.py` (autocomplete YouTube + yt-dlp) mengukur permintaan dan celah; gerbang gugur: Lokal < 4, Celah < 3, Cerita < 3 (`research/niche/topik/RUMUS_PEMILIHAN.md`). Jenuh (gugur): Indomaret–Alfamart, token listrik, Gacoan, atap asbes, warung Madura, tiket pesawat. Angka views maksimum menipu → baca judulnya ("sachet 201 juta" = iklan sampo); autocomplete mentah banyak sampah. Pola Indonesia yang laku: "Dilarang di dunia, kenapa Indonesia masih…", "Rahasia di balik merek", "Kenapa tidak ada…", penjelasan kebijakan ekonomi. Kandidat gugur karena fakta tidak kuat: kedelai impor, gula Jawa, gas melon, sedot pulsa, kental manis (kerangka salah). Hook: judul angka +6,4 poin, uang +8,6, KAPITAL +5,0; kata negatif tidak terbukti; "padahal/tapi" di judul −5,2; hook tidak perlu selesai 2 dtk (median 3,7).
 
-**Data #004 (±11 jam setelah tayang, tangkapan layar Studio 15 Nov 2026 05:21 WIB):** **72,5% stayed to watch** / 27,5% swiped away (#003 47,0%, #002 37,2%; ambang Galloway 70–90% unggul), **average view duration 0:49** dari 53,6 dtk (grafik per jam naik sampai ±1:12–1:48, artinya ada replay/loop), Hype 0, 2 komentar (satu bertanya "13,5 miliar kemana?", sudah dijawab dengan fakta: denda disetor ke kas negara, status pembayaran tidak diketahui). Retensi per detik belum tersedia (diproses sampai 2 hari). **Kuat atau lemah:** satu video, 11 jam, jumlah penayangan belum dicatat; naik 25 poin dari #003 tetapi tiga variabel berubah sekaligus (topik merek + gambar AI + hook angka/kata tunjuk + tempo 2,66), jadi tidak bisa dipastikan penyebabnya. Hipotesis yang konsisten dengan data: hook "angka + merek + sebab kecil" dan tokoh metafora menahan penonton. **Catat lagi di 48 jam dan 7 hari:** views, engaged views, retensi per detik (titik drop), penonton baru vs kembali.
+**[DIARSIPKAN → arsip-riwayat/6-pelajaran_baris9-100.md]** "Data #004 ±11 jam" (72,5% stayed, AVD 0:49, 2 komentar, hipotesis hook angka+merek+sebab kecil); angka matang #004 ada di tabel "Data Studio" dan "Ekspor Studio 19 Nov".
 
 ## Data Studio #001–#005 + keputusan migrasi v6.0 (17 Nov 2026)
 **Metrik aktual (angka dari user, YouTube Studio; usia data berbeda per baris):**
@@ -97,7 +87,7 @@ Pilar baru kedua: benda/merek yang dikenal + kasus putusan KPPU. Bahan tidak pun
 | 005 | ±1.500 (15 hari) | 64,6% | **belum diambil dari Studio**; dicatat nanti saat ekspor CSV mingguan (keputusan user 17 Nov) | Circular Reframe Loop (uji pertama); **stayed 64,6% < ambang 65%**, belum bisa dinilai gagal/berhasil tanpa APV dan usia sebanding dengan #004 |
 Catatan jujur: angka #001–#003 di tabel ini adalah pembaruan dari user dan sebagian berbeda dari angka awal di bagian #003/#004 di atas (yang tetap dipertahankan sebagai log pada usia datanya). #004 dan #005 beda usia (hari 1 vs 15 hari); jangan dibandingkan langsung. #001 punya stayed tinggi (70,56%) tetapi APV 72,77%: format panjang yang kendur, bukan kegagalan hook.
 **Keputusan migrasi v6.0 (17 Nov 2026):** Formula ARSIP v6.0 menjadi standar #009+ (`KEPUTUSAN_RISET.md` v6.0; `1-cerita…` §M; `8-hook…` §H; `RUMUS_PEMILIHAN.md` v6.0; `2-visual…` §K; `7-selera…` #69–#75). Aturan lama yang bentrok ditandai "digantikan" tetapi tidak dihapus. Beberapa elemen v6.0 adalah **hipotesis blueprint, belum teruji di data kanal** (Mode Ringkas 35–42 dtk, mesin 40/35/25, ambang monetisasi ⚠); hasil #009+ dicatat di sini per batch.
-**[DIBATALKAN 17 Nov 2026 siang: user memutuskan batch #009–#012 dikerjakan Claude penuh; lihat `AGENTS.md` §3 dan #76 `7-selera`.]** Protokol Transisi Hibrida: **#009–#012** = Mode Hibrida: riset topik, filter replikasi, fact sheet 2 lapis, dan **skrip AV 2 kolom final** dikerjakan user + Gemini (NotebookLM) lalu diserahkan ke Claude; Claude **tidak meriset topik #009–#012 sendiri**. Claude langsung ke tahap produksi teknis (`new_episode.sh` → `vo_prompt_elevenlabs.md` → …) dan **tetap memeriksa** paket skrip terhadap scorecard v6.0 + fakta (aturan #44: uji ke sumber primer sebelum menerima). **Tahap Produksi Teknis (setelah paket skrip diserahkan):** `new_episode.sh` → `vo_prompt_elevenlabs.md` → VO dibuat user manual di web ElevenLabs → proses & align VO (`vo_chain.py`, `align_vo.py`, `line_starts.py`) → prompt Google Flow Batch A/B (`flow_prompts.md`) → rakit kolase (`bake.py`, `film.js`) → storyboard HTML lokal → musik & foley (`score_full.py`, `fullmix.py`) → render & QA (`make_kolase.sh`) → paket upload (`make_cover.py`, `UPLOAD.md`, `upload_pack/`). **#013+:** Setelah #009–#012 tayang dan data 48 jam/7 hari tiap episode tercatat di `6-pelajaran.md`, **simpan naskah terbaik batch itu sebagai *gold standard reference*** di `research/gold_standard/` (skrip AV 2 kolom + metrik Studio + alasan terpilih), lalu **aktifkan kembali otomasi penuh**: riset topik v6.0 → seleksi → fact sheet → skrip AV 2 kolom → produksi akhir. Agen memakai gold standard sebagai acuan gaya/struktur, bukan menyalin isinya.
+**[DIBATALKAN 17 Nov 2026 siang; [DIARSIPKAN → arsip-riwayat/6-pelajaran_baris9-100.md]]** Protokol Transisi Hibrida #009–#012 (riset/skrip oleh user + Gemini): batch #009–#012 dikerjakan Claude penuh (`AGENTS.md` §3). Yang tetap hidup dari catatan lama: setelah #009–#012 tayang dan datanya tercatat, naskah terbaik batch disimpan sebagai *gold standard reference* di `research/gold_standard/` (acuan ritme/visual, bukan bahasa; `AGENTS.md` §3).
 
 ## Batch #009–#012 (17 Nov 2026): verifikasi sebelum produksi
 - **#009 (terkunci user): pemeriksaan sumber menemukan 5 klaim yang bertentangan atau tidak didukung** (terutama "lebih murah": tiga sumber menyatakan harga A&W 1/3 pound SAMA dengan Quarter Pounder). VO ditahan sampai user memutuskan; rincian di `stories/burger/README.md`. Pelajaran: kasus populer yang dikutip blog sering membawa detail turunan yang keliru ("lebih murah", "tes tertutup", "mayoritas"); selalu cek harga, metode, dan persentase ke ≥ 2 sumber sebelum VO.
@@ -127,6 +117,23 @@ Total: 131.409 penayangan, 68.535 penayangan tak dilewati, stayed 73,46%, APV 93
 | 012 | Cara Halus Kartu Member Bikin Kamu Balik Lagi | 19 Nov | 51 | (belum bisa dinilai: 2 penayangan) | | 2 | 0 | 0 |
 Pemetaan nomor: #008 = indomie, #006 = tigainsatu (3-in-1), #007 = hpiklan (Xiaomi); #011 (paylater) belum ada di ekspor.
 **Temuan (hati-hati, usia data tidak sama):** (1) #004/#005/#006 (denda/kebijakan + angka uang di judul) = 102.782 dari 131.409 penayangan (78%) dan 48 dari 74 subscriber; (2) #009 burger (desain angka/harga) punya stayed tertinggi (80,90%) tetapi APV 91,49% (lebih rendah dari #004); (3) **#010 plastik Rp200: stayed 70,32% bagus, APV 46,41%** (rata-rata tonton 0:25 dari 56 dtk) → hook menahan, tengah/akhir bocor, bukan hook yang lemah; (4) #008 Indomie APV 74,15%; (5) #002/#003 (abstrak/mitos) tertinggal di kedua metrik; (6) #012 belum terbaca, jangan dijadikan bukti. Penayangan tak dilewati harian puncak 20.087 (17 Nov); #004 melandai 6.659 → 624 per hari (18 Nov), #005 puncak 12.711 (17 Nov).
+
+## Data tambahan dari dokumen Konteks v7.0 (23 Nov 2026; sumber: `research/deep_research/Konteks_Lengkap_Evaluasi_Upgrade_Formula_ARSIP_v7.0.txt` §1 Fase 2, ⚠ dari dokumen riset, bukan ekspor Studio)
+- **#004 Aqua: 12.948 engaged views** (dari 23.423 views versi Konteks). Anatomi kemenangan menurut dokumen: merek harian + denda Rp13,8 miliar + **4 pembalikan babak sampai detik ke-42** (putusan MA membatalkan PN) + penutup Curtain-Pull Reveal ("isi warung nggak selalu pilihan pemiliknya"). Dipakai sebagai pola baku untuk Mesin A: tangga bukti naik tiap 12–15 dtk (`1-cerita…` §M8.2), bukan hanya satu pembalikan.
+- **Penyebab #007 Xiaomi tertahan** (stayed 65,71%, APV 93,82%): **judul tanpa nominal uang** + bagian tengah sempat melandai (hipotesis dokumen Konteks; belum diuji terpisah). Pelajaran: judul Mesin A memuat nominal uang konkret; segmen tengah perlu micro-rehook 12–15 dtk.
+- #004–#006 = 78% dari seluruh penayangan kanal (Konteks) — sejalan dengan Temuan (1) ekspor 19 Nov.
+
+## ⚠ Dua versi angka penayangan #001–#007 (PERTANYAAN USER: ekspor mana yang final?)
+| # | Versi dokumen Konteks (tanggal tak dicantumkan) | Ekspor Studio 19 Nov 2026 (tabel di atas) | Catatan |
+|---|---|---|---|
+| 001 | 1.546 views; stayed 70,56%, APV 72,77% | 1.512; 70,79%; 72,78% | persentase Konteks = angka 17 Nov (`6-pelajaran` tabel lama) |
+| 002 | 786 | 789 | stayed/APV sama-sama 44,79%/67,78% |
+| 003 | 1.367 | 1.379 | 46,60% / 54,44% sama |
+| 004 | 23.423 (12.948 engaged) | 25.982 | persentase sama (78,48% / 102,05%) |
+| 005 | 17.277 | 52.660 | selisih terbesar |
+| 006 | 16.605 | 24.140 | |
+| 007 | 1.485 | 8.868 | halaman kanal 20 Nov: 9,1K |
+Persentase stayed/APV #002–#008 identik di kedua sumber; hanya jumlah views yang berbeda. Pola selisih (Konteks lebih rendah, mendekati data lebih muda; halaman kanal 20 Nov mencatat #005 60K, #004 26K, #006 24K, #007 9,1K) condong ke ekspor 19 Nov sebagai data lebih baru, tetapi **belum diputuskan**: kedua versi dipertahankan berlabel; tabel di atas tidak ditimpa sampai user mengonfirmasi.
 
 ## Bacaan awal Studio seluler 20 Nov 2026 (tangkapan layar user; usia data jam, bukan hari)
 - **#012 Cara Halus Kartu Member Bikin Kamu Balik Lagi:** 1.581 views dalam ±14 jam, 712 engaged views, **stayed 51,5% / swiped 48,5%**, +2 subscriber; 1,5K dari Shorts feed. Stayed terendah di antara episode baru (#009 80,90%, #010 70,4%); retensi belum diproses. Hipotesis (belum teruji): judul berbunyi tips/"cara" + "kamu" (mendekati Garis Merah self-help) dan hook kurang kuat. Tunggu data 48 jam sebelum menyimpulkan.

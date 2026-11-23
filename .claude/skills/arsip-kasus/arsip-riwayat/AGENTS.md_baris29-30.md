@@ -1,0 +1,6 @@
+# Arsip riwayat: AGENTS.md baris 29-30
+Asal: `AGENTS.md`:29-30 (sebelum edit W2). Tanggal diarsipkan: 23 Nov 2026. Alasan: Protokol batch #009–#012 (Hibrida dibatalkan 17 Nov 2026) sudah selesai; maks 1 Ringkas digantikan selang-seling v7.0.
+Teks asli (tidak diubah) di bawah garis.
+---
+- **Batch #009–#012: DIAMBIL ALIH PENUH OLEH CLAUDE (keputusan user 17 Nov 2026; Protokol Hibrida/Gemini dibatalkan).** Claude mengerjakan riset topik, verifikasi studi (fact sheet 2 lapis), skrip AV 2 kolom, VO (konektor ElevenLabs, 1 take, atas instruksi user), prompt Google Flow, perakitan kolase, render, dan paket upload. **#009 = paket skrip + judul TERKUNCI user** (`stories/burger/`): tidak ada kata yang diubah tanpa persetujuan user, tetapi **klaim yang bertentangan dengan sumber dilaporkan dulu sebelum VO** (kredit sekali pakai). **#010–#012:** draf di `research/batch_009_012/usulan_010_012.md`, user memilih/menyetujui sebelum VO dan gambar. Syarat tiap episode: berangkat dari benda/harga/antarmuka/kebiasaan belanja Indonesia di detik 0–15; studi hanya bukti forensik di tengah; maks 1 episode Mode Ringkas; kuota judul 3:1 (#009–#011 Pola 1, #012 Pola 4).
+- *(Riwayat, dibatalkan 17 Nov 2026)* Mode Hibrida: riset dan skrip oleh user + Gemini; agen tidak meriset topik sendiri.
