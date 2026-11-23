@@ -1,0 +1,23 @@
+# Brief bersama perbaikan aturan (23 Nov 2026) — dibaca semua agen perbaikan
+## Tujuan (keputusan user)
+Riset (research/deep_research/*) = DASAR aturan. Pastikan semua temuan riset yang berguna ADA di aturan, tidak ada bentrokan, dan semuanya mutakhir sampai Formula ARSIP v7.0. Dasar riset/craft TIDAK boleh hilang. Bila ada yang tak jelas, catat sebagai "PERTANYAAN USER" di berkas perubahanmu (jangan menebak).
+## Sumber temuan (baca bagian yang relevan dengan berkasmu)
+research/deep_research/_matriks_sop.md, _matriks_strategi.md, _matriks_spek.md, _matriks_v7.md (ringkasan §1 di atas tiap berkas = daftar HILANG dan BERTENTANGAN dengan lokasi berkas:baris). Riset asli: research/deep_research/*.md|pdf|txt. Diagnosis hook: research/batch_017_020/ARKETIPE_HOOK_PENUTUP.md.
+## Keputusan yang SUDAH diambil (terapkan; jangan diperdebatkan)
+1. v7.0 (AGENTS.md §2/§2A, 1-cerita §M9, 8-hook §J) menang atas v6.x dan aturan lama. Teks lama yang kalah: beri tag `[SUPERSEDED by v7.0: alasan]` atau tulis ulang agar sama dengan v7.0 (Kompas v6.1 "3 Mesin", Garis Merah 3 butir, 2 take, 2,6–2,7 tempo, atempo ±1,2, "8–10 judul", "maks 1 Ringkas" dst.). Contoh dalam riset yang melanggar v7.0 (mis. "Jadi…" penutup, "kenapa/tapi/?" di hook/judul, bank topik psikologi sebagai pintu masuk) = DIGANTIKAN, jangan disalin.
+2. Kata tunjuk visual ("ini", "kayak gini") di kalimat pembuka TIDAK wajib lagi. Benda Frame 0 ditunjuk lewat visual. Variasikan BENTUK kalimat pembuka (hasil angka, kontras angka, tokoh+angka, peristiwa, artefak tanpa penjelasan, dua kondisi kembar, ancaman tak disadari, intuisi dibantah, sapaan "kamu", kalimat bersyarat). Aturan batch baru: maksimal 1 dari 4 episode dibuka dengan pola "[benda] ini / kayak gini [klaim]".
+3. "tapi/padahal" dilarang di judul + kalimat pembuka 0–4 dtk, BOLEH di body (perekat ABT sah). "Bukan X, tapi/melainkan Y" di body boleh (maks 1 per skrip, hindari pola template-AI berulang); dilarang di judul/hook.
+4. Standar tunggal VO: 1 take; tempo 2,50–2,66 kata/dtk; atempo ≤ 1,10; hening `//` 0,5–0,8 dtk; jeda `/` ≈ 0,25 dtk; kalimat ideal 8–13 kata (WARN > 17); H1 ≤ 14 kata dan selesai ≤ 4,0 dtk; dua mode durasi (Ringkas 35–42 dtk/85–105 kata, Investigasi 48–55 dtk/115–135 kata) selang-seling.
+5. Atribusi lembaga SEKALI untuk klaim sensitif boleh dan dianjurkan; sitasi akademik panjang dilarang.
+6. Monetisasi hanya PEMBEDA, bukan gerbang (rubrik 20 poin: tak ada gugur karena monetisasi). Ambang topik = rubrik 20 poin ≥ 16, tidak ada nilai ≤ 2, plus gerbang Lokal ≥ 4 / Cerita ≥ 3 / Celah ≥ 3.
+7. Kesegaran topik = catatan `[SEGAR]` saja, BUKAN gerbang dan tidak dicek linter.
+8. Angka pasar/monetisasi: RPM Indonesia Shorts tulis kedua sumber berlabel ⚠ ("±US$0,012/1.000 views, AIR Media-Tech" dan "±US$0,14, Dynamoi, tidak merinci kanal"), jangan dijadikan dasar uang. Ambang YPP: tulis versi berlaku s.d. 31 Jan 2027 DAN versi mulai 1 Feb 2027 dengan tanggal, keduanya ⚠ belum diverifikasi ke YouTube Help. Tanggal kebijakan Inauthentic Content: tulis "15 Jul 2025 (⚠ sumber lain: penegakan Jan 2026/Des 2025)". Klaster long-form 4–5 episode (AGENTS). Penamaan klaster pasar K1–K5 di 9-playbook diganti "KL1–KL5" agar tak bentrok dengan arketipe hook K1–K5.
+9. Frekuensi unggah (riset: 3–4 Shorts/minggu lalu 1–5/bulan; repo: 1/hari): JANGAN diubah; tulis "⚠ KEPUTUSAN USER TERTUNDA" di tempat yang relevan dan catat di berkas perubahanmu.
+10. Share/viralitas: dokumen riset (zero-CTA WhatsApp, Berger–Milkman) vs ANALISIS_PASAR "share tidak bisa diandalkan (⚠)": tulis keduanya, putusan = ukur share rate kanal sendiri dari Studio.
+11. Jalur Paket Gemini (AGENTS §3, SKILL): JANGAN diubah/dihapus.
+## Cara kerja
+- Hanya sunting berkas yang menjadi tugasmu (kepemilikan berkas tidak boleh tumpang tindih dengan agen lain). Jangan commit/push.
+- DILARANG menghapus craft/dasar riset. Teks yang benar-benar usang (SUPERSEDED/dibatalkan/log mentah) boleh DIPINDAH: tulis ke `.claude/skills/arsip-kasus/arsip-riwayat/<nama-berkas>_baris<awal>-<akhir>.md` (header: asal berkas:baris, tanggal 23 Nov 2026, alasan), tinggalkan di tempat asal satu baris `[DIARSIPKAN → arsip-riwayat/…]`. Jangan mengganti nama/menghapus judul bagian `§F` dan `§M` di 1-cerita (dirujuk kit/tools/new_episode.sh, pack_upload.py, score_full.py).
+- Setiap temuan HILANG yang ditugaskan padamu: tambahkan di referensi yang tepat (ringkas, 1–5 baris, dengan sumber riset, mis. "(SOP T3)"). Tulis ringkas, bukan menyalin.
+- Tulis `research/deep_research/_perubahan_<kode>.md`: tabel ID matriks | tindakan | berkas:baris baru, daftar yang dipindah ke arsip, daftar PERTANYAAN USER, dan hal yang sengaja tidak diubah.
+- Verifikasi tiap edit; jangan merusak tautan/tabel. Laporan akhir ≤ 15 baris.
