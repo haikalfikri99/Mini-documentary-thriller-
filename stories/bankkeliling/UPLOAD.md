@@ -3,7 +3,7 @@
 
 ## 1. Judul (≤ 55 karakter; Kuda Troya: tanpa psikologi/bias/kenapa/tapi/padahal/ternyata/?)
 ```
-TODO judul
+Bank Keliling: Cair Rp180 Ribu, Bayar Rp240 Ribu
 ```
 
 ## 2. Deskripsi (2–3 kalimat pembuka kaya kata kunci alami; lalu Sumber + kredit)

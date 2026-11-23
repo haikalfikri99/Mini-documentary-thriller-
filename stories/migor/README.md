@@ -1,5 +1,5 @@
 # ARSIP KASUS #017: migor — Wilmar dan 2 Raksasa Sawit Wajib Ganti Rp17,7 Triliun
-**Formula ARSIP v7.0** · **Status:** SKRIP REVISI 2 (23 Nov 2026, umpan balik user: "wajib mengganti", klarifikasi triliunan dibuang, alur versi screenshot), **menunggu persetujuan user sebelum VO** · **Mode produksi:** Otomatis (Claude penuh; riset per batch: 6 kandidat → 4 terkunci, `AGENTS.md` §3) · **Model:** Sonnet untuk riset/fact sheet, Opus + effort high untuk skrip final dan `film.js`
+**Formula ARSIP v7.0** · **Status:** SKRIP v4 (23 Nov 2026, Claude/Opus high, `references/10-kitab-cerita.md`): hook diganti sesuai permintaan user ("Tiga perusahaan raksasa sawit dihukum bayar…"), + engsel tanya-jawab "Lolos? Belum." (teknik #004/#005); sisanya = revisi 2 yang user setujui. **Menunggu persetujuan user sebelum VO** · **Mode produksi:** Otomatis (Claude penuh) · **Model:** Opus + effort high untuk skrip final dan `film.js`
 
 **Penanda wajib (dibaca `python3 kit/tools/lint_episode.py --batch …`):**
 [HOOK: Titik Balik Hasil Ekstrem] [ENDING: Reframing Sistemik] [MESIN: A1] [LATAR: kemasan] [SEGAR: 2025] [MODE: Investigasi] [ARTEFAK: botol minyak goreng generik kosong (tanpa merek) di rak warung, diapit 3 kartu korporasi (WILMAR · MUSIM MAS · PERMATA HIJAU, tag ketik tanpa logo), stempel merah GANTI RUGI RP17,7 T] [LOOP: 3 kartu korporasi yang mengapit botol kosong di Frame 0 → kartu berbalik, punggungnya bercap PERSETUJUAN EKSPOR, saat VO "ekspornya jalan terus" @47] [LABEL: satu asal]
@@ -71,11 +71,16 @@ Kejenuhan (shortlist): maks 66 rb (pidato), 5 video, 4 saran.
 **Bantahan pihak terkait:** tidak ditemukan di sumber.
 **Atribusi:** "Mahkamah Agung" diucap sekali; nomor perkara + tanggal + sumber di kartu visual; tanpa logo/foto bermerek; nama korporasi = tag ketik; deskripsi "tidak disponsori".
 
+
+## Gerbang Cerita (v4; `10-kitab-cerita.md` §5)
+**Cerita Brief:** (1) kamu = pembeli yang dulu antre minyak goreng di warung · (2) tiga korporasi sawit mengantongi persetujuan ekspor saat rak kosong, tanpa memenuhi jatah pasok dalam negeri; hakim pertama sempat melepas mereka · (3) minyak goreng dapur + uang negara Rp17,7 T · (4) ±29 dtk "Lolos? Belum." → MA membalik putusan · (5) geram + puas; komentar "pantes dulu langka" / "uangnya balik ke rakyat nggak?".
+**Uji Penonton:** (1) Tiga raksasa sawit ekspor saat minyak langka, akhirnya dihukum. (2) Wilmar, Musim Mas, Permata Hijau: ekspor jalan, jatah dalam negeri tak dipenuhi. (3) Detik ±29: putusan lepas dibalik MA. (4) "Pantes dulu antre minyak" + nama korporasi.
+
 ## Judul & penguncian 3-titik (0,0–4,0 dtk) — Aturan Kuda Troya
 **Judul (keputusan user 23 Nov 2026):** `Wilmar dan 2 Raksasa Sawit Wajib Ganti Rp17,7 Triliun` · 53 karakter · tanpa kata terlarang
 Alasan: user memilih "wajib mengganti" menggantikan "didenda/dihukum bayar" (Rp17,7 T = uang pengganti; kata "denda" tidak akurat). Turn (lepas → dibalik MA) tidak dibocorkan judul.
 Frame 0: botol minyak goreng generik kosong (tanpa merek) di rak warung, hero ≥ 486 px di y 150–1150, diapit 3 kartu korporasi tag ketik (WILMAR · MUSIM MAS · PERMATA HIJAU, tanpa logo); stempel merah **"GANTI RUGI RP17,7 T"** menghantam ≤ 0,25 dtk; teks layar ≤ 5 kata: **TIGA RAKSASA SAWIT**; detail loop: punggung kartu (cap PERSETUJUAN EKSPOR) belum terlihat.
-Kalimat H1: "Tiga raksasa sawit wajib mengganti tujuh belas koma tujuh triliun." (10 kata, estimasi 3,9 dtk; cek ≤ 4,0 di `vo_words.json`). Nama tiga korporasi tampil di kartu sejak 0,0 dtk dan diucap di kalimat 3.
+Kalimat H1 (v4, pilihan user 23 Nov 2026): "Tiga perusahaan raksasa sawit dihukum bayar tujuh belas koma tujuh triliun." (11 kata, estimasi ±4,3 dtk → **cek ≤ 4,0 dtk di `vo_words.json`; bila lewat, rapatkan tempo H1 atau buang "perusahaan"**; "dihukum bayar" akurat untuk uang pengganti, beda dengan "didenda"; judul tetap "Wajib Ganti"; cek ≤ 4,0 di `vo_words.json`). Nama tiga korporasi tampil di kartu sejak 0,0 dtk dan diucap di kalimat 3.
 
 **Varian H1 (§K.3; skor 0–2: ingin tahu / cocok cerita / Frame 0 / akurasi / tarikan kalimat 2):**
 | # | Bentuk | Varian | Skor | Catatan |
@@ -95,18 +100,19 @@ Kalimat H1: "Tiga raksasa sawit wajib mengganti tujuh belas koma tujuh triliun."
 Tempo estimasi 2,58 kata/dtk + jeda (`/` 0,25 · `//` 0,6). Waktu dikunci ulang dari `vo_words.json` setelah VO. Merah #B3261E = kerugian/vonis; biru arsip = negara/aturan; kuning stabilo = angka bukti.
 | # | Waktu (estimasi) | Visual kolase (arsip / dokumen / gerak) | Audio: VO word-for-word + notasi + SFX |
 |---|---|---|---|
-| 1 | 0,0–3,9 | **FRAME 0**: botol minyak goreng generik kosong di rak warung, diapit 3 kartu korporasi tag ketik (WILMAR · MUSIM MAS · PERMATA HIJAU, tanpa logo); stempel merah "GANTI RUGI RP17,7 T" menghantam di 0,00; teks "TIGA RAKSASA SAWIT". | (serius, mantap) · SFX: hantaman stempel 0,00 + dentum rendah · VO: Tiga raksasa sawit wajib MENGGANTI TUJUH BELAS KOMA TUJUH TRILIUN. |
+| 1 | 0,0–3,9 | **FRAME 0**: botol minyak goreng generik kosong di rak warung, diapit 3 kartu korporasi tag ketik (WILMAR · MUSIM MAS · PERMATA HIJAU, tanpa logo); stempel merah "GANTI RUGI RP17,7 T" menghantam di 0,00; teks "TIGA RAKSASA SAWIT". | (serius, mantap) · SFX: hantaman stempel 0,00 + dentum rendah · VO: Tiga perusahaan raksasa sawit DIHUKUM BAYAR TUJUH BELAS KOMA TUJUH TRILIUN. |
 | 2 | 3,9–7,4 | Kamera mundur ke luar warung: antrean ibu-ibu membawa jeriken/botol kosong (ilustrasi kolase generik, tanpa wajah dikenali); stempel tahun "2022" di pojok; kliping generik "MINYAK GORENG LANGKA" (dibuat ulang, tanpa nama media). | SFX: riuh antrean samar · VO: Waktu minyak goreng langka, / ibu-ibu SUSAH NYARI di warung. |
 | 3 | 7,4–12,3 | Kertas "PERSETUJUAN EKSPOR" meluncur di atas peta laut; 3 kartu korporasi dari Frame 0 tersemat di kertas itu (biru arsip). Kartu kecil: periode Jan 2021–Mar 2022. | SFX: kertas bergeser, bel kapal jauh · VO: Di periode itu, / Wilmar, Musim Mas, dan Permata Hijau dapat PERSETUJUAN EKSPOR. |
 | 4 | 12,3–16,6 | **Rehook 1:** timbangan dua piring "PASOK & HARGA DALAM NEGERI (DMO/DPO)" vs "EKSPOR"; piring DMO kosong, cap merah "BELUM DIPENUHI". | (merendah) · SFX: timbangan miring · VO: MASALAHNYA, jatah wajib pasok dan harga dalam negeri BELUM mereka penuhi. |
 | 5 | 16,6–20,5 | Berkas dakwaan "PENGADILAN TIPIKOR · TERDAKWA KORPORASI" dibanting ke meja; 3 kartu korporasi dijepit klip ke sampulnya. | SFX: berkas dibanting · VO: Jaksa lalu MENYERET korporasi ketiga grup itu ke pengadilan Tipikor. |
 | 6 | 20,5–28,2 | Palu hakim; berkas "19 MAR 2025"; stempel biru "PUTUSAN LEPAS"; kartu dua baris: "PERBUATAN: TERBUKTI ✓" / "TINDAK PIDANA: ✗". | SFX: palu sekali · VO: Maret dua ribu dua puluh lima, hakim tingkat pertama malah memutus LEPAS. / Kata hakim, perbuatannya terbukti, / tapi BUKAN tindak pidana. |
+| 6b | +1,2 dtk | Kartu "PUTUSAN LEPAS" bergetar; tangan bersarung mengangkat stempel merah di atasnya, tertahan (belum menghantam). | (tanya cepat, lalu tegas) · SFX: detak jam sekali · VO: Lolos? / BELUM. |
 | 7 | 28,2–31,9 | **THE TURN:** hening 0,6 dtk; kalender lompat 6 bulan → berkas "MAHKAMAH AGUNG · 8432 K/PID.SUS/2025 · 15 SEP 2025"; stempel "PUTUSAN LEPAS" dicoret merah "DIBATALKAN". | `//` sebelum "Enam" · SFX: sobekan kertas, dentum · VO: // Enam bulan kemudian, Mahkamah Agung MEMBALIK putusan itu. |
 | 8 | 31,9–36,6 | Stempel "GANTI RUGI RP17,7 T" dari Frame 0 kembali menghantam berkas MA; panah ke brankas "KAS NEGARA". | SFX: stempel, gema · VO: Hasilnya, ketiganya wajib mengganti TUJUH BELAS KOMA TUJUH TRILIUN ke kas negara. |
 | 9 | 36,6–43,2 | **Rehook 2:** tabel tagihan tiga baris naik satu per satu: WILMAR Rp11,88 T (batang terpanjang, stabilo kuning) · MUSIM MAS Rp4,89 T · PERMATA HIJAU Rp0,94 T. | SFX: mesin ketik tiap baris · VO: Bagian Wilmar sendiri HAMPIR DUA BELAS triliun. / Musim Mas hampir lima, Permata Hijau di bawah satu triliun. |
 | 10 | 43,2–46,5 | **SPLIT LAYAR:** kiri rak warung kosong (dari shot 2), kanan kapal tanker di pelabuhan (ilustrasi generik, tanpa nama kapal/logo); garis sobek di tengah. | `//` hening · (pelan) · SFX: angin rak kosong (kiri) vs klakson kapal rendah (kanan) · VO: // Di warung, minyak goreng MENGHILANG dari rak. |
 | 11 | 46,5–49,1 | **CURTAIN-PULL:** kembali ke botol Frame 0 dengan stempel GANTI RUGI; 3 kartu korporasi yang mengapitnya berbalik satu per satu, punggungnya bercap biru "PERSETUJUAN EKSPOR" @47. Diam, tanpa teks tambahan. | (pelan, tegas) · SFX: tiga kartu berbalik; ekor ≤ 0,15 dtk · VO: / Di balik layar, ekspornya JALAN TERUS. |
-VO bersih (tanpa notasi) → `audio/script_vo.txt` (122 kata); bertag → `audio/vo_prompt_elevenlabs.md`.
+VO bersih (tanpa notasi) → `audio/script_vo.txt` (125 kata; waktu shot 7–11 bergeser ±1,2 dtk); bertag → `audio/vo_prompt_elevenlabs.md`.
 Penutup: 1 Reframing Sistemik (split warung vs ekspor + kartu berbalik @47); kalimat terakhir diawali "Di balik layar" (bukan kata terlarang). "tapi" 1 kali, hanya di body. ABT: "Masalahnya", "malah", "tapi", "Hasilnya".
 
 ## Scorecard v7.0 (ringkas)
@@ -121,6 +127,7 @@ Kuda Troya judul/H1 ✓ · H1 ≤ 14 kata ✓ (10, ±3,9 dtk) · H7 tanpa tangga
 6. Kota PN (Jakpus vs Jaksel) tidak sinkron → hanya "PENGADILAN TIPIKOR" di layar; status pembayaran tidak konsisten antar laporan → tidak diucapkan.
 
 ## Catatan lanjut
+- 23 Nov 2026 (v4): hook diganti ke pilihan user + "Lolos? Belum." (engsel tanya-jawab pemenang #004/#005). Lint batch 0 error.
 - 22 Nov 2026: skrip final ditulis ulang dari draf user (alur dipertahankan: kelangkaan 2022 → tiga raksasa → PN lepas → 6 bulan MA membalik → Rp17,7 T → penutup). Koreksi: "didenda" → "dihukum bayar" + Turn denda Rp1 M; "izin ekspor saat stok kosong" → "persetujuan ekspor" + "jatah wajib pasok dan harga dalam negeri belum dipenuhi"; penutup "izin dimainkan" → Reframing label harga rak. Belum di-commit.
 - 23 Nov 2026 (revisi 2, umpan balik user "017 bagus, tapi bagian angka triliunan itu buat apa?"): "dihukum bayar" → "wajib mengganti" (VO, judul, stempel GANTI RUGI RP17,7 T); paragraf denda Rp1 M / uang pengganti / pos Rp8,5 T DIBUANG; Turn = putusan lepas → MA membalik; alur versi screenshot (botol + 3 kartu → antrean ibu-ibu → persetujuan ekspor/DMO → berkas dakwaan → lepas → MA → tabel tagihan → split rak vs tanker → botol); loop label harga diganti kartu korporasi berbalik (PERSETUJUAN EKSPOR). Belum di-commit.
 - Langkah berikut setelah user setuju: `lint_episode.py --batch` (urutan tayang #017–#020) → VO konektor ElevenLabs (1 take) → `vo_words.json` → cek H1 ≤ 4,0 dtk → prompt Flow → kolase → lengkapi UPLOAD.md (file, QA, jadwal, thumbnail).

@@ -3,7 +3,7 @@
 
 ## 1. Judul (≤ 55 karakter; Kuda Troya: tanpa psikologi/bias/kenapa/tapi/padahal/ternyata/?)
 ```
-Label Beras Premium Bisa Dicetak Tanpa Uji Lab
+Kementan: Beras Murah Pemerintah Dijual Jadi Premium
 ```
 
 ## 2. Deskripsi (2–3 kalimat pembuka kaya kata kunci alami; lalu Sumber + kredit)
